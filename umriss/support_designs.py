@@ -55,7 +55,6 @@ def pattern_coverage_preset(metadata: dict[str, Any], size: int | None, seed: in
         ],
         "profile": {
             "framing": "synthetic_respondent",
-            "summary_field": "profile_summary",
             "forbid_demographic_invention": True,
         },
         "probabilities": {
@@ -87,7 +86,6 @@ def uniform_patterns_preset(metadata: dict[str, Any], size: int | None, seed: in
         "components": [{"type": "uniform_patterns", "coherence": "explicit"}],
         "profile": {
             "framing": "synthetic_respondent",
-            "summary_field": "profile_summary",
             "forbid_demographic_invention": True,
         },
         "probabilities": {
@@ -210,6 +208,8 @@ def validate_design(design: dict[str, Any], metadata: dict[str, Any]) -> dict[st
     prompt = design.get("prompt", {})
     if prompt.get("template") and prompt.get("validation", "strict") != "strict":
         raise ValueError("Custom prompt templates require prompt.validation: strict.")
+    if "summary_field" in design.get("profile", {}):
+        raise ValueError("profile.summary_field is unsupported; support output uses the fixed second-person `persona` field.")
     return {"valid": True, "size": size, "required": required, "components": detail, "coverage_mode": mode}
 
 
@@ -220,7 +220,7 @@ def resolve_design(design: dict[str, Any], metadata: dict[str, Any], *, size: in
     if seed is not None:
         resolved["seed"] = seed
     resolved.setdefault("coverage", {"mode": "complete", "allocation": "balanced"})
-    resolved.setdefault("profile", {"framing": "synthetic_respondent", "summary_field": "profile_summary", "forbid_demographic_invention": True})
+    resolved.setdefault("profile", {"framing": "synthetic_respondent", "forbid_demographic_invention": True})
     resolved.setdefault(
         "probabilities",
         {"interpretation": "subjective_response_probability", "require_sum": 1, "allow_zero": False, "minimum_probability": 0.01},
@@ -238,9 +238,9 @@ def _item_lines(metadata: dict[str, Any]) -> str:
     )
 
 
-def _schema(metadata: dict[str, Any], summary_field: str) -> str:
+def _schema(metadata: dict[str, Any]) -> str:
     probabilities = ",\n".join(f'    "{item}": [numbers in option order]' for item in metadata["items"])
-    return '{\n  "' + summary_field + '": "short substantive description",\n  "probabilities": {\n' + probabilities + "\n  }\n}"
+    return '{\n  "persona": "Your views on ...",\n  "probabilities": {\n' + probabilities + "\n  }\n}"
 
 
 def _coherence_instruction(row: dict[str, Any], design: dict[str, Any]) -> str:
@@ -287,15 +287,17 @@ Battery topic: {metadata['topic']}
 {_coherence_instruction(row, design)}
 {demographic}
 
-Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
-response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
-and sum to 1. Each probability must be at least {minimum:g}.
+Write a concise persona describing the attitudes that distinguish this response pattern. Address the persona in the
+second person, beginning with "Your views..." or "You...". This text will become a visible EDSL agent trait, so include
+only the persona description—not instructions about answering questions or probabilities. Then provide subjective response
+probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers, and sum to
+1. Each probability must be at least {minimum:g}.
 
 Items and response options:
 {_item_lines(metadata)}
 
 Return only valid JSON with exactly this schema:
-{_schema(metadata, profile.get('summary_field', 'profile_summary'))}"""
+{_schema(metadata)}"""
 
 
 def _custom_prompt(template_path: Path, metadata: dict[str, Any], row: dict[str, Any], design: dict[str, Any]) -> str:
@@ -309,7 +311,7 @@ def _custom_prompt(template_path: Path, metadata: dict[str, Any], row: dict[str,
         prompt = template.render(metadata=prompt_metadata, support=row, design=design, items_text=_item_lines(metadata))
     except Exception as exc:
         raise ValueError(f"Custom prompt rendering failed: {exc}") from exc
-    required = [*metadata["items"], "probabil", "sum to 1", design["profile"].get("summary_field", "profile_summary")]
+    required = [*metadata["items"], "persona", "second person", "probabil", "sum to 1"]
     missing = [token for token in required if token.lower() not in prompt.lower()]
     if missing:
         raise ValueError(f"Custom prompt failed strict validation; missing: {', '.join(missing)}.")
@@ -477,13 +479,13 @@ def write_support_outputs(
         "profile",
     ]
     with plan_path.open("w", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore")
+        writer = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore", lineterminator="\n")
         writer.writeheader()
         for row in rows:
             writer.writerow({**row, "pattern": json.dumps(row.get("pattern", {}), sort_keys=True)})
     coverage = coverage_report(rows, metadata)
     with coverage_path.open("w", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=["item", "option", "covered", "support_rows"])
+        writer = csv.DictWriter(f, fieldnames=["item", "option", "covered", "support_rows"], lineterminator="\n")
         writer.writeheader()
         writer.writerows(coverage)
     _write_prompt_html(rows, html_path, tag)

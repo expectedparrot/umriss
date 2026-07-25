@@ -133,7 +133,8 @@ umriss plot validation --derived DIR --tag TAG --out DIR
   [--format (svg | png | pdf)] [--top-personas N]
 
 umriss twins export-edsl --points FILE [--points FILE ...]
-  --weights FILE [--holdout ITEM] [--minimum-weight FLOAT]
+  --weights FILE --persona-trait NAME
+  [--holdout ITEM] [--minimum-weight FLOAT]
   --path FILE.agents.ep
 ```
 
@@ -141,10 +142,11 @@ Parsing never repairs invalid responses silently. Fitting and design selection
 remain separate: held-out performance may compare declared designs, but any
 search over designs must be reported.
 
-The EDSL export uses each profile summary as the complete agent instruction.
-Its normalized coefficient is stored as hidden `_weight` metadata and repeated
-in a CSV sidecar. EDSL serializes hidden traits but does not interpret
-`_weight` as a sampling rule.
+Support generation returns a `persona` written in the second person. EDSL
+export stores that text in the visible trait selected by `--persona-trait`;
+umriss does not set a custom agent instruction. The normalized coefficient is
+stored as hidden `_weight` metadata and repeated in a CSV sidecar. EDSL
+serializes hidden traits but does not interpret `_weight` as a sampling rule.
 
 ## Methodological guardrails
 

@@ -82,16 +82,18 @@ umriss twins export-edsl \
   --points examples/pew_w154/run/uniform_repair_r1/bank/pew_w154_diff1_uniform_repair_r1_points.csv \
   --points examples/pew_w154/run/uniform_repair_r2/bank/pew_w154_diff1_uniform_repair_r2_points.csv \
   --weights run/full_fit/pew_w154_full_fit_weights.csv \
+  --persona-trait gender_attitudes \
   --path run/full_fit/pew_w154_full_fit.agents.ep
 ```
 
-Each EDSL agent’s instruction is exactly its generated persona summary. The
-support-generation and probability-elicitation instructions are not exported.
-Its normalized mixture coefficient is bundled as the hidden `_weight` trait and
-also written to a CSV sidecar keyed by agent name. EDSL serializes
-underscore-prefixed traits but excludes them from model prompts; it does not
-automatically use `_weight` when sampling an `AgentList`. Both the `AgentList`
-and its manifest are round-trip verified when written.
+Each EDSL agent receives a visible, user-named persona trait—in this example,
+`gender_attitudes`—written in the second person. Umriss does not replace EDSL’s
+ordinary agent instruction. Support-generation and probability-elicitation
+instructions are not exported. The normalized mixture coefficient is bundled
+as the hidden `_weight` trait and also written to a CSV sidecar keyed by agent
+name. EDSL serializes underscore-prefixed traits but excludes them from model
+prompts; it does not automatically use `_weight` when sampling an `AgentList`.
+Both the `AgentList` and its manifest are round-trip verified when written.
 
 ## Install
 

@@ -80,14 +80,31 @@ def parse_support(raw_path: Path, metadata: dict[str, Any], tag: str, out_dir: P
             "support_id": support_id,
             "job_id": job_id,
             "variant": row.get("variant", ""),
-            "profile_summary": "",
+            "persona": "",
             "valid": False,
         }
         if not parsed or not isinstance(parsed.get("probabilities"), dict):
             diagnostics.append({"job_id": job_id, "support_id": support_id, "status": "invalid", "code": "probability_json_invalid", "message": "Could not parse probabilities object.", "item": "", "raw_sum": "", "min_probability": "", "max_probability": ""})
             points.append(point)
             continue
-        point["profile_summary"] = parsed.get("profile_summary", "")
+        persona = str(parsed.get("persona", "")).strip()
+        if not (persona.startswith("Your ") or persona.startswith("You ")):
+            diagnostics.append(
+                {
+                    "job_id": job_id,
+                    "support_id": support_id,
+                    "status": "invalid",
+                    "code": "persona_invalid",
+                    "message": "Persona must be written in the second person and begin with `Your ` or `You `.",
+                    "item": "",
+                    "raw_sum": "",
+                    "min_probability": "",
+                    "max_probability": "",
+                }
+            )
+            points.append(point)
+            continue
+        point["persona"] = persona
         item_vecs: dict[str, np.ndarray] = {}
         valid = True
         for item in items:

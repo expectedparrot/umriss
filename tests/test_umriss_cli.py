@@ -36,11 +36,11 @@ def write_raw(path: Path) -> None:
     rows = [
         {
             "scenario.job_id": "s1",
-            "answer.resp": json.dumps({"persona": "yes type", "probabilities": {"a": [0.9, 0.1], "b": [0.2, 0.8]}}),
+            "answer.resp": json.dumps({"persona": "Your views generally favor yes.", "probabilities": {"a": [0.9, 0.1], "b": [0.2, 0.8]}}),
         },
         {
             "scenario.job_id": "s2",
-            "answer.resp": json.dumps({"persona": "no type", "probabilities": {"a": [0.2, 0.8], "b": [0.8, 0.2]}}),
+            "answer.resp": json.dumps({"persona": "Your views generally favor no.", "probabilities": {"a": [0.2, 0.8], "b": [0.8, 0.2]}}),
         },
     ]
     with path.open("w", newline="") as f:
@@ -138,6 +138,8 @@ class UmrissCliTests(unittest.TestCase):
             rows = [json.loads(line) for line in (root / "balanced_prompts.jsonl").read_text().splitlines()]
             self.assertEqual(len(rows), 8)
             self.assertEqual(len({row["prompt"] for row in rows}), 8)
+            self.assertTrue(all('"persona": "Your views on ..."' in row["prompt"] for row in rows))
+            self.assertTrue(all("second person" in row["prompt"] for row in rows))
             patterns = [tuple(row["pattern"][item] for item in ["a", "b"]) for row in rows]
             self.assertEqual(len(set(patterns)), 4)
             self.assertTrue(all(patterns.count(pattern) == 2 for pattern in set(patterns)))
@@ -156,7 +158,7 @@ class UmrissCliTests(unittest.TestCase):
                         "scenario.job_id": "bad",
                         "answer.resp": json.dumps(
                             {
-                                "profile_summary": "invalid",
+                                "persona": "Your views are deliberately invalid here.",
                                 "probabilities": {"a": [0.8, 0.8], "b": [-0.1, 1.1]},
                             }
                         ),
@@ -605,7 +607,7 @@ class UmrissCliTests(unittest.TestCase):
             self.assertEqual(len(manifest["plots"]), 5)
             self.assertTrue(all(Path(path).exists() for path in manifest["plots"].values()))
 
-    def test_export_edsl_twins_uses_persona_summaries_as_instructions(self) -> None:
+    def test_export_edsl_twins_uses_named_second_person_trait(self) -> None:
         with tempfile.TemporaryDirectory() as d:
             from edsl import AgentList
 
@@ -615,8 +617,8 @@ class UmrissCliTests(unittest.TestCase):
             agents_path = root / "twins.agents.ep"
             pd.DataFrame(
                 [
-                    {"support_id": 1, "job_id": "j1", "profile_summary": "A cautious institutional reformer."},
-                    {"support_id": 2, "job_id": "j2", "profile_summary": "A confident defender of existing institutions."},
+                    {"support_id": 1, "job_id": "j1", "persona": "Your views favor cautious institutional reform."},
+                    {"support_id": 2, "job_id": "j2", "persona": "Your views confidently defend existing institutions."},
                 ]
             ).to_csv(points_path, index=False)
             pd.DataFrame(
@@ -634,6 +636,8 @@ class UmrissCliTests(unittest.TestCase):
                         str(points_path),
                         "--weights",
                         str(weights_path),
+                        "--persona-trait",
+                        "institutional_attitudes",
                         "--holdout",
                         "a",
                         "--path",
@@ -644,12 +648,13 @@ class UmrissCliTests(unittest.TestCase):
             )
             agents = AgentList.git.load(str(agents_path))
             self.assertEqual(
-                [agent.instruction for agent in agents],
+                [agent.traits["institutional_attitudes"] for agent in agents],
                 [
-                    "A cautious institutional reformer.",
-                    "A confident defender of existing institutions.",
+                    "Your views favor cautious institutional reform.",
+                    "Your views confidently defend existing institutions.",
                 ],
             )
+            self.assertTrue(all("instruction" not in agent.to_dict() for agent in agents))
             self.assertEqual([agent.traits["_weight"] for agent in agents], [0.75, 0.25])
             self.assertTrue(all("_weight" not in agent.prompt().text for agent in agents))
             sidecar = pd.read_csv(root / "twins.agents_weights.csv")

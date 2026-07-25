@@ -1,0 +1,18 @@
+{
+  "kind": "umriss_persona_perspective_migration",
+  "model": "gpt-5.5",
+  "temperature": 0.2,
+  "rows": 208,
+  "input_field": "profile_summary",
+  "output_field": "persona",
+  "required_prefix": "Your views",
+  "invalid_prefixes": 0,
+  "empty_outputs": 0,
+  "duplicate_outputs": 0,
+  "jobs_path": "pew_w154_persona_rewrite.jobs.ep",
+  "results_path": "pew_w154_persona_rewrite.results.ep",
+  "outputs_path": "pew_w154_persona_rewrites.csv",
+  "results_uuid": "cb66eea8-25df-49e7-af9b-0e5e8aff1bee",
+  "results_url": "https://chick.expectedparrot.com/content/cb66eea8-25df-49e7-af9b-0e5e8aff1bee",
+  "scope": "Grammatical perspective only; support probability vectors and fitted weights were unchanged."
+}

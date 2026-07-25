@@ -13,7 +13,6 @@ components:
       - enthusiastic about workplace technology but worried about displacement
 profile:
   framing: synthetic_respondent
-  summary_field: profile_summary
   forbid_demographic_invention: true
 probabilities:
   interpretation: subjective_response_probability

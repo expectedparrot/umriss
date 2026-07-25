@@ -139,17 +139,19 @@ pattern with one uniformly positive or negative outlook.
 Target response tendencies:
 {tendencies}
 
-Provide a short substantive profile summary that could make this combination of responses coherent without inventing
-demographic characteristics. Then provide subjective response probabilities for every item. Put more probability on each
-targeted option than on the alternatives, while preserving genuine uncertainty. Each vector must follow the displayed
-option order, contain nonnegative numbers, sum to 1, and assign at least {minimum_probability:g} to every option.
+Write a concise persona that could make this combination of responses coherent without inventing demographic
+characteristics. Address the persona in the second person, beginning with "Your views..." or "You...". Include only the
+persona description, not instructions about answering or probabilities. Then provide subjective response probabilities
+for every item. Put more probability on each targeted option than on the alternatives, while preserving genuine
+uncertainty. Each vector must follow the displayed option order, contain nonnegative numbers, sum to 1, and assign at least
+{minimum_probability:g} to every option.
 
 Items and response options:
 {items}
 
 Return only valid JSON with exactly this schema:
 {{
-  "profile_summary": "short substantive description",
+  "persona": "Your views on ...",
   "probabilities": {{
 {schema}
   }}

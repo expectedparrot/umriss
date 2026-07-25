@@ -16,6 +16,7 @@ def export_edsl_agents(
     weights_path: Path,
     output_path: Path,
     *,
+    persona_trait: str,
     holdout: str | None = None,
     minimum_weight: float = 0.0,
 ) -> dict[str, Any]:
@@ -23,15 +24,20 @@ def export_edsl_agents(
         raise UmrissError("invalid_input", "At least one --points file is required.")
     if minimum_weight < 0:
         raise UmrissError("invalid_input", "--minimum-weight cannot be negative.")
+    if not persona_trait.isidentifier() or persona_trait.startswith("_"):
+        raise UmrissError(
+            "invalid_input",
+            "--persona-trait must be a visible Python-style trait name, such as `gender_attitudes`.",
+        )
     points = pd.concat([pd.read_csv(path) for path in point_paths], ignore_index=True)
-    required_points = {"job_id", "profile_summary"}
+    required_points = {"job_id", "persona"}
     if not required_points.issubset(points.columns):
         raise UmrissError(
             "invalid_input",
             f"Point files must contain: {', '.join(sorted(required_points))}.",
         )
     points = points.drop_duplicates("job_id", keep="last")
-    points["profile_summary"] = points["profile_summary"].fillna("").astype(str).str.strip()
+    points["persona"] = points["persona"].fillna("").astype(str).str.strip()
     weights = pd.read_csv(weights_path)
     required_weights = {"support_id", "weight"}
     if not required_weights.issubset(weights.columns):
@@ -65,12 +71,12 @@ def export_edsl_agents(
         selected_holdout = None
     if weights["support_id"].duplicated().any():
         raise UmrissError("invalid_input", "Selected weights contain duplicate support IDs.")
-    merged = weights.merge(points[["job_id", "profile_summary"]], on="job_id", how="left", validate="one_to_one")
-    missing = merged["profile_summary"].isna() | merged["profile_summary"].eq("")
+    merged = weights.merge(points[["job_id", "persona"]], on="job_id", how="left", validate="one_to_one")
+    missing = merged["persona"].isna() | merged["persona"].eq("")
     if missing.any():
         raise UmrissError(
             "invalid_input",
-            f"{int(missing.sum())} weighted personas have no profile summary.",
+            f"{int(missing.sum())} weighted support rows have no persona.",
             hint="Pass every component *_points.csv file with repeated --points.",
             context={"support_ids": merged.loc[missing, "support_id"].astype(str).head(20).tolist()},
         )
@@ -92,11 +98,11 @@ def export_edsl_agents(
             Agent(
                 name=f"umriss_{row.support_id}",
                 traits={
+                    persona_trait: row.persona,
                     "_weight": float(row.weight),
                     "_umriss_support_id": str(row.support_id),
                     "_umriss_job_id": str(row.job_id),
                 },
-                instruction=row.profile_summary,
             )
             for row in merged.itertuples()
         ]
@@ -114,7 +120,7 @@ def export_edsl_agents(
     if len(loaded) != len(agents):
         raise UmrissError("invalid_output", "Exported AgentList failed round-trip verification.")
 
-    sidecar = merged[["support_id", "job_id", "weight", "profile_summary"]].copy()
+    sidecar = merged[["support_id", "job_id", "weight", "persona"]].copy()
     sidecar.insert(0, "agent_name", sidecar["support_id"].map(lambda value: f"umriss_{value}"))
     sidecar_path = output_path.with_name(f"{output_path.stem}_weights.csv")
     sidecar.to_csv(sidecar_path, index=False)
@@ -126,9 +132,13 @@ def export_edsl_agents(
         "source_points": [str(path) for path in point_paths],
         "holdout": selected_holdout,
         "agents": len(agents),
+        "persona_trait": persona_trait,
         "minimum_weight": minimum_weight,
         "retained_mass_before_renormalization": original_mass,
-        "instruction_contract": "Each Agent instruction is exactly its profile_summary; probability-elicitation prompts are excluded.",
+        "persona_contract": (
+            f"Each Agent stores its second-person persona in the visible `{persona_trait}` trait. "
+            "Umriss does not set a custom Agent instruction."
+        ),
         "weight_contract": (
             "Each Agent stores its normalized coefficient as the hidden `_weight` trait. "
             "EDSL excludes underscore-prefixed traits from prompts but does not automatically perform weighted sampling."

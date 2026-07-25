@@ -148,7 +148,6 @@ components:
   - type: pattern_anchors
     coherence: explicit
 profile:
-  summary_field: profile_summary
   forbid_demographic_invention: true
 probabilities:
   interpretation: subjective_response_probability
@@ -194,7 +193,7 @@ probabilities:
     <tr><td><a href="../examples/pew_w154/run/pew_w154_diff1_n12_prompts.jsonl">prompt JSONL</a></td><td>Executable records for agents and tooling.</td></tr>
     <tr><td><a href="../examples/pew_w154/run/pew_w154_diff1_n12_prompts.html">prompt browser</a></td><td>Readable, collapsible review before execution.</td></tr>
   </table>
-  <p>Each coverage prompt states that its targeted domain may differ from the other domains. It asks for a substantive <code>profile_summary</code> and subjective response probabilities. Target marginals are intentionally absent from every prompt.</p>
+  <p>Each coverage prompt states that its targeted domain may differ from the other domains. It asks for a concise <code>persona</code>, written in the second person for later use as an agent trait, plus subjective response probabilities. Target marginals are intentionally absent from every prompt.</p>
 
   <h2>5. Export one executable job object</h2>
   <pre><code>umriss support export \
@@ -437,18 +436,21 @@ probabilities:
       <tr><td><code>--tag</code>, <code>--out</code></td><td>Name and location for the final weights, predictions, and fit diagnostics.</td></tr>
     </tbody>
   </table>
-  <p>The resulting coefficients sum to one and describe how much population mass each synthetic profile carries. Export them with the persona summaries recorded during the three support-generation rounds:</p>
+  <p>The resulting coefficients sum to one and describe how much population mass each synthetic profile carries. Export them with the second-person personas recorded during the three support-generation rounds:</p>
+  <p>The current umriss prompt contract creates these second-person personas during support generation. This Pew bank predates that contract, so its 208 existing summaries were passed through a bounded GPT-5.5 perspective-rewrite job: preserve the substance, begin with “Your views,” and add no demographics, instructions, probabilities, or methodology. All 208 outputs passed the prefix check and none were duplicated. The <a href="../examples/pew_w154/run/persona_rewrite/manifest.json">migration manifest</a>, jobs, results, and row-level rewrites are checked in. No support probability or fitted weight was changed.</p>
   <pre><code>umriss twins export-edsl \
   --points examples/pew_w154/run/uniform_n96/bank/pew_w154_diff1_uniform_n96_points.csv \
   --points examples/pew_w154/run/uniform_repair_r1/bank/pew_w154_diff1_uniform_repair_r1_points.csv \
   --points examples/pew_w154/run/uniform_repair_r2/bank/pew_w154_diff1_uniform_repair_r2_points.csv \
   --weights examples/pew_w154/run/full_fit/pew_w154_full_fit_weights.csv \
+  --persona-trait gender_attitudes \
   --path examples/pew_w154/run/full_fit/pew_w154_full_fit.agents.ep</code></pre>
   <table>
     <thead><tr><th>Argument</th><th>Meaning</th></tr></thead>
     <tbody>
-      <tr><td><code>--points</code></td><td>May be repeated. These files supply the persona summaries; stable job IDs reconnect summaries to rows after support banks have been merged and renumbered.</td></tr>
+      <tr><td><code>--points</code></td><td>May be repeated. These files supply second-person personas; stable job IDs reconnect them to rows after support banks have been merged and renumbered.</td></tr>
       <tr><td><code>--weights</code></td><td>The single full-data mixture produced above. A multi-fold LOO file instead requires an explicit <code>--holdout</code>.</td></tr>
+      <tr><td><code>--persona-trait</code></td><td>The visible EDSL trait name chosen for this battery. Here every agent receives <code>gender_attitudes</code>.</td></tr>
       <tr><td><code>--path</code></td><td>A git-backed EDSL <code>AgentList</code> package. Umriss saves it with <code>agents.git.save()</code> and verifies it with <code>AgentList.git.load()</code>.</td></tr>
       <tr><td><code>--minimum-weight</code></td><td>Optional pruning threshold. Retained coefficients are renormalized and the discarded mass is recorded in the manifest.</td></tr>
     </tbody>
@@ -459,19 +461,20 @@ probabilities:
   <table>
     <tbody>
       <tr><th>Name</th><td><code>umriss_95</code></td></tr>
-      <tr><th>Instruction</th><td>This response pattern emphasizes perceived gender differences across personal interests, physical abilities, parenting styles, and emotional expression, while viewing men and women as largely similar in workplace competencies.</td></tr>
+      <tr><th>Visible trait</th><td><code>gender_attitudes</code>: Your views emphasize perceived gender differences in personal interests, physical abilities, parenting styles, and emotional expression, while seeing men and women as largely similar in workplace competencies.</td></tr>
       <tr><th>Hidden traits</th><td><code>_weight: 0.101780</code>, <code>_umriss_support_id: 95</code>, <code>_umriss_job_id: pew_w154_diff1_uniform_n96_095</code></td></tr>
-      <tr><th>Visible traits</th><td>None</td></tr>
+      <tr><th>Custom instruction</th><td>None. EDSL retains its ordinary agent instruction.</td></tr>
     </tbody>
   </table>
-  <p>The instruction is only the persona. It contains no support-design rationale, target marginal, probability-vector schema, or request to predict response probabilities. The hidden fields preserve provenance and population weight without influencing the agent’s answers.</p>
+  <p>The persona is descriptive state, not an instruction. It contains no support-design rationale, target marginal, probability-vector schema, or request to predict response probabilities. The hidden fields preserve provenance and population weight without influencing the agent’s answers.</p>
 
   <h3>Publish and reuse the AgentList</h3>
   <p>The checked-in package was pushed with the current EP CLI. It is unlisted: anyone with the alias or link can retrieve it, but it is not advertised as a public search result.</p>
   <pre><code>ep push examples/pew_w154/run/full_fit/pew_w154_full_fit.agents.ep \
   --alias umriss-pew-w154-digital-twins \
-  --description "A weighted AgentList of 208 synthetic survey-response profiles calibrated by umriss to five Pew ATP Wave 154 marginals. Persona instructions exclude probability-elicitation prompts; normalized coefficients are stored in hidden _weight traits." \
-  --visibility unlisted</code></pre>
+  --description "A weighted AgentList of 208 synthetic survey-response profiles calibrated by umriss to five Pew ATP Wave 154 marginals. Each agent has a visible second-person gender_attitudes persona trait and a hidden normalized _weight coefficient." \
+  --visibility unlisted \
+  --force</code></pre>
   <table>
     <thead><tr><th>Argument</th><th>Meaning</th></tr></thead>
     <tbody>
@@ -479,11 +482,12 @@ probabilities:
       <tr><td><code>--alias</code></td><td>A stable human-readable identifier owned by the publishing Expected Parrot account.</td></tr>
       <tr><td><code>--description</code></td><td>Records what the object contains and how it was constructed.</td></tr>
       <tr><td><code>--visibility</code></td><td><code>private</code>, <code>unlisted</code>, or <code>public</code>. This tutorial uses <code>unlisted</code>.</td></tr>
+      <tr><td><code>--force</code></td><td>Updates the existing owned alias. Omit it when publishing a new alias for the first time.</td></tr>
     </tbody>
   </table>
   <details><summary>Captured EP output</summary><pre><code>{
   "object_type": "AgentList",
-  "operation": "push",
+  "operation": "patch",
   "coop_info": {
     "alias": "umriss-pew-w154-digital-twins",
     "uuid": "5a64d1e7-04ad-4cf5-a770-d2cc2af4baf2",
@@ -507,13 +511,15 @@ probabilities:
   "trait_keys": [
     "_umriss_job_id",
     "_umriss_support_id",
-    "_weight"
+    "_weight",
+    "gender_attitudes"
   ],
   "sample": [
     {
       "name": "umriss_95",
       "traits": {
-        "_weight": 0.10177999668210305
+        "_weight": 0.10177999668210305,
+        "gender_attitudes": "Your views emphasize perceived gender differences in personal interests, physical abilities, parenting styles, and emotional expression, while seeing men and women as largely similar in workplace competencies."
       }
     }
   ]
@@ -521,7 +527,7 @@ probabilities:
   <p>The cloned list can be opened as an HTML artifact with <code>ep open reused_twins.agents.ep</code>, or supplied to a new survey through <code>ep run --survey ... --agent_list reused_twins.agents.ep</code>. A downstream analysis must still use the hidden <code>_weight</code> values when aggregating responses; ordinary <code>AgentList.sample()</code> is unweighted.</p>
 
   <h2>Flexibility without hidden assumptions</h2>
-  <p>Experts can edit coherence, intensities, anchors, partial coverage, probability constraints, or add user-authored profiles. A custom Jinja template is also allowed with <code>prompt.validation: strict</code>. It must still contain every item, preserve option order, request the configured summary field, and state the probability and sum-to-one contract.</p>
+  <p>Experts can edit coherence, intensities, anchors, partial coverage, probability constraints, or add user-authored profiles. A custom Jinja template is also allowed with <code>prompt.validation: strict</code>. It must still contain every item, preserve option order, request a second-person persona, and state the probability and sum-to-one contract.</p>
   <p>The central rule is simple: consequential flexibility belongs in the resolved design and audit trail. It should not disappear inside a strategy name, row-number convention, prompt rewrite, or silent parser correction.</p>
 </main>
 <script>

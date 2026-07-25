@@ -2,9 +2,10 @@
   "agents": 208,
   "agents_path": "examples/pew_w154/run/full_fit/pew_w154_full_fit.agents.ep",
   "holdout": null,
-  "instruction_contract": "Each Agent instruction is exactly its profile_summary; probability-elicitation prompts are excluded.",
   "kind": "umriss_edsl_agent_list",
   "minimum_weight": 0.0,
+  "persona_contract": "Each Agent stores its second-person persona in the visible `gender_attitudes` trait. Umriss does not set a custom Agent instruction.",
+  "persona_trait": "gender_attitudes",
   "retained_mass_before_renormalization": 0.9999999999999946,
   "source_points": [
     "examples/pew_w154/run/uniform_n96/bank/pew_w154_diff1_uniform_n96_points.csv",

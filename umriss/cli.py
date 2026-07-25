@@ -396,6 +396,7 @@ def cmd_twins_export_edsl(args: argparse.Namespace) -> dict[str, Any]:
         [Path(path) for path in args.points],
         Path(args.weights),
         Path(args.path),
+        persona_trait=args.persona_trait,
         holdout=args.holdout,
         minimum_weight=args.minimum_weight,
     )
@@ -701,6 +702,7 @@ def build_parser() -> argparse.ArgumentParser:
     p = twins.add_parser("export-edsl")
     p.add_argument("--points", action="append", required=True)
     p.add_argument("--weights", required=True)
+    p.add_argument("--persona-trait", required=True)
     p.add_argument("--holdout")
     p.add_argument("--minimum-weight", type=float, default=0.0)
     p.add_argument("--path", required=True)

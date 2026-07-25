@@ -215,7 +215,11 @@ def weighted_truth_from_respondents(metadata: dict[str, Any], respondents_path: 
 def write_marginals_long(metadata: dict[str, Any], truth: dict[str, np.ndarray], path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=["battery", "item", "option_index", "option_code", "option_label", "proportion"])
+        writer = csv.DictWriter(
+            f,
+            fieldnames=["battery", "item", "option_index", "option_code", "option_label", "proportion"],
+            lineterminator="\n",
+        )
         writer.writeheader()
         battery = f"{metadata['wave']}_{metadata['battery']}"
         for item, vec in truth.items():
