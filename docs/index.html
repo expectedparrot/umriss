@@ -1,0 +1,813 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A practical guide to building auditable digital twins from reported survey marginals with umriss.">
+  <title>Expected Parrot | Digital Twins from Survey Marginals</title>
+  <style>
+    :root{--green:#428a5f;--dark:#214d35;--light:#edf7f1;--ink:#17201a;--muted:#667069;--paper:#f5f7f5;--panel:#fff;--rule:#dfe5e0;--amber:#b66b13;--red:#aa3c35;--code:#19231d;--sidebar:286px;--measure:790px;--serif:Georgia,"Times New Roman",serif;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;--mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--paper);font:16px/1.7 var(--sans)}
+    #progress{position:fixed;inset:0 auto auto 0;z-index:20;width:0;height:4px;background:#65b783}
+    nav{position:fixed;inset:0 auto 0 0;z-index:10;width:var(--sidebar);overflow:auto;padding:24px 22px 40px;color:#eef7f1;background:var(--dark);font:14px/1.35 var(--sans)}
+    .brand{display:block;margin-bottom:24px;padding:13px 14px;color:var(--ink);background:#fff;border-radius:9px;text-decoration:none}.brand strong{display:block;font:700 19px/1.15 var(--serif)}.brand small{color:var(--muted);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+    nav .book{margin:0 8px 23px;font:600 20px/1.25 var(--serif)}nav .part{margin:19px 8px 5px;color:#9fd3b2;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}nav>a:not(.brand){display:block;padding:6px 8px;color:#d5e9dc;text-decoration:none;border-radius:6px}nav>a:not(.brand):hover{color:#fff;background:#2d6244}.small{margin:28px 8px 0;color:#b7cec0;font-size:12px}.nav-toggle{display:none;width:100%;padding:10px 12px;color:#fff;background:#2d6244;border:1px solid #72a685;border-radius:7px;font:700 14px var(--sans);text-align:left;cursor:pointer}.nav-toggle:after{float:right;content:"+"}.open .nav-toggle:after{content:"−"}
+    main{margin-left:var(--sidebar)}article{max-width:920px;margin:auto;padding:48px 48px 110px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.025)}header{padding:60px 0 44px;border-bottom:3px solid var(--green)}
+    .eyebrow{color:var(--green);font-size:12px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.3}h1{max-width:780px;margin:14px 0 20px;font-size:clamp(40px,6vw,61px);letter-spacing:-.025em}h2{margin:78px 0 22px;padding:12px 0 8px;color:var(--green);font-size:32px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}h3{margin:40px 0 13px;font-size:23px}h4{margin:26px 0 8px;font-size:18px}.dek{max-width:740px;color:var(--muted);font-size:21px;line-height:1.5}.meta{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:27px;color:var(--muted);font-size:13px}
+    p,ul,ol,table,pre,figure{max-width:var(--measure)}a{color:var(--green)}code{padding:.14em .35em;background:#f0f3f0;border-radius:4px;font:88% var(--mono)}pre{position:relative;overflow-x:hidden;margin:18px 0 26px;padding:20px 58px 20px 22px;color:#d8e3db;background:var(--code);border-radius:8px;font:13px/1.55 var(--mono);white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word}pre code{padding:0;color:inherit;background:none;white-space:inherit}.command-code{border-left:4px solid var(--green);background:#18231d;box-shadow:0 4px 14px rgba(25,35,29,.13)}.syntax-program{color:#7ddc9e;font-weight:700}.syntax-option{color:#e8b86d}.syntax-string{color:#b9d8ff}.copy{position:absolute;top:10px;right:10px;padding:5px 8px;color:#d8ebe0;background:#34453b;border:0;border-radius:5px;font:11px var(--sans);cursor:pointer}.copy:hover{color:#fff;background:var(--green)}
+    .chapter{font-size:.55em;vertical-align:.35em}.equation{max-width:var(--measure);margin:26px 0;padding:24px 20px;text-align:center;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);font-size:19px}.equation-label{display:block;margin-top:12px;color:var(--muted);font:13px/1.45 var(--sans)}.block-label{max-width:var(--measure);margin:22px 0 6px;color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.block-label+pre{margin-top:0}.output-toggle{max-width:var(--measure);margin:-12px 0 28px}.output-toggle summary{color:var(--green);font-size:13px;font-weight:700;cursor:pointer}.output-toggle[open] summary{margin-bottom:8px}.output-toggle pre{margin:0;background:#26362d}.output-note{color:var(--muted);font-size:12px}table{width:100%;margin:20px 0 28px;border-collapse:collapse;font-size:14px}th,td{padding:11px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--rule)}th{color:#fff;background:var(--green)}tbody tr:nth-child(even){background:#f7f9f7}
+    figure{margin:30px 0 36px}figure img,figure svg{display:block;width:100%;height:auto}figcaption{margin-top:12px;color:var(--muted);font-size:13px;line-height:1.45}footer{margin-top:85px;padding-top:28px;color:var(--muted);border-top:3px solid var(--green);font-size:13px}
+    @media(max-width:960px){nav{position:static;width:auto;padding-bottom:22px}.nav-toggle{display:block}nav .part,nav>a:not(.brand),nav .small{display:none}nav.open .part{display:block}nav.open>a:not(.brand){display:inline-block}nav.open .small{display:block}nav .book{margin-bottom:14px}main{margin-left:0}article{padding:28px 24px 80px}.brand{max-width:270px}}@media(max-width:650px){h2{font-size:28px}table{display:block;overflow-x:auto}pre{padding-right:44px}}@media print{nav,#progress,.copy,.nav-toggle{display:none!important}main{margin:0}article{max-width:none;padding:0}h2{break-before:page}pre{white-space:pre-wrap;color:#000;background:#eee}}
+  </style>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"></script>
+</head>
+<body>
+<div id="progress"></div>
+<nav aria-label="Guide contents">
+  <a class="brand" href="https://www.expectedparrot.com/"><strong>Expected Parrot</strong><small>Open-source research tools</small></a>
+  <div class="book">Digital Twins from<br>Survey Marginals</div>
+  <button class="nav-toggle" type="button" aria-expanded="false">Show guide contents</button>
+  <div class="part">Foundations</div>
+  <a href="#orientation">1. The problem</a><a href="#method">2. Mixture calibration</a><a href="#install">3. Install and orient</a>
+  <div class="part">Workflow</div>
+  <a href="#metadata">4. Describe the battery</a><a href="#design">5. Design support</a><a href="#boundary">6. Run model jobs</a><a href="#parse">7. Parse the bank</a><a href="#fit">8. Fit and predict</a>
+  <div class="part">Evidence</div>
+  <a href="#validate">9. Leave-one-out validation</a><a href="#report">10. Compare and report</a><a href="#agents">11. Agent operation</a><a href="#checklist">12. Checklist</a>
+  <div class="small">A self-contained guide to umriss. Model execution happens outside the package through EDSL.</div>
+</nav>
+<main><article>
+  <header>
+    <div class="eyebrow">Expected Parrot · An auditable, agent-facing workflow</div>
+    <h1>Building digital twins from survey marginals</h1>
+    <p class="dek">Turn published toplines and marginal distributions into a calibrated mixture of synthetic respondent profiles—without pretending aggregate data contains respondent-level records.</p>
+    <div class="meta"><span>Tool: <strong>umriss</strong></span><span>Runtime: <strong>Python + EDSL</strong></span><span>Interface: <strong>JSON-first CLI</strong></span></div>
+  </header>
+
+  <section id="orientation">
+    <h2><span class="chapter">01</span> The problem</h2>
+    <p>Many survey reports publish distributions for each question but withhold the underlying microdata. Those marginals describe a population, yet they do not reveal how answers co-occur within people. <code>umriss</code> builds an explicit approximation: a reusable bank of plausible synthetic respondents and a set of nonnegative weights chosen to reproduce the observed marginals.</p>
+    <p>The method does not ask a model to invent a finished synthetic population in one step. It separates the task into target recording, support construction, measurement, and calibration. That separation matters because it lets us inspect which assumptions come from the report, which come from the synthetic profiles, and which come from the weighting procedure.</p>
+
+    <h3>First, record the targets</h3>
+    <p>For every survey item, we record the exact question wording, the answer options in their published order, and the reported proportion selecting each option. These proportions are the calibration targets. If a report says that 21 percent have “a great deal” of confidence in the courts, 55 percent have “some,” and 24 percent have “hardly any,” the vector <em>(0.21, 0.55, 0.24)</em> becomes the target for that item.</p>
+    <p>At this stage there are no synthetic respondents and no assumptions about correlations between questions. The metadata simply preserves what the report actually tells us. Keeping this boundary clean prevents model-generated beliefs from being mistaken for observed evidence.</p>
+
+    <h3>Second, create broad support</h3>
+    <p>We then create a bank of synthetic respondent types, called <em>support points</em>. A support point is not meant to be a recovered individual or a demographic estimate. It is a basis function: one coherent way that answers across the battery might move together.</p>
+    <p>The initial bank is designed to cover the response space broadly. Some support points anchor explicit answer patterns; others target underrepresented item-option regions or response styles. This is the “uniform” starting point in the workflow: before calibration, every valid support point receives equal weight. It does not mean that every synthetic respondent answers every option with equal probability. It means that the bank begins without declaring one synthetic type more prevalent than another.</p>
+
+    <h3>Third, measure each synthetic type</h3>
+    <p>Each support prompt asks the model for a complete probability vector on every item. A row might assign high probability to trusting the courts, moderate probability to trusting the police, and low probability to trusting parliament. Collecting the full vector preserves uncertainty and creates a numerical matrix that can be calibrated; a single hard answer would throw away useful information.</p>
+    <p>With equal weights, averaging the rows gives the <em>unweighted support-bank prediction</em>. This is an important baseline. It shows what the designed synthetic population predicts before seeing the reported target proportions.</p>
+
+    <h3>Fourth, reweight the bank</h3>
+    <p>Calibration changes the prevalence of the synthetic types, not their recorded answer probabilities. If a support point helps reproduce several reported marginals simultaneously, its weight can rise. If it pushes the mixture away from the targets, its weight can fall. All weights remain nonnegative and sum to one, so the fitted result remains an interpretable mixture of the original support points.</p>
+    <p>Entropy regularization keeps the fit near the equal-weight starting point unless the targets provide a reason to move away from it. Without that restraint, a flexible bank could match the observed marginals by putting nearly all weight on a few rows. Such a solution might interpolate well but represent a fragile synthetic population.</p>
+
+    <h3>Finally, test what was not fitted</h3>
+    <p>Matching the marginals used during calibration is necessary but not persuasive: those values were the fitting targets. The meaningful test withholds one item, fits the weights using all remaining items, and predicts the omitted item from the same weighted support bank. Repeating this for every item measures whether the support bank captures reusable cross-item structure.</p>
+    <p>Marginals alone do not identify a unique joint distribution. Support design and regularization encode assumptions, so the result should be described as a calibrated synthetic population rather than a set of recovered respondents. The essential empirical question is whether those assumptions help predict omitted marginals better than simple alternatives.</p>
+    <table><thead><tr><th>Stage</th><th>Artifact</th><th>Purpose</th></tr></thead><tbody>
+      <tr><td>Targets</td><td>Battery metadata</td><td>Record question wording, ordered options, and reported marginal vectors.</td></tr>
+      <tr><td>Support</td><td>Design file and prompts</td><td>Create broad, inspectable synthetic response types without assigning population prevalence.</td></tr>
+      <tr><td>Measurement</td><td>EDSL results and support bank</td><td>Obtain a probability vector for every support point, item, and option.</td></tr>
+      <tr><td>Calibration</td><td>Mixture weights and diagnostics</td><td>Move away from equal weights only as needed to reproduce held-in targets.</td></tr>
+      <tr><td>Evaluation</td><td>Leave-one-item-out results</td><td>Test whether fitted weights predict marginals that were not used to estimate them.</td></tr>
+    </tbody></table>
+  </section>
+
+  <section id="method">
+    <h2><span class="chapter">02</span> Mixture calibration</h2>
+    <p>The support bank turns the qualitative idea above into a matrix. Let <em>B</em> contain support-point probabilities: rows are synthetic profiles and columns are item-option cells. With 12 support points and four three-option items, <em>B</em> has 12 rows and 12 columns. Each group of three cells in a row sums to one.</p>
+    <p>Let <em>y</em> contain the reported marginal probabilities for the items used in a fit. Let <em>b</em> be the starting weights, which are uniform by default: each support point begins with weight 1/12. The fitted weight vector π lies on the simplex, so its entries are nonnegative and sum to one.</p>
+    <div class="equation" role="img" aria-label="Entropy-regularized mixture calibration objective">
+      \[
+        \underset{\boldsymbol{\pi}}{\operatorname{minimize}}\quad
+        \left\lVert B_{\mathrm{in}}^{\mathsf T}\boldsymbol{\pi}
+        - \mathbf{y}_{\mathrm{in}}\right\rVert_2^2
+        + \rho\,D_{\mathrm{KL}}\!\left(\boldsymbol{\pi}\,\middle\|\,\mathbf{b}\right)
+      \]
+      \[
+        \text{subject to}\qquad \pi_s \ge 0,\qquad
+        \sum_{s=1}^{S}\pi_s = 1
+      \]
+      <span class="equation-label">Fit the reported held-in marginals while penalizing concentration away from the base weights.</span>
+    </div>
+    <p>The first term measures the discrepancy between the mixture prediction and the recorded targets. The second term measures how far the fitted weights move from the equal-weight base. The parameter ρ controls the tradeoff: smaller values prioritize a close marginal fit, while larger values preserve a more diffuse synthetic population.</p>
+    <p><code>umriss</code> tries a small default grid of ρ values. It selects a value using held-in fit plus a penalty for low effective support; the held-out outcome is never used for this choice. The diagnostics record the selected ρ, held-in residual, maximum weight, top-ten weight share, convergence status, and effective support.</p>
+    <div class="equation" role="img" aria-label="Held-out marginal prediction">
+      \[
+        \widehat{\mathbf{y}}_h =
+        B_h^{\mathsf T}\widehat{\boldsymbol{\pi}}
+      \]
+      <span class="equation-label">Predict held-out item h by applying the calibrated weights to its support probabilities.</span>
+    </div>
+    <p>The same fitted weights are applied to the support probabilities for the omitted item. No additional model call occurs at prediction time. The prediction comes entirely from cross-item structure already present in the support bank and the weights learned from the held-in targets.</p>
+    <table><thead><tr><th>Object</th><th>Meaning</th><th>Audit question</th></tr></thead><tbody>
+      <tr><td><em>B</em></td><td>Synthetic support bank</td><td>Does it span plausible and sufficiently diverse response patterns?</td></tr>
+      <tr><td><em>y</em></td><td>Published or imported marginals</td><td>Are labels, option order, sample, and weighting documented?</td></tr>
+      <tr><td>π</td><td>Calibrated mixture weights</td><td>Are weights diffuse enough to avoid support collapse?</td></tr>
+      <tr><td>ρ</td><td>Entropy regularization</td><td>Was selection outcome-independent for the held-out item?</td></tr>
+    </tbody></table>
+  </section>
+
+  <section id="install">
+    <h2><span class="chapter">03</span> Install and orient</h2>
+    <p>Install the package in editable mode. Core parsing and calibration are local; install the EDSL extra when preparing <code>.jobs.ep</code> bundles.</p>
+    <div class="block-label">Command</div>
+    <pre><code>pip install -e ".[test,edsl]"</code></pre>
+    <details class="output-toggle"><summary>Show output</summary><pre><code>Successfully installed umriss-0.1.0
+… dependency output truncated …</code></pre></details>
+    <div class="block-label">Command</div>
+    <pre><code>umriss version</code></pre>
+    <details class="output-toggle"><summary>Show output</summary><pre><code>{
+  "command": "umriss version",
+  "status": "ok",
+  "data": {"version": "0.1.0"},
+  "warnings": [],
+  "errors": [],
+  "next_steps": []
+}</code></pre></details>
+    <div class="block-label">Command</div>
+    <pre><code>umriss guide</code></pre>
+    <details class="output-toggle"><summary>Show output (truncated)</summary><pre><code>{
+  "command": "umriss guide",
+  "status": "ok",
+  "data": {
+    "summary": "Canonical workflow",
+    "steps": ["Inspect metadata", "Build support", "Export jobs", "…"]
+  },
+  "warnings": [],
+  "errors": [],
+  "next_steps": []
+}
+… output truncated …</code></pre></details>
+    <div class="block-label">Command</div>
+    <pre><code>umriss next</code></pre>
+    <details class="output-toggle"><summary>Show output</summary><pre><code>{
+  "command": "umriss next",
+  "status": "ok",
+  "data": {"recommendation": "Run `umriss init`.", "reason": "No active workspace."},
+  "warnings": [],
+  "errors": [],
+  "next_steps": []
+}</code></pre></details>
+    <p>Commands return one JSON envelope with <code>command</code>, <code>status</code>, <code>data</code>, <code>warnings</code>, <code>errors</code>, and <code>next_steps</code>. This stable shape is intended for both shell use and agent orchestration.</p>
+  </section>
+
+  <section id="metadata">
+    <h2><span class="chapter">04</span> Describe the survey battery</h2>
+    <p>Begin by authoring the survey metadata incrementally in a managed workspace. This is where published evidence becomes machine-readable calibration targets. The commands bind each item to its exact wording, ordered answer options, and observed marginals.</p>
+    <p>The option order is part of the data. Every later probability vector uses this same order, so changing it would silently associate probabilities with the wrong labels. The proportions should reflect the same population, weighting convention, and denominator across the battery. If the report uses different bases for different questions, record that distinction in the surrounding provenance rather than treating the vectors as directly comparable.</p>
+    <div class="block-label">Command</div>
+    <pre><code>umriss init</code></pre>
+    <details class="output-toggle"><summary>Show output</summary><pre><code>{
+  "command": "umriss init",
+  "status": "ok",
+  "data": {
+    "path": ".umriss",
+    "schema_version": "1.0",
+    "active_project": "default",
+    "project_path": ".umriss/projects/default"
+  },
+  "warnings": [],
+  "errors": [],
+  "next_steps": ["umriss battery import --metadata &lt;metadata.json&gt;"]
+}</code></pre></details>
+    <p><code>init</code> creates a hidden <code>.umriss</code> workspace and an active default project. The workspace stores authored battery records and provides a stable place for an agent to inspect state. It does not import any report data by itself.</p>
+    <div class="block-label">Command</div>
+    <pre><code>umriss battery create --battery-id trust --wave T1 \
+  --battery TRUST --topic "institutional trust" \
+  --context "Published national survey toplines"</code></pre>
+    <details class="output-toggle"><summary>Show output</summary><pre><code>{
+  "command": "umriss battery create",
+  "status": "ok",
+  "data": {
+    "battery_id": "trust",
+    "battery_path": ".umriss/projects/default/batteries/trust/battery.json"
+  },
+  "warnings": [],
+  "errors": [],
+  "next_steps": []
+}</code></pre></details>
+    <p>The battery record supplies the shared context that every support prompt will receive. Keep it factual and population-level. Do not insert a theory about which kinds of people gave which answers; that is the uncertainty the support design will explore later.</p>
+    <div class="block-label">Command</div>
+    <pre><code>umriss question add --battery trust --item courts \
+  --question-stem "How much confidence do you have in..." \
+  --item-text "The courts" \
+  --option-code 1 --option "A great deal" \
+  --option-code 2 --option "Some" \
+  --option-code 3 --option "Hardly any"</code></pre>
+    <details class="output-toggle"><summary>Show output</summary><pre><code>{
+  "command": "umriss question add",
+  "status": "ok",
+  "data": {"battery_id": "trust", "item": "courts"},
+  "warnings": [],
+  "errors": [],
+  "next_steps": []
+}</code></pre></details>
+    <p>A question record separates the repeated question stem from the item text and preserves legal response options. Here, “How much confidence…” is the stem and “The courts” is the item being rated. The codes are identifiers; the labels are the language shown to the model.</p>
+    <div class="block-label">Command</div>
+    <pre><code>umriss marginal add --battery trust --item courts \
+  --proportion .21 --proportion .55 --proportion .24</code></pre>
+    <details class="output-toggle"><summary>Show output</summary><pre><code>{
+  "command": "umriss marginal add",
+  "status": "ok",
+  "data": {"battery_id": "trust", "item": "courts", "proportions": [0.21, 0.55, 0.24]},
+  "warnings": [],
+  "errors": [],
+  "next_steps": []
+}</code></pre></details>
+    <p>The marginal command records the target vector for this item. It does not create respondents or distribute these values across synthetic people. It only says what the final weighted mixture should reproduce for the courts item.</p>
+    <p>Repeat <code>question add</code> and <code>marginal add</code> for the other institutions in the battery before compiling. The abbreviated metadata excerpt below shows only the first item.</p>
+    <div class="block-label">Command</div>
+    <pre><code>umriss battery compile --battery trust --path trust_metadata.json</code></pre>
+    <details class="output-toggle"><summary>Show output</summary><pre><code>{
+  "command": "umriss battery compile",
+  "status": "ok",
+  "data": {"battery": "trust", "items": 4, "path": "trust_metadata.json"},
+  "warnings": [],
+  "errors": [],
+  "next_steps": []
+}</code></pre></details>
+    <p>The compiled file is a portable description of the battery that later commands can inspect or consume directly. Keep source citations and population definitions beside it even when the minimal schema does not require them.</p>
+    <div class="block-label">Command</div>
+    <pre><code>umriss battery inspect trust_metadata.json</code></pre>
+    <details class="output-toggle"><summary>Show output</summary><pre><code>{
+  "command": "umriss battery inspect",
+  "status": "ok",
+  "data": {
+    "wave": "T1",
+    "battery": "TRUST",
+    "items": 4,
+    "option_counts": {"courts": 3, "parliament": 3, "police": 3, "civil_service": 3},
+    "moment_dimension": 8,
+    "has_truth": true
+  },
+  "warnings": [],
+  "errors": [],
+  "next_steps": []
+}</code></pre></details>
+    <div class="block-label">Compiled metadata excerpt</div>
+    <pre><code>{
+  "wave": "T1",
+  "battery": "TRUST",
+  "topic": "institutional trust",
+  "context": "Published national survey toplines.",
+  "items": {
+    "courts": {
+      "variable": "Q1",
+      "question_stem": "How much confidence do you have in...",
+      "item_text": "The courts"
+    }
+  },
+  "option_codes": [1, 2, 3],
+  "option_labels": ["A great deal", "Some", "Hardly any"],
+  "truth": {"courts": [0.21, 0.55, 0.24]}
+}</code></pre>
+  </section>
+
+  <section id="design">
+    <h2><span class="chapter">05</span> Design the support bank</h2>
+    <p>The support bank supplies candidate patterns of cross-item dependence. If every row expresses the same outlook, no weighting scheme can manufacture a missing response pattern. The first bank should therefore prioritize coverage rather than realism about population prevalence. Prevalence is what calibration will estimate.</p>
+    <p>The built-in <code>pattern-coverage</code> strategy combines response-pattern anchors with item-option coverage rows. Pattern anchors ask for coherent synthetic types around different answer scaffolds. Coverage rows deliberately visit particular response regions—for example, a type for whom “hardly any” confidence in the courts is natural—while asking the model to carry the underlying outlook coherently across the other institutions.</p>
+    <p>These prompts ask for probabilistic rather than deterministic answers. A support point can lean strongly toward one option while retaining uncertainty. Once all 12 rows are measured, they initially receive equal weight. The unweighted bank is therefore a broad reference population, not a claim that the 12 types are equally common in reality.</p>
+    <div class="block-label">Command</div>
+    <pre><code>umriss support build \
+  --battery trust \
+  --strategy pattern-coverage \
+  --tag trust_coverage_n12 --n-support 12 \
+  --out examples/trust_tutorial/run/prompts</code></pre>
+    <details class="output-toggle"><summary>Show output</summary><pre><code>{
+  "command": "umriss support build",
+  "status": "ok",
+  "data": {
+    "tag": "trust_coverage_n12",
+    "rows": 12,
+    "prompts_path": "examples/trust_tutorial/run/prompts/trust_coverage_n12.jsonl",
+    "design_path": "examples/trust_tutorial/run/prompts/trust_coverage_n12_design.csv",
+    "design": null,
+    "metadata_source": {
+      "battery_id": "trust",
+      "kind": "workspace",
+      "path": ".umriss/projects/default/batteries/trust/battery.json"
+    }
+  },
+  "warnings": [],
+  "errors": [],
+  "next_steps": []
+}</code></pre></details>
+    <h3>Arguments to <code>support build</code></h3>
+    <table><thead><tr><th>Argument</th><th>Meaning</th><th>Choices and behavior</th></tr></thead><tbody>
+      <tr><td><code>--battery trust</code></td><td>Use the battery named <code>trust</code> from the active managed workspace.</td><td>Mutually exclusive with <code>--metadata</code>. This is idiomatic after <code>battery create</code>, <code>question add</code>, and <code>marginal add</code>.</td></tr>
+      <tr><td><code>--metadata FILE</code></td><td>Read a complete battery directly from JSON.</td><td>Mutually exclusive with <code>--battery</code>. Use for stateless runs, CI, or a battery maintained outside <code>.umriss</code>.</td></tr>
+      <tr><td><code>--strategy pattern-coverage</code></td><td>Select a built-in support construction recipe.</td><td><code>pattern-coverage</code> covers answer-pattern and item-option regions. <code>archetype</code> crosses generic age, education, occupation, political, and technology descriptions. Mutually exclusive with <code>--design</code>.</td></tr>
+      <tr><td><code>--design FILE</code></td><td>Use an explicit JSON or YAML design instead of a built-in strategy.</td><td>Supports axes, explicit patterns, option-coverage components, and sampling rules. Mutually exclusive with <code>--strategy</code>.</td></tr>
+      <tr><td><code>--tag trust_coverage_n12</code></td><td>Name this support-bank run.</td><td>The tag becomes the filename prefix joining prompts, results, banks, fits, and evaluations. Use a stable filesystem-safe name.</td></tr>
+      <tr><td><code>--n-support 12</code></td><td>Request twelve support points.</td><td>Defaults to 96. Larger banks cover more response regions but create more model calls and a more flexible calibration problem.</td></tr>
+      <tr><td><code>--seed 20260625</code></td><td>Control randomized pattern or design sampling.</td><td>Optional; the displayed value is the default. Keep it fixed when comparing support designs.</td></tr>
+      <tr><td><code>--out DIR</code></td><td>Choose where generated prompts and the design audit table are written.</td><td>Writes <code>&lt;tag&gt;.jsonl</code> and <code>&lt;tag&gt;_design.csv</code>. It does not run models.</td></tr>
+    </tbody></table>
+    <h3>What the command actually produced</h3>
+    <p>The command created two views of the same twelve-point support design. Neither file contains model answers yet. The JSONL file is the executable prompt input for the next stage; the CSV file is a compact audit table for a human or agent to inspect before paying for inference.</p>
+    <table><thead><tr><th>File</th><th>Rows</th><th>Contents</th><th>Used by</th></tr></thead><tbody>
+      <tr><td><a href="trust_coverage_n12_prompts.html">Readable browser view</a><br><a href="../examples/trust_tutorial/run/prompts/trust_coverage_n12.jsonl"><code>raw JSONL</code></a></td><td>12 JSON records</td><td>One fully rendered prompt per proposed support point, plus its stable identifiers and design scaffold.</td><td><code>umriss support export</code></td></tr>
+      <tr><td><a href="../examples/trust_tutorial/run/prompts/trust_coverage_n12_design.csv"><code>trust_coverage_n12_design.csv</code></a></td><td>12 tabular rows</td><td>One compact description per support point: variant, intended pattern or coverage target, style, and moment dimension.</td><td>Design review and provenance</td></tr>
+    </tbody></table>
+
+    <h4>The first JSONL record</h4>
+    <p>JSONL means “one JSON object per line.” The first line below proposes a support point centered on answering “Some” across the four institutions. The <code>pattern</code> is a scaffold used to construct the prompt; it is not an observed respondent and it is not yet the model’s answer.</p>
+    <div class="block-label">Generated JSONL record, abbreviated</div>
+    <pre><code>{
+  "battery": "T1_TRUST",
+  "job_id": "trust_coverage_n12_001",
+  "support_id": 1,
+  "variant": "pattern_anchor",
+  "moment_dimension": 8,
+  "pattern": {
+    "courts": "Some",
+    "parliament": "Some",
+    "police": "Some",
+    "civil_service": "Some"
+  },
+  "prompt": "You are creating one synthetic support point ... Return calibrated probabilities over the listed response options ..."
+}</code></pre>
+    <details class="output-toggle"><summary>Show the complete generated prompt</summary><pre><code>You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function. The target answer pattern
+below is a scaffold: construct a coherent respondent type whose experiences,
+beliefs, and response style make the pattern feel natural rather than random.
+
+Target answer-pattern scaffold:
+- courts: The courts -&gt; Some
+- parliament: Parliament -&gt; Some
+- police: The police -&gt; Some
+- civil_service: The civil service -&gt; Some
+
+Decision style:
+Use ordinary survey-response uncertainty.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. The scaffold should guide the direction of each
+item, but do not make probabilities exactly 0 or 1. Keep the profile coherent
+across items and allow middle probabilities for mixed views.
+
+Return only valid JSON with exactly this schema:
+{
+  "persona": "coherent response-pattern support point 1",
+  "probabilities": {
+    "courts": [numbers in option order],
+    "parliament": [numbers in option order],
+    "police": [numbers in option order],
+    "civil_service": [numbers in option order]
+  }
+}</code></pre></details>
+
+    <h4>The first design rows</h4>
+    <p>The CSV exposes why each prompt exists. Rows 1 and 2 are broad pattern anchors. Rows 3–5 target distinct response regions for the courts item. Blank item columns on an option-coverage row are intentional: that row asks the model to infer a coherent whole-battery profile from the named coverage target.</p>
+    <table><thead><tr><th>support_id</th><th>variant</th><th>coverage item</th><th>coverage option</th><th>pattern</th></tr></thead><tbody>
+      <tr><td>1</td><td><code>pattern_anchor</code></td><td>—</td><td>—</td><td>Some / Some / Some / Some</td></tr>
+      <tr><td>2</td><td><code>pattern_anchor</code></td><td>—</td><td>—</td><td>Hardly any / Hardly any / Hardly any / Hardly any</td></tr>
+      <tr><td>3</td><td><code>option_coverage</code></td><td>courts</td><td>A great deal</td><td>Inferred by the model</td></tr>
+      <tr><td>4</td><td><code>option_coverage</code></td><td>courts</td><td>Hardly any</td><td>Inferred by the model</td></tr>
+      <tr><td>5</td><td><code>option_coverage</code></td><td>courts</td><td>Some</td><td>Inferred by the model</td></tr>
+    </tbody></table>
+    <p>At the end of <code>support build</code>, <code>umriss</code> has therefore proposed twelve things to measure. It has not created a fitted twin population, assigned weights, or called a model. <code>support export</code> packages these rendered prompts as EDSL jobs; <code>ep run</code> is the step that obtains a persona and four probability vectors for each support point.</p>
+    <h3>Why <code>--battery</code> rather than a JSON path?</h3>
+    <p>The tutorial already authored <code>trust</code> inside the active <code>.umriss</code> project, so <code>--battery trust</code> resolves to <code>.umriss/projects/default/batteries/trust/battery.json</code>. There is no need to compile and pass the same JSON file again.</p>
+    <p>The alternative <code>--metadata path.json</code> form is for stateless use: an agent may already have a complete metadata artifact, may be running in automation without a workspace, or may want to evaluate a read-only battery without importing it. Exactly one of <code>--battery</code> and <code>--metadata</code> is required.</p>
+    <p>The <code>metadata_source</code> field confirms that the managed battery was used. The command is deterministic: it writes 12 prompt records and a design table but makes no model calls. The JSONL contains the full prompt for each support point. The design CSV makes the intended coverage visible without requiring you to read every prompt in full.</p>
+    <h3>Inspect before model execution</h3>
+    <p>Read the generated JSONL and design CSV before spending on inference. Look for duplicated profiles, unsupported demographic claims, leading language, option-order mistakes, and axes that merely restate the known marginals.</p>
+    <p>After establishing a pattern-coverage baseline, you can compare it with theory-driven banks. A generic design file can cross latent outlooks with response styles and sample that space using a fixed seed. Such a bank may encode better domain structure, but it also adds assumptions and should be evaluated against the same held-out items.</p>
+    <div class="block-label">Alternative design file</div>
+    <pre><code>{
+  "components": [{
+    "type": "axes",
+    "name": "attitude_grid",
+    "axes": {
+      "institutional_outlook": ["trusting", "skeptical"],
+      "response_style": ["moderate", "strong"]
+    },
+    "sampler": {"method": "maximin", "n": 96, "seed": 17},
+    "guidance": "Use every response scale literally."
+  }]
+}</code></pre>
+  </section>
+
+  <section id="boundary">
+    <h2><span class="chapter">06</span> Run model jobs at the EDSL boundary</h2>
+    <p>The prompt file describes the support population, but it does not yet contain measured answer probabilities. <code>support export</code> converts each prompt row into an EDSL scenario and combines those scenarios with a question requiring the probability JSON. The resulting <code>.jobs.ep</code> object records the exact prompts, model configuration, and scenario count.</p>
+    <p><code>umriss</code> prepares jobs but never executes frontier-model calls. This division keeps credentials, service selection, retries, waiting, and remote failures outside deterministic analysis commands. It also prevents a later parse or fit command from silently rerunning a failed row with different settings.</p>
+    <div class="block-label">Command</div>
+    <pre><code>umriss support export \
+  --prompts examples/trust_tutorial/run/prompts/trust_coverage_n12.jsonl \
+  --path examples/trust_tutorial/run/prompts/trust_coverage_n12.jobs.ep</code></pre>
+    <details class="output-toggle"><summary>Show output (truncated)</summary><pre><code>{
+  "command": "umriss support export",
+  "status": "ok",
+  "data": {
+    "jobs": "examples/trust_tutorial/run/prompts/trust_coverage_n12.jobs.ep",
+    "results": "examples/trust_tutorial/run/prompts/trust_coverage_n12.results.ep",
+    "run_contract": {
+      "owner": "agent",
+      "run_command": "ep run --jobs examples/trust_tutorial/run/prompts/trust_coverage_n12.jobs.ep --output examples/trust_tutorial/run/prompts/trust_coverage_n12.results.ep"
+    }
+  },
+  "warnings": [],
+  "errors": [],
+  "next_steps": ["Run the returned EDSL command."]
+}
+… output truncated …</code></pre></details>
+    <p>The response includes a run contract naming the job object, expected result object, and exact external command. Inspect the job count and model selection before proceeding: 12 support points run against two models would create 24 interviews, not 12.</p>
+    <p>Execute the returned command with the external EDSL runtime. The runtime owns remote submission and writes a durable result object containing the raw answers and model provenance.</p>
+    <div class="block-label">Command</div>
+    <pre><code>ep run --jobs examples/trust_tutorial/run/prompts/trust_coverage_n12.jobs.ep \
+  --output examples/trust_tutorial/run/prompts/trust_coverage_n12.results.ep</code></pre>
+    <details class="output-toggle"><summary>Show captured output</summary><pre><code>{
+  "status": "ok",
+  "data": {
+    "meta": {
+      "input_mode": "jobs",
+      "model_count": 1,
+      "agent_count": 1,
+      "scenario_count": 12,
+      "result_count": 12,
+      "n": 1,
+      "local": false,
+      "saved": {
+        "path": "examples/trust_tutorial/run/prompts/trust_coverage_n12.results.ep",
+        "format": "ep",
+        "object_type": "Results",
+        "commit": "708897214aded27b92d7652e662a80285ffbc8e8"
+      }
+    }
+  },
+  "warnings": [{
+    "code": "SUPPRESSED_STDOUT",
+    "output": "Results UUID: a3e66e84-aced-4eba-b77b-05157cbedb80"
+  }]
+}</code></pre></details>
+    <p>This is the captured output from the run used by this page. The checked-in <code>.results.ep</code> package has commit <code>7088972…</code> and remote Results UUID <code>a3e66e84-aced-4eba-b77b-05157cbedb80</code>. Every probability and score below descends from that artifact.</p>
+    <div class="block-label">Command</div>
+    <pre><code>umriss support register-results \
+  --results examples/trust_tutorial/run/prompts/trust_coverage_n12.results.ep \
+  --prompts examples/trust_tutorial/run/prompts/trust_coverage_n12.jsonl \
+  --tag trust_coverage_n12 --out examples/trust_tutorial/run/raw</code></pre>
+    <details class="output-toggle"><summary>Show captured output</summary><pre><code>{
+  "command": "umriss support register-results",
+  "data": {
+    "jobs_path": "examples/trust_tutorial/run/raw/trust_coverage_n12_jobs.csv",
+    "raw_path": "examples/trust_tutorial/run/raw/trust_coverage_n12_raw.csv",
+    "registration_path": "examples/trust_tutorial/run/raw/trust_coverage_n12_registration.json"
+  },
+  "errors": [],
+  "next_steps": [
+    "umriss support parse --raw examples/trust_tutorial/run/raw/trust_coverage_n12_raw.csv --metadata &lt;metadata.json&gt; --tag trust_coverage_n12"
+  ],
+  "status": "ok",
+  "warnings": []
+}</code></pre></details>
+    <p>Registration converts the EDSL result object into a raw table while retaining the job identifiers that connect every response to its original support prompt. It does not interpret or normalize the returned probability vectors. That happens in the next stage, where validation failures can be reported explicitly.</p>
+    <p>Model execution should never be hidden inside parsing or fitting. A missing result is an operational state, not permission for an analysis command to make a new model call.</p>
+  </section>
+
+  <section id="parse">
+    <h2><span class="chapter">07</span> Parse and inspect the support bank</h2>
+    <p>The registered table still contains model-generated JSON. Parsing turns it into the numerical support matrix used by calibration. For each support point, the parser checks that every battery item is present, that the number of probabilities matches the ordered options, that values are nonnegative, and that each vector has positive mass that can be normalized.</p>
+    <p>The output is a long table with one row per support point, item, and option. For 12 support points and four three-option items, a complete bank contains 144 probability rows. Keeping the table long makes option ordering and missing cells easier to audit than a dense array.</p>
+    <div class="block-label">Command</div>
+    <pre><code>umriss support parse \
+  --raw examples/trust_tutorial/run/raw/trust_coverage_n12_raw.csv \
+  --metadata examples/trust_tutorial/trust_metadata.json \
+  --tag trust_coverage_n12 --out examples/trust_tutorial/run/banks</code></pre>
+    <details class="output-toggle"><summary>Show output</summary><pre><code>{
+  "command": "umriss support parse",
+  "status": "ok",
+  "data": {
+    "valid_support_points": 12,
+    "probabilities_path": "examples/trust_tutorial/run/banks/trust_coverage_n12_probabilities.csv",
+    "diagnostics_path": "examples/trust_tutorial/run/banks/trust_coverage_n12_parse_diagnostics.csv",
+    "points_path": "examples/trust_tutorial/run/banks/trust_coverage_n12_points.csv"
+  },
+  "warnings": [],
+  "errors": [],
+  "next_steps": []
+}</code></pre></details>
+    <div class="block-label">Command</div>
+    <pre><code>umriss support inspect \
+  --bank examples/trust_tutorial/run/banks/trust_coverage_n12_probabilities.csv</code></pre>
+    <details class="output-toggle"><summary>Show output (truncated)</summary><pre><code>{
+  "command": "umriss support inspect",
+  "status": "ok",
+  "data": {
+    "support_points": 12,
+    "items": 4,
+    "rows": 144,
+    "jobs": 12,
+    "option_counts": {"courts": 3, "parliament": 3, "police": 3, "civil_service": 3},
+    "min_probability": 0.02,
+    "max_probability": 0.84
+  },
+  "warnings": [],
+  "errors": [],
+  "next_steps": []
+}
+… output truncated …</code></pre></details>
+    <p>The inspect command summarizes the matrix without fitting it. Confirm that the support-point count matches the completed jobs, that every item has the expected option count, and that probabilities remain within zero and one. Review the diagnostics file even when most rows are valid; systematic failures in one response region can remove exactly the diversity the support design was meant to create.</p>
+    <table><thead><tr><th>Artifact</th><th>Role</th><th>Check</th></tr></thead><tbody>
+      <tr><td><code>*_probabilities.csv</code></td><td>Long-form support bank</td><td>Every support × item × option is present</td></tr>
+      <tr><td><code>*_personas.csv</code></td><td>Profile descriptions</td><td>No target leakage or invented source facts</td></tr>
+      <tr><td><code>*_parse_diagnostics.csv</code></td><td>Validation outcomes</td><td>No unexplained dropped rows</td></tr>
+    </tbody></table>
+  </section>
+
+  <section id="fit">
+    <h2><span class="chapter">08</span> Fit weights and predict</h2>
+    <p>At the start of fitting, all 12 valid support points have equal weight. Their simple average is the unweighted bank prediction. The optimizer then searches for a new nonnegative weight vector whose weighted average matches the recorded marginals for the held-in items, while the entropy penalty resists unnecessary movement away from equal weights.</p>
+    <p>Fit on all available items when the goal is a final calibrated synthetic population. Exclude an item when testing whether weights learned elsewhere transfer to an unseen target. In this example, the courts marginal is deliberately omitted; the police, parliament, and civil-service marginals determine the weights.</p>
+    <div class="block-label">Command</div>
+    <pre><code>umriss fit \
+  --support examples/trust_tutorial/run/banks/trust_coverage_n12_probabilities.csv \
+  --metadata examples/trust_tutorial/trust_metadata.json \
+  --exclude-item courts \
+  --tag trust_without_courts --out examples/trust_tutorial/run/fits</code></pre>
+    <details class="output-toggle"><summary>Show output (truncated)</summary><pre><code>{
+  "command": "umriss fit",
+  "status": "ok",
+  "data": {
+    "weights_path": "examples/trust_tutorial/run/fits/trust_without_courts_weights.csv",
+    "diagnostics_path": "examples/trust_tutorial/run/fits/trust_without_courts_fit_diagnostics.csv",
+    "predictions_path": "examples/trust_tutorial/run/fits/trust_without_courts_predictions.csv"
+  },
+  "warnings": [],
+  "errors": [],
+  "next_steps": []
+}
+… diagnostics truncated …</code></pre></details>
+    <p>The weights file contains one row per support point. The diagnostics explain how the optimizer arrived there. A low held-in residual means the weighted bank reproduces the targets used for fitting. Effective support, defined as the inverse sum of squared weights, describes concentration: a value near 12 resembles the equal-weight bank, while a value near 1 means one synthetic type dominates.</p>
+    <div class="block-label">Command</div>
+    <pre><code>umriss predict \
+  --support examples/trust_tutorial/run/banks/trust_coverage_n12_probabilities.csv \
+  --weights examples/trust_tutorial/run/fits/trust_without_courts_weights.csv \
+  --metadata examples/trust_tutorial/trust_metadata.json --item courts \
+  --out examples/trust_tutorial/run/fits/courts_prediction.csv</code></pre>
+    <details class="output-toggle"><summary>Show output</summary><pre><code>{
+  "command": "umriss predict",
+  "status": "ok",
+  "data": {
+    "path": "examples/trust_tutorial/run/fits/courts_prediction.csv",
+    "items": 1,
+    "rows": 3
+  },
+  "warnings": [],
+  "errors": [],
+  "next_steps": []
+}</code></pre></details>
+    <table><thead><tr><th>Courts option</th><th>Captured prediction</th><th>Held-out target</th></tr></thead><tbody>
+      <tr><td>A great deal</td><td>0.2081</td><td>0.2100</td></tr>
+      <tr><td>Some</td><td>0.6016</td><td>0.5500</td></tr>
+      <tr><td>Hardly any</td><td>0.1903</td><td>0.2400</td></tr>
+    </tbody></table>
+    <p><code>predict</code> performs no optimization and no model inference. It multiplies the fixed courts probability vector for each support point by the fitted weights and sums the result. The three output rows are the predicted population proportions for “a great deal,” “some,” and “hardly any.” Only after producing this prediction should it be compared with the withheld courts target.</p>
+    <p>Inspect held-in residuals alongside effective support. Very low residuals with nearly singular weights indicate interpolation by a few support rows, not a robust population representation. Conversely, diffuse weights with poor held-in fit can mean that the support bank does not span the observed targets.</p>
+  </section>
+
+  <section id="validate">
+    <h2><span class="chapter">09</span> Leave-one-item-out validation</h2>
+    <p>The manual courts holdout demonstrates one prediction. Leave-one-item-out evaluation automates the same procedure across the battery. For each item in turn, <code>umriss</code> hides its target vector, selects ρ using only the remaining targets, fits weights, predicts the hidden vector, and computes root mean squared error after revealing the truth.</p>
+    <p>Every holdout is compared with two inexpensive baselines. The <em>unweighted support bank</em> gives every synthetic type equal prevalence and asks whether calibration improved on the original broad bank. The <em>uniform response</em> baseline assigns equal probability to every answer option, such as one third per option in this example. These are different notions of uniformity: equal weights across twins versus equal probability across responses.</p>
+    <div class="block-label">Command</div>
+    <pre><code>umriss loo \
+  --support examples/trust_tutorial/run/banks/trust_coverage_n12_probabilities.csv \
+  --metadata examples/trust_tutorial/trust_metadata.json \
+  --tag trust_coverage_n12 --out examples/trust_tutorial/run/derived</code></pre>
+    <details class="output-toggle"><summary>Show output (truncated)</summary><pre><code>{
+  "command": "umriss loo",
+  "status": "ok",
+  "data": {
+    "detail_path": "examples/trust_tutorial/run/derived/trust_coverage_n12_generated_support_detail.csv",
+    "summary_path": "examples/trust_tutorial/run/derived/trust_coverage_n12_generated_support_summary.csv",
+    "diagnostics_path": "examples/trust_tutorial/run/derived/trust_coverage_n12_generated_support_diagnostics.csv",
+    "points_path": "examples/trust_tutorial/run/derived/trust_coverage_n12_generated_support_points.csv"
+  },
+  "warnings": [],
+  "errors": [],
+  "next_steps": []
+}
+… item-level diagnostics truncated …</code></pre></details>
+    <p>The detail table contains one row per holdout and method, including the predicted vector, true vector, and RMSE. The summary aggregates those errors by method. The diagnostics retain fit concentration for every fold, because a small average error is less reassuring if each holdout depends on a different near-degenerate set of weights.</p>
+    <table><thead><tr><th>Method</th><th>Mean held-out RMSE</th><th>Items</th></tr></thead><tbody>
+      <tr><td>Generated support mixture</td><td>0.0476</td><td>4</td></tr>
+      <tr><td>Equal-weight support bank</td><td>0.0588</td><td>4</td></tr>
+      <tr><td>Uniform response probabilities</td><td>0.1531</td><td>4</td></tr>
+    </tbody></table>
+    <table><thead><tr><th>Diagnostic</th><th>What it reveals</th><th>Warning sign</th></tr></thead><tbody>
+      <tr><td>Held-out error</td><td>Transfer to an unseen item</td><td>Worse than a declared simple baseline</td></tr>
+      <tr><td>Held-in residual</td><td>Ability to match supplied marginals</td><td>Large residual despite a diverse bank</td></tr>
+      <tr><td>Effective support</td><td>Weight concentration</td><td>Only a handful of profiles carry mass</td></tr>
+      <tr><td>Across-bank stability</td><td>Sensitivity to support assumptions</td><td>Conclusions reverse under plausible designs</td></tr>
+    </tbody></table>
+    <p>The scientific claim is not that the fitted marginals look close. The useful claim is that structure learned from some marginals predicts other marginals under a predeclared evaluation rule.</p>
+  </section>
+
+  <section id="report">
+    <h2><span class="chapter">10</span> Compare designs and report</h2>
+    <p>One support design cannot reveal how sensitive the result is to its own assumptions. Run the same targets and evaluation protocol with alternatives such as pattern coverage, latent axes, response-style variants, or a larger bank. Each design should be declared before comparing held-out results.</p>
+    <p>The comparison table aligns method-level errors from separate runs. It should include every planned bank, not only the best one. The captured command below records the completed pattern-coverage run. Add independently completed latent or response-style runs as additional <code>--run</code> arguments rather than inventing comparison rows.</p>
+    <div class="block-label">Command</div>
+    <pre><code>umriss compare \
+  --run 'trust_coverage_n12=TRUST:Pattern coverage' \
+  --derived examples/trust_tutorial/run/derived \
+  --out examples/trust_tutorial/run/derived/comparison.csv</code></pre>
+    <details class="output-toggle"><summary>Show output</summary><pre><code>{
+  "command": "umriss compare",
+  "status": "ok",
+  "data": {
+    "path": "examples/trust_tutorial/run/derived/comparison.csv",
+    "runs": 1,
+    "rows": 3,
+    "best": [{
+      "battery": "TRUST",
+      "bank": "Pattern coverage",
+      "method": "generated support mixture",
+      "mean_rmse": 0.0476020040931632
+    }]
+  },
+  "warnings": [],
+  "errors": [],
+  "next_steps": []
+}</code></pre></details>
+    <p>The compact Markdown report summarizes methods, calibration diagnostics, and support validity for one run. The larger report-data bundle then consolidates all discovered runs into normalized tables and a manifest suitable for a paper, notebook, or downstream reporting agent.</p>
+    <div class="block-label">Command</div>
+    <pre><code>umriss report --tag trust_coverage_n12 \
+  --derived examples/trust_tutorial/run/derived \
+  --out examples/trust_tutorial/run/derived/trust_coverage_n12.md</code></pre>
+    <details class="output-toggle"><summary>Show output</summary><pre><code>{
+  "command": "umriss report",
+  "status": "ok",
+  "data": {"path": "examples/trust_tutorial/run/derived/trust_coverage_n12.md"},
+  "warnings": [],
+  "errors": [],
+  "next_steps": []
+}</code></pre></details>
+    <div class="block-label">Command</div>
+    <pre><code>umriss report-data build \
+  --derived examples/trust_tutorial/run/derived --out examples/trust_tutorial/run/report_data</code></pre>
+    <details class="output-toggle"><summary>Show output (truncated)</summary><pre><code>{
+  "command": "umriss report-data build",
+  "status": "ok",
+  "data": {
+    "manifest_path": "examples/trust_tutorial/run/report_data/manifest.json",
+    "facts": {
+      "support_banks": 1,
+      "summary_rows": 3,
+      "detail_rows": 12,
+      "diagnostic_rows": 4
+    },
+    "outputs": {"support_bank_summary": "examples/trust_tutorial/run/report_data/support_bank_summary.csv", "…": "…"}
+  },
+  "warnings": [],
+  "errors": [],
+  "next_steps": []
+}
+… generated file list truncated …</code></pre></details>
+    <p>The report-data bundle includes normalized tables, diagnostic flags, support summaries, prose-safe facts, and a reproducibility manifest. Write interpretation from these outputs, while retaining source caveats and the non-identification of the joint distribution.</p>
+  </section>
+
+  <section id="agents">
+    <h2><span class="chapter">11</span> Operating umriss as an agent</h2>
+    <p>The package is designed so an agent can make progress without guessing the workflow. Start with <code>guide</code>, then call <code>next</code> after every durable stage. These commands identify the expected artifact transition; they do not replace substantive inspection of the targets, prompts, support coverage, or diagnostics.</p>
+    <div class="block-label">Command</div>
+    <pre><code>umriss guide workflow
+</code></pre>
+    <details class="output-toggle"><summary>Show output (truncated)</summary><pre><code>{
+  "command": "umriss guide",
+  "status": "ok",
+  "data": {
+    "topic": "workflow",
+    "summary": "End-to-end support-bank lifecycle.",
+    "steps": ["Inspect or create battery metadata.", "Compile prompt rows.", "…"]
+  },
+  "warnings": [],
+  "errors": [],
+  "next_steps": []
+}
+… guidance truncated …</code></pre></details>
+    <div class="block-label">Command</div>
+    <pre><code>umriss next \
+  --tag trust_coverage_n12 \
+  --metadata examples/trust_tutorial/trust_metadata.json \
+  --prompt-dir examples/trust_tutorial/run/prompts \
+  --raw-dir examples/trust_tutorial/run/raw \
+  --derived-dir examples/trust_tutorial/run/derived</code></pre>
+    <details class="output-toggle"><summary>Show output (truncated)</summary><pre><code>{
+  "command": "umriss next",
+  "status": "ok",
+  "data": {
+    "stage": "evaluate",
+    "recommendation": "umriss loo --support examples/trust_tutorial/run/banks/trust_coverage_n12_probabilities.csv --metadata examples/trust_tutorial/trust_metadata.json --tag trust_coverage_n12 --out examples/trust_tutorial/run/derived"
+  },
+  "warnings": [],
+  "errors": [],
+  "next_steps": []
+}
+… artifact status truncated …</code></pre></details>
+    <h3>Use structured output</h3>
+    <p>Branch on <code>status</code>, inspect <code>errors[].code</code>, and carry forward paths returned under <code>data</code>. Stop at the returned external run contract and register results only after the EDSL runtime has produced them.</p>
+    <h3>Inspect evidence and preserve provenance</h3>
+    <p>Read prompts, parse diagnostics, fit concentration, and held-out performance rather than checking only for file existence. Never overwrite source reports or conceal support-design changes between evaluations.</p>
+  </section>
+
+  <section id="checklist">
+    <h2><span class="chapter">12</span> Completion checklist</h2>
+    <ol>
+      <li>Record the report, population, field dates, weighting, question wording, and ordered options.</li>
+      <li>Validate that each marginal is complete, nonnegative, and normalized.</li>
+      <li>Declare support designs and random seeds before inspecting held-out results.</li>
+      <li>Inspect generated prompts and preserve the exact EDSL jobs and results objects.</li>
+      <li>Review parse failures and support diversity before fitting.</li>
+      <li>Report held-in fit, effective support, held-out accuracy, and design sensitivity together.</li>
+      <li>State clearly that the calibrated joint distribution is model-dependent and not identified by marginals alone.</li>
+      <li>Archive report tables and the reproducibility manifest with the final interpretation.</li>
+    </ol>
+    <p>A run is complete when another analyst can trace every reported number back through calibration weights, support probabilities, registered model results, prompts, design configuration, and source marginals.</p>
+  </section>
+
+  <footer>
+    <strong>umriss</strong> · An open-source Expected Parrot research tool for auditable digital twins from aggregate survey evidence.
+  </footer>
+</article></main>
+<script>
+  const nav = document.querySelector("nav");
+  const toggle = document.querySelector(".nav-toggle");
+  toggle.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(open));
+  });
+  document.querySelectorAll("pre").forEach((pre) => {
+    const code = pre.querySelector("code");
+    const text = code.textContent;
+    if (/^\s*(?:umriss|edsl|git|cd|pip|python)\b/.test(text)) {
+      pre.classList.add("command-code");
+      const pattern = /(--[\w-]+)|("[^"]*"|'[^']*')|\b(umriss|edsl|git|cd|pip|python)\b/g;
+      const fragment = document.createDocumentFragment();
+      let position = 0;
+      for (const match of text.matchAll(pattern)) {
+        fragment.append(document.createTextNode(text.slice(position, match.index)));
+        const span = document.createElement("span");
+        span.className = match[1] ? "syntax-option" : match[2] ? "syntax-string" : "syntax-program";
+        span.textContent = match[0];
+        fragment.append(span);
+        position = match.index + match[0].length;
+      }
+      fragment.append(document.createTextNode(text.slice(position)));
+      code.replaceChildren(fragment);
+    }
+    const button = document.createElement("button");
+    button.className = "copy";
+    button.type = "button";
+    button.textContent = "Copy";
+    button.addEventListener("click", async () => {
+      await navigator.clipboard.writeText(pre.querySelector("code").innerText);
+      button.textContent = "Copied";
+      setTimeout(() => button.textContent = "Copy", 1200);
+    });
+    pre.appendChild(button);
+  });
+  const updateProgress = () => {
+    const root = document.documentElement;
+    const distance = root.scrollHeight - root.clientHeight;
+    document.querySelector("#progress").style.width = `${distance ? root.scrollTop / distance * 100 : 0}%`;
+  };
+  document.addEventListener("scroll", updateProgress, {passive:true});
+  updateProgress();
+</script>
+</body>
+</html>

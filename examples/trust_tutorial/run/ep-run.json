@@ -1,0 +1,28 @@
+{
+  "status": "ok",
+  "data": {
+    "results": [],
+    "meta": {
+      "input_mode": "jobs",
+      "model_count": 1,
+      "agent_count": 1,
+      "scenario_count": 12,
+      "result_count": 12,
+      "n": 1,
+      "local": false,
+      "saved": {
+        "path": "examples/trust_tutorial/run/prompts/trust_coverage_n12.results.ep",
+        "format": "ep",
+        "object_type": "Results",
+        "commit": "708897214aded27b92d7652e662a80285ffbc8e8"
+      }
+    }
+  },
+  "warnings": [
+    {
+      "code": "SUPPRESSED_STDOUT",
+      "message": "Output emitted during job execution was captured to keep stdout as a single JSON envelope.",
+      "output": "Results UUID: a3e66e84-aced-4eba-b77b-05157cbedb80"
+    }
+  ]
+}

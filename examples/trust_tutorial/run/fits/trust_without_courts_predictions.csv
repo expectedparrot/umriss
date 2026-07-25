@@ -1,0 +1,13 @@
+tag,fit_id,item,option_index,option_code,option_label,prediction
+trust_without_courts,trust_without_courts,courts,0,1,A great deal,0.20807188870908783
+trust_without_courts,trust_without_courts,courts,1,2,Some,0.601591840796391
+trust_without_courts,trust_without_courts,courts,2,3,Hardly any,0.190336270494521
+trust_without_courts,trust_without_courts,parliament,0,1,A great deal,0.11679100719942395
+trust_without_courts,trust_without_courts,parliament,1,2,Some,0.46279489683919545
+trust_without_courts,trust_without_courts,parliament,2,3,Hardly any,0.42041409596138046
+trust_without_courts,trust_without_courts,police,0,1,A great deal,0.3379030428902021
+trust_without_courts,trust_without_courts,police,1,2,Some,0.48895873698701225
+trust_without_courts,trust_without_courts,police,2,3,Hardly any,0.17313822012278557
+trust_without_courts,trust_without_courts,civil_service,0,1,A great deal,0.18706779430884687
+trust_without_courts,trust_without_courts,civil_service,1,2,Some,0.5753933736206577
+trust_without_courts,trust_without_courts,civil_service,2,3,Hardly any,0.23753883207049528

@@ -1,0 +1,2 @@
+tag,fit_id,heldout_item,selected_rho,held_in_residual,effective_support,max_weight,top10_weight_share,n_support_valid,converged
+trust_without_courts,trust_without_courts,courts,0.0003,0.0035093923578333585,4.770989561365421,0.31385552191777427,0.9999982822917792,12,True

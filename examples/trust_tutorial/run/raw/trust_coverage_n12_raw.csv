@@ -1,0 +1,1253 @@
+agent.agent_index,agent.agent_instruction,agent.agent_name,answer.resp,cache_keys.resp_cache_key,comment.resp_comment,generated_tokens.resp_generated_tokens,iteration.iteration,model.frequency_penalty,model.inference_service,model.logprobs,model.max_tokens,model.model,model.model_index,model.presence_penalty,model.reasoning_effort,model.temperature,model.top_logprobs,model.top_p,prompt.resp_system_prompt,prompt.resp_user_prompt,question_options.resp_question_options,question_text.resp_question_text,question_type.resp_question_type,raw_model_response.resp_cost,raw_model_response.resp_input_price_per_million_tokens,raw_model_response.resp_input_tokens,raw_model_response.resp_one_usd_buys,raw_model_response.resp_output_price_per_million_tokens,raw_model_response.resp_output_tokens,raw_model_response.resp_raw_model_response,raw_model_response.resp_thinking_tokens,reasoning_summary.resp_reasoning_summary,scenario.job_id,scenario.prompt,scenario.scenario_index,validated.resp_validated
+0,You are answering questions as if you were a human. Do not break character.,Agent_0,"{
+  ""persona"": ""coherent response-pattern support point 1"",
+  ""probabilities"": {
+    ""courts"": [0.18, 0.68, 0.14],
+    ""parliament"": [0.11, 0.70, 0.19],
+    ""police"": [0.17, 0.66, 0.17],
+    ""civil_service"": [0.14, 0.72, 0.14]
+  }
+}",c4ef2ee324b4eab58951ee347e28ecb9,,"{
+  ""persona"": ""coherent response-pattern support point 1"",
+  ""probabilities"": {
+    ""courts"": [0.18, 0.68, 0.14],
+    ""parliament"": [0.11, 0.70, 0.19],
+    ""police"": [0.17, 0.66, 0.17],
+    ""civil_service"": [0.14, 0.72, 0.14]
+  }
+}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function. The target answer pattern
+below is a scaffold: construct a coherent respondent type whose experiences,
+beliefs, and response style make the pattern feel natural rather than random.
+
+Target answer-pattern scaffold:
+- courts: The courts -> Some
+- parliament: Parliament -> Some
+- police: The police -> Some
+- civil_service: The civil service -> Some
+
+Decision style:
+Use ordinary survey-response uncertainty.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. The scaffold should guide the direction of each
+item, but do not make probabilities exactly 0 or 1. Keep the profile coherent
+across items and allow middle probabilities for mixed views.
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""coherent response-pattern support point 1"",
+  ""probabilities"": {
+    ""courts"": [numbers in option order],
+    ""parliament"": [numbers in option order],
+    ""police"": [numbers in option order],
+    ""civil_service"": [numbers in option order]
+  }
+}",,{{ scenario.prompt }},free_text,0.0084,5.0,408,119.04761904761904,30.0,113,"{'id': 'chatcmpl-E5UdvgLdBjDju0DMa1wtDbZtW4CGz', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""persona"": ""coherent response-pattern support point 1"",\n  ""probabilities"": {\n    ""courts"": [0.18, 0.68, 0.14],\n    ""parliament"": [0.11, 0.70, 0.19],\n    ""police"": [0.17, 0.66, 0.17],\n    ""civil_service"": [0.14, 0.72, 0.14]\n  }\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1784978139, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 212, 'prompt_tokens': 408, 'total_tokens': 620, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 99, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",99,,trust_coverage_n12_001,"You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function. The target answer pattern
+below is a scaffold: construct a coherent respondent type whose experiences,
+beliefs, and response style make the pattern feel natural rather than random.
+
+Target answer-pattern scaffold:
+- courts: The courts -> Some
+- parliament: Parliament -> Some
+- police: The police -> Some
+- civil_service: The civil service -> Some
+
+Decision style:
+Use ordinary survey-response uncertainty.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. The scaffold should guide the direction of each
+item, but do not make probabilities exactly 0 or 1. Keep the profile coherent
+across items and allow middle probabilities for mixed views.
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""coherent response-pattern support point 1"",
+  ""probabilities"": {
+    ""courts"": [numbers in option order],
+    ""parliament"": [numbers in option order],
+    ""police"": [numbers in option order],
+    ""civil_service"": [numbers in option order]
+  }
+}",0,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_1,"{
+  ""persona"": ""coherent response-pattern support point 2"",
+  ""probabilities"": {
+    ""courts"": [0.03, 0.20, 0.77],
+    ""parliament"": [0.02, 0.14, 0.84],
+    ""police"": [0.04, 0.22, 0.74],
+    ""civil_service"": [0.03, 0.24, 0.73]
+  }
+}",4bf8d77689f42a91a73776906a426bfc,,"{
+  ""persona"": ""coherent response-pattern support point 2"",
+  ""probabilities"": {
+    ""courts"": [0.03, 0.20, 0.77],
+    ""parliament"": [0.02, 0.14, 0.84],
+    ""police"": [0.04, 0.22, 0.74],
+    ""civil_service"": [0.03, 0.24, 0.73]
+  }
+}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function. The target answer pattern
+below is a scaffold: construct a coherent respondent type whose experiences,
+beliefs, and response style make the pattern feel natural rather than random.
+
+Target answer-pattern scaffold:
+- courts: The courts -> Hardly any
+- parliament: Parliament -> Hardly any
+- police: The police -> Hardly any
+- civil_service: The civil service -> Hardly any
+
+Decision style:
+Use ordinary survey-response uncertainty.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. The scaffold should guide the direction of each
+item, but do not make probabilities exactly 0 or 1. Keep the profile coherent
+across items and allow middle probabilities for mixed views.
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""coherent response-pattern support point 2"",
+  ""probabilities"": {
+    ""courts"": [numbers in option order],
+    ""parliament"": [numbers in option order],
+    ""police"": [numbers in option order],
+    ""civil_service"": [numbers in option order]
+  }
+}",,{{ scenario.prompt }},free_text,0.00709,5.0,416,141.04372355430183,30.0,113,"{'id': 'chatcmpl-E5UdvEGzOoluLxye3qAFQqJUmcUx1', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""persona"": ""coherent response-pattern support point 2"",\n  ""probabilities"": {\n    ""courts"": [0.03, 0.20, 0.77],\n    ""parliament"": [0.02, 0.14, 0.84],\n    ""police"": [0.04, 0.22, 0.74],\n    ""civil_service"": [0.03, 0.24, 0.73]\n  }\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1784978139, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 167, 'prompt_tokens': 416, 'total_tokens': 583, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 54, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",54,,trust_coverage_n12_002,"You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function. The target answer pattern
+below is a scaffold: construct a coherent respondent type whose experiences,
+beliefs, and response style make the pattern feel natural rather than random.
+
+Target answer-pattern scaffold:
+- courts: The courts -> Hardly any
+- parliament: Parliament -> Hardly any
+- police: The police -> Hardly any
+- civil_service: The civil service -> Hardly any
+
+Decision style:
+Use ordinary survey-response uncertainty.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. The scaffold should guide the direction of each
+item, but do not make probabilities exactly 0 or 1. Keep the profile coherent
+across items and allow middle probabilities for mixed views.
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""coherent response-pattern support point 2"",
+  ""probabilities"": {
+    ""courts"": [numbers in option order],
+    ""parliament"": [numbers in option order],
+    ""police"": [numbers in option order],
+    ""civil_service"": [numbers in option order]
+  }
+}",1,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_2,"{
+  ""persona"": ""response-option coverage support point 3"",
+  ""probabilities"": {
+    ""courts"": [0.78, 0.19, 0.03],
+    ""parliament"": [0.21, 0.63, 0.16],
+    ""police"": [0.46, 0.45, 0.09],
+    ""civil_service"": [0.34, 0.56, 0.1]
+  }
+}",5bcf66156525876739685de5c53c5648,,"{
+  ""persona"": ""response-option coverage support point 3"",
+  ""probabilities"": {
+    ""courts"": [0.78, 0.19, 0.03],
+    ""parliament"": [0.21, 0.63, 0.16],
+    ""police"": [0.46, 0.45, 0.09],
+    ""civil_service"": [0.34, 0.56, 0.1]
+  }
+}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function.
+
+Response-region target:
+Create a coherent respondent type for whom the response option ""A great deal"" is
+natural on this item:
+courts: The courts
+
+Decision style:
+selective, applying the target response only where the item wording fits
+
+Apply the same underlying outlook consistently across the whole battery, but do
+not force ""A great deal"" on every item. The point of this support row is to make
+sure the bank has measured coverage of that response region when it is
+behaviorally plausible.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. Avoid exact 0/1 probabilities.
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""response-option coverage support point 3"",
+  ""probabilities"": {
+    ""courts"": [numbers in option order],
+    ""parliament"": [numbers in option order],
+    ""police"": [numbers in option order],
+    ""civil_service"": [numbers in option order]
+  }
+}",,{{ scenario.prompt }},free_text,0.00946,5.0,398,105.70824524312896,30.0,112,"{'id': 'chatcmpl-E5UdvmRhN2fBkJ7XEAZP53CvE8gpm', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""persona"": ""response-option coverage support point 3"",\n  ""probabilities"": {\n    ""courts"": [0.78, 0.19, 0.03],\n    ""parliament"": [0.21, 0.63, 0.16],\n    ""police"": [0.46, 0.45, 0.09],\n    ""civil_service"": [0.34, 0.56, 0.1]\n  }\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1784978139, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 249, 'prompt_tokens': 398, 'total_tokens': 647, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 137, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",137,,trust_coverage_n12_003,"You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function.
+
+Response-region target:
+Create a coherent respondent type for whom the response option ""A great deal"" is
+natural on this item:
+courts: The courts
+
+Decision style:
+selective, applying the target response only where the item wording fits
+
+Apply the same underlying outlook consistently across the whole battery, but do
+not force ""A great deal"" on every item. The point of this support row is to make
+sure the bank has measured coverage of that response region when it is
+behaviorally plausible.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. Avoid exact 0/1 probabilities.
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""response-option coverage support point 3"",
+  ""probabilities"": {
+    ""courts"": [numbers in option order],
+    ""parliament"": [numbers in option order],
+    ""police"": [numbers in option order],
+    ""civil_service"": [numbers in option order]
+  }
+}",2,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_3,"{""persona"":""response-option coverage support point 4"",""probabilities"":{""courts"":[0.04,0.24,0.72],""parliament"":[0.05,0.33,0.62],""police"":[0.08,0.49,0.43],""civil_service"":[0.07,0.55,0.38]}}",12ce58389c344e9548744176feba60e4,,"{""persona"":""response-option coverage support point 4"",""probabilities"":{""courts"":[0.04,0.24,0.72],""parliament"":[0.05,0.33,0.62],""police"":[0.08,0.49,0.43],""civil_service"":[0.07,0.55,0.38]}}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function.
+
+Response-region target:
+Create a coherent respondent type for whom the response option ""Hardly any"" is
+natural on this item:
+courts: The courts
+
+Decision style:
+response-scale calibrated, avoiding extremes unless strongly justified
+
+Apply the same underlying outlook consistently across the whole battery, but do
+not force ""Hardly any"" on every item. The point of this support row is to make
+sure the bank has measured coverage of that response region when it is
+behaviorally plausible.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. Avoid exact 0/1 probabilities.
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""response-option coverage support point 4"",
+  ""probabilities"": {
+    ""courts"": [numbers in option order],
+    ""parliament"": [numbers in option order],
+    ""police"": [numbers in option order],
+    ""civil_service"": [numbers in option order]
+  }
+}",,{{ scenario.prompt }},free_text,0.00824,5.0,394,121.35922330097088,30.0,84,"{'id': 'chatcmpl-E5UdvxyyCkw6Ad8j4wtJkM9nXoa6n', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""persona"":""response-option coverage support point 4"",""probabilities"":{""courts"":[0.04,0.24,0.72],""parliament"":[0.05,0.33,0.62],""police"":[0.08,0.49,0.43],""civil_service"":[0.07,0.55,0.38]}}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1784978139, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 209, 'prompt_tokens': 394, 'total_tokens': 603, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 125, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",125,,trust_coverage_n12_004,"You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function.
+
+Response-region target:
+Create a coherent respondent type for whom the response option ""Hardly any"" is
+natural on this item:
+courts: The courts
+
+Decision style:
+response-scale calibrated, avoiding extremes unless strongly justified
+
+Apply the same underlying outlook consistently across the whole battery, but do
+not force ""Hardly any"" on every item. The point of this support row is to make
+sure the bank has measured coverage of that response region when it is
+behaviorally plausible.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. Avoid exact 0/1 probabilities.
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""response-option coverage support point 4"",
+  ""probabilities"": {
+    ""courts"": [numbers in option order],
+    ""parliament"": [numbers in option order],
+    ""police"": [numbers in option order],
+    ""civil_service"": [numbers in option order]
+  }
+}",3,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_4,"{""persona"":""response-option coverage support point 5"",""probabilities"":{""courts"":[0.18,0.67,0.15],""parliament"":[0.08,0.40,0.52],""police"":[0.48,0.40,0.12],""civil_service"":[0.22,0.58,0.20]}}",9106d13ede3c94511f58c9fb6f06dcf2,,"{""persona"":""response-option coverage support point 5"",""probabilities"":{""courts"":[0.18,0.67,0.15],""parliament"":[0.08,0.40,0.52],""police"":[0.48,0.40,0.12],""civil_service"":[0.22,0.58,0.20]}}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function.
+
+Response-region target:
+Create a coherent respondent type for whom the response option ""Some"" is
+natural on this item:
+courts: The courts
+
+Decision style:
+cross-pressured, with mixed views across nearby items
+
+Apply the same underlying outlook consistently across the whole battery, but do
+not force ""Some"" on every item. The point of this support row is to make
+sure the bank has measured coverage of that response region when it is
+behaviorally plausible.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. Avoid exact 0/1 probabilities.
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""response-option coverage support point 5"",
+  ""probabilities"": {
+    ""courts"": [numbers in option order],
+    ""parliament"": [numbers in option order],
+    ""police"": [numbers in option order],
+    ""civil_service"": [numbers in option order]
+  }
+}",,{{ scenario.prompt }},free_text,0.01333,5.0,392,75.01875468867217,30.0,84,"{'id': 'chatcmpl-E5UdwvaozCMzG7JHJLqwEr7OmKp0b', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""persona"":""response-option coverage support point 5"",""probabilities"":{""courts"":[0.18,0.67,0.15],""parliament"":[0.08,0.40,0.52],""police"":[0.48,0.40,0.12],""civil_service"":[0.22,0.58,0.20]}}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1784978140, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 379, 'prompt_tokens': 392, 'total_tokens': 771, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 295, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",295,,trust_coverage_n12_005,"You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function.
+
+Response-region target:
+Create a coherent respondent type for whom the response option ""Some"" is
+natural on this item:
+courts: The courts
+
+Decision style:
+cross-pressured, with mixed views across nearby items
+
+Apply the same underlying outlook consistently across the whole battery, but do
+not force ""Some"" on every item. The point of this support row is to make
+sure the bank has measured coverage of that response region when it is
+behaviorally plausible.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. Avoid exact 0/1 probabilities.
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""response-option coverage support point 5"",
+  ""probabilities"": {
+    ""courts"": [numbers in option order],
+    ""parliament"": [numbers in option order],
+    ""police"": [numbers in option order],
+    ""civil_service"": [numbers in option order]
+  }
+}",4,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_5,"{
+  ""persona"": ""response-option coverage support point 6"",
+  ""probabilities"": {
+    ""courts"": [0.58, 0.36, 0.06],
+    ""parliament"": [0.78, 0.19, 0.03],
+    ""police"": [0.47, 0.43, 0.1],
+    ""civil_service"": [0.54, 0.39, 0.07]
+  }
+}",e3b6a6752cea38d53bdc0d9357a35dc8,,"{
+  ""persona"": ""response-option coverage support point 6"",
+  ""probabilities"": {
+    ""courts"": [0.58, 0.36, 0.06],
+    ""parliament"": [0.78, 0.19, 0.03],
+    ""police"": [0.47, 0.43, 0.1],
+    ""civil_service"": [0.54, 0.39, 0.07]
+  }
+}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function.
+
+Response-region target:
+Create a coherent respondent type for whom the response option ""A great deal"" is
+natural on this item:
+parliament: Parliament
+
+Decision style:
+high-conviction but not deterministic
+
+Apply the same underlying outlook consistently across the whole battery, but do
+not force ""A great deal"" on every item. The point of this support row is to make
+sure the bank has measured coverage of that response region when it is
+behaviorally plausible.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. Avoid exact 0/1 probabilities.
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""response-option coverage support point 6"",
+  ""probabilities"": {
+    ""courts"": [numbers in option order],
+    ""parliament"": [numbers in option order],
+    ""police"": [numbers in option order],
+    ""civil_service"": [numbers in option order]
+  }
+}",,{{ scenario.prompt }},free_text,0.008975,5.0,391,111.42061281337048,30.0,112,"{'id': 'chatcmpl-E5UdveullznSGNUIZ5gnhxN1GlSeT', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""persona"": ""response-option coverage support point 6"",\n  ""probabilities"": {\n    ""courts"": [0.58, 0.36, 0.06],\n    ""parliament"": [0.78, 0.19, 0.03],\n    ""police"": [0.47, 0.43, 0.1],\n    ""civil_service"": [0.54, 0.39, 0.07]\n  }\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1784978139, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 234, 'prompt_tokens': 391, 'total_tokens': 625, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 122, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",122,,trust_coverage_n12_006,"You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function.
+
+Response-region target:
+Create a coherent respondent type for whom the response option ""A great deal"" is
+natural on this item:
+parliament: Parliament
+
+Decision style:
+high-conviction but not deterministic
+
+Apply the same underlying outlook consistently across the whole battery, but do
+not force ""A great deal"" on every item. The point of this support row is to make
+sure the bank has measured coverage of that response region when it is
+behaviorally plausible.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. Avoid exact 0/1 probabilities.
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""response-option coverage support point 6"",
+  ""probabilities"": {
+    ""courts"": [numbers in option order],
+    ""parliament"": [numbers in option order],
+    ""police"": [numbers in option order],
+    ""civil_service"": [numbers in option order]
+  }
+}",5,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_6,"{
+  ""persona"": ""response-option coverage support point 7"",
+  ""probabilities"": {
+    ""courts"": [0.18, 0.58, 0.24],
+    ""parliament"": [0.08, 0.34, 0.58],
+    ""police"": [0.22, 0.55, 0.23],
+    ""civil_service"": [0.16, 0.57, 0.27]
+  }
+}",3234779db0788d56445902b4aafebed7,,"{
+  ""persona"": ""response-option coverage support point 7"",
+  ""probabilities"": {
+    ""courts"": [0.18, 0.58, 0.24],
+    ""parliament"": [0.08, 0.34, 0.58],
+    ""police"": [0.22, 0.55, 0.23],
+    ""civil_service"": [0.16, 0.57, 0.27]
+  }
+}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function.
+
+Response-region target:
+Create a coherent respondent type for whom the response option ""Hardly any"" is
+natural on this item:
+parliament: Parliament
+
+Decision style:
+moderate and somewhat ambivalent
+
+Apply the same underlying outlook consistently across the whole battery, but do
+not force ""Hardly any"" on every item. The point of this support row is to make
+sure the bank has measured coverage of that response region when it is
+behaviorally plausible.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. Avoid exact 0/1 probabilities.
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""response-option coverage support point 7"",
+  ""probabilities"": {
+    ""courts"": [numbers in option order],
+    ""parliament"": [numbers in option order],
+    ""police"": [numbers in option order],
+    ""civil_service"": [numbers in option order]
+  }
+}",,{{ scenario.prompt }},free_text,0.00954,5.0,390,104.82180293501048,30.0,112,"{'id': 'chatcmpl-E5UduhdwPaQ8yhmVXhJ7ZI4cbcxtW', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""persona"": ""response-option coverage support point 7"",\n  ""probabilities"": {\n    ""courts"": [0.18, 0.58, 0.24],\n    ""parliament"": [0.08, 0.34, 0.58],\n    ""police"": [0.22, 0.55, 0.23],\n    ""civil_service"": [0.16, 0.57, 0.27]\n  }\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1784978138, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 253, 'prompt_tokens': 390, 'total_tokens': 643, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 141, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",141,,trust_coverage_n12_007,"You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function.
+
+Response-region target:
+Create a coherent respondent type for whom the response option ""Hardly any"" is
+natural on this item:
+parliament: Parliament
+
+Decision style:
+moderate and somewhat ambivalent
+
+Apply the same underlying outlook consistently across the whole battery, but do
+not force ""Hardly any"" on every item. The point of this support row is to make
+sure the bank has measured coverage of that response region when it is
+behaviorally plausible.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. Avoid exact 0/1 probabilities.
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""response-option coverage support point 7"",
+  ""probabilities"": {
+    ""courts"": [numbers in option order],
+    ""parliament"": [numbers in option order],
+    ""police"": [numbers in option order],
+    ""civil_service"": [numbers in option order]
+  }
+}",6,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_7,"{""persona"":""response-option coverage support point 8"",""probabilities"":{""courts"":[0.42,0.50,0.08],""parliament"":[0.18,0.62,0.20],""police"":[0.78,0.20,0.02],""civil_service"":[0.30,0.58,0.12]}}",fe72d0675c17c01804ff95ac67a05211,,"{""persona"":""response-option coverage support point 8"",""probabilities"":{""courts"":[0.42,0.50,0.08],""parliament"":[0.18,0.62,0.20],""police"":[0.78,0.20,0.02],""civil_service"":[0.30,0.58,0.12]}}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function.
+
+Response-region target:
+Create a coherent respondent type for whom the response option ""A great deal"" is
+natural on this item:
+police: The police
+
+Decision style:
+selective, applying the target response only where the item wording fits
+
+Apply the same underlying outlook consistently across the whole battery, but do
+not force ""A great deal"" on every item. The point of this support row is to make
+sure the bank has measured coverage of that response region when it is
+behaviorally plausible.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. Avoid exact 0/1 probabilities.
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""response-option coverage support point 8"",
+  ""probabilities"": {
+    ""courts"": [numbers in option order],
+    ""parliament"": [numbers in option order],
+    ""police"": [numbers in option order],
+    ""civil_service"": [numbers in option order]
+  }
+}",,{{ scenario.prompt }},free_text,0.0073,5.0,398,136.986301369863,30.0,84,"{'id': 'chatcmpl-E5UdvXIi3aiFVEwnECx6SCREUvzGc', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""persona"":""response-option coverage support point 8"",""probabilities"":{""courts"":[0.42,0.50,0.08],""parliament"":[0.18,0.62,0.20],""police"":[0.78,0.20,0.02],""civil_service"":[0.30,0.58,0.12]}}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1784978139, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 177, 'prompt_tokens': 398, 'total_tokens': 575, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 93, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",93,,trust_coverage_n12_008,"You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function.
+
+Response-region target:
+Create a coherent respondent type for whom the response option ""A great deal"" is
+natural on this item:
+police: The police
+
+Decision style:
+selective, applying the target response only where the item wording fits
+
+Apply the same underlying outlook consistently across the whole battery, but do
+not force ""A great deal"" on every item. The point of this support row is to make
+sure the bank has measured coverage of that response region when it is
+behaviorally plausible.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. Avoid exact 0/1 probabilities.
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""response-option coverage support point 8"",
+  ""probabilities"": {
+    ""courts"": [numbers in option order],
+    ""parliament"": [numbers in option order],
+    ""police"": [numbers in option order],
+    ""civil_service"": [numbers in option order]
+  }
+}",7,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_8,"{""persona"":""response-option coverage support point 9"",""probabilities"":{""courts"":[0.10,0.50,0.40],""parliament"":[0.07,0.45,0.48],""police"":[0.05,0.27,0.68],""civil_service"":[0.12,0.58,0.30]}}",eb961e011554811dc1408c53db322b57,,"{""persona"":""response-option coverage support point 9"",""probabilities"":{""courts"":[0.10,0.50,0.40],""parliament"":[0.07,0.45,0.48],""police"":[0.05,0.27,0.68],""civil_service"":[0.12,0.58,0.30]}}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function.
+
+Response-region target:
+Create a coherent respondent type for whom the response option ""Hardly any"" is
+natural on this item:
+police: The police
+
+Decision style:
+response-scale calibrated, avoiding extremes unless strongly justified
+
+Apply the same underlying outlook consistently across the whole battery, but do
+not force ""Hardly any"" on every item. The point of this support row is to make
+sure the bank has measured coverage of that response region when it is
+behaviorally plausible.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. Avoid exact 0/1 probabilities.
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""response-option coverage support point 9"",
+  ""probabilities"": {
+    ""courts"": [numbers in option order],
+    ""parliament"": [numbers in option order],
+    ""police"": [numbers in option order],
+    ""civil_service"": [numbers in option order]
+  }
+}",,{{ scenario.prompt }},free_text,0.00857,5.0,394,116.68611435239208,30.0,84,"{'id': 'chatcmpl-E5UdvRLgdAS0f7BJcgeV2boRBqUt6', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""persona"":""response-option coverage support point 9"",""probabilities"":{""courts"":[0.10,0.50,0.40],""parliament"":[0.07,0.45,0.48],""police"":[0.05,0.27,0.68],""civil_service"":[0.12,0.58,0.30]}}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1784978139, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 220, 'prompt_tokens': 394, 'total_tokens': 614, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 136, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",136,,trust_coverage_n12_009,"You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function.
+
+Response-region target:
+Create a coherent respondent type for whom the response option ""Hardly any"" is
+natural on this item:
+police: The police
+
+Decision style:
+response-scale calibrated, avoiding extremes unless strongly justified
+
+Apply the same underlying outlook consistently across the whole battery, but do
+not force ""Hardly any"" on every item. The point of this support row is to make
+sure the bank has measured coverage of that response region when it is
+behaviorally plausible.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. Avoid exact 0/1 probabilities.
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""response-option coverage support point 9"",
+  ""probabilities"": {
+    ""courts"": [numbers in option order],
+    ""parliament"": [numbers in option order],
+    ""police"": [numbers in option order],
+    ""civil_service"": [numbers in option order]
+  }
+}",8,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_9,"{
+  ""persona"": ""response-option coverage support point 10"",
+  ""probabilities"": {
+    ""courts"": [0.32, 0.55, 0.13],
+    ""parliament"": [0.12, 0.43, 0.45],
+    ""police"": [0.18, 0.64, 0.18],
+    ""civil_service"": [0.24, 0.58, 0.18]
+  }
+}",4b156cc611883937937f796ed6240262,,"{
+  ""persona"": ""response-option coverage support point 10"",
+  ""probabilities"": {
+    ""courts"": [0.32, 0.55, 0.13],
+    ""parliament"": [0.12, 0.43, 0.45],
+    ""police"": [0.18, 0.64, 0.18],
+    ""civil_service"": [0.24, 0.58, 0.18]
+  }
+}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function.
+
+Response-region target:
+Create a coherent respondent type for whom the response option ""Some"" is
+natural on this item:
+police: The police
+
+Decision style:
+cross-pressured, with mixed views across nearby items
+
+Apply the same underlying outlook consistently across the whole battery, but do
+not force ""Some"" on every item. The point of this support row is to make
+sure the bank has measured coverage of that response region when it is
+behaviorally plausible.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. Avoid exact 0/1 probabilities.
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""response-option coverage support point 10"",
+  ""probabilities"": {
+    ""courts"": [numbers in option order],
+    ""parliament"": [numbers in option order],
+    ""police"": [numbers in option order],
+    ""civil_service"": [numbers in option order]
+  }
+}",,{{ scenario.prompt }},free_text,0.00943,5.0,392,106.04453870625662,30.0,112,"{'id': 'chatcmpl-E5Udv2fjhFel1PG93xKQBxVJh2x3u', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""persona"": ""response-option coverage support point 10"",\n  ""probabilities"": {\n    ""courts"": [0.32, 0.55, 0.13],\n    ""parliament"": [0.12, 0.43, 0.45],\n    ""police"": [0.18, 0.64, 0.18],\n    ""civil_service"": [0.24, 0.58, 0.18]\n  }\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1784978139, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 249, 'prompt_tokens': 392, 'total_tokens': 641, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 137, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",137,,trust_coverage_n12_010,"You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function.
+
+Response-region target:
+Create a coherent respondent type for whom the response option ""Some"" is
+natural on this item:
+police: The police
+
+Decision style:
+cross-pressured, with mixed views across nearby items
+
+Apply the same underlying outlook consistently across the whole battery, but do
+not force ""Some"" on every item. The point of this support row is to make
+sure the bank has measured coverage of that response region when it is
+behaviorally plausible.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. Avoid exact 0/1 probabilities.
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""response-option coverage support point 10"",
+  ""probabilities"": {
+    ""courts"": [numbers in option order],
+    ""parliament"": [numbers in option order],
+    ""police"": [numbers in option order],
+    ""civil_service"": [numbers in option order]
+  }
+}",9,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_10,"{""persona"":""response-option coverage support point 11"",""probabilities"":{""courts"":[0.48,0.45,0.07],""parliament"":[0.25,0.6,0.15],""police"":[0.42,0.48,0.1],""civil_service"":[0.78,0.2,0.02]}}",bcce42d64e72c5d6dfb3e7d2fe5ad076,,"{""persona"":""response-option coverage support point 11"",""probabilities"":{""courts"":[0.48,0.45,0.07],""parliament"":[0.25,0.6,0.15],""police"":[0.42,0.48,0.1],""civil_service"":[0.78,0.2,0.02]}}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function.
+
+Response-region target:
+Create a coherent respondent type for whom the response option ""A great deal"" is
+natural on this item:
+civil_service: The civil service
+
+Decision style:
+high-conviction but not deterministic
+
+Apply the same underlying outlook consistently across the whole battery, but do
+not force ""A great deal"" on every item. The point of this support row is to make
+sure the bank has measured coverage of that response region when it is
+behaviorally plausible.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. Avoid exact 0/1 probabilities.
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""response-option coverage support point 11"",
+  ""probabilities"": {
+    ""courts"": [numbers in option order],
+    ""parliament"": [numbers in option order],
+    ""police"": [numbers in option order],
+    ""civil_service"": [numbers in option order]
+  }
+}",,{{ scenario.prompt }},free_text,0.008565,5.0,393,116.75423234092236,30.0,84,"{'id': 'chatcmpl-E5UdvQOSTCZBbpQW8KqOtSAdSLHTa', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""persona"":""response-option coverage support point 11"",""probabilities"":{""courts"":[0.48,0.45,0.07],""parliament"":[0.25,0.6,0.15],""police"":[0.42,0.48,0.1],""civil_service"":[0.78,0.2,0.02]}}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1784978139, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 220, 'prompt_tokens': 393, 'total_tokens': 613, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 136, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",136,,trust_coverage_n12_011,"You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function.
+
+Response-region target:
+Create a coherent respondent type for whom the response option ""A great deal"" is
+natural on this item:
+civil_service: The civil service
+
+Decision style:
+high-conviction but not deterministic
+
+Apply the same underlying outlook consistently across the whole battery, but do
+not force ""A great deal"" on every item. The point of this support row is to make
+sure the bank has measured coverage of that response region when it is
+behaviorally plausible.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. Avoid exact 0/1 probabilities.
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""response-option coverage support point 11"",
+  ""probabilities"": {
+    ""courts"": [numbers in option order],
+    ""parliament"": [numbers in option order],
+    ""police"": [numbers in option order],
+    ""civil_service"": [numbers in option order]
+  }
+}",10,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_11,"{
+  ""persona"": ""response-option coverage support point 12"",
+  ""probabilities"": {
+    ""courts"": [0.18, 0.62, 0.20],
+    ""parliament"": [0.10, 0.52, 0.38],
+    ""police"": [0.16, 0.58, 0.26],
+    ""civil_service"": [0.07, 0.36, 0.57]
+  }
+}",da3c5ecd0cc7fa43c45286a78db9b4c3,,"{
+  ""persona"": ""response-option coverage support point 12"",
+  ""probabilities"": {
+    ""courts"": [0.18, 0.62, 0.20],
+    ""parliament"": [0.10, 0.52, 0.38],
+    ""police"": [0.16, 0.58, 0.26],
+    ""civil_service"": [0.07, 0.36, 0.57]
+  }
+}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function.
+
+Response-region target:
+Create a coherent respondent type for whom the response option ""Hardly any"" is
+natural on this item:
+civil_service: The civil service
+
+Decision style:
+moderate and somewhat ambivalent
+
+Apply the same underlying outlook consistently across the whole battery, but do
+not force ""Hardly any"" on every item. The point of this support row is to make
+sure the bank has measured coverage of that response region when it is
+behaviorally plausible.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. Avoid exact 0/1 probabilities.
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""response-option coverage support point 12"",
+  ""probabilities"": {
+    ""courts"": [numbers in option order],
+    ""parliament"": [numbers in option order],
+    ""police"": [numbers in option order],
+    ""civil_service"": [numbers in option order]
+  }
+}",,{{ scenario.prompt }},free_text,0.00796,5.0,392,125.6281407035176,30.0,112,"{'id': 'chatcmpl-E5Udv3kaoPKI6ZssCO5NvA5hsKcrd', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""persona"": ""response-option coverage support point 12"",\n  ""probabilities"": {\n    ""courts"": [0.18, 0.62, 0.20],\n    ""parliament"": [0.10, 0.52, 0.38],\n    ""police"": [0.16, 0.58, 0.26],\n    ""civil_service"": [0.07, 0.36, 0.57]\n  }\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1784978139, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 200, 'prompt_tokens': 392, 'total_tokens': 592, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 88, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",88,,trust_coverage_n12_012,"You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function.
+
+Response-region target:
+Create a coherent respondent type for whom the response option ""Hardly any"" is
+natural on this item:
+civil_service: The civil service
+
+Decision style:
+moderate and somewhat ambivalent
+
+Apply the same underlying outlook consistently across the whole battery, but do
+not force ""Hardly any"" on every item. The point of this support row is to make
+sure the bank has measured coverage of that response region when it is
+behaviorally plausible.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. Avoid exact 0/1 probabilities.
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""response-option coverage support point 12"",
+  ""probabilities"": {
+    ""courts"": [numbers in option order],
+    ""parliament"": [numbers in option order],
+    ""police"": [numbers in option order],
+    ""civil_service"": [numbers in option order]
+  }
+}",11,True

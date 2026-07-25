@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Test and tool caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Builds
+build/
+dist/
+
+# Local umriss state and secrets
+.umriss/
+.env
+.env.*
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/
+
+# Private, paper-specific research provenance retained only in this workspace.
+original_work/

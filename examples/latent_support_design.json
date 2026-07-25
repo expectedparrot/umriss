@@ -1,0 +1,48 @@
+{
+  "name": "w157_skillimp_latent",
+  "components": [
+    {
+      "type": "axes",
+      "name": "latent_axis_maximin",
+      "sampler": {
+        "method": "maximin",
+        "n": 96,
+        "seed": 20260625
+      },
+      "axes": {
+        "technology_orientation": [
+          "skeptical of new workplace technology and worried it displaces useful human skills",
+          "pragmatic about workplace technology, valuing it when it clearly helps",
+          "enthusiastic about new workplace technology and quick to see productivity gains"
+        ],
+        "ai_exposure": [
+          "little direct exposure to AI tools",
+          "occasional exposure to AI tools through news, coworkers, or simple work tasks",
+          "frequent hands-on exposure to AI tools in work or learning"
+        ],
+        "work_identity": [
+          "identifies most with manual, trade, repair, or physical work",
+          "identifies most with service, care, retail, or hospitality work",
+          "identifies most with office, professional, education, or management work",
+          "is not currently employed or is retired, and evaluates work from outside the current labor force"
+        ],
+        "skill_worldview": [
+          "believes basic reliability and communication matter more than specialized technical skills",
+          "believes both practical interpersonal skills and technical skills matter",
+          "believes advanced analytical and technical skills are increasingly decisive"
+        ],
+        "labor_market_security": [
+          "feels economically secure and confident about adapting to labor-market change",
+          "feels some uncertainty about future work opportunities",
+          "feels economically vulnerable and worried about being left behind"
+        ],
+        "career_stage": [
+          "early in working life",
+          "mid-career",
+          "late-career",
+          "outside the current workforce"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+support_id,job_id,variant,design_type,coverage_item,coverage_option,coverage_style,moment_dimension,persona,courts,parliament,police,civil_service
+1,trust_coverage_n12_001,pattern_anchor,,,,,8,,Some,Some,Some,Some
+2,trust_coverage_n12_002,pattern_anchor,,,,,8,,Hardly any,Hardly any,Hardly any,Hardly any
+3,trust_coverage_n12_003,option_coverage,,courts,A great deal,"selective, applying the target response only where the item wording fits",8,,,,,
+4,trust_coverage_n12_004,option_coverage,,courts,Hardly any,"response-scale calibrated, avoiding extremes unless strongly justified",8,,,,,
+5,trust_coverage_n12_005,option_coverage,,courts,Some,"cross-pressured, with mixed views across nearby items",8,,,,,
+6,trust_coverage_n12_006,option_coverage,,parliament,A great deal,high-conviction but not deterministic,8,,,,,
+7,trust_coverage_n12_007,option_coverage,,parliament,Hardly any,moderate and somewhat ambivalent,8,,,,,
+8,trust_coverage_n12_008,option_coverage,,police,A great deal,"selective, applying the target response only where the item wording fits",8,,,,,
+9,trust_coverage_n12_009,option_coverage,,police,Hardly any,"response-scale calibrated, avoiding extremes unless strongly justified",8,,,,,
+10,trust_coverage_n12_010,option_coverage,,police,Some,"cross-pressured, with mixed views across nearby items",8,,,,,
+11,trust_coverage_n12_011,option_coverage,,civil_service,A great deal,high-conviction but not deterministic,8,,,,,
+12,trust_coverage_n12_012,option_coverage,,civil_service,Hardly any,moderate and somewhat ambivalent,8,,,,,

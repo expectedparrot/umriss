@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>umriss | Rendered support prompts</title>
+  <style>
+    :root{--green:#428a5f;--dark:#214d35;--ink:#17201a;--muted:#667069;--paper:#f5f7f5;--rule:#dfe5e0;--code:#19231d;--sidebar:260px;--serif:Georgia,"Times New Roman",serif;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;--mono:"SFMono-Regular",Consolas,monospace}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--paper);font:16px/1.65 var(--sans)}
+    nav{position:fixed;inset:0 auto 0 0;width:var(--sidebar);overflow:auto;padding:26px 20px;background:var(--dark);color:#fff}
+    nav strong{display:block;margin-bottom:4px;font:22px var(--serif)}nav p{margin:0 0 22px;color:#bdd3c5;font-size:12px}
+    nav a{display:block;padding:6px 8px;color:#d5e9dc;text-decoration:none;border-radius:5px;font-size:13px}nav a:hover{color:#fff;background:#2d6244}
+    main{max-width:920px;margin-left:var(--sidebar);padding:52px 52px 100px;background:#fff}header{padding-bottom:34px;border-bottom:3px solid var(--green)}
+    h1,h2,h3{font-family:var(--serif);font-weight:600}h1{margin:0 0 12px;font-size:44px}h2{margin:70px 0 20px;padding-top:14px;color:var(--green);border-top:1px solid var(--rule)}h3{margin-top:28px}
+    .lede{max-width:740px;color:var(--muted);font-size:19px}table{width:100%;max-width:760px;border-collapse:collapse}th,td{padding:9px 11px;text-align:left;border-bottom:1px solid var(--rule)}thead th{color:#fff;background:var(--green)}.metadata th{width:180px;color:var(--dark);background:#f1f5f2}
+    code{font-family:var(--mono)}details{max-width:760px;margin:22px 0}summary{color:var(--green);font-weight:700;cursor:pointer}pre{overflow-x:hidden;padding:20px;color:#d8e3db;background:var(--code);border-radius:7px;white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.55 var(--mono)}
+    @media(max-width:850px){nav{position:static;width:auto}nav a{display:inline-block}main{margin:0;padding:32px 24px 80px}}
+  </style>
+</head>
+<body>
+<nav><strong>umriss prompts</strong><p>12 support points · T1_TRUST</p><a href="#support-1">1. pattern_anchor</a><a href="#support-2">2. pattern_anchor</a><a href="#support-3">3. option_coverage</a><a href="#support-4">4. option_coverage</a><a href="#support-5">5. option_coverage</a><a href="#support-6">6. option_coverage</a><a href="#support-7">7. option_coverage</a><a href="#support-8">8. option_coverage</a><a href="#support-9">9. option_coverage</a><a href="#support-10">10. option_coverage</a><a href="#support-11">11. option_coverage</a><a href="#support-12">12. option_coverage</a></nav>
+<main>
+  <header><h1>Rendered support prompts</h1>
+    <p class="lede">A readable view of <code>trust_coverage_n12.jsonl</code>. The JSONL remains the canonical machine-readable artifact; this page presents the same records for review.</p>
+  </header>
+  
+    <section id="support-1">
+      <h2>1. pattern_anchor</h2>
+      <table class="metadata"><tbody>
+        <tr><th>Job ID</th><td><code>trust_coverage_n12_001</code></td></tr>
+        <tr><th>Support ID</th><td>1</td></tr>
+        <tr><th>Battery</th><td>T1_TRUST</td></tr>
+        <tr><th>Moment dimension</th><td>8</td></tr>
+      </tbody></table>
+      
+      <h3>Intended response scaffold</h3>
+      <table><thead><tr><th>Item</th><th>Target region</th></tr></thead>
+        <tbody><tr><td>civil_service</td><td>Some</td></tr><tr><td>courts</td><td>Some</td></tr><tr><td>parliament</td><td>Some</td></tr><tr><td>police</td><td>Some</td></tr></tbody>
+      </table>
+      <details>
+        <summary>Show complete model prompt</summary>
+        <pre><code>You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function. The target answer pattern
+below is a scaffold: construct a coherent respondent type whose experiences,
+beliefs, and response style make the pattern feel natural rather than random.
+
+Target answer-pattern scaffold:
+- courts: The courts -&gt; Some
+- parliament: Parliament -&gt; Some
+- police: The police -&gt; Some
+- civil_service: The civil service -&gt; Some
+
+Decision style:
+Use ordinary survey-response uncertainty.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. The scaffold should guide the direction of each
+item, but do not make probabilities exactly 0 or 1. Keep the profile coherent
+across items and allow middle probabilities for mixed views.
+
+Return only valid JSON with exactly this schema:
+{
+  &quot;persona&quot;: &quot;coherent response-pattern support point 1&quot;,
+  &quot;probabilities&quot;: {
+    &quot;courts&quot;: [numbers in option order],
+    &quot;parliament&quot;: [numbers in option order],
+    &quot;police&quot;: [numbers in option order],
+    &quot;civil_service&quot;: [numbers in option order]
+  }
+}</code></pre>
+      </details>
+    </section>
+    
+    <section id="support-2">
+      <h2>2. pattern_anchor</h2>
+      <table class="metadata"><tbody>
+        <tr><th>Job ID</th><td><code>trust_coverage_n12_002</code></td></tr>
+        <tr><th>Support ID</th><td>2</td></tr>
+        <tr><th>Battery</th><td>T1_TRUST</td></tr>
+        <tr><th>Moment dimension</th><td>8</td></tr>
+      </tbody></table>
+      
+      <h3>Intended response scaffold</h3>
+      <table><thead><tr><th>Item</th><th>Target region</th></tr></thead>
+        <tbody><tr><td>civil_service</td><td>Hardly any</td></tr><tr><td>courts</td><td>Hardly any</td></tr><tr><td>parliament</td><td>Hardly any</td></tr><tr><td>police</td><td>Hardly any</td></tr></tbody>
+      </table>
+      <details>
+        <summary>Show complete model prompt</summary>
+        <pre><code>You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function. The target answer pattern
+below is a scaffold: construct a coherent respondent type whose experiences,
+beliefs, and response style make the pattern feel natural rather than random.
+
+Target answer-pattern scaffold:
+- courts: The courts -&gt; Hardly any
+- parliament: Parliament -&gt; Hardly any
+- police: The police -&gt; Hardly any
+- civil_service: The civil service -&gt; Hardly any
+
+Decision style:
+Use ordinary survey-response uncertainty.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. The scaffold should guide the direction of each
+item, but do not make probabilities exactly 0 or 1. Keep the profile coherent
+across items and allow middle probabilities for mixed views.
+
+Return only valid JSON with exactly this schema:
+{
+  &quot;persona&quot;: &quot;coherent response-pattern support point 2&quot;,
+  &quot;probabilities&quot;: {
+    &quot;courts&quot;: [numbers in option order],
+    &quot;parliament&quot;: [numbers in option order],
+    &quot;police&quot;: [numbers in option order],
+    &quot;civil_service&quot;: [numbers in option order]
+  }
+}</code></pre>
+      </details>
+    </section>
+    
+    <section id="support-3">
+      <h2>3. option_coverage</h2>
+      <table class="metadata"><tbody>
+        <tr><th>Job ID</th><td><code>trust_coverage_n12_003</code></td></tr>
+        <tr><th>Support ID</th><td>3</td></tr>
+        <tr><th>Battery</th><td>T1_TRUST</td></tr>
+        <tr><th>Moment dimension</th><td>8</td></tr>
+      </tbody></table>
+      <p><strong>Coverage target:</strong> courts → A great deal. <strong>Style:</strong> selective, applying the target response only where the item wording fits.</p>
+      <h3>Intended response scaffold</h3>
+      <table><thead><tr><th>Item</th><th>Target region</th></tr></thead>
+        <tbody><tr><td>courts</td><td>A great deal</td></tr></tbody>
+      </table>
+      <details>
+        <summary>Show complete model prompt</summary>
+        <pre><code>You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function.
+
+Response-region target:
+Create a coherent respondent type for whom the response option &quot;A great deal&quot; is
+natural on this item:
+courts: The courts
+
+Decision style:
+selective, applying the target response only where the item wording fits
+
+Apply the same underlying outlook consistently across the whole battery, but do
+not force &quot;A great deal&quot; on every item. The point of this support row is to make
+sure the bank has measured coverage of that response region when it is
+behaviorally plausible.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. Avoid exact 0/1 probabilities.
+
+Return only valid JSON with exactly this schema:
+{
+  &quot;persona&quot;: &quot;response-option coverage support point 3&quot;,
+  &quot;probabilities&quot;: {
+    &quot;courts&quot;: [numbers in option order],
+    &quot;parliament&quot;: [numbers in option order],
+    &quot;police&quot;: [numbers in option order],
+    &quot;civil_service&quot;: [numbers in option order]
+  }
+}</code></pre>
+      </details>
+    </section>
+    
+    <section id="support-4">
+      <h2>4. option_coverage</h2>
+      <table class="metadata"><tbody>
+        <tr><th>Job ID</th><td><code>trust_coverage_n12_004</code></td></tr>
+        <tr><th>Support ID</th><td>4</td></tr>
+        <tr><th>Battery</th><td>T1_TRUST</td></tr>
+        <tr><th>Moment dimension</th><td>8</td></tr>
+      </tbody></table>
+      <p><strong>Coverage target:</strong> courts → Hardly any. <strong>Style:</strong> response-scale calibrated, avoiding extremes unless strongly justified.</p>
+      <h3>Intended response scaffold</h3>
+      <table><thead><tr><th>Item</th><th>Target region</th></tr></thead>
+        <tbody><tr><td>courts</td><td>Hardly any</td></tr></tbody>
+      </table>
+      <details>
+        <summary>Show complete model prompt</summary>
+        <pre><code>You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function.
+
+Response-region target:
+Create a coherent respondent type for whom the response option &quot;Hardly any&quot; is
+natural on this item:
+courts: The courts
+
+Decision style:
+response-scale calibrated, avoiding extremes unless strongly justified
+
+Apply the same underlying outlook consistently across the whole battery, but do
+not force &quot;Hardly any&quot; on every item. The point of this support row is to make
+sure the bank has measured coverage of that response region when it is
+behaviorally plausible.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. Avoid exact 0/1 probabilities.
+
+Return only valid JSON with exactly this schema:
+{
+  &quot;persona&quot;: &quot;response-option coverage support point 4&quot;,
+  &quot;probabilities&quot;: {
+    &quot;courts&quot;: [numbers in option order],
+    &quot;parliament&quot;: [numbers in option order],
+    &quot;police&quot;: [numbers in option order],
+    &quot;civil_service&quot;: [numbers in option order]
+  }
+}</code></pre>
+      </details>
+    </section>
+    
+    <section id="support-5">
+      <h2>5. option_coverage</h2>
+      <table class="metadata"><tbody>
+        <tr><th>Job ID</th><td><code>trust_coverage_n12_005</code></td></tr>
+        <tr><th>Support ID</th><td>5</td></tr>
+        <tr><th>Battery</th><td>T1_TRUST</td></tr>
+        <tr><th>Moment dimension</th><td>8</td></tr>
+      </tbody></table>
+      <p><strong>Coverage target:</strong> courts → Some. <strong>Style:</strong> cross-pressured, with mixed views across nearby items.</p>
+      <h3>Intended response scaffold</h3>
+      <table><thead><tr><th>Item</th><th>Target region</th></tr></thead>
+        <tbody><tr><td>courts</td><td>Some</td></tr></tbody>
+      </table>
+      <details>
+        <summary>Show complete model prompt</summary>
+        <pre><code>You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function.
+
+Response-region target:
+Create a coherent respondent type for whom the response option &quot;Some&quot; is
+natural on this item:
+courts: The courts
+
+Decision style:
+cross-pressured, with mixed views across nearby items
+
+Apply the same underlying outlook consistently across the whole battery, but do
+not force &quot;Some&quot; on every item. The point of this support row is to make
+sure the bank has measured coverage of that response region when it is
+behaviorally plausible.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. Avoid exact 0/1 probabilities.
+
+Return only valid JSON with exactly this schema:
+{
+  &quot;persona&quot;: &quot;response-option coverage support point 5&quot;,
+  &quot;probabilities&quot;: {
+    &quot;courts&quot;: [numbers in option order],
+    &quot;parliament&quot;: [numbers in option order],
+    &quot;police&quot;: [numbers in option order],
+    &quot;civil_service&quot;: [numbers in option order]
+  }
+}</code></pre>
+      </details>
+    </section>
+    
+    <section id="support-6">
+      <h2>6. option_coverage</h2>
+      <table class="metadata"><tbody>
+        <tr><th>Job ID</th><td><code>trust_coverage_n12_006</code></td></tr>
+        <tr><th>Support ID</th><td>6</td></tr>
+        <tr><th>Battery</th><td>T1_TRUST</td></tr>
+        <tr><th>Moment dimension</th><td>8</td></tr>
+      </tbody></table>
+      <p><strong>Coverage target:</strong> parliament → A great deal. <strong>Style:</strong> high-conviction but not deterministic.</p>
+      <h3>Intended response scaffold</h3>
+      <table><thead><tr><th>Item</th><th>Target region</th></tr></thead>
+        <tbody><tr><td>parliament</td><td>A great deal</td></tr></tbody>
+      </table>
+      <details>
+        <summary>Show complete model prompt</summary>
+        <pre><code>You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function.
+
+Response-region target:
+Create a coherent respondent type for whom the response option &quot;A great deal&quot; is
+natural on this item:
+parliament: Parliament
+
+Decision style:
+high-conviction but not deterministic
+
+Apply the same underlying outlook consistently across the whole battery, but do
+not force &quot;A great deal&quot; on every item. The point of this support row is to make
+sure the bank has measured coverage of that response region when it is
+behaviorally plausible.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. Avoid exact 0/1 probabilities.
+
+Return only valid JSON with exactly this schema:
+{
+  &quot;persona&quot;: &quot;response-option coverage support point 6&quot;,
+  &quot;probabilities&quot;: {
+    &quot;courts&quot;: [numbers in option order],
+    &quot;parliament&quot;: [numbers in option order],
+    &quot;police&quot;: [numbers in option order],
+    &quot;civil_service&quot;: [numbers in option order]
+  }
+}</code></pre>
+      </details>
+    </section>
+    
+    <section id="support-7">
+      <h2>7. option_coverage</h2>
+      <table class="metadata"><tbody>
+        <tr><th>Job ID</th><td><code>trust_coverage_n12_007</code></td></tr>
+        <tr><th>Support ID</th><td>7</td></tr>
+        <tr><th>Battery</th><td>T1_TRUST</td></tr>
+        <tr><th>Moment dimension</th><td>8</td></tr>
+      </tbody></table>
+      <p><strong>Coverage target:</strong> parliament → Hardly any. <strong>Style:</strong> moderate and somewhat ambivalent.</p>
+      <h3>Intended response scaffold</h3>
+      <table><thead><tr><th>Item</th><th>Target region</th></tr></thead>
+        <tbody><tr><td>parliament</td><td>Hardly any</td></tr></tbody>
+      </table>
+      <details>
+        <summary>Show complete model prompt</summary>
+        <pre><code>You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function.
+
+Response-region target:
+Create a coherent respondent type for whom the response option &quot;Hardly any&quot; is
+natural on this item:
+parliament: Parliament
+
+Decision style:
+moderate and somewhat ambivalent
+
+Apply the same underlying outlook consistently across the whole battery, but do
+not force &quot;Hardly any&quot; on every item. The point of this support row is to make
+sure the bank has measured coverage of that response region when it is
+behaviorally plausible.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. Avoid exact 0/1 probabilities.
+
+Return only valid JSON with exactly this schema:
+{
+  &quot;persona&quot;: &quot;response-option coverage support point 7&quot;,
+  &quot;probabilities&quot;: {
+    &quot;courts&quot;: [numbers in option order],
+    &quot;parliament&quot;: [numbers in option order],
+    &quot;police&quot;: [numbers in option order],
+    &quot;civil_service&quot;: [numbers in option order]
+  }
+}</code></pre>
+      </details>
+    </section>
+    
+    <section id="support-8">
+      <h2>8. option_coverage</h2>
+      <table class="metadata"><tbody>
+        <tr><th>Job ID</th><td><code>trust_coverage_n12_008</code></td></tr>
+        <tr><th>Support ID</th><td>8</td></tr>
+        <tr><th>Battery</th><td>T1_TRUST</td></tr>
+        <tr><th>Moment dimension</th><td>8</td></tr>
+      </tbody></table>
+      <p><strong>Coverage target:</strong> police → A great deal. <strong>Style:</strong> selective, applying the target response only where the item wording fits.</p>
+      <h3>Intended response scaffold</h3>
+      <table><thead><tr><th>Item</th><th>Target region</th></tr></thead>
+        <tbody><tr><td>police</td><td>A great deal</td></tr></tbody>
+      </table>
+      <details>
+        <summary>Show complete model prompt</summary>
+        <pre><code>You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function.
+
+Response-region target:
+Create a coherent respondent type for whom the response option &quot;A great deal&quot; is
+natural on this item:
+police: The police
+
+Decision style:
+selective, applying the target response only where the item wording fits
+
+Apply the same underlying outlook consistently across the whole battery, but do
+not force &quot;A great deal&quot; on every item. The point of this support row is to make
+sure the bank has measured coverage of that response region when it is
+behaviorally plausible.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. Avoid exact 0/1 probabilities.
+
+Return only valid JSON with exactly this schema:
+{
+  &quot;persona&quot;: &quot;response-option coverage support point 8&quot;,
+  &quot;probabilities&quot;: {
+    &quot;courts&quot;: [numbers in option order],
+    &quot;parliament&quot;: [numbers in option order],
+    &quot;police&quot;: [numbers in option order],
+    &quot;civil_service&quot;: [numbers in option order]
+  }
+}</code></pre>
+      </details>
+    </section>
+    
+    <section id="support-9">
+      <h2>9. option_coverage</h2>
+      <table class="metadata"><tbody>
+        <tr><th>Job ID</th><td><code>trust_coverage_n12_009</code></td></tr>
+        <tr><th>Support ID</th><td>9</td></tr>
+        <tr><th>Battery</th><td>T1_TRUST</td></tr>
+        <tr><th>Moment dimension</th><td>8</td></tr>
+      </tbody></table>
+      <p><strong>Coverage target:</strong> police → Hardly any. <strong>Style:</strong> response-scale calibrated, avoiding extremes unless strongly justified.</p>
+      <h3>Intended response scaffold</h3>
+      <table><thead><tr><th>Item</th><th>Target region</th></tr></thead>
+        <tbody><tr><td>police</td><td>Hardly any</td></tr></tbody>
+      </table>
+      <details>
+        <summary>Show complete model prompt</summary>
+        <pre><code>You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function.
+
+Response-region target:
+Create a coherent respondent type for whom the response option &quot;Hardly any&quot; is
+natural on this item:
+police: The police
+
+Decision style:
+response-scale calibrated, avoiding extremes unless strongly justified
+
+Apply the same underlying outlook consistently across the whole battery, but do
+not force &quot;Hardly any&quot; on every item. The point of this support row is to make
+sure the bank has measured coverage of that response region when it is
+behaviorally plausible.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. Avoid exact 0/1 probabilities.
+
+Return only valid JSON with exactly this schema:
+{
+  &quot;persona&quot;: &quot;response-option coverage support point 9&quot;,
+  &quot;probabilities&quot;: {
+    &quot;courts&quot;: [numbers in option order],
+    &quot;parliament&quot;: [numbers in option order],
+    &quot;police&quot;: [numbers in option order],
+    &quot;civil_service&quot;: [numbers in option order]
+  }
+}</code></pre>
+      </details>
+    </section>
+    
+    <section id="support-10">
+      <h2>10. option_coverage</h2>
+      <table class="metadata"><tbody>
+        <tr><th>Job ID</th><td><code>trust_coverage_n12_010</code></td></tr>
+        <tr><th>Support ID</th><td>10</td></tr>
+        <tr><th>Battery</th><td>T1_TRUST</td></tr>
+        <tr><th>Moment dimension</th><td>8</td></tr>
+      </tbody></table>
+      <p><strong>Coverage target:</strong> police → Some. <strong>Style:</strong> cross-pressured, with mixed views across nearby items.</p>
+      <h3>Intended response scaffold</h3>
+      <table><thead><tr><th>Item</th><th>Target region</th></tr></thead>
+        <tbody><tr><td>police</td><td>Some</td></tr></tbody>
+      </table>
+      <details>
+        <summary>Show complete model prompt</summary>
+        <pre><code>You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function.
+
+Response-region target:
+Create a coherent respondent type for whom the response option &quot;Some&quot; is
+natural on this item:
+police: The police
+
+Decision style:
+cross-pressured, with mixed views across nearby items
+
+Apply the same underlying outlook consistently across the whole battery, but do
+not force &quot;Some&quot; on every item. The point of this support row is to make
+sure the bank has measured coverage of that response region when it is
+behaviorally plausible.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. Avoid exact 0/1 probabilities.
+
+Return only valid JSON with exactly this schema:
+{
+  &quot;persona&quot;: &quot;response-option coverage support point 10&quot;,
+  &quot;probabilities&quot;: {
+    &quot;courts&quot;: [numbers in option order],
+    &quot;parliament&quot;: [numbers in option order],
+    &quot;police&quot;: [numbers in option order],
+    &quot;civil_service&quot;: [numbers in option order]
+  }
+}</code></pre>
+      </details>
+    </section>
+    
+    <section id="support-11">
+      <h2>11. option_coverage</h2>
+      <table class="metadata"><tbody>
+        <tr><th>Job ID</th><td><code>trust_coverage_n12_011</code></td></tr>
+        <tr><th>Support ID</th><td>11</td></tr>
+        <tr><th>Battery</th><td>T1_TRUST</td></tr>
+        <tr><th>Moment dimension</th><td>8</td></tr>
+      </tbody></table>
+      <p><strong>Coverage target:</strong> civil_service → A great deal. <strong>Style:</strong> high-conviction but not deterministic.</p>
+      <h3>Intended response scaffold</h3>
+      <table><thead><tr><th>Item</th><th>Target region</th></tr></thead>
+        <tbody><tr><td>civil_service</td><td>A great deal</td></tr></tbody>
+      </table>
+      <details>
+        <summary>Show complete model prompt</summary>
+        <pre><code>You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function.
+
+Response-region target:
+Create a coherent respondent type for whom the response option &quot;A great deal&quot; is
+natural on this item:
+civil_service: The civil service
+
+Decision style:
+high-conviction but not deterministic
+
+Apply the same underlying outlook consistently across the whole battery, but do
+not force &quot;A great deal&quot; on every item. The point of this support row is to make
+sure the bank has measured coverage of that response region when it is
+behaviorally plausible.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. Avoid exact 0/1 probabilities.
+
+Return only valid JSON with exactly this schema:
+{
+  &quot;persona&quot;: &quot;response-option coverage support point 11&quot;,
+  &quot;probabilities&quot;: {
+    &quot;courts&quot;: [numbers in option order],
+    &quot;parliament&quot;: [numbers in option order],
+    &quot;police&quot;: [numbers in option order],
+    &quot;civil_service&quot;: [numbers in option order]
+  }
+}</code></pre>
+      </details>
+    </section>
+    
+    <section id="support-12">
+      <h2>12. option_coverage</h2>
+      <table class="metadata"><tbody>
+        <tr><th>Job ID</th><td><code>trust_coverage_n12_012</code></td></tr>
+        <tr><th>Support ID</th><td>12</td></tr>
+        <tr><th>Battery</th><td>T1_TRUST</td></tr>
+        <tr><th>Moment dimension</th><td>8</td></tr>
+      </tbody></table>
+      <p><strong>Coverage target:</strong> civil_service → Hardly any. <strong>Style:</strong> moderate and somewhat ambivalent.</p>
+      <h3>Intended response scaffold</h3>
+      <table><thead><tr><th>Item</th><th>Target region</th></tr></thead>
+        <tbody><tr><td>civil_service</td><td>Hardly any</td></tr></tbody>
+      </table>
+      <details>
+        <summary>Show complete model prompt</summary>
+        <pre><code>You are creating one synthetic support point for a marginal weighting exercise.
+
+Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
+Battery topic: institutional trust
+
+This support point is not a real person and not a demographic population
+segment. It is a measured behavioral basis function.
+
+Response-region target:
+Create a coherent respondent type for whom the response option &quot;Hardly any&quot; is
+natural on this item:
+civil_service: The civil service
+
+Decision style:
+moderate and somewhat ambivalent
+
+Apply the same underlying outlook consistently across the whole battery, but do
+not force &quot;Hardly any&quot; on every item. The point of this support row is to make
+sure the bank has measured coverage of that response region when it is
+behaviorally plausible.
+
+Question stem:
+How much confidence do you have in...
+
+Items and response options:
+- courts: The courts
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- parliament: Parliament
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- police: The police
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+- civil_service: The civil service
+  Options: 1. A great deal; 2. Some; 3. Hardly any
+
+Task:
+Return calibrated probabilities over the listed response options for this
+support point on every item. Avoid exact 0/1 probabilities.
+
+Return only valid JSON with exactly this schema:
+{
+  &quot;persona&quot;: &quot;response-option coverage support point 12&quot;,
+  &quot;probabilities&quot;: {
+    &quot;courts&quot;: [numbers in option order],
+    &quot;parliament&quot;: [numbers in option order],
+    &quot;police&quot;: [numbers in option order],
+    &quot;civil_service&quot;: [numbers in option order]
+  }
+}</code></pre>
+      </details>
+    </section>
+    
+</main>
+</body>
+</html>

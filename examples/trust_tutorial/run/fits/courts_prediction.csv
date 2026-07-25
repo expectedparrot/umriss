@@ -1,0 +1,4 @@
+item,option_index,option_code,option_label,prediction
+courts,0,1,A great deal,0.20807188870908774
+courts,1,2,Some,0.601591840796391
+courts,2,3,Hardly any,0.19033627049452104

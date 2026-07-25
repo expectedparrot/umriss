@@ -1,0 +1,2 @@
+tag,method,mean_rmse,median_rmse,max_rmse,items,n_support_valid,method_label
+trust_coverage_n12,generated support mixture,0.0476020040931632,0.0451623164420115,0.0717775110714945,4,12,Weighted support
