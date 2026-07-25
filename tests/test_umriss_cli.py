@@ -509,11 +509,150 @@ class UmrissCliTests(unittest.TestCase):
             write_json(metadata_path, mini_metadata())
             self.assertEqual(main(["support", "build", "--metadata", str(metadata_path), "--preset", "pattern-coverage", "--tag", "mini", "--out", str(root / "prompts")]), 0)
             jobs_path = root / "prompts" / "mini.jobs.ep"
-            self.assertEqual(main(["support", "export", "--prompts", str(root / "prompts" / "mini_prompts.jsonl"), "--path", str(jobs_path), "--limit", "1"]), 0)
+            self.assertEqual(main(["support", "export", "--prompts", str(root / "prompts" / "mini_prompts.jsonl"), "--path", str(jobs_path), "--model", "test", "--limit", "1"]), 0)
             self.assertTrue(jobs_path.exists())
             manifest = json.loads((root / "prompts" / "manifest.json").read_text())
             self.assertEqual(manifest["run_contract"]["owner"], "agent")
             self.assertTrue(manifest["run_command"].startswith("ep run --jobs "))
+
+    def test_baseline_jobs_enforce_leave_one_out_boundary_and_parse(self) -> None:
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            metadata_path = root / "metadata.json"
+            prompts_path = root / "demo_baseline_prompts.jsonl"
+            raw_path = root / "raw.csv"
+            write_json(metadata_path, mini_metadata())
+            self.assertEqual(
+                main(
+                    [
+                        "baseline",
+                        "build",
+                        "--metadata",
+                        str(metadata_path),
+                        "--mode",
+                        "both",
+                        "--tag",
+                        "demo",
+                        "--out",
+                        str(root),
+                    ]
+                ),
+                0,
+            )
+            prompts = [json.loads(line) for line in prompts_path.read_text().splitlines()]
+            self.assertEqual(len(prompts), 4)
+            conditioned_a = next(
+                row for row in prompts if row["mode"] == "conditioned_direct" and row["holdout"] == "a"
+            )
+            self.assertEqual(conditioned_a["held_in"], ["b"])
+            self.assertIn("[0.4, 0.6]", conditioned_a["prompt"])
+            self.assertNotIn("[0.7, 0.3]", conditioned_a["prompt"])
+            with raw_path.open("w", newline="") as handle:
+                writer = csv.DictWriter(handle, fieldnames=["scenario.job_id", "answer.resp"])
+                writer.writeheader()
+                for row in prompts:
+                    writer.writerow(
+                        {
+                            "scenario.job_id": row["job_id"],
+                            "answer.resp": json.dumps(
+                                {"reasoning_summary": "test", "probabilities": [0.6, 0.4]}
+                            ),
+                        }
+                    )
+            self.assertEqual(
+                main(
+                    [
+                        "baseline",
+                        "parse",
+                        "--raw",
+                        str(raw_path),
+                        "--prompts",
+                        str(prompts_path),
+                        "--metadata",
+                        str(metadata_path),
+                        "--tag",
+                        "demo",
+                        "--out",
+                        str(root / "parsed"),
+                    ]
+                ),
+                0,
+            )
+            self.assertTrue((root / "parsed" / "demo_one_shot.csv").exists())
+            self.assertTrue((root / "parsed" / "demo_conditioned_direct.csv").exists())
+
+    def test_plot_loo_uses_generated_run_artifacts(self) -> None:
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            repository = Path(__file__).resolve().parents[1]
+            self.assertEqual(
+                main(
+                    [
+                        "plot",
+                        "loo",
+                        "--derived",
+                        str(repository / "examples" / "pew_w154" / "run" / "derived"),
+                        "--tag",
+                        "pew_w154_diff1_uniform_n208",
+                        "--out",
+                        str(root),
+                    ]
+                ),
+                0,
+            )
+            manifest = json.loads((root / "pew_w154_diff1_uniform_n208_plots.json").read_text())
+            self.assertEqual(len(manifest["plots"]), 5)
+            self.assertTrue(all(Path(path).exists() for path in manifest["plots"].values()))
+
+    def test_export_edsl_twins_uses_persona_summaries_as_instructions(self) -> None:
+        with tempfile.TemporaryDirectory() as d:
+            from edsl import AgentList
+
+            root = Path(d)
+            points_path = root / "points.csv"
+            weights_path = root / "weights.csv"
+            agents_path = root / "twins.agents.ep"
+            pd.DataFrame(
+                [
+                    {"support_id": 1, "job_id": "j1", "profile_summary": "A cautious institutional reformer."},
+                    {"support_id": 2, "job_id": "j2", "profile_summary": "A confident defender of existing institutions."},
+                ]
+            ).to_csv(points_path, index=False)
+            pd.DataFrame(
+                [
+                    {"support_id": 1, "job_id": "j1", "holdout": "a", "weight": 0.75},
+                    {"support_id": 2, "job_id": "j2", "holdout": "a", "weight": 0.25},
+                ]
+            ).to_csv(weights_path, index=False)
+            self.assertEqual(
+                main(
+                    [
+                        "twins",
+                        "export-edsl",
+                        "--points",
+                        str(points_path),
+                        "--weights",
+                        str(weights_path),
+                        "--holdout",
+                        "a",
+                        "--path",
+                        str(agents_path),
+                    ]
+                ),
+                0,
+            )
+            agents = AgentList.git.load(str(agents_path))
+            self.assertEqual(
+                [agent.instruction for agent in agents],
+                [
+                    "A cautious institutional reformer.",
+                    "A confident defender of existing institutions.",
+                ],
+            )
+            self.assertEqual([agent.traits["_weight"] for agent in agents], [0.75, 0.25])
+            self.assertTrue(all("_weight" not in agent.prompt().text for agent in agents))
+            sidecar = pd.read_csv(root / "twins.agents_weights.csv")
+            self.assertEqual(sidecar["weight"].tolist(), [0.75, 0.25])
 
 
 if __name__ == "__main__":

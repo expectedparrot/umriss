@@ -1,0 +1,11 @@
+tag,fit_id,item,option_index,option_code,option_label,prediction
+pew_w154_full_fit,pew_w154_full_fit,hobbies,0,1,Men and women are basically similar,0.320015615730323
+pew_w154_full_fit,pew_w154_full_fit,hobbies,1,2,Men and women are basically different,0.6799843842696771
+pew_w154_full_fit,pew_w154_full_fit,physical_abilities,0,1,Men and women are basically similar,0.19083518314025508
+pew_w154_full_fit,pew_w154_full_fit,physical_abilities,1,2,Men and women are basically different,0.8091648168597451
+pew_w154_full_fit,pew_w154_full_fit,parenting,0,1,Men and women are basically similar,0.28766273602485004
+pew_w154_full_fit,pew_w154_full_fit,parenting,1,2,Men and women are basically different,0.7123372639751501
+pew_w154_full_fit,pew_w154_full_fit,feelings,0,1,Men and women are basically similar,0.11032140866064276
+pew_w154_full_fit,pew_w154_full_fit,feelings,1,2,Men and women are basically different,0.8896785913393573
+pew_w154_full_fit,pew_w154_full_fit,workplace,0,1,Men and women are basically similar,0.5724633402620928
+pew_w154_full_fit,pew_w154_full_fit,workplace,1,2,Men and women are basically different,0.4275366597379072

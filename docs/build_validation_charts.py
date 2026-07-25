@@ -15,13 +15,15 @@ COLORS = {
     "generated support mixture": "#2f7d57",
     "unconditioned one-shot": "#d97706",
     "structured two-step": "#8b5cf6",
+    "conditioned direct prediction": "#8b5cf6",
     "unweighted support bank": "#64748b",
     "uniform": "#cbd5e1",
 }
 LABELS = {
     "generated support mixture": "Marginally weighted twins",
     "unconditioned one-shot": "Direct one-shot",
-    "structured two-step": "Structured two-step",
+    "structured two-step": "Conditioned direct",
+    "conditioned direct prediction": "Conditioned direct",
     "unweighted support bank": "Unweighted support bank",
     "uniform": "Uniform",
 }

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import os
+import subprocess
 from contextlib import redirect_stdout
 from io import StringIO
 from pathlib import Path
@@ -8,6 +9,29 @@ from typing import Any
 
 from .errors import UmrissError
 from .jsonlio import read_jsonl, write_json
+
+
+def run_ep_jobs(jobs_path: Path, output_path: Path) -> dict[str, Any]:
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    command = ["ep", "run", "--jobs", str(jobs_path), "--output", str(output_path)]
+    try:
+        completed = subprocess.run(command, check=False)
+    except FileNotFoundError as exc:
+        raise UmrissError("ep_unavailable", "The `ep` executable is not on PATH.") from exc
+    if completed.returncode != 0:
+        raise UmrissError(
+            "ep_run_failed",
+            f"`ep run` exited with status {completed.returncode}.",
+            context={"command": command, "returncode": completed.returncode},
+        )
+    if not output_path.exists():
+        raise UmrissError("ep_run_failed", f"`ep run` did not create the expected result: {output_path}")
+    return {
+        "jobs_path": str(jobs_path),
+        "results_path": str(output_path),
+        "command": " ".join(command),
+        "returncode": completed.returncode,
+    }
 
 
 def export_support_jobs(
@@ -19,6 +43,7 @@ def export_support_jobs(
     temperature: float = 1.0,
     max_tokens: int = 2200,
     limit: int | None = None,
+    workflow: str = "support",
 ) -> dict[str, Any]:
     try:
         os.environ.setdefault("EDSL_LOG_DIR", str(path.parent / "edsl_logs"))
@@ -31,7 +56,7 @@ def export_support_jobs(
         rows = rows[:limit]
     scenarios = ScenarioList([Scenario({"job_id": row["job_id"], "prompt": row["prompt"]}) for row in rows])
     question = QuestionFreeText(question_name="resp", question_text="{{ scenario.prompt }}")
-    survey = Survey([question], name="umriss_support_generation")
+    survey = Survey([question], name=f"umriss_{workflow}_generation")
     models = []
     for spec in model or ["gpt-5.5"]:
         if ":" in spec:
@@ -51,7 +76,7 @@ def export_support_jobs(
             hint="Upgrade EDSL to a build that provides jobs.git.save() and Jobs.git.load().",
         )
     with redirect_stdout(StringIO()):
-        save = jobs.git.save(str(path), message="Create umriss support generation jobs")
+        save = jobs.git.save(str(path), message=f"Create umriss {workflow} generation jobs")
         jobs_path = save["path"]
         Jobs.git.load(jobs_path)
     results_path = path.with_name(path.name.replace(".jobs.ep", ".results.ep")) if path.name.endswith(".jobs.ep") else path.with_suffix(".results.ep")
@@ -71,7 +96,7 @@ def export_support_jobs(
         },
         "next_steps": [
             f"Run `ep run --jobs {jobs_path} --output {results_path}`.",
-            f"Run `umriss support register-results --results {results_path} --prompts {prompts_path}`.",
+            f"Run `umriss {workflow} register-results --results {results_path} --prompts {prompts_path}`.",
         ],
     }
     write_json(path.with_name("manifest.json"), manifest)

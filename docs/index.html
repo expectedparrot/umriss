@@ -336,6 +336,10 @@ probabilities:
       <tr><td>Workplace abilities</td><td>52.50% similar, 47.50% different</td><td>50%, 50%</td><td>2.50 points</td></tr>
     </tbody>
   </table>
+  <figure>
+    <img src="assets/pew_w154_diff1_uniform_n208_support_uniformity.svg" alt="Horizontal bars showing each item’s maximum deviation from a uniform equal-weight support marginal.">
+    <figcaption>This pre-calibration diagnostic comes from the accepted support bank. Physical abilities is the limiting item at 4.85 percentage points, just inside the declared five-point tolerance.</figcaption>
+  </figure>
 
   <h2>9. Estimate weights and test omitted items</h2>
   <p>Only now do the real Pew marginals enter. In each leave-one-out fold, four reported marginals jointly determine one weight vector over all 208 synthetic personas; the fifth marginal is withheld and predicted. The respondent microdata is not used in fitting or validation.</p>
@@ -343,9 +347,16 @@ probabilities:
   --support examples/pew_w154/run/banks/pew_w154_diff1_uniform_n208_probabilities.csv \
   --metadata examples/pew_w154/pew_w154_metadata.json \
   --one-shot examples/pew_w154/baselines/unconditioned_one_shot_gpt-5.5.csv \
-  --two-step examples/pew_w154/baselines/conditioned_two_step_gpt-5.5.csv \
+  --conditioned-direct examples/pew_w154/baselines/conditioned_two_step_gpt-5.5.csv \
   --tag pew_w154_diff1_uniform_n208 \
   --out examples/pew_w154/run/derived</code></pre>
+  <p>The LOO command writes the data needed for every validation figure: one row per method and holdout, method-level summaries, one fitted weight for every persona in every fold, fit diagnostics, and the equal-weight support check. The plots below are generated from those files by umriss itself:</p>
+  <pre><code>umriss plot loo \
+  --derived examples/pew_w154/run/derived \
+  --tag pew_w154_diff1_uniform_n208 \
+  --out docs/assets \
+  --format svg</code></pre>
+  <p>This writes five figures plus a JSON manifest recording their source directory and filenames. PNG and PDF are available through the same command.</p>
   <h3>What “held out” means</h3>
   <p>When hobbies is held out, its real 32–68 marginal is absent from the optimization. One shared weight vector is selected to match physical abilities, parenting, feelings, and workplace abilities jointly. The hobbies prediction is then the weighted average of the personas’ already-recorded hobbies probabilities. The same operation is repeated five times, withholding a different target each time.</p>
   <p>The held-out target is therefore completely unseeded: neither its percentage nor respondent-level correlations are available to the fit. The question itself is not unseen. Its wording and each support persona’s response probabilities were fixed when the target-free support bank was built. This distinction prevents a stronger claim than the experiment supports.</p>
@@ -368,14 +379,14 @@ probabilities:
   \]
   <p>The target entropy \(H(p)\) is irreducible and identical across methods for a given item. Thus method comparisons in cross-entropy are exactly comparisons in KL divergence. Cross-entropy remains useful because it has the direct interpretation of expected log loss; KL isolates only the avoidable excess.</p>
   <figure>
-    <img src="assets/loo-summary.svg" alt="Bar charts comparing mean held-out RMSE and KL divergence across five prediction methods.">
-    <figcaption>Average performance across five completely omitted marginals. Lower is better. Bars are generated from the checked-in LOO detail file.</figcaption>
+    <img src="assets/pew_w154_diff1_uniform_n208_method_comparison.svg" alt="Bar charts comparing mean held-out RMSE and KL divergence across five prediction methods.">
+    <figcaption>Average performance across five completely omitted marginals. Lower is better. The figure is generated directly by <code>umriss plot loo</code> from the LOO summary artifact.</figcaption>
   </figure>
   <table>
     <thead><tr><th>Method</th><th>Mean RMSE</th><th>Mean KL</th><th>Mean cross-entropy</th></tr></thead>
     <tbody>
       <tr><td>Direct one-shot</td><td>0.06020</td><td>0.01206</td><td>0.56053</td></tr>
-      <tr><td>Structured two-step</td><td>0.10420</td><td>0.03840</td><td>0.58687</td></tr>
+      <tr><td>Conditioned direct prediction</td><td>0.10420</td><td>0.03840</td><td>0.58687</td></tr>
       <tr><td>Marginally weighted twins</td><td>0.13124</td><td>0.06568</td><td>0.61415</td></tr>
       <tr><td>Unweighted support bank</td><td>0.21191</td><td>0.12259</td><td>0.67106</td></tr>
       <tr><td>Uniform response</td><td>0.23292</td><td>0.14468</td><td>0.69315</td></tr>
@@ -383,8 +394,9 @@ probabilities:
   </table>
   <p>The marginally weighted twins clearly beat alternatives that do not use the other four reported marginals. Relative to an exact 50–50 guess, mean RMSE falls by 44 percent and mean KL divergence falls by 55 percent. They also improve substantially on leaving the accepted support bank unweighted. That is the evidence that jointly fitting the other marginals transfers information to a target whose true marginal was never supplied.</p>
   <p>They do not beat the strongest direct baseline in this battery. A GPT-5.5 one-shot prediction made from the held-out question wording alone has mean RMSE 0.060 and mean KL 0.012, versus 0.131 and 0.066 for the weighted twins. That baseline is unseeded by survey percentages, but it carries a strong model prior about familiar gender-attitude questions. The result should be reported as a limitation, not hidden by comparing only with uniform.</p>
+  <p>There is also a contamination caveat. Pew Research Center surveys are prominent, widely reported, and extensively discussed online. A frontier model may have encountered the questionnaire, published toplines, news coverage, or closely related results during pretraining or subsequent model development. We do not know that this occurred for these exact marginals, but the possibility is material. The one-shot result is therefore a useful operational benchmark for what a frontier model can produce, not a clean test of prediction for genuinely unseen survey data. This is not a reason to omit the baseline; it is a reason to avoid interpreting its unusually strong performance as evidence of uncontaminated generalization.</p>
   <figure>
-    <img src="assets/loo-by-item.svg" alt="Grouped horizontal bars comparing held-out RMSE by item for marginally weighted twins, direct one-shot prediction, and a uniform baseline.">
+    <img src="assets/pew_w154_diff1_uniform_n208_holdout_by_item.svg" alt="Grouped horizontal bars comparing held-out RMSE by item for marginally weighted twins, direct predictions, and unweighted baselines.">
     <figcaption>The mixture beats direct one-shot on parenting and workplace abilities, is close on hobbies, and loses substantially on physical abilities and expression of feelings. The poor feelings prediction drives the mixture’s maximum error.</figcaption>
   </figure>
   <p>For parenting, the weighted twins reduce RMSE from 0.072 for direct one-shot to 0.057. For workplace abilities they reduce it from 0.107 to 0.095. Hobbies is close: 0.029 versus 0.020. Physical abilities and feelings reveal the failure mode. The four held-in marginals lead the weights to predict too much “similar” probability on those omitted items, producing RMSEs of 0.163 and 0.312. Those are substantive errors in the learned cross-item structure, even though the held-in residuals are small.</p>
@@ -400,7 +412,59 @@ probabilities:
     </tbody>
   </table>
   <p>These are mixture coefficients for synthetic support profiles, not estimated population shares of literal persona categories. The concentration diagnostics matter: a large bank can still produce a fit that relies on only a handful of rows.</p>
+  <figure>
+    <img src="assets/pew_w154_diff1_uniform_n208_weight_diagnostics.svg" alt="Two panels showing effective persona support and the share of weight carried by the ten largest personas in every leave-one-out fold.">
+    <figcaption>Effective support translates each unequal weight vector into the equivalent number of equally weighted personas. The adjacent panel exposes concentration directly through the top-ten weight share.</figcaption>
+  </figure>
+  <figure>
+    <img src="assets/pew_w154_diff1_uniform_n208_persona_weights.svg" alt="Heatmap of the most influential persona weights across the five leave-one-out folds.">
+    <figcaption>The thirty personas with the largest weight in any fold. Columns are separate fits, not a single population estimate: changing the omitted marginal changes which response profiles can jointly reproduce the remaining four targets.</figcaption>
+  </figure>
   <p>Passing the uniform and diversity preflight is necessary for interpreting this test. It does not guarantee that the synthetic profiles encode the correct cross-item relationships, as the physical-abilities and feelings results demonstrate.</p>
+
+  <h2>10. Export the fitted digital twins to EDSL</h2>
+  <p>The five LOO weight vectors answer validation questions; each deliberately omits a different real marginal. They are not the population to deploy. For export, fit one final weight vector using all five reported Pew marginals:</p>
+  <pre><code>umriss fit \
+  --support examples/pew_w154/run/banks/pew_w154_diff1_uniform_n208_probabilities.csv \
+  --metadata examples/pew_w154/pew_w154_metadata.json \
+  --tag pew_w154_full_fit \
+  --out examples/pew_w154/run/full_fit</code></pre>
+  <table>
+    <thead><tr><th>Argument</th><th>Meaning</th></tr></thead>
+    <tbody>
+      <tr><td><code>--support</code></td><td>The accepted 208-persona probability bank.</td></tr>
+      <tr><td><code>--metadata</code></td><td>Supplies all five real population marginals. No item is held out in this deployment fit.</td></tr>
+      <tr><td><code>--tag</code>, <code>--out</code></td><td>Name and location for the final weights, predictions, and fit diagnostics.</td></tr>
+    </tbody>
+  </table>
+  <p>The resulting coefficients sum to one and describe how much population mass each synthetic profile carries. Export them with the persona summaries recorded during the three support-generation rounds:</p>
+  <pre><code>umriss twins export-edsl \
+  --points examples/pew_w154/run/uniform_n96/bank/pew_w154_diff1_uniform_n96_points.csv \
+  --points examples/pew_w154/run/uniform_repair_r1/bank/pew_w154_diff1_uniform_repair_r1_points.csv \
+  --points examples/pew_w154/run/uniform_repair_r2/bank/pew_w154_diff1_uniform_repair_r2_points.csv \
+  --weights examples/pew_w154/run/full_fit/pew_w154_full_fit_weights.csv \
+  --path examples/pew_w154/run/full_fit/pew_w154_full_fit.agents.ep</code></pre>
+  <table>
+    <thead><tr><th>Argument</th><th>Meaning</th></tr></thead>
+    <tbody>
+      <tr><td><code>--points</code></td><td>May be repeated. These files supply the persona summaries; stable job IDs reconnect summaries to rows after support banks have been merged and renumbered.</td></tr>
+      <tr><td><code>--weights</code></td><td>The single full-data mixture produced above. A multi-fold LOO file instead requires an explicit <code>--holdout</code>.</td></tr>
+      <tr><td><code>--path</code></td><td>A git-backed EDSL <code>AgentList</code> package. Umriss saves it with <code>agents.git.save()</code> and verifies it with <code>AgentList.git.load()</code>.</td></tr>
+      <tr><td><code>--minimum-weight</code></td><td>Optional pruning threshold. Retained coefficients are renormalized and the discarded mass is recorded in the manifest.</td></tr>
+    </tbody>
+  </table>
+  <p>EDSL has no built-in survey-weight field or weighted <code>AgentList.sample()</code>. It does, however, treat every underscore-prefixed trait as hidden metadata: the value is serialized but excluded from the model prompt. Umriss therefore stores the coefficient as <code>_weight</code>, also writes a CSV sidecar, and leaves weighted sampling to the consumer.</p>
+  <h3>What one exported agent contains</h3>
+  <p>This is the highest-weight agent in the real five-marginal fit:</p>
+  <table>
+    <tbody>
+      <tr><th>Name</th><td><code>umriss_95</code></td></tr>
+      <tr><th>Instruction</th><td>This response pattern emphasizes perceived gender differences across personal interests, physical abilities, parenting styles, and emotional expression, while viewing men and women as largely similar in workplace competencies.</td></tr>
+      <tr><th>Hidden traits</th><td><code>_weight: 0.101780</code>, <code>_umriss_support_id: 95</code>, <code>_umriss_job_id: pew_w154_diff1_uniform_n96_095</code></td></tr>
+      <tr><th>Visible traits</th><td>None</td></tr>
+    </tbody>
+  </table>
+  <p>The instruction is only the persona. It contains no support-design rationale, target marginal, probability-vector schema, or request to predict response probabilities. The hidden fields preserve provenance and population weight without influencing the agent’s answers.</p>
 
   <h2>Flexibility without hidden assumptions</h2>
   <p>Experts can edit coherence, intensities, anchors, partial coverage, probability constraints, or add user-authored profiles. A custom Jinja template is also allowed with <code>prompt.validation: strict</code>. It must still contain every item, preserve option order, request the configured summary field, and state the probability and sum-to-one contract.</p>

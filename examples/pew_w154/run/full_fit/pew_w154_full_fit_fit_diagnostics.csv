@@ -1,0 +1,2 @@
+tag,fit_id,heldout_item,selected_rho,held_in_residual,effective_support,max_weight,top10_weight_share,n_support_valid,converged
+pew_w154_full_fit,pew_w154_full_fit,,0.0003,0.000336791595000855,22.640835177566036,0.10177999668210252,0.5754204595259695,208,False

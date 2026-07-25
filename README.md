@@ -15,6 +15,82 @@ respondents in Pew Research Center's American Trends Panel Wave 154. The
 microdata is used only to construct aggregate targets; leave-one-out validation
 fits four marginals and predicts the omitted fifth marginal.
 
+## Direct-prediction baselines
+
+Umriss can construct and run both direct baselines used in leave-one-out
+evaluation. A one-shot job sees only the omitted item. A conditioned-direct job
+sees the real marginals for every held-in item, but never the omitted marginal.
+
+```bash
+umriss baseline build \
+  --metadata examples/pew_w154/pew_w154_metadata.json \
+  --mode both --tag pew_w154_baselines --out run/baselines
+
+umriss baseline export \
+  --prompts run/baselines/pew_w154_baselines_baseline_prompts.jsonl \
+  --path run/baselines/pew_w154_baselines.jobs.ep \
+  --model gpt-5.5
+
+umriss baseline run \
+  --jobs run/baselines/pew_w154_baselines.jobs.ep \
+  --output run/baselines/pew_w154_baselines.results.ep
+```
+
+Register and strictly parse the results before passing the resulting
+`*_one_shot.csv` and `*_conditioned_direct.csv` files to `umriss loo`.
+
+## Plot a leave-one-out run
+
+`umriss loo` writes the canonical data behind the plots: per-item predictions
+and errors, method summaries, fit diagnostics, fold-specific persona weights,
+and pre-calibration support-uniformity measurements. Generate the associated
+figures directly:
+
+```bash
+umriss plot loo \
+  --derived examples/pew_w154/run/derived \
+  --tag pew_w154_diff1_uniform_n208 \
+  --out run/plots \
+  --format svg
+```
+
+This writes five figures and a JSON manifest: method comparison, error by
+omitted item, effective-support and weight-concentration diagnostics,
+fold-specific persona weights, and equal-weight support uniformity. SVG, PNG,
+and PDF output are supported.
+
+## Export the fitted twins to EDSL
+
+Validation uses a different weight vector for every omitted marginal. For a
+deployable twin population, first fit all reported marginals:
+
+```bash
+umriss fit \
+  --support examples/pew_w154/run/banks/pew_w154_diff1_uniform_n208_probabilities.csv \
+  --metadata examples/pew_w154/pew_w154_metadata.json \
+  --tag pew_w154_full_fit \
+  --out run/full_fit
+```
+
+Then export an EDSL `AgentList`:
+
+```bash
+umriss twins export-edsl \
+  --points examples/pew_w154/run/uniform_n96/bank/pew_w154_diff1_uniform_n96_points.csv \
+  --points examples/pew_w154/run/uniform_repair_r1/bank/pew_w154_diff1_uniform_repair_r1_points.csv \
+  --points examples/pew_w154/run/uniform_repair_r2/bank/pew_w154_diff1_uniform_repair_r2_points.csv \
+  --weights run/full_fit/pew_w154_full_fit_weights.csv \
+  --path run/full_fit/pew_w154_full_fit.agents.ep
+```
+
+Each EDSL agent’s instruction is exactly its generated persona summary. The
+support-generation and probability-elicitation instructions are not exported.
+Its normalized mixture coefficient is bundled as the hidden `_weight` trait and
+also written to a CSV sidecar keyed by agent name. EDSL serializes
+underscore-prefixed traits but excludes them from model prompts; it does not
+automatically use `_weight` when sampling an `AgentList`. Both the `AgentList`
+and its manifest are round-trip verified when written.
+
 ## Install
 
 ```bash

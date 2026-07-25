@@ -146,7 +146,7 @@ def run_loo(
         if holdout in one_shot:
             methods.append(("unconditioned one-shot", one_shot[holdout]))
         if holdout in conditioned:
-            methods.append(("structured two-step", conditioned[holdout]))
+            methods.append(("conditioned direct prediction", conditioned[holdout]))
         for method, vec in methods:
             rows.append(
                 {

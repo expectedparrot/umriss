@@ -18,8 +18,9 @@ from .artifacts import (
     write_report,
 )
 from .balancing import build_uniform_augmentation, merge_support_banks, write_uniformity
+from .baselines import build_baseline_prompts, parse_baseline_results
 from .calibration import fit_weights, load_support_matrix, write_fit_outputs
-from .ep_commands import export_support_jobs
+from .ep_commands import export_support_jobs, run_ep_jobs
 from .errors import UmrissError
 from .evaluation import run_loo
 from .jsonlio import read_json
@@ -35,6 +36,7 @@ from .metadata import (
     write_marginals_long,
 )
 from .parsing import parse_support, register_results
+from .plotting import plot_loo
 from .state import (
     active_project_id,
     create_project,
@@ -51,6 +53,7 @@ from .support_designs import (
     validate_design,
     write_support_outputs,
 )
+from .twin_export import export_edsl_agents
 
 
 def envelope(
@@ -240,6 +243,52 @@ def cmd_support_parse(args: argparse.Namespace) -> dict[str, Any]:
     return envelope("umriss support parse", "ok", data)
 
 
+def cmd_baseline_build(args: argparse.Namespace) -> dict[str, Any]:
+    metadata = read_json(Path(args.metadata))
+    data = build_baseline_prompts(
+        metadata,
+        args.tag,
+        Path(args.out),
+        mode=args.mode,
+        respondents_path=Path(args.respondents) if args.respondents else None,
+    )
+    return envelope("umriss baseline build", "ok", data)
+
+
+def cmd_baseline_export(args: argparse.Namespace) -> dict[str, Any]:
+    data = export_support_jobs(
+        Path(args.prompts),
+        Path(args.path),
+        model=args.model,
+        service_name=args.service_name,
+        temperature=args.temperature,
+        max_tokens=args.max_tokens,
+        workflow="baseline",
+    )
+    return envelope("umriss baseline export", "ok", data, next_steps=data.get("next_steps", []))
+
+
+def cmd_baseline_register_results(args: argparse.Namespace) -> dict[str, Any]:
+    data = register_results(Path(args.results), Path(args.prompts), args.tag, Path(args.out))
+    return envelope("umriss baseline register-results", "ok", data)
+
+
+def cmd_baseline_run(args: argparse.Namespace) -> dict[str, Any]:
+    data = run_ep_jobs(Path(args.jobs), Path(args.output))
+    return envelope("umriss baseline run", "ok", data)
+
+
+def cmd_baseline_parse(args: argparse.Namespace) -> dict[str, Any]:
+    data = parse_baseline_results(
+        Path(args.raw),
+        Path(args.prompts),
+        read_json(Path(args.metadata)),
+        args.tag,
+        Path(args.out),
+    )
+    return envelope("umriss baseline parse", "ok", data)
+
+
 def cmd_support_inspect(args: argparse.Namespace) -> dict[str, Any]:
     data = inspect_artifact(
         prompts=Path(args.prompts) if args.prompts else None,
@@ -318,7 +367,7 @@ def cmd_loo(args: argparse.Namespace) -> dict[str, Any]:
             support_path=Path(args.support) if args.support else None,
             respondents_path=Path(args.respondents) if args.respondents else None,
             one_shot_path=Path(args.one_shot) if args.one_shot else None,
-            two_step_path=Path(args.two_step) if args.two_step else None,
+            two_step_path=Path(args.conditioned_direct) if args.conditioned_direct else None,
             rho_values=args.rho,
             uniform_tolerance=args.uniform_tolerance,
             max_duplicate_fraction=args.max_duplicate_fraction,
@@ -342,6 +391,17 @@ def cmd_predict(args: argparse.Namespace) -> dict[str, Any]:
     return envelope("umriss predict", "ok", data)
 
 
+def cmd_twins_export_edsl(args: argparse.Namespace) -> dict[str, Any]:
+    data = export_edsl_agents(
+        [Path(path) for path in args.points],
+        Path(args.weights),
+        Path(args.path),
+        holdout=args.holdout,
+        minimum_weight=args.minimum_weight,
+    )
+    return envelope("umriss twins export-edsl", "ok", data)
+
+
 def cmd_compare(args: argparse.Namespace) -> dict[str, Any]:
     if args.recipe == "battery-designed":
         data = battery_designed_recipe(Path(args.derived), Path(args.out))
@@ -360,6 +420,17 @@ def cmd_report(args: argparse.Namespace) -> dict[str, Any]:
 def cmd_report_data_build(args: argparse.Namespace) -> dict[str, Any]:
     data = build_report_data(Path(args.derived), Path(args.out))
     return envelope("umriss report-data build", "ok", data)
+
+
+def cmd_plot_loo(args: argparse.Namespace) -> dict[str, Any]:
+    data = plot_loo(
+        Path(args.derived),
+        args.tag,
+        Path(args.out),
+        image_format=args.format,
+        top_personas=args.top_personas,
+    )
+    return envelope("umriss plot loo", "ok", data)
 
 
 def cmd_guide(args: argparse.Namespace) -> dict[str, Any]:
@@ -556,6 +627,40 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--out", required=True)
     p.set_defaults(func=cmd_support_merge)
 
+    baseline = sub.add_parser("baseline").add_subparsers(dest="baseline_command", required=True)
+    p = baseline.add_parser("build")
+    p.add_argument("--metadata", required=True)
+    p.add_argument("--respondents")
+    p.add_argument("--mode", choices=["one_shot", "conditioned_direct", "both"], default="both")
+    p.add_argument("--tag", required=True)
+    p.add_argument("--out", required=True)
+    p.set_defaults(func=cmd_baseline_build)
+    p = baseline.add_parser("export")
+    p.add_argument("--prompts", required=True)
+    p.add_argument("--path", required=True)
+    p.add_argument("--model", action="append")
+    p.add_argument("--service-name")
+    p.add_argument("--temperature", type=float, default=1.0)
+    p.add_argument("--max-tokens", type=int, default=1200)
+    p.set_defaults(func=cmd_baseline_export)
+    p = baseline.add_parser("run")
+    p.add_argument("--jobs", required=True)
+    p.add_argument("--output", required=True)
+    p.set_defaults(func=cmd_baseline_run)
+    p = baseline.add_parser("register-results")
+    p.add_argument("--results", required=True)
+    p.add_argument("--prompts", required=True)
+    p.add_argument("--tag", required=True)
+    p.add_argument("--out", required=True)
+    p.set_defaults(func=cmd_baseline_register_results)
+    p = baseline.add_parser("parse")
+    p.add_argument("--raw", required=True)
+    p.add_argument("--prompts", required=True)
+    p.add_argument("--metadata", required=True)
+    p.add_argument("--tag", required=True)
+    p.add_argument("--out", required=True)
+    p.set_defaults(func=cmd_baseline_parse)
+
     p = sub.add_parser("fit")
     p.add_argument("--support", required=True)
     p.add_argument("--metadata", required=True)
@@ -573,7 +678,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--metadata", required=True)
     p.add_argument("--respondents")
     p.add_argument("--one-shot")
-    p.add_argument("--two-step")
+    p.add_argument("--conditioned-direct")
     p.add_argument("--rho", nargs="+", type=float, default=[0.0003, 0.001, 0.003, 0.01, 0.03])
     p.add_argument("--uniform-tolerance", type=float, default=0.05)
     p.add_argument("--max-duplicate-fraction", type=float, default=0.05)
@@ -590,6 +695,15 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--item", action="append")
     p.add_argument("--out", required=True)
     p.set_defaults(func=cmd_predict)
+
+    twins = sub.add_parser("twins").add_subparsers(dest="twins_command", required=True)
+    p = twins.add_parser("export-edsl")
+    p.add_argument("--points", action="append", required=True)
+    p.add_argument("--weights", required=True)
+    p.add_argument("--holdout")
+    p.add_argument("--minimum-weight", type=float, default=0.0)
+    p.add_argument("--path", required=True)
+    p.set_defaults(func=cmd_twins_export_edsl)
 
     p = sub.add_parser("compare")
     p.add_argument("--run", action="append")
@@ -610,6 +724,15 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--derived", required=True)
     p.add_argument("--out", required=True)
     p.set_defaults(func=cmd_report_data_build)
+
+    plot = sub.add_parser("plot").add_subparsers(dest="plot_command", required=True)
+    p = plot.add_parser("loo")
+    p.add_argument("--derived", required=True)
+    p.add_argument("--tag", required=True)
+    p.add_argument("--out", required=True)
+    p.add_argument("--format", choices=["svg", "png", "pdf"], default="svg")
+    p.add_argument("--top-personas", type=int, default=30)
+    p.set_defaults(func=cmd_plot_loo)
 
     p = sub.add_parser("guide")
     guide_topics = ["workflow", "designs", "ep-boundary", "paper-rewrite", "diagnostics"]

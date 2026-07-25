@@ -1,0 +1,20 @@
+{
+  "definitions": {
+    "holdout_by_item": "RMSE for every method and completely omitted survey item.",
+    "method_comparison": "Mean held-out RMSE and KL divergence across leave-one-out folds.",
+    "persona_weights": "Fold-specific mixture weights for the most influential generated personas.",
+    "support_uniformity": "Distance of the unweighted support bank from uniform item marginals.",
+    "weight_diagnostics": "Effective support and concentration of fitted persona weights."
+  },
+  "format": "svg",
+  "kind": "umriss_loo_plots",
+  "plots": {
+    "holdout_by_item": "docs/assets/pew_w154_diff1_uniform_n208_holdout_by_item.svg",
+    "method_comparison": "docs/assets/pew_w154_diff1_uniform_n208_method_comparison.svg",
+    "persona_weights": "docs/assets/pew_w154_diff1_uniform_n208_persona_weights.svg",
+    "support_uniformity": "docs/assets/pew_w154_diff1_uniform_n208_support_uniformity.svg",
+    "weight_diagnostics": "docs/assets/pew_w154_diff1_uniform_n208_weight_diagnostics.svg"
+  },
+  "source_dir": "examples/pew_w154/run/derived",
+  "tag": "pew_w154_diff1_uniform_n208"
+}
