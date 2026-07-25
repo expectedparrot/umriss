@@ -44,20 +44,16 @@ def export_support_jobs(
         models.append(Model(model_name, **kwargs))
     jobs = Jobs(survey=survey, scenarios=scenarios, models=ModelList(models))
     path.parent.mkdir(parents=True, exist_ok=True)
+    if not hasattr(jobs, "git") or not hasattr(Jobs, "git"):
+        raise UmrissError(
+            "edsl_outdated",
+            "This EDSL installation does not support git-backed .ep packages.",
+            hint="Upgrade EDSL to a build that provides jobs.git.save() and Jobs.git.load().",
+        )
     with redirect_stdout(StringIO()):
-        if hasattr(jobs, "git"):
-            save = jobs.git.save(str(path), message="Create umriss support generation jobs")
-            jobs_path = save["path"]
-        else:
-            jobs.save(str(path), compress=False)
-            appended = Path(str(path) + ".json")
-            # EDSL writes to "<path>.json"; move it onto the requested path name,
-            # OVERWRITING any pre-existing file. The previous `not path.exists()`
-            # guard silently kept a stale job (and its model) when re-exporting to
-            # an existing target, e.g. to switch models.
-            if appended.exists():
-                os.replace(str(appended), str(path))
-            jobs_path = str(path)
+        save = jobs.git.save(str(path), message="Create umriss support generation jobs")
+        jobs_path = save["path"]
+        Jobs.git.load(jobs_path)
     results_path = path.with_name(path.name.replace(".jobs.ep", ".results.ep")) if path.name.endswith(".jobs.ep") else path.with_suffix(".results.ep")
     manifest = {
         "save_format": "edsl_ep",

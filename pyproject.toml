@@ -8,25 +8,26 @@ version = "0.1.0"
 description = "Agent-facing CLI for building digital twins from reported survey marginals."
 readme = "README.md"
 requires-python = ">=3.11"
-license = { file = "LICENSE" }
+license = "MIT"
+license-files = ["LICENSE"]
 authors = [{ name = "John Joseph Horton" }]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Environment :: Console",
   "Intended Audience :: Science/Research",
-  "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3 :: Only",
   "Topic :: Scientific/Engineering",
 ]
 dependencies = [
   "numpy>=1.24",
   "pandas>=2.0",
+  "Jinja2>=3.1",
   "PyYAML>=6.0",
   "scipy>=1.10",
 ]
 
 [project.optional-dependencies]
-edsl = ["edsl>=1.0.8"]
+edsl = ["edsl @ git+https://github.com/expectedparrot/edsl.git@eac96cba21c10cd75ccb5de58073f96599efa3ba"]
 test = ["pytest>=8.0"]
 dev = ["pytest>=8.0", "ruff>=0.6"]
 

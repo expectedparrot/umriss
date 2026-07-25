@@ -1,0 +1,21 @@
+{
+  "jobs": "examples/pew_w154/run/pew_w154_diff1_n12.jobs.ep",
+  "models": [
+    "gpt-5.5"
+  ],
+  "next_steps": [
+    "Run `ep run --jobs examples/pew_w154/run/pew_w154_diff1_n12.jobs.ep --output examples/pew_w154/run/pew_w154_diff1_n12.results.ep`.",
+    "Run `umriss support register-results --results examples/pew_w154/run/pew_w154_diff1_n12.results.ep --prompts examples/pew_w154/run/pew_w154_diff1_n12_prompts.jsonl`."
+  ],
+  "prompts": "examples/pew_w154/run/pew_w154_diff1_n12_prompts.jsonl",
+  "results": "examples/pew_w154/run/pew_w154_diff1_n12.results.ep",
+  "run_command": "ep run --jobs examples/pew_w154/run/pew_w154_diff1_n12.jobs.ep --output examples/pew_w154/run/pew_w154_diff1_n12.results.ep",
+  "run_contract": {
+    "expected_results_path": "examples/pew_w154/run/pew_w154_diff1_n12.results.ep",
+    "jobs_path": "examples/pew_w154/run/pew_w154_diff1_n12.jobs.ep",
+    "owner": "agent",
+    "run_command": "ep run --jobs examples/pew_w154/run/pew_w154_diff1_n12.jobs.ep --output examples/pew_w154/run/pew_w154_diff1_n12.results.ep"
+  },
+  "save_format": "edsl_ep",
+  "scenarios": 12
+}

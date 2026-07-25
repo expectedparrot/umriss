@@ -43,14 +43,13 @@ def normalized_vec(value: Any, k: int) -> tuple[np.ndarray | None, dict[str, Any
         arr = np.array(value, dtype=float)
     except Exception:
         return None, diag
-    arr = np.clip(arr, 0, None)
     diag["min_probability"] = float(arr.min()) if len(arr) else None
     diag["max_probability"] = float(arr.max()) if len(arr) else None
     total = float(arr.sum())
     diag["raw_sum"] = total
-    if total <= 0:
+    if (arr < 0).any() or not np.isclose(total, 1.0, atol=1e-5):
         return None, diag
-    return arr / total, diag
+    return arr, diag
 
 
 def read_raw_rows(path: Path) -> list[dict[str, Any]]:
@@ -77,12 +76,18 @@ def parse_support(raw_path: Path, metadata: dict[str, Any], tag: str, out_dir: P
         raw_text = row.get("answer.resp") or row.get("response") or ""
         parsed = extract_json(str(raw_text))
         support_id = row.get("support_id") or row.get("scenario.support_id") or idx + 1
-        point = {"support_id": support_id, "job_id": job_id, "variant": row.get("variant", ""), "persona": "", "valid": False}
+        point = {
+            "support_id": support_id,
+            "job_id": job_id,
+            "variant": row.get("variant", ""),
+            "profile_summary": "",
+            "valid": False,
+        }
         if not parsed or not isinstance(parsed.get("probabilities"), dict):
             diagnostics.append({"job_id": job_id, "support_id": support_id, "status": "invalid", "code": "probability_json_invalid", "message": "Could not parse probabilities object.", "item": "", "raw_sum": "", "min_probability": "", "max_probability": ""})
             points.append(point)
             continue
-        point["persona"] = parsed.get("persona", "")
+        point["profile_summary"] = parsed.get("profile_summary", "")
         item_vecs: dict[str, np.ndarray] = {}
         valid = True
         for item in items:
@@ -90,7 +95,17 @@ def parse_support(raw_path: Path, metadata: dict[str, Any], tag: str, out_dir: P
             vec, diag = normalized_vec(parsed["probabilities"].get(item), k)
             if vec is None:
                 valid = False
-                diagnostics.append({"job_id": job_id, "support_id": support_id, "status": "invalid", "code": "probability_length_mismatch", "message": f"Invalid vector for item {item}.", "item": item, **diag})
+                diagnostics.append(
+                    {
+                        "job_id": job_id,
+                        "support_id": support_id,
+                        "status": "invalid",
+                        "code": "probability_vector_invalid",
+                        "message": f"Item {item} must contain exactly {k} nonnegative probabilities summing to 1.",
+                        "item": item,
+                        **diag,
+                    }
+                )
                 continue
             item_vecs[item] = vec
             diagnostics.append({"job_id": job_id, "support_id": support_id, "status": "ok", "code": "", "message": "", "item": item, **diag})
@@ -124,20 +139,22 @@ def load_results_ep_to_pandas(results_path: Path) -> pd.DataFrame:
     rp = Path(results_path)
     try:
         results = None
+        if hasattr(Results, "git"):
+            try:
+                results = Results.git.load(str(rp))
+            except Exception:
+                results = None
         # `ep run --save/--output X.results.ep` may write a plain-JSON file at the
         # literal path. Try that first so registration does not depend on EDSL's
         # extension-appending loader (which looks for X.results.ep.json[.gz] and
         # otherwise fails with a confusing "No such file" on the literal .ep name).
-        if rp.is_file():
+        if results is None and rp.is_file():
             try:
                 results = Results.from_dict(json.loads(rp.read_text()))
             except Exception:
                 results = None
         if results is None:
-            if hasattr(Results, "git") and not rp.is_file():
-                results = Results.git.load(str(rp))
-            else:
-                results = Results.load(str(rp))
+            results = Results.load(str(rp))
         return results.to_pandas(remove_prefix=False)
     except Exception as exc:
         raise UmrissError("invalid_input", f"Could not load results EP file: {results_path}.", context={"error": str(exc)}) from exc

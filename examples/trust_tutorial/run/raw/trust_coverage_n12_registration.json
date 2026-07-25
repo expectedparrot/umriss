@@ -1,6 +1,0 @@
-{
-  "jobs": "examples/trust_tutorial/run/raw/trust_coverage_n12_jobs.csv",
-  "prompts": "examples/trust_tutorial/run/prompts/trust_coverage_n12.jsonl",
-  "raw": "examples/trust_tutorial/run/raw/trust_coverage_n12_raw.csv",
-  "results": "examples/trust_tutorial/run/prompts/trust_coverage_n12.results.ep"
-}

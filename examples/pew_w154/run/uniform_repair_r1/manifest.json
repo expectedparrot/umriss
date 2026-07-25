@@ -1,0 +1,21 @@
+{
+  "jobs": "examples/pew_w154/run/uniform_repair_r1/pew_w154_diff1_uniform_repair_r1.jobs.ep",
+  "models": [
+    "gpt-5.5"
+  ],
+  "next_steps": [
+    "Run `ep run --jobs examples/pew_w154/run/uniform_repair_r1/pew_w154_diff1_uniform_repair_r1.jobs.ep --output examples/pew_w154/run/uniform_repair_r1/pew_w154_diff1_uniform_repair_r1.results.ep`.",
+    "Run `umriss support register-results --results examples/pew_w154/run/uniform_repair_r1/pew_w154_diff1_uniform_repair_r1.results.ep --prompts examples/pew_w154/run/uniform_repair_r1/pew_w154_diff1_uniform_repair_r1_prompts.jsonl`."
+  ],
+  "prompts": "examples/pew_w154/run/uniform_repair_r1/pew_w154_diff1_uniform_repair_r1_prompts.jsonl",
+  "results": "examples/pew_w154/run/uniform_repair_r1/pew_w154_diff1_uniform_repair_r1.results.ep",
+  "run_command": "ep run --jobs examples/pew_w154/run/uniform_repair_r1/pew_w154_diff1_uniform_repair_r1.jobs.ep --output examples/pew_w154/run/uniform_repair_r1/pew_w154_diff1_uniform_repair_r1.results.ep",
+  "run_contract": {
+    "expected_results_path": "examples/pew_w154/run/uniform_repair_r1/pew_w154_diff1_uniform_repair_r1.results.ep",
+    "jobs_path": "examples/pew_w154/run/uniform_repair_r1/pew_w154_diff1_uniform_repair_r1.jobs.ep",
+    "owner": "agent",
+    "run_command": "ep run --jobs examples/pew_w154/run/uniform_repair_r1/pew_w154_diff1_uniform_repair_r1.jobs.ep --output examples/pew_w154/run/uniform_repair_r1/pew_w154_diff1_uniform_repair_r1.results.ep"
+  },
+  "save_format": "edsl_ep",
+  "scenarios": 64
+}

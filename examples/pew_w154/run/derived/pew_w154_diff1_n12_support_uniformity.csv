@@ -1,0 +1,6 @@
+tag,item,item_text,n_support_valid,equal_weight_prediction,uniform_target,rmse_from_uniform,max_absolute_deviation
+pew_w154_diff1_n12,hobbies,Their hobbies and personal interests,12,"[0.4725, 0.5275]","[0.5, 0.5]",0.027500000000000024,0.02750000000000008
+pew_w154_diff1_n12,physical_abilities,Their physical abilities,12,"[0.265833, 0.734167]","[0.5, 0.5]",0.23416666666666672,0.23416666666666675
+pew_w154_diff1_n12,parenting,Their approach to parenting,12,"[0.476667, 0.523333]","[0.5, 0.5]",0.023333333333333345,0.023333333333333373
+pew_w154_diff1_n12,feelings,How they express their feelings,12,"[0.344167, 0.655833]","[0.5, 0.5]",0.15583333333333335,0.15583333333333338
+pew_w154_diff1_n12,workplace,The things they are good at in the workplace,12,"[0.6125, 0.3875]","[0.5, 0.5]",0.11250000000000004,0.11250000000000004

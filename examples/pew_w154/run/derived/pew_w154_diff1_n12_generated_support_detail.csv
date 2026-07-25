@@ -1,0 +1,16 @@
+tag,battery,holdout,item_text,method,rmse,prediction,truth,selected_rho,held_in_residual,effective_support,n_support_valid
+pew_w154_diff1_n12,Pew W154 DIFF1,hobbies,Their hobbies and personal interests,generated support mixture,0.13916122491002966,"[0.459152, 0.540848]","[0.319991, 0.680009]",0.0003,0.005483981050290314,2.4964768984560393,12
+pew_w154_diff1_n12,Pew W154 DIFF1,hobbies,Their hobbies and personal interests,unweighted support bank,0.15250912252603727,"[0.4725, 0.5275]","[0.319991, 0.680009]",,,,12
+pew_w154_diff1_n12,Pew W154 DIFF1,hobbies,Their hobbies and personal interests,uniform,0.1800091225260373,"[0.5, 0.5]","[0.319991, 0.680009]",,,,12
+pew_w154_diff1_n12,Pew W154 DIFF1,physical_abilities,Their physical abilities,generated support mixture,0.1078761242248931,"[0.082829, 0.917171]","[0.190705, 0.809295]",0.0003,0.023640452586732398,3.2114806400558384,12
+pew_w154_diff1_n12,Pew W154 DIFF1,physical_abilities,Their physical abilities,unweighted support bank,0.07512850567361921,"[0.265833, 0.734167]","[0.190705, 0.809295]",,,,12
+pew_w154_diff1_n12,Pew W154 DIFF1,physical_abilities,Their physical abilities,uniform,0.3092951723402859,"[0.5, 0.5]","[0.190705, 0.809295]",,,,12
+pew_w154_diff1_n12,Pew W154 DIFF1,parenting,Their approach to parenting,generated support mixture,0.1022858147337713,"[0.389908, 0.610092]","[0.287622, 0.712378]",0.0003,0.011593038349005469,2.6272881136906303,12
+pew_w154_diff1_n12,Pew W154 DIFF1,parenting,Their approach to parenting,unweighted support bank,0.18904485047128133,"[0.476667, 0.523333]","[0.287622, 0.712378]",,,,12
+pew_w154_diff1_n12,Pew W154 DIFF1,parenting,Their approach to parenting,uniform,0.2123781838046147,"[0.5, 0.5]","[0.287622, 0.712378]",,,,12
+pew_w154_diff1_n12,Pew W154 DIFF1,feelings,How they express their feelings,generated support mixture,0.14315756842395527,"[0.252741, 0.747259]","[0.109583, 0.890417]",0.0003,0.00023209389226780592,5.864986842980346,12
+pew_w154_diff1_n12,Pew W154 DIFF1,feelings,How they express their feelings,unweighted support bank,0.23458349922794222,"[0.344167, 0.655833]","[0.109583, 0.890417]",,,,12
+pew_w154_diff1_n12,Pew W154 DIFF1,feelings,How they express their feelings,uniform,0.3904168325612756,"[0.5, 0.5]","[0.109583, 0.890417]",,,,12
+pew_w154_diff1_n12,Pew W154 DIFF1,workplace,The things they are good at in the workplace,generated support mixture,0.14930552217593904,"[0.423211, 0.576789]","[0.572517, 0.427483]",0.0003,0.0006325814742589371,3.0831619244641972,12
+pew_w154_diff1_n12,Pew W154 DIFF1,workplace,The things they are good at in the workplace,unweighted support bank,0.0399831450156479,"[0.6125, 0.3875]","[0.572517, 0.427483]",,,,12
+pew_w154_diff1_n12,Pew W154 DIFF1,workplace,The things they are good at in the workplace,uniform,0.07251685498435215,"[0.5, 0.5]","[0.572517, 0.427483]",,,,12

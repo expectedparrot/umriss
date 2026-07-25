@@ -45,6 +45,19 @@ def validate_metadata(metadata: dict[str, Any]) -> list[dict[str, Any]]:
         codes = item_option_codes(metadata, item)
         if len(codes) != len(labels):
             raise UmrissError("metadata_invalid", f"Item {item} option_codes length does not match option_labels.")
+        scale = item_meta.get("scale", metadata.get("scale"))
+        if scale is None:
+            warnings.append(
+                {
+                    "code": "scale_semantics_missing",
+                    "item": item,
+                    "message": "Declare scale.type as ordinal or nominal; umriss will not infer semantics from option position.",
+                }
+            )
+        elif scale.get("type") not in {"ordinal", "nominal"}:
+            raise UmrissError("metadata_invalid", f"Item {item} scale.type must be ordinal or nominal.")
+        elif scale["type"] == "ordinal" and scale.get("direction") not in {"low_to_high", "high_to_low"}:
+            raise UmrissError("metadata_invalid", f"Ordinal item {item} requires scale.direction low_to_high or high_to_low.")
     counts = {len(item_option_labels(metadata, item)) for item in metadata["items"]}
     if len(counts) > 1:
         warnings.append({"code": "mixed_option_counts", "message": "Items have different option counts."})
@@ -113,6 +126,7 @@ def add_question(args: Any) -> dict[str, Any]:
         "item_text": args.item_text,
         "option_codes": option_codes,
         "option_labels": options,
+        "scale": {"type": args.scale_type, **({"direction": args.scale_direction} if args.scale_direction else {})},
     }
     append_jsonl(bdir / "questions.jsonl", row)
     compile_battery(args.battery, bdir / "battery.json")
@@ -154,6 +168,7 @@ def compile_battery(battery_id: str, path: Path | None = None) -> dict[str, Any]
                 "question_stem": row["question_stem"],
                 "option_codes": row["option_codes"],
                 "option_labels": row["option_labels"],
+                "scale": row.get("scale"),
             }
     metadata["items"] = items
     truth = {}
@@ -187,7 +202,9 @@ def weighted_truth_from_respondents(metadata: dict[str, Any], respondents_path: 
     weights = df[weight_col].to_numpy(dtype=float)
     truth = {}
     for item in metadata["items"]:
-        col = f"item_{item}"
+        col = metadata["items"][item].get("source_column", f"item_{item}")
+        if col not in df:
+            raise UmrissError("item_not_found", f"Respondent data is missing source column {col} for item {item}.")
         codes = item_option_codes(metadata, item)
         vals = df[col].to_numpy()
         vec = np.array([weights[vals == code].sum() for code in codes], dtype=float)

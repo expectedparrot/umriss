@@ -1,0 +1,121 @@
+wave,battery,item,variable,survey_context,shared_stem,item_text,options,prediction,truth,rmse,brief_reason,prompt_mode,prompt
+W154,DIFF1,a,DIFF1_a_W154,"A nationally representative Pew Research Center American Trends Panel survey of U.S. adults was fielded Sept. 3-15, 2024. The survey was conducted by web and CATI and had N=6,204 respondents. Predictions should target the weighted response marginal among U.S. adults.","In general, how do you think men and women compare when it comes to each of the following?",Their hobbies and personal interests,"[""Men and women are basically similar"", ""Men and women are basically different""]","[0.34, 0.66]","[0.32, 0.68]",0.02004985333604345,"Hobbies and personal interests are commonly perceived as gender-differentiated, so a majority would likely say men and women are basically different, though a substantial minority would emphasize similarity.",unconditioned,"You are predicting a survey response distribution.
+
+Survey context:
+A nationally representative Pew Research Center American Trends Panel survey of U.S. adults was fielded Sept. 3-15, 2024. The survey was conducted by web and CATI and had N=6,204 respondents. Predictions should target the weighted response marginal among U.S. adults.
+
+Question stem:
+In general, how do you think men and women compare when it comes to each of the following?
+
+Item:
+Their hobbies and personal interests
+
+Response options, in order:
+[""Men and women are basically similar"", ""Men and women are basically different""]
+
+Task:
+Predict the weighted marginal distribution over the response options for this
+held-out item.
+Use only the survey context, question text, and response options. Do not assume
+or use results from any other items in the survey.
+
+Return only valid JSON with this schema:
+{""probabilities"": [numbers in option order summing to 1],
+ ""brief_reason"": ""short explanation""}
+"
+W154,DIFF1,b,DIFF1_b_W154,"A nationally representative Pew Research Center American Trends Panel survey of U.S. adults was fielded Sept. 3-15, 2024. The survey was conducted by web and CATI and had N=6,204 respondents. Predictions should target the weighted response marginal among U.S. adults.","In general, how do you think men and women compare when it comes to each of the following?",Their physical abilities,"[""Men and women are basically similar"", ""Men and women are basically different""]","[0.16, 0.84]","[0.1911, 0.8089]",0.031073290152047045,"Physical abilities are commonly perceived as one of the clearest areas of difference between men and women, so a large majority would likely choose basically different.",unconditioned,"You are predicting a survey response distribution.
+
+Survey context:
+A nationally representative Pew Research Center American Trends Panel survey of U.S. adults was fielded Sept. 3-15, 2024. The survey was conducted by web and CATI and had N=6,204 respondents. Predictions should target the weighted response marginal among U.S. adults.
+
+Question stem:
+In general, how do you think men and women compare when it comes to each of the following?
+
+Item:
+Their physical abilities
+
+Response options, in order:
+[""Men and women are basically similar"", ""Men and women are basically different""]
+
+Task:
+Predict the weighted marginal distribution over the response options for this
+held-out item.
+Use only the survey context, question text, and response options. Do not assume
+or use results from any other items in the survey.
+
+Return only valid JSON with this schema:
+{""probabilities"": [numbers in option order summing to 1],
+ ""brief_reason"": ""short explanation""}
+"
+W154,DIFF1,c,DIFF1_c_W154,"A nationally representative Pew Research Center American Trends Panel survey of U.S. adults was fielded Sept. 3-15, 2024. The survey was conducted by web and CATI and had N=6,204 respondents. Predictions should target the weighted response marginal among U.S. adults.","In general, how do you think men and women compare when it comes to each of the following?",Their approach to parenting,"[""Men and women are basically similar"", ""Men and women are basically different""]","[0.36, 0.64]","[0.2878, 0.7122]",0.07215354108587296,"Americans are likely to view men’s and women’s parenting styles as more different than similar, though not as overwhelmingly as for physical traits.",unconditioned,"You are predicting a survey response distribution.
+
+Survey context:
+A nationally representative Pew Research Center American Trends Panel survey of U.S. adults was fielded Sept. 3-15, 2024. The survey was conducted by web and CATI and had N=6,204 respondents. Predictions should target the weighted response marginal among U.S. adults.
+
+Question stem:
+In general, how do you think men and women compare when it comes to each of the following?
+
+Item:
+Their approach to parenting
+
+Response options, in order:
+[""Men and women are basically similar"", ""Men and women are basically different""]
+
+Task:
+Predict the weighted marginal distribution over the response options for this
+held-out item.
+Use only the survey context, question text, and response options. Do not assume
+or use results from any other items in the survey.
+
+Return only valid JSON with this schema:
+{""probabilities"": [numbers in option order summing to 1],
+ ""brief_reason"": ""short explanation""}
+"
+W154,DIFF1,d,DIFF1_d_W154,"A nationally representative Pew Research Center American Trends Panel survey of U.S. adults was fielded Sept. 3-15, 2024. The survey was conducted by web and CATI and had N=6,204 respondents. Predictions should target the weighted response marginal among U.S. adults.","In general, how do you think men and women compare when it comes to each of the following?",How they express their feelings,"[""Men and women are basically similar"", ""Men and women are basically different""]","[0.18, 0.82]","[0.1093, 0.8907]",0.07073977144781271,"Expressing feelings is a domain where U.S. adults commonly perceive gender differences, so a large majority would likely choose basically different.",unconditioned,"You are predicting a survey response distribution.
+
+Survey context:
+A nationally representative Pew Research Center American Trends Panel survey of U.S. adults was fielded Sept. 3-15, 2024. The survey was conducted by web and CATI and had N=6,204 respondents. Predictions should target the weighted response marginal among U.S. adults.
+
+Question stem:
+In general, how do you think men and women compare when it comes to each of the following?
+
+Item:
+How they express their feelings
+
+Response options, in order:
+[""Men and women are basically similar"", ""Men and women are basically different""]
+
+Task:
+Predict the weighted marginal distribution over the response options for this
+held-out item.
+Use only the survey context, question text, and response options. Do not assume
+or use results from any other items in the survey.
+
+Return only valid JSON with this schema:
+{""probabilities"": [numbers in option order summing to 1],
+ ""brief_reason"": ""short explanation""}
+"
+W154,DIFF1,e,DIFF1_e_W154,"A nationally representative Pew Research Center American Trends Panel survey of U.S. adults was fielded Sept. 3-15, 2024. The survey was conducted by web and CATI and had N=6,204 respondents. Predictions should target the weighted response marginal among U.S. adults.","In general, how do you think men and women compare when it comes to each of the following?",The things they are good at in the workplace,"[""Men and women are basically similar"", ""Men and women are basically different""]","[0.68, 0.32]","[0.5713, 0.4287]",0.1087115301162708,"Workplace abilities are likely viewed through an equality-oriented lens, so most adults would say men and women are basically similar, though a sizable minority may perceive different strengths.",unconditioned,"You are predicting a survey response distribution.
+
+Survey context:
+A nationally representative Pew Research Center American Trends Panel survey of U.S. adults was fielded Sept. 3-15, 2024. The survey was conducted by web and CATI and had N=6,204 respondents. Predictions should target the weighted response marginal among U.S. adults.
+
+Question stem:
+In general, how do you think men and women compare when it comes to each of the following?
+
+Item:
+The things they are good at in the workplace
+
+Response options, in order:
+[""Men and women are basically similar"", ""Men and women are basically different""]
+
+Task:
+Predict the weighted marginal distribution over the response options for this
+held-out item.
+Use only the survey context, question text, and response options. Do not assume
+or use results from any other items in the survey.
+
+Return only valid JSON with this schema:
+{""probabilities"": [numbers in option order summing to 1],
+ ""brief_reason"": ""short explanation""}
+"

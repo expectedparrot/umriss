@@ -17,6 +17,7 @@ from .artifacts import (
     predict_from_weights,
     write_report,
 )
+from .balancing import build_uniform_augmentation, merge_support_banks, write_uniformity
 from .calibration import fit_weights, load_support_matrix, write_fit_outputs
 from .ep_commands import export_support_jobs
 from .errors import UmrissError
@@ -43,10 +44,11 @@ from .state import (
     use_project,
 )
 from .support_designs import (
-    build_archetype,
-    build_from_design_config,
-    build_pattern_coverage,
+    compile_support_plan,
     load_design_config,
+    preset_design,
+    resolve_design,
+    validate_design,
     write_support_outputs,
 )
 
@@ -69,7 +71,7 @@ def print_json(payload: dict[str, Any]) -> None:
 
 def cmd_init(args: argparse.Namespace) -> dict[str, Any]:
     data = init_workspace(args.output_dir or "umriss_work")
-    return envelope("umriss init", "ok", data, next_steps=["umriss battery import --metadata <metadata.json>", "umriss support build --metadata <metadata.json> --strategy pattern-coverage --tag <tag>"])
+    return envelope("umriss init", "ok", data, next_steps=["umriss battery import --metadata <metadata.json>", "umriss design create --metadata <metadata.json> --preset pattern-coverage --out design.yaml"])
 
 
 def cmd_status(args: argparse.Namespace) -> dict[str, Any]:
@@ -142,20 +144,20 @@ def cmd_battery_compile(args: argparse.Namespace) -> dict[str, Any]:
 
 def cmd_marginals_import(args: argparse.Namespace) -> dict[str, Any]:
     metadata = read_json(Path(args.metadata))
-    if args.truth_from == "metadata":
-        truth = marginals_from_metadata(metadata)
-    elif args.respondents:
+    if args.respondents:
         truth = weighted_truth_from_respondents(metadata, Path(args.respondents))
+    elif args.truth_from == "metadata":
+        truth = marginals_from_metadata(metadata)
     else:
         raise UmrissError("invalid_input", "Pass --truth-from metadata or --respondents.")
     write_marginals_long(metadata, truth, Path(args.out))
     return envelope("umriss marginals import", "ok", {"path": args.out, "items": len(truth)})
 
 
-def cmd_support_build(args: argparse.Namespace) -> dict[str, Any]:
+def _metadata_source(args: argparse.Namespace) -> tuple[dict[str, Any], dict[str, Any]]:
     if args.metadata:
         metadata_path = Path(args.metadata)
-        metadata_source = {"kind": "file", "path": str(metadata_path)}
+        source = {"kind": "file", "path": str(metadata_path)}
     else:
         metadata_path = project_dir(active_project_id()) / "batteries" / args.battery / "battery.json"
         if not metadata_path.exists():
@@ -164,26 +166,61 @@ def cmd_support_build(args: argparse.Namespace) -> dict[str, Any]:
                 f"Battery does not exist in the active project: {args.battery}.",
                 hint="Run `umriss battery create` or pass `--metadata <metadata.json>`.",
             )
-        metadata_source = {"kind": "workspace", "battery_id": args.battery, "path": str(metadata_path)}
-    metadata = read_json(metadata_path)
+        source = {"kind": "workspace", "battery_id": args.battery, "path": str(metadata_path)}
+    return read_json(metadata_path), source
+
+
+def cmd_design_create(args: argparse.Namespace) -> dict[str, Any]:
+    metadata, metadata_source = _metadata_source(args)
+    design = preset_design(metadata, args.preset, args.size, args.seed)
+    path = Path(args.out)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    import yaml
+
+    path.write_text(yaml.safe_dump(design, sort_keys=False))
+    report = validate_design(design, metadata)
+    return envelope(
+        "umriss design create",
+        "ok",
+        {"design_path": str(path), "metadata_source": metadata_source, **report},
+        next_steps=[f"umriss design validate --metadata {metadata_source['path']} --design {path}"],
+    )
+
+
+def cmd_design_validate(args: argparse.Namespace) -> dict[str, Any]:
+    metadata, metadata_source = _metadata_source(args)
+    design = load_design_config(Path(args.design))
+    try:
+        report = validate_design(design, metadata)
+    except ValueError as exc:
+        raise UmrissError("design_invalid", str(exc)) from exc
+    return envelope(
+        "umriss design validate",
+        "ok",
+        {"design_path": args.design, "metadata_source": metadata_source, **report},
+    )
+
+
+def cmd_support_build(args: argparse.Namespace) -> dict[str, Any]:
+    metadata, metadata_source = _metadata_source(args)
     tag = args.tag
     try:
         if args.design:
-            config = load_design_config(Path(args.design))
-            rows = build_from_design_config(metadata, tag, config, args.n_support, args.seed)
-        elif args.strategy == "pattern-coverage":
-            rows = build_pattern_coverage(metadata, tag, args.seed, args.n_support)
-        elif args.strategy == "archetype":
-            rows = build_archetype(metadata, tag, args.n_support)
+            design_path = Path(args.design)
+            config = load_design_config(design_path)
+            resolved = resolve_design(config, metadata, size=args.n_support, seed=args.seed)
         else:
-            raise UmrissError("invalid_input", "Pass --design or --strategy.")
+            design_path = None
+            resolved = preset_design(metadata, args.preset, args.n_support, args.seed or 20260625)
+        rows = compile_support_plan(metadata, tag, resolved, design_path)
     except ValueError as exc:
-        raise UmrissError("invalid_input", str(exc)) from exc
-    paths = write_support_outputs(rows, metadata, tag, Path(args.out))
+        code = "design_too_small" if str(exc).startswith("DESIGN_TOO_SMALL") else "design_invalid"
+        raise UmrissError(code, str(exc)) from exc
+    paths = write_support_outputs(rows, metadata, tag, Path(args.out), resolved)
     return envelope(
         "umriss support build",
         "ok",
-        {**paths, "rows": len(rows), "tag": tag, "design": args.design, "metadata_source": metadata_source},
+        {**paths, "rows": len(rows), "tag": tag, "design": args.design, "preset": args.preset, "metadata_source": metadata_source},
     )
 
 
@@ -214,6 +251,45 @@ def cmd_support_inspect(args: argparse.Namespace) -> dict[str, Any]:
     return envelope("umriss support inspect", "ok", data)
 
 
+def cmd_support_uniformity(args: argparse.Namespace) -> dict[str, Any]:
+    metadata = read_json(Path(args.metadata))
+    data = write_uniformity(
+        Path(args.support),
+        metadata,
+        args.tolerance,
+        Path(args.out),
+        args.max_duplicate_fraction,
+        args.min_joint_pattern_fraction,
+    )
+    status = "ok" if data["passes"] else "needs_augmentation"
+    return envelope("umriss support uniformity", status, data)
+
+
+def cmd_support_augment_uniform(args: argparse.Namespace) -> dict[str, Any]:
+    metadata = read_json(Path(args.metadata))
+    try:
+        data = build_uniform_augmentation(
+            Path(args.support),
+            metadata,
+            args.tag,
+            args.n_add,
+            args.tolerance,
+            args.seed,
+            Path(args.out),
+        )
+    except ValueError as exc:
+        raise UmrissError("invalid_input", str(exc)) from exc
+    return envelope("umriss support augment-uniform", "ok", data)
+
+
+def cmd_support_merge(args: argparse.Namespace) -> dict[str, Any]:
+    try:
+        data = merge_support_banks(Path(args.base), Path(args.additions), args.tag, Path(args.out))
+    except ValueError as exc:
+        raise UmrissError("invalid_input", str(exc)) from exc
+    return envelope("umriss support merge", "ok", data)
+
+
 def cmd_fit(args: argparse.Namespace) -> dict[str, Any]:
     metadata = read_json(Path(args.metadata))
     support, mats = load_support_matrix(Path(args.support))
@@ -233,17 +309,30 @@ def cmd_fit(args: argparse.Namespace) -> dict[str, Any]:
 
 def cmd_loo(args: argparse.Namespace) -> dict[str, Any]:
     metadata = read_json(Path(args.metadata))
-    data = run_loo(
-        metadata,
-        args.tag,
-        Path(args.out),
-        raw_path=Path(args.raw) if args.raw else None,
-        support_path=Path(args.support) if args.support else None,
-        respondents_path=Path(args.respondents) if args.respondents else None,
-        one_shot_path=Path(args.one_shot) if args.one_shot else None,
-        two_step_path=Path(args.two_step) if args.two_step else None,
-        rho_values=args.rho,
-    )
+    try:
+        data = run_loo(
+            metadata,
+            args.tag,
+            Path(args.out),
+            raw_path=Path(args.raw) if args.raw else None,
+            support_path=Path(args.support) if args.support else None,
+            respondents_path=Path(args.respondents) if args.respondents else None,
+            one_shot_path=Path(args.one_shot) if args.one_shot else None,
+            two_step_path=Path(args.two_step) if args.two_step else None,
+            rho_values=args.rho,
+            uniform_tolerance=args.uniform_tolerance,
+            max_duplicate_fraction=args.max_duplicate_fraction,
+            min_joint_pattern_fraction=args.min_joint_pattern_fraction,
+            allow_nonuniform_support=args.allow_nonuniform_support,
+        )
+    except ValueError as exc:
+        if str(exc).startswith("SUPPORT_NOT_UNIFORM"):
+            code = "support_not_uniform"
+        elif str(exc).startswith("SUPPORT_NOT_DIVERSE"):
+            code = "support_not_diverse"
+        else:
+            code = "invalid_input"
+        raise UmrissError(code, str(exc)) from exc
     return envelope("umriss loo", "ok", data)
 
 
@@ -296,9 +385,9 @@ def cmd_next(args: argparse.Namespace) -> dict[str, Any]:
     if status["batteries"] == 0:
         recommendation = "umriss battery import --metadata <metadata.json>"
     elif status["support_prompts"] == 0:
-        recommendation = "umriss support build --metadata <metadata.json> --strategy pattern-coverage --tag <tag> --out <dir>"
+        recommendation = "umriss design create --metadata <metadata.json> --preset pattern-coverage --out design.yaml"
     elif status["support_banks"] == 0:
-        recommendation = "umriss support export --prompts <tag>.jsonl --path <tag>.jobs.ep"
+        recommendation = "umriss support export --prompts <tag>_prompts.jsonl --path <tag>.jobs.ep"
     elif status["evaluations"] == 0:
         recommendation = "umriss loo --support <bank_probabilities.csv> --metadata <metadata.json> --tag <tag> --out <dir>"
     else:
@@ -363,6 +452,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--item-text", required=True)
     p.add_argument("--option", action="append", required=True)
     p.add_argument("--option-code", action="append")
+    p.add_argument("--scale-type", choices=["ordinal", "nominal"], required=True)
+    p.add_argument("--scale-direction", choices=["low_to_high", "high_to_low"])
     p.set_defaults(func=cmd_question_add)
 
     marginal = sub.add_parser("marginal").add_subparsers(dest="marginal_command", required=True)
@@ -377,10 +468,28 @@ def build_parser() -> argparse.ArgumentParser:
     marginals = sub.add_parser("marginals").add_subparsers(dest="marginals_command", required=True)
     p = marginals.add_parser("import")
     p.add_argument("--metadata", required=True)
-    p.add_argument("--truth-from", choices=["metadata"], default="metadata")
-    p.add_argument("--respondents")
+    truth_source = p.add_mutually_exclusive_group(required=True)
+    truth_source.add_argument("--truth-from", choices=["metadata"])
+    truth_source.add_argument("--respondents")
     p.add_argument("--out", required=True)
     p.set_defaults(func=cmd_marginals_import)
+
+    design_cmd = sub.add_parser("design").add_subparsers(dest="design_command", required=True)
+    p = design_cmd.add_parser("create")
+    source = p.add_mutually_exclusive_group(required=True)
+    source.add_argument("--metadata")
+    source.add_argument("--battery")
+    p.add_argument("--preset", choices=["pattern-coverage", "uniform-patterns"], required=True)
+    p.add_argument("--size", type=int)
+    p.add_argument("--seed", type=int, default=20260625)
+    p.add_argument("--out", required=True)
+    p.set_defaults(func=cmd_design_create)
+    p = design_cmd.add_parser("validate")
+    source = p.add_mutually_exclusive_group(required=True)
+    source.add_argument("--metadata")
+    source.add_argument("--battery")
+    p.add_argument("--design", required=True)
+    p.set_defaults(func=cmd_design_validate)
 
     support = sub.add_parser("support").add_subparsers(dest="support_command", required=True)
     p = support.add_parser("build")
@@ -388,15 +497,11 @@ def build_parser() -> argparse.ArgumentParser:
     source.add_argument("--metadata", help="Read battery metadata from an explicit JSON file.")
     source.add_argument("--battery", help="Read a battery authored in the active .umriss project.")
     design = p.add_mutually_exclusive_group(required=True)
-    design.add_argument(
-        "--strategy",
-        choices=["pattern-coverage", "archetype"],
-        help="Use a built-in support-bank construction strategy.",
-    )
-    design.add_argument("--design", help="Use a JSON or YAML support-design file.")
+    design.add_argument("--preset", choices=["pattern-coverage", "uniform-patterns"], help="Compile a safe built-in preset.")
+    design.add_argument("--design", help="Use a schema-v1 JSON or YAML support-design file.")
     p.add_argument("--tag", required=True)
-    p.add_argument("--n-support", type=int, default=96)
-    p.add_argument("--seed", type=int, default=20260625)
+    p.add_argument("--n-support", type=int, help="Override design size; feasibility validation still applies.")
+    p.add_argument("--seed", type=int, help="Override the design seed.")
     p.add_argument("--out", required=True)
     p.set_defaults(func=cmd_support_build)
     p = support.add_parser("export")
@@ -427,6 +532,29 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--diagnostics")
     p.add_argument("--summary")
     p.set_defaults(func=cmd_support_inspect)
+    p = support.add_parser("uniformity")
+    p.add_argument("--support", required=True)
+    p.add_argument("--metadata", required=True)
+    p.add_argument("--tolerance", type=float, default=0.05)
+    p.add_argument("--max-duplicate-fraction", type=float, default=0.05)
+    p.add_argument("--min-joint-pattern-fraction", type=float, default=0.75)
+    p.add_argument("--out", required=True)
+    p.set_defaults(func=cmd_support_uniformity)
+    p = support.add_parser("augment-uniform")
+    p.add_argument("--support", required=True)
+    p.add_argument("--metadata", required=True)
+    p.add_argument("--tag", required=True)
+    p.add_argument("--n-add", type=int, default=64)
+    p.add_argument("--tolerance", type=float, default=0.05)
+    p.add_argument("--seed", type=int, default=20260625)
+    p.add_argument("--out", required=True)
+    p.set_defaults(func=cmd_support_augment_uniform)
+    p = support.add_parser("merge")
+    p.add_argument("--base", required=True)
+    p.add_argument("--additions", required=True)
+    p.add_argument("--tag", required=True)
+    p.add_argument("--out", required=True)
+    p.set_defaults(func=cmd_support_merge)
 
     p = sub.add_parser("fit")
     p.add_argument("--support", required=True)
@@ -447,6 +575,10 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--one-shot")
     p.add_argument("--two-step")
     p.add_argument("--rho", nargs="+", type=float, default=[0.0003, 0.001, 0.003, 0.01, 0.03])
+    p.add_argument("--uniform-tolerance", type=float, default=0.05)
+    p.add_argument("--max-duplicate-fraction", type=float, default=0.05)
+    p.add_argument("--min-joint-pattern-fraction", type=float, default=0.75)
+    p.add_argument("--allow-nonuniform-support", action="store_true")
     p.add_argument("--tag", required=True)
     p.add_argument("--out", required=True)
     p.set_defaults(func=cmd_loo)

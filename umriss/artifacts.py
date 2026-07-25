@@ -234,7 +234,7 @@ def battery_designed_recipe(derived_dir: Path, out_path: Path) -> dict[str, Any]
     all_details["display_method"] = all_details["method"].replace(
         {
             "generated support mixture": "Weighted support",
-            "unweighted archetype bank": "Unweighted support",
+            "unweighted support bank": "Unweighted support",
             "unconditioned one-shot": "One-shot",
             "conditioned one-shot": "Conditioned one-shot",
             "uniform": "Uniform",
@@ -343,7 +343,7 @@ def _read_generated_tables(derived_dir: Path, suffix: str) -> list[tuple[str, Pa
 def _method_label(method: str) -> str:
     return {
         "generated support mixture": "Weighted support",
-        "unweighted archetype bank": "Unweighted support",
+        "unweighted support bank": "Unweighted support",
         "unconditioned one-shot": "One-shot",
         "conditioned one-shot": "Conditioned one-shot",
         "uniform": "Uniform",
@@ -552,21 +552,21 @@ GUIDES = {
         "steps": [
             "Inspect or create battery metadata: `umriss battery inspect <metadata.json>`.",
             "Compile prompt rows: `umriss support build --metadata <metadata.json> --design <design.json> --tag <tag> --out <prompt_dir>`.",
-            "Create EP jobs: `umriss support export --prompts <prompt_dir>/<tag>.jsonl --path <prompt_dir>/<tag>.jobs.ep`.",
+            "Create EP jobs: `umriss support export --prompts <prompt_dir>/<tag>_prompts.jsonl --path <prompt_dir>/<tag>.jobs.ep`.",
             "Run the `.jobs.ep` outside umriss with EP/EDSL. Umriss does not run model jobs.",
-            "Register results: `umriss support register-results --results <tag>.results.ep --prompts <tag>.jsonl --tag <tag> --out <raw_dir>`.",
+            "Register results: `umriss support register-results --results <tag>.results.ep --prompts <tag>_prompts.jsonl --tag <tag> --out <raw_dir>`.",
             "Parse or evaluate: `umriss support parse ...` or `umriss loo ...`.",
             "Compare/report: `umriss compare ...` and `umriss report ...`.",
         ],
     },
     "designs": {
-        "summary": "How generic design files replace named prompt builders.",
+        "summary": "How versioned declarative designs make support assumptions auditable.",
         "steps": [
-            "Use `axes` components for latent, demographic, or response-style support types.",
-            "Use `patterns` components for explicit answer-pattern scaffolds.",
-            "Use `option-coverage` components for item-option coverage rows.",
-            "Use `maximin` sampling when the axis product is large and you want broad coverage.",
-            "Keep battery-specific content in `designs/*.json`; keep prompt rendering in `umriss`.",
+            "Create an editable design with `umriss design create --preset pattern-coverage ...`.",
+            "Validate feasibility with `umriss design validate` before generating prompts.",
+            "Use `option_coverage`, `pattern_anchors`, and `profiles` components.",
+            "Declare coherence, intensity allocation, probability semantics, and partial coverage explicitly.",
+            "Review the resolved YAML, support plan, coverage table, and prompt HTML before model execution.",
         ],
     },
     "ep-boundary": {
@@ -614,7 +614,7 @@ def next_for_artifacts(
     raw_dir: Path = Path("data/computed_objects/support_raw_responses"),
     derived_dir: Path = Path("data/derived"),
 ) -> dict[str, Any]:
-    prompts = prompt_dir / f"{tag}.jsonl"
+    prompts = prompt_dir / f"{tag}_prompts.jsonl"
     jobs = prompt_dir / f"{tag}.jobs.ep"
     results = prompt_dir / f"{tag}.results.ep"
     raw = raw_dir / f"{tag}_raw.csv"
@@ -649,7 +649,7 @@ def next_for_artifacts(
         if design:
             command = f"umriss support build --metadata {metadata or '<metadata.json>'} --design {design} --tag {tag} --out {prompt_dir}"
         else:
-            command = f"umriss support build --metadata {metadata or '<metadata.json>'} --strategy pattern-coverage --tag {tag} --out {prompt_dir}"
+            command = f"umriss support build --metadata {metadata or '<metadata.json>'} --preset pattern-coverage --tag {tag} --out {prompt_dir}"
         return {"stage": "build-prompts", "recommendation": command, "artifacts": artifacts, "exists": exists}
     if not jobs.exists():
         command = f"umriss support export --prompts {prompts} --path {jobs}"

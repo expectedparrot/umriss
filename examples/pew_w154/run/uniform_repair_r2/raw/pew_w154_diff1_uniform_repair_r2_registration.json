@@ -1,0 +1,6 @@
+{
+  "jobs": "examples/pew_w154/run/uniform_repair_r2/raw/pew_w154_diff1_uniform_repair_r2_jobs.csv",
+  "prompts": "examples/pew_w154/run/uniform_repair_r2/pew_w154_diff1_uniform_repair_r2_prompts.jsonl",
+  "raw": "examples/pew_w154/run/uniform_repair_r2/raw/pew_w154_diff1_uniform_repair_r2_raw.csv",
+  "results": "examples/pew_w154/run/uniform_repair_r2/pew_w154_diff1_uniform_repair_r2.results.ep"
+}

@@ -1,0 +1,26 @@
+schema_version: 1
+type: adaptive_uniform_augmentation
+size: 64
+seed: 20260726
+base_support: examples/pew_w154/run/uniform_n96/bank/pew_w154_diff1_uniform_n96_probabilities.csv
+base_n: 96
+uniform_tolerance: 0.05
+requested_target_shares:
+  hobbies:
+  - 0.5146875000000002
+  - 0.4853124999999998
+  physical_abilities:
+  - 0.5951562500000003
+  - 0.4048437499999997
+  parenting:
+  - 0.4934375
+  - 0.5065625000000001
+  feelings:
+  - 0.5767187499999997
+  - 0.4232812500000003
+  workplace:
+  - 0.44515624999999986
+  - 0.5548437500000002
+probabilities:
+  minimum_probability: 0.01
+  require_sum: 1

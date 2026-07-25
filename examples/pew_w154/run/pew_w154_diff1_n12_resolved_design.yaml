@@ -1,0 +1,43 @@
+schema_version: 1
+size: 12
+seed: 20260625
+coverage:
+  mode: complete
+  allocation: balanced
+components:
+- type: option_coverage
+  items: all
+  minimum_per_option: 1
+  coherence: item_specific
+  intensity:
+    values:
+    - moderate
+    - strong
+    allocation: balanced
+- type: pattern_anchors
+  coherence: explicit
+  patterns:
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically similar
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically similar
+    workplace: Men and women are basically similar
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+profile:
+  framing: synthetic_respondent
+  summary_field: profile_summary
+  forbid_demographic_invention: true
+probabilities:
+  interpretation: subjective_response_probability
+  require_sum: 1
+  allow_zero: false
+  minimum_probability: 0.01
+guardrails:
+  leak_target_marginals: false
+  silent_coverage_truncation: false
+  silent_invalid_response_repair: false
+  describe_as_recovered_respondents: false

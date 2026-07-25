@@ -1,0 +1,6 @@
+{
+  "jobs": "examples/pew_w154/run/raw/pew_w154_diff1_n12_jobs.csv",
+  "prompts": "examples/pew_w154/run/pew_w154_diff1_n12_prompts.jsonl",
+  "raw": "examples/pew_w154/run/raw/pew_w154_diff1_n12_raw.csv",
+  "results": "examples/pew_w154/run/pew_w154_diff1_n12.results.ep"
+}

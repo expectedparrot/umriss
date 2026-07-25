@@ -1,0 +1,10 @@
+{
+  "status": "ok",
+  "scenario_count": 12,
+  "result_count": 12,
+  "local": false,
+  "results_uuid": "c78751ef-75e2-4184-95ff-3d1df6c7ac18",
+  "results_url": "https://www.expectedparrot.com/content/c78751ef-75e2-4184-95ff-3d1df6c7ac18",
+  "jobs": "examples/pew_w154/run/pew_w154_diff1_n12.jobs.ep",
+  "results": "examples/pew_w154/run/pew_w154_diff1_n12.results.ep"
+}

@@ -1,0 +1,24 @@
+schema_version: 1
+preset: uniform-patterns
+size: 96
+seed: 20260725
+coverage:
+  mode: complete
+  allocation: balanced
+components:
+- type: uniform_patterns
+  coherence: explicit
+profile:
+  framing: synthetic_respondent
+  summary_field: profile_summary
+  forbid_demographic_invention: true
+probabilities:
+  interpretation: subjective_response_probability
+  require_sum: 1
+  allow_zero: false
+  minimum_probability: 0.01
+guardrails:
+  leak_target_marginals: false
+  silent_coverage_truncation: false
+  silent_invalid_response_repair: false
+  describe_as_recovered_respondents: false

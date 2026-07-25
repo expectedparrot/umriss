@@ -1,0 +1,6 @@
+item,item_text,n_support,equal_weight_marginal,uniform_target,max_absolute_deviation,tolerance,passes
+hobbies,Their hobbies and personal interests,160,"[0.4954375000000001, 0.5045624999999999]","[0.5, 0.5]",0.004562499999999914,0.05,True
+physical_abilities,Their physical abilities,160,"[0.44174999999999975, 0.5582500000000006]","[0.5, 0.5]",0.05825000000000058,0.05,False
+parenting,Their approach to parenting,160,"[0.5066875000000003, 0.4933124999999997]","[0.5, 0.5]",0.0066875000000002904,0.05,True
+feelings,How they express their feelings,160,"[0.45775000000000005, 0.54225]","[0.5, 0.5]",0.04225000000000001,0.05,True
+workplace,The things they are good at in the workplace,160,"[0.5302500000000003, 0.4697499999999999]","[0.5, 0.5]",0.030250000000000332,0.05,True

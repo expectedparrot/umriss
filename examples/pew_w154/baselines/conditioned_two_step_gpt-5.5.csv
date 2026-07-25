@@ -1,0 +1,149 @@
+study,battery,model,service_name,item,question_stem,item_text,options,truth,one_shot_prior,two_step_prior,one_shot_rmse,two_step_rmse,delta_vs_one_shot,uniform_rmse,one_shot_improvement_pct,two_step_improvement_pct,two_step_beats_uniform,two_step_beats_one_shot,max_abs_error,reasoning_text,brief_reason,reasoning_parse_error,prediction_parse_error,parse_note
+Pew W154 DIFF1,pew_w154,gpt-5.5,openai,a,"In general, how do you think men and women compare when it comes to each of the following?",Their hobbies and personal interests,"[""Men and women are basically similar"", ""Men and women are basically different""]","[0.32, 0.68]","[0.34, 0.66]","[0.35, 0.65]",0.0200498533360434,0.03,0.009950146663956598,0.18000000000000002,88.861192591087,83.33333333333334,True,False,0.030000000000000027,"{
+  ""likely_high_options"": [
+    ""Men and women are basically different""
+  ],
+  ""likely_low_options"": [
+    ""Men and women are basically similar""
+  ],
+  ""forces_toward_high"": [
+    ""Hobbies and personal interests are commonly associated with gender stereotypes, such as sports, gaming, crafting, fashion, home improvement, or caregiving-related activities."",
+    ""The phrase 'in general' may encourage respondents to think about broad social patterns rather than individual variation."",
+    ""Many adults may draw on observed differences in leisure activities among friends, family, or media portrayals.""
+  ],
+  ""forces_toward_low"": [
+    ""Some respondents may emphasize that men and women share many interests and that individual personality matters more than gender."",
+    ""Norms favoring gender equality and resistance to stereotyping could lead respondents to choose 'basically similar.'"",
+    ""Younger or more socially liberal respondents may be less likely to endorse broad gender differences.""
+  ],
+  ""risks"": [
+    ""The wording is broad and subjective; respondents may interpret 'hobbies and personal interests' differently."",
+    ""A forced choice between 'basically similar' and 'basically different' may mask views that men and women are somewhat different but overlap substantially."",
+    ""Social desirability may push some respondents away from saying men and women are different if they view that as stereotyping."",
+    ""The item asks about perceptions of men and women generally, not respondents' own hobbies, so answers may reflect cultural narratives more than lived behavior.""
+  ],
+  ""qualitative_ranking"": [
+    ""Men and women are basically different"",
+    ""Men and women are basically similar""
+  ],
+  ""summary"": ""For hobbies and personal interests, respondents are likely to lean toward saying men and women are basically different, because leisure activities are strongly tied to familiar gender stereotypes. Still, a substantial share may choose basically similar due to beliefs in individual variation and discomfort with broad gender generalizations.""
+}","Hobbies and personal interests are strongly linked to familiar gendered patterns and stereotypes, so most adults would likely say men and women are basically different, though a substantial minority would emphasize overlap and individual variation.",,,
+Pew W154 DIFF1,pew_w154,gpt-5.5,openai,b,"In general, how do you think men and women compare when it comes to each of the following?",Their physical abilities,"[""Men and women are basically similar"", ""Men and women are basically different""]","[0.1911, 0.8089]","[0.16, 0.84]","[0.14, 0.86]",0.031073290152047,0.051100000000000007,0.020026709847953007,0.3089,89.94066359597053,83.4574295888637,True,False,0.051100000000000034,"{
+  ""likely_high_options"": [
+    ""Men and women are basically different""
+  ],
+  ""likely_low_options"": [
+    ""Men and women are basically similar""
+  ],
+  ""forces_toward_high"": [
+    ""Physical abilities are commonly associated with biological sex differences, especially average differences in upper-body strength, size, speed, and athletic performance."",
+    ""The phrase 'in general' encourages respondents to think about broad population averages rather than individual overlap."",
+    ""Contemporary public debates about sex differences in sports may make physical differences especially salient.""
+  ],
+  ""forces_toward_low"": [
+    ""Some respondents may emphasize that men and women share most basic physical capacities and that variation within each sex is large."",
+    ""Norms favoring gender equality may lead some respondents to avoid saying men and women are fundamentally different."",
+    ""The wording 'basically similar' may be attractive to respondents who interpret the question broadly, beyond elite strength or athletic performance.""
+  ],
+  ""risks"": [
+    ""The phrase 'physical abilities' is broad and could refer to strength, endurance, health, coordination, disability, or everyday physical functioning."",
+    ""The binary response options force a choice and do not capture views that men and women are similar in some abilities but different in others."",
+    ""Responses may be shaped by current political and cultural debates about gender, biology, and sports."",
+    ""Social desirability may operate in both directions: some may avoid endorsing difference to appear egalitarian, while others may view acknowledging physical differences as common sense.""
+  ],
+  ""qualitative_ranking"": [
+    ""Men and women are basically different"",
+    ""Men and women are basically similar""
+  ],
+  ""summary"": ""For physical abilities, the 'basically different' option should plausibly be more common because many adults think of average biological and athletic differences between men and women. The 'basically similar' option should still draw meaningful support from those emphasizing common human capacities, within-sex variation, or egalitarian interpretations.""
+}","Physical abilities are a domain where most adults are likely to think of average biological and athletic differences between men and women, though a smaller share may emphasize shared everyday capacities and within-sex variation.",,,
+Pew W154 DIFF1,pew_w154,gpt-5.5,openai,c,"In general, how do you think men and women compare when it comes to each of the following?",Their approach to parenting,"[""Men and women are basically similar"", ""Men and women are basically different""]","[0.2878, 0.7122]","[0.36, 0.64]","[0.41, 0.59]",0.0721535410858729,0.12220000000000003,0.05004645891412714,0.21220000000000003,65.99738874369798,42.412818096135716,True,False,0.12220000000000009,"{
+  ""likely_high_options"": [
+    ""Men and women are basically different""
+  ],
+  ""likely_low_options"": [
+    ""Men and women are basically similar""
+  ],
+  ""forces_toward_high"": [
+    ""Parenting is an area where traditional gender-role beliefs and stereotypes about mothers and fathers remain common."",
+    ""Respondents may think of typical parenting roles, such as mothers being more nurturing or fathers being more disciplinarian, rather than abstract capacities."",
+    ""The phrase 'in general' encourages broad generalization, which may make perceived gender differences more salient.""
+  ],
+  ""forces_toward_low"": [
+    ""Many adults hold egalitarian views and may believe men and women are equally capable of similar parenting approaches."",
+    ""Changes in family roles, including more involved fathers and dual-earner households, may push some respondents toward similarity."",
+    ""Some respondents may resist gender essentialism and choose 'basically similar' even if they recognize average social role differences.""
+  ],
+  ""risks"": [
+    ""The wording is broad: 'approach to parenting' could refer to emotional style, discipline, caregiving responsibilities, values, or competence."",
+    ""Responses may reflect beliefs about social roles rather than innate differences between men and women."",
+    ""Social desirability could lead some respondents to avoid saying men and women are different if they interpret that as unequal ability."",
+    ""Parents and nonparents may interpret the item differently based on direct experience or stereotypes."",
+    ""The binary forced choice omits a middle category, so respondents with mixed views must choose one side.""
+  ],
+  ""qualitative_ranking"": [
+    ""Men and women are basically different"",
+    ""Men and women are basically similar""
+  ],
+  ""summary"": ""For parenting, perceived gender differences are likely to be somewhat more salient than similarity because parenting remains strongly tied to gender-role expectations. However, egalitarian norms and changing family roles should keep the 'basically similar' option substantial.""
+}","Parenting remains strongly associated with gender roles and stereotypes about mothers’ and fathers’ styles, so a modest majority would likely choose basically different. Still, egalitarian views and changing family roles should leave a substantial share saying basically similar.",,,
+Pew W154 DIFF1,pew_w154,gpt-5.5,openai,d,"In general, how do you think men and women compare when it comes to each of the following?",How they express their feelings,"[""Men and women are basically similar"", ""Men and women are basically different""]","[0.1093, 0.8907]","[0.18, 0.82]","[0.32, 0.68]",0.0707397714478127,0.2107,0.13996022855218732,0.39070000000000005,81.89409484315007,46.07115433836704,True,False,0.2107,"{
+  ""likely_high_options"": [
+    ""Men and women are basically different""
+  ],
+  ""likely_low_options"": [
+    ""Men and women are basically similar""
+  ],
+  ""forces_toward_high"": [
+    ""The item concerns emotional expression, an area where common gender stereotypes are strong: women are often seen as more open or expressive, and men as more reserved."",
+    ""The phrase 'in general' may encourage respondents to think in broad social or cultural patterns rather than individual variation."",
+    ""Many respondents may interpret differences as socially learned communication styles rather than strict biological differences, making 'basically different' an acceptable answer.""
+  ],
+  ""forces_toward_low"": [
+    ""Some respondents may reject broad gender generalizations and emphasize that men and women have the same underlying feelings and vary more by individual than by gender."",
+    ""Contemporary norms around gender equality may make some respondents reluctant to endorse essential differences between men and women."",
+    ""Younger, more liberal, or more gender-egalitarian respondents may be especially inclined toward 'basically similar.'""
+  ],
+  ""risks"": [
+    ""The wording is broad and ambiguous: respondents may think about frequency, intensity, willingness to talk, body language, or socially acceptable ways of expressing emotion."",
+    ""The binary choice forces a simplified judgment and may obscure respondents who see both similarities and differences."",
+    ""Social desirability could push some respondents away from saying men and women are different, especially if they interpret that as stereotyping."",
+    ""Historical timing in 2024 includes heightened public discussion of gender norms, masculinity, and mental health, which could influence responses in either direction."",
+    ""Differences by respondent gender, age, education, politics, religion, and views about gender roles could be substantial.""
+  ],
+  ""qualitative_ranking"": [
+    ""Men and women are basically different"",
+    ""Men and women are basically similar""
+  ],
+  ""summary"": ""Because emotional expression is one of the domains most associated with traditional gender stereotypes, 'basically different' is plausibly the more common response. Still, a sizable share may choose 'basically similar' due to egalitarian views, emphasis on individual variation, or reluctance to endorse broad gender differences.""
+}","Emotional expression is a domain with strong common gender stereotypes, so most adults would likely say men and women are basically different, while a sizable minority would emphasize individual variation or reject broad gender generalizations.",,,
+Pew W154 DIFF1,pew_w154,gpt-5.5,openai,e,"In general, how do you think men and women compare when it comes to each of the following?",The things they are good at in the workplace,"[""Men and women are basically similar"", ""Men and women are basically different""]","[0.5713, 0.4287]","[0.68, 0.32]","[0.68, 0.32]",0.1087115301162708,0.10870000000000002,-1.1530116270780377e-05,0.0713,-52.47058922338119,-52.45441795231418,False,True,0.10870000000000002,"{
+  ""likely_high_options"": [
+    ""Men and women are basically similar""
+  ],
+  ""likely_low_options"": [
+    ""Men and women are basically different""
+  ],
+  ""forces_toward_high"": [
+    ""Some respondents may believe men and women tend to have different strengths, skills, interests, or work styles in the workplace."",
+    ""Occupational gender segregation and visible differences in male- and female-dominated fields could lead people to infer workplace differences."",
+    ""Traditional gender-role beliefs may push some respondents toward saying men and women are basically different.""
+  ],
+  ""forces_toward_low"": [
+    ""Norms of workplace equality and anti-discrimination may make many respondents reluctant to say men and women are fundamentally different in what they are good at."",
+    ""Many people have direct experience with men and women performing similar jobs and tasks competently."",
+    ""The phrase 'in general' may encourage a broad answer that emphasizes overlap between men and women rather than exceptions or stereotypes.""
+  ],
+  ""risks"": [
+    ""The wording is ambiguous: respondents may interpret 'the things they are good at' as innate abilities, learned skills, job preferences, occupations, or interpersonal styles."",
+    ""Social desirability may increase selection of 'basically similar,' especially because the item concerns workplace competence."",
+    ""The forced binary may obscure respondents who think men and women are similar in some workplace abilities but different in others."",
+    ""Responses may vary strongly by gender, age, education, religion, political ideology, and views on gender roles."",
+    ""The item’s placement in a broader battery about men and women could prime respondents to think about gender differences more than they otherwise would.""
+  ],
+  ""qualitative_ranking"": [
+    ""Men and women are basically similar"",
+    ""Men and women are basically different""
+  ],
+  ""summary"": ""The more likely response is that men and women are basically similar in what they are good at in the workplace, reflecting egalitarian workplace norms and broad overlap in abilities. A meaningful minority may choose basically different because of traditional gender beliefs or perceptions of gendered occupations and skills.""
+}","Egalitarian workplace norms and experience with men and women doing similar jobs should lead most adults to say they are basically similar, though a sizable minority may perceive gendered strengths or occupational differences.",,,

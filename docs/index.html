@@ -3,811 +3,442 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A practical guide to building auditable digital twins from reported survey marginals with umriss.">
-  <title>Expected Parrot | Digital Twins from Survey Marginals</title>
-  <style>
-    :root{--green:#428a5f;--dark:#214d35;--light:#edf7f1;--ink:#17201a;--muted:#667069;--paper:#f5f7f5;--panel:#fff;--rule:#dfe5e0;--amber:#b66b13;--red:#aa3c35;--code:#19231d;--sidebar:286px;--measure:790px;--serif:Georgia,"Times New Roman",serif;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;--mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--paper);font:16px/1.7 var(--sans)}
-    #progress{position:fixed;inset:0 auto auto 0;z-index:20;width:0;height:4px;background:#65b783}
-    nav{position:fixed;inset:0 auto 0 0;z-index:10;width:var(--sidebar);overflow:auto;padding:24px 22px 40px;color:#eef7f1;background:var(--dark);font:14px/1.35 var(--sans)}
-    .brand{display:block;margin-bottom:24px;padding:13px 14px;color:var(--ink);background:#fff;border-radius:9px;text-decoration:none}.brand strong{display:block;font:700 19px/1.15 var(--serif)}.brand small{color:var(--muted);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-    nav .book{margin:0 8px 23px;font:600 20px/1.25 var(--serif)}nav .part{margin:19px 8px 5px;color:#9fd3b2;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}nav>a:not(.brand){display:block;padding:6px 8px;color:#d5e9dc;text-decoration:none;border-radius:6px}nav>a:not(.brand):hover{color:#fff;background:#2d6244}.small{margin:28px 8px 0;color:#b7cec0;font-size:12px}.nav-toggle{display:none;width:100%;padding:10px 12px;color:#fff;background:#2d6244;border:1px solid #72a685;border-radius:7px;font:700 14px var(--sans);text-align:left;cursor:pointer}.nav-toggle:after{float:right;content:"+"}.open .nav-toggle:after{content:"−"}
-    main{margin-left:var(--sidebar)}article{max-width:920px;margin:auto;padding:48px 48px 110px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.025)}header{padding:60px 0 44px;border-bottom:3px solid var(--green)}
-    .eyebrow{color:var(--green);font-size:12px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.3}h1{max-width:780px;margin:14px 0 20px;font-size:clamp(40px,6vw,61px);letter-spacing:-.025em}h2{margin:78px 0 22px;padding:12px 0 8px;color:var(--green);font-size:32px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}h3{margin:40px 0 13px;font-size:23px}h4{margin:26px 0 8px;font-size:18px}.dek{max-width:740px;color:var(--muted);font-size:21px;line-height:1.5}.meta{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:27px;color:var(--muted);font-size:13px}
-    p,ul,ol,table,pre,figure{max-width:var(--measure)}a{color:var(--green)}code{padding:.14em .35em;background:#f0f3f0;border-radius:4px;font:88% var(--mono)}pre{position:relative;overflow-x:hidden;margin:18px 0 26px;padding:20px 58px 20px 22px;color:#d8e3db;background:var(--code);border-radius:8px;font:13px/1.55 var(--mono);white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word}pre code{padding:0;color:inherit;background:none;white-space:inherit}.command-code{border-left:4px solid var(--green);background:#18231d;box-shadow:0 4px 14px rgba(25,35,29,.13)}.syntax-program{color:#7ddc9e;font-weight:700}.syntax-option{color:#e8b86d}.syntax-string{color:#b9d8ff}.copy{position:absolute;top:10px;right:10px;padding:5px 8px;color:#d8ebe0;background:#34453b;border:0;border-radius:5px;font:11px var(--sans);cursor:pointer}.copy:hover{color:#fff;background:var(--green)}
-    .chapter{font-size:.55em;vertical-align:.35em}.equation{max-width:var(--measure);margin:26px 0;padding:24px 20px;text-align:center;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);font-size:19px}.equation-label{display:block;margin-top:12px;color:var(--muted);font:13px/1.45 var(--sans)}.block-label{max-width:var(--measure);margin:22px 0 6px;color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.block-label+pre{margin-top:0}.output-toggle{max-width:var(--measure);margin:-12px 0 28px}.output-toggle summary{color:var(--green);font-size:13px;font-weight:700;cursor:pointer}.output-toggle[open] summary{margin-bottom:8px}.output-toggle pre{margin:0;background:#26362d}.output-note{color:var(--muted);font-size:12px}table{width:100%;margin:20px 0 28px;border-collapse:collapse;font-size:14px}th,td{padding:11px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--rule)}th{color:#fff;background:var(--green)}tbody tr:nth-child(even){background:#f7f9f7}
-    figure{margin:30px 0 36px}figure img,figure svg{display:block;width:100%;height:auto}figcaption{margin-top:12px;color:var(--muted);font-size:13px;line-height:1.45}footer{margin-top:85px;padding-top:28px;color:var(--muted);border-top:3px solid var(--green);font-size:13px}
-    @media(max-width:960px){nav{position:static;width:auto;padding-bottom:22px}.nav-toggle{display:block}nav .part,nav>a:not(.brand),nav .small{display:none}nav.open .part{display:block}nav.open>a:not(.brand){display:inline-block}nav.open .small{display:block}nav .book{margin-bottom:14px}main{margin-left:0}article{padding:28px 24px 80px}.brand{max-width:270px}}@media(max-width:650px){h2{font-size:28px}table{display:block;overflow-x:auto}pre{padding-right:44px}}@media print{nav,#progress,.copy,.nav-toggle{display:none!important}main{margin:0}article{max-width:none;padding:0}h2{break-before:page}pre{white-space:pre-wrap;color:#000;background:#eee}}
-  </style>
+  <title>umriss — auditable digital twins from survey marginals</title>
   <script>
-    window.MathJax = {
-      tex: {
-        inlineMath: [['\\(', '\\)']],
-        displayMath: [['\\[', '\\]']]
-      }
-    };
+    MathJax = {tex: {inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']]}};
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root{--green:#428a5f;--dark:#214d35;--light:#edf7f1;--ink:#17201a;--muted:#667069;--paper:#f5f7f5;--panel:#fff;--rule:#dfe5e0;--code:#19231d;--measure:790px;--serif:Georgia,"Times New Roman",serif;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;--mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;color:var(--ink);background:var(--paper);font:16px/1.7 var(--sans)}
+    main{max-width:920px;margin:0 auto;padding:64px 64px 110px;background:var(--panel);box-shadow:0 0 0 1px rgba(0,0,0,.025)}
+    h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.3}
+    h1{max-width:780px;margin:14px 0 20px;color:var(--ink);font-size:clamp(40px,6vw,61px);letter-spacing:-.025em}
+    h2{margin:78px 0 22px;padding:12px 0 8px;color:var(--green);font-size:32px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+    h3{margin:40px 0 13px;font-size:23px}
+    p,ul,ol,table,pre,details{max-width:var(--measure)}
+    .lede{max-width:740px;color:var(--muted);font-size:21px;line-height:1.5}
+    .kicker{color:var(--green);font-size:12px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+    a{color:var(--green)}
+    code{padding:.14em .35em;background:#f0f3f0;border-radius:4px;font:88% var(--mono)}
+    pre{position:relative;overflow-x:hidden;margin:18px 0 26px;padding:20px 22px;color:#d8e3db;background:var(--code);border-radius:8px;font:13px/1.55 var(--mono);white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word}
+    pre code{padding:0;color:inherit;background:none;border-radius:0;font:inherit;white-space:inherit}
+    .command-code{padding-right:58px;border-left:4px solid var(--green);background:#18231d;box-shadow:0 4px 14px rgba(25,35,29,.13)}
+    .syntax-program{color:#7ddc9e;font-weight:700}
+    .syntax-option{color:#e8b86d}
+    .syntax-string{color:#b9d8ff}
+    .copy{position:absolute;top:10px;right:10px;padding:5px 8px;color:#d8ebe0;background:#34453b;border:0;border-radius:5px;font:11px var(--sans);cursor:pointer}
+    .copy:hover{color:#fff;background:var(--green)}
+    table{width:100%;margin:20px 0 28px;border-collapse:collapse;font-size:14px}
+    th,td{padding:11px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--rule)}
+    th{color:#fff;background:var(--green)}
+    tbody tr:nth-child(even){background:#f7f9f7}
+    details{margin:12px 0 28px}
+    summary{color:var(--green);font-size:13px;font-weight:700;cursor:pointer}
+    details[open] summary{margin-bottom:8px}
+    details pre{margin:0;background:#26362d;border-left:0;box-shadow:none}
+    .note{max-width:var(--measure);margin:24px 0;padding:12px 18px;background:#fff7e8;border-left:4px solid #b66b13}
+    .note p{margin:.4rem 0}
+    figure{max-width:var(--measure);margin:30px 0 38px}
+    figure img{display:block;width:100%;height:auto;border:1px solid var(--rule);background:#fff}
+    figcaption{margin-top:9px;color:var(--muted);font-size:13px;line-height:1.5}
+    mjx-container[display="true"]{max-width:var(--measure);margin:26px 0!important;padding:20px 12px;overflow-x:auto;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+    @media(max-width:720px){main{padding:36px 22px 80px}h2{margin-top:58px;font-size:28px}table{display:block;overflow-x:auto}pre{padding:16px;font-size:12px}}
+    @media print{body{background:#fff}main{max-width:none;padding:0;box-shadow:none}pre{white-space:pre-wrap;color:#000;background:#eee}}
+  </style>
 </head>
-<body>
-<div id="progress"></div>
-<nav aria-label="Guide contents">
-  <a class="brand" href="https://www.expectedparrot.com/"><strong>Expected Parrot</strong><small>Open-source research tools</small></a>
-  <div class="book">Digital Twins from<br>Survey Marginals</div>
-  <button class="nav-toggle" type="button" aria-expanded="false">Show guide contents</button>
-  <div class="part">Foundations</div>
-  <a href="#orientation">1. The problem</a><a href="#method">2. Mixture calibration</a><a href="#install">3. Install and orient</a>
-  <div class="part">Workflow</div>
-  <a href="#metadata">4. Describe the battery</a><a href="#design">5. Design support</a><a href="#boundary">6. Run model jobs</a><a href="#parse">7. Parse the bank</a><a href="#fit">8. Fit and predict</a>
-  <div class="part">Evidence</div>
-  <a href="#validate">9. Leave-one-out validation</a><a href="#report">10. Compare and report</a><a href="#agents">11. Agent operation</a><a href="#checklist">12. Checklist</a>
-  <div class="small">A self-contained guide to umriss. Model execution happens outside the package through EDSL.</div>
-</nav>
-<main><article>
-  <header>
-    <div class="eyebrow">Expected Parrot · An auditable, agent-facing workflow</div>
-    <h1>Building digital twins from survey marginals</h1>
-    <p class="dek">Turn published toplines and marginal distributions into a calibrated mixture of synthetic respondent profiles—without pretending aggregate data contains respondent-level records.</p>
-    <div class="meta"><span>Tool: <strong>umriss</strong></span><span>Runtime: <strong>Python + EDSL</strong></span><span>Interface: <strong>JSON-first CLI</strong></span></div>
-  </header>
+<body><main>
+  <p class="kicker">Python CLI · schema version 1 · MIT licensed</p>
+  <h1>umriss</h1>
+  <p class="lede">Build an auditable synthetic population from reported survey marginals, while keeping the assumptions that make the construction possible explicit.</p>
 
-  <section id="orientation">
-    <h2><span class="chapter">01</span> The problem</h2>
-    <p>Many survey reports publish distributions for each question but withhold the underlying microdata. Those marginals describe a population, yet they do not reveal how answers co-occur within people. <code>umriss</code> builds an explicit approximation: a reusable bank of plausible synthetic respondents and a set of nonnegative weights chosen to reproduce the observed marginals.</p>
-    <p>The method does not ask a model to invent a finished synthetic population in one step. It separates the task into target recording, support construction, measurement, and calibration. That separation matters because it lets us inspect which assumptions come from the report, which come from the synthetic profiles, and which come from the weighting procedure.</p>
+  <h2>What the method is doing</h2>
+  <p>A report commonly supplies one probability distribution for each survey item, but not the respondent-level records that connect answers across items. Those marginals do not determine a unique joint distribution. <code>umriss</code> therefore constructs a bank of synthetic response profiles, asks a model for a probability vector for every item in every profile, and fits nonnegative mixture weights over the bank.</p>
+  <p>Let \(p_{s,j}\) be support profile \(s\)'s probability vector for item \(j\), and \(w_s\) its population weight. The reconstructed marginal is</p>
+  \[
+    \widehat m_j = \sum_{s=1}^{S} w_s p_{s,j},
+    \qquad w_s \ge 0,\qquad \sum_s w_s=1.
+  \]
+  <p>The first generated profiles are deliberately spread over the response space. They are initially just support points; they do not have equal substantive prevalence. The fitted weights later move mass toward profiles needed to reproduce held-in marginals. Held-out items test whether the resulting joint structure predicts information it was not fitted to.</p>
+  <div class="note"><p>The result is a calibrated synthetic population, not recovered respondents. Support geometry and regularization are identifying assumptions and must be reported.</p></div>
 
-    <h3>First, record the targets</h3>
-    <p>For every survey item, we record the exact question wording, the answer options in their published order, and the reported proportion selecting each option. These proportions are the calibration targets. If a report says that 21 percent have “a great deal” of confidence in the courts, 55 percent have “some,” and 24 percent have “hardly any,” the vector <em>(0.21, 0.55, 0.24)</em> becomes the target for that item.</p>
-    <p>At this stage there are no synthetic respondents and no assumptions about correlations between questions. The metadata simply preserves what the report actually tells us. Keeping this boundary clean prevents model-generated beliefs from being mistaken for observed evidence.</p>
+  <h2>The example uses real Pew microdata</h2>
+  <p>The example comes from Pew Research Center’s nationally representative American Trends Panel, Wave 154, fielded among U.S. adults in September 2024. The normalized source contains 6,104 respondent records and Pew’s survey weight. Respondents were asked whether men and women are basically similar or basically different across five domains.</p>
+  <p>We use the microdata only to calculate the five weighted marginal distributions below. The support model never receives respondent rows, demographics, respondent-level answer combinations, or the target percentages. During leave-one-out validation, <code>umriss</code> fits four aggregate marginal vectors and predicts the fifth aggregate marginal vector.</p>
+  <table>
+    <thead><tr><th>Domain</th><th>Basically similar</th><th>Basically different</th></tr></thead>
+    <tbody>
+      <tr><td>Hobbies and personal interests</td><td>32.0%</td><td>68.0%</td></tr>
+      <tr><td>Physical abilities</td><td>19.1%</td><td>80.9%</td></tr>
+      <tr><td>Approach to parenting</td><td>28.8%</td><td>71.2%</td></tr>
+      <tr><td>How they express their feelings</td><td>11.0%</td><td>89.0%</td></tr>
+      <tr><td>Things they are good at in the workplace</td><td>57.3%</td><td>42.7%</td></tr>
+    </tbody>
+  </table>
+  <p>For example, the physical-abilities vector \((0.1907, 0.8093)\) means that the weighted estimate is 19.1 percent “basically similar” and 80.9 percent “basically different.” Workplace abilities move in the opposite direction: 57.3 percent say similar and 42.7 percent say different. The feelings item has the largest “different” share, at 89.0 percent.</p>
+  <p>Every item has 6,104 valid records. The weighted denominator is approximately 6,091.07. The checked-in <a href="../examples/pew_w154/weighted_marginals.csv">weighted-marginal audit table</a> preserves the full-precision estimates and denominators.</p>
+  <p>Given an authorized local copy of Pew’s normalized respondent file, the aggregate inputs are reproduced with:</p>
+  <pre><code>umriss marginals import \
+  --metadata examples/pew_w154/pew_w154_metadata.json \
+  --respondents /path/to/W154_DIFF1_respondents.csv \
+  --out examples/pew_w154/recomputed_marginals.csv</code></pre>
+  <table>
+    <tr><th>Argument</th><th>Meaning</th></tr>
+    <tr><td><code>--respondents</code></td><td>Local respondent-level source used only for this aggregation step. It is not passed to support generation or leave-one-out fitting.</td></tr>
+    <tr><td><code>--metadata</code></td><td>Maps each tutorial item to its Pew source column and option codes, and identifies the survey-weight column.</td></tr>
+    <tr><td><code>--out</code></td><td>Writes long-form weighted marginals: one row per item and response option.</td></tr>
+  </table>
+  <p>The microdata reveals how answers co-occur, but that joint information is deliberately withheld from the reconstruction and evaluation. It is available only as a possible external benchmark for later research. The exercise here asks what can be reconstructed when the usable inputs are the five published-style marginals alone.</p>
 
-    <h3>Second, create broad support</h3>
-    <p>We then create a bank of synthetic respondent types, called <em>support points</em>. A support point is not meant to be a recovered individual or a demographic estimate. It is a basis function: one coherent way that answers across the battery might move together.</p>
-    <p>The initial bank is designed to cover the response space broadly. Some support points anchor explicit answer patterns; others target underrepresented item-option regions or response styles. This is the “uniform” starting point in the workflow: before calibration, every valid support point receives equal weight. It does not mean that every synthetic respondent answers every option with equal probability. It means that the bank begins without declaring one synthetic type more prevalent than another.</p>
-
-    <h3>Third, measure each synthetic type</h3>
-    <p>Each support prompt asks the model for a complete probability vector on every item. A row might assign high probability to trusting the courts, moderate probability to trusting the police, and low probability to trusting parliament. Collecting the full vector preserves uncertainty and creates a numerical matrix that can be calibrated; a single hard answer would throw away useful information.</p>
-    <p>With equal weights, averaging the rows gives the <em>unweighted support-bank prediction</em>. This is an important baseline. It shows what the designed synthetic population predicts before seeing the reported target proportions.</p>
-
-    <h3>Fourth, reweight the bank</h3>
-    <p>Calibration changes the prevalence of the synthetic types, not their recorded answer probabilities. If a support point helps reproduce several reported marginals simultaneously, its weight can rise. If it pushes the mixture away from the targets, its weight can fall. All weights remain nonnegative and sum to one, so the fitted result remains an interpretable mixture of the original support points.</p>
-    <p>Entropy regularization keeps the fit near the equal-weight starting point unless the targets provide a reason to move away from it. Without that restraint, a flexible bank could match the observed marginals by putting nearly all weight on a few rows. Such a solution might interpolate well but represent a fragile synthetic population.</p>
-
-    <h3>Finally, test what was not fitted</h3>
-    <p>Matching the marginals used during calibration is necessary but not persuasive: those values were the fitting targets. The meaningful test withholds one item, fits the weights using all remaining items, and predicts the omitted item from the same weighted support bank. Repeating this for every item measures whether the support bank captures reusable cross-item structure.</p>
-    <p>Marginals alone do not identify a unique joint distribution. Support design and regularization encode assumptions, so the result should be described as a calibrated synthetic population rather than a set of recovered respondents. The essential empirical question is whether those assumptions help predict omitted marginals better than simple alternatives.</p>
-    <table><thead><tr><th>Stage</th><th>Artifact</th><th>Purpose</th></tr></thead><tbody>
-      <tr><td>Targets</td><td>Battery metadata</td><td>Record question wording, ordered options, and reported marginal vectors.</td></tr>
-      <tr><td>Support</td><td>Design file and prompts</td><td>Create broad, inspectable synthetic response types without assigning population prevalence.</td></tr>
-      <tr><td>Measurement</td><td>EDSL results and support bank</td><td>Obtain a probability vector for every support point, item, and option.</td></tr>
-      <tr><td>Calibration</td><td>Mixture weights and diagnostics</td><td>Move away from equal weights only as needed to reproduce held-in targets.</td></tr>
-      <tr><td>Evaluation</td><td>Leave-one-item-out results</td><td>Test whether fitted weights predict marginals that were not used to estimate them.</td></tr>
-    </tbody></table>
-  </section>
-
-  <section id="method">
-    <h2><span class="chapter">02</span> Mixture calibration</h2>
-    <p>The support bank turns the qualitative idea above into a matrix. Let <em>B</em> contain support-point probabilities: rows are synthetic profiles and columns are item-option cells. With 12 support points and four three-option items, <em>B</em> has 12 rows and 12 columns. Each group of three cells in a row sums to one.</p>
-    <p>Let <em>y</em> contain the reported marginal probabilities for the items used in a fit. Let <em>b</em> be the starting weights, which are uniform by default: each support point begins with weight 1/12. The fitted weight vector π lies on the simplex, so its entries are nonnegative and sum to one.</p>
-    <div class="equation" role="img" aria-label="Entropy-regularized mixture calibration objective">
-      \[
-        \underset{\boldsymbol{\pi}}{\operatorname{minimize}}\quad
-        \left\lVert B_{\mathrm{in}}^{\mathsf T}\boldsymbol{\pi}
-        - \mathbf{y}_{\mathrm{in}}\right\rVert_2^2
-        + \rho\,D_{\mathrm{KL}}\!\left(\boldsymbol{\pi}\,\middle\|\,\mathbf{b}\right)
-      \]
-      \[
-        \text{subject to}\qquad \pi_s \ge 0,\qquad
-        \sum_{s=1}^{S}\pi_s = 1
-      \]
-      <span class="equation-label">Fit the reported held-in marginals while penalizing concentration away from the base weights.</span>
-    </div>
-    <p>The first term measures the discrepancy between the mixture prediction and the recorded targets. The second term measures how far the fitted weights move from the equal-weight base. The parameter ρ controls the tradeoff: smaller values prioritize a close marginal fit, while larger values preserve a more diffuse synthetic population.</p>
-    <p><code>umriss</code> tries a small default grid of ρ values. It selects a value using held-in fit plus a penalty for low effective support; the held-out outcome is never used for this choice. The diagnostics record the selected ρ, held-in residual, maximum weight, top-ten weight share, convergence status, and effective support.</p>
-    <div class="equation" role="img" aria-label="Held-out marginal prediction">
-      \[
-        \widehat{\mathbf{y}}_h =
-        B_h^{\mathsf T}\widehat{\boldsymbol{\pi}}
-      \]
-      <span class="equation-label">Predict held-out item h by applying the calibrated weights to its support probabilities.</span>
-    </div>
-    <p>The same fitted weights are applied to the support probabilities for the omitted item. No additional model call occurs at prediction time. The prediction comes entirely from cross-item structure already present in the support bank and the weights learned from the held-in targets.</p>
-    <table><thead><tr><th>Object</th><th>Meaning</th><th>Audit question</th></tr></thead><tbody>
-      <tr><td><em>B</em></td><td>Synthetic support bank</td><td>Does it span plausible and sufficiently diverse response patterns?</td></tr>
-      <tr><td><em>y</em></td><td>Published or imported marginals</td><td>Are labels, option order, sample, and weighting documented?</td></tr>
-      <tr><td>π</td><td>Calibrated mixture weights</td><td>Are weights diffuse enough to avoid support collapse?</td></tr>
-      <tr><td>ρ</td><td>Entropy regularization</td><td>Was selection outcome-independent for the held-out item?</td></tr>
-    </tbody></table>
-  </section>
-
-  <section id="install">
-    <h2><span class="chapter">03</span> Install and orient</h2>
-    <p>Install the package in editable mode. Core parsing and calibration are local; install the EDSL extra when preparing <code>.jobs.ep</code> bundles.</p>
-    <div class="block-label">Command</div>
-    <pre><code>pip install -e ".[test,edsl]"</code></pre>
-    <details class="output-toggle"><summary>Show output</summary><pre><code>Successfully installed umriss-0.1.0
-… dependency output truncated …</code></pre></details>
-    <div class="block-label">Command</div>
-    <pre><code>umriss version</code></pre>
-    <details class="output-toggle"><summary>Show output</summary><pre><code>{
-  "command": "umriss version",
-  "status": "ok",
-  "data": {"version": "0.1.0"},
-  "warnings": [],
-  "errors": [],
-  "next_steps": []
-}</code></pre></details>
-    <div class="block-label">Command</div>
-    <pre><code>umriss guide</code></pre>
-    <details class="output-toggle"><summary>Show output (truncated)</summary><pre><code>{
-  "command": "umriss guide",
-  "status": "ok",
-  "data": {
-    "summary": "Canonical workflow",
-    "steps": ["Inspect metadata", "Build support", "Export jobs", "…"]
-  },
-  "warnings": [],
-  "errors": [],
-  "next_steps": []
-}
-… output truncated …</code></pre></details>
-    <div class="block-label">Command</div>
-    <pre><code>umriss next</code></pre>
-    <details class="output-toggle"><summary>Show output</summary><pre><code>{
-  "command": "umriss next",
-  "status": "ok",
-  "data": {"recommendation": "Run `umriss init`.", "reason": "No active workspace."},
-  "warnings": [],
-  "errors": [],
-  "next_steps": []
-}</code></pre></details>
-    <p>Commands return one JSON envelope with <code>command</code>, <code>status</code>, <code>data</code>, <code>warnings</code>, <code>errors</code>, and <code>next_steps</code>. This stable shape is intended for both shell use and agent orchestration.</p>
-  </section>
-
-  <section id="metadata">
-    <h2><span class="chapter">04</span> Describe the survey battery</h2>
-    <p>Begin by authoring the survey metadata incrementally in a managed workspace. This is where published evidence becomes machine-readable calibration targets. The commands bind each item to its exact wording, ordered answer options, and observed marginals.</p>
-    <p>The option order is part of the data. Every later probability vector uses this same order, so changing it would silently associate probabilities with the wrong labels. The proportions should reflect the same population, weighting convention, and denominator across the battery. If the report uses different bases for different questions, record that distinction in the surrounding provenance rather than treating the vectors as directly comparable.</p>
-    <div class="block-label">Command</div>
-    <pre><code>umriss init</code></pre>
-    <details class="output-toggle"><summary>Show output</summary><pre><code>{
-  "command": "umriss init",
-  "status": "ok",
-  "data": {
-    "path": ".umriss",
-    "schema_version": "1.0",
-    "active_project": "default",
-    "project_path": ".umriss/projects/default"
-  },
-  "warnings": [],
-  "errors": [],
-  "next_steps": ["umriss battery import --metadata &lt;metadata.json&gt;"]
-}</code></pre></details>
-    <p><code>init</code> creates a hidden <code>.umriss</code> workspace and an active default project. The workspace stores authored battery records and provides a stable place for an agent to inspect state. It does not import any report data by itself.</p>
-    <div class="block-label">Command</div>
-    <pre><code>umriss battery create --battery-id trust --wave T1 \
-  --battery TRUST --topic "institutional trust" \
-  --context "Published national survey toplines"</code></pre>
-    <details class="output-toggle"><summary>Show output</summary><pre><code>{
-  "command": "umriss battery create",
-  "status": "ok",
-  "data": {
-    "battery_id": "trust",
-    "battery_path": ".umriss/projects/default/batteries/trust/battery.json"
-  },
-  "warnings": [],
-  "errors": [],
-  "next_steps": []
-}</code></pre></details>
-    <p>The battery record supplies the shared context that every support prompt will receive. Keep it factual and population-level. Do not insert a theory about which kinds of people gave which answers; that is the uncertainty the support design will explore later.</p>
-    <div class="block-label">Command</div>
-    <pre><code>umriss question add --battery trust --item courts \
-  --question-stem "How much confidence do you have in..." \
-  --item-text "The courts" \
-  --option-code 1 --option "A great deal" \
-  --option-code 2 --option "Some" \
-  --option-code 3 --option "Hardly any"</code></pre>
-    <details class="output-toggle"><summary>Show output</summary><pre><code>{
-  "command": "umriss question add",
-  "status": "ok",
-  "data": {"battery_id": "trust", "item": "courts"},
-  "warnings": [],
-  "errors": [],
-  "next_steps": []
-}</code></pre></details>
-    <p>A question record separates the repeated question stem from the item text and preserves legal response options. Here, “How much confidence…” is the stem and “The courts” is the item being rated. The codes are identifiers; the labels are the language shown to the model.</p>
-    <div class="block-label">Command</div>
-    <pre><code>umriss marginal add --battery trust --item courts \
-  --proportion .21 --proportion .55 --proportion .24</code></pre>
-    <details class="output-toggle"><summary>Show output</summary><pre><code>{
-  "command": "umriss marginal add",
-  "status": "ok",
-  "data": {"battery_id": "trust", "item": "courts", "proportions": [0.21, 0.55, 0.24]},
-  "warnings": [],
-  "errors": [],
-  "next_steps": []
-}</code></pre></details>
-    <p>The marginal command records the target vector for this item. It does not create respondents or distribute these values across synthetic people. It only says what the final weighted mixture should reproduce for the courts item.</p>
-    <p>Repeat <code>question add</code> and <code>marginal add</code> for the other institutions in the battery before compiling. The abbreviated metadata excerpt below shows only the first item.</p>
-    <div class="block-label">Command</div>
-    <pre><code>umriss battery compile --battery trust --path trust_metadata.json</code></pre>
-    <details class="output-toggle"><summary>Show output</summary><pre><code>{
-  "command": "umriss battery compile",
-  "status": "ok",
-  "data": {"battery": "trust", "items": 4, "path": "trust_metadata.json"},
-  "warnings": [],
-  "errors": [],
-  "next_steps": []
-}</code></pre></details>
-    <p>The compiled file is a portable description of the battery that later commands can inspect or consume directly. Keep source citations and population definitions beside it even when the minimal schema does not require them.</p>
-    <div class="block-label">Command</div>
-    <pre><code>umriss battery inspect trust_metadata.json</code></pre>
-    <details class="output-toggle"><summary>Show output</summary><pre><code>{
-  "command": "umriss battery inspect",
-  "status": "ok",
-  "data": {
-    "wave": "T1",
-    "battery": "TRUST",
-    "items": 4,
-    "option_counts": {"courts": 3, "parliament": 3, "police": 3, "civil_service": 3},
-    "moment_dimension": 8,
-    "has_truth": true
-  },
-  "warnings": [],
-  "errors": [],
-  "next_steps": []
-}</code></pre></details>
-    <div class="block-label">Compiled metadata excerpt</div>
-    <pre><code>{
-  "wave": "T1",
-  "battery": "TRUST",
-  "topic": "institutional trust",
-  "context": "Published national survey toplines.",
-  "items": {
-    "courts": {
-      "variable": "Q1",
-      "question_stem": "How much confidence do you have in...",
-      "item_text": "The courts"
-    }
-  },
-  "option_codes": [1, 2, 3],
-  "option_labels": ["A great deal", "Some", "Hardly any"],
-  "truth": {"courts": [0.21, 0.55, 0.24]}
-}</code></pre>
-  </section>
-
-  <section id="design">
-    <h2><span class="chapter">05</span> Design the support bank</h2>
-    <p>The support bank supplies candidate patterns of cross-item dependence. If every row expresses the same outlook, no weighting scheme can manufacture a missing response pattern. The first bank should therefore prioritize coverage rather than realism about population prevalence. Prevalence is what calibration will estimate.</p>
-    <p>The built-in <code>pattern-coverage</code> strategy combines response-pattern anchors with item-option coverage rows. Pattern anchors ask for coherent synthetic types around different answer scaffolds. Coverage rows deliberately visit particular response regions—for example, a type for whom “hardly any” confidence in the courts is natural—while asking the model to carry the underlying outlook coherently across the other institutions.</p>
-    <p>These prompts ask for probabilistic rather than deterministic answers. A support point can lean strongly toward one option while retaining uncertainty. Once all 12 rows are measured, they initially receive equal weight. The unweighted bank is therefore a broad reference population, not a claim that the 12 types are equally common in reality.</p>
-    <div class="block-label">Command</div>
-    <pre><code>umriss support build \
-  --battery trust \
-  --strategy pattern-coverage \
-  --tag trust_coverage_n12 --n-support 12 \
-  --out examples/trust_tutorial/run/prompts</code></pre>
-    <details class="output-toggle"><summary>Show output</summary><pre><code>{
-  "command": "umriss support build",
-  "status": "ok",
-  "data": {
-    "tag": "trust_coverage_n12",
-    "rows": 12,
-    "prompts_path": "examples/trust_tutorial/run/prompts/trust_coverage_n12.jsonl",
-    "design_path": "examples/trust_tutorial/run/prompts/trust_coverage_n12_design.csv",
-    "design": null,
-    "metadata_source": {
-      "battery_id": "trust",
-      "kind": "workspace",
-      "path": ".umriss/projects/default/batteries/trust/battery.json"
-    }
-  },
-  "warnings": [],
-  "errors": [],
-  "next_steps": []
-}</code></pre></details>
-    <h3>Arguments to <code>support build</code></h3>
-    <table><thead><tr><th>Argument</th><th>Meaning</th><th>Choices and behavior</th></tr></thead><tbody>
-      <tr><td><code>--battery trust</code></td><td>Use the battery named <code>trust</code> from the active managed workspace.</td><td>Mutually exclusive with <code>--metadata</code>. This is idiomatic after <code>battery create</code>, <code>question add</code>, and <code>marginal add</code>.</td></tr>
-      <tr><td><code>--metadata FILE</code></td><td>Read a complete battery directly from JSON.</td><td>Mutually exclusive with <code>--battery</code>. Use for stateless runs, CI, or a battery maintained outside <code>.umriss</code>.</td></tr>
-      <tr><td><code>--strategy pattern-coverage</code></td><td>Select a built-in support construction recipe.</td><td><code>pattern-coverage</code> covers answer-pattern and item-option regions. <code>archetype</code> crosses generic age, education, occupation, political, and technology descriptions. Mutually exclusive with <code>--design</code>.</td></tr>
-      <tr><td><code>--design FILE</code></td><td>Use an explicit JSON or YAML design instead of a built-in strategy.</td><td>Supports axes, explicit patterns, option-coverage components, and sampling rules. Mutually exclusive with <code>--strategy</code>.</td></tr>
-      <tr><td><code>--tag trust_coverage_n12</code></td><td>Name this support-bank run.</td><td>The tag becomes the filename prefix joining prompts, results, banks, fits, and evaluations. Use a stable filesystem-safe name.</td></tr>
-      <tr><td><code>--n-support 12</code></td><td>Request twelve support points.</td><td>Defaults to 96. Larger banks cover more response regions but create more model calls and a more flexible calibration problem.</td></tr>
-      <tr><td><code>--seed 20260625</code></td><td>Control randomized pattern or design sampling.</td><td>Optional; the displayed value is the default. Keep it fixed when comparing support designs.</td></tr>
-      <tr><td><code>--out DIR</code></td><td>Choose where generated prompts and the design audit table are written.</td><td>Writes <code>&lt;tag&gt;.jsonl</code> and <code>&lt;tag&gt;_design.csv</code>. It does not run models.</td></tr>
-    </tbody></table>
-    <h3>What the command actually produced</h3>
-    <p>The command created two views of the same twelve-point support design. Neither file contains model answers yet. The JSONL file is the executable prompt input for the next stage; the CSV file is a compact audit table for a human or agent to inspect before paying for inference.</p>
-    <table><thead><tr><th>File</th><th>Rows</th><th>Contents</th><th>Used by</th></tr></thead><tbody>
-      <tr><td><a href="trust_coverage_n12_prompts.html">Readable browser view</a><br><a href="../examples/trust_tutorial/run/prompts/trust_coverage_n12.jsonl"><code>raw JSONL</code></a></td><td>12 JSON records</td><td>One fully rendered prompt per proposed support point, plus its stable identifiers and design scaffold.</td><td><code>umriss support export</code></td></tr>
-      <tr><td><a href="../examples/trust_tutorial/run/prompts/trust_coverage_n12_design.csv"><code>trust_coverage_n12_design.csv</code></a></td><td>12 tabular rows</td><td>One compact description per support point: variant, intended pattern or coverage target, style, and moment dimension.</td><td>Design review and provenance</td></tr>
-    </tbody></table>
-
-    <h4>The first JSONL record</h4>
-    <p>JSONL means “one JSON object per line.” The first line below proposes a support point centered on answering “Some” across the four institutions. The <code>pattern</code> is a scaffold used to construct the prompt; it is not an observed respondent and it is not yet the model’s answer.</p>
-    <div class="block-label">Generated JSONL record, abbreviated</div>
-    <pre><code>{
-  "battery": "T1_TRUST",
-  "job_id": "trust_coverage_n12_001",
-  "support_id": 1,
-  "variant": "pattern_anchor",
-  "moment_dimension": 8,
-  "pattern": {
-    "courts": "Some",
-    "parliament": "Some",
-    "police": "Some",
-    "civil_service": "Some"
-  },
-  "prompt": "You are creating one synthetic support point ... Return calibrated probabilities over the listed response options ..."
-}</code></pre>
-    <details class="output-toggle"><summary>Show the complete generated prompt</summary><pre><code>You are creating one synthetic support point for a marginal weighting exercise.
-
-Survey context: A synthetic four-item teaching battery used to demonstrate umriss.
-Battery topic: institutional trust
-
-This support point is not a real person and not a demographic population
-segment. It is a measured behavioral basis function. The target answer pattern
-below is a scaffold: construct a coherent respondent type whose experiences,
-beliefs, and response style make the pattern feel natural rather than random.
-
-Target answer-pattern scaffold:
-- courts: The courts -&gt; Some
-- parliament: Parliament -&gt; Some
-- police: The police -&gt; Some
-- civil_service: The civil service -&gt; Some
-
-Decision style:
-Use ordinary survey-response uncertainty.
-
-Question stem:
-How much confidence do you have in...
-
-Items and response options:
-- courts: The courts
-  Options: 1. A great deal; 2. Some; 3. Hardly any
-- parliament: Parliament
-  Options: 1. A great deal; 2. Some; 3. Hardly any
-- police: The police
-  Options: 1. A great deal; 2. Some; 3. Hardly any
-- civil_service: The civil service
-  Options: 1. A great deal; 2. Some; 3. Hardly any
-
-Task:
-Return calibrated probabilities over the listed response options for this
-support point on every item. The scaffold should guide the direction of each
-item, but do not make probabilities exactly 0 or 1. Keep the profile coherent
-across items and allow middle probabilities for mixed views.
-
-Return only valid JSON with exactly this schema:
-{
-  "persona": "coherent response-pattern support point 1",
-  "probabilities": {
-    "courts": [numbers in option order],
-    "parliament": [numbers in option order],
-    "police": [numbers in option order],
-    "civil_service": [numbers in option order]
+  <h2>1. Record the battery and its targets</h2>
+  <p>Battery metadata records wording, option order, scale semantics, and reported marginals. It contains population-level facts, not invented theories about respondent types. Each scale is declared <code>ordinal</code> or <code>nominal</code>; ordinal scales also state their direction. This prevents a generic algorithm from treating the first or last nominal category as an “extreme.”</p>
+  <pre><code>umriss battery inspect examples/pew_w154/pew_w154_metadata.json</code></pre>
+  <details><summary>Captured output</summary><pre><code>{
+  "battery": "DIFF1",
+  "items": 5,
+  "moment_dimension": 5,
+  "option_counts": {
+    "feelings": 2,
+    "hobbies": 2,
+    "parenting": 2,
+    "physical_abilities": 2,
+    "workplace": 2
   }
 }</code></pre></details>
+  <p>You can also author metadata incrementally in a managed workspace:</p>
+  <pre><code>umriss question add \
+  --battery pew_w154 --item hobbies --variable DIFF1_a_W154 \
+  --question-stem "In general, how do you think men and women compare when it comes to each of the following?" \
+  --item-text "Their hobbies and personal interests" \
+  --option "Men and women are basically similar" \
+  --option "Men and women are basically different" \
+  --scale-type nominal</code></pre>
+  <table>
+    <tr><th>Argument</th><th>Meaning</th></tr>
+    <tr><td><code>--scale-type</code></td><td><code>ordinal</code> means option order has substantive meaning; <code>nominal</code> means it does not.</td></tr>
+    <tr><td><code>--scale-direction</code></td><td>Required only for ordinal scales. The Pew response is binary but not a graded low-to-high scale, so this battery declares it nominal.</td></tr>
+  </table>
 
-    <h4>The first design rows</h4>
-    <p>The CSV exposes why each prompt exists. Rows 1 and 2 are broad pattern anchors. Rows 3–5 target distinct response regions for the courts item. Blank item columns on an option-coverage row are intentional: that row asks the model to infer a coherent whole-battery profile from the named coverage target.</p>
-    <table><thead><tr><th>support_id</th><th>variant</th><th>coverage item</th><th>coverage option</th><th>pattern</th></tr></thead><tbody>
-      <tr><td>1</td><td><code>pattern_anchor</code></td><td>—</td><td>—</td><td>Some / Some / Some / Some</td></tr>
-      <tr><td>2</td><td><code>pattern_anchor</code></td><td>—</td><td>—</td><td>Hardly any / Hardly any / Hardly any / Hardly any</td></tr>
-      <tr><td>3</td><td><code>option_coverage</code></td><td>courts</td><td>A great deal</td><td>Inferred by the model</td></tr>
-      <tr><td>4</td><td><code>option_coverage</code></td><td>courts</td><td>Hardly any</td><td>Inferred by the model</td></tr>
-      <tr><td>5</td><td><code>option_coverage</code></td><td>courts</td><td>Some</td><td>Inferred by the model</td></tr>
-    </tbody></table>
-    <p>At the end of <code>support build</code>, <code>umriss</code> has therefore proposed twelve things to measure. It has not created a fitted twin population, assigned weights, or called a model. <code>support export</code> packages these rendered prompts as EDSL jobs; <code>ep run</code> is the step that obtains a persona and four probability vectors for each support point.</p>
-    <h3>Why <code>--battery</code> rather than a JSON path?</h3>
-    <p>The tutorial already authored <code>trust</code> inside the active <code>.umriss</code> project, so <code>--battery trust</code> resolves to <code>.umriss/projects/default/batteries/trust/battery.json</code>. There is no need to compile and pass the same JSON file again.</p>
-    <p>The alternative <code>--metadata path.json</code> form is for stateless use: an agent may already have a complete metadata artifact, may be running in automation without a workspace, or may want to evaluate a read-only battery without importing it. Exactly one of <code>--battery</code> and <code>--metadata</code> is required.</p>
-    <p>The <code>metadata_source</code> field confirms that the managed battery was used. The command is deterministic: it writes 12 prompt records and a design table but makes no model calls. The JSONL contains the full prompt for each support point. The design CSV makes the intended coverage visible without requiring you to read every prompt in full.</p>
-    <h3>Inspect before model execution</h3>
-    <p>Read the generated JSONL and design CSV before spending on inference. Look for duplicated profiles, unsupported demographic claims, leading language, option-order mistakes, and axes that merely restate the known marginals.</p>
-    <p>After establishing a pattern-coverage baseline, you can compare it with theory-driven banks. A generic design file can cross latent outlooks with response styles and sample that space using a fixed seed. Such a bank may encode better domain structure, but it also adds assumptions and should be evaluated against the same held-out items.</p>
-    <div class="block-label">Alternative design file</div>
-    <pre><code>{
-  "components": [{
-    "type": "axes",
-    "name": "attitude_grid",
-    "axes": {
-      "institutional_outlook": ["trusting", "skeptical"],
-      "response_style": ["moderate", "strong"]
-    },
-    "sampler": {"method": "maximin", "n": 96, "seed": 17},
-    "guidance": "Use every response scale literally."
-  }]
-}</code></pre>
-  </section>
+  <h2>2. Declare and validate the support design</h2>
+  <p>The checked-in YAML makes every consequential support choice reviewable and versioned. Because the response is nominal, the design does not derive anchors from “first,” “middle,” or “last” option positions. Its two whole-battery anchors are declared explicitly.</p>
+  <pre><code>umriss design validate \
+  --metadata examples/pew_w154/pew_w154_metadata.json \
+  --design examples/pew_w154/pew_w154_design.yaml</code></pre>
+  <table>
+    <tr><th>Argument</th><th>Meaning</th><th>Options</th></tr>
+    <tr><td><code>--metadata</code></td><td>Battery definition used to resolve item-option cells.</td><td>Use <code>--battery ID</code> instead for a managed workspace.</td></tr>
+    <tr><td><code>--design</code></td><td>Editable declaration of coverage and anchors.</td><td>This design contains complete option coverage plus two explicit whole-battery patterns.</td></tr>
+  </table>
+  <p>Complete item-option coverage needs \(5\times2=10\) rows. Two explicit anchors—one all-similar and one all-different—bring the design to 12. Coverage rows use <code>item_specific</code> coherence, so targeting “different” for physical abilities does not force “different” for workplace abilities or parenting.</p>
+  <details><summary>Resolved schema-v1 design</summary><pre><code>schema_version: 1
+size: 12
+coverage:
+  mode: complete
+  allocation: balanced
+components:
+  - type: option_coverage
+    items: all
+    minimum_per_option: 1
+    coherence: item_specific
+    intensity:
+      values: [moderate, strong]
+      allocation: balanced
+  - type: pattern_anchors
+    coherence: explicit
+profile:
+  summary_field: profile_summary
+  forbid_demographic_invention: true
+probabilities:
+  interpretation: subjective_response_probability
+  require_sum: 1
+  minimum_probability: 0.01</code></pre></details>
 
-  <section id="boundary">
-    <h2><span class="chapter">06</span> Run model jobs at the EDSL boundary</h2>
-    <p>The prompt file describes the support population, but it does not yet contain measured answer probabilities. <code>support export</code> converts each prompt row into an EDSL scenario and combines those scenarios with a question requiring the probability JSON. The resulting <code>.jobs.ep</code> object records the exact prompts, model configuration, and scenario count.</p>
-    <p><code>umriss</code> prepares jobs but never executes frontier-model calls. This division keeps credentials, service selection, retries, waiting, and remote failures outside deterministic analysis commands. It also prevents a later parse or fit command from silently rerunning a failed row with different settings.</p>
-    <div class="block-label">Command</div>
-    <pre><code>umriss support export \
-  --prompts examples/trust_tutorial/run/prompts/trust_coverage_n12.jsonl \
-  --path examples/trust_tutorial/run/prompts/trust_coverage_n12.jobs.ep</code></pre>
-    <details class="output-toggle"><summary>Show output (truncated)</summary><pre><code>{
-  "command": "umriss support export",
-  "status": "ok",
-  "data": {
-    "jobs": "examples/trust_tutorial/run/prompts/trust_coverage_n12.jobs.ep",
-    "results": "examples/trust_tutorial/run/prompts/trust_coverage_n12.results.ep",
-    "run_contract": {
-      "owner": "agent",
-      "run_command": "ep run --jobs examples/trust_tutorial/run/prompts/trust_coverage_n12.jobs.ep --output examples/trust_tutorial/run/prompts/trust_coverage_n12.results.ep"
-    }
-  },
-  "warnings": [],
-  "errors": [],
-  "next_steps": ["Run the returned EDSL command."]
-}
-… output truncated …</code></pre></details>
-    <p>The response includes a run contract naming the job object, expected result object, and exact external command. Inspect the job count and model selection before proceeding: 12 support points run against two models would create 24 interviews, not 12.</p>
-    <p>Execute the returned command with the external EDSL runtime. The runtime owns remote submission and writes a durable result object containing the raw answers and model provenance.</p>
-    <div class="block-label">Command</div>
-    <pre><code>ep run --jobs examples/trust_tutorial/run/prompts/trust_coverage_n12.jobs.ep \
-  --output examples/trust_tutorial/run/prompts/trust_coverage_n12.results.ep</code></pre>
-    <details class="output-toggle"><summary>Show captured output</summary><pre><code>{
-  "status": "ok",
-  "data": {
-    "meta": {
-      "input_mode": "jobs",
-      "model_count": 1,
-      "agent_count": 1,
-      "scenario_count": 12,
-      "result_count": 12,
-      "n": 1,
-      "local": false,
-      "saved": {
-        "path": "examples/trust_tutorial/run/prompts/trust_coverage_n12.results.ep",
-        "format": "ep",
-        "object_type": "Results",
-        "commit": "708897214aded27b92d7652e662a80285ffbc8e8"
-      }
-    }
-  },
-  "warnings": [{
-    "code": "SUPPRESSED_STDOUT",
-    "output": "Results UUID: a3e66e84-aced-4eba-b77b-05157cbedb80"
-  }]
+  <h2>3. Understand the aggregate-only validation</h2>
+  <p>Validation happens before prompt generation or model spending. Complete coverage cannot be silently truncated.</p>
+  <pre><code>umriss design validate \
+  --metadata examples/pew_w154/pew_w154_metadata.json \
+  --design examples/pew_w154/pew_w154_design.yaml</code></pre>
+  <details><summary>Captured output</summary><pre><code>{
+  "valid": true,
+  "size": 12,
+  "required": 12,
+  "coverage_mode": "complete",
+  "components": [
+    {"component": "option_coverage", "required": 10},
+    {"component": "pattern_anchors", "required": 2}
+  ]
 }</code></pre></details>
-    <p>This is the captured output from the run used by this page. The checked-in <code>.results.ep</code> package has commit <code>7088972…</code> and remote Results UUID <code>a3e66e84-aced-4eba-b77b-05157cbedb80</code>. Every probability and score below descends from that artifact.</p>
-    <div class="block-label">Command</div>
-    <pre><code>umriss support register-results \
-  --results examples/trust_tutorial/run/prompts/trust_coverage_n12.results.ep \
-  --prompts examples/trust_tutorial/run/prompts/trust_coverage_n12.jsonl \
-  --tag trust_coverage_n12 --out examples/trust_tutorial/run/raw</code></pre>
-    <details class="output-toggle"><summary>Show captured output</summary><pre><code>{
-  "command": "umriss support register-results",
-  "data": {
-    "jobs_path": "examples/trust_tutorial/run/raw/trust_coverage_n12_jobs.csv",
-    "raw_path": "examples/trust_tutorial/run/raw/trust_coverage_n12_raw.csv",
-    "registration_path": "examples/trust_tutorial/run/raw/trust_coverage_n12_registration.json"
-  },
-  "errors": [],
-  "next_steps": [
-    "umriss support parse --raw examples/trust_tutorial/run/raw/trust_coverage_n12_raw.csv --metadata &lt;metadata.json&gt; --tag trust_coverage_n12"
-  ],
-  "status": "ok",
-  "warnings": []
+  <p>A size below 12 would return <code>DESIGN_TOO_SMALL</code>. This check concerns support geometry. Later, each leave-one-out fold removes one Pew marginal from the fitting targets, estimates weights from the other four marginals, and scores the omitted marginal. It does not fit or score individual respondent answers.</p>
+
+  <h2>4. Build and audit the support plan</h2>
+  <pre><code>umriss support build \
+  --metadata examples/pew_w154/pew_w154_metadata.json \
+  --design examples/pew_w154/pew_w154_design.yaml \
+  --tag pew_w154_diff1_n12 \
+  --out examples/pew_w154/run</code></pre>
+  <table>
+    <tr><th>Argument</th><th>Meaning</th><th>Alternative</th></tr>
+    <tr><td><code>--design</code></td><td>The reviewed schema-v1 YAML or JSON design.</td><td><code>--preset pattern-coverage</code> compiles a preset directly, but the resolved design is still written.</td></tr>
+    <tr><td><code>--tag</code></td><td>Stable prefix joining all artifacts in this run.</td><td>Choose a name that records the design and size.</td></tr>
+    <tr><td><code>--n-support</code></td><td>Optional size override.</td><td>It cannot bypass feasibility validation.</td></tr>
+    <tr><td><code>--seed</code></td><td>Optional seed override.</td><td>The resolved value is preserved in YAML.</td></tr>
+    <tr><td><code>--out</code></td><td>Directory for reviewable artifacts.</td><td>No model is run at this stage.</td></tr>
+  </table>
+  <table>
+    <tr><th>Artifact</th><th>What to inspect</th></tr>
+    <tr><td><a href="../examples/pew_w154/run/pew_w154_diff1_n12_resolved_design.yaml">resolved design</a></td><td>Every default and command-line override.</td></tr>
+    <tr><td><a href="../examples/pew_w154/run/pew_w154_diff1_n12_support_plan.csv">support plan</a></td><td>Why each row exists, its target, intensity, and coherence.</td></tr>
+    <tr><td><a href="../examples/pew_w154/run/pew_w154_diff1_n12_coverage.csv">coverage table</a></td><td>Whether each item-option cell is present and how often.</td></tr>
+    <tr><td><a href="../examples/pew_w154/run/pew_w154_diff1_n12_prompts.jsonl">prompt JSONL</a></td><td>Executable records for agents and tooling.</td></tr>
+    <tr><td><a href="../examples/pew_w154/run/pew_w154_diff1_n12_prompts.html">prompt browser</a></td><td>Readable, collapsible review before execution.</td></tr>
+  </table>
+  <p>Each coverage prompt states that its targeted domain may differ from the other domains. It asks for a substantive <code>profile_summary</code> and subjective response probabilities. Target marginals are intentionally absent from every prompt.</p>
+
+  <h2>5. Export one executable job object</h2>
+  <pre><code>umriss support export \
+  --prompts examples/pew_w154/run/pew_w154_diff1_n12_prompts.jsonl \
+  --path examples/pew_w154/run/pew_w154_diff1_n12.jobs.ep</code></pre>
+  <details><summary>Captured output</summary><pre><code>{
+  "scenarios": 12,
+  "models": ["gpt-5.5"],
+  "run_command": "ep run --jobs examples/pew_w154/run/pew_w154_diff1_n12.jobs.ep --output examples/pew_w154/run/pew_w154_diff1_n12.results.ep"
 }</code></pre></details>
-    <p>Registration converts the EDSL result object into a raw table while retaining the job identifiers that connect every response to its original support prompt. It does not interpret or normalize the returned probability vectors. That happens in the next stage, where validation failures can be reported explicitly.</p>
-    <p>Model execution should never be hidden inside parsing or fitting. A missing result is an operational state, not permission for an analysis command to make a new model call.</p>
-  </section>
 
-  <section id="parse">
-    <h2><span class="chapter">07</span> Parse and inspect the support bank</h2>
-    <p>The registered table still contains model-generated JSON. Parsing turns it into the numerical support matrix used by calibration. For each support point, the parser checks that every battery item is present, that the number of probabilities matches the ordered options, that values are nonnegative, and that each vector has positive mass that can be normalized.</p>
-    <p>The output is a long table with one row per support point, item, and option. For 12 support points and four three-option items, a complete bank contains 144 probability rows. Keeping the table long makes option ordering and missing cells easier to audit than a dense array.</p>
-    <div class="block-label">Command</div>
-    <pre><code>umriss support parse \
-  --raw examples/trust_tutorial/run/raw/trust_coverage_n12_raw.csv \
-  --metadata examples/trust_tutorial/trust_metadata.json \
-  --tag trust_coverage_n12 --out examples/trust_tutorial/run/banks</code></pre>
-    <details class="output-toggle"><summary>Show output</summary><pre><code>{
-  "command": "umriss support parse",
+  <h2>6. Run the real model jobs</h2>
+  <pre><code>ep run \
+  --jobs examples/pew_w154/run/pew_w154_diff1_n12.jobs.ep \
+  --output examples/pew_w154/run/pew_w154_diff1_n12.results.ep</code></pre>
+  <details><summary>Captured output</summary><pre><code>{
   "status": "ok",
-  "data": {
-    "valid_support_points": 12,
-    "probabilities_path": "examples/trust_tutorial/run/banks/trust_coverage_n12_probabilities.csv",
-    "diagnostics_path": "examples/trust_tutorial/run/banks/trust_coverage_n12_parse_diagnostics.csv",
-    "points_path": "examples/trust_tutorial/run/banks/trust_coverage_n12_points.csv"
-  },
-  "warnings": [],
-  "errors": [],
-  "next_steps": []
+  "scenario_count": 12,
+  "result_count": 12,
+  "results_uuid": "c78751ef-75e2-4184-95ff-3d1df6c7ac18"
 }</code></pre></details>
-    <div class="block-label">Command</div>
-    <pre><code>umriss support inspect \
-  --bank examples/trust_tutorial/run/banks/trust_coverage_n12_probabilities.csv</code></pre>
-    <details class="output-toggle"><summary>Show output (truncated)</summary><pre><code>{
-  "command": "umriss support inspect",
-  "status": "ok",
-  "data": {
-    "support_points": 12,
-    "items": 4,
-    "rows": 144,
-    "jobs": 12,
-    "option_counts": {"courts": 3, "parliament": 3, "police": 3, "civil_service": 3},
-    "min_probability": 0.02,
-    "max_probability": 0.84
-  },
-  "warnings": [],
-  "errors": [],
-  "next_steps": []
-}
-… output truncated …</code></pre></details>
-    <p>The inspect command summarizes the matrix without fitting it. Confirm that the support-point count matches the completed jobs, that every item has the expected option count, and that probabilities remain within zero and one. Review the diagnostics file even when most rows are valid; systematic failures in one response region can remove exactly the diversity the support design was meant to create.</p>
-    <table><thead><tr><th>Artifact</th><th>Role</th><th>Check</th></tr></thead><tbody>
-      <tr><td><code>*_probabilities.csv</code></td><td>Long-form support bank</td><td>Every support × item × option is present</td></tr>
-      <tr><td><code>*_personas.csv</code></td><td>Profile descriptions</td><td>No target leakage or invented source facts</td></tr>
-      <tr><td><code>*_parse_diagnostics.csv</code></td><td>Validation outcomes</td><td>No unexplained dropped rows</td></tr>
-    </tbody></table>
-  </section>
+  <p>This tutorial output came from an actual Expected Parrot run. <code>umriss</code> makes the boundary visible: it builds jobs, while <code>ep run</code> owns model execution.</p>
 
-  <section id="fit">
-    <h2><span class="chapter">08</span> Fit weights and predict</h2>
-    <p>At the start of fitting, all 12 valid support points have equal weight. Their simple average is the unweighted bank prediction. The optimizer then searches for a new nonnegative weight vector whose weighted average matches the recorded marginals for the held-in items, while the entropy penalty resists unnecessary movement away from equal weights.</p>
-    <p>Fit on all available items when the goal is a final calibrated synthetic population. Exclude an item when testing whether weights learned elsewhere transfer to an unseen target. In this example, the courts marginal is deliberately omitted; the police, parliament, and civil-service marginals determine the weights.</p>
-    <div class="block-label">Command</div>
-    <pre><code>umriss fit \
-  --support examples/trust_tutorial/run/banks/trust_coverage_n12_probabilities.csv \
-  --metadata examples/trust_tutorial/trust_metadata.json \
-  --exclude-item courts \
-  --tag trust_without_courts --out examples/trust_tutorial/run/fits</code></pre>
-    <details class="output-toggle"><summary>Show output (truncated)</summary><pre><code>{
-  "command": "umriss fit",
-  "status": "ok",
-  "data": {
-    "weights_path": "examples/trust_tutorial/run/fits/trust_without_courts_weights.csv",
-    "diagnostics_path": "examples/trust_tutorial/run/fits/trust_without_courts_fit_diagnostics.csv",
-    "predictions_path": "examples/trust_tutorial/run/fits/trust_without_courts_predictions.csv"
-  },
-  "warnings": [],
-  "errors": [],
-  "next_steps": []
-}
-… diagnostics truncated …</code></pre></details>
-    <p>The weights file contains one row per support point. The diagnostics explain how the optimizer arrived there. A low held-in residual means the weighted bank reproduces the targets used for fitting. Effective support, defined as the inverse sum of squared weights, describes concentration: a value near 12 resembles the equal-weight bank, while a value near 1 means one synthetic type dominates.</p>
-    <div class="block-label">Command</div>
-    <pre><code>umriss predict \
-  --support examples/trust_tutorial/run/banks/trust_coverage_n12_probabilities.csv \
-  --weights examples/trust_tutorial/run/fits/trust_without_courts_weights.csv \
-  --metadata examples/trust_tutorial/trust_metadata.json --item courts \
-  --out examples/trust_tutorial/run/fits/courts_prediction.csv</code></pre>
-    <details class="output-toggle"><summary>Show output</summary><pre><code>{
-  "command": "umriss predict",
-  "status": "ok",
-  "data": {
-    "path": "examples/trust_tutorial/run/fits/courts_prediction.csv",
-    "items": 1,
-    "rows": 3
-  },
-  "warnings": [],
-  "errors": [],
-  "next_steps": []
+  <h2>7. Register and parse without silent repair</h2>
+  <pre><code>umriss support register-results \
+  --results examples/pew_w154/run/pew_w154_diff1_n12.results.ep \
+  --prompts examples/pew_w154/run/pew_w154_diff1_n12_prompts.jsonl \
+  --tag pew_w154_diff1_n12 \
+  --out examples/pew_w154/run/raw</code></pre>
+  <pre><code>umriss support parse \
+  --raw examples/pew_w154/run/raw/pew_w154_diff1_n12_raw.csv \
+  --metadata examples/pew_w154/pew_w154_metadata.json \
+  --tag pew_w154_diff1_n12 \
+  --out examples/pew_w154/run/banks</code></pre>
+  <details><summary>Captured parse output</summary><pre><code>{
+  "valid_support_points": 12,
+  "points_path": "examples/pew_w154/run/banks/pew_w154_diff1_n12_points.csv",
+  "probabilities_path": "examples/pew_w154/run/banks/pew_w154_diff1_n12_probabilities.csv"
 }</code></pre></details>
-    <table><thead><tr><th>Courts option</th><th>Captured prediction</th><th>Held-out target</th></tr></thead><tbody>
-      <tr><td>A great deal</td><td>0.2081</td><td>0.2100</td></tr>
-      <tr><td>Some</td><td>0.6016</td><td>0.5500</td></tr>
-      <tr><td>Hardly any</td><td>0.1903</td><td>0.2400</td></tr>
-    </tbody></table>
-    <p><code>predict</code> performs no optimization and no model inference. It multiplies the fixed courts probability vector for each support point by the fitted weights and sums the result. The three output rows are the predicted population proportions for “a great deal,” “some,” and “hardly any.” Only after producing this prediction should it be compared with the withheld courts target.</p>
-    <p>Inspect held-in residuals alongside effective support. Very low residuals with nearly singular weights indicate interpolation by a few support rows, not a robust population representation. Conversely, diffuse weights with poor held-in fit can mean that the support bank does not span the observed targets.</p>
-  </section>
+  <p>A vector with a negative entry, the wrong number of entries, or a sum other than one is invalid. The parser records diagnostics; it does not clip or normalize the response behind the user's back.</p>
 
-  <section id="validate">
-    <h2><span class="chapter">09</span> Leave-one-item-out validation</h2>
-    <p>The manual courts holdout demonstrates one prediction. Leave-one-item-out evaluation automates the same procedure across the battery. For each item in turn, <code>umriss</code> hides its target vector, selects ρ using only the remaining targets, fits weights, predicts the hidden vector, and computes root mean squared error after revealing the truth.</p>
-    <p>Every holdout is compared with two inexpensive baselines. The <em>unweighted support bank</em> gives every synthetic type equal prevalence and asks whether calibration improved on the original broad bank. The <em>uniform response</em> baseline assigns equal probability to every answer option, such as one third per option in this example. These are different notions of uniformity: equal weights across twins versus equal probability across responses.</p>
-    <div class="block-label">Command</div>
-    <pre><code>umriss loo \
-  --support examples/trust_tutorial/run/banks/trust_coverage_n12_probabilities.csv \
-  --metadata examples/trust_tutorial/trust_metadata.json \
-  --tag trust_coverage_n12 --out examples/trust_tutorial/run/derived</code></pre>
-    <details class="output-toggle"><summary>Show output (truncated)</summary><pre><code>{
-  "command": "umriss loo",
-  "status": "ok",
-  "data": {
-    "detail_path": "examples/trust_tutorial/run/derived/trust_coverage_n12_generated_support_detail.csv",
-    "summary_path": "examples/trust_tutorial/run/derived/trust_coverage_n12_generated_support_summary.csv",
-    "diagnostics_path": "examples/trust_tutorial/run/derived/trust_coverage_n12_generated_support_diagnostics.csv",
-    "points_path": "examples/trust_tutorial/run/derived/trust_coverage_n12_generated_support_points.csv"
-  },
-  "warnings": [],
-  "errors": [],
-  "next_steps": []
-}
-… item-level diagnostics truncated …</code></pre></details>
-    <p>The detail table contains one row per holdout and method, including the predicted vector, true vector, and RMSE. The summary aggregates those errors by method. The diagnostics retain fit concentration for every fold, because a small average error is less reassuring if each holdout depends on a different near-degenerate set of weights.</p>
-    <table><thead><tr><th>Method</th><th>Mean held-out RMSE</th><th>Items</th></tr></thead><tbody>
-      <tr><td>Generated support mixture</td><td>0.0476</td><td>4</td></tr>
-      <tr><td>Equal-weight support bank</td><td>0.0588</td><td>4</td></tr>
-      <tr><td>Uniform response probabilities</td><td>0.1531</td><td>4</td></tr>
-    </tbody></table>
-    <table><thead><tr><th>Diagnostic</th><th>What it reveals</th><th>Warning sign</th></tr></thead><tbody>
-      <tr><td>Held-out error</td><td>Transfer to an unseen item</td><td>Worse than a declared simple baseline</td></tr>
-      <tr><td>Held-in residual</td><td>Ability to match supplied marginals</td><td>Large residual despite a diverse bank</td></tr>
-      <tr><td>Effective support</td><td>Weight concentration</td><td>Only a handful of profiles carry mass</td></tr>
-      <tr><td>Across-bank stability</td><td>Sensitivity to support assumptions</td><td>Conclusions reverse under plausible designs</td></tr>
-    </tbody></table>
-    <p>The scientific claim is not that the fitted marginals look close. The useful claim is that structure learned from some marginals predicts other marginals under a predeclared evaluation rule.</p>
-  </section>
+  <details><summary>Discarded 12-person pilot: why option coverage was not enough</summary>
+  <p>The method’s critical construction step comes before fitting survey weights: generate enough support personas that their measured, equal-weight marginals are approximately uniform on every item. This is what separates the starting basis from the population being estimated. The bank is built without using Pew’s reported values; only after it passes this preflight check do those values enter as targets for reweighting.</p>
+  <p>The check must use the model’s returned probabilities, not merely count balanced prompt labels. Give every generated persona equal weight, average its response probabilities item by item, and compare the result with a uniform response distribution. For this binary battery the required starting target is 50 percent “similar” and 50 percent “different” on every item.</p>
+  <table>
+    <thead><tr><th>Item</th><th>Equal-weight support bank</th><th>Uniform target</th><th>Largest deviation</th></tr></thead>
+    <tbody>
+      <tr><td>Hobbies</td><td>47.3% similar, 52.8% different</td><td>50%, 50%</td><td>2.8 percentage points</td></tr>
+      <tr><td>Physical abilities</td><td>26.6% similar, 73.4% different</td><td>50%, 50%</td><td>23.4 percentage points</td></tr>
+      <tr><td>Parenting</td><td>47.7% similar, 52.3% different</td><td>50%, 50%</td><td>2.3 percentage points</td></tr>
+      <tr><td>Expression of feelings</td><td>34.4% similar, 65.6% different</td><td>50%, 50%</td><td>15.6 percentage points</td></tr>
+      <tr><td>Workplace abilities</td><td>61.3% similar, 38.8% different</td><td>50%, 50%</td><td>11.3 percentage points</td></tr>
+    </tbody>
+  </table>
+  <p>This 12-persona pilot therefore fails the method’s preflight requirement. It covered every declared item-option region, but coverage is not aggregate balance: each persona supplies probabilities for all five items, and its non-targeted answers collectively pull physical abilities and feelings far from 50–50. No Pew target marginals enter this calculation.</p>
+  <p><code>umriss loo</code> records the full-precision check in <a href="../examples/pew_w154/run/derived/pew_w154_diff1_n12_support_uniformity.csv"><code>pew_w154_diff1_n12_support_uniformity.csv</code></a>. The correct next step is not to accept this bank and reweight it. It is to generate additional personas targeted at the measured deficits, recompute the equal-weight marginals, and repeat until every item meets a declared tolerance. Only that accepted bank should be fitted to the reported survey marginals. The weight estimates below diagnose what this failed pilot would do; they are not yet a successful demonstration of the full procedure.</p>
+  <pre><code>umriss loo \
+  --support examples/pew_w154/run/banks/pew_w154_diff1_n12_probabilities.csv \
+  --metadata examples/pew_w154/pew_w154_metadata.json \
+  --tag pew_w154_diff1_n12 \
+  --out examples/pew_w154/run/derived</code></pre>
+  <p>Leave-one-out validation produces five fitted weight vectors, not one. Each column below is a separate fit: the named marginal is withheld, and the weights are estimated from the other four marginals. A value of 55.3 percent for persona 8 in the “hobbies” column means that this support profile receives 55.3 percent of the synthetic population weight when hobbies are the omitted outcome.</p>
+  <table>
+    <thead><tr><th>Persona</th><th>Hobbies held out</th><th>Physical held out</th><th>Parenting held out</th><th>Feelings held out</th><th>Workplace held out</th></tr></thead>
+    <tbody>
+      <tr><td>1. Similar hobbies</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>1.9%</td><td>0.3%</td></tr>
+      <tr><td>2. Different hobbies</td><td>0.0%</td><td>5.7%</td><td>30.5%</td><td>20.8%</td><td>1.3%</td></tr>
+      <tr><td>3. Similar physical abilities</td><td>1.9%</td><td>0.0%</td><td>1.6%</td><td>8.3%</td><td>13.2%</td></tr>
+      <tr><td>4. Different physical abilities</td><td>0.0%</td><td>40.5%</td><td>0.0%</td><td>9.6%</td><td>0.7%</td></tr>
+      <tr><td>5. Similar parenting</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>2.5%</td><td>0.2%</td></tr>
+      <tr><td>6. Different parenting</td><td>25.2%</td><td>0.2%</td><td>0.0%</td><td>27.3%</td><td>5.2%</td></tr>
+      <tr><td>7. Similar expression of feelings</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>2.2%</td><td>0.0%</td></tr>
+      <tr><td>8. Different expression of feelings</td><td>55.3%</td><td>25.3%</td><td>50.8%</td><td>3.7%</td><td>34.3%</td></tr>
+      <tr><td>9. Similar workplace abilities</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>4.0%</td><td>0.5%</td></tr>
+      <tr><td>10. Different workplace abilities</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>0.8%</td><td>1.0%</td></tr>
+      <tr><td>11. Similar across all five domains</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>1.1%</td><td>0.0%</td></tr>
+      <tr><td>12. Different across all five domains</td><td>17.6%</td><td>28.4%</td><td>17.1%</td><td>17.9%</td><td>43.1%</td></tr>
+    </tbody>
+  </table>
+  <p>The weights are concentrated. Persona 8—the profile designed around different emotional expression—has the largest weight in three folds, while the all-different anchor receives between 17.1 and 43.1 percent in every fold. When physical abilities are held out, the physical-difference persona receives 40.5 percent; because that item is omitted, this weight is learned from how the profile answers the other four items, not from its physical-abilities answer.</p>
+  <p>Several displayed values round to 0.0 percent. The optimizer may assign them tiny positive values, but they contribute negligibly at the shown precision. The complete unrounded audit is in <a href="../examples/pew_w154/run/derived/pew_w154_diff1_n12_generated_support_weights.csv"><code>pew_w154_diff1_n12_generated_support_weights.csv</code></a>, with one row per persona and holdout fold. These are fitted mixture weights for synthetic support profiles—not estimates of the prevalence of literal real-world persona categories.</p>
+  <table>
+    <tr><th>Method</th><th>Mean RMSE</th><th>Median RMSE</th><th>Maximum RMSE</th></tr>
+    <tr><td>Generated support mixture</td><td>0.12836</td><td>0.13916</td><td>0.14931</td></tr>
+    <tr><td>Unweighted support bank</td><td>0.13825</td><td>0.15251</td><td>0.23458</td></tr>
+    <tr><td>Uniform response baseline</td><td>0.23292</td><td>0.21238</td><td>0.39042</td></tr>
+  </table>
+  <p>The comparison matters because matching held-in marginals is not enough. For each fold, the weights are learned from four domain marginals and used to predict the omitted fifth marginal. The microdata is not consulted. The generated mixture improves on both displayed baselines, but a mean RMSE of 0.128 is still substantial and should be reported as such.</p>
 
-  <section id="report">
-    <h2><span class="chapter">10</span> Compare designs and report</h2>
-    <p>One support design cannot reveal how sensitive the result is to its own assumptions. Run the same targets and evaluation protocol with alternatives such as pattern coverage, latent axes, response-style variants, or a larger bank. Each design should be declared before comparing held-out results.</p>
-    <p>The comparison table aligns method-level errors from separate runs. It should include every planned bank, not only the best one. The captured command below records the completed pattern-coverage run. Add independently completed latent or response-style runs as additional <code>--run</code> arguments rather than inventing comparison rows.</p>
-    <div class="block-label">Command</div>
-    <pre><code>umriss compare \
-  --run 'trust_coverage_n12=TRUST:Pattern coverage' \
-  --derived examples/trust_tutorial/run/derived \
-  --out examples/trust_tutorial/run/derived/comparison.csv</code></pre>
-    <details class="output-toggle"><summary>Show output</summary><pre><code>{
-  "command": "umriss compare",
-  "status": "ok",
-  "data": {
-    "path": "examples/trust_tutorial/run/derived/comparison.csv",
-    "runs": 1,
-    "rows": 3,
-    "best": [{
-      "battery": "TRUST",
-      "bank": "Pattern coverage",
-      "method": "generated support mixture",
-      "mean_rmse": 0.0476020040931632
-    }]
-  },
-  "warnings": [],
-  "errors": [],
-  "next_steps": []
-}</code></pre></details>
-    <p>The compact Markdown report summarizes methods, calibration diagnostics, and support validity for one run. The larger report-data bundle then consolidates all discovered runs into normalized tables and a manifest suitable for a paper, notebook, or downstream reporting agent.</p>
-    <div class="block-label">Command</div>
-    <pre><code>umriss report --tag trust_coverage_n12 \
-  --derived examples/trust_tutorial/run/derived \
-  --out examples/trust_tutorial/run/derived/trust_coverage_n12.md</code></pre>
-    <details class="output-toggle"><summary>Show output</summary><pre><code>{
-  "command": "umriss report",
-  "status": "ok",
-  "data": {"path": "examples/trust_tutorial/run/derived/trust_coverage_n12.md"},
-  "warnings": [],
-  "errors": [],
-  "next_steps": []
-}</code></pre></details>
-    <div class="block-label">Command</div>
-    <pre><code>umriss report-data build \
-  --derived examples/trust_tutorial/run/derived --out examples/trust_tutorial/run/report_data</code></pre>
-    <details class="output-toggle"><summary>Show output (truncated)</summary><pre><code>{
-  "command": "umriss report-data build",
-  "status": "ok",
-  "data": {
-    "manifest_path": "examples/trust_tutorial/run/report_data/manifest.json",
-    "facts": {
-      "support_banks": 1,
-      "summary_rows": 3,
-      "detail_rows": 12,
-      "diagnostic_rows": 4
-    },
-    "outputs": {"support_bank_summary": "examples/trust_tutorial/run/report_data/support_bank_summary.csv", "…": "…"}
-  },
-  "warnings": [],
-  "errors": [],
-  "next_steps": []
-}
-… generated file list truncated …</code></pre></details>
-    <p>The report-data bundle includes normalized tables, diagnostic flags, support summaries, prose-safe facts, and a reproducibility manifest. Write interpretation from these outputs, while retaining source caveats and the non-identification of the joint distribution.</p>
-  </section>
+  </details>
 
-  <section id="agents">
-    <h2><span class="chapter">11</span> Operating umriss as an agent</h2>
-    <p>The package is designed so an agent can make progress without guessing the workflow. Start with <code>guide</code>, then call <code>next</code> after every durable stage. These commands identify the expected artifact transition; they do not replace substantive inspection of the targets, prompts, support coverage, or diagnostics.</p>
-    <div class="block-label">Command</div>
-    <pre><code>umriss guide workflow
-</code></pre>
-    <details class="output-toggle"><summary>Show output (truncated)</summary><pre><code>{
-  "command": "umriss guide",
-  "status": "ok",
-  "data": {
-    "topic": "workflow",
-    "summary": "End-to-end support-bank lifecycle.",
-    "steps": ["Inspect or create battery metadata.", "Compile prompt rows.", "…"]
-  },
-  "warnings": [],
-  "errors": [],
-  "next_steps": []
-}
-… guidance truncated …</code></pre></details>
-    <div class="block-label">Command</div>
-    <pre><code>umriss next \
-  --tag trust_coverage_n12 \
-  --metadata examples/trust_tutorial/trust_metadata.json \
-  --prompt-dir examples/trust_tutorial/run/prompts \
-  --raw-dir examples/trust_tutorial/run/raw \
-  --derived-dir examples/trust_tutorial/run/derived</code></pre>
-    <details class="output-toggle"><summary>Show output (truncated)</summary><pre><code>{
-  "command": "umriss next",
-  "status": "ok",
-  "data": {
-    "stage": "evaluate",
-    "recommendation": "umriss loo --support examples/trust_tutorial/run/banks/trust_coverage_n12_probabilities.csv --metadata examples/trust_tutorial/trust_metadata.json --tag trust_coverage_n12 --out examples/trust_tutorial/run/derived"
-  },
-  "warnings": [],
-  "errors": [],
-  "next_steps": []
-}
-… artifact status truncated …</code></pre></details>
-    <h3>Use structured output</h3>
-    <p>Branch on <code>status</code>, inspect <code>errors[].code</code>, and carry forward paths returned under <code>data</code>. Stop at the returned external run contract and register results only after the EDSL runtime has produced them.</p>
-    <h3>Inspect evidence and preserve provenance</h3>
-    <p>Read prompts, parse diagnostics, fit concentration, and held-out performance rather than checking only for file existence. Never overwrite source reports or conceal support-design changes between evaluations.</p>
-  </section>
+  <h2>8. Add personas until the measured marginals are uniform</h2>
+  <p>The 12-person option-coverage pilot above is discarded. The real foundation enumerates all 32 possible binary response patterns across five items and elicits each pattern three times. Every replicate has a distinct prompt identity, producing 96 independently measured support points while keeping the intended one-way marginals exactly balanced.</p>
+  <pre><code>umriss support build \
+  --metadata examples/pew_w154/pew_w154_metadata.json \
+  --preset uniform-patterns \
+  --n-support 96 \
+  --tag pew_w154_diff1_uniform_n96 \
+  --out examples/pew_w154/run/uniform_n96</code></pre>
+  <p>Balance in the design rows is not sufficient. The model’s returned probabilities produce 95 unique vectors, all 32 joint modal-response patterns, matrix rank 5, and effective rank 4.93 out of 5. Its worst one-way marginal deviation is nevertheless 6.34 percentage points, so the measured bank still fails preflight.</p>
+  <p><code>umriss</code> therefore computes the deficits relative to uniform, then creates a new batch of full-battery patterns aimed at those deficits. After parsing, the new rows are merged with the existing bank and measured again.</p>
+  <pre><code>umriss support augment-uniform \
+  --support examples/pew_w154/run/uniform_n96/bank/pew_w154_diff1_uniform_n96_probabilities.csv \
+  --metadata examples/pew_w154/pew_w154_metadata.json \
+  --tag pew_w154_diff1_uniform_repair_r1 \
+  --n-add 64 \
+  --tolerance 0.05 \
+  --out examples/pew_w154/run/uniform_repair_r1</code></pre>
+  <table>
+    <tr><th>Argument</th><th>Meaning</th></tr>
+    <tr><td><code>--support</code></td><td>The measured probability bank to repair. Target survey marginals are not read.</td></tr>
+    <tr><td><code>--metadata</code></td><td>Item wording, option order, and survey context.</td></tr>
+    <tr><td><code>--n-add</code></td><td>Number of genuinely new personas in this repair round. Unique prompt identifiers prevent repeated patterns from becoming cache duplicates.</td></tr>
+    <tr><td><code>--tolerance</code></td><td>Maximum permitted absolute difference between any equal-weight response share and its uniform target.</td></tr>
+    <tr><td><code>--tag</code>, <code>--out</code></td><td>Stable artifact prefix and output directory for the reviewable prompts and design.</td></tr>
+  </table>
+  <p>The generated job is executed with <code>ep run</code>, parsed, and merged with <code>umriss support merge</code>. The same cycle is repeated whenever <code>umriss support uniformity</code> reports <code>needs_augmentation</code>. These were real GPT-5.5 runs, not fabricated tutorial output.</p>
+  <table>
+    <thead><tr><th>Measured bank</th><th>New personas</th><th>Worst deviation from uniform</th><th>Decision</th></tr></thead>
+    <tbody>
+      <tr><td>96</td><td>Balanced full-pattern foundation</td><td>6.34 percentage points</td><td>Continue</td></tr>
+      <tr><td>160</td><td>64</td><td>5.83 percentage points</td><td>Continue</td></tr>
+      <tr><td>208</td><td>48</td><td>4.85 percentage points</td><td>Accept</td></tr>
+    </tbody>
+  </table>
+  <p>The procedure stops at 208 valid personas because that is the first measured bank that passes both kinds of preflight: all item marginals meet the five-point tolerance, and the support geometry remains diverse. It contains 206 unique vectors, all 32 joint patterns, rank 5, and effective rank 4.95.</p>
+  <pre><code>umriss support uniformity \
+  --support examples/pew_w154/run/banks/pew_w154_diff1_uniform_n208_probabilities.csv \
+  --metadata examples/pew_w154/pew_w154_metadata.json \
+  --tolerance 0.05 \
+  --out examples/pew_w154/run/banks/pew_w154_diff1_uniform_n208_preflight.csv</code></pre>
+  <table>
+    <thead><tr><th>Item</th><th>Equal-weight bank</th><th>Uniform target</th><th>Largest deviation</th></tr></thead>
+    <tbody>
+      <tr><td>Hobbies</td><td>49.74% similar, 50.26% different</td><td>50%, 50%</td><td>0.26 points</td></tr>
+      <tr><td>Physical abilities</td><td>45.15% similar, 54.85% different</td><td>50%, 50%</td><td>4.85 points</td></tr>
+      <tr><td>Parenting</td><td>50.62% similar, 49.38% different</td><td>50%, 50%</td><td>0.62 points</td></tr>
+      <tr><td>Expression of feelings</td><td>46.49% similar, 53.51% different</td><td>50%, 50%</td><td>3.51 points</td></tr>
+      <tr><td>Workplace abilities</td><td>52.50% similar, 47.50% different</td><td>50%, 50%</td><td>2.50 points</td></tr>
+    </tbody>
+  </table>
 
-  <section id="checklist">
-    <h2><span class="chapter">12</span> Completion checklist</h2>
-    <ol>
-      <li>Record the report, population, field dates, weighting, question wording, and ordered options.</li>
-      <li>Validate that each marginal is complete, nonnegative, and normalized.</li>
-      <li>Declare support designs and random seeds before inspecting held-out results.</li>
-      <li>Inspect generated prompts and preserve the exact EDSL jobs and results objects.</li>
-      <li>Review parse failures and support diversity before fitting.</li>
-      <li>Report held-in fit, effective support, held-out accuracy, and design sensitivity together.</li>
-      <li>State clearly that the calibrated joint distribution is model-dependent and not identified by marginals alone.</li>
-      <li>Archive report tables and the reproducibility manifest with the final interpretation.</li>
-    </ol>
-    <p>A run is complete when another analyst can trace every reported number back through calibration weights, support probabilities, registered model results, prompts, design configuration, and source marginals.</p>
-  </section>
+  <h2>9. Estimate weights and test omitted items</h2>
+  <p>Only now do the real Pew marginals enter. In each leave-one-out fold, four reported marginals jointly determine one weight vector over all 208 synthetic personas; the fifth marginal is withheld and predicted. The respondent microdata is not used in fitting or validation.</p>
+  <pre><code>umriss loo \
+  --support examples/pew_w154/run/banks/pew_w154_diff1_uniform_n208_probabilities.csv \
+  --metadata examples/pew_w154/pew_w154_metadata.json \
+  --one-shot examples/pew_w154/baselines/unconditioned_one_shot_gpt-5.5.csv \
+  --two-step examples/pew_w154/baselines/conditioned_two_step_gpt-5.5.csv \
+  --tag pew_w154_diff1_uniform_n208 \
+  --out examples/pew_w154/run/derived</code></pre>
+  <h3>What “held out” means</h3>
+  <p>When hobbies is held out, its real 32–68 marginal is absent from the optimization. One shared weight vector is selected to match physical abilities, parenting, feelings, and workplace abilities jointly. The hobbies prediction is then the weighted average of the personas’ already-recorded hobbies probabilities. The same operation is repeated five times, withholding a different target each time.</p>
+  <p>The held-out target is therefore completely unseeded: neither its percentage nor respondent-level correlations are available to the fit. The question itself is not unseen. Its wording and each support persona’s response probabilities were fixed when the target-free support bank was built. This distinction prevents a stronger claim than the experiment supports.</p>
+  <h3>Three ways to measure distributional error</h3>
+  <p>RMSE measures probability-point error. For a held-out truth \(p\) and prediction \(\widehat p\) with \(K\) options,</p>
+  \[
+    \operatorname{RMSE}(p,\widehat p)
+    = \sqrt{\frac{1}{K}\sum_{k=1}^{K}(\widehat p_k-p_k)^2}.
+  \]
+  <p>KL divergence measures the information lost when \(\widehat p\) substitutes for the true distribution:</p>
+  \[
+    D_{\mathrm{KL}}(p\|\widehat p)
+    = \sum_{k=1}^{K}p_k\log\frac{p_k}{\widehat p_k}.
+  \]
+  <p>It is zero only for an exact prediction and penalizes assigning too little probability to outcomes that actually have substantial mass. Values here use natural logarithms and are reported in nats.</p>
+  <p>Cross-entropy is the expected negative log probability assigned to the true response distribution:</p>
+  \[
+    H(p,\widehat p)=-\sum_{k=1}^{K}p_k\log\widehat p_k
+    = H(p)+D_{\mathrm{KL}}(p\|\widehat p).
+  \]
+  <p>The target entropy \(H(p)\) is irreducible and identical across methods for a given item. Thus method comparisons in cross-entropy are exactly comparisons in KL divergence. Cross-entropy remains useful because it has the direct interpretation of expected log loss; KL isolates only the avoidable excess.</p>
+  <figure>
+    <img src="assets/loo-summary.svg" alt="Bar charts comparing mean held-out RMSE and KL divergence across five prediction methods.">
+    <figcaption>Average performance across five completely omitted marginals. Lower is better. Bars are generated from the checked-in LOO detail file.</figcaption>
+  </figure>
+  <table>
+    <thead><tr><th>Method</th><th>Mean RMSE</th><th>Mean KL</th><th>Mean cross-entropy</th></tr></thead>
+    <tbody>
+      <tr><td>Direct one-shot</td><td>0.06020</td><td>0.01206</td><td>0.56053</td></tr>
+      <tr><td>Structured two-step</td><td>0.10420</td><td>0.03840</td><td>0.58687</td></tr>
+      <tr><td>Marginally weighted twins</td><td>0.13124</td><td>0.06568</td><td>0.61415</td></tr>
+      <tr><td>Unweighted support bank</td><td>0.21191</td><td>0.12259</td><td>0.67106</td></tr>
+      <tr><td>Uniform response</td><td>0.23292</td><td>0.14468</td><td>0.69315</td></tr>
+    </tbody>
+  </table>
+  <p>The marginally weighted twins clearly beat alternatives that do not use the other four reported marginals. Relative to an exact 50–50 guess, mean RMSE falls by 44 percent and mean KL divergence falls by 55 percent. They also improve substantially on leaving the accepted support bank unweighted. That is the evidence that jointly fitting the other marginals transfers information to a target whose true marginal was never supplied.</p>
+  <p>They do not beat the strongest direct baseline in this battery. A GPT-5.5 one-shot prediction made from the held-out question wording alone has mean RMSE 0.060 and mean KL 0.012, versus 0.131 and 0.066 for the weighted twins. That baseline is unseeded by survey percentages, but it carries a strong model prior about familiar gender-attitude questions. The result should be reported as a limitation, not hidden by comparing only with uniform.</p>
+  <figure>
+    <img src="assets/loo-by-item.svg" alt="Grouped horizontal bars comparing held-out RMSE by item for marginally weighted twins, direct one-shot prediction, and a uniform baseline.">
+    <figcaption>The mixture beats direct one-shot on parenting and workplace abilities, is close on hobbies, and loses substantially on physical abilities and expression of feelings. The poor feelings prediction drives the mixture’s maximum error.</figcaption>
+  </figure>
+  <p>For parenting, the weighted twins reduce RMSE from 0.072 for direct one-shot to 0.057. For workplace abilities they reduce it from 0.107 to 0.095. Hobbies is close: 0.029 versus 0.020. Physical abilities and feelings reveal the failure mode. The four held-in marginals lead the weights to predict too much “similar” probability on those omitted items, producing RMSEs of 0.163 and 0.312. Those are substantive errors in the learned cross-item structure, even though the held-in residuals are small.</p>
+  <p>There are five weight vectors, one per omitted item, and each vector sums to one. The full audit has 1,040 rows—every persona in every fold—in <a href="../examples/pew_w154/run/derived/pew_w154_diff1_uniform_n208_generated_support_weights.csv"><code>pew_w154_diff1_uniform_n208_generated_support_weights.csv</code></a>. Unlike the duplicate-heavy pilot, the fitted mass now spreads across materially larger support:</p>
+  <table>
+    <thead><tr><th>Held-out marginal</th><th>Largest persona weight</th><th>Effective support</th><th>Top-ten weight share</th></tr></thead>
+    <tbody>
+      <tr><td>Hobbies</td><td>10.05%</td><td>23.01 personas</td><td>58.04%</td></tr>
+      <tr><td>Physical abilities</td><td>8.75%</td><td>28.56 personas</td><td>51.20%</td></tr>
+      <tr><td>Parenting</td><td>9.61%</td><td>24.23 personas</td><td>55.16%</td></tr>
+      <tr><td>Expression of feelings</td><td>5.48%</td><td>47.41 personas</td><td>40.69%</td></tr>
+      <tr><td>Workplace abilities</td><td>9.25%</td><td>23.17 personas</td><td>56.92%</td></tr>
+    </tbody>
+  </table>
+  <p>These are mixture coefficients for synthetic support profiles, not estimated population shares of literal persona categories. The concentration diagnostics matter: a large bank can still produce a fit that relies on only a handful of rows.</p>
+  <p>Passing the uniform and diversity preflight is necessary for interpreting this test. It does not guarantee that the synthetic profiles encode the correct cross-item relationships, as the physical-abilities and feelings results demonstrate.</p>
 
-  <footer>
-    <strong>umriss</strong> · An open-source Expected Parrot research tool for auditable digital twins from aggregate survey evidence.
-  </footer>
-</article></main>
+  <h2>Flexibility without hidden assumptions</h2>
+  <p>Experts can edit coherence, intensities, anchors, partial coverage, probability constraints, or add user-authored profiles. A custom Jinja template is also allowed with <code>prompt.validation: strict</code>. It must still contain every item, preserve option order, request the configured summary field, and state the probability and sum-to-one contract.</p>
+  <p>The central rule is simple: consequential flexibility belongs in the resolved design and audit trail. It should not disappear inside a strategy name, row-number convention, prompt rewrite, or silent parser correction.</p>
+</main>
 <script>
-  const nav = document.querySelector("nav");
-  const toggle = document.querySelector(".nav-toggle");
-  toggle.addEventListener("click", () => {
-    const open = nav.classList.toggle("open");
-    toggle.setAttribute("aria-expanded", String(open));
-  });
-  document.querySelectorAll("pre").forEach((pre) => {
-    const code = pre.querySelector("code");
-    const text = code.textContent;
-    if (/^\s*(?:umriss|edsl|git|cd|pip|python)\b/.test(text)) {
-      pre.classList.add("command-code");
-      const pattern = /(--[\w-]+)|("[^"]*"|'[^']*')|\b(umriss|edsl|git|cd|pip|python)\b/g;
-      const fragment = document.createDocumentFragment();
-      let position = 0;
-      for (const match of text.matchAll(pattern)) {
-        fragment.append(document.createTextNode(text.slice(position, match.index)));
-        const span = document.createElement("span");
-        span.className = match[1] ? "syntax-option" : match[2] ? "syntax-string" : "syntax-program";
-        span.textContent = match[0];
-        fragment.append(span);
-        position = match.index + match[0].length;
-      }
-      fragment.append(document.createTextNode(text.slice(position)));
-      code.replaceChildren(fragment);
+  document.querySelectorAll("pre > code").forEach((code) => {
+    const command = code.textContent.trim();
+    if (!/^(umriss|ep)\s/.test(command)) return;
+
+    const pre = code.parentElement;
+    pre.classList.add("command-code");
+
+    const pattern = /(--[\w-]+)|("[^"]*"|'[^']*')|\b(umriss|ep)\b/g;
+    const fragment = document.createDocumentFragment();
+    let position = 0;
+    for (const match of command.matchAll(pattern)) {
+      fragment.append(document.createTextNode(command.slice(position, match.index)));
+      const span = document.createElement("span");
+      span.className = match[1] ? "syntax-option" : match[2] ? "syntax-string" : "syntax-program";
+      span.textContent = match[0];
+      fragment.append(span);
+      position = match.index + match[0].length;
     }
+    fragment.append(document.createTextNode(command.slice(position)));
+    code.replaceChildren(fragment);
+
     const button = document.createElement("button");
     button.className = "copy";
     button.type = "button";
     button.textContent = "Copy";
+    button.setAttribute("aria-label", "Copy command");
     button.addEventListener("click", async () => {
-      await navigator.clipboard.writeText(pre.querySelector("code").innerText);
+      await navigator.clipboard.writeText(command);
       button.textContent = "Copied";
       setTimeout(() => button.textContent = "Copy", 1200);
     });
     pre.appendChild(button);
   });
-  const updateProgress = () => {
-    const root = document.documentElement;
-    const distance = root.scrollHeight - root.clientHeight;
-    document.querySelector("#progress").style.width = `${distance ? root.scrollTop / distance * 100 : 0}%`;
-  };
-  document.addEventListener("scroll", updateProgress, {passive:true});
-  updateProgress();
 </script>
-</body>
-</html>
+</body></html>

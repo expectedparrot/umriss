@@ -1,0 +1,13 @@
+support_id,job_id,design_type,reason,coverage_item,coverage_option,intensity,coherence,pattern,profile
+1,pew_w154_diff1_n12_001,option_coverage,cover hobbies = Men and women are basically similar,hobbies,Men and women are basically similar,moderate,item_specific,{},
+2,pew_w154_diff1_n12_002,option_coverage,cover hobbies = Men and women are basically different,hobbies,Men and women are basically different,strong,item_specific,{},
+3,pew_w154_diff1_n12_003,option_coverage,cover physical_abilities = Men and women are basically similar,physical_abilities,Men and women are basically similar,moderate,item_specific,{},
+4,pew_w154_diff1_n12_004,option_coverage,cover physical_abilities = Men and women are basically different,physical_abilities,Men and women are basically different,strong,item_specific,{},
+5,pew_w154_diff1_n12_005,option_coverage,cover parenting = Men and women are basically similar,parenting,Men and women are basically similar,moderate,item_specific,{},
+6,pew_w154_diff1_n12_006,option_coverage,cover parenting = Men and women are basically different,parenting,Men and women are basically different,strong,item_specific,{},
+7,pew_w154_diff1_n12_007,option_coverage,cover feelings = Men and women are basically similar,feelings,Men and women are basically similar,moderate,item_specific,{},
+8,pew_w154_diff1_n12_008,option_coverage,cover feelings = Men and women are basically different,feelings,Men and women are basically different,strong,item_specific,{},
+9,pew_w154_diff1_n12_009,option_coverage,cover workplace = Men and women are basically similar,workplace,Men and women are basically similar,moderate,item_specific,{},
+10,pew_w154_diff1_n12_010,option_coverage,cover workplace = Men and women are basically different,workplace,Men and women are basically different,strong,item_specific,{},
+11,pew_w154_diff1_n12_011,pattern_anchor,declared response-pattern anchor,,,,explicit,"{""feelings"": ""Men and women are basically similar"", ""hobbies"": ""Men and women are basically similar"", ""parenting"": ""Men and women are basically similar"", ""physical_abilities"": ""Men and women are basically similar"", ""workplace"": ""Men and women are basically similar""}",
+12,pew_w154_diff1_n12_012,pattern_anchor,declared response-pattern anchor,,,,explicit,"{""feelings"": ""Men and women are basically different"", ""hobbies"": ""Men and women are basically different"", ""parenting"": ""Men and women are basically different"", ""physical_abilities"": ""Men and women are basically different"", ""workplace"": ""Men and women are basically different""}",

@@ -1,0 +1,22 @@
+schema_version: 1
+size: 3
+seed: 20260625
+coverage:
+  mode: complete
+  allocation: balanced
+components:
+  - type: profiles
+    coherence: item_specific
+    profiles:
+      - skeptical of workplace technology but economically secure
+      - pragmatic about workplace technology and uncertain about future work
+      - enthusiastic about workplace technology but worried about displacement
+profile:
+  framing: synthetic_respondent
+  summary_field: profile_summary
+  forbid_demographic_invention: true
+probabilities:
+  interpretation: subjective_response_probability
+  require_sum: 1
+  allow_zero: false
+  minimum_probability: 0.01

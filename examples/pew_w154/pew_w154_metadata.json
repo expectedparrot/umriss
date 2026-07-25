@@ -1,0 +1,69 @@
+{
+  "wave": "W154",
+  "battery": "DIFF1",
+  "survey_key": "pew_w154_diff1",
+  "topic": "whether men and women are basically similar or basically different across domains",
+  "context": "A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.",
+  "respondent_id": "respondent_id",
+  "weight": "weight",
+  "provenance": {
+    "organization": "Pew Research Center",
+    "survey": "American Trends Panel",
+    "wave": "154",
+    "field_period": "September 2024",
+    "population": "U.S. adults",
+    "microdata_rows": 6104,
+    "derivation": "Each marginal is the weighted distribution of the corresponding DIFF1 item among all 6,104 normalized respondent records.",
+    "source_artifacts": [
+      "W154_DIFF1_metadata.json",
+      "W154_DIFF1_respondents.csv"
+    ]
+  },
+  "scale": {
+    "type": "nominal"
+  },
+  "option_codes": [1, 2],
+  "option_labels": [
+    "Men and women are basically similar",
+    "Men and women are basically different"
+  ],
+  "items": {
+    "hobbies": {
+      "variable": "DIFF1_a_W154",
+      "source_column": "item_a",
+      "item_text": "Their hobbies and personal interests",
+      "question_stem": "In general, how do you think men and women compare when it comes to each of the following?"
+    },
+    "physical_abilities": {
+      "variable": "DIFF1_b_W154",
+      "source_column": "item_b",
+      "item_text": "Their physical abilities",
+      "question_stem": "In general, how do you think men and women compare when it comes to each of the following?"
+    },
+    "parenting": {
+      "variable": "DIFF1_c_W154",
+      "source_column": "item_c",
+      "item_text": "Their approach to parenting",
+      "question_stem": "In general, how do you think men and women compare when it comes to each of the following?"
+    },
+    "feelings": {
+      "variable": "DIFF1_d_W154",
+      "source_column": "item_d",
+      "item_text": "How they express their feelings",
+      "question_stem": "In general, how do you think men and women compare when it comes to each of the following?"
+    },
+    "workplace": {
+      "variable": "DIFF1_e_W154",
+      "source_column": "item_e",
+      "item_text": "The things they are good at in the workplace",
+      "question_stem": "In general, how do you think men and women compare when it comes to each of the following?"
+    }
+  },
+  "truth": {
+    "hobbies": [0.3199908774739627, 0.6800091225260373],
+    "physical_abilities": [0.19070482765971405, 0.8092951723402859],
+    "parenting": [0.2876218161953853, 0.7123781838046147],
+    "feelings": [0.10958316743872445, 0.8904168325612756],
+    "workplace": [0.5725168549843521, 0.4274831450156478]
+  }
+}

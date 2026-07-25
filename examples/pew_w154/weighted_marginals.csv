@@ -1,0 +1,6 @@
+item,item_text,similar,different,unweighted_n,weighted_denominator
+hobbies,Their hobbies and personal interests,0.3199908774739627,0.6800091225260373,6104,6091.073584408502
+physical_abilities,Their physical abilities,0.19070482765971405,0.8092951723402859,6104,6091.073584408501
+parenting,Their approach to parenting,0.2876218161953853,0.7123781838046147,6104,6091.073584408502
+feelings,How they express their feelings,0.10958316743872445,0.8904168325612756,6104,6091.073584408502
+workplace,The things they are good at in the workplace,0.5725168549843521,0.4274831450156478,6104,6091.073584408502

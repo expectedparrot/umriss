@@ -1,0 +1,1085 @@
+agent.agent_instruction,agent.agent_name,answer.resp,cache_keys.resp_cache_key,comment.resp_comment,generated_tokens.resp_generated_tokens,iteration.iteration,model.frequency_penalty,model.inference_service,model.logprobs,model.max_tokens,model.model,model.presence_penalty,model.reasoning_effort,model.temperature,model.top_logprobs,model.top_p,prompt.resp_system_prompt,prompt.resp_user_prompt,question_options.resp_question_options,question_text.resp_question_text,question_type.resp_question_type,raw_model_response.resp_cost,raw_model_response.resp_input_price_per_million_tokens,raw_model_response.resp_input_tokens,raw_model_response.resp_one_usd_buys,raw_model_response.resp_output_price_per_million_tokens,raw_model_response.resp_output_tokens,raw_model_response.resp_raw_model_response,raw_model_response.resp_thinking_tokens,reasoning_summary.resp_reasoning_summary,scenario.job_id,scenario.prompt,validated.resp_validated
+You are answering questions as if you were a human. Do not break character.,Agent_0,"{
+  ""profile_summary"": ""Sees hobbies and personal interests as shaped more by individual personality, opportunity, and culture than by gender, though not with absolute certainty. May still view men and women as more different in physical abilities and emotional expression, while leaning more similar on parenting and workplace capabilities."",
+  ""probabilities"": {
+    ""hobbies"": [0.65, 0.35],
+    ""physical_abilities"": [0.25, 0.75],
+    ""parenting"": [0.58, 0.42],
+    ""feelings"": [0.38, 0.62],
+    ""workplace"": [0.68, 0.32]
+  }
+}",9410c98185a009e82b699fc5b00f0a86,,"{
+  ""profile_summary"": ""Sees hobbies and personal interests as shaped more by individual personality, opportunity, and culture than by gender, though not with absolute certainty. May still view men and women as more different in physical abilities and emotional expression, while leaning more similar on parenting and workplace capabilities."",
+  ""probabilities"": {
+    ""hobbies"": [0.65, 0.35],
+    ""physical_abilities"": [0.25, 0.75],
+    ""parenting"": [0.58, 0.42],
+    ""feelings"": [0.38, 0.62],
+    ""workplace"": [0.68, 0.32]
+  }
+}",0,0,openai,False,2200,gpt-5.5,0,,1.0,3,1,,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+Battery topic: whether men and women are basically similar or basically different across domains
+
+Construct a synthetic survey-response profile for whom ""Men and women are basically similar"" is a plausible response to hobbies: Their hobbies and personal interests.
+Response intensity: moderate.
+
+The targeted item may differ from the other items. Do not infer a uniform outlook across the battery.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
+response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
+and sum to 1. Each probability must be at least 0.01.
+
+Items and response options:
+- hobbies: Their hobbies and personal interests
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- physical_abilities: Their physical abilities
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- parenting: Their approach to parenting
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- feelings: How they express their feelings
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- workplace: The things they are good at in the workplace
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+
+Return only valid JSON with exactly this schema:
+{
+  ""profile_summary"": ""short substantive description"",
+  ""probabilities"": {
+    ""hobbies"": [numbers in option order],
+    ""physical_abilities"": [numbers in option order],
+    ""parenting"": [numbers in option order],
+    ""feelings"": [numbers in option order],
+    ""workplace"": [numbers in option order]
+  }
+}",,{{ scenario.prompt }},free_text,0.00872,5.0,442,114.6788990825688,30.0,154,"{'id': 'chatcmpl-E5Vf28bRGRpFYRHNFcTHLjj4RQAB5', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""profile_summary"": ""Sees hobbies and personal interests as shaped more by individual personality, opportunity, and culture than by gender, though not with absolute certainty. May still view men and women as more different in physical abilities and emotional expression, while leaning more similar on parenting and workplace capabilities."",\n  ""probabilities"": {\n    ""hobbies"": [0.65, 0.35],\n    ""physical_abilities"": [0.25, 0.75],\n    ""parenting"": [0.58, 0.42],\n    ""feelings"": [0.38, 0.62],\n    ""workplace"": [0.68, 0.32]\n  }\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1784982052, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 217, 'prompt_tokens': 442, 'total_tokens': 659, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 63, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",63,,pew_w154_diff1_n12_001,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+Battery topic: whether men and women are basically similar or basically different across domains
+
+Construct a synthetic survey-response profile for whom ""Men and women are basically similar"" is a plausible response to hobbies: Their hobbies and personal interests.
+Response intensity: moderate.
+
+The targeted item may differ from the other items. Do not infer a uniform outlook across the battery.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
+response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
+and sum to 1. Each probability must be at least 0.01.
+
+Items and response options:
+- hobbies: Their hobbies and personal interests
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- physical_abilities: Their physical abilities
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- parenting: Their approach to parenting
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- feelings: How they express their feelings
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- workplace: The things they are good at in the workplace
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+
+Return only valid JSON with exactly this schema:
+{
+  ""profile_summary"": ""short substantive description"",
+  ""probabilities"": {
+    ""hobbies"": [numbers in option order],
+    ""physical_abilities"": [numbers in option order],
+    ""parenting"": [numbers in option order],
+    ""feelings"": [numbers in option order],
+    ""workplace"": [numbers in option order]
+  }
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_1,"{
+  ""profile_summary"": ""This respondent sees men and women as having notably different hobbies and personal interests, likely viewing leisure preferences as strongly gender-patterned. They may also perceive differences in physical abilities and emotional expression, while being more open to similarity in workplace abilities and somewhat mixed on parenting approaches."",
+  ""probabilities"": {
+    ""hobbies"": [0.06, 0.94],
+    ""physical_abilities"": [0.18, 0.82],
+    ""parenting"": [0.43, 0.57],
+    ""feelings"": [0.28, 0.72],
+    ""workplace"": [0.64, 0.36]
+  }
+}",18de720458664f35f73a0556aa753c82,,"{
+  ""profile_summary"": ""This respondent sees men and women as having notably different hobbies and personal interests, likely viewing leisure preferences as strongly gender-patterned. They may also perceive differences in physical abilities and emotional expression, while being more open to similarity in workplace abilities and somewhat mixed on parenting approaches."",
+  ""probabilities"": {
+    ""hobbies"": [0.06, 0.94],
+    ""physical_abilities"": [0.18, 0.82],
+    ""parenting"": [0.43, 0.57],
+    ""feelings"": [0.28, 0.72],
+    ""workplace"": [0.64, 0.36]
+  }
+}",0,0,openai,False,2200,gpt-5.5,0,,1.0,3,1,,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+Battery topic: whether men and women are basically similar or basically different across domains
+
+Construct a synthetic survey-response profile for whom ""Men and women are basically different"" is a plausible response to hobbies: Their hobbies and personal interests.
+Response intensity: strong.
+
+The targeted item may differ from the other items. Do not infer a uniform outlook across the battery.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
+response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
+and sum to 1. Each probability must be at least 0.01.
+
+Items and response options:
+- hobbies: Their hobbies and personal interests
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- physical_abilities: Their physical abilities
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- parenting: Their approach to parenting
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- feelings: How they express their feelings
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- workplace: The things they are good at in the workplace
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+
+Return only valid JSON with exactly this schema:
+{
+  ""profile_summary"": ""short substantive description"",
+  ""probabilities"": {
+    ""hobbies"": [numbers in option order],
+    ""physical_abilities"": [numbers in option order],
+    ""parenting"": [numbers in option order],
+    ""feelings"": [numbers in option order],
+    ""workplace"": [numbers in option order]
+  }
+}",,{{ scenario.prompt }},free_text,0.00851,5.0,442,117.50881316098707,30.0,154,"{'id': 'chatcmpl-E5Vf2REOcSToFO7HlV7UhjOIO9n7B', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""profile_summary"": ""This respondent sees men and women as having notably different hobbies and personal interests, likely viewing leisure preferences as strongly gender-patterned. They may also perceive differences in physical abilities and emotional expression, while being more open to similarity in workplace abilities and somewhat mixed on parenting approaches."",\n  ""probabilities"": {\n    ""hobbies"": [0.06, 0.94],\n    ""physical_abilities"": [0.18, 0.82],\n    ""parenting"": [0.43, 0.57],\n    ""feelings"": [0.28, 0.72],\n    ""workplace"": [0.64, 0.36]\n  }\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1784982052, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 210, 'prompt_tokens': 442, 'total_tokens': 652, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 56, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",56,,pew_w154_diff1_n12_002,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+Battery topic: whether men and women are basically similar or basically different across domains
+
+Construct a synthetic survey-response profile for whom ""Men and women are basically different"" is a plausible response to hobbies: Their hobbies and personal interests.
+Response intensity: strong.
+
+The targeted item may differ from the other items. Do not infer a uniform outlook across the battery.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
+response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
+and sum to 1. Each probability must be at least 0.01.
+
+Items and response options:
+- hobbies: Their hobbies and personal interests
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- physical_abilities: Their physical abilities
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- parenting: Their approach to parenting
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- feelings: How they express their feelings
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- workplace: The things they are good at in the workplace
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+
+Return only valid JSON with exactly this schema:
+{
+  ""profile_summary"": ""short substantive description"",
+  ""probabilities"": {
+    ""hobbies"": [numbers in option order],
+    ""physical_abilities"": [numbers in option order],
+    ""parenting"": [numbers in option order],
+    ""feelings"": [numbers in option order],
+    ""workplace"": [numbers in option order]
+  }
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_2,"{
+  ""profile_summary"": ""Sees substantial overlap between men and women in physical capabilities, even while acknowledging some average differences. Also tends to view workplace abilities and parenting approaches as broadly similar, but is more open to gender differences in emotional expression and hobbies or personal interests."",
+  ""probabilities"": {
+    ""hobbies"": [0.45, 0.55],
+    ""physical_abilities"": [0.65, 0.35],
+    ""parenting"": [0.60, 0.40],
+    ""feelings"": [0.35, 0.65],
+    ""workplace"": [0.75, 0.25]
+  }
+}",f8713a4484a285060e21e94a6b2d8fff,,"{
+  ""profile_summary"": ""Sees substantial overlap between men and women in physical capabilities, even while acknowledging some average differences. Also tends to view workplace abilities and parenting approaches as broadly similar, but is more open to gender differences in emotional expression and hobbies or personal interests."",
+  ""probabilities"": {
+    ""hobbies"": [0.45, 0.55],
+    ""physical_abilities"": [0.65, 0.35],
+    ""parenting"": [0.60, 0.40],
+    ""feelings"": [0.35, 0.65],
+    ""workplace"": [0.75, 0.25]
+  }
+}",0,0,openai,False,2200,gpt-5.5,0,,1.0,3,1,,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+Battery topic: whether men and women are basically similar or basically different across domains
+
+Construct a synthetic survey-response profile for whom ""Men and women are basically similar"" is a plausible response to physical_abilities: Their physical abilities.
+Response intensity: moderate.
+
+The targeted item may differ from the other items. Do not infer a uniform outlook across the battery.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
+response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
+and sum to 1. Each probability must be at least 0.01.
+
+Items and response options:
+- hobbies: Their hobbies and personal interests
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- physical_abilities: Their physical abilities
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- parenting: Their approach to parenting
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- feelings: How they express their feelings
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- workplace: The things they are good at in the workplace
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+
+Return only valid JSON with exactly this schema:
+{
+  ""profile_summary"": ""short substantive description"",
+  ""probabilities"": {
+    ""hobbies"": [numbers in option order],
+    ""physical_abilities"": [numbers in option order],
+    ""parenting"": [numbers in option order],
+    ""feelings"": [numbers in option order],
+    ""workplace"": [numbers in option order]
+  }
+}",,{{ scenario.prompt }},free_text,0.00962,5.0,442,103.95010395010397,30.0,149,"{'id': 'chatcmpl-E5Vf2XGciI2iBUJxEzr55bXwAjmyB', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""profile_summary"": ""Sees substantial overlap between men and women in physical capabilities, even while acknowledging some average differences. Also tends to view workplace abilities and parenting approaches as broadly similar, but is more open to gender differences in emotional expression and hobbies or personal interests."",\n  ""probabilities"": {\n    ""hobbies"": [0.45, 0.55],\n    ""physical_abilities"": [0.65, 0.35],\n    ""parenting"": [0.60, 0.40],\n    ""feelings"": [0.35, 0.65],\n    ""workplace"": [0.75, 0.25]\n  }\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1784982052, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 247, 'prompt_tokens': 442, 'total_tokens': 689, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 98, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",98,,pew_w154_diff1_n12_003,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+Battery topic: whether men and women are basically similar or basically different across domains
+
+Construct a synthetic survey-response profile for whom ""Men and women are basically similar"" is a plausible response to physical_abilities: Their physical abilities.
+Response intensity: moderate.
+
+The targeted item may differ from the other items. Do not infer a uniform outlook across the battery.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
+response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
+and sum to 1. Each probability must be at least 0.01.
+
+Items and response options:
+- hobbies: Their hobbies and personal interests
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- physical_abilities: Their physical abilities
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- parenting: Their approach to parenting
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- feelings: How they express their feelings
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- workplace: The things they are good at in the workplace
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+
+Return only valid JSON with exactly this schema:
+{
+  ""profile_summary"": ""short substantive description"",
+  ""probabilities"": {
+    ""hobbies"": [numbers in option order],
+    ""physical_abilities"": [numbers in option order],
+    ""parenting"": [numbers in option order],
+    ""feelings"": [numbers in option order],
+    ""workplace"": [numbers in option order]
+  }
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_3,"{
+  ""profile_summary"": ""This respondent strongly sees men and women as differing in physical abilities, likely emphasizing average differences in strength, endurance, or athletic capacity. They do not necessarily generalize this view to all domains, seeing workplace abilities as mostly similar while being more mixed about parenting, emotional expression, and personal interests."",
+  ""probabilities"": {
+    ""hobbies"": [0.42, 0.58],
+    ""physical_abilities"": [0.02, 0.98],
+    ""parenting"": [0.35, 0.65],
+    ""feelings"": [0.25, 0.75],
+    ""workplace"": [0.78, 0.22]
+  }
+}",6e4ef364d59de849945cb29e63baf7a1,,"{
+  ""profile_summary"": ""This respondent strongly sees men and women as differing in physical abilities, likely emphasizing average differences in strength, endurance, or athletic capacity. They do not necessarily generalize this view to all domains, seeing workplace abilities as mostly similar while being more mixed about parenting, emotional expression, and personal interests."",
+  ""probabilities"": {
+    ""hobbies"": [0.42, 0.58],
+    ""physical_abilities"": [0.02, 0.98],
+    ""parenting"": [0.35, 0.65],
+    ""feelings"": [0.25, 0.75],
+    ""workplace"": [0.78, 0.22]
+  }
+}",0,0,openai,False,2200,gpt-5.5,0,,1.0,3,1,,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+Battery topic: whether men and women are basically similar or basically different across domains
+
+Construct a synthetic survey-response profile for whom ""Men and women are basically different"" is a plausible response to physical_abilities: Their physical abilities.
+Response intensity: strong.
+
+The targeted item may differ from the other items. Do not infer a uniform outlook across the battery.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
+response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
+and sum to 1. Each probability must be at least 0.01.
+
+Items and response options:
+- hobbies: Their hobbies and personal interests
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- physical_abilities: Their physical abilities
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- parenting: Their approach to parenting
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- feelings: How they express their feelings
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- workplace: The things they are good at in the workplace
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+
+Return only valid JSON with exactly this schema:
+{
+  ""profile_summary"": ""short substantive description"",
+  ""probabilities"": {
+    ""hobbies"": [numbers in option order],
+    ""physical_abilities"": [numbers in option order],
+    ""parenting"": [numbers in option order],
+    ""feelings"": [numbers in option order],
+    ""workplace"": [numbers in option order]
+  }
+}",,{{ scenario.prompt }},free_text,0.00944,5.0,442,105.9322033898305,30.0,159,"{'id': 'chatcmpl-E5Vf2kOZGOFBrfbqW5X7FmUn4ZSfs', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""profile_summary"": ""This respondent strongly sees men and women as differing in physical abilities, likely emphasizing average differences in strength, endurance, or athletic capacity. They do not necessarily generalize this view to all domains, seeing workplace abilities as mostly similar while being more mixed about parenting, emotional expression, and personal interests."",\n  ""probabilities"": {\n    ""hobbies"": [0.42, 0.58],\n    ""physical_abilities"": [0.02, 0.98],\n    ""parenting"": [0.35, 0.65],\n    ""feelings"": [0.25, 0.75],\n    ""workplace"": [0.78, 0.22]\n  }\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1784982052, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 241, 'prompt_tokens': 442, 'total_tokens': 683, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 82, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",82,,pew_w154_diff1_n12_004,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+Battery topic: whether men and women are basically similar or basically different across domains
+
+Construct a synthetic survey-response profile for whom ""Men and women are basically different"" is a plausible response to physical_abilities: Their physical abilities.
+Response intensity: strong.
+
+The targeted item may differ from the other items. Do not infer a uniform outlook across the battery.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
+response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
+and sum to 1. Each probability must be at least 0.01.
+
+Items and response options:
+- hobbies: Their hobbies and personal interests
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- physical_abilities: Their physical abilities
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- parenting: Their approach to parenting
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- feelings: How they express their feelings
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- workplace: The things they are good at in the workplace
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+
+Return only valid JSON with exactly this schema:
+{
+  ""profile_summary"": ""short substantive description"",
+  ""probabilities"": {
+    ""hobbies"": [numbers in option order],
+    ""physical_abilities"": [numbers in option order],
+    ""parenting"": [numbers in option order],
+    ""feelings"": [numbers in option order],
+    ""workplace"": [numbers in option order]
+  }
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_4,"{
+  ""profile_summary"": ""This respondent tends to see mothers and fathers as having broadly overlapping parenting approaches, especially in everyday caregiving, guidance and emotional support, but not so strongly as to deny some gendered tendencies. They are more willing to see differences in physical abilities and emotional expression, while viewing workplace capabilities as largely similar."",
+  ""probabilities"": {
+    ""hobbies"": [0.48, 0.52],
+    ""physical_abilities"": [0.18, 0.82],
+    ""parenting"": [0.65, 0.35],
+    ""feelings"": [0.34, 0.66],
+    ""workplace"": [0.72, 0.28]
+  }
+}",a415a3d7de5d131fb5aca6db14f2a988,,"{
+  ""profile_summary"": ""This respondent tends to see mothers and fathers as having broadly overlapping parenting approaches, especially in everyday caregiving, guidance and emotional support, but not so strongly as to deny some gendered tendencies. They are more willing to see differences in physical abilities and emotional expression, while viewing workplace capabilities as largely similar."",
+  ""probabilities"": {
+    ""hobbies"": [0.48, 0.52],
+    ""physical_abilities"": [0.18, 0.82],
+    ""parenting"": [0.65, 0.35],
+    ""feelings"": [0.34, 0.66],
+    ""workplace"": [0.72, 0.28]
+  }
+}",0,0,openai,False,2200,gpt-5.5,0,,1.0,3,1,,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+Battery topic: whether men and women are basically similar or basically different across domains
+
+Construct a synthetic survey-response profile for whom ""Men and women are basically similar"" is a plausible response to parenting: Their approach to parenting.
+Response intensity: moderate.
+
+The targeted item may differ from the other items. Do not infer a uniform outlook across the battery.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
+response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
+and sum to 1. Each probability must be at least 0.01.
+
+Items and response options:
+- hobbies: Their hobbies and personal interests
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- physical_abilities: Their physical abilities
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- parenting: Their approach to parenting
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- feelings: How they express their feelings
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- workplace: The things they are good at in the workplace
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+
+Return only valid JSON with exactly this schema:
+{
+  ""profile_summary"": ""short substantive description"",
+  ""probabilities"": {
+    ""hobbies"": [numbers in option order],
+    ""physical_abilities"": [numbers in option order],
+    ""parenting"": [numbers in option order],
+    ""feelings"": [numbers in option order],
+    ""workplace"": [numbers in option order]
+  }
+}",,{{ scenario.prompt }},free_text,0.009405,5.0,441,106.3264221158958,30.0,161,"{'id': 'chatcmpl-E5Vf27Lme9jkqMcZmRpWhmf6ZwnDN', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""profile_summary"": ""This respondent tends to see mothers and fathers as having broadly overlapping parenting approaches, especially in everyday caregiving, guidance and emotional support, but not so strongly as to deny some gendered tendencies. They are more willing to see differences in physical abilities and emotional expression, while viewing workplace capabilities as largely similar."",\n  ""probabilities"": {\n    ""hobbies"": [0.48, 0.52],\n    ""physical_abilities"": [0.18, 0.82],\n    ""parenting"": [0.65, 0.35],\n    ""feelings"": [0.34, 0.66],\n    ""workplace"": [0.72, 0.28]\n  }\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1784982052, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 240, 'prompt_tokens': 441, 'total_tokens': 681, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 79, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",79,,pew_w154_diff1_n12_005,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+Battery topic: whether men and women are basically similar or basically different across domains
+
+Construct a synthetic survey-response profile for whom ""Men and women are basically similar"" is a plausible response to parenting: Their approach to parenting.
+Response intensity: moderate.
+
+The targeted item may differ from the other items. Do not infer a uniform outlook across the battery.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
+response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
+and sum to 1. Each probability must be at least 0.01.
+
+Items and response options:
+- hobbies: Their hobbies and personal interests
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- physical_abilities: Their physical abilities
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- parenting: Their approach to parenting
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- feelings: How they express their feelings
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- workplace: The things they are good at in the workplace
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+
+Return only valid JSON with exactly this schema:
+{
+  ""profile_summary"": ""short substantive description"",
+  ""probabilities"": {
+    ""hobbies"": [numbers in option order],
+    ""physical_abilities"": [numbers in option order],
+    ""parenting"": [numbers in option order],
+    ""feelings"": [numbers in option order],
+    ""workplace"": [numbers in option order]
+  }
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_5,"{
+  ""profile_summary"": ""This respondent strongly views mothers and fathers as bringing distinct instincts, roles, and day-to-day styles to parenting. They may also see some gender differences in physical abilities and emotional expression, while being less convinced that men and women differ in workplace abilities or personal interests."",
+  ""probabilities"": {
+    ""hobbies"": [0.48, 0.52],
+    ""physical_abilities"": [0.18, 0.82],
+    ""parenting"": [0.04, 0.96],
+    ""feelings"": [0.28, 0.72],
+    ""workplace"": [0.66, 0.34]
+  }
+}",4f4a5d4fef7c9705b06256e6bbdc2a21,,"{
+  ""profile_summary"": ""This respondent strongly views mothers and fathers as bringing distinct instincts, roles, and day-to-day styles to parenting. They may also see some gender differences in physical abilities and emotional expression, while being less convinced that men and women differ in workplace abilities or personal interests."",
+  ""probabilities"": {
+    ""hobbies"": [0.48, 0.52],
+    ""physical_abilities"": [0.18, 0.82],
+    ""parenting"": [0.04, 0.96],
+    ""feelings"": [0.28, 0.72],
+    ""workplace"": [0.66, 0.34]
+  }
+}",0,0,openai,False,2200,gpt-5.5,0,,1.0,3,1,,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+Battery topic: whether men and women are basically similar or basically different across domains
+
+Construct a synthetic survey-response profile for whom ""Men and women are basically different"" is a plausible response to parenting: Their approach to parenting.
+Response intensity: strong.
+
+The targeted item may differ from the other items. Do not infer a uniform outlook across the battery.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
+response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
+and sum to 1. Each probability must be at least 0.01.
+
+Items and response options:
+- hobbies: Their hobbies and personal interests
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- physical_abilities: Their physical abilities
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- parenting: Their approach to parenting
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- feelings: How they express their feelings
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- workplace: The things they are good at in the workplace
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+
+Return only valid JSON with exactly this schema:
+{
+  ""profile_summary"": ""short substantive description"",
+  ""probabilities"": {
+    ""hobbies"": [numbers in option order],
+    ""physical_abilities"": [numbers in option order],
+    ""parenting"": [numbers in option order],
+    ""feelings"": [numbers in option order],
+    ""workplace"": [numbers in option order]
+  }
+}",,{{ scenario.prompt }},free_text,0.009615,5.0,441,104.00416016640663,30.0,153,"{'id': 'chatcmpl-E5Vf2RUuzlyEUPKbnplP5HNOc4tgU', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""profile_summary"": ""This respondent strongly views mothers and fathers as bringing distinct instincts, roles, and day-to-day styles to parenting. They may also see some gender differences in physical abilities and emotional expression, while being less convinced that men and women differ in workplace abilities or personal interests."",\n  ""probabilities"": {\n    ""hobbies"": [0.48, 0.52],\n    ""physical_abilities"": [0.18, 0.82],\n    ""parenting"": [0.04, 0.96],\n    ""feelings"": [0.28, 0.72],\n    ""workplace"": [0.66, 0.34]\n  }\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1784982052, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 247, 'prompt_tokens': 441, 'total_tokens': 688, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 94, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",94,,pew_w154_diff1_n12_006,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+Battery topic: whether men and women are basically similar or basically different across domains
+
+Construct a synthetic survey-response profile for whom ""Men and women are basically different"" is a plausible response to parenting: Their approach to parenting.
+Response intensity: strong.
+
+The targeted item may differ from the other items. Do not infer a uniform outlook across the battery.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
+response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
+and sum to 1. Each probability must be at least 0.01.
+
+Items and response options:
+- hobbies: Their hobbies and personal interests
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- physical_abilities: Their physical abilities
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- parenting: Their approach to parenting
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- feelings: How they express their feelings
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- workplace: The things they are good at in the workplace
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+
+Return only valid JSON with exactly this schema:
+{
+  ""profile_summary"": ""short substantive description"",
+  ""probabilities"": {
+    ""hobbies"": [numbers in option order],
+    ""physical_abilities"": [numbers in option order],
+    ""parenting"": [numbers in option order],
+    ""feelings"": [numbers in option order],
+    ""workplace"": [numbers in option order]
+  }
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_6,"{
+  ""profile_summary"": ""This respondent leans toward seeing men and women as overlapping in how they express feelings, viewing emotional expression as shaped more by personality, upbringing, and situation than by gender alone. The view is moderate rather than firm, with some openness to the idea that gendered social expectations create differences. They may see similarity in parenting and workplace abilities, while being more willing to see physical abilities as different."",
+  ""probabilities"": {
+    ""hobbies"": [0.56, 0.44],
+    ""physical_abilities"": [0.25, 0.75],
+    ""parenting"": [0.62, 0.38],
+    ""feelings"": [0.66, 0.34],
+    ""workplace"": [0.68, 0.32]
+  }
+}",e4db0034060106b1c33caad4f85a7a40,,"{
+  ""profile_summary"": ""This respondent leans toward seeing men and women as overlapping in how they express feelings, viewing emotional expression as shaped more by personality, upbringing, and situation than by gender alone. The view is moderate rather than firm, with some openness to the idea that gendered social expectations create differences. They may see similarity in parenting and workplace abilities, while being more willing to see physical abilities as different."",
+  ""probabilities"": {
+    ""hobbies"": [0.56, 0.44],
+    ""physical_abilities"": [0.25, 0.75],
+    ""parenting"": [0.62, 0.38],
+    ""feelings"": [0.66, 0.34],
+    ""workplace"": [0.68, 0.32]
+  }
+}",0,0,openai,False,2200,gpt-5.5,0,,1.0,3,1,,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+Battery topic: whether men and women are basically similar or basically different across domains
+
+Construct a synthetic survey-response profile for whom ""Men and women are basically similar"" is a plausible response to feelings: How they express their feelings.
+Response intensity: moderate.
+
+The targeted item may differ from the other items. Do not infer a uniform outlook across the battery.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
+response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
+and sum to 1. Each probability must be at least 0.01.
+
+Items and response options:
+- hobbies: Their hobbies and personal interests
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- physical_abilities: Their physical abilities
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- parenting: Their approach to parenting
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- feelings: How they express their feelings
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- workplace: The things they are good at in the workplace
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+
+Return only valid JSON with exactly this schema:
+{
+  ""profile_summary"": ""short substantive description"",
+  ""probabilities"": {
+    ""hobbies"": [numbers in option order],
+    ""physical_abilities"": [numbers in option order],
+    ""parenting"": [numbers in option order],
+    ""feelings"": [numbers in option order],
+    ""workplace"": [numbers in option order]
+  }
+}",,{{ scenario.prompt }},free_text,0.01043,5.0,442,95.87727708533076,30.0,179,"{'id': 'chatcmpl-E5Vf2CNUDNbkc6xragQgqg9sjfL4O', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""profile_summary"": ""This respondent leans toward seeing men and women as overlapping in how they express feelings, viewing emotional expression as shaped more by personality, upbringing, and situation than by gender alone. The view is moderate rather than firm, with some openness to the idea that gendered social expectations create differences. They may see similarity in parenting and workplace abilities, while being more willing to see physical abilities as different."",\n  ""probabilities"": {\n    ""hobbies"": [0.56, 0.44],\n    ""physical_abilities"": [0.25, 0.75],\n    ""parenting"": [0.62, 0.38],\n    ""feelings"": [0.66, 0.34],\n    ""workplace"": [0.68, 0.32]\n  }\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1784982052, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 274, 'prompt_tokens': 442, 'total_tokens': 716, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 95, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",95,,pew_w154_diff1_n12_007,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+Battery topic: whether men and women are basically similar or basically different across domains
+
+Construct a synthetic survey-response profile for whom ""Men and women are basically similar"" is a plausible response to feelings: How they express their feelings.
+Response intensity: moderate.
+
+The targeted item may differ from the other items. Do not infer a uniform outlook across the battery.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
+response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
+and sum to 1. Each probability must be at least 0.01.
+
+Items and response options:
+- hobbies: Their hobbies and personal interests
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- physical_abilities: Their physical abilities
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- parenting: Their approach to parenting
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- feelings: How they express their feelings
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- workplace: The things they are good at in the workplace
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+
+Return only valid JSON with exactly this schema:
+{
+  ""profile_summary"": ""short substantive description"",
+  ""probabilities"": {
+    ""hobbies"": [numbers in option order],
+    ""physical_abilities"": [numbers in option order],
+    ""parenting"": [numbers in option order],
+    ""feelings"": [numbers in option order],
+    ""workplace"": [numbers in option order]
+  }
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_7,"{
+  ""profile_summary"": ""This respondent strongly sees men and women as differing in how they express emotions, likely emphasizing gendered social norms or communication styles around feelings. They may also see differences in physical abilities, but are more mixed or similarity-oriented on workplace skills, parenting, and hobbies rather than applying a uniformly difference-based view across all domains."",
+  ""probabilities"": {
+    ""hobbies"": [0.58, 0.42],
+    ""physical_abilities"": [0.22, 0.78],
+    ""parenting"": [0.47, 0.53],
+    ""feelings"": [0.06, 0.94],
+    ""workplace"": [0.68, 0.32]
+  }
+}",a6baad3b9795da8663a4385d00befaa6,,"{
+  ""profile_summary"": ""This respondent strongly sees men and women as differing in how they express emotions, likely emphasizing gendered social norms or communication styles around feelings. They may also see differences in physical abilities, but are more mixed or similarity-oriented on workplace skills, parenting, and hobbies rather than applying a uniformly difference-based view across all domains."",
+  ""probabilities"": {
+    ""hobbies"": [0.58, 0.42],
+    ""physical_abilities"": [0.22, 0.78],
+    ""parenting"": [0.47, 0.53],
+    ""feelings"": [0.06, 0.94],
+    ""workplace"": [0.68, 0.32]
+  }
+}",0,0,openai,False,2200,gpt-5.5,0,,1.0,3,1,,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+Battery topic: whether men and women are basically similar or basically different across domains
+
+Construct a synthetic survey-response profile for whom ""Men and women are basically different"" is a plausible response to feelings: How they express their feelings.
+Response intensity: strong.
+
+The targeted item may differ from the other items. Do not infer a uniform outlook across the battery.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
+response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
+and sum to 1. Each probability must be at least 0.01.
+
+Items and response options:
+- hobbies: Their hobbies and personal interests
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- physical_abilities: Their physical abilities
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- parenting: Their approach to parenting
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- feelings: How they express their feelings
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- workplace: The things they are good at in the workplace
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+
+Return only valid JSON with exactly this schema:
+{
+  ""profile_summary"": ""short substantive description"",
+  ""probabilities"": {
+    ""hobbies"": [numbers in option order],
+    ""physical_abilities"": [numbers in option order],
+    ""parenting"": [numbers in option order],
+    ""feelings"": [numbers in option order],
+    ""workplace"": [numbers in option order]
+  }
+}",,{{ scenario.prompt }},free_text,0.00917,5.0,442,109.05125408942202,30.0,164,"{'id': 'chatcmpl-E5Vf2PYHjhBs8C9DeLsKU5KbH3ple', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""profile_summary"": ""This respondent strongly sees men and women as differing in how they express emotions, likely emphasizing gendered social norms or communication styles around feelings. They may also see differences in physical abilities, but are more mixed or similarity-oriented on workplace skills, parenting, and hobbies rather than applying a uniformly difference-based view across all domains."",\n  ""probabilities"": {\n    ""hobbies"": [0.58, 0.42],\n    ""physical_abilities"": [0.22, 0.78],\n    ""parenting"": [0.47, 0.53],\n    ""feelings"": [0.06, 0.94],\n    ""workplace"": [0.68, 0.32]\n  }\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1784982052, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 232, 'prompt_tokens': 442, 'total_tokens': 674, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 68, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",68,,pew_w154_diff1_n12_008,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+Battery topic: whether men and women are basically similar or basically different across domains
+
+Construct a synthetic survey-response profile for whom ""Men and women are basically different"" is a plausible response to feelings: How they express their feelings.
+Response intensity: strong.
+
+The targeted item may differ from the other items. Do not infer a uniform outlook across the battery.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
+response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
+and sum to 1. Each probability must be at least 0.01.
+
+Items and response options:
+- hobbies: Their hobbies and personal interests
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- physical_abilities: Their physical abilities
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- parenting: Their approach to parenting
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- feelings: How they express their feelings
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- workplace: The things they are good at in the workplace
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+
+Return only valid JSON with exactly this schema:
+{
+  ""profile_summary"": ""short substantive description"",
+  ""probabilities"": {
+    ""hobbies"": [numbers in option order],
+    ""physical_abilities"": [numbers in option order],
+    ""parenting"": [numbers in option order],
+    ""feelings"": [numbers in option order],
+    ""workplace"": [numbers in option order]
+  }
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_8,"{
+  ""profile_summary"": ""This respondent leans toward seeing men and women as having broadly comparable strengths and competencies in the workplace, while still allowing for some perceived differences in other areas such as physical abilities, emotional expression, or personal interests."",
+  ""probabilities"": {
+    ""hobbies"": [0.45, 0.55],
+    ""physical_abilities"": [0.25, 0.75],
+    ""parenting"": [0.55, 0.45],
+    ""feelings"": [0.35, 0.65],
+    ""workplace"": [0.65, 0.35]
+  }
+}",f28cc1a69564fed22b1bebf237a6adec,,"{
+  ""profile_summary"": ""This respondent leans toward seeing men and women as having broadly comparable strengths and competencies in the workplace, while still allowing for some perceived differences in other areas such as physical abilities, emotional expression, or personal interests."",
+  ""probabilities"": {
+    ""hobbies"": [0.45, 0.55],
+    ""physical_abilities"": [0.25, 0.75],
+    ""parenting"": [0.55, 0.45],
+    ""feelings"": [0.35, 0.65],
+    ""workplace"": [0.65, 0.35]
+  }
+}",0,0,openai,False,2200,gpt-5.5,0,,1.0,3,1,,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+Battery topic: whether men and women are basically similar or basically different across domains
+
+Construct a synthetic survey-response profile for whom ""Men and women are basically similar"" is a plausible response to workplace: The things they are good at in the workplace.
+Response intensity: moderate.
+
+The targeted item may differ from the other items. Do not infer a uniform outlook across the battery.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
+response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
+and sum to 1. Each probability must be at least 0.01.
+
+Items and response options:
+- hobbies: Their hobbies and personal interests
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- physical_abilities: Their physical abilities
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- parenting: Their approach to parenting
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- feelings: How they express their feelings
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- workplace: The things they are good at in the workplace
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+
+Return only valid JSON with exactly this schema:
+{
+  ""profile_summary"": ""short substantive description"",
+  ""probabilities"": {
+    ""hobbies"": [numbers in option order],
+    ""physical_abilities"": [numbers in option order],
+    ""parenting"": [numbers in option order],
+    ""feelings"": [numbers in option order],
+    ""workplace"": [numbers in option order]
+  }
+}",,{{ scenario.prompt }},free_text,0.00826,5.0,446,121.06537530266344,30.0,143,"{'id': 'chatcmpl-E5Vf2LuVGLO48sAjPNaMOYoRcrqea', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""profile_summary"": ""This respondent leans toward seeing men and women as having broadly comparable strengths and competencies in the workplace, while still allowing for some perceived differences in other areas such as physical abilities, emotional expression, or personal interests."",\n  ""probabilities"": {\n    ""hobbies"": [0.45, 0.55],\n    ""physical_abilities"": [0.25, 0.75],\n    ""parenting"": [0.55, 0.45],\n    ""feelings"": [0.35, 0.65],\n    ""workplace"": [0.65, 0.35]\n  }\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1784982052, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 201, 'prompt_tokens': 446, 'total_tokens': 647, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 58, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",58,,pew_w154_diff1_n12_009,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+Battery topic: whether men and women are basically similar or basically different across domains
+
+Construct a synthetic survey-response profile for whom ""Men and women are basically similar"" is a plausible response to workplace: The things they are good at in the workplace.
+Response intensity: moderate.
+
+The targeted item may differ from the other items. Do not infer a uniform outlook across the battery.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
+response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
+and sum to 1. Each probability must be at least 0.01.
+
+Items and response options:
+- hobbies: Their hobbies and personal interests
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- physical_abilities: Their physical abilities
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- parenting: Their approach to parenting
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- feelings: How they express their feelings
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- workplace: The things they are good at in the workplace
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+
+Return only valid JSON with exactly this schema:
+{
+  ""profile_summary"": ""short substantive description"",
+  ""probabilities"": {
+    ""hobbies"": [numbers in option order],
+    ""physical_abilities"": [numbers in option order],
+    ""parenting"": [numbers in option order],
+    ""feelings"": [numbers in option order],
+    ""workplace"": [numbers in option order]
+  }
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_9,"{
+  ""profile_summary"": ""Sees men and women as having notably different workplace strengths, likely tied to perceived differences in aptitudes, roles, or work styles. Also tends to see differences in physical abilities and emotional expression, but is less certain that parenting approaches or hobbies are fundamentally different."",
+  ""probabilities"": {
+    ""hobbies"": [0.55, 0.45],
+    ""physical_abilities"": [0.12, 0.88],
+    ""parenting"": [0.46, 0.54],
+    ""feelings"": [0.25, 0.75],
+    ""workplace"": [0.08, 0.92]
+  }
+}",7b64bc2808685840f7b839fe8259153d,,"{
+  ""profile_summary"": ""Sees men and women as having notably different workplace strengths, likely tied to perceived differences in aptitudes, roles, or work styles. Also tends to see differences in physical abilities and emotional expression, but is less certain that parenting approaches or hobbies are fundamentally different."",
+  ""probabilities"": {
+    ""hobbies"": [0.55, 0.45],
+    ""physical_abilities"": [0.12, 0.88],
+    ""parenting"": [0.46, 0.54],
+    ""feelings"": [0.25, 0.75],
+    ""workplace"": [0.08, 0.92]
+  }
+}",0,0,openai,False,2200,gpt-5.5,0,,1.0,3,1,,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+Battery topic: whether men and women are basically similar or basically different across domains
+
+Construct a synthetic survey-response profile for whom ""Men and women are basically different"" is a plausible response to workplace: The things they are good at in the workplace.
+Response intensity: strong.
+
+The targeted item may differ from the other items. Do not infer a uniform outlook across the battery.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
+response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
+and sum to 1. Each probability must be at least 0.01.
+
+Items and response options:
+- hobbies: Their hobbies and personal interests
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- physical_abilities: Their physical abilities
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- parenting: Their approach to parenting
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- feelings: How they express their feelings
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- workplace: The things they are good at in the workplace
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+
+Return only valid JSON with exactly this schema:
+{
+  ""profile_summary"": ""short substantive description"",
+  ""probabilities"": {
+    ""hobbies"": [numbers in option order],
+    ""physical_abilities"": [numbers in option order],
+    ""parenting"": [numbers in option order],
+    ""feelings"": [numbers in option order],
+    ""workplace"": [numbers in option order]
+  }
+}",,{{ scenario.prompt }},free_text,0.01057,5.0,446,94.60737937559132,30.0,153,"{'id': 'chatcmpl-E5Vf2jigc4lXK0g6N21lTxs3kYSR5', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""profile_summary"": ""Sees men and women as having notably different workplace strengths, likely tied to perceived differences in aptitudes, roles, or work styles. Also tends to see differences in physical abilities and emotional expression, but is less certain that parenting approaches or hobbies are fundamentally different."",\n  ""probabilities"": {\n    ""hobbies"": [0.55, 0.45],\n    ""physical_abilities"": [0.12, 0.88],\n    ""parenting"": [0.46, 0.54],\n    ""feelings"": [0.25, 0.75],\n    ""workplace"": [0.08, 0.92]\n  }\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1784982052, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 278, 'prompt_tokens': 446, 'total_tokens': 724, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 125, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",125,,pew_w154_diff1_n12_010,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+Battery topic: whether men and women are basically similar or basically different across domains
+
+Construct a synthetic survey-response profile for whom ""Men and women are basically different"" is a plausible response to workplace: The things they are good at in the workplace.
+Response intensity: strong.
+
+The targeted item may differ from the other items. Do not infer a uniform outlook across the battery.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
+response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
+and sum to 1. Each probability must be at least 0.01.
+
+Items and response options:
+- hobbies: Their hobbies and personal interests
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- physical_abilities: Their physical abilities
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- parenting: Their approach to parenting
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- feelings: How they express their feelings
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- workplace: The things they are good at in the workplace
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+
+Return only valid JSON with exactly this schema:
+{
+  ""profile_summary"": ""short substantive description"",
+  ""probabilities"": {
+    ""hobbies"": [numbers in option order],
+    ""physical_abilities"": [numbers in option order],
+    ""parenting"": [numbers in option order],
+    ""feelings"": [numbers in option order],
+    ""workplace"": [numbers in option order]
+  }
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_10,"{
+  ""profile_summary"": ""This profile reflects a consistently similarity-oriented view of gender, seeing men and women as largely alike across personal interests, physical abilities, parenting, emotional expression, and workplace strengths."",
+  ""probabilities"": {
+    ""hobbies"": [0.94, 0.06],
+    ""physical_abilities"": [0.86, 0.14],
+    ""parenting"": [0.91, 0.09],
+    ""feelings"": [0.89, 0.11],
+    ""workplace"": [0.95, 0.05]
+  }
+}",2c14e9f41dbc70a659dea0953d4806e2,,"{
+  ""profile_summary"": ""This profile reflects a consistently similarity-oriented view of gender, seeing men and women as largely alike across personal interests, physical abilities, parenting, emotional expression, and workplace strengths."",
+  ""probabilities"": {
+    ""hobbies"": [0.94, 0.06],
+    ""physical_abilities"": [0.86, 0.14],
+    ""parenting"": [0.91, 0.09],
+    ""feelings"": [0.89, 0.11],
+    ""workplace"": [0.95, 0.05]
+  }
+}",0,0,openai,False,2200,gpt-5.5,0,,1.0,3,1,,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+Battery topic: whether men and women are basically similar or basically different across domains
+
+Construct a synthetic survey-response profile organized around this declared answer pattern:
+- hobbies: Men and women are basically similar
+- physical_abilities: Men and women are basically similar
+- parenting: Men and women are basically similar
+- feelings: Men and women are basically similar
+- workplace: Men and women are basically similar
+
+Follow the complete response pattern explicitly supplied below.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
+response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
+and sum to 1. Each probability must be at least 0.01.
+
+Items and response options:
+- hobbies: Their hobbies and personal interests
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- physical_abilities: Their physical abilities
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- parenting: Their approach to parenting
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- feelings: How they express their feelings
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- workplace: The things they are good at in the workplace
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+
+Return only valid JSON with exactly this schema:
+{
+  ""profile_summary"": ""short substantive description"",
+  ""probabilities"": {
+    ""hobbies"": [numbers in option order],
+    ""physical_abilities"": [numbers in option order],
+    ""parenting"": [numbers in option order],
+    ""feelings"": [numbers in option order],
+    ""workplace"": [numbers in option order]
+  }
+}",,{{ scenario.prompt }},free_text,0.00753,5.0,462,132.80212483399734,30.0,135,"{'id': 'chatcmpl-E5Vf2L2wjs240GDg3ZwaoA4aUcT3a', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""profile_summary"": ""This profile reflects a consistently similarity-oriented view of gender, seeing men and women as largely alike across personal interests, physical abilities, parenting, emotional expression, and workplace strengths."",\n  ""probabilities"": {\n    ""hobbies"": [0.94, 0.06],\n    ""physical_abilities"": [0.86, 0.14],\n    ""parenting"": [0.91, 0.09],\n    ""feelings"": [0.89, 0.11],\n    ""workplace"": [0.95, 0.05]\n  }\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1784982052, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 174, 'prompt_tokens': 462, 'total_tokens': 636, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 39, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",39,,pew_w154_diff1_n12_011,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+Battery topic: whether men and women are basically similar or basically different across domains
+
+Construct a synthetic survey-response profile organized around this declared answer pattern:
+- hobbies: Men and women are basically similar
+- physical_abilities: Men and women are basically similar
+- parenting: Men and women are basically similar
+- feelings: Men and women are basically similar
+- workplace: Men and women are basically similar
+
+Follow the complete response pattern explicitly supplied below.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
+response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
+and sum to 1. Each probability must be at least 0.01.
+
+Items and response options:
+- hobbies: Their hobbies and personal interests
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- physical_abilities: Their physical abilities
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- parenting: Their approach to parenting
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- feelings: How they express their feelings
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- workplace: The things they are good at in the workplace
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+
+Return only valid JSON with exactly this schema:
+{
+  ""profile_summary"": ""short substantive description"",
+  ""probabilities"": {
+    ""hobbies"": [numbers in option order],
+    ""physical_abilities"": [numbers in option order],
+    ""parenting"": [numbers in option order],
+    ""feelings"": [numbers in option order],
+    ""workplace"": [numbers in option order]
+  }
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_11,"{
+  ""profile_summary"": ""This response pattern reflects a broad tendency to see men and women as fundamentally different across personal interests, physical abilities, parenting styles, emotional expression, and workplace strengths."",
+  ""probabilities"": {
+    ""hobbies"": [0.05, 0.95],
+    ""physical_abilities"": [0.03, 0.97],
+    ""parenting"": [0.06, 0.94],
+    ""feelings"": [0.04, 0.96],
+    ""workplace"": [0.08, 0.92]
+  }
+}",48a43dd20d9d1a8b64630ca29c40751c,,"{
+  ""profile_summary"": ""This response pattern reflects a broad tendency to see men and women as fundamentally different across personal interests, physical abilities, parenting styles, emotional expression, and workplace strengths."",
+  ""probabilities"": {
+    ""hobbies"": [0.05, 0.95],
+    ""physical_abilities"": [0.03, 0.97],
+    ""parenting"": [0.06, 0.94],
+    ""feelings"": [0.04, 0.96],
+    ""workplace"": [0.08, 0.92]
+  }
+}",0,0,openai,False,2200,gpt-5.5,0,,1.0,3,1,,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+Battery topic: whether men and women are basically similar or basically different across domains
+
+Construct a synthetic survey-response profile organized around this declared answer pattern:
+- hobbies: Men and women are basically different
+- physical_abilities: Men and women are basically different
+- parenting: Men and women are basically different
+- feelings: Men and women are basically different
+- workplace: Men and women are basically different
+
+Follow the complete response pattern explicitly supplied below.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
+response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
+and sum to 1. Each probability must be at least 0.01.
+
+Items and response options:
+- hobbies: Their hobbies and personal interests
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- physical_abilities: Their physical abilities
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- parenting: Their approach to parenting
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- feelings: How they express their feelings
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- workplace: The things they are good at in the workplace
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+
+Return only valid JSON with exactly this schema:
+{
+  ""profile_summary"": ""short substantive description"",
+  ""probabilities"": {
+    ""hobbies"": [numbers in option order],
+    ""physical_abilities"": [numbers in option order],
+    ""parenting"": [numbers in option order],
+    ""feelings"": [numbers in option order],
+    ""workplace"": [numbers in option order]
+  }
+}",,{{ scenario.prompt }},free_text,0.00744,5.0,462,134.40860215053763,30.0,133,"{'id': 'chatcmpl-E5Vf2gTwg9y85T8Alh2NxB0v2bHsi', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""profile_summary"": ""This response pattern reflects a broad tendency to see men and women as fundamentally different across personal interests, physical abilities, parenting styles, emotional expression, and workplace strengths."",\n  ""probabilities"": {\n    ""hobbies"": [0.05, 0.95],\n    ""physical_abilities"": [0.03, 0.97],\n    ""parenting"": [0.06, 0.94],\n    ""feelings"": [0.04, 0.96],\n    ""workplace"": [0.08, 0.92]\n  }\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1784982052, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 171, 'prompt_tokens': 462, 'total_tokens': 633, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 38, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",38,,pew_w154_diff1_n12_012,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+Battery topic: whether men and women are basically similar or basically different across domains
+
+Construct a synthetic survey-response profile organized around this declared answer pattern:
+- hobbies: Men and women are basically different
+- physical_abilities: Men and women are basically different
+- parenting: Men and women are basically different
+- feelings: Men and women are basically different
+- workplace: Men and women are basically different
+
+Follow the complete response pattern explicitly supplied below.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
+response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
+and sum to 1. Each probability must be at least 0.01.
+
+Items and response options:
+- hobbies: Their hobbies and personal interests
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- physical_abilities: Their physical abilities
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- parenting: Their approach to parenting
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- feelings: How they express their feelings
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+- workplace: The things they are good at in the workplace
+  Options, in output order: 1. Men and women are basically similar; 2. Men and women are basically different
+
+Return only valid JSON with exactly this schema:
+{
+  ""profile_summary"": ""short substantive description"",
+  ""probabilities"": {
+    ""hobbies"": [numbers in option order],
+    ""physical_abilities"": [numbers in option order],
+    ""parenting"": [numbers in option order],
+    ""feelings"": [numbers in option order],
+    ""workplace"": [numbers in option order]
+  }
+}",True

@@ -1,4 +1,0 @@
-tag,method,mean_rmse,median_rmse,max_rmse,items,n_support_valid,method_label
-trust_coverage_n12,generated support mixture,0.0476020040931632,0.0451623164420115,0.0717775110714945,4,12,Weighted support
-trust_coverage_n12,unweighted archetype bank,0.0587912562184906,0.0646886029706964,0.0686881034499829,4,12,Unweighted support
-trust_coverage_n12,uniform,0.1530704304977541,0.1527129904009303,0.1761312641816387,4,12,Uniform

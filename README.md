@@ -1,178 +1,134 @@
 # umriss
 
-**A Python CLI for constructing marginal-matching digital twin support banks.**
+`umriss` is an agent-facing Python CLI for constructing auditable synthetic
+support banks from reported survey marginals. It does not claim to recover
+respondents. It creates candidate response profiles, evaluates them with a
+model, and estimates mixture weights whose implied marginals approximate the
+reported targets.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-![Python](https://img.shields.io/badge/python-3.11%2B-blue.svg)
-[![EDSL](https://img.shields.io/badge/built%20on-EDSL-brightgreen.svg)](https://github.com/expectedparrot/edsl)
+Marginals do not identify a unique joint distribution. A support design
+therefore encodes consequential assumptions. In `umriss`, those assumptions
+live in a versioned, declarative design rather than inside a prompt builder.
 
-`umriss` builds and evaluates synthetic support sets whose answer distributions
-can be mixed to match known survey marginals. It is designed for experiments
-where you have item-level marginal distributions, want to construct plausible
-digital twin support points, and need an auditable path from prompt design to
-leave-one-item-out evaluation.
-
-The CLI follows the same operational boundary as `zwill` and `zwicky`:
-
-- `umriss` creates prompt JSONL artifacts and `.jobs.ep` files.
-- An external EP/EDSL runner executes those jobs and writes `.results.ep` files.
-- `umriss` registers results, parses model probabilities, fits mixture weights,
-  and writes diagnostics, comparison tables, and reports.
-
-It does not run model jobs itself.
+The checked-in tutorial uses five weighted marginals derived from 6,104
+respondents in Pew Research Center's American Trends Panel Wave 154. The
+microdata is used only to construct aggregate targets; leave-one-out validation
+fits four marginals and predicts the omitted fifth marginal.
 
 ## Install
 
-From a clone of this repository:
-
 ```bash
-pip install -e .
+uv tool install .
 ```
 
-For development and tests:
+## Design first
+
+Inspect the checked-in declarative design:
 
 ```bash
-pip install -e ".[test]"
-pytest -q
+umriss design validate \
+  --metadata examples/pew_w154/pew_w154_metadata.json \
+  --design examples/pew_w154/pew_w154_design.yaml
 ```
 
-If you are co-developing EDSL, install `umriss` first and then overlay your local
-EDSL checkout:
+Validate its feasibility:
 
 ```bash
-pip install -e .
-pip install -e ../edsl
+umriss battery inspect examples/pew_w154/pew_w154_metadata.json
 ```
 
-## Quick Start
-
-Inspect or create battery metadata:
-
-```bash
-umriss battery inspect data/source/normalized/W157_SKILLIMP_metadata.json
-```
-
-Build support prompts from a generic design file:
+Compile prompts and audit artifacts:
 
 ```bash
 umriss support build \
-  --metadata data/source/normalized/W157_SKILLIMP_metadata.json \
-  --design examples/latent_support_design.json \
-  --tag w157_designed_support_n96 \
+  --metadata examples/pew_w154/pew_w154_metadata.json \
+  --preset uniform-patterns \
   --n-support 96 \
-  --out data/computed_objects/support_prompts
+  --tag pew_w154_diff1_uniform_n96 \
+  --out examples/pew_w154/run/uniform_n96
 ```
 
-Export an EP job bundle:
+The build writes:
+
+- `<tag>_resolved_design.yaml`
+- `<tag>_support_plan.csv`
+- `<tag>_coverage.csv`
+- `<tag>_prompts.jsonl`
+- `<tag>_prompts.html`
+
+Review the resolved design, coverage table, and prompt HTML before model
+execution.
+
+## Execute through Expected Parrot
 
 ```bash
 umriss support export \
-  --prompts data/computed_objects/support_prompts/w157_designed_support_n96.jsonl \
-  --path data/computed_objects/support_prompts/w157_designed_support_n96.jobs.ep
+  --prompts examples/pew_w154/run/uniform_n96/pew_w154_diff1_uniform_n96_prompts.jsonl \
+  --path examples/pew_w154/run/uniform_n96/pew_w154_diff1_uniform_n96.jobs.ep
 ```
 
-Run the resulting `.jobs.ep` file outside `umriss`, then register the `.results.ep`
-file:
+```bash
+ep run \
+  --jobs examples/pew_w154/run/uniform_n96/pew_w154_diff1_uniform_n96.jobs.ep \
+  --output examples/pew_w154/run/uniform_n96/pew_w154_diff1_uniform_n96.results.ep
+```
+
+`umriss` prepares and registers jobs but does not conceal the external model
+execution boundary.
+
+## Parse, fit, and test
 
 ```bash
 umriss support register-results \
-  --results data/computed_objects/support_prompts/w157_designed_support_n96.results.ep \
-  --prompts data/computed_objects/support_prompts/w157_designed_support_n96.jsonl \
-  --tag w157_designed_support_n96 \
-  --out data/computed_objects/support_raw_responses
+  --results examples/pew_w154/run/uniform_n96/pew_w154_diff1_uniform_n96.results.ep \
+  --prompts examples/pew_w154/run/uniform_n96/pew_w154_diff1_uniform_n96_prompts.jsonl \
+  --tag pew_w154_diff1_uniform_n96 \
+  --out examples/pew_w154/run/uniform_n96/raw
 ```
 
-Run leave-one-item-out evaluation:
+```bash
+umriss support parse \
+  --raw examples/pew_w154/run/uniform_n96/raw/pew_w154_diff1_uniform_n96_raw.csv \
+  --metadata examples/pew_w154/pew_w154_metadata.json \
+  --tag pew_w154_diff1_uniform_n96 \
+  --out examples/pew_w154/run/uniform_n96/bank
+```
 
 ```bash
 umriss loo \
-  --raw data/computed_objects/support_raw_responses/w157_designed_support_n96_raw.csv \
-  --metadata data/source/normalized/W157_SKILLIMP_metadata.json \
-  --respondents data/source/normalized/W157_SKILLIMP_respondents.csv \
-  --tag w157_designed_support_n96 \
-  --out data/derived
+  --support examples/pew_w154/run/banks/pew_w154_diff1_uniform_n208_probabilities.csv \
+  --metadata examples/pew_w154/pew_w154_metadata.json \
+  --tag pew_w154_diff1_uniform_n208 \
+  --out examples/pew_w154/run/derived
 ```
 
-Build a report-writing data bundle:
+Parsing is strict: probability vectors with negative entries, wrong lengths, or
+sums other than one are invalid. They are not silently clipped or normalized.
 
-```bash
-umriss report-data build \
-  --derived data/derived \
-  --out output/report_data
-```
+The 96-row full-pattern bank is measured before fitting. If its returned
+probabilities are not sufficiently uniform, use `umriss support
+augment-uniform`, run and parse the new jobs, then combine them with `umriss
+support merge`. `umriss support uniformity` checks marginal balance, duplicate
+probability vectors, joint modal-response coverage, matrix rank, and effective
+rank. `umriss loo` refuses a bank that fails preflight unless the analyst
+explicitly requests the diagnostic escape hatch.
 
-The bundle contains normalized CSVs for support-bank summaries, method
-comparisons, holdout detail, diagnostics flags, and support points, plus
-`prose_facts.json`, `prose_facts.md`, and a reproducibility manifest.
+## Design schema
 
-## Guidance
+A schema-v1 design declares:
 
-`umriss guide` provides short, structured workflow guidance:
+- support-bank size and random seed;
+- complete or explicitly partial coverage;
+- option-coverage, pattern-anchor, and user-profile components;
+- global, item-specific, grouped, or explicit coherence;
+- balanced response-intensity assignments;
+- profile framing and demographic-invention rules;
+- probability semantics and minimum probabilities;
+- optional strictly validated Jinja templates.
 
-```bash
-umriss guide
-umriss guide designs
-umriss guide ep-boundary
-umriss guide paper-rewrite
-umriss guide diagnostics
-```
+Battery metadata declares each scale as `ordinal` or `nominal`. Ordinal scales
+also declare `low_to_high` or `high_to_low`; `umriss` never infers response
+meaning from option position.
 
-`umriss next` inspects artifacts for a support-bank tag and recommends the next
-command:
-
-```bash
-umriss next \
-  --tag w157_designed_support_n96 \
-  --metadata data/source/normalized/W157_SKILLIMP_metadata.json \
-  --design examples/latent_support_design.json
-```
-
-The recommendation is a `umriss` command except at the EP execution boundary,
-where the correct next step is to run the `.jobs.ep` file externally.
-
-## Design Files
-
-Named prompt builders are intentionally not the main abstraction. Prefer generic
-JSON or YAML design files that declare components such as latent axes, response
-styles, option coverage rows, and sampling strategy.
-
-Minimal example:
-
-```json
-{
-  "components": [
-    {
-      "type": "axes",
-      "name": "latent_axis_grid",
-      "axes": {
-        "technology_outlook": ["optimistic", "skeptical"],
-        "response_style": ["moderate", "strong"]
-      },
-      "sampler": {"method": "maximin", "n": 96, "seed": 17},
-      "guidance": "Answer each item using the response scale literally."
-    }
-  ]
-}
-```
-
-## Project State
-
-For incremental authoring, initialize a workspace:
-
-```bash
-umriss init
-umriss battery create --battery-id demo --wave T1 --battery DEMO --topic "demo" --context "demo context"
-umriss question add --battery demo --item q1 --question-stem "Stem?" --item-text "Item text" --option-code 1 --option Yes --option-code 2 --option No
-umriss marginal add --battery demo --item q1 --proportion 0.25 --proportion 0.75
-umriss battery compile --battery demo --path demo_metadata.json
-umriss support build --battery demo --strategy pattern-coverage --tag demo_n12 --n-support 12 --out prompts
-```
-
-Workspace state lives under `.umriss/`. Paper-scale workflows can also skip local
-state entirely and operate directly on metadata, prompt, raw-response, and
-derived artifact paths.
-
-## Specification
-
-See [CLI_SPEC.md](CLI_SPEC.md) for the current command contract and paper rewrite
-plan.
+See [the browser tutorial](docs/index.html) and
+[the CLI specification](CLI_SPEC.md).
