@@ -22,7 +22,7 @@ from .baselines import build_baseline_prompts, parse_baseline_results
 from .calibration import fit_weights, load_support_matrix, write_fit_outputs
 from .ep_commands import export_support_jobs, run_ep_jobs
 from .errors import UmrissError
-from .evaluation import run_loo
+from .evaluation import run_marginal_validation
 from .jsonlio import read_json
 from .metadata import (
     add_marginal,
@@ -36,7 +36,7 @@ from .metadata import (
     write_marginals_long,
 )
 from .parsing import parse_support, register_results
-from .plotting import plot_loo
+from .plotting import plot_validation
 from .state import (
     active_project_id,
     create_project,
@@ -356,10 +356,10 @@ def cmd_fit(args: argparse.Namespace) -> dict[str, Any]:
     return envelope("umriss fit", "ok", data)
 
 
-def cmd_loo(args: argparse.Namespace) -> dict[str, Any]:
+def cmd_validate_marginals(args: argparse.Namespace) -> dict[str, Any]:
     metadata = read_json(Path(args.metadata))
     try:
-        data = run_loo(
+        data = run_marginal_validation(
             metadata,
             args.tag,
             Path(args.out),
@@ -382,7 +382,7 @@ def cmd_loo(args: argparse.Namespace) -> dict[str, Any]:
         else:
             code = "invalid_input"
         raise UmrissError(code, str(exc)) from exc
-    return envelope("umriss loo", "ok", data)
+    return envelope("umriss validate marginals", "ok", data)
 
 
 def cmd_predict(args: argparse.Namespace) -> dict[str, Any]:
@@ -422,15 +422,15 @@ def cmd_report_data_build(args: argparse.Namespace) -> dict[str, Any]:
     return envelope("umriss report-data build", "ok", data)
 
 
-def cmd_plot_loo(args: argparse.Namespace) -> dict[str, Any]:
-    data = plot_loo(
+def cmd_plot_validation(args: argparse.Namespace) -> dict[str, Any]:
+    data = plot_validation(
         Path(args.derived),
         args.tag,
         Path(args.out),
         image_format=args.format,
         top_personas=args.top_personas,
     )
-    return envelope("umriss plot loo", "ok", data)
+    return envelope("umriss plot validation", "ok", data)
 
 
 def cmd_guide(args: argparse.Namespace) -> dict[str, Any]:
@@ -460,7 +460,7 @@ def cmd_next(args: argparse.Namespace) -> dict[str, Any]:
     elif status["support_banks"] == 0:
         recommendation = "umriss support export --prompts <tag>_prompts.jsonl --path <tag>.jobs.ep"
     elif status["evaluations"] == 0:
-        recommendation = "umriss loo --support <bank_probabilities.csv> --metadata <metadata.json> --tag <tag> --out <dir>"
+        recommendation = "umriss validate marginals --support <bank_probabilities.csv> --metadata <metadata.json> --tag <tag> --out <dir>"
     else:
         recommendation = "umriss compare --run <tag>=<battery>:<bank> --derived <dir> --out <comparison.csv>"
     return envelope("umriss next", "ok", {"recommendation": recommendation, "status": status})
@@ -672,7 +672,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--out", required=True)
     p.set_defaults(func=cmd_fit)
 
-    p = sub.add_parser("loo")
+    validate = sub.add_parser("validate").add_subparsers(dest="validate_command", required=True)
+    p = validate.add_parser("marginals")
     p.add_argument("--raw")
     p.add_argument("--support")
     p.add_argument("--metadata", required=True)
@@ -686,7 +687,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--allow-nonuniform-support", action="store_true")
     p.add_argument("--tag", required=True)
     p.add_argument("--out", required=True)
-    p.set_defaults(func=cmd_loo)
+    p.set_defaults(func=cmd_validate_marginals)
 
     p = sub.add_parser("predict")
     p.add_argument("--support", required=True)
@@ -726,13 +727,13 @@ def build_parser() -> argparse.ArgumentParser:
     p.set_defaults(func=cmd_report_data_build)
 
     plot = sub.add_parser("plot").add_subparsers(dest="plot_command", required=True)
-    p = plot.add_parser("loo")
+    p = plot.add_parser("validation")
     p.add_argument("--derived", required=True)
     p.add_argument("--tag", required=True)
     p.add_argument("--out", required=True)
     p.add_argument("--format", choices=["svg", "png", "pdf"], default="svg")
     p.add_argument("--top-personas", type=int, default=30)
-    p.set_defaults(func=cmd_plot_loo)
+    p.set_defaults(func=cmd_plot_validation)
 
     p = sub.add_parser("guide")
     guide_topics = ["workflow", "designs", "ep-boundary", "paper-rewrite", "diagnostics"]

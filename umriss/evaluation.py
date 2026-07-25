@@ -61,7 +61,7 @@ def load_priors(
     )
 
 
-def run_loo(
+def run_marginal_validation(
     metadata: dict[str, Any],
     tag: str,
     out_dir: Path,

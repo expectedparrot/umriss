@@ -1,5 +1,7 @@
 # umriss
 
+![Umriss artwork: a population of distinct parrots inside brackets](docs/assets/umriss-art.png)
+
 `umriss` is an agent-facing Python CLI for constructing auditable synthetic
 support banks from reported survey marginals. It does not claim to recover
 respondents. It creates candidate response profiles, evaluates them with a
@@ -37,17 +39,17 @@ umriss baseline run \
 ```
 
 Register and strictly parse the results before passing the resulting
-`*_one_shot.csv` and `*_conditioned_direct.csv` files to `umriss loo`.
+`*_one_shot.csv` and `*_conditioned_direct.csv` files to `umriss validate marginals`.
 
 ## Plot a leave-one-out run
 
-`umriss loo` writes the canonical data behind the plots: per-item predictions
+`umriss validate marginals` writes the canonical data behind the plots: per-item predictions
 and errors, method summaries, fit diagnostics, fold-specific persona weights,
 and pre-calibration support-uniformity measurements. Generate the associated
 figures directly:
 
 ```bash
-umriss plot loo \
+umriss plot validation \
   --derived examples/pew_w154/run/derived \
   --tag pew_w154_diff1_uniform_n208 \
   --out run/plots \
@@ -171,7 +173,7 @@ umriss support parse \
 ```
 
 ```bash
-umriss loo \
+umriss validate marginals \
   --support examples/pew_w154/run/banks/pew_w154_diff1_uniform_n208_probabilities.csv \
   --metadata examples/pew_w154/pew_w154_metadata.json \
   --tag pew_w154_diff1_uniform_n208 \
@@ -186,7 +188,7 @@ probabilities are not sufficiently uniform, use `umriss support
 augment-uniform`, run and parse the new jobs, then combine them with `umriss
 support merge`. `umriss support uniformity` checks marginal balance, duplicate
 probability vectors, joint modal-response coverage, matrix rank, and effective
-rank. `umriss loo` refuses a bank that fails preflight unless the analyst
+rank. `umriss validate marginals` refuses a bank that fails preflight unless the analyst
 explicitly requests the diagnostic escape hatch.
 
 ## Design schema

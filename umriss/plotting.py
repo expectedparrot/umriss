@@ -54,7 +54,7 @@ def _finish(fig: Any, path: Path) -> None:
     fig.clear()
 
 
-def plot_loo(
+def plot_validation(
     derived: Path,
     tag: str,
     out_dir: Path,

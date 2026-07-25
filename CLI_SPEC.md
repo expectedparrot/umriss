@@ -86,6 +86,24 @@ umriss support register-results --results FILE.results.ep
   --prompts FILE.jsonl --tag TAG --out DIR
 ```
 
+Direct-prediction baselines use the same explicit EP boundary:
+
+```text
+umriss baseline build --metadata FILE
+  [--respondents FILE] [--mode (one_shot | conditioned_direct | both)]
+  --tag TAG --out DIR
+
+umriss baseline export --prompts FILE --path FILE.jobs.ep [--model MODEL]
+umriss baseline run --jobs FILE.jobs.ep --output FILE.results.ep
+umriss baseline register-results --results FILE.results.ep
+  --prompts FILE.jsonl --tag TAG --out DIR
+umriss baseline parse --raw FILE --prompts FILE.jsonl
+  --metadata FILE --tag TAG --out DIR
+```
+
+Conditioned-direct prompts contain every held-in real marginal and exclude the
+held-out marginal by construction.
+
 ## Parsing and estimation
 
 ```text
@@ -103,18 +121,30 @@ umriss support merge --base FILE --additions FILE --tag TAG --out DIR
 umriss fit --support FILE --metadata FILE
   [--include-item ITEM] [--exclude-item ITEM] --tag TAG --out DIR
 
-umriss loo (--raw FILE | --support FILE) --metadata FILE
+umriss validate marginals (--raw FILE | --support FILE) --metadata FILE
   [--uniform-tolerance FLOAT] [--max-duplicate-fraction FLOAT]
   [--min-joint-pattern-fraction FLOAT] [--allow-nonuniform-support]
   --tag TAG --out DIR
 
 umriss predict --support FILE --weights FILE --metadata FILE
   --item ITEM --out FILE
+
+umriss plot validation --derived DIR --tag TAG --out DIR
+  [--format (svg | png | pdf)] [--top-personas N]
+
+umriss twins export-edsl --points FILE [--points FILE ...]
+  --weights FILE [--holdout ITEM] [--minimum-weight FLOAT]
+  --path FILE.agents.ep
 ```
 
 Parsing never repairs invalid responses silently. Fitting and design selection
 remain separate: held-out performance may compare declared designs, but any
 search over designs must be reported.
+
+The EDSL export uses each profile summary as the complete agent instruction.
+Its normalized coefficient is stored as hidden `_weight` metadata and repeated
+in a CSV sidecar. EDSL serializes hidden traits but does not interpret
+`_weight` as a sampling rule.
 
 ## Methodological guardrails
 

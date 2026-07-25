@@ -555,7 +555,7 @@ GUIDES = {
             "Create EP jobs: `umriss support export --prompts <prompt_dir>/<tag>_prompts.jsonl --path <prompt_dir>/<tag>.jobs.ep`.",
             "Run the `.jobs.ep` outside umriss with EP/EDSL. Umriss does not run model jobs.",
             "Register results: `umriss support register-results --results <tag>.results.ep --prompts <tag>_prompts.jsonl --tag <tag> --out <raw_dir>`.",
-            "Parse or evaluate: `umriss support parse ...` or `umriss loo ...`.",
+            "Parse or evaluate: `umriss support parse ...` or `umriss validate marginals ...`.",
             "Compare/report: `umriss compare ...` and `umriss report ...`.",
         ],
     },
@@ -582,7 +582,7 @@ GUIDES = {
         "summary": "Using umriss to shrink paper-specific scripts.",
         "steps": [
             "Use design JSON files plus `umriss support build` instead of bespoke prompt builders.",
-            "Use `umriss loo` for generated-support scoring.",
+            "Use `umriss validate marginals` for generated-support scoring.",
             "Use `umriss compare --recipe ...` for repeated comparison-table assembly.",
             "Keep raw model outputs and derived CSVs as explicit Makefile artifacts.",
         ],
@@ -640,10 +640,10 @@ def next_for_artifacts(
         command = f"umriss report --tag {tag} --derived {derived_dir} --out {report}"
         return {"stage": "report-or-compare", "recommendation": command, "artifacts": artifacts, "exists": exists}
     if raw.exists():
-        command = f"umriss loo --raw {raw} --metadata {metadata or '<metadata.json>'} --tag {tag} --out {derived_dir}"
+        command = f"umriss validate marginals --raw {raw} --metadata {metadata or '<metadata.json>'} --tag {tag} --out {derived_dir}"
         return {"stage": "evaluate", "recommendation": command, "artifacts": artifacts, "exists": exists}
     if probabilities.exists():
-        command = f"umriss loo --support {probabilities} --metadata {metadata or '<metadata.json>'} --tag {tag} --out {derived_dir}"
+        command = f"umriss validate marginals --support {probabilities} --metadata {metadata or '<metadata.json>'} --tag {tag} --out {derived_dir}"
         return {"stage": "evaluate", "recommendation": command, "artifacts": artifacts, "exists": exists}
     if not prompts.exists():
         if design:

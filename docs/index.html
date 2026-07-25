@@ -250,8 +250,8 @@ probabilities:
     </tbody>
   </table>
   <p>This 12-persona pilot therefore fails the method’s preflight requirement. It covered every declared item-option region, but coverage is not aggregate balance: each persona supplies probabilities for all five items, and its non-targeted answers collectively pull physical abilities and feelings far from 50–50. No Pew target marginals enter this calculation.</p>
-  <p><code>umriss loo</code> records the full-precision check in <a href="../examples/pew_w154/run/derived/pew_w154_diff1_n12_support_uniformity.csv"><code>pew_w154_diff1_n12_support_uniformity.csv</code></a>. The correct next step is not to accept this bank and reweight it. It is to generate additional personas targeted at the measured deficits, recompute the equal-weight marginals, and repeat until every item meets a declared tolerance. Only that accepted bank should be fitted to the reported survey marginals. The weight estimates below diagnose what this failed pilot would do; they are not yet a successful demonstration of the full procedure.</p>
-  <pre><code>umriss loo \
+  <p><code>umriss validate marginals</code> records the full-precision check in <a href="../examples/pew_w154/run/derived/pew_w154_diff1_n12_support_uniformity.csv"><code>pew_w154_diff1_n12_support_uniformity.csv</code></a>. The correct next step is not to accept this bank and reweight it. It is to generate additional personas targeted at the measured deficits, recompute the equal-weight marginals, and repeat until every item meets a declared tolerance. Only that accepted bank should be fitted to the reported survey marginals. The weight estimates below diagnose what this failed pilot would do; they are not yet a successful demonstration of the full procedure.</p>
+  <pre><code>umriss validate marginals \
   --support examples/pew_w154/run/banks/pew_w154_diff1_n12_probabilities.csv \
   --metadata examples/pew_w154/pew_w154_metadata.json \
   --tag pew_w154_diff1_n12 \
@@ -343,7 +343,7 @@ probabilities:
 
   <h2>9. Estimate weights and test omitted items</h2>
   <p>Only now do the real Pew marginals enter. In each leave-one-out fold, four reported marginals jointly determine one weight vector over all 208 synthetic personas; the fifth marginal is withheld and predicted. The respondent microdata is not used in fitting or validation.</p>
-  <pre><code>umriss loo \
+  <pre><code>umriss validate marginals \
   --support examples/pew_w154/run/banks/pew_w154_diff1_uniform_n208_probabilities.csv \
   --metadata examples/pew_w154/pew_w154_metadata.json \
   --one-shot examples/pew_w154/baselines/unconditioned_one_shot_gpt-5.5.csv \
@@ -351,7 +351,7 @@ probabilities:
   --tag pew_w154_diff1_uniform_n208 \
   --out examples/pew_w154/run/derived</code></pre>
   <p>The LOO command writes the data needed for every validation figure: one row per method and holdout, method-level summaries, one fitted weight for every persona in every fold, fit diagnostics, and the equal-weight support check. The plots below are generated from those files by umriss itself:</p>
-  <pre><code>umriss plot loo \
+  <pre><code>umriss plot validation \
   --derived examples/pew_w154/run/derived \
   --tag pew_w154_diff1_uniform_n208 \
   --out docs/assets \
@@ -380,7 +380,7 @@ probabilities:
   <p>The target entropy \(H(p)\) is irreducible and identical across methods for a given item. Thus method comparisons in cross-entropy are exactly comparisons in KL divergence. Cross-entropy remains useful because it has the direct interpretation of expected log loss; KL isolates only the avoidable excess.</p>
   <figure>
     <img src="assets/pew_w154_diff1_uniform_n208_method_comparison.svg" alt="Bar charts comparing mean held-out RMSE and KL divergence across five prediction methods.">
-    <figcaption>Average performance across five completely omitted marginals. Lower is better. The figure is generated directly by <code>umriss plot loo</code> from the LOO summary artifact.</figcaption>
+    <figcaption>Average performance across five completely omitted marginals. Lower is better. The figure is generated directly by <code>umriss plot validation</code> from the LOO summary artifact.</figcaption>
   </figure>
   <table>
     <thead><tr><th>Method</th><th>Mean RMSE</th><th>Mean KL</th><th>Mean cross-entropy</th></tr></thead>

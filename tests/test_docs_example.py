@@ -34,8 +34,8 @@ def test_docs_metrics_match_checked_in_run() -> None:
     assert f"{scores['unweighted support bank']:.5f}" in html
     assert f"{scores['uniform']:.5f}" in html
     assert {"mean_kl_divergence", "mean_cross_entropy"} <= set(summary.columns)
-    assert (ROOT / "docs" / "assets" / "loo-summary.svg").exists()
-    assert (ROOT / "docs" / "assets" / "loo-by-item.svg").exists()
+    assert (ROOT / "docs" / "assets" / "pew_w154_diff1_uniform_n208_method_comparison.svg").exists()
+    assert (ROOT / "docs" / "assets" / "pew_w154_diff1_uniform_n208_holdout_by_item.svg").exists()
     assert "ep run" in html
     assert "edsl run" not in html
     assert uniformity["passes"].all()

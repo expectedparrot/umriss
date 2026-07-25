@@ -268,7 +268,8 @@ class UmrissCliTests(unittest.TestCase):
             self.assertEqual(
                 main(
                     [
-                        "loo",
+                        "validate",
+                        "marginals",
                         "--support",
                         str(root / "banks" / "mini_probabilities.csv"),
                         "--metadata",
@@ -283,7 +284,7 @@ class UmrissCliTests(unittest.TestCase):
                 ),
                 1,
             )
-            self.assertEqual(main(["loo", "--support", str(root / "banks" / "mini_probabilities.csv"), "--metadata", str(metadata_path), "--tag", "mini", "--out", str(root / "derived")]), 0)
+            self.assertEqual(main(["validate", "marginals", "--support", str(root / "banks" / "mini_probabilities.csv"), "--metadata", str(metadata_path), "--tag", "mini", "--out", str(root / "derived")]), 0)
             summary = pd.read_csv(root / "derived" / "mini_generated_support_summary.csv")
             self.assertIn("generated support mixture", set(summary["method"]))
             self.assertTrue({"mean_kl_divergence", "mean_cross_entropy", "mean_target_entropy"} <= set(summary.columns))
@@ -581,7 +582,7 @@ class UmrissCliTests(unittest.TestCase):
             self.assertTrue((root / "parsed" / "demo_one_shot.csv").exists())
             self.assertTrue((root / "parsed" / "demo_conditioned_direct.csv").exists())
 
-    def test_plot_loo_uses_generated_run_artifacts(self) -> None:
+    def test_plot_validation_uses_generated_run_artifacts(self) -> None:
         with tempfile.TemporaryDirectory() as d:
             root = Path(d)
             repository = Path(__file__).resolve().parents[1]
@@ -589,7 +590,7 @@ class UmrissCliTests(unittest.TestCase):
                 main(
                     [
                         "plot",
-                        "loo",
+                        "validation",
                         "--derived",
                         str(repository / "examples" / "pew_w154" / "run" / "derived"),
                         "--tag",
