@@ -466,6 +466,60 @@ probabilities:
   </table>
   <p>The instruction is only the persona. It contains no support-design rationale, target marginal, probability-vector schema, or request to predict response probabilities. The hidden fields preserve provenance and population weight without influencing the agent’s answers.</p>
 
+  <h3>Publish and reuse the AgentList</h3>
+  <p>The checked-in package was pushed with the current EP CLI. It is unlisted: anyone with the alias or link can retrieve it, but it is not advertised as a public search result.</p>
+  <pre><code>ep push examples/pew_w154/run/full_fit/pew_w154_full_fit.agents.ep \
+  --alias umriss-pew-w154-digital-twins \
+  --description "A weighted AgentList of 208 synthetic survey-response profiles calibrated by umriss to five Pew ATP Wave 154 marginals. Persona instructions exclude probability-elicitation prompts; normalized coefficients are stored in hidden _weight traits." \
+  --visibility unlisted</code></pre>
+  <table>
+    <thead><tr><th>Argument</th><th>Meaning</th></tr></thead>
+    <tbody>
+      <tr><td><code>OBJECT_PATH</code></td><td>The git-backed <code>.agents.ep</code> package produced by <code>umriss twins export-edsl</code>.</td></tr>
+      <tr><td><code>--alias</code></td><td>A stable human-readable identifier owned by the publishing Expected Parrot account.</td></tr>
+      <tr><td><code>--description</code></td><td>Records what the object contains and how it was constructed.</td></tr>
+      <tr><td><code>--visibility</code></td><td><code>private</code>, <code>unlisted</code>, or <code>public</code>. This tutorial uses <code>unlisted</code>.</td></tr>
+    </tbody>
+  </table>
+  <details><summary>Captured EP output</summary><pre><code>{
+  "object_type": "AgentList",
+  "operation": "push",
+  "coop_info": {
+    "alias": "umriss-pew-w154-digital-twins",
+    "uuid": "5a64d1e7-04ad-4cf5-a770-d2cc2af4baf2",
+    "visibility": "unlisted",
+    "owner_username": "johnjosephhorton"
+  }
+}</code></pre></details>
+  <p>The live object is available at <a href="https://chick.expectedparrot.com/content/johnjosephhorton/umriss-pew-w154-digital-twins">johnjosephhorton/umriss-pew-w154-digital-twins</a>. A different project can clone it without depending on this repository:</p>
+  <pre><code>ep clone johnjosephhorton/umriss-pew-w154-digital-twins \
+  --path reused_twins.agents.ep</code></pre>
+  <details><summary>Captured clone result</summary><pre><code>{
+  "object_type": "AgentList",
+  "path": "reused_twins.agents.ep",
+  "source": "johnjosephhorton/umriss-pew-w154-digital-twins"
+}</code></pre></details>
+  <pre><code>ep inspect reused_twins.agents.ep --sample 1</code></pre>
+  <details><summary>Captured inspection</summary><pre><code>{
+  "object_type": "AgentList",
+  "length": 208,
+  "agent_count": 208,
+  "trait_keys": [
+    "_umriss_job_id",
+    "_umriss_support_id",
+    "_weight"
+  ],
+  "sample": [
+    {
+      "name": "umriss_95",
+      "traits": {
+        "_weight": 0.10177999668210305
+      }
+    }
+  ]
+}</code></pre></details>
+  <p>The cloned list can be opened as an HTML artifact with <code>ep open reused_twins.agents.ep</code>, or supplied to a new survey through <code>ep run --survey ... --agent_list reused_twins.agents.ep</code>. A downstream analysis must still use the hidden <code>_weight</code> values when aggregating responses; ordinary <code>AgentList.sample()</code> is unweighted.</p>
+
   <h2>Flexibility without hidden assumptions</h2>
   <p>Experts can edit coherence, intensities, anchors, partial coverage, probability constraints, or add user-authored profiles. A custom Jinja template is also allowed with <code>prompt.validation: strict</code>. It must still contain every item, preserve option order, request the configured summary field, and state the probability and sum-to-one contract.</p>
   <p>The central rule is simple: consequential flexibility belongs in the resolved design and audit trail. It should not disappear inside a strategy name, row-number convention, prompt rewrite, or silent parser correction.</p>
