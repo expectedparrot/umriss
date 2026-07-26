@@ -174,14 +174,13 @@ def embed_response_probabilities(
             if len(item_rows) != len(labels):
                 raise UmrissError("invalid_input", f"Incomplete support probabilities for `{job_id}` / `{item}`.")
             pairs = "; ".join(
-                f'“{label}” {float(probability):.1%}'
+                f"“{label}” {float(probability):.1%}"
                 for label, probability in zip(labels, item_rows["probability"], strict=True)
             )
             statements.append(f"{spec.get('item_text', item)}: {pairs}")
         probability_text[str(job_id)] = (
             "Your response propensities for this survey battery are listed below. "
-            "They express uncertainty rather than a command to choose the most likely answer.\n"
-            + "\n".join(statements)
+            "They express uncertainty rather than a command to choose the most likely answer.\n" + "\n".join(statements)
         )
     agents = []
     for source in source_agents:
@@ -390,7 +389,16 @@ def analyze_probabilistic_survey(
     fit_predictions_path: Path,
     output_dir: Path,
     tag: str,
+    *,
+    simulations: int = 0,
+    simulation_seed: int = 20260725,
 ) -> dict[str, Any]:
+    if simulations < 0:
+        raise UmrissError("invalid_input", "--simulations cannot be negative.")
+    if simulations == 1:
+        raise UmrissError("invalid_input", "--simulations must be zero or at least two.")
+    import numpy as np
+
     metadata = read_json(metadata_path)
     if not results_paths:
         raise UmrissError("invalid_input", "At least one Results package is required.")
@@ -414,6 +422,9 @@ def analyze_probabilistic_survey(
     contract_checks = 0
     contract_correct = 0
     nonmodal_draws = 0
+    simulation_rows: list[dict[str, Any]] = []
+    simulated_first_option: dict[str, Any] = {}
+    rng = np.random.default_rng(simulation_seed)
     for item in metadata["items"]:
         distribution_column = f"distribution.{item}_distribution"
         answer_column = f"answer.{item}"
@@ -440,9 +451,7 @@ def analyze_probabilistic_survey(
                     "results_path": str(results_paths[run_index - 1]),
                     "valid_responses": int(valid.sum()),
                     "expected_responses": len(expected_jobs),
-                    "valid_weight_mass": float(
-                        pd.to_numeric(raw.loc[valid, weight_column], errors="raise").sum()
-                    ),
+                    "valid_weight_mass": float(pd.to_numeric(raw.loc[valid, weight_column], errors="raise").sum()),
                 }
             )
             for _, record in raw.loc[valid].iterrows():
@@ -479,6 +488,12 @@ def analyze_probabilistic_survey(
             )
         labels = item_option_labels(metadata, item)
         codes = item_option_codes(metadata, item)
+        ordered = list(merged.values())
+        parsed_distributions = []
+        for distribution, _answer, _weight, _run_index, _draw in ordered:
+            parsed_distributions.append(
+                ast.literal_eval(distribution) if isinstance(distribution, str) else distribution
+            )
         for distribution, answer, _weight, _run_index, draw in merged.values():
             if isinstance(distribution, str):
                 distribution = ast.literal_eval(distribution)
@@ -498,6 +513,33 @@ def analyze_probabilistic_survey(
             contract_checks += 1
             contract_correct += observed == expected
             nonmodal_draws += observed != max(range(len(distribution)), key=lambda index: distribution[index])
+        if simulations:
+            probability_matrix = np.asarray(parsed_distributions, dtype=float)
+            weights = np.asarray([record[2] for record in ordered], dtype=float)
+            weights = weights / weights.sum()
+            draws = rng.random((simulations, len(ordered)))
+            cumulative = probability_matrix.cumsum(axis=1)
+            cumulative[:, -1] = 1.0
+            resolved = (draws[:, :, None] > cumulative[None, :, :]).sum(axis=2)
+            for option_index, (code, label) in enumerate(zip(codes, labels, strict=True)):
+                marginals = (resolved == option_index) @ weights
+                if option_index == 0:
+                    simulated_first_option[item] = marginals
+                simulation_rows.append(
+                    {
+                        "item": item,
+                        "option_index": option_index,
+                        "option_code": code,
+                        "option_label": label,
+                        "simulations": simulations,
+                        "simulation_seed": simulation_seed,
+                        "mean": float(marginals.mean()),
+                        "standard_deviation": float(marginals.std(ddof=1)),
+                        "q025": float(np.quantile(marginals, 0.025)),
+                        "median": float(np.quantile(marginals, 0.5)),
+                        "q975": float(np.quantile(marginals, 0.975)),
+                    }
+                )
         for option_index, (code, label) in enumerate(zip(codes, labels, strict=True)):
             weighted_distribution = 0.0
             weighted_answer = 0.0
@@ -507,18 +549,14 @@ def analyze_probabilistic_survey(
                     distribution = ast.literal_eval(distribution)
                 if not isinstance(distribution, (list, tuple)) or len(distribution) != len(labels):
                     raise UmrissError("invalid_output", f"Invalid probability vector for `{item}`.")
-                if (
-                    any(not math.isfinite(float(value)) or float(value) < 0 for value in distribution)
-                    or not math.isclose(sum(map(float, distribution)), 1.0, abs_tol=1e-6)
-                ):
+                if any(
+                    not math.isfinite(float(value)) or float(value) < 0 for value in distribution
+                ) or not math.isclose(sum(map(float, distribution)), 1.0, abs_tol=1e-6):
                     raise UmrissError("invalid_output", f"Invalid probability vector for `{item}`.")
                 weighted_distribution += weight * float(distribution[option_index])
                 weighted_answer += weight * float(str(answer) in {str(label), str(code), str(option_index)})
                 total_weight += weight
-            fit_row = fit[
-                fit["item"].astype(str).eq(str(item))
-                & fit["option_index"].astype(int).eq(option_index)
-            ]
+            fit_row = fit[fit["item"].astype(str).eq(str(item)) & fit["option_index"].astype(int).eq(option_index)]
             if len(fit_row) != 1:
                 raise UmrissError("invalid_input", f"Fit predictions lack `{item}` option {option_index}.")
             rows.append(
@@ -537,17 +575,49 @@ def analyze_probabilistic_survey(
     output_dir.mkdir(parents=True, exist_ok=True)
     comparison_path = output_dir / f"{tag}_comparison.csv"
     coverage_path = output_dir / f"{tag}_coverage.csv"
+    simulation_path = output_dir / f"{tag}_simulations.csv"
     comparison.to_csv(comparison_path, index=False)
     pd.DataFrame(coverage_rows).to_csv(coverage_path, index=False)
+    if simulations:
+        pd.DataFrame(simulation_rows).to_csv(simulation_path, index=False)
     first = comparison[comparison["option_index"].eq(0)].copy()
+    simulation_mae = None
+    simulation_mae_q025 = None
+    simulation_mae_q975 = None
+    if simulations:
+        truth = {str(row["item"]): float(row["pew_marginal"]) for _, row in first.iterrows()}
+        mae_draws = np.mean(
+            np.column_stack([np.abs(simulated_first_option[item] - truth[str(item)]) for item in metadata["items"]]),
+            axis=1,
+        )
+        simulation_mae = float(mae_draws.mean())
+        simulation_mae_q025 = float(np.quantile(mae_draws, 0.025))
+        simulation_mae_q975 = float(np.quantile(mae_draws, 0.975))
     return {
         "comparison_path": str(comparison_path),
         "coverage_path": str(coverage_path),
+        "simulation_path": str(simulation_path) if simulations else None,
         "runs": len(runs),
         "personas": len(expected_jobs),
-        "model_calls": len(expected_jobs) * len(metadata["items"]),
+        "persona_item_pairs": len(expected_jobs) * len(metadata["items"]),
+        "scheduled_model_calls": len(runs) * len(expected_jobs) * len(metadata["items"]),
+        "effective_personas": float(
+            1
+            / (
+                (
+                    pd.to_numeric(runs[0][weight_column], errors="raise")
+                    / pd.to_numeric(runs[0][weight_column], errors="raise").sum()
+                )
+                ** 2
+            ).sum()
+        ),
         "contract_resolution_accuracy": contract_correct / contract_checks,
         "nonmodal_resolutions": nonmodal_draws,
+        "simulations": simulations,
+        "simulation_seed": simulation_seed if simulations else None,
+        "simulation_mean_mae": simulation_mae,
+        "simulation_mae_q025": simulation_mae_q025,
+        "simulation_mae_q975": simulation_mae_q975,
         "items": len(metadata["items"]),
         "meta_probability_mae": float((first["meta_probability_mixture"] - first["pew_marginal"]).abs().mean()),
         "meta_resolved_mae": float((first["meta_resolved_answers"] - first["pew_marginal"]).abs().mean()),
@@ -570,7 +640,9 @@ def aggregate_survey_frame(
         raise UmrissError("invalid_input", "Survey results do not contain the AgentList `_weight` trait.")
     weights = pd.to_numeric(raw[weight_column], errors="coerce")
     if weights.isna().any() or (weights < 0).any() or weights.sum() <= 0:
-        raise UmrissError("invalid_input", "Survey result weights must be nonnegative numbers with positive total mass.")
+        raise UmrissError(
+            "invalid_input", "Survey result weights must be nonnegative numbers with positive total mass."
+        )
 
     rows: list[dict[str, Any]] = []
     for item in metadata["items"]:
@@ -587,7 +659,9 @@ def aggregate_survey_frame(
             ordinary = float(weights[matches].sum() / weights.sum())
             fit_match = item_fit[item_fit["option_index"].astype(int).eq(option_index)]
             if len(fit_match) != 1:
-                raise UmrissError("invalid_input", f"Fit predictions lack a unique row for `{item}` option {option_index}.")
+                raise UmrissError(
+                    "invalid_input", f"Fit predictions lack a unique row for `{item}` option {option_index}."
+                )
             fitted = float(fit_match.iloc[0]["prediction"])
             truth = float(metadata["truth"][item][option_index])
             rows.append(
@@ -643,7 +717,12 @@ def compare_edsl_survey(
     }
 
 
-def plot_survey_comparison(comparison_path: Path, output_path: Path) -> dict[str, Any]:
+def plot_survey_comparison(
+    comparison_path: Path,
+    output_path: Path,
+    *,
+    simulations_path: Path | None = None,
+) -> dict[str, Any]:
     import matplotlib.pyplot as plt
     import numpy as np
 
@@ -657,6 +736,15 @@ def plot_survey_comparison(comparison_path: Path, output_path: Path) -> dict[str
         ("meta_probability_mixture", "New model distributions", "#6e8ea6"),
         ("meta_resolved_answers", "EDSL sampled answers", "#8b5c91"),
     ]
+    error_bars: dict[str, tuple[Any, Any]] = {}
+    if simulations_path is not None:
+        simulations = pd.read_csv(simulations_path)
+        simulations = simulations[simulations["option_index"].eq(0)][["item", "mean", "q025", "q975"]]
+        data = data.merge(simulations, on="item", how="left", validate="one_to_one")
+        if data[["mean", "q025", "q975"]].isna().any().any():
+            raise UmrissError("invalid_input", "Simulation summary does not cover every plotted item.")
+        series[-1] = ("mean", "Repeated EDSL draws", "#8b5c91")
+        error_bars["mean"] = (data["mean"] - data["q025"], data["q975"] - data["mean"])
     if "probability_mixture" in data and "ordinary_survey" in data:
         series = [
             ("pew_marginal", "Real Pew marginal", "#173f2b"),
@@ -671,8 +759,17 @@ def plot_survey_comparison(comparison_path: Path, output_path: Path) -> dict[str
     fig, ax = plt.subplots(figsize=(10, 5.4))
     offsets = (np.arange(len(series)) - (len(series) - 1) / 2) * width
     for offset, (column, label, color) in zip(offsets, series, strict=True):
-        ax.bar(x + offset, data[column], width, label=label, color=color)
-    ax.set_ylabel(f'Share answering “{data.iloc[0]["option_label"]}”')
+        yerr = error_bars.get(column)
+        ax.bar(
+            x + offset,
+            data[column],
+            width,
+            label=label,
+            color=color,
+            yerr=np.vstack(yerr) if yerr else None,
+            capsize=3 if yerr else 0,
+        )
+    ax.set_ylabel(f"Share answering “{data.iloc[0]['option_label']}”")
     ax.set_xticks(x, [str(item).replace("_", " ") for item in data["item"]])
     ax.set_ylim(0, 1)
     ax.legend(frameon=False, ncols=min(len(series), 4), loc="upper center", bbox_to_anchor=(0.5, 1.14))
@@ -681,7 +778,11 @@ def plot_survey_comparison(comparison_path: Path, output_path: Path) -> dict[str
     output_path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(output_path, bbox_inches="tight")
     plt.close(fig)
-    return {"plot_path": str(output_path), "items": len(data)}
+    return {
+        "plot_path": str(output_path),
+        "items": len(data),
+        "simulation_intervals": simulations_path is not None,
+    }
 
 
 def analyze_token_probabilities(
@@ -729,7 +830,9 @@ def analyze_token_probabilities(
                 & support["option_index"].astype(int).eq(0)
             ]
             if len(original) != 1:
-                raise UmrissError("invalid_input", f"Could not find original support probability for `{job_id}` / `{item}`.")
+                raise UmrissError(
+                    "invalid_input", f"Could not find original support probability for `{job_id}` / `{item}`."
+                )
             rows.append(
                 {
                     "job_id": job_id,

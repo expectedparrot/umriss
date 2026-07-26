@@ -733,46 +733,57 @@ probabilities:
   --metadata examples/pew_w154/pew_w154_metadata.json \
   --fit-predictions examples/pew_w154/run/full_fit/pew_w154_full_fit_predictions.csv \
   --tag pew_w154_probabilistic_meta \
-  --out examples/pew_w154/run/agent_survey</code></pre>
+  --out examples/pew_w154/run/agent_survey \
+  --simulations 10000 --simulation-seed 20260725</code></pre>
   <table>
     <thead><tr><th>Argument</th><th>Meaning</th></tr></thead>
     <tbody>
       <tr><td><code>--results</code></td><td>One or more Results packages in priority order. For each persona-item pair, umriss takes the first valid response. It refuses to produce a comparison if any pair remains missing.</td></tr>
       <tr><td><code>--fit-predictions</code></td><td>The original support-bank expectation after fitting all five Pew marginals. This is the benchmark the new elicitation would reproduce if it recovered the same persona-level probabilities.</td></tr>
       <tr><td><code>--tag</code>, <code>--out</code></td><td>Write both the marginal comparison and a per-run coverage audit, including valid response counts and recovered fitted-weight mass.</td></tr>
+      <tr><td><code>--simulations</code></td><td>Hold the newly elicited probability vectors fixed and perform this many independent host-side resolutions. This isolates sampling variation without paying for or confounding the test with another model elicitation.</td></tr>
+      <tr><td><code>--simulation-seed</code></td><td>Makes the Monte Carlo summary reproducible. The output records its mean, standard deviation, median, and 2.5th and 97.5th percentiles for every item-option marginal.</td></tr>
     </tbody>
   </table>
   <details><summary>Captured analyzer output</summary><pre><code>{
   "runs": 2,
   "personas": 208,
-  "model_calls": 1040,
+  "persona_item_pairs": 1040,
+  "scheduled_model_calls": 2080,
+  "effective_personas": 22.64,
   "contract_resolution_accuracy": 1.0,
   "nonmodal_resolutions": 157,
   "meta_probability_mae": 0.0288,
   "meta_resolved_mae": 0.0564,
+  "simulations": 10000,
+  "simulation_mean_mae": 0.0569,
+  "simulation_mae_q025": 0.0212,
+  "simulation_mae_q975": 0.1061,
   "umriss_fit_mae": 0.0002
 }</code></pre></details>
 
   <pre><code>umriss twins plot-survey \
   --comparison examples/pew_w154/run/agent_survey/pew_w154_probabilistic_meta_comparison.csv \
+  --simulations examples/pew_w154/run/agent_survey/pew_w154_probabilistic_meta_simulations.csv \
   --out docs/assets/pew-w154-probabilistic-response.svg</code></pre>
   <figure>
     <img src="assets/pew-w154-probabilistic-response.svg" alt="Grouped bars comparing real Pew marginals, the original fitted mixture, new Meta probability distributions, and EDSL sampled answers.">
-    <figcaption>The share answering “men and women are basically similar.” The new probability contract samples correctly, but a new elicitation from the personas need not reproduce the probabilities recorded when the support bank was constructed.</figcaption>
+    <figcaption>The share answering “men and women are basically similar.” Error bars show the central 95 percent of 10,000 independently resolved synthetic populations. The centers recover the new model distributions; the wide intervals reflect concentrated persona weights.</figcaption>
   </figure>
   <table>
-    <thead><tr><th>Item</th><th>Real Pew</th><th>Original fit</th><th>New model distribution</th><th>EDSL draw</th></tr></thead>
+    <thead><tr><th>Item</th><th>Real Pew</th><th>Original fit</th><th>New model distribution</th><th>First EDSL draw</th><th>Repeated-draw 95% interval</th></tr></thead>
     <tbody>
-      <tr><td>Hobbies</td><td>32.0%</td><td>32.0%</td><td>36.8%</td><td>27.5%</td></tr>
-      <tr><td>Physical abilities</td><td>19.1%</td><td>19.1%</td><td>22.8%</td><td>32.4%</td></tr>
-      <tr><td>Parenting</td><td>28.8%</td><td>28.8%</td><td>30.3%</td><td>26.5%</td></tr>
-      <tr><td>Feelings</td><td>11.0%</td><td>11.0%</td><td>14.2%</td><td>19.0%</td></tr>
-      <tr><td>Workplace</td><td>57.3%</td><td>57.2%</td><td>56.1%</td><td>57.2%</td></tr>
+      <tr><td>Hobbies</td><td>32.0%</td><td>32.0%</td><td>36.8%</td><td>27.5%</td><td>25.7–52.8%</td></tr>
+      <tr><td>Physical abilities</td><td>19.1%</td><td>19.1%</td><td>22.8%</td><td>32.4%</td><td>15.0–37.0%</td></tr>
+      <tr><td>Parenting</td><td>28.8%</td><td>28.8%</td><td>30.3%</td><td>26.5%</td><td>19.6–46.3%</td></tr>
+      <tr><td>Feelings</td><td>11.0%</td><td>11.0%</td><td>14.2%</td><td>19.0%</td><td>3.9–30.7%</td></tr>
+      <tr><td>Workplace</td><td>57.3%</td><td>57.2%</td><td>56.1%</td><td>57.2%</td><td>41.5–68.3%</td></tr>
     </tbody>
   </table>
   <p>The new mechanism works mechanically: all 1,040 retained answers agree with EDSL’s recorded draw and cumulative-probability intervals, and 157 answers are nonmodal choices. That is much stronger evidence of genuine sampling than asking a model to interpret a random number in prose.</p>
   <p>The probability recovery is remarkably good. Meta saw the exported personas and original question wording, but not the Pew targets or the GPT-5.5 probability vectors used to construct the support bank. Nevertheless, the weighted mean of its newly elicited distributions is only 2.88 percentage points away from Pew on average. The largest difference is 4.80 points for hobbies; workplace is only 1.14 points away. This is encouraging evidence that the personas preserve substantive response information across models rather than merely serving as labels for a model-specific matrix.</p>
   <p>Two distinct elicitation exercises should not be expected to be identical, and the remaining gap is itself informative: it measures the cross-model portability of the fitted twins. One resolved draw per persona is noisier, especially because the fitted weights are concentrated—208 rows do not behave like 208 equally weighted observations. The sampled answers have a 5.64-point mean absolute error in this single seeded realization. Repeated draws should reduce that Monte Carlo component, but not necessarily the 2.88-point difference between the newly elicited and originally fitted probability distributions.</p>
+  <p>The repeated-draw experiment confirms that interpretation. Although the AgentList has 208 rows, its fitted weights imply an effective population of only 22.64 equally weighted personas. A single resolved synthetic population consequently has a mean expected absolute error of 5.69 points; the central 95 percent of realizations ranges from 2.12 to 10.61 points. Our observed 5.64-point run is therefore ordinary rather than anomalous. Averaging independent resolved populations converges toward the new probability-mixture marginal, whose 2.88-point error is the remaining cross-model difference. Merely adding more draws without averaging them does not make an individual realization less variable.</p>
   <p>The practical conclusion is to use the probabilistic response contract for new surveys when both a distribution and a sampled answer are useful. If the goal is instead to reproduce the already-fitted Pew population exactly, sample programmatically from the stored support probabilities; do not ask a different model to re-elicitate them. For stable aggregate simulation, run multiple seeded iterations and report Monte Carlo uncertainty rather than treating one weighted draw as the marginal.</p>
 
   <h2>Flexibility without hidden assumptions</h2>

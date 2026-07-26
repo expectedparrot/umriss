@@ -10,7 +10,7 @@ from pathlib import Path
 import pandas as pd
 
 from umriss.cli import main
-from umriss.twin_survey import aggregate_survey_frame
+from umriss.twin_survey import aggregate_survey_frame, plot_survey_comparison
 
 
 def write_json(path: Path, data: dict) -> None:
@@ -725,6 +725,32 @@ class UmrissCliTests(unittest.TestCase):
             embedded = AgentList.git.load(str(embedded_path))
             self.assertIn("“Yes” 80.0%", embedded[0].traits["response_propensities"])
             self.assertEqual(embedded[0].traits["_weight"], 0.75)
+
+    def test_probabilistic_plot_accepts_simulation_intervals(self) -> None:
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            comparison = root / "comparison.csv"
+            simulations = root / "simulations.csv"
+            output = root / "plot.svg"
+            pd.DataFrame(
+                [
+                    {
+                        "item": "a",
+                        "option_index": 0,
+                        "option_label": "Yes",
+                        "pew_marginal": 0.7,
+                        "umriss_fitted_mixture": 0.7,
+                        "meta_probability_mixture": 0.68,
+                        "meta_resolved_answers": 0.6,
+                    }
+                ]
+            ).to_csv(comparison, index=False)
+            pd.DataFrame(
+                [{"item": "a", "option_index": 0, "mean": 0.68, "q025": 0.5, "q975": 0.82}]
+            ).to_csv(simulations, index=False)
+            result = plot_survey_comparison(comparison, output, simulations_path=simulations)
+            self.assertTrue(output.exists())
+            self.assertTrue(result["simulation_intervals"])
 
 
 if __name__ == "__main__":

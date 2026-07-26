@@ -76,7 +76,14 @@ def envelope(
     errors: list[dict[str, Any]] | None = None,
     next_steps: list[str] | None = None,
 ) -> dict[str, Any]:
-    return {"command": command, "status": status, "data": data or {}, "warnings": warnings or [], "errors": errors or [], "next_steps": next_steps or []}
+    return {
+        "command": command,
+        "status": status,
+        "data": data or {},
+        "warnings": warnings or [],
+        "errors": errors or [],
+        "next_steps": next_steps or [],
+    }
 
 
 def print_json(payload: dict[str, Any]) -> None:
@@ -85,7 +92,15 @@ def print_json(payload: dict[str, Any]) -> None:
 
 def cmd_init(args: argparse.Namespace) -> dict[str, Any]:
     data = init_workspace(args.output_dir or "umriss_work")
-    return envelope("umriss init", "ok", data, next_steps=["umriss battery import --metadata <metadata.json>", "umriss design create --metadata <metadata.json> --preset pattern-coverage --out design.yaml"])
+    return envelope(
+        "umriss init",
+        "ok",
+        data,
+        next_steps=[
+            "umriss battery import --metadata <metadata.json>",
+            "umriss design create --metadata <metadata.json> --preset pattern-coverage --out design.yaml",
+        ],
+    )
 
 
 def cmd_status(args: argparse.Namespace) -> dict[str, Any]:
@@ -95,9 +110,15 @@ def cmd_status(args: argparse.Namespace) -> dict[str, Any]:
         "active_project": project_id,
         "project_path": str(pdir),
         "batteries": len(list((pdir / "batteries").glob("*"))) if (pdir / "batteries").exists() else 0,
-        "support_prompts": len(list((pdir / "support_prompts").glob("*.jsonl"))) if (pdir / "support_prompts").exists() else 0,
-        "support_banks": len(list((pdir / "support_banks").glob("*_probabilities.csv"))) if (pdir / "support_banks").exists() else 0,
-        "evaluations": len(list((pdir / "evaluations").glob("*_summary.csv"))) if (pdir / "evaluations").exists() else 0,
+        "support_prompts": len(list((pdir / "support_prompts").glob("*.jsonl")))
+        if (pdir / "support_prompts").exists()
+        else 0,
+        "support_banks": len(list((pdir / "support_banks").glob("*_probabilities.csv")))
+        if (pdir / "support_banks").exists()
+        else 0,
+        "evaluations": len(list((pdir / "evaluations").glob("*_summary.csv")))
+        if (pdir / "evaluations").exists()
+        else 0,
     }
     return envelope("umriss status", "ok", data)
 
@@ -112,7 +133,9 @@ def cmd_project_use(args: argparse.Namespace) -> dict[str, Any]:
 
 def cmd_project_current(args: argparse.Namespace) -> dict[str, Any]:
     project_id = active_project_id()
-    return envelope("umriss project current", "ok", {"active_project": project_id, "project_path": str(project_dir(project_id))})
+    return envelope(
+        "umriss project current", "ok", {"active_project": project_id, "project_path": str(project_dir(project_id))}
+    )
 
 
 def cmd_project_list(args: argparse.Namespace) -> dict[str, Any]:
@@ -153,7 +176,9 @@ def cmd_marginal_add(args: argparse.Namespace) -> dict[str, Any]:
 
 def cmd_battery_compile(args: argparse.Namespace) -> dict[str, Any]:
     metadata = compile_battery(args.battery, Path(args.path) if args.path else None)
-    return envelope("umriss battery compile", "ok", {"battery": args.battery, "items": len(metadata["items"]), "path": args.path})
+    return envelope(
+        "umriss battery compile", "ok", {"battery": args.battery, "items": len(metadata["items"]), "path": args.path}
+    )
 
 
 def cmd_battery_export_edsl(args: argparse.Namespace) -> dict[str, Any]:
@@ -248,18 +273,38 @@ def cmd_support_build(args: argparse.Namespace) -> dict[str, Any]:
     return envelope(
         "umriss support build",
         "ok",
-        {**paths, "rows": len(rows), "tag": tag, "design": args.design, "preset": args.preset, "metadata_source": metadata_source},
+        {
+            **paths,
+            "rows": len(rows),
+            "tag": tag,
+            "design": args.design,
+            "preset": args.preset,
+            "metadata_source": metadata_source,
+        },
     )
 
 
 def cmd_support_export(args: argparse.Namespace) -> dict[str, Any]:
-    data = export_support_jobs(Path(args.prompts), Path(args.path), model=args.model, service_name=args.service_name, temperature=args.temperature, max_tokens=args.max_tokens, limit=args.limit)
+    data = export_support_jobs(
+        Path(args.prompts),
+        Path(args.path),
+        model=args.model,
+        service_name=args.service_name,
+        temperature=args.temperature,
+        max_tokens=args.max_tokens,
+        limit=args.limit,
+    )
     return envelope("umriss support export", "ok", data, next_steps=data.get("next_steps", []))
 
 
 def cmd_support_register_results(args: argparse.Namespace) -> dict[str, Any]:
     data = register_results(Path(args.results), Path(args.prompts) if args.prompts else None, args.tag, Path(args.out))
-    return envelope("umriss support register-results", "ok", data, next_steps=[f"umriss support parse --raw {data['raw_path']} --metadata <metadata.json> --tag {args.tag}"])
+    return envelope(
+        "umriss support register-results",
+        "ok",
+        data,
+        next_steps=[f"umriss support parse --raw {data['raw_path']} --metadata <metadata.json> --tag {args.tag}"],
+    )
 
 
 def cmd_support_parse(args: argparse.Namespace) -> dict[str, Any]:
@@ -497,12 +542,18 @@ def cmd_twins_analyze_probabilistic_survey(args: argparse.Namespace) -> dict[str
         Path(args.fit_predictions),
         Path(args.out),
         args.tag,
+        simulations=args.simulations,
+        simulation_seed=args.simulation_seed,
     )
     return envelope("umriss twins analyze-probabilistic-survey", "ok", data)
 
 
 def cmd_twins_plot_survey(args: argparse.Namespace) -> dict[str, Any]:
-    data = plot_survey_comparison(Path(args.comparison), Path(args.out))
+    data = plot_survey_comparison(
+        Path(args.comparison),
+        Path(args.out),
+        simulations_path=Path(args.simulations) if args.simulations else None,
+    )
     return envelope("umriss twins plot-survey", "ok", data)
 
 
@@ -690,7 +741,9 @@ def build_parser() -> argparse.ArgumentParser:
     source.add_argument("--metadata", help="Read battery metadata from an explicit JSON file.")
     source.add_argument("--battery", help="Read a battery authored in the active .umriss project.")
     design = p.add_mutually_exclusive_group(required=True)
-    design.add_argument("--preset", choices=["pattern-coverage", "uniform-patterns"], help="Compile a safe built-in preset.")
+    design.add_argument(
+        "--preset", choices=["pattern-coverage", "uniform-patterns"], help="Compile a safe built-in preset."
+    )
     design.add_argument("--design", help="Use a schema-v1 JSON or YAML support-design file.")
     p.add_argument("--tag", required=True)
     p.add_argument("--n-support", type=int, help="Override design size; feasibility validation still applies.")
@@ -869,6 +922,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--fit-predictions", required=True)
     p.add_argument("--tag", required=True)
     p.add_argument("--out", required=True)
+    p.add_argument("--simulations", type=int, default=0)
+    p.add_argument("--simulation-seed", type=int, default=20260725)
     p.set_defaults(func=cmd_twins_analyze_probabilistic_survey)
     p = twins.add_parser("compare-survey")
     p.add_argument("--results", required=True)
@@ -879,6 +934,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.set_defaults(func=cmd_twins_compare_survey)
     p = twins.add_parser("plot-survey")
     p.add_argument("--comparison", required=True)
+    p.add_argument("--simulations")
     p.add_argument("--out", required=True)
     p.set_defaults(func=cmd_twins_plot_survey)
     p = twins.add_parser("analyze-logprobs")
