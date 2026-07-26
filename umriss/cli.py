@@ -54,6 +54,17 @@ from .support_designs import (
     write_support_outputs,
 )
 from .twin_export import export_edsl_agents
+from .twin_survey import (
+    analyze_probabilistic_survey,
+    analyze_resolution_experiment,
+    analyze_token_probabilities,
+    build_resolution_experiment,
+    build_survey_jobs,
+    compare_edsl_survey,
+    embed_response_probabilities,
+    export_edsl_survey,
+    plot_survey_comparison,
+)
 
 
 def envelope(
@@ -143,6 +154,20 @@ def cmd_marginal_add(args: argparse.Namespace) -> dict[str, Any]:
 def cmd_battery_compile(args: argparse.Namespace) -> dict[str, Any]:
     metadata = compile_battery(args.battery, Path(args.path) if args.path else None)
     return envelope("umriss battery compile", "ok", {"battery": args.battery, "items": len(metadata["items"]), "path": args.path})
+
+
+def cmd_battery_export_edsl(args: argparse.Namespace) -> dict[str, Any]:
+    return envelope(
+        "umriss battery export-edsl",
+        "ok",
+        export_edsl_survey(
+            Path(args.metadata),
+            Path(args.path),
+            use_code=args.use_code,
+            probabilistic_resolution=args.probabilistic_resolution,
+            resolution_seed=args.resolution_seed,
+        ),
+    )
 
 
 def cmd_marginals_import(args: argparse.Namespace) -> dict[str, Any]:
@@ -403,6 +428,95 @@ def cmd_twins_export_edsl(args: argparse.Namespace) -> dict[str, Any]:
     return envelope("umriss twins export-edsl", "ok", data)
 
 
+def cmd_twins_compare_survey(args: argparse.Namespace) -> dict[str, Any]:
+    data = compare_edsl_survey(
+        Path(args.results),
+        Path(args.metadata),
+        Path(args.fit_predictions),
+        Path(args.out),
+        answers_use_code=args.answers_use_code,
+    )
+    return envelope("umriss twins compare-survey", "ok", data)
+
+
+def cmd_twins_build_survey_jobs(args: argparse.Namespace) -> dict[str, Any]:
+    data = build_survey_jobs(
+        Path(args.survey),
+        Path(args.agents),
+        args.model,
+        Path(args.path),
+        args.service_name,
+        args.temperature,
+        args.logprobs,
+        args.top_logprobs,
+        args.limit_agents,
+        args.limit_questions,
+    )
+    return envelope("umriss twins build-survey-jobs", "ok", data)
+
+
+def cmd_twins_embed_probabilities(args: argparse.Namespace) -> dict[str, Any]:
+    data = embed_response_probabilities(
+        Path(args.agents),
+        Path(args.support),
+        Path(args.metadata),
+        Path(args.path),
+        probability_trait=args.probability_trait,
+    )
+    return envelope("umriss twins embed-probabilities", "ok", data)
+
+
+def cmd_twins_build_resolution_experiment(args: argparse.Namespace) -> dict[str, Any]:
+    data = build_resolution_experiment(
+        Path(args.agents),
+        Path(args.support),
+        Path(args.metadata),
+        Path(args.agents_path),
+        Path(args.survey_path),
+        resolution_trait=args.resolution_trait,
+        seed=args.seed,
+    )
+    return envelope("umriss twins build-resolution-experiment", "ok", data)
+
+
+def cmd_twins_analyze_resolution(args: argparse.Namespace) -> dict[str, Any]:
+    data = analyze_resolution_experiment(
+        Path(args.results),
+        Path(args.metadata),
+        Path(args.out),
+        args.tag,
+        resolution_trait=args.resolution_trait,
+    )
+    return envelope("umriss twins analyze-resolution", "ok", data)
+
+
+def cmd_twins_analyze_probabilistic_survey(args: argparse.Namespace) -> dict[str, Any]:
+    data = analyze_probabilistic_survey(
+        [Path(path) for path in args.results],
+        Path(args.metadata),
+        Path(args.fit_predictions),
+        Path(args.out),
+        args.tag,
+    )
+    return envelope("umriss twins analyze-probabilistic-survey", "ok", data)
+
+
+def cmd_twins_plot_survey(args: argparse.Namespace) -> dict[str, Any]:
+    data = plot_survey_comparison(Path(args.comparison), Path(args.out))
+    return envelope("umriss twins plot-survey", "ok", data)
+
+
+def cmd_twins_analyze_logprobs(args: argparse.Namespace) -> dict[str, Any]:
+    data = analyze_token_probabilities(
+        Path(args.results),
+        Path(args.metadata),
+        Path(args.support),
+        Path(args.out),
+        args.tag,
+    )
+    return envelope("umriss twins analyze-logprobs", "ok", data)
+
+
 def cmd_compare(args: argparse.Namespace) -> dict[str, Any]:
     if args.recipe == "battery-designed":
         data = battery_designed_recipe(Path(args.derived), Path(args.out))
@@ -514,6 +628,13 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--battery", required=True)
     p.add_argument("--path")
     p.set_defaults(func=cmd_battery_compile)
+    p = battery.add_parser("export-edsl")
+    p.add_argument("--metadata", required=True)
+    p.add_argument("--path", required=True)
+    p.add_argument("--use-code", action="store_true")
+    p.add_argument("--probabilistic-resolution", choices=["none", "sample", "mode"])
+    p.add_argument("--resolution-seed", type=int)
+    p.set_defaults(func=cmd_battery_export_edsl)
 
     question = sub.add_parser("question").add_subparsers(dest="question_command", required=True)
     p = question.add_parser("add")
@@ -707,6 +828,66 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--minimum-weight", type=float, default=0.0)
     p.add_argument("--path", required=True)
     p.set_defaults(func=cmd_twins_export_edsl)
+    p = twins.add_parser("build-survey-jobs")
+    p.add_argument("--survey", required=True)
+    p.add_argument("--agents", required=True)
+    p.add_argument("--model", required=True)
+    p.add_argument("--service-name")
+    p.add_argument("--temperature", type=float, default=0.5)
+    p.add_argument("--logprobs", action="store_true")
+    p.add_argument("--top-logprobs", type=int, default=5)
+    p.add_argument("--limit-agents", type=int)
+    p.add_argument("--limit-questions", type=int)
+    p.add_argument("--path", required=True)
+    p.set_defaults(func=cmd_twins_build_survey_jobs)
+    p = twins.add_parser("embed-probabilities")
+    p.add_argument("--agents", required=True)
+    p.add_argument("--support", required=True)
+    p.add_argument("--metadata", required=True)
+    p.add_argument("--probability-trait", required=True)
+    p.add_argument("--path", required=True)
+    p.set_defaults(func=cmd_twins_embed_probabilities)
+    p = twins.add_parser("build-resolution-experiment")
+    p.add_argument("--agents", required=True)
+    p.add_argument("--support", required=True)
+    p.add_argument("--metadata", required=True)
+    p.add_argument("--resolution-trait", required=True)
+    p.add_argument("--seed", type=int, default=20260725)
+    p.add_argument("--agents-path", required=True)
+    p.add_argument("--survey-path", required=True)
+    p.set_defaults(func=cmd_twins_build_resolution_experiment)
+    p = twins.add_parser("analyze-resolution")
+    p.add_argument("--results", required=True)
+    p.add_argument("--metadata", required=True)
+    p.add_argument("--resolution-trait", required=True)
+    p.add_argument("--tag", required=True)
+    p.add_argument("--out", required=True)
+    p.set_defaults(func=cmd_twins_analyze_resolution)
+    p = twins.add_parser("analyze-probabilistic-survey")
+    p.add_argument("--results", required=True, nargs="+")
+    p.add_argument("--metadata", required=True)
+    p.add_argument("--fit-predictions", required=True)
+    p.add_argument("--tag", required=True)
+    p.add_argument("--out", required=True)
+    p.set_defaults(func=cmd_twins_analyze_probabilistic_survey)
+    p = twins.add_parser("compare-survey")
+    p.add_argument("--results", required=True)
+    p.add_argument("--metadata", required=True)
+    p.add_argument("--fit-predictions", required=True)
+    p.add_argument("--answers-use-code", action="store_true")
+    p.add_argument("--out", required=True)
+    p.set_defaults(func=cmd_twins_compare_survey)
+    p = twins.add_parser("plot-survey")
+    p.add_argument("--comparison", required=True)
+    p.add_argument("--out", required=True)
+    p.set_defaults(func=cmd_twins_plot_survey)
+    p = twins.add_parser("analyze-logprobs")
+    p.add_argument("--results", required=True)
+    p.add_argument("--metadata", required=True)
+    p.add_argument("--support", required=True)
+    p.add_argument("--tag", required=True)
+    p.add_argument("--out", required=True)
+    p.set_defaults(func=cmd_twins_analyze_logprobs)
 
     p = sub.add_parser("compare")
     p.add_argument("--run", action="append")

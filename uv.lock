@@ -383,7 +383,7 @@ wheels = [
 [[package]]
 name = "edsl"
 version = "1.0.8.dev1"
-source = { git = "https://github.com/expectedparrot/edsl.git?rev=eac96cba21c10cd75ccb5de58073f96599efa3ba#eac96cba21c10cd75ccb5de58073f96599efa3ba" }
+source = { git = "https://github.com/expectedparrot/edsl.git?rev=feature%2Fprobabilistic-response-contract#a381b98adeef8c8433c6545d6bbb681076c8f142" }
 dependencies = [
     { name = "aiohttp" },
     { name = "httpx" },
@@ -1984,7 +1984,7 @@ test = [
 
 [package.metadata]
 requires-dist = [
-    { name = "edsl", marker = "extra == 'edsl'", git = "https://github.com/expectedparrot/edsl.git?rev=eac96cba21c10cd75ccb5de58073f96599efa3ba" },
+    { name = "edsl", marker = "extra == 'edsl'", git = "https://github.com/expectedparrot/edsl.git?rev=feature%2Fprobabilistic-response-contract" },
     { name = "jinja2", specifier = ">=3.1" },
     { name = "matplotlib", specifier = ">=3.8" },
     { name = "numpy", specifier = ">=1.24" },

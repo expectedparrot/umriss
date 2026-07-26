@@ -10,6 +10,7 @@ from pathlib import Path
 import pandas as pd
 
 from umriss.cli import main
+from umriss.twin_survey import aggregate_survey_frame
 
 
 def write_json(path: Path, data: dict) -> None:
@@ -50,6 +51,34 @@ def write_raw(path: Path) -> None:
 
 
 class UmrissCliTests(unittest.TestCase):
+    def test_weighted_ordinary_survey_aggregation(self) -> None:
+        metadata = mini_metadata()
+        raw = pd.DataFrame(
+            {
+                "agent._weight": [0.75, 0.25],
+                "answer.a": ["Yes", "No"],
+                "answer.b": ["No", "No"],
+            }
+        )
+        fit = pd.DataFrame(
+            [
+                {"item": item, "option_index": option, "prediction": value}
+                for item, values in {"a": [0.7, 0.3], "b": [0.4, 0.6]}.items()
+                for option, value in enumerate(values)
+            ]
+        )
+        comparison = aggregate_survey_frame(raw, metadata, fit)
+        yes_a = comparison[(comparison["item"] == "a") & (comparison["option_index"] == 0)].iloc[0]
+        yes_b = comparison[(comparison["item"] == "b") & (comparison["option_index"] == 0)].iloc[0]
+        self.assertEqual(yes_a["ordinary_survey"], 0.75)
+        self.assertEqual(yes_b["ordinary_survey"], 0.0)
+        coded = raw.assign(**{"answer.a": [0, 1], "answer.b": [1, 1]})
+        coded_comparison = aggregate_survey_frame(coded, metadata, fit, answers_use_code=True)
+        coded_yes_a = coded_comparison[
+            (coded_comparison["item"] == "a") & (coded_comparison["option_index"] == 0)
+        ].iloc[0]
+        self.assertEqual(coded_yes_a["ordinary_survey"], 0.75)
+
     def test_marginals_import_uses_declared_microdata_columns(self) -> None:
         with tempfile.TemporaryDirectory() as d:
             root = Path(d)
@@ -659,6 +688,43 @@ class UmrissCliTests(unittest.TestCase):
             self.assertTrue(all("_weight" not in agent.prompt().text for agent in agents))
             sidecar = pd.read_csv(root / "twins.agents_weights.csv")
             self.assertEqual(sidecar["weight"].tolist(), [0.75, 0.25])
+            support_path = root / "support.csv"
+            metadata_path = root / "metadata.json"
+            embedded_path = root / "embedded.agents.ep"
+            write_json(metadata_path, mini_metadata())
+            pd.DataFrame(
+                [
+                    {"job_id": job, "item": item, "option_index": option, "probability": probability}
+                    for job, vectors in {
+                        "j1": {"a": [0.8, 0.2], "b": [0.3, 0.7]},
+                        "j2": {"a": [0.1, 0.9], "b": [0.6, 0.4]},
+                    }.items()
+                    for item, values in vectors.items()
+                    for option, probability in enumerate(values)
+                ]
+            ).to_csv(support_path, index=False)
+            self.assertEqual(
+                main(
+                    [
+                        "twins",
+                        "embed-probabilities",
+                        "--agents",
+                        str(agents_path),
+                        "--support",
+                        str(support_path),
+                        "--metadata",
+                        str(metadata_path),
+                        "--probability-trait",
+                        "response_propensities",
+                        "--path",
+                        str(embedded_path),
+                    ]
+                ),
+                0,
+            )
+            embedded = AgentList.git.load(str(embedded_path))
+            self.assertIn("“Yes” 80.0%", embedded[0].traits["response_propensities"])
+            self.assertEqual(embedded[0].traits["_weight"], 0.75)
 
 
 if __name__ == "__main__":

@@ -28,7 +28,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-edsl = ["edsl @ git+https://github.com/expectedparrot/edsl.git@eac96cba21c10cd75ccb5de58073f96599efa3ba"]
+edsl = ["edsl @ git+https://github.com/expectedparrot/edsl.git@feature/probabilistic-response-contract"]
 test = ["pytest>=8.0"]
 dev = ["pytest>=8.0", "ruff>=0.6"]
 

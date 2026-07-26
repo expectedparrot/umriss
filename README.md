@@ -95,6 +95,51 @@ name. EDSL serializes underscore-prefixed traits but excludes them from model
 prompts; it does not automatically use `_weight` when sampling an `AgentList`.
 Both the `AgentList` and its manifest are round-trip verified when written.
 
+## Let the twins take an ordinary survey
+
+The support fit elicits a probability vector from every persona. A downstream
+EDSL survey instead records one categorical answer per question. Umriss can
+build that distinct experiment and compare its weighted answers with both the
+fitted expectation and the source marginals:
+
+```bash
+umriss battery export-edsl \
+  --metadata examples/pew_w154/pew_w154_metadata.json \
+  --path run/agent_survey/pew.survey.ep
+
+umriss twins build-survey-jobs \
+  --survey run/agent_survey/pew.survey.ep \
+  --agents run/full_fit/pew_w154_full_fit.agents.ep \
+  --model gpt-5.5 --service-name openai \
+  --path run/agent_survey/pew.jobs.ep
+
+ep run --jobs run/agent_survey/pew.jobs.ep \
+  --output run/agent_survey/pew.results.ep
+
+umriss twins compare-survey \
+  --results run/agent_survey/pew.results.ep \
+  --metadata examples/pew_w154/pew_w154_metadata.json \
+  --fit-predictions run/full_fit/pew_w154_full_fit_predictions.csv \
+  --out run/agent_survey/comparison.csv
+```
+
+`umriss twins plot-survey` turns the comparison CSV into a grouped-bar figure.
+The tutorial reports an actual 208-agent, five-question Expected Parrot run and
+explains why the ordinary-survey marginals need not equal the fitted
+probability mixture.
+
+For token-level diagnostics, export the Survey with `--use-code`, build jobs
+with `--temperature 1 --logprobs --top-logprobs 20`, and run
+`umriss twins analyze-logprobs`. GPT-5.5 currently rejects token log
+probabilities; the checked-in diagnostic therefore uses GPT-4.1 and reports
+that model change explicitly.
+
+`umriss twins embed-probabilities` creates a separate experimental AgentList
+whose visible trait includes each persona's previously elicited item-level
+probabilities. The checked-in experiment finds that this makes token responses
+almost perfectly modal rather than preserving the stated uncertainty. It is a
+diagnostic treatment, not the default export format.
+
 ## Install
 
 ```bash

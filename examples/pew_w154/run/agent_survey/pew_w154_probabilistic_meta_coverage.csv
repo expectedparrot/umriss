@@ -1,0 +1,16 @@
+item,run,results_path,valid_responses,expected_responses,valid_weight_mass
+hobbies,1,examples/pew_w154/run/agent_survey/pew_w154_probabilistic_meta_retry2.results.ep,208,208,0.9999999999999978
+hobbies,2,examples/pew_w154/run/agent_survey/pew_w154_probabilistic_meta_retry3.results.ep,208,208,0.9999999999999978
+hobbies,merged,first valid response in supplied run order,208,208,0.9999999999999977
+physical_abilities,1,examples/pew_w154/run/agent_survey/pew_w154_probabilistic_meta_retry2.results.ep,207,208,0.9996573520130344
+physical_abilities,2,examples/pew_w154/run/agent_survey/pew_w154_probabilistic_meta_retry3.results.ep,208,208,0.9999999999999978
+physical_abilities,merged,first valid response in supplied run order,208,208,0.9999999999999977
+parenting,1,examples/pew_w154/run/agent_survey/pew_w154_probabilistic_meta_retry2.results.ep,208,208,0.9999999999999978
+parenting,2,examples/pew_w154/run/agent_survey/pew_w154_probabilistic_meta_retry3.results.ep,208,208,0.9999999999999978
+parenting,merged,first valid response in supplied run order,208,208,0.9999999999999977
+feelings,1,examples/pew_w154/run/agent_survey/pew_w154_probabilistic_meta_retry2.results.ep,207,208,0.9999128296618334
+feelings,2,examples/pew_w154/run/agent_survey/pew_w154_probabilistic_meta_retry3.results.ep,208,208,0.9999999999999978
+feelings,merged,first valid response in supplied run order,208,208,0.9999999999999977
+workplace,1,examples/pew_w154/run/agent_survey/pew_w154_probabilistic_meta_retry2.results.ep,207,208,0.999890669016957
+workplace,2,examples/pew_w154/run/agent_survey/pew_w154_probabilistic_meta_retry3.results.ep,208,208,0.9999999999999978
+workplace,merged,first valid response in supplied run order,208,208,0.9999999999999977
