@@ -108,6 +108,8 @@ A complete run preserves:
 - battery metadata and a resolved, versioned support design;
 - prompt JSONL, readable prompt HTML, support plans, and coverage audits;
 - git-backed EDSL Jobs and registered Results;
+- retry coverage, missing-job IDs, and source-attributed merged Results when
+  external calls are incomplete;
 - strictly parsed persona and probability banks;
 - pre-fit uniformity and diversity diagnostics;
 - fitted weights, implied marginals, and leave-one-out predictions;

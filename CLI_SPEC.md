@@ -6,7 +6,13 @@ Every command prints one JSON envelope with `command`, `status`, `data`,
 `warnings`, `errors`, and `next_steps`. Errors are nonzero exits. Model calls
 are executed explicitly with `ep run`, not inside `umriss`.
 
+Expected parser and validation failures use exit status 1. Unexpected internal
+failures use exit status 2 and remain JSON-enveloped. The `command` field names
+the canonical command that failed.
+
 ## Battery metadata
+
+Battery metadata must declare `schema_version: 1`.
 
 Each item must have an identifier, question stem, item text, option labels, and
 option codes. Scale semantics are explicit:
@@ -48,7 +54,7 @@ components need 14 rows and `size` is 12, validation returns
 ```text
 umriss support build (--metadata FILE | --battery ID)
   (--preset pattern-coverage | --preset uniform-patterns | --design FILE)
-  --tag TAG [--n-support N] [--seed N] --out DIR
+  --tag TAG [--n-support N] [--seed N] --out DIR [--force]
 ```
 
 `--n-support` and `--seed` are explicit overrides; all feasibility checks still
@@ -78,13 +84,33 @@ and the configured summary field.
 ```text
 umriss support export --prompts FILE --path FILE.jobs.ep
   [--model MODEL] [--service-name NAME] [--temperature FLOAT]
-  [--max-tokens N] [--limit N]
+  [--max-tokens N] [--limit N] [--tag TAG]
+  [--registration-out DIR] [--job-ids MISSING.csv] [--force]
 
 ep run --jobs FILE.jobs.ep --output FILE.results.ep
 
 umriss support register-results --results FILE.results.ep
-  --prompts FILE.jsonl --tag TAG --out DIR
+  --prompts FILE.jsonl --tag TAG --out DIR [--force]
 ```
+
+Export writes `<tag>_manifest.json` with input hashes, package version,
+parameters, model-call count, output hash, and directly executable `ep run`
+and registration commands. An identical rerun reuses the verified artifacts.
+Reusing an output for different inputs fails with `output_conflict` unless
+`--force` is explicit.
+
+Registration refuses Results that lack a valid answer for any prompt job. Audit
+and merge separately preserved attempts with:
+
+```text
+umriss support audit-results --results ATTEMPT1.results.ep
+  [--results ATTEMPT2.results.ep ...] --prompts FILE.jsonl
+  --tag TAG --out DIR [--force]
+```
+
+The audit writes merged raw rows with source-attempt attribution, per-attempt
+coverage, and a retry-only `job_id` CSV. Pass that CSV to
+`support export --job-ids` to create retry Jobs.
 
 Direct-prediction baselines use the same explicit EP boundary:
 
@@ -94,9 +120,10 @@ umriss baseline build --metadata FILE
   --tag TAG --out DIR
 
 umriss baseline export --prompts FILE --path FILE.jobs.ep [--model MODEL]
+  [--tag TAG] [--registration-out DIR] [--job-ids MISSING.csv] [--force]
 ep run --jobs FILE.jobs.ep --output FILE.results.ep
 umriss baseline register-results --results FILE.results.ep
-  --prompts FILE.jsonl --tag TAG --out DIR
+  --prompts FILE.jsonl --tag TAG --out DIR [--force]
 umriss baseline parse --raw FILE --prompts FILE.jsonl
   --metadata FILE --tag TAG --out DIR
 ```

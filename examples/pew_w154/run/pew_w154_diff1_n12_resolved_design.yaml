@@ -29,7 +29,6 @@ components:
     workplace: Men and women are basically different
 profile:
   framing: synthetic_respondent
-  summary_field: profile_summary
   forbid_demographic_invention: true
 probabilities:
   interpretation: subjective_response_probability

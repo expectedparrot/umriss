@@ -1,5 +1,7 @@
 battery,coherence,coverage_item,coverage_option,design_schema_version,design_type,groups,intensity,job_id,prompt,reason,support_id,pattern
-W154_DIFF1,item_specific,hobbies,Men and women are basically similar,1,option_coverage,,moderate,pew_w154_diff1_n12_001,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+W154_DIFF1,item_specific,hobbies,Men and women are basically similar,1,option_coverage,,moderate,pew_w154_diff1_n12_001,"Support point identifier: pew_w154_diff1_n12_001
+
+Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
 Battery topic: whether men and women are basically similar or basically different across domains
 
 Construct a synthetic survey-response profile for whom ""Men and women are basically similar"" is a plausible response to hobbies: Their hobbies and personal interests.
@@ -8,9 +10,11 @@ Response intensity: moderate.
 The targeted item may differ from the other items. Do not infer a uniform outlook across the battery.
 Do not invent demographic characteristics unless the design explicitly supplies them.
 
-Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
-response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
-and sum to 1. Each probability must be at least 0.01.
+Write a concise persona describing the attitudes that distinguish this response pattern. Address the persona in the
+second person, beginning with ""Your views..."" or ""You..."". This text will become a visible EDSL agent trait, so include
+only the persona description—not instructions about answering questions or probabilities. Then provide subjective response
+probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers, and sum to
+1. Each probability must be at least 0.01.
 
 Items and response options:
 - hobbies: Their hobbies and personal interests
@@ -26,7 +30,7 @@ Items and response options:
 
 Return only valid JSON with exactly this schema:
 {
-  ""profile_summary"": ""short substantive description"",
+  ""persona"": ""Your views on ..."",
   ""probabilities"": {
     ""hobbies"": [numbers in option order],
     ""physical_abilities"": [numbers in option order],
@@ -35,7 +39,9 @@ Return only valid JSON with exactly this schema:
     ""workplace"": [numbers in option order]
   }
 }",cover hobbies = Men and women are basically similar,1,
-W154_DIFF1,item_specific,hobbies,Men and women are basically different,1,option_coverage,,strong,pew_w154_diff1_n12_002,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+W154_DIFF1,item_specific,hobbies,Men and women are basically different,1,option_coverage,,strong,pew_w154_diff1_n12_002,"Support point identifier: pew_w154_diff1_n12_002
+
+Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
 Battery topic: whether men and women are basically similar or basically different across domains
 
 Construct a synthetic survey-response profile for whom ""Men and women are basically different"" is a plausible response to hobbies: Their hobbies and personal interests.
@@ -44,9 +50,11 @@ Response intensity: strong.
 The targeted item may differ from the other items. Do not infer a uniform outlook across the battery.
 Do not invent demographic characteristics unless the design explicitly supplies them.
 
-Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
-response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
-and sum to 1. Each probability must be at least 0.01.
+Write a concise persona describing the attitudes that distinguish this response pattern. Address the persona in the
+second person, beginning with ""Your views..."" or ""You..."". This text will become a visible EDSL agent trait, so include
+only the persona description—not instructions about answering questions or probabilities. Then provide subjective response
+probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers, and sum to
+1. Each probability must be at least 0.01.
 
 Items and response options:
 - hobbies: Their hobbies and personal interests
@@ -62,7 +70,7 @@ Items and response options:
 
 Return only valid JSON with exactly this schema:
 {
-  ""profile_summary"": ""short substantive description"",
+  ""persona"": ""Your views on ..."",
   ""probabilities"": {
     ""hobbies"": [numbers in option order],
     ""physical_abilities"": [numbers in option order],
@@ -71,7 +79,9 @@ Return only valid JSON with exactly this schema:
     ""workplace"": [numbers in option order]
   }
 }",cover hobbies = Men and women are basically different,2,
-W154_DIFF1,item_specific,physical_abilities,Men and women are basically similar,1,option_coverage,,moderate,pew_w154_diff1_n12_003,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+W154_DIFF1,item_specific,physical_abilities,Men and women are basically similar,1,option_coverage,,moderate,pew_w154_diff1_n12_003,"Support point identifier: pew_w154_diff1_n12_003
+
+Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
 Battery topic: whether men and women are basically similar or basically different across domains
 
 Construct a synthetic survey-response profile for whom ""Men and women are basically similar"" is a plausible response to physical_abilities: Their physical abilities.
@@ -80,9 +90,11 @@ Response intensity: moderate.
 The targeted item may differ from the other items. Do not infer a uniform outlook across the battery.
 Do not invent demographic characteristics unless the design explicitly supplies them.
 
-Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
-response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
-and sum to 1. Each probability must be at least 0.01.
+Write a concise persona describing the attitudes that distinguish this response pattern. Address the persona in the
+second person, beginning with ""Your views..."" or ""You..."". This text will become a visible EDSL agent trait, so include
+only the persona description—not instructions about answering questions or probabilities. Then provide subjective response
+probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers, and sum to
+1. Each probability must be at least 0.01.
 
 Items and response options:
 - hobbies: Their hobbies and personal interests
@@ -98,7 +110,7 @@ Items and response options:
 
 Return only valid JSON with exactly this schema:
 {
-  ""profile_summary"": ""short substantive description"",
+  ""persona"": ""Your views on ..."",
   ""probabilities"": {
     ""hobbies"": [numbers in option order],
     ""physical_abilities"": [numbers in option order],
@@ -107,7 +119,9 @@ Return only valid JSON with exactly this schema:
     ""workplace"": [numbers in option order]
   }
 }",cover physical_abilities = Men and women are basically similar,3,
-W154_DIFF1,item_specific,physical_abilities,Men and women are basically different,1,option_coverage,,strong,pew_w154_diff1_n12_004,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+W154_DIFF1,item_specific,physical_abilities,Men and women are basically different,1,option_coverage,,strong,pew_w154_diff1_n12_004,"Support point identifier: pew_w154_diff1_n12_004
+
+Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
 Battery topic: whether men and women are basically similar or basically different across domains
 
 Construct a synthetic survey-response profile for whom ""Men and women are basically different"" is a plausible response to physical_abilities: Their physical abilities.
@@ -116,9 +130,11 @@ Response intensity: strong.
 The targeted item may differ from the other items. Do not infer a uniform outlook across the battery.
 Do not invent demographic characteristics unless the design explicitly supplies them.
 
-Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
-response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
-and sum to 1. Each probability must be at least 0.01.
+Write a concise persona describing the attitudes that distinguish this response pattern. Address the persona in the
+second person, beginning with ""Your views..."" or ""You..."". This text will become a visible EDSL agent trait, so include
+only the persona description—not instructions about answering questions or probabilities. Then provide subjective response
+probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers, and sum to
+1. Each probability must be at least 0.01.
 
 Items and response options:
 - hobbies: Their hobbies and personal interests
@@ -134,7 +150,7 @@ Items and response options:
 
 Return only valid JSON with exactly this schema:
 {
-  ""profile_summary"": ""short substantive description"",
+  ""persona"": ""Your views on ..."",
   ""probabilities"": {
     ""hobbies"": [numbers in option order],
     ""physical_abilities"": [numbers in option order],
@@ -143,7 +159,9 @@ Return only valid JSON with exactly this schema:
     ""workplace"": [numbers in option order]
   }
 }",cover physical_abilities = Men and women are basically different,4,
-W154_DIFF1,item_specific,parenting,Men and women are basically similar,1,option_coverage,,moderate,pew_w154_diff1_n12_005,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+W154_DIFF1,item_specific,parenting,Men and women are basically similar,1,option_coverage,,moderate,pew_w154_diff1_n12_005,"Support point identifier: pew_w154_diff1_n12_005
+
+Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
 Battery topic: whether men and women are basically similar or basically different across domains
 
 Construct a synthetic survey-response profile for whom ""Men and women are basically similar"" is a plausible response to parenting: Their approach to parenting.
@@ -152,9 +170,11 @@ Response intensity: moderate.
 The targeted item may differ from the other items. Do not infer a uniform outlook across the battery.
 Do not invent demographic characteristics unless the design explicitly supplies them.
 
-Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
-response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
-and sum to 1. Each probability must be at least 0.01.
+Write a concise persona describing the attitudes that distinguish this response pattern. Address the persona in the
+second person, beginning with ""Your views..."" or ""You..."". This text will become a visible EDSL agent trait, so include
+only the persona description—not instructions about answering questions or probabilities. Then provide subjective response
+probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers, and sum to
+1. Each probability must be at least 0.01.
 
 Items and response options:
 - hobbies: Their hobbies and personal interests
@@ -170,7 +190,7 @@ Items and response options:
 
 Return only valid JSON with exactly this schema:
 {
-  ""profile_summary"": ""short substantive description"",
+  ""persona"": ""Your views on ..."",
   ""probabilities"": {
     ""hobbies"": [numbers in option order],
     ""physical_abilities"": [numbers in option order],
@@ -179,7 +199,9 @@ Return only valid JSON with exactly this schema:
     ""workplace"": [numbers in option order]
   }
 }",cover parenting = Men and women are basically similar,5,
-W154_DIFF1,item_specific,parenting,Men and women are basically different,1,option_coverage,,strong,pew_w154_diff1_n12_006,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+W154_DIFF1,item_specific,parenting,Men and women are basically different,1,option_coverage,,strong,pew_w154_diff1_n12_006,"Support point identifier: pew_w154_diff1_n12_006
+
+Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
 Battery topic: whether men and women are basically similar or basically different across domains
 
 Construct a synthetic survey-response profile for whom ""Men and women are basically different"" is a plausible response to parenting: Their approach to parenting.
@@ -188,9 +210,11 @@ Response intensity: strong.
 The targeted item may differ from the other items. Do not infer a uniform outlook across the battery.
 Do not invent demographic characteristics unless the design explicitly supplies them.
 
-Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
-response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
-and sum to 1. Each probability must be at least 0.01.
+Write a concise persona describing the attitudes that distinguish this response pattern. Address the persona in the
+second person, beginning with ""Your views..."" or ""You..."". This text will become a visible EDSL agent trait, so include
+only the persona description—not instructions about answering questions or probabilities. Then provide subjective response
+probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers, and sum to
+1. Each probability must be at least 0.01.
 
 Items and response options:
 - hobbies: Their hobbies and personal interests
@@ -206,7 +230,7 @@ Items and response options:
 
 Return only valid JSON with exactly this schema:
 {
-  ""profile_summary"": ""short substantive description"",
+  ""persona"": ""Your views on ..."",
   ""probabilities"": {
     ""hobbies"": [numbers in option order],
     ""physical_abilities"": [numbers in option order],
@@ -215,7 +239,9 @@ Return only valid JSON with exactly this schema:
     ""workplace"": [numbers in option order]
   }
 }",cover parenting = Men and women are basically different,6,
-W154_DIFF1,item_specific,feelings,Men and women are basically similar,1,option_coverage,,moderate,pew_w154_diff1_n12_007,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+W154_DIFF1,item_specific,feelings,Men and women are basically similar,1,option_coverage,,moderate,pew_w154_diff1_n12_007,"Support point identifier: pew_w154_diff1_n12_007
+
+Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
 Battery topic: whether men and women are basically similar or basically different across domains
 
 Construct a synthetic survey-response profile for whom ""Men and women are basically similar"" is a plausible response to feelings: How they express their feelings.
@@ -224,9 +250,11 @@ Response intensity: moderate.
 The targeted item may differ from the other items. Do not infer a uniform outlook across the battery.
 Do not invent demographic characteristics unless the design explicitly supplies them.
 
-Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
-response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
-and sum to 1. Each probability must be at least 0.01.
+Write a concise persona describing the attitudes that distinguish this response pattern. Address the persona in the
+second person, beginning with ""Your views..."" or ""You..."". This text will become a visible EDSL agent trait, so include
+only the persona description—not instructions about answering questions or probabilities. Then provide subjective response
+probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers, and sum to
+1. Each probability must be at least 0.01.
 
 Items and response options:
 - hobbies: Their hobbies and personal interests
@@ -242,7 +270,7 @@ Items and response options:
 
 Return only valid JSON with exactly this schema:
 {
-  ""profile_summary"": ""short substantive description"",
+  ""persona"": ""Your views on ..."",
   ""probabilities"": {
     ""hobbies"": [numbers in option order],
     ""physical_abilities"": [numbers in option order],
@@ -251,7 +279,9 @@ Return only valid JSON with exactly this schema:
     ""workplace"": [numbers in option order]
   }
 }",cover feelings = Men and women are basically similar,7,
-W154_DIFF1,item_specific,feelings,Men and women are basically different,1,option_coverage,,strong,pew_w154_diff1_n12_008,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+W154_DIFF1,item_specific,feelings,Men and women are basically different,1,option_coverage,,strong,pew_w154_diff1_n12_008,"Support point identifier: pew_w154_diff1_n12_008
+
+Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
 Battery topic: whether men and women are basically similar or basically different across domains
 
 Construct a synthetic survey-response profile for whom ""Men and women are basically different"" is a plausible response to feelings: How they express their feelings.
@@ -260,9 +290,11 @@ Response intensity: strong.
 The targeted item may differ from the other items. Do not infer a uniform outlook across the battery.
 Do not invent demographic characteristics unless the design explicitly supplies them.
 
-Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
-response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
-and sum to 1. Each probability must be at least 0.01.
+Write a concise persona describing the attitudes that distinguish this response pattern. Address the persona in the
+second person, beginning with ""Your views..."" or ""You..."". This text will become a visible EDSL agent trait, so include
+only the persona description—not instructions about answering questions or probabilities. Then provide subjective response
+probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers, and sum to
+1. Each probability must be at least 0.01.
 
 Items and response options:
 - hobbies: Their hobbies and personal interests
@@ -278,7 +310,7 @@ Items and response options:
 
 Return only valid JSON with exactly this schema:
 {
-  ""profile_summary"": ""short substantive description"",
+  ""persona"": ""Your views on ..."",
   ""probabilities"": {
     ""hobbies"": [numbers in option order],
     ""physical_abilities"": [numbers in option order],
@@ -287,7 +319,9 @@ Return only valid JSON with exactly this schema:
     ""workplace"": [numbers in option order]
   }
 }",cover feelings = Men and women are basically different,8,
-W154_DIFF1,item_specific,workplace,Men and women are basically similar,1,option_coverage,,moderate,pew_w154_diff1_n12_009,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+W154_DIFF1,item_specific,workplace,Men and women are basically similar,1,option_coverage,,moderate,pew_w154_diff1_n12_009,"Support point identifier: pew_w154_diff1_n12_009
+
+Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
 Battery topic: whether men and women are basically similar or basically different across domains
 
 Construct a synthetic survey-response profile for whom ""Men and women are basically similar"" is a plausible response to workplace: The things they are good at in the workplace.
@@ -296,9 +330,11 @@ Response intensity: moderate.
 The targeted item may differ from the other items. Do not infer a uniform outlook across the battery.
 Do not invent demographic characteristics unless the design explicitly supplies them.
 
-Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
-response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
-and sum to 1. Each probability must be at least 0.01.
+Write a concise persona describing the attitudes that distinguish this response pattern. Address the persona in the
+second person, beginning with ""Your views..."" or ""You..."". This text will become a visible EDSL agent trait, so include
+only the persona description—not instructions about answering questions or probabilities. Then provide subjective response
+probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers, and sum to
+1. Each probability must be at least 0.01.
 
 Items and response options:
 - hobbies: Their hobbies and personal interests
@@ -314,7 +350,7 @@ Items and response options:
 
 Return only valid JSON with exactly this schema:
 {
-  ""profile_summary"": ""short substantive description"",
+  ""persona"": ""Your views on ..."",
   ""probabilities"": {
     ""hobbies"": [numbers in option order],
     ""physical_abilities"": [numbers in option order],
@@ -323,7 +359,9 @@ Return only valid JSON with exactly this schema:
     ""workplace"": [numbers in option order]
   }
 }",cover workplace = Men and women are basically similar,9,
-W154_DIFF1,item_specific,workplace,Men and women are basically different,1,option_coverage,,strong,pew_w154_diff1_n12_010,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+W154_DIFF1,item_specific,workplace,Men and women are basically different,1,option_coverage,,strong,pew_w154_diff1_n12_010,"Support point identifier: pew_w154_diff1_n12_010
+
+Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
 Battery topic: whether men and women are basically similar or basically different across domains
 
 Construct a synthetic survey-response profile for whom ""Men and women are basically different"" is a plausible response to workplace: The things they are good at in the workplace.
@@ -332,9 +370,11 @@ Response intensity: strong.
 The targeted item may differ from the other items. Do not infer a uniform outlook across the battery.
 Do not invent demographic characteristics unless the design explicitly supplies them.
 
-Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
-response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
-and sum to 1. Each probability must be at least 0.01.
+Write a concise persona describing the attitudes that distinguish this response pattern. Address the persona in the
+second person, beginning with ""Your views..."" or ""You..."". This text will become a visible EDSL agent trait, so include
+only the persona description—not instructions about answering questions or probabilities. Then provide subjective response
+probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers, and sum to
+1. Each probability must be at least 0.01.
 
 Items and response options:
 - hobbies: Their hobbies and personal interests
@@ -350,7 +390,7 @@ Items and response options:
 
 Return only valid JSON with exactly this schema:
 {
-  ""profile_summary"": ""short substantive description"",
+  ""persona"": ""Your views on ..."",
   ""probabilities"": {
     ""hobbies"": [numbers in option order],
     ""physical_abilities"": [numbers in option order],
@@ -359,7 +399,9 @@ Return only valid JSON with exactly this schema:
     ""workplace"": [numbers in option order]
   }
 }",cover workplace = Men and women are basically different,10,
-W154_DIFF1,explicit,,,1,pattern_anchor,,,pew_w154_diff1_n12_011,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+W154_DIFF1,explicit,,,1,pattern_anchor,,,pew_w154_diff1_n12_011,"Support point identifier: pew_w154_diff1_n12_011
+
+Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
 Battery topic: whether men and women are basically similar or basically different across domains
 
 Construct a synthetic survey-response profile organized around this declared answer pattern:
@@ -372,9 +414,11 @@ Construct a synthetic survey-response profile organized around this declared ans
 Follow the complete response pattern explicitly supplied below.
 Do not invent demographic characteristics unless the design explicitly supplies them.
 
-Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
-response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
-and sum to 1. Each probability must be at least 0.01.
+Write a concise persona describing the attitudes that distinguish this response pattern. Address the persona in the
+second person, beginning with ""Your views..."" or ""You..."". This text will become a visible EDSL agent trait, so include
+only the persona description—not instructions about answering questions or probabilities. Then provide subjective response
+probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers, and sum to
+1. Each probability must be at least 0.01.
 
 Items and response options:
 - hobbies: Their hobbies and personal interests
@@ -390,7 +434,7 @@ Items and response options:
 
 Return only valid JSON with exactly this schema:
 {
-  ""profile_summary"": ""short substantive description"",
+  ""persona"": ""Your views on ..."",
   ""probabilities"": {
     ""hobbies"": [numbers in option order],
     ""physical_abilities"": [numbers in option order],
@@ -399,7 +443,9 @@ Return only valid JSON with exactly this schema:
     ""workplace"": [numbers in option order]
   }
 }",declared response-pattern anchor,11,"{'feelings': 'Men and women are basically similar', 'hobbies': 'Men and women are basically similar', 'parenting': 'Men and women are basically similar', 'physical_abilities': 'Men and women are basically similar', 'workplace': 'Men and women are basically similar'}"
-W154_DIFF1,explicit,,,1,pattern_anchor,,,pew_w154_diff1_n12_012,"Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
+W154_DIFF1,explicit,,,1,pattern_anchor,,,pew_w154_diff1_n12_012,"Support point identifier: pew_w154_diff1_n12_012
+
+Survey context: A nationally representative Pew Research Center American Trends Panel survey of U.S. adults fielded in September 2024.
 Battery topic: whether men and women are basically similar or basically different across domains
 
 Construct a synthetic survey-response profile organized around this declared answer pattern:
@@ -412,9 +458,11 @@ Construct a synthetic survey-response profile organized around this declared ans
 Follow the complete response pattern explicitly supplied below.
 Do not invent demographic characteristics unless the design explicitly supplies them.
 
-Provide a short profile summary describing the attitudes that distinguish this response pattern. Then provide subjective
-response probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers,
-and sum to 1. Each probability must be at least 0.01.
+Write a concise persona describing the attitudes that distinguish this response pattern. Address the persona in the
+second person, beginning with ""Your views..."" or ""You..."". This text will become a visible EDSL agent trait, so include
+only the persona description—not instructions about answering questions or probabilities. Then provide subjective response
+probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers, and sum to
+1. Each probability must be at least 0.01.
 
 Items and response options:
 - hobbies: Their hobbies and personal interests
@@ -430,7 +478,7 @@ Items and response options:
 
 Return only valid JSON with exactly this schema:
 {
-  ""profile_summary"": ""short substantive description"",
+  ""persona"": ""Your views on ..."",
   ""probabilities"": {
     ""hobbies"": [numbers in option order],
     ""physical_abilities"": [numbers in option order],

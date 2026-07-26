@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -23,7 +24,7 @@ from .calibration import fit_weights, load_support_matrix, write_fit_outputs
 from .ep_commands import export_support_jobs
 from .errors import UmrissError
 from .evaluation import run_marginal_validation
-from .jsonlio import read_json
+from .jsonlio import read_json, write_json
 from .metadata import (
     add_marginal,
     add_question,
@@ -35,8 +36,9 @@ from .metadata import (
     weighted_truth_from_respondents,
     write_marginals_long,
 )
-from .parsing import parse_support, register_results
+from .parsing import audit_result_attempts, parse_support, register_results
 from .plotting import plot_validation
+from .provenance import build_provenance, guard_manifest, path_sha256
 from .state import (
     active_project_id,
     create_project,
@@ -88,6 +90,42 @@ def envelope(
 
 def print_json(payload: dict[str, Any]) -> None:
     print(json.dumps(payload, indent=2, sort_keys=True))
+
+
+class EnvelopeArgumentParser(argparse.ArgumentParser):
+    def error(self, message: str) -> None:
+        raise UmrissError(
+            "invalid_arguments",
+            message,
+            context={"usage": self.format_usage().strip()},
+            hint="Run the command with --help to inspect its current arguments.",
+        )
+
+
+_GROUP_COMMANDS = {
+    "project",
+    "battery",
+    "question",
+    "marginal",
+    "marginals",
+    "design",
+    "support",
+    "baseline",
+    "validate",
+    "twins",
+    "report-data",
+    "plot",
+}
+
+
+def canonical_command(argv: list[str]) -> str:
+    positional = [token for token in argv if not token.startswith("-")]
+    if not positional:
+        return "umriss"
+    parts = ["umriss", positional[0]]
+    if positional[0] in _GROUP_COMMANDS and len(positional) > 1:
+        parts.append(positional[1])
+    return " ".join(parts)
 
 
 def cmd_init(args: argparse.Namespace) -> dict[str, Any]:
@@ -269,18 +307,64 @@ def cmd_support_build(args: argparse.Namespace) -> dict[str, Any]:
     except ValueError as exc:
         code = "design_too_small" if str(exc).startswith("DESIGN_TOO_SMALL") else "design_invalid"
         raise UmrissError(code, str(exc)) from exc
-    paths = write_support_outputs(rows, metadata, tag, Path(args.out), resolved)
+    out_dir = Path(args.out)
+    output_paths = [
+        out_dir / f"{tag}_resolved_design.yaml",
+        out_dir / f"{tag}_support_plan.csv",
+        out_dir / f"{tag}_coverage.csv",
+        out_dir / f"{tag}_prompts.jsonl",
+        out_dir / f"{tag}_prompts.html",
+    ]
+    manifest_path = out_dir / f"{tag}_build_manifest.json"
+    provenance = build_provenance(
+        "umriss support build",
+        inputs={
+            "metadata": Path(metadata_source["path"]),
+            "design": Path(args.design) if args.design else None,
+        },
+        parameters={
+            "tag": tag,
+            "preset": args.preset,
+            "n_support": args.n_support,
+            "seed": args.seed,
+            "resolved_design": resolved,
+        },
+    )
+    existing = guard_manifest(manifest_path, provenance, outputs=output_paths, force=args.force)
+    if existing is not None:
+        return envelope(
+            "umriss support build",
+            "ok",
+            {**existing["data"], "reused": True},
+        )
+    paths = write_support_outputs(rows, metadata, tag, out_dir, resolved)
+    data = {
+        **paths,
+        "rows": len(rows),
+        "tag": tag,
+        "design": args.design,
+        "preset": args.preset,
+        "metadata_source": metadata_source,
+        "manifest_path": str(manifest_path),
+        "reused": False,
+    }
+    write_json(
+        manifest_path,
+        {
+            "schema_version": 1,
+            "kind": "umriss_support_build",
+            "provenance": provenance,
+            "outputs": {
+                path.name: {"path": str(path), "sha256": path_sha256(path)}
+                for path in output_paths
+            },
+            "data": data,
+        },
+    )
     return envelope(
         "umriss support build",
         "ok",
-        {
-            **paths,
-            "rows": len(rows),
-            "tag": tag,
-            "design": args.design,
-            "preset": args.preset,
-            "metadata_source": metadata_source,
-        },
+        data,
     )
 
 
@@ -293,17 +377,66 @@ def cmd_support_export(args: argparse.Namespace) -> dict[str, Any]:
         temperature=args.temperature,
         max_tokens=args.max_tokens,
         limit=args.limit,
+        tag=args.tag,
+        registration_out=Path(args.registration_out) if args.registration_out else None,
+        job_ids_path=Path(args.job_ids) if args.job_ids else None,
+        force=args.force,
     )
     return envelope("umriss support export", "ok", data, next_steps=data.get("next_steps", []))
 
 
 def cmd_support_register_results(args: argparse.Namespace) -> dict[str, Any]:
-    data = register_results(Path(args.results), Path(args.prompts) if args.prompts else None, args.tag, Path(args.out))
+    data = register_results(
+        Path(args.results),
+        Path(args.prompts) if args.prompts else None,
+        args.tag,
+        Path(args.out),
+        force=args.force,
+    )
     return envelope(
         "umriss support register-results",
         "ok",
         data,
-        next_steps=[f"umriss support parse --raw {data['raw_path']} --metadata <metadata.json> --tag {args.tag}"],
+        next_steps=[
+            f"umriss support parse --raw {data['raw_path']} --metadata <metadata.json> "
+            f"--tag {args.tag} --out {Path(args.out).parent / 'bank'}"
+        ],
+    )
+
+
+def cmd_support_audit_results(args: argparse.Namespace) -> dict[str, Any]:
+    data = audit_result_attempts(
+        [Path(path) for path in args.results],
+        Path(args.prompts),
+        args.tag,
+        Path(args.out),
+        force=args.force,
+    )
+    if data["complete"]:
+        next_steps = [
+            f"umriss support parse --raw {data['merged_raw_path']} --metadata <metadata.json> "
+            f"--tag {args.tag} --out {Path(args.out).parent / 'bank'}"
+        ]
+        warnings = []
+    else:
+        retry_jobs = Path(args.out) / f"{args.tag}_retry.jobs.ep"
+        next_steps = [
+            f"umriss support export --prompts {args.prompts} "
+            f"--job-ids {data['missing_job_ids_path']} --path {retry_jobs} "
+            f"--tag {args.tag}_retry --registration-out {args.out}"
+        ]
+        warnings = [
+            {
+                "code": "incomplete_results",
+                "message": f"{data['missing_jobs']} prompt jobs still lack a valid response.",
+            }
+        ]
+    return envelope(
+        "umriss support audit-results",
+        "ok",
+        data,
+        warnings=warnings,
+        next_steps=next_steps,
     )
 
 
@@ -334,12 +467,22 @@ def cmd_baseline_export(args: argparse.Namespace) -> dict[str, Any]:
         temperature=args.temperature,
         max_tokens=args.max_tokens,
         workflow="baseline",
+        tag=args.tag,
+        registration_out=Path(args.registration_out) if args.registration_out else None,
+        job_ids_path=Path(args.job_ids) if args.job_ids else None,
+        force=args.force,
     )
     return envelope("umriss baseline export", "ok", data, next_steps=data.get("next_steps", []))
 
 
 def cmd_baseline_register_results(args: argparse.Namespace) -> dict[str, Any]:
-    data = register_results(Path(args.results), Path(args.prompts), args.tag, Path(args.out))
+    data = register_results(
+        Path(args.results),
+        Path(args.prompts),
+        args.tag,
+        Path(args.out),
+        force=args.force,
+    )
     return envelope("umriss baseline register-results", "ok", data)
 
 
@@ -607,6 +750,7 @@ def cmd_next(args: argparse.Namespace) -> dict[str, Any]:
             design=Path(args.design) if args.design else None,
             prompt_dir=Path(args.prompt_dir),
             raw_dir=Path(args.raw_dir),
+            bank_dir=Path(args.bank_dir),
             derived_dir=Path(args.derived_dir),
         )
         return envelope("umriss next", "ok", data)
@@ -628,7 +772,7 @@ def cmd_next(args: argparse.Namespace) -> dict[str, Any]:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(
+    parser = EnvelopeArgumentParser(
         prog="umriss",
         description="Build auditable digital twins from reported survey marginals.",
     )
@@ -744,6 +888,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--n-support", type=int, help="Override design size; feasibility validation still applies.")
     p.add_argument("--seed", type=int, help="Override the design seed.")
     p.add_argument("--out", required=True)
+    p.add_argument("--force", action="store_true")
     p.set_defaults(func=cmd_support_build)
     p = support.add_parser("export")
     p.add_argument("--prompts", required=True)
@@ -753,13 +898,25 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--temperature", type=float, default=1.0)
     p.add_argument("--max-tokens", type=int, default=2200)
     p.add_argument("--limit", type=int)
+    p.add_argument("--tag")
+    p.add_argument("--registration-out")
+    p.add_argument("--job-ids")
+    p.add_argument("--force", action="store_true")
     p.set_defaults(func=cmd_support_export)
     p = support.add_parser("register-results")
     p.add_argument("--results", required=True)
     p.add_argument("--prompts")
     p.add_argument("--tag", required=True)
     p.add_argument("--out", required=True)
+    p.add_argument("--force", action="store_true")
     p.set_defaults(func=cmd_support_register_results)
+    p = support.add_parser("audit-results")
+    p.add_argument("--results", action="append", required=True)
+    p.add_argument("--prompts", required=True)
+    p.add_argument("--tag", required=True)
+    p.add_argument("--out", required=True)
+    p.add_argument("--force", action="store_true")
+    p.set_defaults(func=cmd_support_audit_results)
     p = support.add_parser("parse")
     p.add_argument("--raw", required=True)
     p.add_argument("--metadata", required=True)
@@ -812,12 +969,17 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--service-name")
     p.add_argument("--temperature", type=float, default=1.0)
     p.add_argument("--max-tokens", type=int, default=1200)
+    p.add_argument("--tag")
+    p.add_argument("--registration-out")
+    p.add_argument("--job-ids")
+    p.add_argument("--force", action="store_true")
     p.set_defaults(func=cmd_baseline_export)
     p = baseline.add_parser("register-results")
     p.add_argument("--results", required=True)
     p.add_argument("--prompts", required=True)
     p.add_argument("--tag", required=True)
     p.add_argument("--out", required=True)
+    p.add_argument("--force", action="store_true")
     p.set_defaults(func=cmd_baseline_register_results)
     p = baseline.add_parser("parse")
     p.add_argument("--raw", required=True)
@@ -976,28 +1138,47 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--design")
     p.add_argument("--prompt-dir", default="data/computed_objects/support_prompts")
     p.add_argument("--raw-dir", default="data/computed_objects/support_raw_responses")
+    p.add_argument("--bank-dir", default="data/computed_objects/support_banks")
     p.add_argument("--derived-dir", default="data/derived")
     p.set_defaults(func=cmd_next)
     return parser
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = build_parser()
-    args = parser.parse_args(argv)
+    raw_argv = list(argv) if argv is not None else sys.argv[1:]
+    command = canonical_command(raw_argv)
     try:
+        parser = build_parser()
+        args = parser.parse_args(raw_argv)
         payload = args.func(args)
         print_json(payload)
         return 0
     except UmrissError as exc:
         print_json(
             envelope(
-                "umriss",
+                command,
                 "error",
                 errors=[{"code": exc.code, "message": exc.message, "context": exc.context, "hint": exc.hint}],
                 next_steps=exc.next_steps,
             )
         )
         return 1
+    except Exception as exc:
+        print_json(
+            envelope(
+                command,
+                "error",
+                errors=[
+                    {
+                        "code": "internal_error",
+                        "message": "An unexpected internal error occurred.",
+                        "context": {"exception_type": type(exc).__name__},
+                        "hint": "Rerun with validated inputs and report this error if it persists.",
+                    }
+                ],
+            )
+        )
+        return 2
 
 
 if __name__ == "__main__":

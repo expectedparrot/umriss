@@ -1,0 +1,130 @@
+{
+  "data": {
+    "anchors": 2,
+    "coverage_complete": true,
+    "coverage_path": "examples/pew_w154/run/pew_w154_diff1_n12_coverage.csv",
+    "design": "examples/pew_w154/pew_w154_design.yaml",
+    "duplicate_prompts": 0,
+    "manifest_path": "examples/pew_w154/run/pew_w154_diff1_n12_build_manifest.json",
+    "metadata_source": {
+      "kind": "file",
+      "path": "examples/pew_w154/pew_w154_metadata.json"
+    },
+    "omitted_coverage_cells": 0,
+    "preset": null,
+    "prompts_html_path": "examples/pew_w154/run/pew_w154_diff1_n12_prompts.html",
+    "prompts_path": "examples/pew_w154/run/pew_w154_diff1_n12_prompts.jsonl",
+    "resolved_design_path": "examples/pew_w154/run/pew_w154_diff1_n12_resolved_design.yaml",
+    "reused": false,
+    "rows": 12,
+    "support_plan_path": "examples/pew_w154/run/pew_w154_diff1_n12_support_plan.csv",
+    "tag": "pew_w154_diff1_n12"
+  },
+  "kind": "umriss_support_build",
+  "outputs": {
+    "pew_w154_diff1_n12_coverage.csv": {
+      "path": "examples/pew_w154/run/pew_w154_diff1_n12_coverage.csv",
+      "sha256": "a7971e723bf17303216dd03edb4a1718caf31bc507dccb2fe301a65e667d93b7"
+    },
+    "pew_w154_diff1_n12_prompts.html": {
+      "path": "examples/pew_w154/run/pew_w154_diff1_n12_prompts.html",
+      "sha256": "9665afaf1597eca92ecc5151b9bcee5933fc97c2dc0bce3225c8ea6715d571b0"
+    },
+    "pew_w154_diff1_n12_prompts.jsonl": {
+      "path": "examples/pew_w154/run/pew_w154_diff1_n12_prompts.jsonl",
+      "sha256": "122f4e7b630ed14c18c560289732ae71f8890b6a1c7037c390d95abeb209fb6e"
+    },
+    "pew_w154_diff1_n12_resolved_design.yaml": {
+      "path": "examples/pew_w154/run/pew_w154_diff1_n12_resolved_design.yaml",
+      "sha256": "f65c629a5707403c42ad3026ab44f592c0c859067fd6eccaf53a653b05b18ed3"
+    },
+    "pew_w154_diff1_n12_support_plan.csv": {
+      "path": "examples/pew_w154/run/pew_w154_diff1_n12_support_plan.csv",
+      "sha256": "62fbe088ba96a16b9d54d04f5e242721ad733be87904e79feaab7aed4e45bee8"
+    }
+  },
+  "provenance": {
+    "command": "umriss support build",
+    "created_at": "2026-07-26T09:47:32Z",
+    "fingerprint": "c4fc4c3b204a27b437ff31b46376f531716ca5c9ee580bc9876bc7f537bb65b0",
+    "inputs": {
+      "design": {
+        "path": "examples/pew_w154/pew_w154_design.yaml",
+        "sha256": "7aa2dd8c2784a822e537535f8cf500c6612006f690bb57323b73a53520920a12"
+      },
+      "metadata": {
+        "path": "examples/pew_w154/pew_w154_metadata.json",
+        "sha256": "0972f9eb0ea64193ab35c6ced3f1e52705ee35d1af210acf2960e22a75c816a4"
+      }
+    },
+    "parameters": {
+      "n_support": null,
+      "preset": null,
+      "resolved_design": {
+        "components": [
+          {
+            "coherence": "item_specific",
+            "intensity": {
+              "allocation": "balanced",
+              "values": [
+                "moderate",
+                "strong"
+              ]
+            },
+            "items": "all",
+            "minimum_per_option": 1,
+            "type": "option_coverage"
+          },
+          {
+            "coherence": "explicit",
+            "patterns": [
+              {
+                "feelings": "Men and women are basically similar",
+                "hobbies": "Men and women are basically similar",
+                "parenting": "Men and women are basically similar",
+                "physical_abilities": "Men and women are basically similar",
+                "workplace": "Men and women are basically similar"
+              },
+              {
+                "feelings": "Men and women are basically different",
+                "hobbies": "Men and women are basically different",
+                "parenting": "Men and women are basically different",
+                "physical_abilities": "Men and women are basically different",
+                "workplace": "Men and women are basically different"
+              }
+            ],
+            "type": "pattern_anchors"
+          }
+        ],
+        "coverage": {
+          "allocation": "balanced",
+          "mode": "complete"
+        },
+        "guardrails": {
+          "describe_as_recovered_respondents": false,
+          "leak_target_marginals": false,
+          "silent_coverage_truncation": false,
+          "silent_invalid_response_repair": false
+        },
+        "probabilities": {
+          "allow_zero": false,
+          "interpretation": "subjective_response_probability",
+          "minimum_probability": 0.01,
+          "require_sum": 1
+        },
+        "profile": {
+          "forbid_demographic_invention": true,
+          "framing": "synthetic_respondent"
+        },
+        "schema_version": 1,
+        "seed": 20260625,
+        "size": 12
+      },
+      "seed": null,
+      "tag": "pew_w154_diff1_n12"
+    },
+    "schema_version": 1,
+    "umriss_version": "0.1.0"
+  },
+  "schema_version": 1
+}

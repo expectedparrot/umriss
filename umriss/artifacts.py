@@ -555,6 +555,7 @@ GUIDES = {
             "Create EP jobs: `umriss support export --prompts <prompt_dir>/<tag>_prompts.jsonl --path <prompt_dir>/<tag>.jobs.ep`.",
             "Run the `.jobs.ep` outside umriss with EP/EDSL. Umriss does not run model jobs.",
             "Register results: `umriss support register-results --results <tag>.results.ep --prompts <tag>_prompts.jsonl --tag <tag> --out <raw_dir>`.",
+            "If registration is incomplete, audit preserved attempts with `umriss support audit-results` and export only the missing job IDs.",
             "Parse or evaluate: `umriss support parse ...` or `umriss validate marginals ...`.",
             "Compare/report: `umriss compare ...` and `umriss report ...`.",
         ],
@@ -575,6 +576,7 @@ GUIDES = {
             "`umriss support export` creates `.jobs.ep` files and a run contract.",
             "The user or an external EP/EDSL runner executes `.jobs.ep` and writes `.results.ep`.",
             "`umriss support register-results` imports `.results.ep` into raw CSV artifacts.",
+            "`umriss support audit-results` attributes retries and produces missing job IDs without rewriting earlier Results.",
             "This boundary keeps prompt construction, model execution, and result parsing auditable.",
         ],
     },
@@ -612,19 +614,35 @@ def next_for_artifacts(
     design: Path | None = None,
     prompt_dir: Path = Path("data/computed_objects/support_prompts"),
     raw_dir: Path = Path("data/computed_objects/support_raw_responses"),
+    bank_dir: Path = Path("data/computed_objects/support_banks"),
     derived_dir: Path = Path("data/derived"),
 ) -> dict[str, Any]:
     prompts = prompt_dir / f"{tag}_prompts.jsonl"
     jobs = prompt_dir / f"{tag}.jobs.ep"
     results = prompt_dir / f"{tag}.results.ep"
+    manifest_path = prompt_dir / f"{tag}_manifest.json"
+    if manifest_path.exists():
+        manifest = json.loads(manifest_path.read_text())
+        if manifest.get("tag") != tag:
+            raise UmrissError(
+                "manifest_mismatch",
+                f"Run manifest tag `{manifest.get('tag')}` does not match requested tag `{tag}`.",
+                context={"manifest": str(manifest_path)},
+            )
+        prompts = Path(manifest["prompts"])
+        jobs = Path(manifest["jobs"])
+        results = Path(manifest["results"])
+        if manifest.get("registration_out"):
+            raw_dir = Path(manifest["registration_out"])
     raw = raw_dir / f"{tag}_raw.csv"
-    probabilities = derived_dir / f"{tag}_probabilities.csv"
+    probabilities = bank_dir / f"{tag}_probabilities.csv"
     summary = derived_dir / f"{tag}_generated_support_summary.csv"
     report = derived_dir / f"{tag}_report.md"
 
     artifacts = {
         "metadata": str(metadata) if metadata else None,
         "design": str(design) if design else None,
+        "manifest": str(manifest_path),
         "prompts": str(prompts),
         "jobs": str(jobs),
         "results": str(results),
@@ -636,15 +654,6 @@ def next_for_artifacts(
 
     if metadata and not metadata.exists():
         return {"stage": "metadata", "recommendation": f"Create or fix metadata file: {metadata}", "artifacts": artifacts, "exists": exists}
-    if summary.exists():
-        command = f"umriss report --tag {tag} --derived {derived_dir} --out {report}"
-        return {"stage": "report-or-compare", "recommendation": command, "artifacts": artifacts, "exists": exists}
-    if raw.exists():
-        command = f"umriss validate marginals --raw {raw} --metadata {metadata or '<metadata.json>'} --tag {tag} --out {derived_dir}"
-        return {"stage": "evaluate", "recommendation": command, "artifacts": artifacts, "exists": exists}
-    if probabilities.exists():
-        command = f"umriss validate marginals --support {probabilities} --metadata {metadata or '<metadata.json>'} --tag {tag} --out {derived_dir}"
-        return {"stage": "evaluate", "recommendation": command, "artifacts": artifacts, "exists": exists}
     if not prompts.exists():
         if design:
             command = f"umriss support build --metadata {metadata or '<metadata.json>'} --design {design} --tag {tag} --out {prompt_dir}"
@@ -652,7 +661,7 @@ def next_for_artifacts(
             command = f"umriss support build --metadata {metadata or '<metadata.json>'} --preset pattern-coverage --tag {tag} --out {prompt_dir}"
         return {"stage": "build-prompts", "recommendation": command, "artifacts": artifacts, "exists": exists}
     if not jobs.exists():
-        command = f"umriss support export --prompts {prompts} --path {jobs}"
+        command = f"umriss support export --prompts {prompts} --path {jobs} --tag {tag} --registration-out {raw_dir}"
         return {"stage": "export-jobs", "recommendation": command, "artifacts": artifacts, "exists": exists}
     if not results.exists() and not raw.exists():
         command = f"ep run --jobs {jobs} --output {results}"
@@ -660,4 +669,19 @@ def next_for_artifacts(
     if results.exists() and not raw.exists():
         command = f"umriss support register-results --results {results} --prompts {prompts} --tag {tag} --out {raw_dir}"
         return {"stage": "register-results", "recommendation": command, "artifacts": artifacts, "exists": exists}
-    return {"stage": "await-results", "recommendation": f"Place results at {results} or raw CSV at {raw}.", "artifacts": artifacts, "exists": exists}
+    if raw.exists() and not probabilities.exists():
+        command = (
+            f"umriss support parse --raw {raw} --metadata {metadata or '<metadata.json>'} "
+            f"--tag {tag} --out {bank_dir}"
+        )
+        return {"stage": "parse-results", "recommendation": command, "artifacts": artifacts, "exists": exists}
+    if probabilities.exists() and not summary.exists():
+        command = (
+            f"umriss validate marginals --support {probabilities} "
+            f"--metadata {metadata or '<metadata.json>'} --tag {tag} --out {derived_dir}"
+        )
+        return {"stage": "evaluate", "recommendation": command, "artifacts": artifacts, "exists": exists}
+    if summary.exists():
+        command = f"umriss report --tag {tag} --derived {derived_dir} --out {report}"
+        return {"stage": "report-or-compare", "recommendation": command, "artifacts": artifacts, "exists": exists}
+    return {"stage": "complete", "recommendation": None, "artifacts": artifacts, "exists": exists}

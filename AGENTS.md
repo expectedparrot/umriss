@@ -30,6 +30,11 @@ Do not replace a registered result with hand-authored or model-shaped test data.
 Do not silently drop failed calls, renormalize incomplete weight mass, or
 repair invalid probability vectors.
 
+If registration reports `incomplete_results`, preserve every Results package,
+run `umriss support audit-results`, and use its missing-job CSV with
+`umriss support export --job-ids` to create retry-only Jobs. Keep the retry tag
+and source-attempt attribution.
+
 ## Audit trail
 
 Commands emit one JSON envelope for programmatic consumption. Preserve the

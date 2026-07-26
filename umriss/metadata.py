@@ -31,6 +31,11 @@ def battery_id_from_metadata(metadata: dict[str, Any]) -> str:
 
 def validate_metadata(metadata: dict[str, Any]) -> list[dict[str, Any]]:
     warnings: list[dict[str, Any]] = []
+    if metadata.get("schema_version") != 1:
+        raise UmrissError(
+            "metadata_invalid",
+            "Battery metadata must declare `schema_version: 1`.",
+        )
     for key in ["wave", "battery", "topic", "context", "items"]:
         if key not in metadata:
             raise UmrissError("metadata_invalid", f"Metadata missing required field: {key}.")
@@ -86,6 +91,7 @@ def create_battery(args: Any) -> dict[str, Any]:
     bdir = battery_dir(args.battery_id)
     bdir.mkdir(parents=True, exist_ok=True)
     metadata = {
+        "schema_version": 1,
         "wave": args.wave,
         "battery": args.battery,
         "survey_key": args.battery_id,

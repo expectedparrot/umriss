@@ -1,0 +1,78 @@
+{
+  "execution": {
+    "cost_estimate": {
+      "available": false,
+      "reason": "Provider pricing is not available at job-export time."
+    },
+    "mode": "unspecified",
+    "owner": "external_ep"
+  },
+  "iterations": 1,
+  "jobs": "examples/pew_w154/run/pew_w154_diff1_n12.jobs.ep",
+  "manifest_path": "examples/pew_w154/run/pew_w154_diff1_n12_manifest.json",
+  "model_calls": 12,
+  "model_count": 1,
+  "models": [
+    {
+      "model": "gpt-5.5",
+      "service_name": "openai"
+    }
+  ],
+  "next_steps": [
+    "ep run --jobs examples/pew_w154/run/pew_w154_diff1_n12.jobs.ep --output examples/pew_w154/run/pew_w154_diff1_n12.results.ep",
+    "umriss support register-results --results examples/pew_w154/run/pew_w154_diff1_n12.results.ep --prompts examples/pew_w154/run/pew_w154_diff1_n12_prompts.jsonl --tag pew_w154_diff1_n12 --out examples/pew_w154/run/raw"
+  ],
+  "outputs": {
+    "jobs": {
+      "path": "examples/pew_w154/run/pew_w154_diff1_n12.jobs.ep",
+      "sha256": "a1f54ba9768bd14a36719997b5b1356bb7d3271a89a2c50eb266d4e4bcf40150"
+    }
+  },
+  "prompts": "examples/pew_w154/run/pew_w154_diff1_n12_prompts.jsonl",
+  "provenance": {
+    "command": "umriss support export",
+    "created_at": "2026-07-26T09:47:32Z",
+    "fingerprint": "4741336aac43a91071d78b0315e77609684c52fca0fe69d299659a6df735e15d",
+    "inputs": {
+      "prompts": {
+        "path": "examples/pew_w154/run/pew_w154_diff1_n12_prompts.jsonl",
+        "sha256": "122f4e7b630ed14c18c560289732ae71f8890b6a1c7037c390d95abeb209fb6e"
+      }
+    },
+    "parameters": {
+      "job_ids_path": null,
+      "limit": null,
+      "max_tokens": 2200,
+      "models": [
+        {
+          "model": "gpt-5.5",
+          "service_name": "openai"
+        }
+      ],
+      "path": "examples/pew_w154/run/pew_w154_diff1_n12.jobs.ep",
+      "registration_out": "examples/pew_w154/run/raw",
+      "tag": "pew_w154_diff1_n12",
+      "temperature": 1.0
+    },
+    "schema_version": 1,
+    "umriss_version": "0.1.0"
+  },
+  "questions": 1,
+  "register_command": "umriss support register-results --results examples/pew_w154/run/pew_w154_diff1_n12.results.ep --prompts examples/pew_w154/run/pew_w154_diff1_n12_prompts.jsonl --tag pew_w154_diff1_n12 --out examples/pew_w154/run/raw",
+  "registration_out": "examples/pew_w154/run/raw",
+  "results": "examples/pew_w154/run/pew_w154_diff1_n12.results.ep",
+  "reused": false,
+  "run_command": "ep run --jobs examples/pew_w154/run/pew_w154_diff1_n12.jobs.ep --output examples/pew_w154/run/pew_w154_diff1_n12.results.ep",
+  "run_contract": {
+    "expected_results_path": "examples/pew_w154/run/pew_w154_diff1_n12.results.ep",
+    "jobs_path": "examples/pew_w154/run/pew_w154_diff1_n12.jobs.ep",
+    "owner": "external_ep",
+    "register_command": "umriss support register-results --results examples/pew_w154/run/pew_w154_diff1_n12.results.ep --prompts examples/pew_w154/run/pew_w154_diff1_n12_prompts.jsonl --tag pew_w154_diff1_n12 --out examples/pew_w154/run/raw",
+    "run_command": "ep run --jobs examples/pew_w154/run/pew_w154_diff1_n12.jobs.ep --output examples/pew_w154/run/pew_w154_diff1_n12.results.ep"
+  },
+  "save_format": "edsl_ep",
+  "scenarios": 12,
+  "schema_version": 1,
+  "tag": "pew_w154_diff1_n12",
+  "workflow": "support"
+}

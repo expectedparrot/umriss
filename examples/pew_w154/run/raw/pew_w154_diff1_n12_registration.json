@@ -1,6 +1,37 @@
 {
-  "jobs": "examples/pew_w154/run/raw/pew_w154_diff1_n12_jobs.csv",
-  "prompts": "examples/pew_w154/run/pew_w154_diff1_n12_prompts.jsonl",
-  "raw": "examples/pew_w154/run/raw/pew_w154_diff1_n12_raw.csv",
-  "results": "examples/pew_w154/run/pew_w154_diff1_n12.results.ep"
+  "kind": "umriss_result_registration",
+  "outputs": {
+    "jobs": {
+      "path": "examples/pew_w154/run/raw/pew_w154_diff1_n12_jobs.csv",
+      "sha256": "32a70fccf2a8bfa4fffc2bde603505fbfc704fe113c97a20882faba5aa205f68"
+    },
+    "raw": {
+      "path": "examples/pew_w154/run/raw/pew_w154_diff1_n12_raw.csv",
+      "sha256": "242a47d22a162eecb33a92a74927c21f009558028caca6899ee69c22d174d3ba"
+    }
+  },
+  "provenance": {
+    "command": "umriss support register-results",
+    "created_at": "2026-07-26T09:50:29Z",
+    "fingerprint": "20468308d0afdda2c6664df41d49d6bc1dd11eea5f74304529725859a12fa53c",
+    "inputs": {
+      "prompts": {
+        "path": "examples/pew_w154/run/pew_w154_diff1_n12_prompts.jsonl",
+        "sha256": "122f4e7b630ed14c18c560289732ae71f8890b6a1c7037c390d95abeb209fb6e"
+      },
+      "results": {
+        "path": "examples/pew_w154/run/pew_w154_diff1_n12.results.ep",
+        "sha256": "842b8093b1fce58647211c53f22a727bceae6e8bec8a7e4fc65c0c262ccfae97"
+      }
+    },
+    "parameters": {
+      "out": "examples/pew_w154/run/raw",
+      "tag": "pew_w154_diff1_n12"
+    },
+    "schema_version": 1,
+    "umriss_version": "0.1.0"
+  },
+  "rows": 12,
+  "schema_version": 1,
+  "tag": "pew_w154_diff1_n12"
 }

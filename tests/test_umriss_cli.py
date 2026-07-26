@@ -5,11 +5,17 @@ import json
 import os
 import tempfile
 import unittest
+from contextlib import redirect_stderr, redirect_stdout
+from io import StringIO
 from pathlib import Path
+from unittest.mock import patch
 
 import pandas as pd
 
+from umriss.artifacts import next_for_artifacts
 from umriss.cli import build_parser, main
+from umriss.errors import UmrissError
+from umriss.parsing import audit_result_attempts, register_results
 from umriss.twin_survey import aggregate_survey_frame, plot_survey_comparison
 
 
@@ -19,6 +25,7 @@ def write_json(path: Path, data: dict) -> None:
 
 def mini_metadata() -> dict:
     return {
+        "schema_version": 1,
         "wave": "T1",
         "battery": "TEST",
         "topic": "test topic",
@@ -51,6 +58,26 @@ def write_raw(path: Path) -> None:
 
 
 class UmrissCliTests(unittest.TestCase):
+    def test_commands_emit_one_json_envelope_and_canonical_errors(self) -> None:
+        stdout = StringIO()
+        with redirect_stdout(stdout):
+            self.assertEqual(main(["version"]), 0)
+        payload = json.loads(stdout.getvalue())
+        self.assertEqual(
+            set(payload),
+            {"command", "status", "data", "warnings", "errors", "next_steps"},
+        )
+        self.assertEqual(payload["command"], "umriss version")
+
+        stdout = StringIO()
+        stderr = StringIO()
+        with redirect_stdout(stdout), redirect_stderr(stderr):
+            self.assertEqual(main(["support", "build"]), 1)
+        error = json.loads(stdout.getvalue())
+        self.assertEqual(error["command"], "umriss support build")
+        self.assertEqual(error["errors"][0]["code"], "invalid_arguments")
+        self.assertEqual(stderr.getvalue(), "")
+
     def test_weighted_ordinary_survey_aggregation(self) -> None:
         metadata = mini_metadata()
         raw = pd.DataFrame(
@@ -532,6 +559,56 @@ class UmrissCliTests(unittest.TestCase):
             )
             self.assertEqual(main(["support", "build", "--metadata", str(metadata_path), "--design", str(design_path), "--tag", "demo", "--out", str(root / "prompts")]), 0)
             self.assertEqual(main(["next", "--tag", "demo", "--metadata", str(metadata_path), "--prompt-dir", str(root / "prompts"), "--raw-dir", str(root / "raw"), "--derived-dir", str(root / "derived")]), 0)
+            paths = {
+                "prompt_dir": root / "prompts",
+                "raw_dir": root / "raw",
+                "bank_dir": root / "bank",
+                "derived_dir": root / "derived",
+            }
+            state = next_for_artifacts("demo", metadata=metadata_path, **paths)
+            self.assertEqual(state["stage"], "export-jobs")
+            self.assertIn("--tag demo", state["recommendation"])
+
+            jobs_path = root / "prompts" / "custom.jobs.ep"
+            results_path = root / "results" / "custom.results.ep"
+            jobs_path.mkdir()
+            write_json(
+                root / "prompts" / "demo_manifest.json",
+                {
+                    "tag": "demo",
+                    "prompts": str(root / "prompts" / "demo_prompts.jsonl"),
+                    "jobs": str(jobs_path),
+                    "results": str(results_path),
+                },
+            )
+            state = next_for_artifacts("demo", metadata=metadata_path, **paths)
+            self.assertEqual(state["stage"], "run-externally")
+            self.assertIn(str(jobs_path), state["recommendation"])
+
+            results_path.parent.mkdir()
+            results_path.mkdir()
+            self.assertEqual(
+                next_for_artifacts("demo", metadata=metadata_path, **paths)["stage"],
+                "register-results",
+            )
+            (root / "raw").mkdir()
+            (root / "raw" / "demo_raw.csv").write_text("scenario.job_id,answer.resp\n")
+            self.assertEqual(
+                next_for_artifacts("demo", metadata=metadata_path, **paths)["stage"],
+                "parse-results",
+            )
+            (root / "bank").mkdir()
+            (root / "bank" / "demo_probabilities.csv").write_text("job_id,item,option_index,probability\n")
+            self.assertEqual(
+                next_for_artifacts("demo", metadata=metadata_path, **paths)["stage"],
+                "evaluate",
+            )
+            (root / "derived").mkdir()
+            (root / "derived" / "demo_generated_support_summary.csv").write_text("holdout,rmse\n")
+            self.assertEqual(
+                next_for_artifacts("demo", metadata=metadata_path, **paths)["stage"],
+                "report-or-compare",
+            )
 
     def test_support_export_writes_jobs_ep(self) -> None:
         with tempfile.TemporaryDirectory() as d:
@@ -540,12 +617,26 @@ class UmrissCliTests(unittest.TestCase):
             metadata_path = root / "metadata.json"
             write_json(metadata_path, mini_metadata())
             self.assertEqual(main(["support", "build", "--metadata", str(metadata_path), "--preset", "pattern-coverage", "--tag", "mini", "--out", str(root / "prompts")]), 0)
+            self.assertEqual(main(["support", "build", "--metadata", str(metadata_path), "--preset", "pattern-coverage", "--tag", "mini", "--out", str(root / "prompts")]), 0)
             jobs_path = root / "prompts" / "mini.jobs.ep"
             self.assertEqual(main(["support", "export", "--prompts", str(root / "prompts" / "mini_prompts.jsonl"), "--path", str(jobs_path), "--model", "test", "--limit", "1"]), 0)
+            self.assertEqual(main(["support", "export", "--prompts", str(root / "prompts" / "mini_prompts.jsonl"), "--path", str(jobs_path), "--model", "test", "--limit", "1"]), 0)
             self.assertTrue(jobs_path.exists())
-            manifest = json.loads((root / "prompts" / "manifest.json").read_text())
-            self.assertEqual(manifest["run_contract"]["owner"], "agent")
+            manifest = json.loads((root / "prompts" / "mini_manifest.json").read_text())
+            self.assertEqual(manifest["run_contract"]["owner"], "external_ep")
             self.assertTrue(manifest["run_command"].startswith("ep run --jobs "))
+            self.assertEqual(manifest["model_calls"], 1)
+            self.assertIn("--tag mini", manifest["register_command"])
+            self.assertIn("--out", manifest["register_command"])
+            self.assertEqual(manifest["next_steps"], [manifest["run_command"], manifest["register_command"]])
+
+            changed = mini_metadata()
+            changed["context"] = "A changed input must not silently reuse the tag."
+            write_json(metadata_path, changed)
+            output = StringIO()
+            with redirect_stdout(output):
+                self.assertEqual(main(["support", "build", "--metadata", str(metadata_path), "--preset", "pattern-coverage", "--tag", "mini", "--out", str(root / "prompts")]), 1)
+            self.assertEqual(json.loads(output.getvalue())["errors"][0]["code"], "output_conflict")
 
     def test_baseline_jobs_enforce_leave_one_out_boundary_and_parse(self) -> None:
         with tempfile.TemporaryDirectory() as d:
@@ -618,6 +709,58 @@ class UmrissCliTests(unittest.TestCase):
             baseline_parser = top_level["baseline"]
             baseline_commands = baseline_parser._subparsers._group_actions[0].choices
             self.assertNotIn("run", baseline_commands)
+
+    def test_retry_audit_preserves_attempt_attribution_and_missing_ids(self) -> None:
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            prompts = root / "prompts.jsonl"
+            prompts.write_text(
+                "\n".join(
+                    json.dumps({"job_id": job_id, "prompt": f"Prompt {job_id}"})
+                    for job_id in ("j1", "j2", "j3")
+                )
+                + "\n"
+            )
+            attempts = [root / "attempt1.results.ep", root / "attempt2.results.ep"]
+            for path in attempts:
+                path.write_text(path.name)
+            frames = [
+                pd.DataFrame({"scenario.job_id": ["j1"], "answer.resp": ["one"]}),
+                pd.DataFrame({"scenario.job_id": ["j2"], "answer.resp": ["two"]}),
+            ]
+            with patch("umriss.parsing.load_results_ep_to_pandas", side_effect=frames):
+                data = audit_result_attempts(attempts, prompts, "demo", root / "audit")
+            self.assertFalse(data["complete"])
+            self.assertEqual(data["missing_jobs"], 1)
+            self.assertEqual(
+                pd.read_csv(data["missing_job_ids_path"])["job_id"].tolist(),
+                ["j3"],
+            )
+            merged = pd.read_csv(data["merged_raw_path"])
+            self.assertEqual(merged["_umriss_source_run"].tolist(), [1, 2])
+            self.assertEqual(
+                merged["_umriss_source_results"].tolist(),
+                [str(attempts[0]), str(attempts[1])],
+            )
+
+    def test_registration_rejects_incomplete_results(self) -> None:
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            prompts = root / "prompts.jsonl"
+            prompts.write_text(
+                '{"job_id":"j1","prompt":"One"}\n'
+                '{"job_id":"j2","prompt":"Two"}\n'
+            )
+            results = root / "attempt.results.ep"
+            results.write_text("fixture")
+            frame = pd.DataFrame(
+                {"scenario.job_id": ["j1"], "answer.resp": ["valid"]}
+            )
+            with patch("umriss.parsing.load_results_ep_to_pandas", return_value=frame):
+                with self.assertRaises(UmrissError) as raised:
+                    register_results(results, prompts, "demo", root / "raw")
+            self.assertEqual(raised.exception.code, "incomplete_results")
+            self.assertIn("audit-results", raised.exception.next_steps[0])
 
     def test_plot_validation_uses_generated_run_artifacts(self) -> None:
         with tempfile.TemporaryDirectory() as d:

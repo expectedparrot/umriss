@@ -200,18 +200,27 @@ probabilities:
     <tr><td><a href="../examples/pew_w154/run/pew_w154_diff1_n12_coverage.csv">coverage table</a></td><td>Whether each item-option cell is present and how often.</td></tr>
     <tr><td><a href="../examples/pew_w154/run/pew_w154_diff1_n12_prompts.jsonl">prompt JSONL</a></td><td>Executable records for agents and tooling.</td></tr>
     <tr><td><a href="../examples/pew_w154/run/pew_w154_diff1_n12_prompts.html">prompt browser</a></td><td>Readable, collapsible review before execution.</td></tr>
+    <tr><td><a href="../examples/pew_w154/run/pew_w154_diff1_n12_build_manifest.json">build manifest</a></td><td>Input, parameter, and output hashes for reproducing this exact plan.</td></tr>
   </table>
+  <p>The build manifest records the umriss version, input hashes, resolved parameters, creation time, and output hashes. This checked-in example was rebuilt with the current CLI and its prompts correspond to the current executed Results. Repeating an identical build reuses the artifacts; changing an input under the same tag requires an explicit <code>--force</code>.</p>
   <p>Each coverage prompt states that its targeted domain may differ from the other domains. It asks for a concise <code>persona</code>, written in the second person for later use as an agent trait, plus subjective response probabilities. Target marginals are intentionally absent from every prompt.</p>
 
   <h2>5. Export one executable job object</h2>
   <pre><code>umriss support export \
   --prompts examples/pew_w154/run/pew_w154_diff1_n12_prompts.jsonl \
-  --path examples/pew_w154/run/pew_w154_diff1_n12.jobs.ep</code></pre>
+  --path examples/pew_w154/run/pew_w154_diff1_n12.jobs.ep \
+  --model openai:gpt-5.5 \
+  --tag pew_w154_diff1_n12 \
+  --registration-out examples/pew_w154/run/raw</code></pre>
   <details><summary>Captured output</summary><pre><code>{
   "scenarios": 12,
-  "models": ["gpt-5.5"],
-  "run_command": "ep run --jobs examples/pew_w154/run/pew_w154_diff1_n12.jobs.ep --output examples/pew_w154/run/pew_w154_diff1_n12.results.ep"
+  "model_calls": 12,
+  "models": [{"model": "gpt-5.5", "service_name": "openai"}],
+  "manifest_path": "examples/pew_w154/run/pew_w154_diff1_n12_manifest.json",
+  "run_command": "ep run --jobs examples/pew_w154/run/pew_w154_diff1_n12.jobs.ep --output examples/pew_w154/run/pew_w154_diff1_n12.results.ep",
+  "register_command": "umriss support register-results --results examples/pew_w154/run/pew_w154_diff1_n12.results.ep --prompts examples/pew_w154/run/pew_w154_diff1_n12_prompts.jsonl --tag pew_w154_diff1_n12 --out examples/pew_w154/run/raw"
 }</code></pre></details>
+  <p>The export reports the exact call count before execution and writes an immutable EDSL job object plus a manifest containing model and service specifications, the expected Results path, cost-estimate availability, and directly executable run and registration commands.</p>
 
   <h2>6. Run the real model jobs</h2>
   <pre><code>ep run \
@@ -221,7 +230,7 @@ probabilities:
   "status": "ok",
   "scenario_count": 12,
   "result_count": 12,
-  "results_uuid": "c78751ef-75e2-4184-95ff-3d1df6c7ac18"
+  "results_uuid": "67afb7ea-9296-4574-81af-c198ebe9eb16"
 }</code></pre></details>
   <p>This tutorial output came from an actual Expected Parrot run. <code>umriss</code> makes the boundary visible: it builds jobs, while <code>ep run</code> owns model execution.</p>
 
@@ -249,11 +258,11 @@ probabilities:
   <table>
     <thead><tr><th>Item</th><th>Equal-weight support bank</th><th>Uniform target</th><th>Largest deviation</th></tr></thead>
     <tbody>
-      <tr><td>Hobbies</td><td>47.3% similar, 52.8% different</td><td>50%, 50%</td><td>2.8 percentage points</td></tr>
-      <tr><td>Physical abilities</td><td>26.6% similar, 73.4% different</td><td>50%, 50%</td><td>23.4 percentage points</td></tr>
-      <tr><td>Parenting</td><td>47.7% similar, 52.3% different</td><td>50%, 50%</td><td>2.3 percentage points</td></tr>
-      <tr><td>Expression of feelings</td><td>34.4% similar, 65.6% different</td><td>50%, 50%</td><td>15.6 percentage points</td></tr>
-      <tr><td>Workplace abilities</td><td>61.3% similar, 38.8% different</td><td>50%, 50%</td><td>11.3 percentage points</td></tr>
+      <tr><td>Hobbies</td><td>49.6% similar, 50.4% different</td><td>50%, 50%</td><td>0.4 percentage points</td></tr>
+      <tr><td>Physical abilities</td><td>25.3% similar, 74.8% different</td><td>50%, 50%</td><td>24.8 percentage points</td></tr>
+      <tr><td>Parenting</td><td>48.1% similar, 51.9% different</td><td>50%, 50%</td><td>1.9 percentage points</td></tr>
+      <tr><td>Expression of feelings</td><td>35.8% similar, 64.3% different</td><td>50%, 50%</td><td>14.3 percentage points</td></tr>
+      <tr><td>Workplace abilities</td><td>61.7% similar, 38.3% different</td><td>50%, 50%</td><td>11.7 percentage points</td></tr>
     </tbody>
   </table>
   <p>This 12-persona pilot therefore fails the method’s preflight requirement. It covered every declared item-option region, but coverage is not aggregate balance: each persona supplies probabilities for all five items, and its non-targeted answers collectively pull physical abilities and feelings far from 50–50. No Pew target marginals enter this calculation.</p>
@@ -263,33 +272,33 @@ probabilities:
   --metadata examples/pew_w154/pew_w154_metadata.json \
   --tag pew_w154_diff1_n12 \
   --out examples/pew_w154/run/derived</code></pre>
-  <p>Leave-one-out validation produces five fitted weight vectors, not one. Each column below is a separate fit: the named marginal is withheld, and the weights are estimated from the other four marginals. A value of 55.3 percent for persona 8 in the “hobbies” column means that this support profile receives 55.3 percent of the synthetic population weight when hobbies are the omitted outcome.</p>
+  <p>Leave-one-out validation produces five fitted weight vectors, not one. Each column below is a separate fit: the named marginal is withheld, and the weights are estimated from the other four marginals. A value of 57.9 percent for persona 8 in the “hobbies” column means that this support profile receives 57.9 percent of the synthetic population weight when hobbies are the omitted outcome.</p>
   <table>
     <thead><tr><th>Persona</th><th>Hobbies held out</th><th>Physical held out</th><th>Parenting held out</th><th>Feelings held out</th><th>Workplace held out</th></tr></thead>
     <tbody>
-      <tr><td>1. Similar hobbies</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>1.9%</td><td>0.3%</td></tr>
-      <tr><td>2. Different hobbies</td><td>0.0%</td><td>5.7%</td><td>30.5%</td><td>20.8%</td><td>1.3%</td></tr>
-      <tr><td>3. Similar physical abilities</td><td>1.9%</td><td>0.0%</td><td>1.6%</td><td>8.3%</td><td>13.2%</td></tr>
-      <tr><td>4. Different physical abilities</td><td>0.0%</td><td>40.5%</td><td>0.0%</td><td>9.6%</td><td>0.7%</td></tr>
-      <tr><td>5. Similar parenting</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>2.5%</td><td>0.2%</td></tr>
-      <tr><td>6. Different parenting</td><td>25.2%</td><td>0.2%</td><td>0.0%</td><td>27.3%</td><td>5.2%</td></tr>
-      <tr><td>7. Similar expression of feelings</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>2.2%</td><td>0.0%</td></tr>
-      <tr><td>8. Different expression of feelings</td><td>55.3%</td><td>25.3%</td><td>50.8%</td><td>3.7%</td><td>34.3%</td></tr>
-      <tr><td>9. Similar workplace abilities</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>4.0%</td><td>0.5%</td></tr>
-      <tr><td>10. Different workplace abilities</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>0.8%</td><td>1.0%</td></tr>
-      <tr><td>11. Similar across all five domains</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>1.1%</td><td>0.0%</td></tr>
-      <tr><td>12. Different across all five domains</td><td>17.6%</td><td>28.4%</td><td>17.1%</td><td>17.9%</td><td>43.1%</td></tr>
+      <tr><td>1. Similar hobbies</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>2.8%</td><td>0.0%</td></tr>
+      <tr><td>2. Different hobbies</td><td>0.0%</td><td>25.2%</td><td>24.5%</td><td>29.1%</td><td>6.2%</td></tr>
+      <tr><td>3. Similar physical abilities</td><td>7.8%</td><td>0.0%</td><td>6.6%</td><td>5.3%</td><td>14.4%</td></tr>
+      <tr><td>4. Different physical abilities</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>2.3%</td><td>0.0%</td></tr>
+      <tr><td>5. Similar parenting</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>2.2%</td><td>0.0%</td></tr>
+      <tr><td>6. Different parenting</td><td>11.7%</td><td>6.1%</td><td>0.0%</td><td>23.0%</td><td>0.0%</td></tr>
+      <tr><td>7. Similar expression of feelings</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>3.0%</td><td>0.0%</td></tr>
+      <tr><td>8. Different expression of feelings</td><td>57.9%</td><td>46.6%</td><td>47.3%</td><td>6.3%</td><td>37.7%</td></tr>
+      <tr><td>9. Similar workplace abilities</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>2.5%</td><td>0.0%</td></tr>
+      <tr><td>10. Different workplace abilities</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>1.8%</td><td>0.0%</td></tr>
+      <tr><td>11. Similar across all five domains</td><td>0.0%</td><td>0.0%</td><td>0.0%</td><td>1.3%</td><td>0.0%</td></tr>
+      <tr><td>12. Different across all five domains</td><td>22.7%</td><td>22.0%</td><td>21.7%</td><td>20.4%</td><td>41.6%</td></tr>
     </tbody>
   </table>
-  <p>The weights are concentrated. Persona 8—the profile designed around different emotional expression—has the largest weight in three folds, while the all-different anchor receives between 17.1 and 43.1 percent in every fold. When physical abilities are held out, the physical-difference persona receives 40.5 percent; because that item is omitted, this weight is learned from how the profile answers the other four items, not from its physical-abilities answer.</p>
+  <p>The weights are concentrated. Persona 8—the profile designed around different emotional expression—has the largest weight in four folds, while the all-different anchor receives between 20.4 and 41.6 percent in every fold. When physical abilities are held out, persona 8 receives 46.6 percent; because that item is omitted, this weight is learned from how the profile answers the other four items, not from its physical-abilities answer.</p>
   <p>Several displayed values round to 0.0 percent. The optimizer may assign them tiny positive values, but they contribute negligibly at the shown precision. The complete unrounded audit is in <a href="../examples/pew_w154/run/derived/pew_w154_diff1_n12_generated_support_weights.csv"><code>pew_w154_diff1_n12_generated_support_weights.csv</code></a>, with one row per persona and holdout fold. These are fitted mixture weights for synthetic support profiles—not estimates of the prevalence of literal real-world persona categories.</p>
   <table>
     <tr><th>Method</th><th>Mean RMSE</th><th>Median RMSE</th><th>Maximum RMSE</th></tr>
-    <tr><td>Generated support mixture</td><td>0.12836</td><td>0.13916</td><td>0.14931</td></tr>
-    <tr><td>Unweighted support bank</td><td>0.13825</td><td>0.15251</td><td>0.23458</td></tr>
+    <tr><td>Generated support mixture</td><td>0.09145</td><td>0.11232</td><td>0.13587</td></tr>
+    <tr><td>Unweighted support bank</td><td>0.14458</td><td>0.17584</td><td>0.24792</td></tr>
     <tr><td>Uniform response baseline</td><td>0.23292</td><td>0.21238</td><td>0.39042</td></tr>
   </table>
-  <p>The comparison matters because matching held-in marginals is not enough. For each fold, the weights are learned from four domain marginals and used to predict the omitted fifth marginal. The microdata is not consulted. The generated mixture improves on both displayed baselines, but a mean RMSE of 0.128 is still substantial and should be reported as such.</p>
+  <p>The comparison matters because matching held-in marginals is not enough. For each fold, the weights are learned from four domain marginals and used to predict the omitted fifth marginal. The microdata is not consulted. The generated mixture improves on both displayed baselines, but a mean RMSE of 0.091 is still substantial and should be reported as such.</p>
 
   </details>
 

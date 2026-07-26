@@ -12,6 +12,7 @@ import pandas as pd
 
 from .errors import UmrissError
 from .metadata import item_option_codes, item_option_labels
+from .provenance import build_provenance, guard_manifest, path_sha256
 
 
 def extract_json(text: str) -> dict[str, Any] | None:
@@ -177,11 +178,97 @@ def load_results_ep_to_pandas(results_path: Path) -> pd.DataFrame:
         raise UmrissError("invalid_input", f"Could not load results EP file: {results_path}.", context={"error": str(exc)}) from exc
 
 
-def register_results(results_path: Path, prompts_path: Path | None, tag: str, out_dir: Path) -> dict[str, str]:
+def _result_job_column(frame: pd.DataFrame) -> str:
+    column = next(
+        (name for name in ("scenario.job_id", "job_id", "scenario_job_id") if name in frame.columns),
+        None,
+    )
+    if column is None:
+        raise UmrissError("invalid_input", "Results do not contain a stable scenario job ID.")
+    return column
+
+
+def _result_answer_column(frame: pd.DataFrame) -> str:
+    column = next((name for name in frame.columns if name == "answer.resp"), None)
+    if column is None:
+        column = next((name for name in frame.columns if name.startswith("answer.")), None)
+    if column is None:
+        raise UmrissError("invalid_input", "Results do not contain an answer column.")
+    return column
+
+
+def _expected_job_ids(prompts_path: Path) -> list[str]:
+    if prompts_path.suffix != ".jsonl":
+        frame = pd.read_csv(prompts_path)
+        if "job_id" not in frame:
+            raise UmrissError("invalid_input", "Prompt table does not contain `job_id`.")
+        return frame["job_id"].astype(str).tolist()
+    rows = [json.loads(line) for line in prompts_path.read_text().splitlines() if line.strip()]
+    if any("job_id" not in row for row in rows):
+        raise UmrissError("invalid_input", "Prompt JSONL contains a row without `job_id`.")
+    return [str(row["job_id"]) for row in rows]
+
+
+def _valid_result_rows(frame: pd.DataFrame) -> pd.DataFrame:
+    job_column = _result_job_column(frame)
+    answer_column = _result_answer_column(frame)
+    valid = frame[job_column].notna() & frame[answer_column].notna()
+    valid &= frame[answer_column].astype(str).str.strip().ne("")
+    selected = frame.loc[valid].copy()
+    selected["_umriss_job_id"] = selected[job_column].astype(str)
+    return selected
+
+
+def register_results(
+    results_path: Path,
+    prompts_path: Path | None,
+    tag: str,
+    out_dir: Path,
+    *,
+    force: bool = False,
+) -> dict[str, Any]:
     out_dir.mkdir(parents=True, exist_ok=True)
     raw_path = out_dir / f"{tag}_raw.csv"
     jobs_path = out_dir / f"{tag}_jobs.csv"
+    registration_path = out_dir / f"{tag}_registration.json"
+    provenance = build_provenance(
+        "umriss support register-results",
+        inputs={"results": results_path, "prompts": prompts_path},
+        parameters={"tag": tag, "out": str(out_dir)},
+    )
+    existing = guard_manifest(
+        registration_path,
+        provenance,
+        outputs=[raw_path, jobs_path],
+        force=force,
+    )
+    if existing is not None:
+        return {
+            "raw_path": str(raw_path),
+            "jobs_path": str(jobs_path),
+            "registration_path": str(registration_path),
+            "rows": int(existing["rows"]),
+            "reused": True,
+        }
     raw = load_results_ep_to_pandas(results_path)
+    if prompts_path:
+        expected = set(_expected_job_ids(prompts_path))
+        observed = set(_valid_result_rows(raw)["_umriss_job_id"])
+        missing = sorted(expected - observed)
+        if missing:
+            raise UmrissError(
+                "incomplete_results",
+                f"Results are missing valid answers for {len(missing)} of {len(expected)} prompt jobs.",
+                context={
+                    "expected_jobs": len(expected),
+                    "valid_jobs": len(expected) - len(missing),
+                    "missing_jobs": missing[:20],
+                },
+                next_steps=[
+                    f"umriss support audit-results --results {results_path} --prompts {prompts_path} "
+                    f"--tag {tag} --out {out_dir / 'retry_audit'}"
+                ],
+            )
     raw.to_csv(raw_path, index=False)
     if prompts_path:
         if prompts_path.suffix == ".jsonl":
@@ -195,6 +282,117 @@ def register_results(results_path: Path, prompts_path: Path | None, tag: str, ou
             shutil.copyfile(prompts_path, jobs_path)
     else:
         pd.DataFrame().to_csv(jobs_path, index=False)
-    provenance = {"results": str(results_path), "prompts": str(prompts_path) if prompts_path else None, "raw": str(raw_path), "jobs": str(jobs_path)}
-    (out_dir / f"{tag}_registration.json").write_text(json.dumps(provenance, indent=2, sort_keys=True) + "\n")
-    return {"raw_path": str(raw_path), "jobs_path": str(jobs_path), "registration_path": str(out_dir / f"{tag}_registration.json")}
+    registration = {
+        "schema_version": 1,
+        "kind": "umriss_result_registration",
+        "tag": tag,
+        "rows": len(raw),
+        "provenance": provenance,
+        "outputs": {
+            "raw": {"path": str(raw_path), "sha256": path_sha256(raw_path)},
+            "jobs": {"path": str(jobs_path), "sha256": path_sha256(jobs_path)},
+        },
+    }
+    registration_path.write_text(json.dumps(registration, indent=2, sort_keys=True) + "\n")
+    return {
+        "raw_path": str(raw_path),
+        "jobs_path": str(jobs_path),
+        "registration_path": str(registration_path),
+        "rows": len(raw),
+        "reused": False,
+    }
+
+
+def audit_result_attempts(
+    results_paths: list[Path],
+    prompts_path: Path,
+    tag: str,
+    out_dir: Path,
+    *,
+    force: bool = False,
+) -> dict[str, Any]:
+    if not results_paths:
+        raise UmrissError("invalid_input", "At least one --results package is required.")
+    expected_ids = _expected_job_ids(prompts_path)
+    if len(expected_ids) != len(set(expected_ids)):
+        raise UmrissError("invalid_input", "Prompt job IDs must be unique.")
+    out_dir.mkdir(parents=True, exist_ok=True)
+    merged_path = out_dir / f"{tag}_merged_raw.csv"
+    coverage_path = out_dir / f"{tag}_retry_coverage.csv"
+    missing_path = out_dir / f"{tag}_missing_job_ids.csv"
+    manifest_path = out_dir / f"{tag}_retry_manifest.json"
+    provenance = build_provenance(
+        "umriss support audit-results",
+        inputs={
+            "prompts": prompts_path,
+            **{f"results_{index}": path for index, path in enumerate(results_paths, start=1)},
+        },
+        parameters={"tag": tag, "results_order": [str(path) for path in results_paths]},
+    )
+    outputs = [merged_path, coverage_path, missing_path]
+    existing = guard_manifest(manifest_path, provenance, outputs=outputs, force=force)
+    if existing is not None:
+        return {**existing["data"], "reused": True}
+
+    selected: dict[str, pd.Series] = {}
+    coverage_rows: list[dict[str, Any]] = []
+    for run_index, results_path in enumerate(results_paths, start=1):
+        frame = load_results_ep_to_pandas(results_path)
+        valid = _valid_result_rows(frame)
+        observed = set(valid["_umriss_job_id"])
+        coverage_rows.append(
+            {
+                "run": run_index,
+                "results_path": str(results_path),
+                "valid_jobs": len(set(expected_ids) & observed),
+                "expected_jobs": len(expected_ids),
+                "missing_jobs": len(set(expected_ids) - observed),
+            }
+        )
+        for _, record in valid.iterrows():
+            job_id = str(record["_umriss_job_id"])
+            if job_id in expected_ids and job_id not in selected:
+                retained = record.copy()
+                retained["_umriss_source_run"] = run_index
+                retained["_umriss_source_results"] = str(results_path)
+                selected[job_id] = retained
+
+    missing = [job_id for job_id in expected_ids if job_id not in selected]
+    merged = pd.DataFrame([selected[job_id] for job_id in expected_ids if job_id in selected])
+    merged.to_csv(merged_path, index=False)
+    coverage_rows.append(
+        {
+            "run": "merged",
+            "results_path": "first valid response in supplied run order",
+            "valid_jobs": len(selected),
+            "expected_jobs": len(expected_ids),
+            "missing_jobs": len(missing),
+        }
+    )
+    pd.DataFrame(coverage_rows).to_csv(coverage_path, index=False)
+    pd.DataFrame({"job_id": missing}).to_csv(missing_path, index=False)
+    data = {
+        "merged_raw_path": str(merged_path),
+        "coverage_path": str(coverage_path),
+        "missing_job_ids_path": str(missing_path),
+        "attempts": len(results_paths),
+        "expected_jobs": len(expected_ids),
+        "valid_jobs": len(selected),
+        "missing_jobs": len(missing),
+        "complete": not missing,
+        "manifest_path": str(manifest_path),
+        "reused": False,
+    }
+    manifest = {
+        "schema_version": 1,
+        "kind": "umriss_retry_audit",
+        "provenance": provenance,
+        "outputs": {
+            path.name: {"path": str(path), "sha256": path_sha256(path)}
+            for path in outputs
+        },
+        "data": data,
+    }
+    registration_path = out_dir / f"{tag}_retry_manifest.json"
+    registration_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n")
+    return data
