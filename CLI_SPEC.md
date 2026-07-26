@@ -94,7 +94,7 @@ umriss baseline build --metadata FILE
   --tag TAG --out DIR
 
 umriss baseline export --prompts FILE --path FILE.jobs.ep [--model MODEL]
-umriss baseline run --jobs FILE.jobs.ep --output FILE.results.ep
+ep run --jobs FILE.jobs.ep --output FILE.results.ep
 umriss baseline register-results --results FILE.results.ep
   --prompts FILE.jsonl --tag TAG --out DIR
 umriss baseline parse --raw FILE --prompts FILE.jsonl

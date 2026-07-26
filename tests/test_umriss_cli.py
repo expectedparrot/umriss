@@ -9,7 +9,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from umriss.cli import main
+from umriss.cli import build_parser, main
 from umriss.twin_survey import aggregate_survey_frame, plot_survey_comparison
 
 
@@ -612,6 +612,12 @@ class UmrissCliTests(unittest.TestCase):
             )
             self.assertTrue((root / "parsed" / "demo_one_shot.csv").exists())
             self.assertTrue((root / "parsed" / "demo_conditioned_direct.csv").exists())
+
+            parser = build_parser()
+            top_level = parser._subparsers._group_actions[0].choices
+            baseline_parser = top_level["baseline"]
+            baseline_commands = baseline_parser._subparsers._group_actions[0].choices
+            self.assertNotIn("run", baseline_commands)
 
     def test_plot_validation_uses_generated_run_artifacts(self) -> None:
         with tempfile.TemporaryDirectory() as d:

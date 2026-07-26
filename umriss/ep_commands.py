@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import os
-import subprocess
 from contextlib import redirect_stdout
 from io import StringIO
 from pathlib import Path
@@ -9,29 +8,6 @@ from typing import Any
 
 from .errors import UmrissError
 from .jsonlio import read_jsonl, write_json
-
-
-def run_ep_jobs(jobs_path: Path, output_path: Path) -> dict[str, Any]:
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    command = ["ep", "run", "--jobs", str(jobs_path), "--output", str(output_path)]
-    try:
-        completed = subprocess.run(command, check=False)
-    except FileNotFoundError as exc:
-        raise UmrissError("ep_unavailable", "The `ep` executable is not on PATH.") from exc
-    if completed.returncode != 0:
-        raise UmrissError(
-            "ep_run_failed",
-            f"`ep run` exited with status {completed.returncode}.",
-            context={"command": command, "returncode": completed.returncode},
-        )
-    if not output_path.exists():
-        raise UmrissError("ep_run_failed", f"`ep run` did not create the expected result: {output_path}")
-    return {
-        "jobs_path": str(jobs_path),
-        "results_path": str(output_path),
-        "command": " ".join(command),
-        "returncode": completed.returncode,
-    }
 
 
 def export_support_jobs(

@@ -20,7 +20,7 @@ from .artifacts import (
 from .balancing import build_uniform_augmentation, merge_support_banks, write_uniformity
 from .baselines import build_baseline_prompts, parse_baseline_results
 from .calibration import fit_weights, load_support_matrix, write_fit_outputs
-from .ep_commands import export_support_jobs, run_ep_jobs
+from .ep_commands import export_support_jobs
 from .errors import UmrissError
 from .evaluation import run_marginal_validation
 from .jsonlio import read_json
@@ -341,11 +341,6 @@ def cmd_baseline_export(args: argparse.Namespace) -> dict[str, Any]:
 def cmd_baseline_register_results(args: argparse.Namespace) -> dict[str, Any]:
     data = register_results(Path(args.results), Path(args.prompts), args.tag, Path(args.out))
     return envelope("umriss baseline register-results", "ok", data)
-
-
-def cmd_baseline_run(args: argparse.Namespace) -> dict[str, Any]:
-    data = run_ep_jobs(Path(args.jobs), Path(args.output))
-    return envelope("umriss baseline run", "ok", data)
 
 
 def cmd_baseline_parse(args: argparse.Namespace) -> dict[str, Any]:
@@ -818,10 +813,6 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--temperature", type=float, default=1.0)
     p.add_argument("--max-tokens", type=int, default=1200)
     p.set_defaults(func=cmd_baseline_export)
-    p = baseline.add_parser("run")
-    p.add_argument("--jobs", required=True)
-    p.add_argument("--output", required=True)
-    p.set_defaults(func=cmd_baseline_run)
     p = baseline.add_parser("register-results")
     p.add_argument("--results", required=True)
     p.add_argument("--prompts", required=True)

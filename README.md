@@ -1,259 +1,153 @@
 # umriss
 
+## Copy and paste into a coding agent
+
+```text
+Set up umriss and help me build an auditable digital-twin population from
+reported survey marginals in this repository.
+
+Install the current umriss main branch and its temporarily required EDSL
+probabilistic-response branch:
+
+uv tool install --upgrade --force \
+  --with-executables-from "edsl @ git+https://github.com/expectedparrot/edsl.git@feature/probabilistic-response-contract" \
+  "umriss @ git+https://github.com/expectedparrot/umriss.git@main"
+
+Verify that `umriss` and `ep` resolve inside the directory reported by
+`uv tool dir --bin`. Do not use an older executable. Then run:
+
+umriss --help
+ep --help
+umriss guide
+
+Treat the CLI as the workflow source of truth. After each stage, run:
+
+umriss next --tag <tag> --metadata <metadata.json>
+
+Follow the returned recommendation. Umriss prepares `.jobs.ep` objects but
+does not execute model calls. Before external or paid inference, show me the
+jobs, model, call count, and returned EDSL command and wait for my approval.
+After execution, register the result with `umriss support register-results`.
+
+Never display or commit API keys. Preserve generated prompts, jobs, result
+registrations, support banks, fit diagnostics, validation outputs, and reports
+as the run's audit trail. Continue until the workflow is complete or my input
+or approval is required.
+```
+
 ![Umriss artwork: a population of distinct parrots inside brackets](docs/assets/umriss-art.png)
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+![Python](https://img.shields.io/badge/python-3.11%2B-blue.svg)
+[![EDSL](https://img.shields.io/badge/built%20on-EDSL-brightgreen.svg)](https://github.com/expectedparrot/edsl)
+
 `umriss` is an agent-facing Python CLI for constructing auditable synthetic
-support banks from reported survey marginals. It does not claim to recover
-respondents. It creates candidate response profiles, evaluates them with a
-model, and estimates mixture weights whose implied marginals approximate the
-reported targets.
+populations from reported survey marginals. It creates a broad bank of
+synthetic response profiles, measures each profile's item-level response
+probabilities, and estimates nonnegative mixture weights whose implied
+marginals approximate the reported targets.
 
-Marginals do not identify a unique joint distribution. A support design
-therefore encodes consequential assumptions. In `umriss`, those assumptions
-live in a versioned, declarative design rather than inside a prompt builder.
+The result is a calibrated synthetic population, not a reconstruction of the
+original respondents. Support design, model elicitation, and regularization are
+consequential assumptions and remain visible in the run's audit trail.
 
-The checked-in tutorial uses five weighted marginals derived from 6,104
-respondents in Pew Research Center's American Trends Panel Wave 154. The
-microdata is used only to construct aggregate targets; leave-one-out validation
-fits four marginals and predicts the omitted fifth marginal.
-
-## Direct-prediction baselines
-
-Umriss can construct and run both direct baselines used in leave-one-out
-evaluation. A one-shot job sees only the omitted item. A conditioned-direct job
-sees the real marginals for every held-in item, but never the omitted marginal.
-
-```bash
-umriss baseline build \
-  --metadata examples/pew_w154/pew_w154_metadata.json \
-  --mode both --tag pew_w154_baselines --out run/baselines
-
-umriss baseline export \
-  --prompts run/baselines/pew_w154_baselines_baseline_prompts.jsonl \
-  --path run/baselines/pew_w154_baselines.jobs.ep \
-  --model gpt-5.5
-
-umriss baseline run \
-  --jobs run/baselines/pew_w154_baselines.jobs.ep \
-  --output run/baselines/pew_w154_baselines.results.ep
-```
-
-Register and strictly parse the results before passing the resulting
-`*_one_shot.csv` and `*_conditioned_direct.csv` files to `umriss validate marginals`.
-
-## Plot a leave-one-out run
-
-`umriss validate marginals` writes the canonical data behind the plots: per-item predictions
-and errors, method summaries, fit diagnostics, fold-specific persona weights,
-and pre-calibration support-uniformity measurements. Generate the associated
-figures directly:
-
-```bash
-umriss plot validation \
-  --derived examples/pew_w154/run/derived \
-  --tag pew_w154_diff1_uniform_n208 \
-  --out run/plots \
-  --format svg
-```
-
-This writes five figures and a JSON manifest: method comparison, error by
-omitted item, effective-support and weight-concentration diagnostics,
-fold-specific persona weights, and equal-weight support uniformity. SVG, PNG,
-and PDF output are supported.
-
-## Export the fitted twins to EDSL
-
-Validation uses a different weight vector for every omitted marginal. For a
-deployable twin population, first fit all reported marginals:
-
-```bash
-umriss fit \
-  --support examples/pew_w154/run/banks/pew_w154_diff1_uniform_n208_probabilities.csv \
-  --metadata examples/pew_w154/pew_w154_metadata.json \
-  --tag pew_w154_full_fit \
-  --out run/full_fit
-```
-
-Then export an EDSL `AgentList`:
-
-```bash
-umriss twins export-edsl \
-  --points examples/pew_w154/run/uniform_n96/bank/pew_w154_diff1_uniform_n96_points.csv \
-  --points examples/pew_w154/run/uniform_repair_r1/bank/pew_w154_diff1_uniform_repair_r1_points.csv \
-  --points examples/pew_w154/run/uniform_repair_r2/bank/pew_w154_diff1_uniform_repair_r2_points.csv \
-  --weights run/full_fit/pew_w154_full_fit_weights.csv \
-  --persona-trait gender_attitudes \
-  --path run/full_fit/pew_w154_full_fit.agents.ep
-```
-
-Each EDSL agent receives a visible, user-named persona trait—in this example,
-`gender_attitudes`—written in the second person. Umriss does not replace EDSL’s
-ordinary agent instruction. Support-generation and probability-elicitation
-instructions are not exported. The normalized mixture coefficient is bundled
-as the hidden `_weight` trait and also written to a CSV sidecar keyed by agent
-name. EDSL serializes underscore-prefixed traits but excludes them from model
-prompts; it does not automatically use `_weight` when sampling an `AgentList`.
-Both the `AgentList` and its manifest are round-trip verified when written.
-
-## Let the twins take an ordinary survey
-
-The support fit elicits a probability vector from every persona. A downstream
-EDSL survey instead records one categorical answer per question. Umriss can
-build that distinct experiment and compare its weighted answers with both the
-fitted expectation and the source marginals:
-
-```bash
-umriss battery export-edsl \
-  --metadata examples/pew_w154/pew_w154_metadata.json \
-  --path run/agent_survey/pew.survey.ep
-
-umriss twins build-survey-jobs \
-  --survey run/agent_survey/pew.survey.ep \
-  --agents run/full_fit/pew_w154_full_fit.agents.ep \
-  --model gpt-5.5 --service-name openai \
-  --path run/agent_survey/pew.jobs.ep
-
-ep run --jobs run/agent_survey/pew.jobs.ep \
-  --output run/agent_survey/pew.results.ep
-
-umriss twins compare-survey \
-  --results run/agent_survey/pew.results.ep \
-  --metadata examples/pew_w154/pew_w154_metadata.json \
-  --fit-predictions run/full_fit/pew_w154_full_fit_predictions.csv \
-  --out run/agent_survey/comparison.csv
-```
-
-`umriss twins plot-survey` turns the comparison CSV into a grouped-bar figure.
-The tutorial reports an actual 208-agent, five-question Expected Parrot run and
-explains why the ordinary-survey marginals need not equal the fitted
-probability mixture.
-
-For token-level diagnostics, export the Survey with `--use-code`, build jobs
-with `--temperature 1 --logprobs --top-logprobs 20`, and run
-`umriss twins analyze-logprobs`. GPT-5.5 currently rejects token log
-probabilities; the checked-in diagnostic therefore uses GPT-4.1 and reports
-that model change explicitly.
-
-`umriss twins embed-probabilities` creates a separate experimental AgentList
-whose visible trait includes each persona's previously elicited item-level
-probabilities. The checked-in experiment finds that this makes token responses
-almost perfectly modal rather than preserving the stated uncertainty. It is a
-diagnostic treatment, not the default export format.
+The [worked browser tutorial](https://expectedparrot.github.io/umriss/) follows
+a real five-item Pew Research Center example from aggregate targets through
+support construction, uniformity diagnostics, leave-one-out validation,
+weighting, EDSL `AgentList` export, and downstream probabilistic surveys.
 
 ## Install
 
-```bash
-uv tool install .
-```
-
-## Design first
-
-Inspect the checked-in declarative design:
+Until EDSL's probabilistic-response contract is merged into its main branch,
+install umriss with the required feature branch:
 
 ```bash
-umriss design validate \
-  --metadata examples/pew_w154/pew_w154_metadata.json \
-  --design examples/pew_w154/pew_w154_design.yaml
+uv tool install --upgrade --force \
+  --with-executables-from "edsl @ git+https://github.com/expectedparrot/edsl.git@feature/probabilistic-response-contract" \
+  "umriss @ git+https://github.com/expectedparrot/umriss.git@main"
 ```
 
-Validate its feasibility:
+Verify the executables and inspect the authoritative workflow:
+
+```bash
+command -v umriss
+command -v ep
+umriss guide
+```
+
+For repository development:
+
+```bash
+uv sync --extra edsl --extra dev
+uv run pytest -q
+uv run ruff check umriss tests
+```
+
+## Start a run
+
+Inspect the battery, then ask umriss for the next valid action:
 
 ```bash
 umriss battery inspect examples/pew_w154/pew_w154_metadata.json
 ```
 
-Compile prompts and audit artifacts:
-
 ```bash
-umriss support build \
-  --metadata examples/pew_w154/pew_w154_metadata.json \
-  --preset uniform-patterns \
-  --n-support 96 \
-  --tag pew_w154_diff1_uniform_n96 \
-  --out examples/pew_w154/run/uniform_n96
+umriss next \
+  --tag pew_w154_diff1 \
+  --metadata examples/pew_w154/pew_w154_metadata.json
 ```
 
-The build writes:
+Run `umriss next` after every stage. The returned JSON envelope identifies the
+recommended command and preserves the boundary between preparing EDSL jobs and
+executing them externally.
 
-- `<tag>_resolved_design.yaml`
-- `<tag>_support_plan.csv`
-- `<tag>_coverage.csv`
-- `<tag>_prompts.jsonl`
-- `<tag>_prompts.html`
+## What the workflow produces
 
-Review the resolved design, coverage table, and prompt HTML before model
-execution.
+A complete run preserves:
 
-## Execute through Expected Parrot
+- battery metadata and a resolved, versioned support design;
+- prompt JSONL, readable prompt HTML, support plans, and coverage audits;
+- git-backed EDSL Jobs and registered Results;
+- strictly parsed persona and probability banks;
+- pre-fit uniformity and diversity diagnostics;
+- fitted weights, implied marginals, and leave-one-out predictions;
+- comparison tables, plots, reports, and reusable weighted AgentLists.
 
-```bash
-umriss support export \
-  --prompts examples/pew_w154/run/uniform_n96/pew_w154_diff1_uniform_n96_prompts.jsonl \
-  --path examples/pew_w154/run/uniform_n96/pew_w154_diff1_uniform_n96.jobs.ep
-```
+Umriss does not silently normalize invalid probability vectors, truncate
+declared coverage, execute model jobs, or describe generated profiles as
+recovered respondents.
 
-```bash
-ep run \
-  --jobs examples/pew_w154/run/uniform_n96/pew_w154_diff1_uniform_n96.jobs.ep \
-  --output examples/pew_w154/run/uniform_n96/pew_w154_diff1_uniform_n96.results.ep
-```
+## Principal command groups
 
-`umriss` prepares and registers jobs but does not conceal the external model
-execution boundary.
+| Command group | Role |
+|---|---|
+| `umriss battery` and `umriss question` | Record and inspect survey wording, options, scale semantics, and targets |
+| `umriss design` and `umriss support` | Declare support geometry, build prompts, register results, parse banks, and test coverage |
+| `umriss fit` and `umriss validate` | Estimate weights and evaluate omitted marginals |
+| `umriss baseline` and `umriss compare` | Construct auditable alternatives and compare their predictions |
+| `umriss twins` | Export weighted EDSL agents and evaluate downstream surveys |
+| `umriss plot` and `umriss report` | Produce figures and inspectable run reports |
+| `umriss guide` and `umriss next` | Explain the lifecycle and return the next state-aware action |
 
-## Parse, fit, and test
+Use `<command> --help` for exact arguments, choices, and defaults. Do not rely
+on copied option inventories in prose.
 
-```bash
-umriss support register-results \
-  --results examples/pew_w154/run/uniform_n96/pew_w154_diff1_uniform_n96.results.ep \
-  --prompts examples/pew_w154/run/uniform_n96/pew_w154_diff1_uniform_n96_prompts.jsonl \
-  --tag pew_w154_diff1_uniform_n96 \
-  --out examples/pew_w154/run/uniform_n96/raw
-```
+## Identification warning
 
-```bash
-umriss support parse \
-  --raw examples/pew_w154/run/uniform_n96/raw/pew_w154_diff1_uniform_n96_raw.csv \
-  --metadata examples/pew_w154/pew_w154_metadata.json \
-  --tag pew_w154_diff1_uniform_n96 \
-  --out examples/pew_w154/run/uniform_n96/bank
-```
+Reported marginals do not identify a unique joint distribution. Many synthetic
+populations can reproduce the same one-way tables. Umriss makes one
+construction explicit and tests whether weights fitted to some marginals
+predict omitted marginals; it does not make the identification problem
+disappear.
 
-```bash
-umriss validate marginals \
-  --support examples/pew_w154/run/banks/pew_w154_diff1_uniform_n208_probabilities.csv \
-  --metadata examples/pew_w154/pew_w154_metadata.json \
-  --tag pew_w154_diff1_uniform_n208 \
-  --out examples/pew_w154/run/derived
-```
+Target marginals must not enter support-generation prompts. Support uniformity
+must be measured before fitting. Design searches, simulated moment conditions,
+custom prompts, repair decisions, and excluded results must remain documented.
 
-Parsing is strict: probability vectors with negative entries, wrong lengths, or
-sums other than one are invalid. They are not silently clipped or normalized.
+## Documentation
 
-The 96-row full-pattern bank is measured before fitting. If its returned
-probabilities are not sufficiently uniform, use `umriss support
-augment-uniform`, run and parse the new jobs, then combine them with `umriss
-support merge`. `umriss support uniformity` checks marginal balance, duplicate
-probability vectors, joint modal-response coverage, matrix rank, and effective
-rank. `umriss validate marginals` refuses a bank that fails preflight unless the analyst
-explicitly requests the diagnostic escape hatch.
-
-## Design schema
-
-A schema-v1 design declares:
-
-- support-bank size and random seed;
-- complete or explicitly partial coverage;
-- option-coverage, pattern-anchor, and user-profile components;
-- global, item-specific, grouped, or explicit coherence;
-- balanced response-intensity assignments;
-- profile framing and demographic-invention rules;
-- probability semantics and minimum probabilities;
-- optional strictly validated Jinja templates.
-
-Battery metadata declares each scale as `ordinal` or `nominal`. Ordinal scales
-also declare `low_to_high` or `high_to_low`; `umriss` never infers response
-meaning from option position.
-
-See [the browser tutorial](docs/index.html) and
-[the CLI specification](CLI_SPEC.md).
+- [Worked tutorial](https://expectedparrot.github.io/umriss/)
+- [Local tutorial source](docs/index.html)
+- [Agent operating contract](AGENTS.md)
+- [CLI specification](CLI_SPEC.md)
+- [MIT license](LICENSE)
