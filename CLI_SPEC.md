@@ -2,9 +2,10 @@
 
 ## Contract
 
-Every command prints one JSON envelope with `command`, `status`, `data`,
-`warnings`, `errors`, and `next_steps`. Errors are nonzero exits. Model calls
-are executed explicitly with `ep run`, not inside `umriss`.
+Every command prints one JSON envelope with `schema_version`, `command`,
+`status`, `argv`, `data`, `warnings`, `errors`, and `next_steps`. Errors are
+nonzero exits. Model calls are executed explicitly with `ep run`, not inside
+`umriss`. `umriss capabilities` describes this contract machine-readably.
 
 Expected parser and validation failures use exit status 1. Unexpected internal
 failures use exit status 2 and remain JSON-enveloped. The `command` field names
@@ -182,3 +183,61 @@ serializes hidden traits but does not interpret `_weight` as a sampling rule.
 - Custom prompt changes are preserved in the resolved design.
 - Generated profiles are synthetic support points, not recovered respondents.
 - Support designs and seeds are declared before held-out evaluation.
+
+## Command reference
+
+Every registered command (options and defaults live in `umriss <command> --help`;
+`tests/test_contract_sync.py` keeps this table and the CLI from drifting apart).
+
+| Command | Purpose |
+|---|---|
+| `umriss baseline build` |  |
+| `umriss baseline export` |  |
+| `umriss baseline parse` |  |
+| `umriss baseline register-results` |  |
+| `umriss battery compile` |  |
+| `umriss battery create` |  |
+| `umriss battery export-edsl` |  |
+| `umriss battery import` |  |
+| `umriss battery inspect` |  |
+| `umriss capabilities` |  |
+| `umriss compare` |  |
+| `umriss design create` |  |
+| `umriss design validate` |  |
+| `umriss fit` |  |
+| `umriss guide` |  |
+| `umriss init` |  |
+| `umriss marginal add` |  |
+| `umriss marginals import` |  |
+| `umriss next` |  |
+| `umriss plot validation` |  |
+| `umriss predict` |  |
+| `umriss project create` |  |
+| `umriss project current` |  |
+| `umriss project list` |  |
+| `umriss project show` |  |
+| `umriss project use` |  |
+| `umriss question add` |  |
+| `umriss report` |  |
+| `umriss report-data build` |  |
+| `umriss status` |  |
+| `umriss support audit-results` |  |
+| `umriss support augment-uniform` |  |
+| `umriss support build` |  |
+| `umriss support export` |  |
+| `umriss support inspect` |  |
+| `umriss support merge` |  |
+| `umriss support parse` |  |
+| `umriss support register-results` |  |
+| `umriss support uniformity` |  |
+| `umriss twins analyze-logprobs` |  |
+| `umriss twins analyze-probabilistic-survey` |  |
+| `umriss twins analyze-resolution` |  |
+| `umriss twins build-resolution-experiment` |  |
+| `umriss twins build-survey-jobs` |  |
+| `umriss twins compare-survey` |  |
+| `umriss twins embed-probabilities` |  |
+| `umriss twins export-edsl` |  |
+| `umriss twins plot-survey` |  |
+| `umriss validate marginals` |  |
+| `umriss version` |  |

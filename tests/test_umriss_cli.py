@@ -65,7 +65,7 @@ class UmrissCliTests(unittest.TestCase):
         payload = json.loads(stdout.getvalue())
         self.assertEqual(
             set(payload),
-            {"command", "status", "data", "warnings", "errors", "next_steps"},
+            {"schema_version", "command", "status", "argv", "data", "warnings", "errors", "next_steps"},
         )
         self.assertEqual(payload["command"], "umriss version")
 

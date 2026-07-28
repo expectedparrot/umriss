@@ -69,6 +69,9 @@ from .twin_survey import (
 )
 
 
+ENVELOPE_SCHEMA_VERSION = "1.0"
+
+
 def envelope(
     command: str,
     status: str,
@@ -79,8 +82,10 @@ def envelope(
     next_steps: list[str] | None = None,
 ) -> dict[str, Any]:
     return {
+        "schema_version": ENVELOPE_SCHEMA_VERSION,
         "command": command,
         "status": status,
+        "argv": ["umriss", *sys.argv[1:]],
         "data": data or {},
         "warnings": warnings or [],
         "errors": errors or [],
@@ -193,29 +198,49 @@ def cmd_project_show(args: argparse.Namespace) -> dict[str, Any]:
 def cmd_battery_inspect(args: argparse.Namespace) -> dict[str, Any]:
     data = inspect_metadata(Path(args.metadata))
     warnings = data.pop("warnings")
-    return envelope("umriss battery inspect", "ok", data, warnings=warnings)
+    return envelope(
+        "umriss battery inspect", "ok", data, warnings=warnings,
+        next_steps=[f"umriss battery import --metadata {args.metadata}"],
+    )
 
 
 def cmd_battery_import(args: argparse.Namespace) -> dict[str, Any]:
-    return envelope("umriss battery import", "ok", import_battery(Path(args.metadata), args.battery_id, args.title))
+    return envelope(
+        "umriss battery import", "ok",
+        import_battery(Path(args.metadata), args.battery_id, args.title),
+        next_steps=[f"umriss design create --metadata {args.metadata} --preset pattern-coverage --out design.yaml"],
+    )
 
 
 def cmd_battery_create(args: argparse.Namespace) -> dict[str, Any]:
-    return envelope("umriss battery create", "ok", create_battery(args))
+    return envelope(
+        "umriss battery create", "ok", create_battery(args),
+        next_steps=[f"umriss question add --battery {args.battery_id} --item <item> --question-stem <stem> --item-text <text> --option <a> --option <b> --scale-type nominal"],
+    )
 
 
 def cmd_question_add(args: argparse.Namespace) -> dict[str, Any]:
-    return envelope("umriss question add", "ok", add_question(args))
+    return envelope(
+        "umriss question add", "ok", add_question(args),
+        next_steps=[f"umriss marginal add --battery {args.battery} --item {args.item} --proportion <p1> --proportion <p2> ..."],
+    )
 
 
 def cmd_marginal_add(args: argparse.Namespace) -> dict[str, Any]:
-    return envelope("umriss marginal add", "ok", add_marginal(args))
+    return envelope(
+        "umriss marginal add", "ok", add_marginal(args),
+        next_steps=[f"umriss battery compile --battery {args.battery} --path <metadata.json>"],
+    )
 
 
 def cmd_battery_compile(args: argparse.Namespace) -> dict[str, Any]:
     metadata = compile_battery(args.battery, Path(args.path) if args.path else None)
     return envelope(
-        "umriss battery compile", "ok", {"battery": args.battery, "items": len(metadata["items"]), "path": args.path}
+        "umriss battery compile", "ok",
+        {"battery": args.battery, "items": len(metadata["items"]), "path": args.path},
+        next_steps=[
+            f"umriss design create --metadata {args.path or '<metadata.json>'} --preset pattern-coverage --out design.yaml",
+        ],
     )
 
 
@@ -242,7 +267,10 @@ def cmd_marginals_import(args: argparse.Namespace) -> dict[str, Any]:
     else:
         raise UmrissError("invalid_input", "Pass --truth-from metadata or --respondents.")
     write_marginals_long(metadata, truth, Path(args.out))
-    return envelope("umriss marginals import", "ok", {"path": args.out, "items": len(truth)})
+    return envelope(
+        "umriss marginals import", "ok", {"path": args.out, "items": len(truth)},
+        next_steps=["umriss validate marginals --metadata <metadata.json> --support <bank_probabilities.csv> --tag <tag> --out <dir>"],
+    )
 
 
 def _metadata_source(args: argparse.Namespace) -> tuple[dict[str, Any], dict[str, Any]]:
@@ -443,7 +471,10 @@ def cmd_support_audit_results(args: argparse.Namespace) -> dict[str, Any]:
 def cmd_support_parse(args: argparse.Namespace) -> dict[str, Any]:
     metadata = read_json(Path(args.metadata))
     data = parse_support(Path(args.raw), metadata, args.tag, Path(args.out))
-    return envelope("umriss support parse", "ok", data)
+    return envelope(
+        "umriss support parse", "ok", data,
+        next_steps=[f"umriss support uniformity --support {data.get('probabilities', '<bank_probabilities.csv>')} --metadata {args.metadata} --out {args.out}"],
+    )
 
 
 def cmd_baseline_build(args: argparse.Namespace) -> dict[str, Any]:
@@ -455,7 +486,10 @@ def cmd_baseline_build(args: argparse.Namespace) -> dict[str, Any]:
         mode=args.mode,
         respondents_path=Path(args.respondents) if args.respondents else None,
     )
-    return envelope("umriss baseline build", "ok", data)
+    return envelope(
+        "umriss baseline build", "ok", data,
+        next_steps=[f"umriss baseline export --prompts {data.get('prompts', '<prompts.jsonl>')} --path <tag>.jobs.ep --tag {args.tag} --registration-out {args.out}"],
+    )
 
 
 def cmd_baseline_export(args: argparse.Namespace) -> dict[str, Any]:
@@ -483,7 +517,10 @@ def cmd_baseline_register_results(args: argparse.Namespace) -> dict[str, Any]:
         Path(args.out),
         force=args.force,
     )
-    return envelope("umriss baseline register-results", "ok", data)
+    return envelope(
+        "umriss baseline register-results", "ok", data,
+        next_steps=[f"umriss baseline parse --raw {data.get('raw', '<raw.csv>')} --prompts {args.prompts} --metadata <metadata.json> --tag {args.tag} --out {args.out}"],
+    )
 
 
 def cmd_baseline_parse(args: argparse.Namespace) -> dict[str, Any]:
@@ -494,7 +531,10 @@ def cmd_baseline_parse(args: argparse.Namespace) -> dict[str, Any]:
         args.tag,
         Path(args.out),
     )
-    return envelope("umriss baseline parse", "ok", data)
+    return envelope(
+        "umriss baseline parse", "ok", data,
+        next_steps=["umriss compare --run <tag>=<battery>:<bank> --derived <dir> --out <comparison.csv>"],
+    )
 
 
 def cmd_support_inspect(args: argparse.Namespace) -> dict[str, Any]:
@@ -519,7 +559,15 @@ def cmd_support_uniformity(args: argparse.Namespace) -> dict[str, Any]:
         args.min_joint_pattern_fraction,
     )
     status = "ok" if data["passes"] else "needs_augmentation"
-    return envelope("umriss support uniformity", status, data)
+    if data["passes"]:
+        next_steps = [
+            f"umriss fit --support {args.support} --metadata {args.metadata} --tag <tag> --out <dir>",
+        ]
+    else:
+        next_steps = [
+            f"umriss support augment-uniform --support {args.support} --metadata {args.metadata} --tag <tag> --n-add <n> --out <dir>",
+        ]
+    return envelope("umriss support uniformity", status, data, next_steps=next_steps)
 
 
 def cmd_support_augment_uniform(args: argparse.Namespace) -> dict[str, Any]:
@@ -536,7 +584,12 @@ def cmd_support_augment_uniform(args: argparse.Namespace) -> dict[str, Any]:
         )
     except ValueError as exc:
         raise UmrissError("invalid_input", str(exc)) from exc
-    return envelope("umriss support augment-uniform", "ok", data)
+    return envelope(
+        "umriss support augment-uniform", "ok", data,
+        next_steps=[
+            f"umriss support export --prompts {data.get('prompts', '<additions_prompts.jsonl>')} --path {args.tag}_additions.jobs.ep --tag {args.tag}_additions --registration-out <dir>",
+        ],
+    )
 
 
 def cmd_support_merge(args: argparse.Namespace) -> dict[str, Any]:
@@ -544,7 +597,10 @@ def cmd_support_merge(args: argparse.Namespace) -> dict[str, Any]:
         data = merge_support_banks(Path(args.base), Path(args.additions), args.tag, Path(args.out))
     except ValueError as exc:
         raise UmrissError("invalid_input", str(exc)) from exc
-    return envelope("umriss support merge", "ok", data)
+    return envelope(
+        "umriss support merge", "ok", data,
+        next_steps=[f"umriss support uniformity --support {data.get('probabilities', '<merged_probabilities.csv>')} --metadata <metadata.json> --out {args.out}"],
+    )
 
 
 def cmd_fit(args: argparse.Namespace) -> dict[str, Any]:
@@ -561,7 +617,13 @@ def cmd_fit(args: argparse.Namespace) -> dict[str, Any]:
     heldout = ",".join(args.exclude_item or [])
     selected_rho, fit = fit_weights(mats, truth, held_in, args.rho)
     data = write_fit_outputs(support, mats, metadata, args.tag, heldout, selected_rho, fit, Path(args.out))
-    return envelope("umriss fit", "ok", data)
+    return envelope(
+        "umriss fit", "ok", data,
+        next_steps=[
+            f"umriss validate marginals --metadata {args.metadata} --support {args.support} --tag {args.tag} --out {args.out}",
+            f"umriss predict --support {args.support} --weights {data.get('weights', '<weights.csv>')} --metadata {args.metadata} --out {args.out}",
+        ],
+    )
 
 
 def cmd_validate_marginals(args: argparse.Namespace) -> dict[str, Any]:
@@ -590,13 +652,19 @@ def cmd_validate_marginals(args: argparse.Namespace) -> dict[str, Any]:
         else:
             code = "invalid_input"
         raise UmrissError(code, str(exc)) from exc
-    return envelope("umriss validate marginals", "ok", data)
+    return envelope(
+        "umriss validate marginals", "ok", data,
+        next_steps=["umriss compare --run <tag>=<battery>:<bank> --derived <dir> --out <comparison.csv>"],
+    )
 
 
 def cmd_predict(args: argparse.Namespace) -> dict[str, Any]:
     metadata = read_json(Path(args.metadata))
     data = predict_from_weights(Path(args.support), Path(args.weights), metadata, args.item or [], Path(args.out))
-    return envelope("umriss predict", "ok", data)
+    return envelope(
+        "umriss predict", "ok", data,
+        next_steps=["umriss twins export-edsl --points <points.csv> --weights <weights.csv> --path <agents.ep>"],
+    )
 
 
 def cmd_twins_export_edsl(args: argparse.Namespace) -> dict[str, Any]:
@@ -608,7 +676,10 @@ def cmd_twins_export_edsl(args: argparse.Namespace) -> dict[str, Any]:
         holdout=args.holdout,
         minimum_weight=args.minimum_weight,
     )
-    return envelope("umriss twins export-edsl", "ok", data)
+    return envelope(
+        "umriss twins export-edsl", "ok", data,
+        next_steps=[f"umriss twins build-survey-jobs --survey <survey.ep> --agents {args.path} --model <service:model> --path <survey.jobs.ep>"],
+    )
 
 
 def cmd_twins_compare_survey(args: argparse.Namespace) -> dict[str, Any]:
@@ -619,7 +690,10 @@ def cmd_twins_compare_survey(args: argparse.Namespace) -> dict[str, Any]:
         Path(args.out),
         answers_use_code=args.answers_use_code,
     )
-    return envelope("umriss twins compare-survey", "ok", data)
+    return envelope(
+        "umriss twins compare-survey", "ok", data,
+        next_steps=[f"umriss twins plot-survey --comparison {data.get('comparison', '<comparison.csv>')} --out <dir>"],
+    )
 
 
 def cmd_twins_build_survey_jobs(args: argparse.Namespace) -> dict[str, Any]:
@@ -635,7 +709,13 @@ def cmd_twins_build_survey_jobs(args: argparse.Namespace) -> dict[str, Any]:
         args.limit_agents,
         args.limit_questions,
     )
-    return envelope("umriss twins build-survey-jobs", "ok", data)
+    return envelope(
+        "umriss twins build-survey-jobs", "ok", data,
+        next_steps=[
+            f"ep run {args.path} --output <survey.results.ep>",
+            "umriss twins compare-survey --results <survey.results.ep> --metadata <metadata.json> --fit-predictions <predictions.csv> --out <dir>",
+        ],
+    )
 
 
 def cmd_twins_embed_probabilities(args: argparse.Namespace) -> dict[str, Any]:
@@ -646,7 +726,10 @@ def cmd_twins_embed_probabilities(args: argparse.Namespace) -> dict[str, Any]:
         Path(args.path),
         probability_trait=args.probability_trait,
     )
-    return envelope("umriss twins embed-probabilities", "ok", data)
+    return envelope(
+        "umriss twins embed-probabilities", "ok", data,
+        next_steps=[f"umriss twins analyze-probabilistic-survey --agents {args.path} --metadata {args.metadata} --out <dir>"],
+    )
 
 
 def cmd_twins_build_resolution_experiment(args: argparse.Namespace) -> dict[str, Any]:
@@ -659,7 +742,13 @@ def cmd_twins_build_resolution_experiment(args: argparse.Namespace) -> dict[str,
         resolution_trait=args.resolution_trait,
         seed=args.seed,
     )
-    return envelope("umriss twins build-resolution-experiment", "ok", data)
+    return envelope(
+        "umriss twins build-resolution-experiment", "ok", data,
+        next_steps=[
+            f"ep run {args.path} --output <resolution.results.ep>",
+            "umriss twins analyze-resolution --results <resolution.results.ep> --out <dir>",
+        ],
+    )
 
 
 def cmd_twins_analyze_resolution(args: argparse.Namespace) -> dict[str, Any]:
@@ -670,7 +759,10 @@ def cmd_twins_analyze_resolution(args: argparse.Namespace) -> dict[str, Any]:
         args.tag,
         resolution_trait=args.resolution_trait,
     )
-    return envelope("umriss twins analyze-resolution", "ok", data)
+    return envelope(
+        "umriss twins analyze-resolution", "ok", data,
+        next_steps=["umriss report --comparison <comparison.csv> --out <report.md>"],
+    )
 
 
 def cmd_twins_analyze_probabilistic_survey(args: argparse.Namespace) -> dict[str, Any]:
@@ -683,7 +775,10 @@ def cmd_twins_analyze_probabilistic_survey(args: argparse.Namespace) -> dict[str
         simulations=args.simulations,
         simulation_seed=args.simulation_seed,
     )
-    return envelope("umriss twins analyze-probabilistic-survey", "ok", data)
+    return envelope(
+        "umriss twins analyze-probabilistic-survey", "ok", data,
+        next_steps=["umriss twins compare-survey --results <survey.results.ep> --metadata <metadata.json> --fit-predictions <predictions.csv> --out <dir>"],
+    )
 
 
 def cmd_twins_plot_survey(args: argparse.Namespace) -> dict[str, Any]:
@@ -713,12 +808,18 @@ def cmd_compare(args: argparse.Namespace) -> dict[str, Any]:
         data = pattern_coverage_recipe(Path(args.derived), Path(args.out))
     else:
         data = compare_runs(args.run or [], Path(args.derived), Path(args.out), args.comparison_group)
-    return envelope("umriss compare", "ok", data)
+    return envelope(
+        "umriss compare", "ok", data,
+        next_steps=[f"umriss report --comparison {args.out} --out <report.md>"],
+    )
 
 
 def cmd_report(args: argparse.Namespace) -> dict[str, Any]:
     data = write_report(args.tag, Path(args.derived), Path(args.out))
-    return envelope("umriss report", "ok", data)
+    return envelope(
+        "umriss report", "ok", data,
+        next_steps=["umriss report-data build --tag <tag> --out <report_data_dir>"],
+    )
 
 
 def cmd_report_data_build(args: argparse.Namespace) -> dict[str, Any]:
@@ -742,16 +843,53 @@ def cmd_guide(args: argparse.Namespace) -> dict[str, Any]:
     return envelope("umriss guide", "ok", guide(topic))
 
 
+def discover_tag_manifest(tag: str) -> Path | None:
+    """Locate `<tag>_manifest.json` beneath the working directory.
+
+    The pipeline has no fixed layout (every command takes --out), so
+    resumability comes from finding the run manifest wherever it was written.
+    Ambiguity is an error, never a guess.
+    """
+    skip = {".git", ".venv", "venv", "node_modules", "__pycache__", ".umriss"}
+    matches: list[Path] = []
+    root = Path(".")
+    stack = [root]
+    while stack:
+        current = stack.pop()
+        try:
+            entries = list(current.iterdir())
+        except OSError:
+            continue
+        for entry in entries:
+            if entry.is_dir():
+                if entry.name not in skip and not entry.name.startswith("."):
+                    stack.append(entry)
+            elif entry.name == f"{tag}_manifest.json":
+                matches.append(entry)
+    if len(matches) > 1:
+        raise UmrissError(
+            "ambiguous_tag",
+            f"Found {len(matches)} manifests for tag `{tag}`.",
+            context={"matches": [str(match) for match in sorted(matches)]},
+            hint="Pass --prompt-dir to select the run explicitly.",
+        )
+    return matches[0] if matches else None
+
+
 def cmd_next(args: argparse.Namespace) -> dict[str, Any]:
     if args.tag:
+        prompt_dir = Path(args.prompt_dir) if args.prompt_dir else None
+        if prompt_dir is None:
+            manifest = discover_tag_manifest(args.tag)
+            prompt_dir = manifest.parent if manifest else Path(".")
         data = next_for_artifacts(
             args.tag,
             metadata=Path(args.metadata) if args.metadata else None,
             design=Path(args.design) if args.design else None,
-            prompt_dir=Path(args.prompt_dir),
-            raw_dir=Path(args.raw_dir),
-            bank_dir=Path(args.bank_dir),
-            derived_dir=Path(args.derived_dir),
+            prompt_dir=prompt_dir,
+            raw_dir=Path(args.raw_dir) if args.raw_dir else prompt_dir,
+            bank_dir=Path(args.bank_dir) if args.bank_dir else prompt_dir,
+            derived_dir=Path(args.derived_dir) if args.derived_dir else prompt_dir,
         )
         return envelope("umriss next", "ok", data)
     try:
@@ -771,6 +909,33 @@ def cmd_next(args: argparse.Namespace) -> dict[str, Any]:
     return envelope("umriss next", "ok", {"recommendation": recommendation, "status": status})
 
 
+def cmd_capabilities(args: argparse.Namespace) -> dict[str, Any]:
+    return envelope(
+        "umriss capabilities",
+        "ok",
+        {
+            "envelope_schema_version": ENVELOPE_SCHEMA_VERSION,
+            "output_contract": (
+                "Every command prints one JSON envelope "
+                "{schema_version, command, status, argv, data, warnings, errors, next_steps} "
+                "to stdout. Expected failures exit 1; unexpected internal failures exit 2; "
+                "both remain JSON-enveloped."
+            ),
+            "execution_boundary": (
+                "umriss builds durable EDSL .jobs.ep packages and stops; model execution is "
+                "external via `ep run` and requires user approval. umriss never executes "
+                "packaged model calls."
+            ),
+            "workflow_commands": ["umriss guide", "umriss next", "umriss next --tag <tag>"],
+            "provenance": (
+                "Exports write hash-fingerprinted manifests with an output_conflict guard; "
+                "audit-results preserves every attempt with per-row source attribution and "
+                "emits missing_job_ids.csv for retry-only export."
+            ),
+        },
+    )
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = EnvelopeArgumentParser(
         prog="umriss",
@@ -781,7 +946,15 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--output-dir")
     p.set_defaults(func=cmd_init)
     sub.add_parser("status").set_defaults(func=cmd_status)
-    sub.add_parser("version").set_defaults(func=lambda args: envelope("umriss version", "ok", {"version": __version__}))
+    sub.add_parser("version").set_defaults(func=lambda args: envelope(
+        "umriss version", "ok",
+        {
+            "version": __version__,
+            "package_path": str(Path(__file__).resolve().parent),
+            "envelope_schema_version": ENVELOPE_SCHEMA_VERSION,
+        },
+    ))
+    sub.add_parser("capabilities").set_defaults(func=cmd_capabilities)
 
     project = sub.add_parser("project").add_subparsers(dest="project_command", required=True)
     p = project.add_parser("create")
@@ -1136,10 +1309,10 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--tag")
     p.add_argument("--metadata")
     p.add_argument("--design")
-    p.add_argument("--prompt-dir", default="data/computed_objects/support_prompts")
-    p.add_argument("--raw-dir", default="data/computed_objects/support_raw_responses")
-    p.add_argument("--bank-dir", default="data/computed_objects/support_banks")
-    p.add_argument("--derived-dir", default="data/derived")
+    p.add_argument("--prompt-dir", help="Directory holding <tag>_manifest.json and prompts/jobs. Default: discovered by searching for the run manifest under the working directory.")
+    p.add_argument("--raw-dir", help="Registered raw-results directory (default: the discovered run directory, or as recorded in the manifest).")
+    p.add_argument("--bank-dir", help="Parsed bank directory (default: the discovered run directory).")
+    p.add_argument("--derived-dir", help="Derived outputs directory (default: the discovered run directory).")
     p.set_defaults(func=cmd_next)
     return parser
 

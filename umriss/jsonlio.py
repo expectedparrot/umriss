@@ -6,6 +6,10 @@ from typing import Any
 
 
 def read_json(path: Path) -> dict[str, Any]:
+    if not path.exists():
+        from .errors import UmrissError
+
+        raise UmrissError("not_found", f"Input file does not exist: {path}.")
     with path.open() as f:
         data = json.load(f)
     if not isinstance(data, dict):
