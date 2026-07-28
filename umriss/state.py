@@ -148,3 +148,15 @@ def list_battery_ids() -> list[str]:
 
 def list_design_ids() -> list[str]:
     return sorted(p.stem for p in designs_dir().glob("*.yaml"))
+
+
+def get_defaults() -> dict[str, str]:
+    path = active_project_dir() / "defaults.json"
+    return read_json(path) if path.exists() else {}
+
+
+def set_default(kind: str, value: str) -> dict[str, str]:
+    defaults = get_defaults()
+    defaults[kind] = value
+    write_json(active_project_dir() / "defaults.json", defaults)
+    return defaults

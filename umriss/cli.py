@@ -44,11 +44,13 @@ from .state import (
     active_project_id,
     create_project,
     design_path,
+    get_defaults,
     init_workspace,
     list_battery_ids,
     list_design_ids,
     list_projects,
     project_dir,
+    set_default,
     use_project,
 )
 from .state import battery_dir as state_battery_dir
@@ -195,6 +197,9 @@ def cmd_status(args: argparse.Namespace) -> dict[str, Any]:
         })
     data["runs"] = runs
     data["run_count"] = len(runs)
+    defaults = get_defaults()
+    data["active_battery"] = defaults.get("battery")
+    data["active_design"] = defaults.get("design")
     return envelope(
         "umriss status", "ok", data,
         next_steps=[f"umriss next --tag {runs[-1]['tag']}"] if runs else [],
@@ -255,9 +260,42 @@ def cmd_battery_list(args: argparse.Namespace) -> dict[str, Any]:
     ids = list_battery_ids()
     return envelope(
         "umriss battery list", "ok",
-        {"batteries": ids, "active_project": active_project_id()},
-        next_steps=(["umriss support build --metadata <battery_id> --preset pattern-coverage --tag <tag> --out <dir>"]
-                    if ids else ["umriss battery import --metadata <metadata.json>"]),
+        {"batteries": ids, "active_battery": get_defaults().get("battery"), "active_project": active_project_id()},
+        next_steps=(["umriss battery use <id>"] if ids else ["umriss battery import --metadata <metadata.json>"]),
+    )
+
+
+def cmd_battery_use(args: argparse.Namespace) -> dict[str, Any]:
+    stored = state_battery_dir(args.battery_id) / "battery.json"
+    if not stored.exists():
+        raise UmrissError(
+            "not_found",
+            f"Battery is not imported: {args.battery_id}.",
+            context={"known_batteries": list_battery_ids()},
+            hint="Import it first with `umriss battery import --metadata <metadata.json>`.",
+        )
+    set_default("battery", args.battery_id)
+    return envelope(
+        "umriss battery use", "ok",
+        {"active_battery": args.battery_id},
+        next_steps=["umriss design create --preset pattern-coverage --out design.yaml",
+                    "umriss status"],
+    )
+
+
+def cmd_design_use(args: argparse.Namespace) -> dict[str, Any]:
+    if not design_path(args.design_id).exists():
+        raise UmrissError(
+            "not_found",
+            f"Design is not imported: {args.design_id}.",
+            context={"known_designs": list_design_ids()},
+            hint="Import it first with `umriss design import --design <design.yaml>`.",
+        )
+    set_default("design", args.design_id)
+    return envelope(
+        "umriss design use", "ok",
+        {"active_design": args.design_id},
+        next_steps=["umriss design validate", "umriss status"],
     )
 
 
@@ -286,7 +324,7 @@ def cmd_design_list(args: argparse.Namespace) -> dict[str, Any]:
     ids = list_design_ids()
     return envelope(
         "umriss design list", "ok",
-        {"designs": ids, "active_project": active_project_id()},
+        {"designs": ids, "active_design": get_defaults().get("design"), "active_project": active_project_id()},
         next_steps=([] if ids else ["umriss design import --design <design.yaml>"]),
     )
 
@@ -1074,6 +1112,9 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--title")
     p.set_defaults(func=cmd_battery_import)
     battery.add_parser("list").set_defaults(func=cmd_battery_list)
+    p = battery.add_parser("use")
+    p.add_argument("battery_id")
+    p.set_defaults(func=cmd_battery_use)
     p = battery.add_parser("create")
     p.add_argument("--battery-id", required=True)
     p.add_argument("--wave", required=True)
@@ -1086,7 +1127,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--path")
     p.set_defaults(func=cmd_battery_compile)
     p = battery.add_parser("export-edsl")
-    p.add_argument("--metadata", required=True)
+    p.add_argument("--metadata")
     p.add_argument("--path", required=True)
     p.add_argument("--use-code", action="store_true")
     p.add_argument("--probabilistic-resolution", choices=["none", "sample", "mode"])
@@ -1117,7 +1158,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     marginals = sub.add_parser("marginals").add_subparsers(dest="marginals_command", required=True)
     p = marginals.add_parser("import")
-    p.add_argument("--metadata", required=True)
+    p.add_argument("--metadata")
     truth_source = p.add_mutually_exclusive_group(required=True)
     truth_source.add_argument("--truth-from", choices=["metadata"])
     truth_source.add_argument("--respondents")
@@ -1126,7 +1167,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     design_cmd = sub.add_parser("design").add_subparsers(dest="design_command", required=True)
     p = design_cmd.add_parser("create")
-    source = p.add_mutually_exclusive_group(required=True)
+    source = p.add_mutually_exclusive_group()
     source.add_argument("--metadata")
     source.add_argument("--battery")
     p.add_argument("--preset", choices=["pattern-coverage", "uniform-patterns"], required=True)
@@ -1135,10 +1176,10 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--out", required=True)
     p.set_defaults(func=cmd_design_create)
     p = design_cmd.add_parser("validate")
-    source = p.add_mutually_exclusive_group(required=True)
+    source = p.add_mutually_exclusive_group()
     source.add_argument("--metadata")
     source.add_argument("--battery")
-    p.add_argument("--design", required=True)
+    p.add_argument("--design")
     p.set_defaults(func=cmd_design_validate)
     p = design_cmd.add_parser("import")
     p.add_argument("--design", required=True, help="Path to a design YAML/JSON file to store in the active project.")
@@ -1146,13 +1187,16 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--force", action="store_true")
     p.set_defaults(func=cmd_design_import)
     design_cmd.add_parser("list").set_defaults(func=cmd_design_list)
+    p = design_cmd.add_parser("use")
+    p.add_argument("design_id")
+    p.set_defaults(func=cmd_design_use)
 
     support = sub.add_parser("support").add_subparsers(dest="support_command", required=True)
     p = support.add_parser("build")
-    source = p.add_mutually_exclusive_group(required=True)
+    source = p.add_mutually_exclusive_group()
     source.add_argument("--metadata", help="Read battery metadata from an explicit JSON file.")
     source.add_argument("--battery", help="Read a battery authored in the active .umriss project.")
-    design = p.add_mutually_exclusive_group(required=True)
+    design = p.add_mutually_exclusive_group()
     design.add_argument(
         "--preset", choices=["pattern-coverage", "uniform-patterns"], help="Compile a safe built-in preset."
     )
@@ -1192,7 +1236,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.set_defaults(func=cmd_support_audit_results)
     p = support.add_parser("parse")
     p.add_argument("--raw", required=True)
-    p.add_argument("--metadata", required=True)
+    p.add_argument("--metadata")
     p.add_argument("--tag", required=True)
     p.add_argument("--out", required=True)
     p.set_defaults(func=cmd_support_parse)
@@ -1205,7 +1249,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.set_defaults(func=cmd_support_inspect)
     p = support.add_parser("uniformity")
     p.add_argument("--support", required=True)
-    p.add_argument("--metadata", required=True)
+    p.add_argument("--metadata")
     p.add_argument("--tolerance", type=float, default=0.05)
     p.add_argument("--max-duplicate-fraction", type=float, default=0.05)
     p.add_argument("--min-joint-pattern-fraction", type=float, default=0.75)
@@ -1213,7 +1257,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.set_defaults(func=cmd_support_uniformity)
     p = support.add_parser("augment-uniform")
     p.add_argument("--support", required=True)
-    p.add_argument("--metadata", required=True)
+    p.add_argument("--metadata")
     p.add_argument("--tag", required=True)
     p.add_argument("--n-add", type=int, default=64)
     p.add_argument("--tolerance", type=float, default=0.05)
@@ -1229,7 +1273,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     baseline = sub.add_parser("baseline").add_subparsers(dest="baseline_command", required=True)
     p = baseline.add_parser("build")
-    p.add_argument("--metadata", required=True)
+    p.add_argument("--metadata")
     p.add_argument("--respondents")
     p.add_argument("--mode", choices=["one_shot", "conditioned_direct", "both"], default="both")
     p.add_argument("--tag", required=True)
@@ -1257,14 +1301,14 @@ def build_parser() -> argparse.ArgumentParser:
     p = baseline.add_parser("parse")
     p.add_argument("--raw", required=True)
     p.add_argument("--prompts", required=True)
-    p.add_argument("--metadata", required=True)
+    p.add_argument("--metadata")
     p.add_argument("--tag", required=True)
     p.add_argument("--out", required=True)
     p.set_defaults(func=cmd_baseline_parse)
 
     p = sub.add_parser("fit")
     p.add_argument("--support", required=True)
-    p.add_argument("--metadata", required=True)
+    p.add_argument("--metadata")
     p.add_argument("--respondents")
     p.add_argument("--exclude-item", action="append")
     p.add_argument("--include-item", action="append")
@@ -1277,7 +1321,7 @@ def build_parser() -> argparse.ArgumentParser:
     p = validate.add_parser("marginals")
     p.add_argument("--raw")
     p.add_argument("--support")
-    p.add_argument("--metadata", required=True)
+    p.add_argument("--metadata")
     p.add_argument("--respondents")
     p.add_argument("--one-shot")
     p.add_argument("--conditioned-direct")
@@ -1293,7 +1337,7 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("predict")
     p.add_argument("--support", required=True)
     p.add_argument("--weights", required=True)
-    p.add_argument("--metadata", required=True)
+    p.add_argument("--metadata")
     p.add_argument("--item", action="append")
     p.add_argument("--out", required=True)
     p.set_defaults(func=cmd_predict)
@@ -1322,14 +1366,14 @@ def build_parser() -> argparse.ArgumentParser:
     p = twins.add_parser("embed-probabilities")
     p.add_argument("--agents", required=True)
     p.add_argument("--support", required=True)
-    p.add_argument("--metadata", required=True)
+    p.add_argument("--metadata")
     p.add_argument("--probability-trait", required=True)
     p.add_argument("--path", required=True)
     p.set_defaults(func=cmd_twins_embed_probabilities)
     p = twins.add_parser("build-resolution-experiment")
     p.add_argument("--agents", required=True)
     p.add_argument("--support", required=True)
-    p.add_argument("--metadata", required=True)
+    p.add_argument("--metadata")
     p.add_argument("--resolution-trait", required=True)
     p.add_argument("--seed", type=int, default=20260725)
     p.add_argument("--agents-path", required=True)
@@ -1337,14 +1381,14 @@ def build_parser() -> argparse.ArgumentParser:
     p.set_defaults(func=cmd_twins_build_resolution_experiment)
     p = twins.add_parser("analyze-resolution")
     p.add_argument("--results", required=True)
-    p.add_argument("--metadata", required=True)
+    p.add_argument("--metadata")
     p.add_argument("--resolution-trait", required=True)
     p.add_argument("--tag", required=True)
     p.add_argument("--out", required=True)
     p.set_defaults(func=cmd_twins_analyze_resolution)
     p = twins.add_parser("analyze-probabilistic-survey")
     p.add_argument("--results", required=True, nargs="+")
-    p.add_argument("--metadata", required=True)
+    p.add_argument("--metadata")
     p.add_argument("--fit-predictions", required=True)
     p.add_argument("--tag", required=True)
     p.add_argument("--out", required=True)
@@ -1353,7 +1397,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.set_defaults(func=cmd_twins_analyze_probabilistic_survey)
     p = twins.add_parser("compare-survey")
     p.add_argument("--results", required=True)
-    p.add_argument("--metadata", required=True)
+    p.add_argument("--metadata")
     p.add_argument("--fit-predictions", required=True)
     p.add_argument("--answers-use-code", action="store_true")
     p.add_argument("--out", required=True)
@@ -1365,7 +1409,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.set_defaults(func=cmd_twins_plot_survey)
     p = twins.add_parser("analyze-logprobs")
     p.add_argument("--results", required=True)
-    p.add_argument("--metadata", required=True)
+    p.add_argument("--metadata")
     p.add_argument("--support", required=True)
     p.add_argument("--tag", required=True)
     p.add_argument("--out", required=True)
@@ -1417,16 +1461,26 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
-def _resolve_store_ids(args: argparse.Namespace, command: str) -> None:
-    """Let --metadata/--design accept workspace ids as well as file paths.
+# Commands whose --metadata/--design are genuinely optional advisory inputs;
+# active defaults are not injected and absence is not an error.
+_ADVISORY_COMMANDS = {"umriss next"}
 
-    An existing file always wins (explicit paths behave exactly as before).
-    A bare token that matches a stored battery/design resolves to its file in
-    the active .umriss project; a bare token that matches nothing fails closed
-    with the known ids rather than a generic file-not-found.
+
+def _resolve_store_ids(args: argparse.Namespace, command: str) -> dict[str, str]:
+    """Let --metadata/--design accept workspace ids, and fill from `use` defaults.
+
+    Resolution order per flag: an existing file path always wins (explicit
+    paths behave exactly as before); a bare token matching a stored battery or
+    design resolves to its file; an omitted flag falls back to the project's
+    active default (`battery use` / `design use`); anything else fails closed
+    with the known ids. Returns what was implicitly resolved, so envelopes can
+    echo it and captured outputs stay self-describing.
     """
-    if command in {"battery import", "design import"} or not ROOT.exists():
-        return
+    resolved: dict[str, str] = {}
+    if command in {"umriss battery import", "umriss design import"} or command in _ADVISORY_COMMANDS:
+        return resolved
+    if not ROOT.exists():
+        return resolved
 
     def bare(value: str) -> bool:
         return "/" not in value and "\\" not in value and not value.startswith(".")
@@ -1443,6 +1497,27 @@ def _resolve_store_ids(args: argparse.Namespace, command: str) -> None:
                 context={"known_batteries": list_battery_ids()},
                 hint="Import it first with `umriss battery import --metadata <metadata.json>`.",
             )
+    elif metadata is None and "metadata" in vars(args) and getattr(args, "battery", None) is None:
+        default_battery = get_defaults().get("battery")
+        if default_battery:
+            stored = state_battery_dir(default_battery) / "battery.json"
+            if not stored.exists():
+                raise UmrissError(
+                    "not_found",
+                    f"The active battery '{default_battery}' no longer exists in the project.",
+                    context={"known_batteries": list_battery_ids()},
+                    hint="Set a new one with `umriss battery use <id>`.",
+                )
+            args.metadata = str(stored)
+            resolved["battery"] = default_battery
+        else:
+            raise UmrissError(
+                "missing_battery",
+                "No battery given and no active battery is set.",
+                context={"known_batteries": list_battery_ids()},
+                hint="Pass --metadata <file-or-id> (or --battery <id>), or set a default with `umriss battery use <id>`.",
+            )
+
     design = getattr(args, "design", None)
     if isinstance(design, str) and design and not Path(design).exists() and bare(design):
         stored = design_path(design) if not design.endswith((".yaml", ".yml", ".json")) else None
@@ -1455,6 +1530,27 @@ def _resolve_store_ids(args: argparse.Namespace, command: str) -> None:
                 context={"known_designs": list_design_ids()},
                 hint="Import it first with `umriss design import --design <design.yaml>`.",
             )
+    elif design is None and "design" in vars(args) and getattr(args, "preset", None) is None:
+        default_design = get_defaults().get("design")
+        if default_design:
+            stored = design_path(default_design)
+            if not stored.exists():
+                raise UmrissError(
+                    "not_found",
+                    f"The active design '{default_design}' no longer exists in the project.",
+                    context={"known_designs": list_design_ids()},
+                    hint="Set a new one with `umriss design use <id>`.",
+                )
+            args.design = str(stored)
+            resolved["design"] = default_design
+        else:
+            raise UmrissError(
+                "missing_design",
+                "No design given and no active design is set.",
+                context={"known_designs": list_design_ids()},
+                hint="Pass --design <file-or-id>" + (" or --preset <name>" if "preset" in vars(args) else "") + ", or set a default with `umriss design use <id>`.",
+            )
+    return resolved
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -1463,8 +1559,10 @@ def main(argv: list[str] | None = None) -> int:
     try:
         parser = build_parser()
         args = parser.parse_args(raw_argv)
-        _resolve_store_ids(args, command)
+        resolved = _resolve_store_ids(args, command)
         payload = args.func(args)
+        if resolved and isinstance(payload.get("data"), dict):
+            payload["data"].setdefault("resolved_defaults", resolved)
         print_json(payload)
         return 0
     except UmrissError as exc:

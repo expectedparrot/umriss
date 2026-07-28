@@ -33,7 +33,12 @@ Wherever a command accepts `--metadata FILE` or `--design FILE`, it also
 accepts a workspace id: a bare token (no path separator) resolves against the
 active `.umriss` project's imported batteries or designs. An existing file
 path always wins, so explicit paths behave exactly as before. A bare token
-matching nothing fails closed with the known ids. Import artifacts with
+matching nothing fails closed with the known ids. Commands may omit the flag
+entirely once a default is set with `umriss battery use <id>` or
+`umriss design use <id>`: the active default is applied, echoed in the
+envelope under `data.resolved_defaults`, and shown by `umriss status`.
+Explicit flags always override the default; with neither, commands fail
+closed with `missing_battery` / `missing_design`. Import artifacts with
 `umriss battery import --metadata <file>` and
 `umriss design import --design <file>`; list them with `umriss battery list`
 and `umriss design list`.
@@ -211,12 +216,14 @@ Every registered command (options and defaults live in `umriss <command> --help`
 | `umriss battery export-edsl` |  |
 | `umriss battery import` |  |
 | `umriss battery list` | List batteries imported into the active project. |
+| `umriss battery use` | Set the active battery default for commands that omit --metadata. |
 | `umriss battery inspect` |  |
 | `umriss capabilities` |  |
 | `umriss compare` |  |
 | `umriss design create` |  |
 | `umriss design import` | Store a design file in the active project under an id. |
 | `umriss design list` | List imported designs. |
+| `umriss design use` | Set the active design default for commands that omit --design. |
 | `umriss design validate` |  |
 | `umriss fit` |  |
 | `umriss guide` |  |

@@ -170,6 +170,36 @@ def test_store_ids_resolve_for_metadata_and_design(tmp_path: Path) -> None:
                            "--design", str(tmp_path / "d.yaml"), cwd=tmp_path)
     assert validated.returncode == 0, validated.stdout
 
+    # without defaults set, omitting the flags fails closed with guidance
+    missing = run_umriss("design", "validate", cwd=tmp_path)
+    assert missing.returncode == 1
+    assert json.loads(missing.stdout)["errors"][0]["code"] == "missing_battery"
+
+    # `use` sets active defaults; flags become optional and the envelope
+    # echoes what was implicitly resolved
+    assert run_umriss("battery", "use", "mini", cwd=tmp_path).returncode == 0
+    assert run_umriss("design", "use", "v1", cwd=tmp_path).returncode == 0
+    bare = run_umriss("design", "validate", cwd=tmp_path)
+    assert bare.returncode == 0, bare.stdout
+    payload = json.loads(bare.stdout)
+    assert payload["data"]["valid"] is True
+    assert payload["data"]["resolved_defaults"] == {"battery": "mini", "design": "v1"}
+
+    status = json.loads(run_umriss("status", cwd=tmp_path).stdout)
+    assert status["data"]["active_battery"] == "mini"
+    assert status["data"]["active_design"] == "v1"
+
+    # explicit flags still override the defaults
+    explicit = run_umriss("design", "validate", "--metadata", "mini2",
+                          "--design", str(tmp_path / "d.yaml"), cwd=tmp_path)
+    assert explicit.returncode == 0, explicit.stdout
+    assert "resolved_defaults" not in json.loads(explicit.stdout)["data"]
+
+    # `use` of something not imported fails closed
+    bad = run_umriss("battery", "use", "ghost", cwd=tmp_path)
+    assert bad.returncode == 1
+    assert json.loads(bad.stdout)["errors"][0]["context"]["known_batteries"] == ["mini", "mini2"]
+
 
 def test_every_leaf_command_has_handler() -> None:
     problems: list[str] = []
