@@ -52,7 +52,7 @@
 <body><main>
   <p class="kicker">Python CLI · schema version 1 · MIT licensed</p>
   <h1>umriss</h1>
-  <p class="lede">Build an auditable synthetic population from reported survey marginals, while keeping the assumptions that make the construction possible explicit.</p>
+  <p class="lede">Build an auditable synthetic population from reported survey marginals — and measure its performance.</p>
   <p>This page is the worked methodological argument: it explains one real run, including its failed approaches and diagnostics. For current option names and defaults, use <code>umriss &lt;command&gt; --help</code>. During a live project, <code>umriss guide</code> and <code>umriss next</code> are the authoritative workflow interfaces.</p>
 
   <h2>The problem this tutorial solves</h2>
@@ -62,19 +62,9 @@
   <p>The tutorial follows the entire construction using a real five-item Pew Research Center battery. We record the observed marginals, deliberately build a broad and initially near-uniform support of personas, fit their weights to the Pew targets, withhold each target in turn to test prediction, compare against direct frontier-model forecasts, inspect which personas receive weight, and finally export the fitted population as a reusable EDSL <code>AgentList</code>.</p>
   <p>The ordering is important. Personas are generated before the target percentages enter the fit. Coverage is measured before calibration. Validation withholds aggregate marginals rather than consulting respondent microdata. Every consequential prompt, model result, weight vector, diagnostic, and exported agent remains inspectable.</p>
 
-  <h2>What the method is doing</h2>
-  <p>A report commonly supplies one probability distribution for each survey item, but not the respondent-level records that connect answers across items. Those marginals do not determine a unique joint distribution. <code>umriss</code> therefore constructs a bank of synthetic response profiles, asks a model for a probability vector for every item in every profile, and fits nonnegative mixture weights over the bank.</p>
-  <p>Let \(p_{s,j}\) be support profile \(s\)'s probability vector for item \(j\), and \(w_s\) its population weight. The reconstructed marginal is</p>
-  \[
-    \widehat m_j = \sum_{s=1}^{S} w_s p_{s,j},
-    \qquad w_s \ge 0,\qquad \sum_s w_s=1.
-  \]
-  <p>The first generated profiles are deliberately spread over the response space. They are initially just support points; they do not have equal substantive prevalence. The fitted weights later move mass toward profiles needed to reproduce held-in marginals. Held-out items test whether the resulting joint structure predicts information it was not fitted to.</p>
-  <div class="note"><p>The result is a calibrated synthetic population, not recovered respondents. Support geometry and regularization are identifying assumptions and must be reported.</p></div>
-
   <h2>The example uses real Pew microdata</h2>
-  <p>The example comes from Pew Research Center’s nationally representative American Trends Panel, Wave 154, fielded among U.S. adults in September 2024. The normalized source contains 6,104 respondent records and Pew’s survey weight. Respondents were asked whether men and women are basically similar or basically different across five domains.</p>
-  <p>We use the microdata only to calculate the five weighted marginal distributions below. The support model never receives respondent rows, demographics, respondent-level answer combinations, or the target percentages. During leave-one-out validation, <code>umriss</code> fits four aggregate marginal vectors and predicts the fifth aggregate marginal vector.</p>
+  <p>The example comes from Pew Research Center’s nationally representative <a href="https://www.pewresearch.org/dataset/american-trends-panel-wave-154/">American Trends Panel, Wave 154</a>, fielded among U.S. adults in September 2024. The normalized source contains 6,104 respondent records and Pew’s survey weight. Respondents were asked whether men and women are basically similar or basically different across five domains.</p>
+  <p>We use the microdata only to calculate the five weighted marginal distributions below. The support model never receives respondent rows, demographics, respondent-level answer combinations, or the target percentages.</p>
   <table>
     <thead><tr><th>Domain</th><th>Basically similar</th><th>Basically different</th></tr></thead>
     <tbody>
@@ -87,6 +77,25 @@
   </table>
   <p>For example, the physical-abilities vector \((0.1907, 0.8093)\) means that the weighted estimate is 19.1 percent “basically similar” and 80.9 percent “basically different.” Workplace abilities move in the opposite direction: 57.3 percent say similar and 42.7 percent say different. The feelings item has the largest “different” share, at 89.0 percent.</p>
   <p>Every item has 6,104 valid records. The weighted denominator is approximately 6,091.07. The checked-in <a href="../examples/pew_w154/weighted_marginals.csv">weighted-marginal audit table</a> preserves the full-precision estimates and denominators.</p>
+  <p>Three files carry this step, and it is worth knowing what is inside each:</p>
+  <ul>
+    <li><strong><code>pew_w154_metadata.json</code></strong> (checked in) — the battery definition: question wording, item texts, option labels and codes, scale semantics, provenance, and the mapping from each tutorial item to its Pew source column and the survey-weight column. This file is the bridge between Pew's column names and the tutorial's item ids.</li>
+    <li><strong><code>W154_DIFF1_respondents.csv</code></strong> (not distributed — obtain from <a href="https://www.pewresearch.org/dataset/american-trends-panel-wave-154/">Pew</a>) — one row per respondent: a respondent id, one answer-code column per item, and Pew's survey weight. It is read only by this aggregation step and never reaches support generation or fitting.</li>
+    <li><strong><code>weighted_marginals.csv</code></strong> (checked in) — the output: one row per item with the weighted share for each response option and the denominators, at full precision.</li>
+  </ul>
+  <details><summary>Excerpt of pew_w154_metadata.json (one item)</summary><pre><code>"items": {
+  "hobbies": {
+    "variable": "DIFF1_a_W154",
+    "source_column": "item_a",
+    "item_text": "Their hobbies and personal interests",
+    "question_stem": "In general, how do you think men and women compare
+                      when it comes to each of the following?"
+  },
+  ...
+}</code></pre></details>
+  <details><summary>Excerpt of weighted_marginals.csv</summary><pre><code>item,item_text,similar,different,unweighted_n,weighted_denominator
+hobbies,Their hobbies and personal interests,0.31999...,0.68000...,6104,6091.07...
+physical_abilities,Their physical abilities,0.19070...,0.80929...,6104,6091.07...</code></pre></details>
   <p>Given an authorized local copy of Pew’s normalized respondent file, the aggregate inputs are reproduced with:</p>
   <pre><code>umriss marginals import \
   --metadata examples/pew_w154/pew_w154_metadata.json \
@@ -102,6 +111,20 @@
 
   <h2>1. Record the battery and its targets</h2>
   <p>Battery metadata records wording, option order, scale semantics, and reported marginals. It contains population-level facts, not invented theories about respondent types. Each scale is declared <code>ordinal</code> or <code>nominal</code>; ordinal scales also state their direction. This prevents a generic algorithm from treating the first or last nominal category as an “extreme.”</p>
+  <p>The primary way to build this metadata is item by item, through the CLI — one <code>question add</code> per battery item:</p>
+  <pre><code>umriss question add \
+  --battery pew_w154 --item hobbies --variable DIFF1_a_W154 \
+  --question-stem "In general, how do you think men and women compare when it comes to each of the following?" \
+  --item-text "Their hobbies and personal interests" \
+  --option "Men and women are basically similar" \
+  --option "Men and women are basically different" \
+  --scale-type nominal</code></pre>
+  <table>
+    <tr><th>Argument</th><th>Meaning</th></tr>
+    <tr><td><code>--scale-type</code></td><td><code>ordinal</code> means option order has substantive meaning; <code>nominal</code> means it does not.</td></tr>
+    <tr><td><code>--scale-direction</code></td><td>Required only for ordinal scales. The Pew response is binary but not a graded low-to-high scale, so this battery declares it nominal.</td></tr>
+  </table>
+  <p>Four more <code>question add</code> calls complete the battery. As a convenience, this tutorial ships the finished result — the <code>pew_w154_metadata.json</code> file excerpted above — so the remaining commands reference it directly. Inspect any metadata file to confirm what it declares:</p>
   <pre><code>umriss battery inspect examples/pew_w154/pew_w154_metadata.json</code></pre>
   <details><summary>Captured output</summary><pre><code>{
   "battery": "DIFF1",
@@ -115,32 +138,10 @@
     "workplace": 2
   }
 }</code></pre></details>
-  <p>You can also author metadata incrementally in a managed workspace:</p>
-  <pre><code>umriss question add \
-  --battery pew_w154 --item hobbies --variable DIFF1_a_W154 \
-  --question-stem "In general, how do you think men and women compare when it comes to each of the following?" \
-  --item-text "Their hobbies and personal interests" \
-  --option "Men and women are basically similar" \
-  --option "Men and women are basically different" \
-  --scale-type nominal</code></pre>
-  <table>
-    <tr><th>Argument</th><th>Meaning</th></tr>
-    <tr><td><code>--scale-type</code></td><td><code>ordinal</code> means option order has substantive meaning; <code>nominal</code> means it does not.</td></tr>
-    <tr><td><code>--scale-direction</code></td><td>Required only for ordinal scales. The Pew response is binary but not a graded low-to-high scale, so this battery declares it nominal.</td></tr>
-  </table>
 
   <h2>2. Declare and validate the support design</h2>
-  <p>The checked-in YAML makes every consequential support choice reviewable and versioned. Because the response is nominal, the design does not derive anchors from “first,” “middle,” or “last” option positions. Its two whole-battery anchors are declared explicitly.</p>
-  <pre><code>umriss design validate \
-  --metadata examples/pew_w154/pew_w154_metadata.json \
-  --design examples/pew_w154/pew_w154_design.yaml</code></pre>
-  <table>
-    <tr><th>Argument</th><th>Meaning</th><th>Options</th></tr>
-    <tr><td><code>--metadata</code></td><td>Battery definition used to resolve item-option cells.</td><td>Use <code>--battery ID</code> instead for a managed workspace.</td></tr>
-    <tr><td><code>--design</code></td><td>Editable declaration of coverage and anchors.</td><td>This design contains complete option coverage plus two explicit whole-battery patterns.</td></tr>
-  </table>
-  <p>Complete item-option coverage needs \(5\times2=10\) rows. Two explicit anchors—one all-similar and one all-different—bring the design to 12. Coverage rows use <code>item_specific</code> coherence, so targeting “different” for physical abilities does not force “different” for workplace abilities or parenting.</p>
-  <details><summary>Resolved schema-v1 design</summary><pre><code>schema_version: 1
+  <p>The design is a small checked-in YAML file — <code>pew_w154_design.yaml</code> — that makes every consequential support choice reviewable and versioned. Here it is in full:</p>
+  <pre><code>schema_version: 1
 size: 12
 coverage:
   mode: complete
@@ -160,7 +161,17 @@ profile:
 probabilities:
   interpretation: subjective_response_probability
   require_sum: 1
-  minimum_probability: 0.01</code></pre></details>
+  minimum_probability: 0.01</code></pre>
+  <p>Reading it top to bottom: the design asks for 12 support profiles — complete item-option coverage (\(5\times2=10\) rows) plus two explicitly declared whole-battery anchors, one all-similar and one all-different. Coverage rows use <code>item_specific</code> coherence, so targeting “different” for physical abilities does not force “different” for workplace abilities or parenting. Because the response is nominal, the design does not derive anchors from “first,” “middle,” or “last” option positions. <code>forbid_demographic_invention</code> keeps generated profiles from acquiring made-up demographics, and the probability block pins how model answers must be expressed.</p>
+  <p>Validate the design against the battery before anything is generated:</p>
+  <pre><code>umriss design validate \
+  --metadata examples/pew_w154/pew_w154_metadata.json \
+  --design examples/pew_w154/pew_w154_design.yaml</code></pre>
+  <table>
+    <tr><th>Argument</th><th>Meaning</th><th>Options</th></tr>
+    <tr><td><code>--metadata</code></td><td>Battery definition used to resolve item-option cells.</td><td>Use <code>--battery ID</code> instead for a managed workspace.</td></tr>
+    <tr><td><code>--design</code></td><td>Editable declaration of coverage and anchors.</td><td>This design contains complete option coverage plus two explicit whole-battery patterns.</td></tr>
+  </table>
 
   <h2>3. Understand the aggregate-only validation</h2>
   <p>Validation happens before prompt generation or model spending. Complete coverage cannot be silently truncated.</p>
@@ -356,6 +367,16 @@ probabilities:
     <img src="assets/pew_w154_diff1_uniform_n208_support_uniformity.svg" alt="Horizontal bars showing each item’s maximum deviation from a uniform equal-weight support marginal.">
     <figcaption>This pre-calibration diagnostic comes from the accepted support bank. Physical abilities is the limiting item at 4.85 percentage points, just inside the declared five-point tolerance.</figcaption>
   </figure>
+
+  <h2>What the fit is doing</h2>
+  <p>Everything so far built the bank of personas and measured their answer probabilities; nothing has touched the Pew targets. The fitting step that comes next rests on one identity. The marginals do not determine a unique joint distribution, so <code>umriss</code> fits nonnegative mixture weights over the bank of profiles it built.</p>
+  <p>Let \(p_{s,j}\) be support profile \(s\)'s probability vector for item \(j\), and \(w_s\) its population weight. The reconstructed marginal is</p>
+  \[
+    \widehat m_j = \sum_{s=1}^{S} w_s p_{s,j},
+    \qquad w_s \ge 0,\qquad \sum_s w_s=1.
+  \]
+  <p>The generated profiles were deliberately spread over the response space. They are initially just support points; they do not have equal substantive prevalence. The fitted weights move mass toward profiles needed to reproduce held-in marginals. Held-out items test whether the resulting joint structure predicts information it was not fitted to.</p>
+  <div class="note"><p>The result is a calibrated synthetic population, not recovered respondents. Support geometry and regularization are identifying assumptions and must be reported.</p></div>
 
   <h2>9. Estimate weights and test omitted items</h2>
   <p>Only now do the real Pew marginals enter. In each leave-one-out fold, four reported marginals jointly determine one weight vector over all 208 synthetic personas; the fifth marginal is withheld and predicted. The respondent microdata is not used in fitting or validation.</p>
