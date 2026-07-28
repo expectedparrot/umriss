@@ -566,167 +566,8 @@ umriss design validate</code></pre>
 
   <h2>11. Let the twins take the original survey</h2>
   <p>Exporting an <code>AgentList</code> is useful only if the twins can leave the construction pipeline and participate in another study. We therefore give the exported agents an EDSL survey containing the original five Pew questions. This is deliberately a downstream use: the survey receives the second-person <code>gender_attitudes</code> personas, but not the Pew targets, support-design prompts, or fitting instructions. We then aggregate the answers with the hidden fitted weights and ask how closely the resulting population resembles the one umriss fitted.</p>
-  <p>There is an important complication. The fitted population is a weighted mixture of persona-level probability vectors. For example, one persona may assign 30 percent probability to “basically similar” and 70 percent to “basically different,” and both numbers enter the fitted marginal. An ordinary multiple-choice survey instead asks that persona for one categorical answer. If the model consistently chooses the more likely option rather than sampling from its uncertainty, weighting those categorical answers will not reproduce the fitted expectation.</p>
-  <p>We did not assume those two procedures were interchangeable. We first ran the obvious ordinary survey and measured the discrepancy. We then inspected coded-answer token probabilities to determine whether model sampling was operating, and tested the tempting idea of placing the original probability vectors in each agent’s visible traits. That treatment mostly encouraged the model to select the modal answer; it did not turn the persona into a reliable stochastic policy. A prose prompt containing probabilities and a random number can force the desired calculation, but it makes arithmetic instructions part of the survey and asks the model to perform work that deterministic code can do exactly.</p>
-  <p>The final approach separates the two responsibilities. Under EDSL’s probabilistic response contract, the model reports its distribution over the ordinary multiple-choice options, while EDSL validates that distribution and resolves it with a reproducible host-side random draw. This preserves the AgentList as a collection of clean personas, allows nonmodal answers, and records both the model’s uncertainty and the sampled response.</p>
-  <p>The experiments below are presented in the order we performed them because the failures explain the final design. They answer three different questions: whether the exported personas transfer to a new elicitation, whether an ordinary model response behaves like a random draw, and how much additional variation is introduced when unequal persona weights are applied to one draw per twin.</p>
-
-  <pre><code>umriss battery export-edsl \
-  --path examples/pew_w154/run/agent_survey/pew_w154_original.survey.ep</code></pre>
-  <table>
-    <thead><tr><th>Argument</th><th>Meaning</th></tr></thead>
-    <tbody>
-      <tr><td><code>--metadata</code></td><td>The recorded Pew wording, item labels, and ordered answer options.</td></tr>
-      <tr><td><code>--path</code></td><td>A git-backed EDSL <code>Survey</code>, saved with <code>survey.git.save()</code> and verified with <code>Survey.git.load()</code>.</td></tr>
-    </tbody>
-  </table>
-  <p>The exported survey contains five ordinary multiple-choice questions. It contains no target percentages and does not ask for probabilities.</p>
-
-  <pre><code>umriss twins build-survey-jobs \
-  --survey examples/pew_w154/run/agent_survey/pew_w154_original.survey.ep \
-  --agents examples/pew_w154/run/full_fit/pew_w154_full_fit.agents.ep \
-  --model gpt-5.5 --service-name openai \
-  --path examples/pew_w154/run/agent_survey/pew_w154_ordinary.jobs.ep</code></pre>
-  <table>
-    <thead><tr><th>Argument</th><th>Meaning</th></tr></thead>
-    <tbody>
-      <tr><td><code>--survey</code></td><td>The original-question Survey produced above.</td></tr>
-      <tr><td><code>--agents</code></td><td>All 208 weighted digital twins. Their visible <code>gender_attitudes</code> traits enter the prompts; their hidden <code>_weight</code> traits do not.</td></tr>
-      <tr><td><code>--model</code>, <code>--service-name</code></td><td>The model that answers in character and its EDSL inference service.</td></tr>
-      <tr><td><code>--path</code></td><td>A git-backed Jobs package containing 208 interviews and 1,040 model answers.</td></tr>
-    </tbody>
-  </table>
-  <details><summary>Captured job-builder output</summary><pre><code>{
-  "agents": 208,
-  "questions": 5,
-  "model": "gpt-5.5",
-  "service_name": "openai",
-  "interviews": 208,
-  "model_answers": 1040
-}</code></pre></details>
-
-  <pre><code>ep run \
-  --jobs examples/pew_w154/run/agent_survey/pew_w154_ordinary.jobs.ep \
-  --output examples/pew_w154/run/agent_survey/pew_w154_ordinary.results.ep</code></pre>
-  <p>This is a real Expected Parrot run, not model-shaped test data. It produced one five-question interview for every exported persona. The checked-in Results package has remote UUID <code>dc434349-5bd1-4980-bb67-e0a4141d3ed2</code>.</p>
-
-  <pre><code>umriss twins compare-survey \
-  --results examples/pew_w154/run/agent_survey/pew_w154_ordinary.results.ep \
-  --fit-predictions examples/pew_w154/run/full_fit/pew_w154_full_fit_predictions.csv \
-  --out examples/pew_w154/run/agent_survey/pew_w154_survey_comparison.csv</code></pre>
-  <table>
-    <thead><tr><th>Argument</th><th>Meaning</th></tr></thead>
-    <tbody>
-      <tr><td><code>--results</code></td><td>The ordinary categorical answers from the real EDSL run.</td></tr>
-      <tr><td><code>--metadata</code></td><td>The real Pew marginals used as the comparison target.</td></tr>
-      <tr><td><code>--fit-predictions</code></td><td>The fitted expectation obtained by mixing each persona’s elicited probability vectors with its fitted weight.</td></tr>
-      <tr><td><code>--out</code></td><td>One audit row per item-option pair, containing all three marginals and both errors.</td></tr>
-    </tbody>
-  </table>
-
-  <pre><code>umriss twins plot-survey \
-  --comparison examples/pew_w154/run/agent_survey/pew_w154_survey_comparison.csv \
-  --out docs/assets/pew-w154-ordinary-survey.svg</code></pre>
-  <figure>
-    <img src="assets/pew-w154-ordinary-survey.svg" alt="Grouped bars comparing real Pew marginals, fitted probability-mixture marginals, and weighted ordinary survey answers for five items.">
-    <figcaption>The share answering “men and women are basically similar.” The fitted probability mixture nearly overlays the Pew targets because all five targets were used in the final fit. The ordinary survey asks each persona for one categorical answer and is a genuinely different measurement procedure.</figcaption>
-  </figure>
-  <table>
-    <thead><tr><th>Item</th><th>Real Pew</th><th>Probability mixture</th><th>Ordinary survey</th></tr></thead>
-    <tbody>
-      <tr><td>Hobbies</td><td>32.0%</td><td>32.0%</td><td>31.7%</td></tr>
-      <tr><td>Physical abilities</td><td>19.1%</td><td>19.1%</td><td>17.4%</td></tr>
-      <tr><td>Parenting</td><td>28.8%</td><td>28.8%</td><td>23.3%</td></tr>
-      <tr><td>Feelings</td><td>11.0%</td><td>11.0%</td><td>0.6%</td></tr>
-      <tr><td>Workplace</td><td>57.3%</td><td>57.2%</td><td>59.1%</td></tr>
-    </tbody>
-  </table>
-  <p>Across the five “basically similar” shares, mean absolute error is 0.02 percentage points for the fitted probability mixture and 3.92 percentage points for the weighted ordinary survey. The largest ordinary-survey gap is on emotional expression: 111 of 208 personas actually chose “basically similar,” but together they carried only 0.6 percent of the fitted population weight. The high-weight personas chose “basically different,” even though their previously elicited probability vectors retained some probability on “basically similar.” This is exactly why the raw agent count must not be mistaken for a population marginal.</p>
-  <p>This does not undo the fit. It identifies a response-mode difference. A weighted sum of stated probabilities is an expectation; a weighted sum of one categorical answer per persona is a realization of a different elicitation process. It may differ because a model chooses its modal answer rather than sampling from its earlier distribution, because the ordinary question provides less scaffolding, and because a few personas carry substantial weights. Repeating the survey can measure run-to-run variation, but repetition alone will not remove a systematic tendency to choose the modal category.</p>
-
-  <h3>Is the sampler behaving correctly?</h3>
-  <p>To separate sampling behavior from the model’s underlying choice distribution, we ran a second experiment using EDSL’s <code>use_code=True</code>. Each question asks for the zero-based code <code>0</code> or <code>1</code>, making the first generated token identify the selected option. The job uses temperature 1.0 and requests the top 20 token log probabilities.</p>
-  <p>GPT-5.5 rejected the <code>logprobs</code> parameter, so it cannot answer this diagnostic directly. The log-probability experiment therefore uses GPT-4.1 and must be interpreted as a model-change experiment, not as a retrospective explanation of GPT-5.5’s hidden token probabilities.</p>
-  <pre><code>umriss battery export-edsl \
-  --use-code \
-  --path examples/pew_w154/run/agent_survey/pew_w154_coded.survey.ep</code></pre>
-  <table>
-    <thead><tr><th>Argument</th><th>Meaning</th></tr></thead>
-    <tbody>
-      <tr><td><code>--use-code</code></td><td>EDSL presents numbered options and requests a zero-based answer code. For this binary battery, the first answer token is <code>0</code> or <code>1</code>.</td></tr>
-      <tr><td><code>--path</code></td><td>Writes a separate coded Survey; it does not replace the natural-language survey above.</td></tr>
-    </tbody>
-  </table>
-  <pre><code>umriss twins build-survey-jobs \
-  --survey examples/pew_w154/run/agent_survey/pew_w154_coded.survey.ep \
-  --agents examples/pew_w154/run/full_fit/pew_w154_full_fit.agents.ep \
-  --model gpt-4.1 --service-name openai \
-  --temperature 1 --logprobs --top-logprobs 20 \
-  --path examples/pew_w154/run/agent_survey/pew_w154_coded_gpt41_t1_logprobs.jobs.ep</code></pre>
-  <table>
-    <thead><tr><th>Argument</th><th>Meaning</th></tr></thead>
-    <tbody>
-      <tr><td><code>--temperature 1</code></td><td>Uses the requested unsharpened sampling temperature. The earlier GPT-5.5 ordinary survey used EDSL’s 0.5 default.</td></tr>
-      <tr><td><code>--logprobs</code></td><td>Requests a log probability for the sampled token and alternative tokens.</td></tr>
-      <tr><td><code>--top-logprobs 20</code></td><td>Retains up to twenty alternatives. Both valid codes appear for 858 of 1,040 answers; when one is absent, it lies below the returned top-20 cutoff.</td></tr>
-      <tr><td><code>--limit-agents</code>, <code>--limit-questions</code></td><td>Optional pilot controls. We used one agent and one question to verify model support before running the full experiment.</td></tr>
-    </tbody>
-  </table>
-  <pre><code>ep run \
-  --jobs examples/pew_w154/run/agent_survey/pew_w154_coded_gpt41_t1_logprobs.jobs.ep \
-  --output examples/pew_w154/run/agent_survey/pew_w154_coded_gpt41_t1_logprobs.results.ep \
-  --fresh</code></pre>
-  <p>The real Expected Parrot run contains 1,040 coded answers and has Results UUID <code>0ef4d9c0-1860-489f-86eb-a0124fdf06ab</code>.</p>
-  <pre><code>umriss twins analyze-logprobs \
-  --results examples/pew_w154/run/agent_survey/pew_w154_coded_gpt41_t1_logprobs.results.ep \
-  --support examples/pew_w154/run/banks/pew_w154_diff1_uniform_n208_probabilities.csv \
-  --tag pew_w154_coded_gpt41_t1 \
-  --out examples/pew_w154/run/agent_survey</code></pre>
-  <table>
-    <thead><tr><th>Item</th><th>Fitted elicited probability</th><th>Token-probability expectation</th><th>Sampled answers</th></tr></thead>
-    <tbody>
-      <tr><td>Hobbies</td><td>32.00%</td><td>31.39%</td><td>31.39%</td></tr>
-      <tr><td>Physical abilities</td><td>19.08%</td><td>7.94%</td><td>8.72%</td></tr>
-      <tr><td>Parenting</td><td>28.77%</td><td>23.27%</td><td>23.37%</td></tr>
-      <tr><td>Feelings</td><td>11.03%</td><td>0.33%</td><td>0.33%</td></tr>
-      <tr><td>Workplace</td><td>57.25%</td><td>60.19%</td><td>60.16%</td></tr>
-    </tbody>
-  </table>
-  <p>The token-probability expectation and the realized weighted answers are extremely close. Six of 1,040 answers sampled the lower-probability valid code, including one code whose reported probability was only 7.8 percent. This is evidence that sampling is operating, not simply taking the argmax.</p>
-  <p>The sharp discrepancy instead appears between two model measurements: probabilities elicited explicitly during support construction and token probabilities induced by an ordinary coded survey. On physical abilities and feelings, the latter are far more concentrated on “basically different.” Embedding the old probabilities in the persona might force agreement, but it would also leak item-specific measurements into the agent. The cleaner design is to preserve these as separate execution modes: fitted expectation, programmatic sampling from fitted probabilities, and natural agent response.</p>
-
-  <h3>Experiment: embed each persona’s probabilities</h3>
-  <p>We tested that tempting alternative directly. Umriss creates a separate treatment AgentList, leaving the original persona and hidden weight untouched while adding a visible trait containing that persona’s previously elicited probabilities for all five items.</p>
-  <pre><code>umriss twins embed-probabilities \
-  --agents examples/pew_w154/run/full_fit/pew_w154_full_fit.agents.ep \
-  --support examples/pew_w154/run/banks/pew_w154_diff1_uniform_n208_probabilities.csv \
-  --probability-trait gender_attitude_response_propensities \
-  --path examples/pew_w154/run/agent_survey/pew_w154_probability_embedded.agents.ep</code></pre>
-  <table>
-    <thead><tr><th>Argument</th><th>Meaning</th></tr></thead>
-    <tbody>
-      <tr><td><code>--agents</code></td><td>The unmodified full-fit AgentList used in the control run.</td></tr>
-      <tr><td><code>--support</code></td><td>Each support persona’s original item-option probability vectors—not the aggregate Pew targets.</td></tr>
-      <tr><td><code>--probability-trait</code></td><td>A new visible EDSL trait. Its text says these are uncertain response propensities rather than a command to choose the most likely answer.</td></tr>
-      <tr><td><code>--path</code></td><td>A separate treatment package, preserving the control AgentList.</td></tr>
-    </tbody>
-  </table>
-  <p>We then repeated the same coded GPT-4.1 experiment at temperature 1 with top-20 log probabilities. The real treatment Results have UUID <code>31204575-6d2a-4449-8c26-3a0ae35cbd1f</code>.</p>
-  <table>
-    <thead><tr><th>Item</th><th>Elicited fit</th><th>Control token expectation</th><th>Embedded token expectation</th></tr></thead>
-    <tbody>
-      <tr><td>Hobbies</td><td>32.00%</td><td>31.39%</td><td>31.53%</td></tr>
-      <tr><td>Physical abilities</td><td>19.08%</td><td>7.94%</td><td>18.78%</td></tr>
-      <tr><td>Parenting</td><td>28.77%</td><td>23.27%</td><td>22.82%</td></tr>
-      <tr><td>Feelings</td><td>11.03%</td><td>0.33%</td><td>0.66%</td></tr>
-      <tr><td>Workplace</td><td>57.25%</td><td>60.19%</td><td>56.93%</td></tr>
-    </tbody>
-  </table>
-  <p>Embedding improved aggregate agreement for physical abilities and workplace, barely changed hobbies and feelings, and slightly worsened parenting. But the mechanism is not preserved uncertainty. The treatment produced no lower-probability draws, compared with six in the control. Across all five items, 99.96 percent of fitted population weight selected the modal category of its embedded distribution; only one low-weight persona departed from its mode. Both codes appeared in the top 20 for only 587 of 1,040 treatment answers, down from 858 in the control.</p>
-  <p>The model interprets “your probabilities are 30/70” primarily as evidence for choosing the 70-percent answer, not as a stochastic policy to sample 30/70. Some aggregate marginals improve because weighted modal categories happen to align better with those targets. That is not a reasonable probabilistic support. If downstream simulation must reproduce the fitted distribution, umriss should sample from the stored probabilities programmatically. The natural-response and probability-embedded modes remain useful behavioral diagnostics, but neither should silently replace that sampling step.</p>
-
-  <h3>Use EDSL’s probabilistic response contract</h3>
-  <p>EDSL now has a cleaner execution mode for exactly this problem. A question remains multiple choice to the caller, but the model is asked for a probability distribution over its options. EDSL validates that vector and resolves it outside the model with a seeded random draw. The model describes uncertainty; deterministic host code performs the sampling. No probabilities or random-number instructions are placed in the persona.</p>
+  <p>There is an important complication. The fitted population is a weighted mixture of persona-level probability vectors. For example, one persona may assign 30 percent probability to “basically similar” and 70 percent to “basically different,” and both numbers enter the fitted marginal. An ordinary multiple-choice survey instead asks that persona for one categorical answer, and a model tends to choose its most likely option rather than sample from its uncertainty — so weighting those categorical answers will not reproduce the fitted expectation.</p>
+  <p>The approach that works separates the two responsibilities. Under EDSL’s <strong>probabilistic response contract</strong>, a question remains multiple choice to the caller, but the model is asked for a probability distribution over its options. EDSL validates that vector and resolves it outside the model with a seeded, reproducible random draw. The model describes uncertainty; deterministic host code performs the sampling. No probabilities or random-number instructions are placed in the persona, and both the distribution and the sampled answer are recorded. (The diagnostics that motivated this design — what goes wrong when you simply ask the questions normally — are summarized at the end of this section.)</p>
   <p>This tutorial currently installs EDSL’s <code>feature/probabilistic-response-contract</code> branch. We exercised it with the exported 208-agent list and the same five original Pew questions. The inference model was Meta’s <code>muse-spark-1.1</code>, run through local EDSL inference using the Meta key in the local <code>.env</code>.</p>
 
   <pre><code>umriss battery export-edsl \
@@ -754,7 +595,6 @@ umriss design validate</code></pre>
   --local --fresh \
   --output examples/pew_w154/run/agent_survey/pew_w154_probabilistic_meta_retry2.results.ep</code></pre>
   <p>These are real local Meta calls. The first pass was incomplete, despite the runner reporting no task errors. A fresh retry returned 208 responses for hobbies and parenting and 207 for each other item, representing more than 99.96 percent of fitted weight. A second retry returned all 1,040 responses. We preserve both Results packages rather than silently renormalizing an incomplete run.</p>
-
   <pre><code>umriss twins analyze-probabilistic-survey \
   --results \
     examples/pew_w154/run/agent_survey/pew_w154_probabilistic_meta_retry2.results.ep \
@@ -813,6 +653,21 @@ umriss design validate</code></pre>
   <p>Two distinct elicitation exercises should not be expected to be identical, and the remaining gap is itself informative: it measures the cross-model portability of the fitted twins. One resolved draw per persona is noisier, especially because the fitted weights are concentrated—208 rows do not behave like 208 equally weighted observations. The sampled answers have a 5.64-point mean absolute error in this single seeded realization. Repeated draws should reduce that Monte Carlo component, but not necessarily the 2.88-point difference between the newly elicited and originally fitted probability distributions.</p>
   <p>The repeated-draw experiment confirms that interpretation. Although the AgentList has 208 rows, its fitted weights imply an effective population of only 22.64 equally weighted personas. A single resolved synthetic population consequently has a mean expected absolute error of 5.69 points; the central 95 percent of realizations ranges from 2.12 to 10.61 points. Our observed 5.64-point run is therefore ordinary rather than anomalous. Averaging independent resolved populations converges toward the new probability-mixture marginal, whose 2.88-point error is the remaining cross-model difference. Merely adding more draws without averaging them does not make an individual realization less variable.</p>
   <p>The practical conclusion is to use the probabilistic response contract for new surveys when both a distribution and a sampled answer are useful. If the goal is instead to reproduce the already-fitted Pew population exactly, sample programmatically from the stored support probabilities; do not ask a different model to re-elicitate them. For stable aggregate simulation, run multiple seeded iterations and report Monte Carlo uncertainty rather than treating one weighted draw as the marginal.</p>
+
+  <h3>Why not simply ask the questions normally?</h3>
+  <p>Because we tried, and the failure is instructive. Running the exported twins through an <em>ordinary</em> categorical survey (GPT-5.5; Results UUID <code>dc434349-5bd1-4980-bb67-e0a4141d3ed2</code>) reproduced some marginals well and missed others badly — most dramatically on emotional expression, where Pew reports 11.0 percent “basically similar” and the weighted ordinary survey produced 0.6 percent. 111 of 208 personas actually chose “basically similar,” but together they carried almost no fitted weight; the high-weight personas all chose their modal answer, even where their elicited probability vectors retained real mass on the other option. A weighted sum of stated probabilities is an expectation; a weighted sum of one modal answer per persona is something else.</p>
+  <table>
+    <thead><tr><th>Item</th><th>Real Pew</th><th>Probability mixture</th><th>Ordinary survey</th></tr></thead>
+    <tbody>
+      <tr><td>Hobbies</td><td>32.0%</td><td>32.0%</td><td>31.7%</td></tr>
+      <tr><td>Physical abilities</td><td>19.1%</td><td>19.1%</td><td>17.4%</td></tr>
+      <tr><td>Parenting</td><td>28.8%</td><td>28.8%</td><td>23.3%</td></tr>
+      <tr><td>Feelings</td><td>11.0%</td><td>11.0%</td><td>0.6%</td></tr>
+      <tr><td>Workplace</td><td>57.3%</td><td>57.2%</td><td>59.1%</td></tr>
+    </tbody>
+  </table>
+  <p>Two follow-up diagnostics pinned down the mechanism. A coded-answer experiment with top-20 token log probabilities (GPT-4.1, since GPT-5.5 rejects <code>logprobs</code>; UUID <code>0ef4d9c0-1860-489f-86eb-a0124fdf06ab</code>) showed that sampling itself operates correctly — the realized answers track the token-probability expectation, including occasional low-probability draws — so the gap lies between two model measurements: probabilities elicited explicitly during support construction and the far more concentrated token probabilities induced by an ordinary survey. And embedding each persona’s elicited probabilities as a visible trait (UUID <code>31204575-6d2a-4449-8c26-3a0ae35cbd1f</code>) did not help: the model reads “your probabilities are 30/70” as evidence for choosing the 70-percent answer, and 99.96 percent of fitted weight selected its modal category. Prose is the wrong place to ask for randomness.</p>
+  <p>Those three findings are exactly why the response contract separates description from resolution: the model states a distribution, and deterministic code does the sampling. The full commands, comparison tables, and checked-in artifacts for all three diagnostics are preserved in <code>examples/pew_w154/run/agent_survey/</code>.</p>
 
   <h2>Flexibility without hidden assumptions</h2>
   <p>Experts can edit coherence, intensities, anchors, partial coverage, probability constraints, or add user-authored profiles. A custom Jinja template is also allowed with <code>prompt.validation: strict</code>. It must still contain every item, preserve option order, request a second-person persona, and state the probability and sum-to-one contract.</p>
