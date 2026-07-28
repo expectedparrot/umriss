@@ -124,8 +124,12 @@ physical_abilities,Their physical abilities,0.19070...,0.80929...,6104,6091.07..
     <tr><td><code>--scale-type</code></td><td><code>ordinal</code> means option order has substantive meaning; <code>nominal</code> means it does not.</td></tr>
     <tr><td><code>--scale-direction</code></td><td>Required only for ordinal scales. The Pew response is binary but not a graded low-to-high scale, so this battery declares it nominal.</td></tr>
   </table>
-  <p>Four more <code>question add</code> calls complete the battery. As a convenience, this tutorial ships the finished result — the <code>pew_w154_metadata.json</code> file excerpted above — so the remaining commands reference it directly. Inspect any metadata file to confirm what it declares:</p>
-  <pre><code>umriss battery inspect examples/pew_w154/pew_w154_metadata.json</code></pre>
+  <p>Four more <code>question add</code> calls complete the battery. As a convenience, this tutorial ships the finished result — the <code>pew_w154_metadata.json</code> file excerpted above. Rather than repeating that path in every later command, import it into the workspace once under an id, and make it the active battery:</p>
+  <pre><code>umriss init
+umriss battery import --metadata examples/pew_w154/pew_w154_metadata.json --battery-id pew
+umriss battery use pew</code></pre>
+  <p>From here on, commands that need the battery simply omit <code>--metadata</code>: the active default applies, and an explicit path or id always overrides it. So that the implicit state never hides anything, every envelope produced under a default echoes <code>resolved_defaults</code>, recording exactly which artifacts it used; <code>umriss status</code> reports the active pair. Inspect a battery by id at any time:</p>
+  <pre><code>umriss battery inspect pew</code></pre>
   <details><summary>Captured output</summary><pre><code>{
   "battery": "DIFF1",
   "items": 5,
@@ -165,10 +169,10 @@ probabilities:
   require_sum: 1
   minimum_probability: 0.01</code></pre>
   <p>Reading it top to bottom: the design asks for 12 support profiles — complete item-option coverage (\(5\times2=10\) rows) plus two explicitly declared whole-battery anchors, one all-similar and one all-different. Coverage rows use <code>item_specific</code> coherence, so targeting “different” for physical abilities does not force “different” for workplace abilities or parenting. Because the response is nominal, the design does not derive anchors from “first,” “middle,” or “last” option positions. <code>forbid_demographic_invention</code> keeps generated profiles from acquiring made-up demographics, and the probability block pins how model answers must be expressed.</p>
-  <p>Validate the design against the battery before anything is generated:</p>
-  <pre><code>umriss design validate \
-  --metadata examples/pew_w154/pew_w154_metadata.json \
-  --design examples/pew_w154/pew_w154_design.yaml</code></pre>
+  <p>Import the design under an id, make it active, and validate it against the battery before anything is generated:</p>
+  <pre><code>umriss design import --design examples/pew_w154/pew_w154_design.yaml --design-id v1
+umriss design use v1
+umriss design validate</code></pre>
   <table>
     <tr><th>Argument</th><th>Meaning</th><th>Options</th></tr>
     <tr><td><code>--metadata</code></td><td>Battery definition used to resolve item-option cells.</td><td>Use <code>--battery ID</code> instead for a managed workspace.</td></tr>
@@ -177,9 +181,7 @@ probabilities:
 
   <h2>3. Understand the aggregate-only validation</h2>
   <p>Validation happens before prompt generation or model spending. Complete coverage cannot be silently truncated.</p>
-  <pre><code>umriss design validate \
-  --metadata examples/pew_w154/pew_w154_metadata.json \
-  --design examples/pew_w154/pew_w154_design.yaml</code></pre>
+  <pre><code>umriss design validate</code></pre>
   <details><summary>Captured output</summary><pre><code>{
   "valid": true,
   "size": 12,
@@ -188,14 +190,16 @@ probabilities:
   "components": [
     {"component": "option_coverage", "required": 10},
     {"component": "pattern_anchors", "required": 2}
-  ]
+  ],
+  "metadata_source": {"kind": "file", "path": ".umriss/projects/default/batteries/pew/battery.json"},
+  "design_path": ".umriss/projects/default/designs/v1.yaml",
+  "resolved_defaults": {"battery": "pew", "design": "v1"}
 }</code></pre></details>
+  <p>The <code>resolved_defaults</code> field is the audit trail for the workspace defaults: even though the command named nothing, its output records which battery and design it ran against.</p>
   <p>A size below 12 would return <code>DESIGN_TOO_SMALL</code>. This check concerns support geometry. Later, each leave-one-out fold removes one Pew marginal from the fitting targets, estimates weights from the other four marginals, and scores the omitted marginal. It does not fit or score individual respondent answers.</p>
 
   <h2>4. Build and audit the support plan</h2>
   <pre><code>umriss support build \
-  --metadata examples/pew_w154/pew_w154_metadata.json \
-  --design examples/pew_w154/pew_w154_design.yaml \
   --tag pew_w154_diff1_n12 \
   --out examples/pew_w154/run</code></pre>
   <table>
@@ -255,7 +259,6 @@ probabilities:
   --out examples/pew_w154/run/raw</code></pre>
   <pre><code>umriss support parse \
   --raw examples/pew_w154/run/raw/pew_w154_diff1_n12_raw.csv \
-  --metadata examples/pew_w154/pew_w154_metadata.json \
   --tag pew_w154_diff1_n12 \
   --out examples/pew_w154/run/banks</code></pre>
   <details><summary>Captured parse output</summary><pre><code>{
@@ -282,7 +285,6 @@ probabilities:
   <p><code>umriss validate marginals</code> records the full-precision check in <a href="../examples/pew_w154/run/derived/pew_w154_diff1_n12_support_uniformity.csv"><code>pew_w154_diff1_n12_support_uniformity.csv</code></a>. The correct next step is not to accept this bank and reweight it. It is to generate additional personas targeted at the measured deficits, recompute the equal-weight marginals, and repeat until every item meets a declared tolerance. Only that accepted bank should be fitted to the reported survey marginals. The weight estimates below diagnose what this failed pilot would do; they are not yet a successful demonstration of the full procedure.</p>
   <pre><code>umriss validate marginals \
   --support examples/pew_w154/run/banks/pew_w154_diff1_n12_probabilities.csv \
-  --metadata examples/pew_w154/pew_w154_metadata.json \
   --tag pew_w154_diff1_n12 \
   --out examples/pew_w154/run/derived</code></pre>
   <p>Leave-one-out validation produces five fitted weight vectors, not one. Each column below is a separate fit: the named marginal is withheld, and the weights are estimated from the other four marginals. A value of 57.9 percent for persona 8 in the “hobbies” column means that this support profile receives 57.9 percent of the synthetic population weight when hobbies are the omitted outcome.</p>
@@ -318,7 +320,6 @@ probabilities:
   <h2>8. Add personas until the measured marginals are uniform</h2>
   <p>The 12-person option-coverage pilot above is discarded. The real foundation enumerates all 32 possible binary response patterns across five items and elicits each pattern three times. Every replicate has a distinct prompt identity, producing 96 independently measured support points while keeping the intended one-way marginals exactly balanced.</p>
   <pre><code>umriss support build \
-  --metadata examples/pew_w154/pew_w154_metadata.json \
   --preset uniform-patterns \
   --n-support 96 \
   --tag pew_w154_diff1_uniform_n96 \
@@ -327,7 +328,6 @@ probabilities:
   <p><code>umriss</code> therefore computes the deficits relative to uniform, then creates a new batch of full-battery patterns aimed at those deficits. After parsing, the new rows are merged with the existing bank and measured again.</p>
   <pre><code>umriss support augment-uniform \
   --support examples/pew_w154/run/uniform_n96/bank/pew_w154_diff1_uniform_n96_probabilities.csv \
-  --metadata examples/pew_w154/pew_w154_metadata.json \
   --tag pew_w154_diff1_uniform_repair_r1 \
   --n-add 64 \
   --tolerance 0.05 \
@@ -352,7 +352,6 @@ probabilities:
   <p>The procedure stops at 208 valid personas because that is the first measured bank that passes both kinds of preflight: all item marginals meet the five-point tolerance, and the support geometry remains diverse. It contains 206 unique vectors, all 32 joint patterns, rank 5, and effective rank 4.95.</p>
   <pre><code>umriss support uniformity \
   --support examples/pew_w154/run/banks/pew_w154_diff1_uniform_n208_probabilities.csv \
-  --metadata examples/pew_w154/pew_w154_metadata.json \
   --tolerance 0.05 \
   --out examples/pew_w154/run/banks/pew_w154_diff1_uniform_n208_preflight.csv</code></pre>
   <table>
@@ -384,7 +383,6 @@ probabilities:
   <p>Only now do the real Pew marginals enter. In each leave-one-out fold, four reported marginals jointly determine one weight vector over all 208 synthetic personas; the fifth marginal is withheld and predicted. The respondent microdata is not used in fitting or validation.</p>
   <pre><code>umriss validate marginals \
   --support examples/pew_w154/run/banks/pew_w154_diff1_uniform_n208_probabilities.csv \
-  --metadata examples/pew_w154/pew_w154_metadata.json \
   --one-shot examples/pew_w154/baselines/unconditioned_one_shot_gpt-5.5.csv \
   --conditioned-direct examples/pew_w154/baselines/conditioned_two_step_gpt-5.5.csv \
   --tag pew_w154_diff1_uniform_n208 \
@@ -465,7 +463,6 @@ probabilities:
   <p>The five LOO weight vectors answer validation questions; each deliberately omits a different real marginal. They are not the population to deploy. For export, fit one final weight vector using all five reported Pew marginals:</p>
   <pre><code>umriss fit \
   --support examples/pew_w154/run/banks/pew_w154_diff1_uniform_n208_probabilities.csv \
-  --metadata examples/pew_w154/pew_w154_metadata.json \
   --tag pew_w154_full_fit \
   --out examples/pew_w154/run/full_fit</code></pre>
   <table>
@@ -574,7 +571,6 @@ probabilities:
   <p>The experiments below are presented in the order we performed them because the failures explain the final design. They answer three different questions: whether the exported personas transfer to a new elicitation, whether an ordinary model response behaves like a random draw, and how much additional variation is introduced when unequal persona weights are applied to one draw per twin.</p>
 
   <pre><code>umriss battery export-edsl \
-  --metadata examples/pew_w154/pew_w154_metadata.json \
   --path examples/pew_w154/run/agent_survey/pew_w154_original.survey.ep</code></pre>
   <table>
     <thead><tr><th>Argument</th><th>Meaning</th></tr></thead>
@@ -615,7 +611,6 @@ probabilities:
 
   <pre><code>umriss twins compare-survey \
   --results examples/pew_w154/run/agent_survey/pew_w154_ordinary.results.ep \
-  --metadata examples/pew_w154/pew_w154_metadata.json \
   --fit-predictions examples/pew_w154/run/full_fit/pew_w154_full_fit_predictions.csv \
   --out examples/pew_w154/run/agent_survey/pew_w154_survey_comparison.csv</code></pre>
   <table>
@@ -652,7 +647,6 @@ probabilities:
   <p>To separate sampling behavior from the model’s underlying choice distribution, we ran a second experiment using EDSL’s <code>use_code=True</code>. Each question asks for the zero-based code <code>0</code> or <code>1</code>, making the first generated token identify the selected option. The job uses temperature 1.0 and requests the top 20 token log probabilities.</p>
   <p>GPT-5.5 rejected the <code>logprobs</code> parameter, so it cannot answer this diagnostic directly. The log-probability experiment therefore uses GPT-4.1 and must be interpreted as a model-change experiment, not as a retrospective explanation of GPT-5.5’s hidden token probabilities.</p>
   <pre><code>umriss battery export-edsl \
-  --metadata examples/pew_w154/pew_w154_metadata.json \
   --use-code \
   --path examples/pew_w154/run/agent_survey/pew_w154_coded.survey.ep</code></pre>
   <table>
@@ -684,7 +678,6 @@ probabilities:
   <p>The real Expected Parrot run contains 1,040 coded answers and has Results UUID <code>0ef4d9c0-1860-489f-86eb-a0124fdf06ab</code>.</p>
   <pre><code>umriss twins analyze-logprobs \
   --results examples/pew_w154/run/agent_survey/pew_w154_coded_gpt41_t1_logprobs.results.ep \
-  --metadata examples/pew_w154/pew_w154_metadata.json \
   --support examples/pew_w154/run/banks/pew_w154_diff1_uniform_n208_probabilities.csv \
   --tag pew_w154_coded_gpt41_t1 \
   --out examples/pew_w154/run/agent_survey</code></pre>
@@ -706,7 +699,6 @@ probabilities:
   <pre><code>umriss twins embed-probabilities \
   --agents examples/pew_w154/run/full_fit/pew_w154_full_fit.agents.ep \
   --support examples/pew_w154/run/banks/pew_w154_diff1_uniform_n208_probabilities.csv \
-  --metadata examples/pew_w154/pew_w154_metadata.json \
   --probability-trait gender_attitude_response_propensities \
   --path examples/pew_w154/run/agent_survey/pew_w154_probability_embedded.agents.ep</code></pre>
   <table>
@@ -737,7 +729,6 @@ probabilities:
   <p>This tutorial currently installs EDSL’s <code>feature/probabilistic-response-contract</code> branch. We exercised it with the exported 208-agent list and the same five original Pew questions. The inference model was Meta’s <code>muse-spark-1.1</code>, run through local EDSL inference using the Meta key in the local <code>.env</code>.</p>
 
   <pre><code>umriss battery export-edsl \
-  --metadata examples/pew_w154/pew_w154_metadata.json \
   --probabilistic-resolution sample \
   --resolution-seed 20260725 \
   --path examples/pew_w154/run/agent_survey/pew_w154_probabilistic.survey.ep</code></pre>
@@ -767,7 +758,6 @@ probabilities:
   --results \
     examples/pew_w154/run/agent_survey/pew_w154_probabilistic_meta_retry2.results.ep \
     examples/pew_w154/run/agent_survey/pew_w154_probabilistic_meta_retry3.results.ep \
-  --metadata examples/pew_w154/pew_w154_metadata.json \
   --fit-predictions examples/pew_w154/run/full_fit/pew_w154_full_fit_predictions.csv \
   --tag pew_w154_probabilistic_meta \
   --out examples/pew_w154/run/agent_survey \
