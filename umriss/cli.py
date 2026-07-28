@@ -49,7 +49,9 @@ from .state import (
     list_battery_ids,
     list_design_ids,
     list_projects,
+    list_run_tags,
     project_dir,
+    run_dir,
     set_default,
     use_project,
 )
@@ -170,17 +172,24 @@ def cmd_status(args: argparse.Namespace) -> dict[str, Any]:
         if (pdir / "evaluations").exists()
         else 0,
     }
-    # Analytic artifacts live wherever --out pointed; run manifests are the
-    # source of truth for pipeline state, so report them rather than counting
-    # workspace directories the pipeline may never have written to.
+    # Store runs first (the workspace is authoritative for tagged pipeline
+    # state), then external runs found through their manifests.
     runs = []
+    for tag in list_run_tags():
+        directory = run_dir(tag)
+        try:
+            stage = next_for_artifacts(tag, prompt_dir=directory, raw_dir=directory,
+                                       bank_dir=directory, derived_dir=directory)["stage"]
+        except UmrissError:
+            stage = "unknown"
+        runs.append({"tag": tag, "location": "store", "run_dir": str(directory), "stage": stage})
     for manifest_path in discover_run_manifests():
         try:
             manifest = json.loads(manifest_path.read_text())
         except (OSError, json.JSONDecodeError):
             continue
         tag = manifest.get("tag")
-        if not tag:
+        if not tag or any(run["tag"] == tag for run in runs):
             continue
         try:
             stage = next_for_artifacts(tag, prompt_dir=manifest_path.parent,
@@ -191,6 +200,7 @@ def cmd_status(args: argparse.Namespace) -> dict[str, Any]:
             stage = "unknown"
         runs.append({
             "tag": tag,
+            "location": "external",
             "workflow": manifest.get("workflow"),
             "manifest": str(manifest_path),
             "stage": stage,
@@ -203,6 +213,31 @@ def cmd_status(args: argparse.Namespace) -> dict[str, Any]:
     return envelope(
         "umriss status", "ok", data,
         next_steps=[f"umriss next --tag {runs[-1]['tag']}"] if runs else [],
+    )
+
+
+def cmd_export(args: argparse.Namespace) -> dict[str, Any]:
+    """Publish a store run's artifacts to a plain directory (replication packages)."""
+    import shutil
+
+    directory = run_dir(args.tag)
+    if not directory.exists():
+        raise UmrissError(
+            "not_found",
+            f"No store run for tag: {args.tag}.",
+            context={"known_tags": list_run_tags()},
+        )
+    out_dir = Path(args.out)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    copied = []
+    for entry in sorted(directory.iterdir()):
+        if entry.is_file():
+            shutil.copyfile(entry, out_dir / entry.name)
+            copied.append(entry.name)
+    return envelope(
+        "umriss export", "ok",
+        {"tag": args.tag, "out": str(out_dir), "files": copied, "file_count": len(copied)},
+        next_steps=[f"Commit {out_dir} alongside your analysis for replication."],
     )
 
 
@@ -1001,6 +1036,10 @@ def discover_tag_manifest(tag: str) -> Path | None:
 def cmd_next(args: argparse.Namespace) -> dict[str, Any]:
     if args.tag:
         prompt_dir = Path(args.prompt_dir) if args.prompt_dir else None
+        if prompt_dir is None and ROOT.exists():
+            stored = run_dir(args.tag)
+            if stored.exists():
+                prompt_dir = stored
         if prompt_dir is None:
             manifest = discover_tag_manifest(args.tag)
             prompt_dir = manifest.parent if manifest else Path(".")
@@ -1024,7 +1063,7 @@ def cmd_next(args: argparse.Namespace) -> dict[str, Any]:
         run = incomplete[-1]
         return envelope("umriss next", "ok", {
             "recommendation": f"umriss next --tag {run['tag']}",
-            "reason": f"Run `{run['tag']}` is at stage `{run['stage']}` (manifest: {run['manifest']}).",
+            "reason": f"Run `{run['tag']}` is at stage `{run['stage']}` ({run.get('manifest') or run.get('run_dir')}).",
             "runs": runs,
         })
     if status["batteries"] == 0:
@@ -1077,6 +1116,10 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--output-dir")
     p.set_defaults(func=cmd_init)
     sub.add_parser("status").set_defaults(func=cmd_status)
+    p = sub.add_parser("export")
+    p.add_argument("--tag", required=True)
+    p.add_argument("--out", required=True)
+    p.set_defaults(func=cmd_export)
     sub.add_parser("version").set_defaults(func=lambda args: envelope(
         "umriss version", "ok",
         {
@@ -1204,12 +1247,12 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--tag", required=True)
     p.add_argument("--n-support", type=int, help="Override design size; feasibility validation still applies.")
     p.add_argument("--seed", type=int, help="Override the design seed.")
-    p.add_argument("--out", required=True)
+    p.add_argument("--out")
     p.add_argument("--force", action="store_true")
     p.set_defaults(func=cmd_support_build)
     p = support.add_parser("export")
-    p.add_argument("--prompts", required=True)
-    p.add_argument("--path", required=True)
+    p.add_argument("--prompts")
+    p.add_argument("--path")
     p.add_argument("--model", action="append")
     p.add_argument("--service-name")
     p.add_argument("--temperature", type=float, default=1.0)
@@ -1224,7 +1267,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--results", required=True)
     p.add_argument("--prompts")
     p.add_argument("--tag", required=True)
-    p.add_argument("--out", required=True)
+    p.add_argument("--out")
     p.add_argument("--force", action="store_true")
     p.set_defaults(func=cmd_support_register_results)
     p = support.add_parser("audit-results")
@@ -1235,10 +1278,10 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--force", action="store_true")
     p.set_defaults(func=cmd_support_audit_results)
     p = support.add_parser("parse")
-    p.add_argument("--raw", required=True)
+    p.add_argument("--raw")
     p.add_argument("--metadata")
     p.add_argument("--tag", required=True)
-    p.add_argument("--out", required=True)
+    p.add_argument("--out")
     p.set_defaults(func=cmd_support_parse)
     p = support.add_parser("inspect")
     p.add_argument("--prompts")
@@ -1248,12 +1291,13 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--summary")
     p.set_defaults(func=cmd_support_inspect)
     p = support.add_parser("uniformity")
-    p.add_argument("--support", required=True)
+    p.add_argument("--support")
+    p.add_argument("--tag")
     p.add_argument("--metadata")
     p.add_argument("--tolerance", type=float, default=0.05)
     p.add_argument("--max-duplicate-fraction", type=float, default=0.05)
     p.add_argument("--min-joint-pattern-fraction", type=float, default=0.75)
-    p.add_argument("--out", required=True)
+    p.add_argument("--out")
     p.set_defaults(func=cmd_support_uniformity)
     p = support.add_parser("augment-uniform")
     p.add_argument("--support", required=True)
@@ -1331,7 +1375,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--min-joint-pattern-fraction", type=float, default=0.75)
     p.add_argument("--allow-nonuniform-support", action="store_true")
     p.add_argument("--tag", required=True)
-    p.add_argument("--out", required=True)
+    p.add_argument("--out")
     p.set_defaults(func=cmd_validate_marginals)
 
     p = sub.add_parser("predict")
@@ -1437,9 +1481,9 @@ def build_parser() -> argparse.ArgumentParser:
 
     plot = sub.add_parser("plot").add_subparsers(dest="plot_command", required=True)
     p = plot.add_parser("validation")
-    p.add_argument("--derived", required=True)
+    p.add_argument("--derived")
     p.add_argument("--tag", required=True)
-    p.add_argument("--out", required=True)
+    p.add_argument("--out")
     p.add_argument("--format", choices=["svg", "png", "pdf"], default="svg")
     p.add_argument("--top-personas", type=int, default=30)
     p.set_defaults(func=cmd_plot_validation)
@@ -1464,6 +1508,67 @@ def build_parser() -> argparse.ArgumentParser:
 # Commands whose --metadata/--design are genuinely optional advisory inputs;
 # active defaults are not injected and absence is not an error.
 _ADVISORY_COMMANDS = {"umriss next"}
+
+# Per-command store defaults for pipeline inputs/outputs, applied when the
+# flag is omitted and --tag is set. "@dir" means the tag's store run
+# directory; a filename template is a conventional artifact inside it.
+# Input templates must already exist (fail closed with the producing command);
+# templates suffixed "?" are filled only when present.
+_RUN_DEFAULTS: dict[str, dict[str, str]] = {
+    "umriss support build": {"out": "@dir"},
+    "umriss support export": {"prompts": "{tag}_prompts.jsonl", "path": "{tag}.jobs.ep!"},
+    "umriss support register-results": {"prompts": "{tag}_prompts.jsonl?", "out": "@dir"},
+    "umriss support parse": {"raw": "{tag}_raw.csv", "out": "@dir"},
+    "umriss support uniformity": {"support": "{tag}_probabilities.csv", "out": "@dir"},
+    "umriss validate marginals": {"support": "{tag}_probabilities.csv", "out": "@dir"},
+    "umriss plot validation": {"derived": "@dir", "out": "@dir"},
+}
+
+_PRODUCED_BY = {
+    "{tag}_prompts.jsonl": "umriss support build --tag {tag}",
+    "{tag}_raw.csv": "umriss support register-results --results <results.ep> --tag {tag}",
+    "{tag}_probabilities.csv": "umriss support parse --tag {tag}",
+}
+
+
+def _apply_run_defaults(args: argparse.Namespace, command: str) -> dict[str, str]:
+    """Fill omitted pipeline paths from the tag's store run directory."""
+    spec = _RUN_DEFAULTS.get(command)
+    resolved: dict[str, str] = {}
+    if not spec or not ROOT.exists():
+        return resolved
+    tag = getattr(args, "tag", None)
+    if not tag:
+        missing = [name for name in spec if getattr(args, name, None) is None]
+        if missing:
+            raise UmrissError(
+                "invalid_arguments",
+                f"Pass --tag to use the workspace run store, or give explicit paths: {', '.join('--' + m.replace('_', '-') for m in missing)}.",
+            )
+        return resolved
+    directory = run_dir(tag, create=True)
+    for name, template in spec.items():
+        if getattr(args, name, None) is not None:
+            continue
+        if template == "@dir":
+            value = directory
+        else:
+            optional = template.endswith("?")
+            output_file = template.endswith("!")
+            template = template.rstrip("?!")
+            value = directory / template.format(tag=tag)
+            if not value.exists() and not output_file:
+                if optional:
+                    continue
+                producer = _PRODUCED_BY.get(template, "the previous pipeline stage").format(tag=tag)
+                raise UmrissError(
+                    "not_found",
+                    f"Expected {value} in the run store.",
+                    hint=f"Run `{producer}` first, or pass --{name.replace('_', '-')} explicitly.",
+                )
+        setattr(args, name, str(value))
+        resolved[name] = str(value)
+    return resolved
 
 
 def _resolve_store_ids(args: argparse.Namespace, command: str) -> dict[str, str]:
@@ -1560,6 +1665,9 @@ def main(argv: list[str] | None = None) -> int:
         parser = build_parser()
         args = parser.parse_args(raw_argv)
         resolved = _resolve_store_ids(args, command)
+        run_resolved = _apply_run_defaults(args, command)
+        if run_resolved:
+            resolved["run"] = run_resolved
         payload = args.func(args)
         if resolved and isinstance(payload.get("data"), dict):
             payload["data"].setdefault("resolved_defaults", resolved)

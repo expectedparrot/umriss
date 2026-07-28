@@ -202,6 +202,7 @@ umriss design validate</code></pre>
   <pre><code>umriss support build \
   --tag pew_w154_diff1_n12 \
   --out examples/pew_w154/run</code></pre>
+  <div class="note"><p>The <code>--out</code> flags on this page are also optional. With a workspace, <code>--tag</code> alone is enough for the whole pipeline: artifacts are written to and read from the project's <code>runs/&lt;tag&gt;/</code> directory by convention (<code>--prompts</code>, <code>--raw</code>, <code>--support</code>, and <code>--derived</code> resolve there too), and <code>umriss export --tag &lt;tag&gt; --out &lt;dir&gt;</code> copies a run out as a plain directory. This tutorial keeps explicit paths because its run artifacts are checked into <code>examples/pew_w154/run/</code> as a public replication package — which is exactly what <code>export</code> produces.</p></div>
   <table>
     <tr><th>Argument</th><th>Meaning</th><th>Alternative</th></tr>
     <tr><td><code>--design</code></td><td>The reviewed schema-v1 YAML or JSON design.</td><td><code>--preset pattern-coverage</code> compiles a preset directly, but the resolved design is still written.</td></tr>

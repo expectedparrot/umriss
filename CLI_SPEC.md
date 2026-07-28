@@ -38,7 +38,17 @@ entirely once a default is set with `umriss battery use <id>` or
 `umriss design use <id>`: the active default is applied, echoed in the
 envelope under `data.resolved_defaults`, and shown by `umriss status`.
 Explicit flags always override the default; with neither, commands fail
-closed with `missing_battery` / `missing_design`. Import artifacts with
+closed with `missing_battery` / `missing_design`.
+
+Pipeline commands are store-backed the same way, keyed by `--tag`: when
+`--out` (and stage inputs such as `--prompts`, `--raw`, `--support`,
+`--derived`) are omitted, artifacts are written to and read from the tag's
+run directory in the active project (`.umriss/projects/<p>/runs/<tag>/`)
+using the conventional `<tag>_*` filenames. A missing stage input fails
+closed naming the command that produces it. Everything implicitly resolved is
+echoed under `data.resolved_defaults.run`; `umriss status` lists store runs
+with their stage, and `umriss export --tag <tag> --out <dir>` copies a run's
+artifacts out for a replication package. Import artifacts with
 `umriss battery import --metadata <file>` and
 `umriss design import --design <file>`; list them with `umriss battery list`
 and `umriss design list`.
@@ -217,6 +227,7 @@ Every registered command (options and defaults live in `umriss <command> --help`
 | `umriss battery import` |  |
 | `umriss battery list` | List batteries imported into the active project. |
 | `umriss battery use` | Set the active battery default for commands that omit --metadata. |
+| `umriss export` | Copy a store run's artifacts to a plain directory for replication packages. |
 | `umriss battery inspect` |  |
 | `umriss capabilities` |  |
 | `umriss compare` |  |

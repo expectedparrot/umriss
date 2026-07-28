@@ -201,6 +201,63 @@ def test_store_ids_resolve_for_metadata_and_design(tmp_path: Path) -> None:
     assert json.loads(bad.stdout)["errors"][0]["context"]["known_batteries"] == ["mini", "mini2"]
 
 
+def test_run_store_pipeline_needs_no_path_flags(tmp_path: Path) -> None:
+    import csv
+    import sys as _sys
+
+    _sys.path.insert(0, str(REPO / "tests"))
+    from test_umriss_cli import mini_metadata, write_raw
+    from umriss.jsonlio import write_json
+
+    metadata_path = tmp_path / "mini_metadata.json"
+    write_json(metadata_path, mini_metadata())
+    assert run_umriss("init", cwd=tmp_path).returncode == 0
+    assert run_umriss("battery", "import", "--metadata", str(metadata_path),
+                      "--battery-id", "mini", cwd=tmp_path).returncode == 0
+    assert run_umriss("battery", "use", "mini", cwd=tmp_path).returncode == 0
+
+    # build: no --out; prompts land in the store run dir and the envelope says so
+    built = run_umriss("support", "build", "--preset", "pattern-coverage",
+                       "--tag", "demo", cwd=tmp_path)
+    assert built.returncode == 0, built.stdout
+    payload = json.loads(built.stdout)
+    store_run = tmp_path / ".umriss" / "projects" / "default" / "runs" / "demo"
+    assert (store_run / "demo_prompts.jsonl").exists()
+    assert payload["data"]["resolved_defaults"]["run"]["out"] == ".umriss/projects/default/runs/demo"
+
+    # parse: raw dropped into the store by convention; no --raw/--out needed
+    write_raw(store_run / "demo_raw.csv")
+    parsed = run_umriss("support", "parse", "--tag", "demo", cwd=tmp_path)
+    assert parsed.returncode == 0, parsed.stdout
+    assert (store_run / "demo_probabilities.csv").exists()
+
+    # status knows the store run and its stage; next --tag needs no dirs
+    status = json.loads(run_umriss("status", cwd=tmp_path).stdout)
+    store_runs = [r for r in status["data"]["runs"] if r["location"] == "store"]
+    assert store_runs and store_runs[0]["tag"] == "demo"
+    nxt = run_umriss("next", "--tag", "demo", cwd=tmp_path)
+    assert nxt.returncode == 0, nxt.stdout
+    assert json.loads(nxt.stdout)["data"]["stage"]
+
+    # a missing stage input names its producer instead of file-not-found
+    missing = run_umriss("support", "parse", "--tag", "fresh", cwd=tmp_path)
+    assert missing.returncode == 1
+    assert "register-results" in json.loads(missing.stdout)["errors"][0]["hint"]
+
+    # export publishes the run for replication packages
+    exported = run_umriss("export", "--tag", "demo", "--out", str(tmp_path / "pkg"), cwd=tmp_path)
+    assert exported.returncode == 0, exported.stdout
+    names = json.loads(exported.stdout)["data"]["files"]
+    assert "demo_prompts.jsonl" in names and "demo_probabilities.csv" in names
+    assert (tmp_path / "pkg" / "demo_probabilities.csv").exists()
+
+    # explicit --out still wins
+    explicit = run_umriss("support", "build", "--preset", "pattern-coverage",
+                          "--tag", "demo2", "--out", str(tmp_path / "elsewhere"), cwd=tmp_path)
+    assert explicit.returncode == 0, explicit.stdout
+    assert (tmp_path / "elsewhere" / "demo2_prompts.jsonl").exists()
+
+
 def test_every_leaf_command_has_handler() -> None:
     problems: list[str] = []
 

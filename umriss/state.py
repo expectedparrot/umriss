@@ -90,7 +90,7 @@ def create_project(project_id: str, title: str | None = None, use: bool = False)
     project_id = validate_project_id(project_id)
     pdir = project_dir(project_id)
     pdir.mkdir(parents=True, exist_ok=True)
-    for name in ["batteries", "designs", "support_prompts", "support_raw", "support_banks", "fits", "evaluations", "comparisons", "reports", "workflows"]:
+    for name in ["batteries", "designs", "runs", "support_prompts", "support_raw", "support_banks", "fits", "evaluations", "comparisons", "reports", "workflows"]:
         (pdir / name).mkdir(exist_ok=True)
     project = {
         "project_id": project_id,
@@ -148,6 +148,20 @@ def list_battery_ids() -> list[str]:
 
 def list_design_ids() -> list[str]:
     return sorted(p.stem for p in designs_dir().glob("*.yaml"))
+
+
+def run_dir(tag: str, create: bool = False) -> Path:
+    d = active_project_dir() / "runs" / validate_project_id(tag)
+    if create:
+        d.mkdir(parents=True, exist_ok=True)
+    return d
+
+
+def list_run_tags() -> list[str]:
+    runs = active_project_dir() / "runs"
+    if not runs.exists():
+        return []
+    return sorted(p.name for p in runs.iterdir() if p.is_dir())
 
 
 def get_defaults() -> dict[str, str]:
