@@ -135,3 +135,65 @@ def test_every_leaf_command_has_handler() -> None:
 
     walk(build_parser(), [])
     assert problems == [], "commands without handlers:\n" + "\n".join(problems)
+
+
+def test_status_and_next_report_discovered_runs(tmp_path: Path) -> None:
+    assert run_umriss("init", cwd=tmp_path).returncode == 0
+    nested = tmp_path / "out" / "run1"
+    nested.mkdir(parents=True)
+    (nested / "demo_manifest.json").write_text(json.dumps({
+        "tag": "demo",
+        "workflow": "support",
+        "prompts": str(nested / "demo_prompts.jsonl"),
+        "jobs": str(nested / "demo.jobs.ep"),
+        "results": str(nested / "demo.results.ep"),
+    }))
+    (nested / "demo_prompts.jsonl").write_text("{}\n")
+
+    status = json.loads(run_umriss("status", cwd=tmp_path).stdout)
+    runs = status["data"]["runs"]
+    assert len(runs) == 1
+    assert runs[0]["tag"] == "demo"
+    assert runs[0]["stage"] == "export-jobs"
+    assert status["next_steps"] == ["umriss next --tag demo"]
+
+    next_payload = json.loads(run_umriss("next", cwd=tmp_path).stdout)
+    assert next_payload["data"]["recommendation"] == "umriss next --tag demo"
+    assert "export-jobs" in next_payload["data"]["reason"]
+
+
+def test_export_manifest_reports_cost_basis(tmp_path: Path) -> None:
+    import os
+
+    from umriss.cli import main as cli_main
+    from umriss.jsonlio import write_json
+
+    os.environ["EDSL_LOG_DIR"] = str(tmp_path / "edsl_logs")
+    cwd = Path.cwd()
+    os.chdir(tmp_path)
+    try:
+        import contextlib
+        import io
+
+        sys.path.insert(0, str(REPO / "tests"))
+        from test_umriss_cli import mini_metadata
+
+        metadata_path = tmp_path / "metadata.json"
+        write_json(metadata_path, mini_metadata())
+        buffer = io.StringIO()
+        with contextlib.redirect_stdout(buffer):
+            assert cli_main(["support", "build", "--metadata", str(metadata_path),
+                             "--preset", "pattern-coverage", "--tag", "mini",
+                             "--out", str(tmp_path / "prompts")]) == 0
+            assert cli_main(["support", "export",
+                             "--prompts", str(tmp_path / "prompts" / "mini_prompts.jsonl"),
+                             "--path", str(tmp_path / "prompts" / "mini.jobs.ep"),
+                             "--model", "test", "--limit", "1"]) == 0
+        manifest = json.loads((tmp_path / "prompts" / "mini_manifest.json").read_text())
+        estimate = manifest["execution"]["cost_estimate"]
+        assert estimate["available"] is True
+        assert estimate["basis"] == "call_counts"
+        assert estimate["expected_model_calls"] == estimate["scenarios"] * estimate["models"]
+        assert "pricing_note" in estimate
+    finally:
+        os.chdir(cwd)

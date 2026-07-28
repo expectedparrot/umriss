@@ -163,7 +163,37 @@ def cmd_status(args: argparse.Namespace) -> dict[str, Any]:
         if (pdir / "evaluations").exists()
         else 0,
     }
-    return envelope("umriss status", "ok", data)
+    # Analytic artifacts live wherever --out pointed; run manifests are the
+    # source of truth for pipeline state, so report them rather than counting
+    # workspace directories the pipeline may never have written to.
+    runs = []
+    for manifest_path in discover_run_manifests():
+        try:
+            manifest = json.loads(manifest_path.read_text())
+        except (OSError, json.JSONDecodeError):
+            continue
+        tag = manifest.get("tag")
+        if not tag:
+            continue
+        try:
+            stage = next_for_artifacts(tag, prompt_dir=manifest_path.parent,
+                                       raw_dir=manifest_path.parent,
+                                       bank_dir=manifest_path.parent,
+                                       derived_dir=manifest_path.parent)["stage"]
+        except UmrissError:
+            stage = "unknown"
+        runs.append({
+            "tag": tag,
+            "workflow": manifest.get("workflow"),
+            "manifest": str(manifest_path),
+            "stage": stage,
+        })
+    data["runs"] = runs
+    data["run_count"] = len(runs)
+    return envelope(
+        "umriss status", "ok", data,
+        next_steps=[f"umriss next --tag {runs[-1]['tag']}"] if runs else [],
+    )
 
 
 def cmd_project_create(args: argparse.Namespace) -> dict[str, Any]:
@@ -843,17 +873,11 @@ def cmd_guide(args: argparse.Namespace) -> dict[str, Any]:
     return envelope("umriss guide", "ok", guide(topic))
 
 
-def discover_tag_manifest(tag: str) -> Path | None:
-    """Locate `<tag>_manifest.json` beneath the working directory.
-
-    The pipeline has no fixed layout (every command takes --out), so
-    resumability comes from finding the run manifest wherever it was written.
-    Ambiguity is an error, never a guess.
-    """
+def discover_run_manifests() -> list[Path]:
+    """All `<tag>_manifest.json` run manifests beneath the working directory."""
     skip = {".git", ".venv", "venv", "node_modules", "__pycache__", ".umriss"}
     matches: list[Path] = []
-    root = Path(".")
-    stack = [root]
+    stack = [Path(".")]
     while stack:
         current = stack.pop()
         try:
@@ -864,8 +888,19 @@ def discover_tag_manifest(tag: str) -> Path | None:
             if entry.is_dir():
                 if entry.name not in skip and not entry.name.startswith("."):
                     stack.append(entry)
-            elif entry.name == f"{tag}_manifest.json":
+            elif entry.name.endswith("_manifest.json"):
                 matches.append(entry)
+    return sorted(matches)
+
+
+def discover_tag_manifest(tag: str) -> Path | None:
+    """Locate `<tag>_manifest.json` beneath the working directory.
+
+    The pipeline has no fixed layout (every command takes --out), so
+    resumability comes from finding the run manifest wherever it was written.
+    Ambiguity is an error, never a guess.
+    """
+    matches = [m for m in discover_run_manifests() if m.name == f"{tag}_manifest.json"]
     if len(matches) > 1:
         raise UmrissError(
             "ambiguous_tag",
@@ -896,6 +931,15 @@ def cmd_next(args: argparse.Namespace) -> dict[str, Any]:
         status = cmd_status(args)["data"]
     except UmrissError:
         return envelope("umriss next", "ok", {"recommendation": "Run `umriss init`.", "reason": "No active workspace."})
+    runs = status.get("runs") or []
+    incomplete = [run for run in runs if run["stage"] not in ("complete", "unknown")]
+    if incomplete:
+        run = incomplete[-1]
+        return envelope("umriss next", "ok", {
+            "recommendation": f"umriss next --tag {run['tag']}",
+            "reason": f"Run `{run['tag']}` is at stage `{run['stage']}` (manifest: {run['manifest']}).",
+            "runs": runs,
+        })
     if status["batteries"] == 0:
         recommendation = "umriss battery import --metadata <metadata.json>"
     elif status["support_prompts"] == 0:
@@ -1301,7 +1345,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.set_defaults(func=cmd_plot_validation)
 
     p = sub.add_parser("guide")
-    guide_topics = ["workflow", "designs", "ep-boundary", "paper-rewrite", "diagnostics"]
+    guide_topics = ["workflow", "designs", "ep-boundary", "migrating-scripts", "diagnostics"]
     p.add_argument("topic", nargs="?", choices=guide_topics)
     p.add_argument("--topic", dest="topic_flag", choices=guide_topics)
     p.set_defaults(func=cmd_guide)

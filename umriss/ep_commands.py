@@ -142,8 +142,15 @@ def export_support_jobs(
             "owner": "external_ep",
             "mode": "unspecified",
             "cost_estimate": {
-                "available": False,
-                "reason": "Provider pricing is not available at job-export time.",
+                "available": True,
+                "basis": "call_counts",
+                "expected_model_calls": len(rows) * len(model_specs),
+                "scenarios": len(rows),
+                "models": len(model_specs),
+                "pricing_note": (
+                    "Dollar cost depends on provider pricing; inspect the package "
+                    "with `ep inspect` before authorizing `ep run`."
+                ),
             },
         },
         "run_command": run_command,

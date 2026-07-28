@@ -580,13 +580,13 @@ GUIDES = {
             "This boundary keeps prompt construction, model execution, and result parsing auditable.",
         ],
     },
-    "paper-rewrite": {
-        "summary": "Using umriss to shrink paper-specific scripts.",
+    "migrating-scripts": {
+        "summary": "Replacing bespoke analysis scripts with auditable umriss commands.",
         "steps": [
-            "Use design JSON files plus `umriss support build` instead of bespoke prompt builders.",
-            "Use `umriss validate marginals` for generated-support scoring.",
-            "Use `umriss compare --recipe ...` for repeated comparison-table assembly.",
-            "Keep raw model outputs and derived CSVs as explicit Makefile artifacts.",
+            "Use design files plus `umriss support build` instead of hand-rolled prompt builders.",
+            "Use `umriss validate marginals` instead of one-off generated-support scoring scripts.",
+            "Use `umriss compare` for repeated comparison-table assembly.",
+            "Keep raw model outputs and derived CSVs as explicit build artifacts with their run manifests.",
         ],
     },
     "diagnostics": {
