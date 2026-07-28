@@ -40,13 +40,18 @@ from .parsing import audit_result_attempts, parse_support, register_results
 from .plotting import plot_validation
 from .provenance import build_provenance, guard_manifest, path_sha256
 from .state import (
+    ROOT,
     active_project_id,
     create_project,
+    design_path,
     init_workspace,
+    list_battery_ids,
+    list_design_ids,
     list_projects,
     project_dir,
     use_project,
 )
+from .state import battery_dir as state_battery_dir
 from .support_designs import (
     compile_support_plan,
     load_design_config,
@@ -235,10 +240,54 @@ def cmd_battery_inspect(args: argparse.Namespace) -> dict[str, Any]:
 
 
 def cmd_battery_import(args: argparse.Namespace) -> dict[str, Any]:
+    data = import_battery(Path(args.metadata), args.battery_id, args.title)
     return envelope(
         "umriss battery import", "ok",
-        import_battery(Path(args.metadata), args.battery_id, args.title),
-        next_steps=[f"umriss design create --metadata {args.metadata} --preset pattern-coverage --out design.yaml"],
+        data,
+        next_steps=[
+            f"umriss design create --metadata {data['battery_id']} --preset pattern-coverage --out design.yaml",
+            "umriss battery list",
+        ],
+    )
+
+
+def cmd_battery_list(args: argparse.Namespace) -> dict[str, Any]:
+    ids = list_battery_ids()
+    return envelope(
+        "umriss battery list", "ok",
+        {"batteries": ids, "active_project": active_project_id()},
+        next_steps=(["umriss support build --metadata <battery_id> --preset pattern-coverage --tag <tag> --out <dir>"]
+                    if ids else ["umriss battery import --metadata <metadata.json>"]),
+    )
+
+
+def cmd_design_import(args: argparse.Namespace) -> dict[str, Any]:
+    source = Path(args.design)
+    if not source.exists():
+        raise UmrissError("not_found", f"Design file not found: {source}.")
+    load_design_config(source)  # fail closed on unparseable designs
+    design_id = args.design_id or source.stem
+    target = design_path(design_id)
+    if target.exists() and not args.force:
+        raise UmrissError(
+            "already_exists",
+            f"Design already imported: {design_id}.",
+            hint="Pass --force to replace it, or choose another --design-id.",
+        )
+    target.write_bytes(source.read_bytes())
+    return envelope(
+        "umriss design import", "ok",
+        {"design_id": design_id, "design_path": str(target)},
+        next_steps=[f"umriss design validate --metadata <battery_id> --design {design_id}"],
+    )
+
+
+def cmd_design_list(args: argparse.Namespace) -> dict[str, Any]:
+    ids = list_design_ids()
+    return envelope(
+        "umriss design list", "ok",
+        {"designs": ids, "active_project": active_project_id()},
+        next_steps=([] if ids else ["umriss design import --design <design.yaml>"]),
     )
 
 
@@ -1024,6 +1073,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--battery-id")
     p.add_argument("--title")
     p.set_defaults(func=cmd_battery_import)
+    battery.add_parser("list").set_defaults(func=cmd_battery_list)
     p = battery.add_parser("create")
     p.add_argument("--battery-id", required=True)
     p.add_argument("--wave", required=True)
@@ -1090,6 +1140,12 @@ def build_parser() -> argparse.ArgumentParser:
     source.add_argument("--battery")
     p.add_argument("--design", required=True)
     p.set_defaults(func=cmd_design_validate)
+    p = design_cmd.add_parser("import")
+    p.add_argument("--design", required=True, help="Path to a design YAML/JSON file to store in the active project.")
+    p.add_argument("--design-id")
+    p.add_argument("--force", action="store_true")
+    p.set_defaults(func=cmd_design_import)
+    design_cmd.add_parser("list").set_defaults(func=cmd_design_list)
 
     support = sub.add_parser("support").add_subparsers(dest="support_command", required=True)
     p = support.add_parser("build")
@@ -1361,12 +1417,53 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
+def _resolve_store_ids(args: argparse.Namespace, command: str) -> None:
+    """Let --metadata/--design accept workspace ids as well as file paths.
+
+    An existing file always wins (explicit paths behave exactly as before).
+    A bare token that matches a stored battery/design resolves to its file in
+    the active .umriss project; a bare token that matches nothing fails closed
+    with the known ids rather than a generic file-not-found.
+    """
+    if command in {"battery import", "design import"} or not ROOT.exists():
+        return
+
+    def bare(value: str) -> bool:
+        return "/" not in value and "\\" not in value and not value.startswith(".")
+
+    metadata = getattr(args, "metadata", None)
+    if isinstance(metadata, str) and metadata and not Path(metadata).exists() and bare(metadata):
+        stored = state_battery_dir(metadata) / "battery.json"
+        if stored.exists():
+            args.metadata = str(stored)
+        elif not metadata.endswith((".json", ".yaml", ".csv")):
+            raise UmrissError(
+                "not_found",
+                f"'{metadata}' is neither a file nor an imported battery.",
+                context={"known_batteries": list_battery_ids()},
+                hint="Import it first with `umriss battery import --metadata <metadata.json>`.",
+            )
+    design = getattr(args, "design", None)
+    if isinstance(design, str) and design and not Path(design).exists() and bare(design):
+        stored = design_path(design) if not design.endswith((".yaml", ".yml", ".json")) else None
+        if stored is not None and stored.exists():
+            args.design = str(stored)
+        elif not design.endswith((".yaml", ".yml", ".json")):
+            raise UmrissError(
+                "not_found",
+                f"'{design}' is neither a file nor an imported design.",
+                context={"known_designs": list_design_ids()},
+                hint="Import it first with `umriss design import --design <design.yaml>`.",
+            )
+
+
 def main(argv: list[str] | None = None) -> int:
     raw_argv = list(argv) if argv is not None else sys.argv[1:]
     command = canonical_command(raw_argv)
     try:
         parser = build_parser()
         args = parser.parse_args(raw_argv)
+        _resolve_store_ids(args, command)
         payload = args.func(args)
         print_json(payload)
         return 0

@@ -90,7 +90,7 @@ def create_project(project_id: str, title: str | None = None, use: bool = False)
     project_id = validate_project_id(project_id)
     pdir = project_dir(project_id)
     pdir.mkdir(parents=True, exist_ok=True)
-    for name in ["batteries", "support_prompts", "support_raw", "support_banks", "fits", "evaluations", "comparisons", "reports", "workflows"]:
+    for name in ["batteries", "designs", "support_prompts", "support_raw", "support_banks", "fits", "evaluations", "comparisons", "reports", "workflows"]:
         (pdir / name).mkdir(exist_ok=True)
     project = {
         "project_id": project_id,
@@ -126,3 +126,25 @@ def use_project(project_id: str) -> dict[str, Any]:
 def battery_dir(battery_id: str, project_id: str | None = None) -> Path:
     pdir = project_dir(project_id) if project_id else active_project_dir()
     return pdir / "batteries" / battery_id
+
+
+def designs_dir(project_id: str | None = None) -> Path:
+    pdir = project_dir(project_id) if project_id else active_project_dir()
+    d = pdir / "designs"
+    d.mkdir(exist_ok=True)  # projects created before designs existed
+    return d
+
+
+def design_path(design_id: str) -> Path:
+    return designs_dir() / f"{validate_project_id(design_id)}.yaml"
+
+
+def list_battery_ids() -> list[str]:
+    batteries = active_project_dir() / "batteries"
+    if not batteries.exists():
+        return []
+    return sorted(p.name for p in batteries.iterdir() if (p / "battery.json").exists())
+
+
+def list_design_ids() -> list[str]:
+    return sorted(p.stem for p in designs_dir().glob("*.yaml"))

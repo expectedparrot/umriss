@@ -120,6 +120,57 @@ def test_ambiguous_tag_manifests_fail_closed(tmp_path: Path) -> None:
     assert len(payload["errors"][0]["context"]["matches"]) == 2
 
 
+def test_store_ids_resolve_for_metadata_and_design(tmp_path: Path) -> None:
+    import sys as _sys
+
+    _sys.path.insert(0, str(REPO / "tests"))
+    from test_umriss_cli import mini_metadata
+    from umriss.jsonlio import write_json
+
+    metadata_path = tmp_path / "mini_metadata.json"
+    write_json(metadata_path, mini_metadata())
+
+    assert run_umriss("init", cwd=tmp_path).returncode == 0
+    imported = run_umriss("battery", "import", "--metadata", str(metadata_path),
+                          "--battery-id", "mini", cwd=tmp_path)
+    assert imported.returncode == 0, imported.stdout
+    listed = json.loads(run_umriss("battery", "list", cwd=tmp_path).stdout)
+    assert listed["data"]["batteries"] == ["mini"]
+
+    # --metadata accepts the battery id everywhere, not just a path
+    created = run_umriss("design", "create", "--metadata", "mini",
+                         "--preset", "pattern-coverage", "--out", str(tmp_path / "d.yaml"), cwd=tmp_path)
+    assert created.returncode == 0, created.stdout
+
+    assert run_umriss("design", "import", "--design", str(tmp_path / "d.yaml"),
+                      "--design-id", "v1", cwd=tmp_path).returncode == 0
+    designs = json.loads(run_umriss("design", "list", cwd=tmp_path).stdout)
+    assert designs["data"]["designs"] == ["v1"]
+
+    # both ids resolve together
+    validated = run_umriss("design", "validate", "--metadata", "mini", "--design", "v1", cwd=tmp_path)
+    assert validated.returncode == 0, validated.stdout
+    assert json.loads(validated.stdout)["data"]["valid"] is True
+
+    # a second import must not clobber the registry
+    write_json(tmp_path / "mini2.json", mini_metadata())
+    assert run_umriss("battery", "import", "--metadata", str(tmp_path / "mini2.json"),
+                      "--battery-id", "mini2", cwd=tmp_path).returncode == 0
+    listed = json.loads(run_umriss("battery", "list", cwd=tmp_path).stdout)
+    assert listed["data"]["batteries"] == ["mini", "mini2"]
+
+    # unknown bare ids fail closed with the known ids, not file-not-found
+    unknown = run_umriss("design", "validate", "--metadata", "nope", "--design", "v1", cwd=tmp_path)
+    assert unknown.returncode == 1
+    payload = json.loads(unknown.stdout)
+    assert payload["errors"][0]["context"]["known_batteries"] == ["mini", "mini2"]
+
+    # explicit paths still behave exactly as before
+    validated = run_umriss("design", "validate", "--metadata", str(metadata_path),
+                           "--design", str(tmp_path / "d.yaml"), cwd=tmp_path)
+    assert validated.returncode == 0, validated.stdout
+
+
 def test_every_leaf_command_has_handler() -> None:
     problems: list[str] = []
 

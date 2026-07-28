@@ -112,8 +112,11 @@ def import_battery(metadata_path: Path, battery_id: str | None = None, title: st
     bdir = battery_dir(bid)
     bdir.mkdir(parents=True, exist_ok=True)
     shutil.copyfile(metadata_path, bdir / "battery.json")
-    rows = {"batteries": [{"battery_id": bid, "title": title or bid, "path": str(bdir / "battery.json")}]}
-    write_json(bdir.parent.parent / "batteries.json", rows)
+    registry_path = bdir.parent.parent / "batteries.json"
+    registry = read_json(registry_path) if registry_path.exists() else {"batteries": []}
+    entry = {"battery_id": bid, "title": title or bid, "path": str(bdir / "battery.json")}
+    registry["batteries"] = [row for row in registry.get("batteries", []) if row.get("battery_id") != bid] + [entry]
+    write_json(registry_path, registry)
     return {"battery_id": bid, "battery_path": str(bdir / "battery.json")}
 
 
