@@ -140,7 +140,9 @@ physical_abilities,Their physical abilities,0.19070...,0.80929...,6104,6091.07..
 }</code></pre></details>
 
   <h2>2. Declare and validate the support design</h2>
-  <p>The design is a small checked-in YAML file — <code>pew_w154_design.yaml</code> — that makes every consequential support choice reviewable and versioned. Here it is in full:</p>
+  <p>What we are building in this step is the <em>cast of characters</em> for the synthetic population: a roster of hypothetical response profiles — short descriptions of ways a person might answer this battery ("someone strongly inclined to say men and women differ in how they express feelings," "someone who sees the sexes as basically similar across the board"). In the next steps, a model will estimate how each profile would answer every item, and the fit will assign each profile a population weight. The crucial constraint: the final population can only ever be a weighted mixture of the profiles created here. If no profile behaves a certain way, no amount of reweighting can produce that behavior later.</p>
+  <p>The <strong>support design</strong> is the recipe for that roster, and each choice in it shapes what the fit can express. <em>Coverage</em> guarantees at least one profile leaning toward every answer option of every item, so the fit can always move weight to match any reported marginal. <em>Anchors</em> add whole-battery patterns — here, a consistently-“similar” person and a consistently-“different” person — which is where cross-item structure can come from: correlations between items exist in the fitted population only if some profile carries them. <em>Coherence</em> controls whether a profile's lean on one item implies leans on the others, and <em>intensity</em> how strong the leans are. A design too small or too narrow makes the targets unreachable; a broader one is more expressive but costs more model calls to measure.</p>
+  <p>The design is a small checked-in YAML file — <code>pew_w154_design.yaml</code> — that makes every one of those choices reviewable and versioned. Here it is in full:</p>
   <pre><code>schema_version: 1
 size: 12
 coverage:
