@@ -258,6 +258,93 @@ def test_run_store_pipeline_needs_no_path_flags(tmp_path: Path) -> None:
     assert (tmp_path / "elsewhere" / "demo2_prompts.jsonl").exists()
 
 
+def _teen_social_metadata(survey_key: str, truth: list[float]) -> dict:
+    """One 3-option ordinal item, marginals per subpopulation — the shape of a
+    typical published crosstab (unlike the multi-item binary Pew battery)."""
+    return {
+        "schema_version": 1,
+        "wave": "ATS2026",
+        "battery": "SOCIALTIME",
+        "survey_key": survey_key,
+        "topic": "daily time on social media among US teen girls",
+        "context": "A survey of US teens; marginals reported by parental education.",
+        "option_codes": [1, 2, 3],
+        "option_labels": ["Less than one hour", "One to three hours", "Four or more hours"],
+        "scale": {"type": "ordinal", "direction": "low_to_high"},
+        "items": {"social_media_hours": {
+            "variable": "SOCIALTIME_girls",
+            "item_text": "About how much time do you spend on social media each day?",
+            "question_stem": "Thinking about a typical day, about how much time do you spend on social media?",
+        }},
+        "truth": {"social_media_hours": truth},
+    }
+
+
+def test_single_item_ordinal_battery_two_populations(tmp_path: Path) -> None:
+    from umriss.jsonlio import write_json
+
+    write_json(tmp_path / "college.json", _teen_social_metadata("teen_college", [0.40, 0.37, 0.23]))
+    write_json(tmp_path / "noncollege.json", _teen_social_metadata("teen_noncollege", [0.35, 0.29, 0.35]))
+    assert run_umriss("init", cwd=tmp_path).returncode == 0
+    for battery_id, path in [("girls_college", "college.json"), ("girls_noncollege", "noncollege.json")]:
+        assert run_umriss("battery", "import", "--metadata", str(tmp_path / path),
+                          "--battery-id", battery_id, cwd=tmp_path).returncode == 0
+    assert run_umriss("battery", "use", "girls_college", cwd=tmp_path).returncode == 0
+
+    # inspect reports the workspace id it resolved, not a derived slug
+    inspected = json.loads(run_umriss("battery", "inspect", "girls_college", cwd=tmp_path).stdout)
+    assert inspected["data"]["battery_id"] == "girls_college"
+
+    # ordinal preset anchors sit at the scale extremes
+    created = run_umriss("design", "create", "--preset", "pattern-coverage",
+                         "--out", str(tmp_path / "d.yaml"), cwd=tmp_path)
+    assert created.returncode == 0, created.stdout
+    design_text = (tmp_path / "d.yaml").read_text()
+    assert "Less than one hour" in design_text and "Four or more hours" in design_text
+    assert design_text.count("One to three hours") == 0  # no middle anchor
+
+    assert run_umriss("design", "import", "--design", str(tmp_path / "d.yaml"),
+                      "--design-id", "v1", cwd=tmp_path).returncode == 0
+    assert run_umriss("design", "use", "v1", cwd=tmp_path).returncode == 0
+    built = run_umriss("support", "build", "--tag", "teen", cwd=tmp_path)
+    assert built.returncode == 0, built.stdout
+    prompts_path = tmp_path / ".umriss" / "projects" / "default" / "runs" / "teen" / "teen_prompts.jsonl"
+    prompts = prompts_path.read_text()
+    assert "the other items" not in prompts  # single-item battery gets coherent prompt text
+    assert "40" not in prompts.replace("N=782", "")  # no target leakage
+
+    # one SYNTHETIC bank (mechanics only), two population fits over it
+    bank = tmp_path / "SYNTHETIC_bank.csv"
+    rows = ["support_id,job_id,item,option_index,option_code,option_label,probability"]
+    vectors = {"s1": [0.70, 0.22, 0.08], "s2": [0.25, 0.55, 0.20], "s3": [0.08, 0.27, 0.65]}
+    labels = ["Less than one hour", "One to three hours", "Four or more hours"]
+    for sid, vec in vectors.items():
+        for i, prob in enumerate(vec):
+            rows.append(f"{sid},{sid},social_media_hours,{i},{i + 1},{labels[i]},{prob}")
+    bank.write_text("\n".join(rows) + "\n")
+
+    weights = {}
+    for battery_id in ["girls_college", "girls_noncollege"]:
+        fitted = run_umriss("fit", "--support", str(bank), "--metadata", battery_id,
+                            "--tag", f"fit_{battery_id}", "--out", str(tmp_path / battery_id), cwd=tmp_path)
+        assert fitted.returncode == 0, fitted.stdout
+        import csv as _csv
+
+        with open(json.loads(fitted.stdout)["data"]["weights_path"]) as f:
+            weights[battery_id] = {r["support_id"]: float(r["weight"]) for r in _csv.DictReader(f)}
+    # the heavy-use persona must gain weight under the non-college marginals
+    assert weights["girls_noncollege"]["s3"] > weights["girls_college"]["s3"]
+
+    # LOO on a one-item battery fails with a domain explanation, not a shrug
+    loo = run_umriss("validate", "marginals", "--support", str(bank), "--metadata", "girls_college",
+                     "--tag", "probe", "--out", str(tmp_path / "loo"),
+                     "--allow-nonuniform-support", cwd=tmp_path)
+    assert loo.returncode == 1, loo.stdout + loo.stderr
+    error = json.loads(loo.stdout)["errors"][0]
+    assert error["code"] == "battery_too_small"
+    assert "umriss fit" in error["message"]
+
+
 def test_every_leaf_command_has_handler() -> None:
     problems: list[str] = []
 

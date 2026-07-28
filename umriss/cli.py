@@ -271,7 +271,10 @@ def cmd_project_show(args: argparse.Namespace) -> dict[str, Any]:
 
 
 def cmd_battery_inspect(args: argparse.Namespace) -> dict[str, Any]:
-    data = inspect_metadata(Path(args.metadata))
+    path = Path(args.metadata)
+    data = inspect_metadata(path)
+    if path.name == "battery.json" and path.parent.parent.name == "batteries":
+        data["battery_id"] = path.parent.name
     warnings = data.pop("warnings")
     return envelope(
         "umriss battery inspect", "ok", data, warnings=warnings,
@@ -801,6 +804,8 @@ def cmd_validate_marginals(args: argparse.Namespace) -> dict[str, Any]:
             code = "support_not_uniform"
         elif str(exc).startswith("SUPPORT_NOT_DIVERSE"):
             code = "support_not_diverse"
+        elif str(exc).startswith("BATTERY_TOO_SMALL"):
+            code = "battery_too_small"
         else:
             code = "invalid_input"
         raise UmrissError(code, str(exc)) from exc
@@ -1591,7 +1596,7 @@ def _resolve_store_ids(args: argparse.Namespace, command: str) -> dict[str, str]
         return "/" not in value and "\\" not in value and not value.startswith(".")
 
     metadata = getattr(args, "metadata", None)
-    if isinstance(metadata, str) and metadata and not Path(metadata).exists() and bare(metadata):
+    if isinstance(metadata, str) and metadata and not Path(metadata).is_file() and bare(metadata):
         stored = state_battery_dir(metadata) / "battery.json"
         if stored.exists():
             args.metadata = str(stored)
@@ -1624,7 +1629,7 @@ def _resolve_store_ids(args: argparse.Namespace, command: str) -> dict[str, str]
             )
 
     design = getattr(args, "design", None)
-    if isinstance(design, str) and design and not Path(design).exists() and bare(design):
+    if isinstance(design, str) and design and not Path(design).is_file() and bare(design):
         stored = design_path(design) if not design.endswith((".yaml", ".yml", ".json")) else None
         if stored is not None and stored.exists():
             args.design = str(stored)

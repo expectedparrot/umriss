@@ -28,9 +28,12 @@ def load_design_config(path: Path) -> dict[str, Any]:
 
 def pattern_coverage_preset(metadata: dict[str, Any], size: int | None, seed: int) -> dict[str, Any]:
     ordinal = all((meta.get("scale") or metadata.get("scale") or {}).get("type") == "ordinal" for meta in metadata["items"].values())
+    # Ordinal anchors sit at the scale extremes: one all-low and one all-high
+    # whole-battery pattern. (Middle+last, used previously, missed the low
+    # extreme entirely and degenerated to duplicate anchors on binary scales.)
     patterns = (
         [
-            {item: item_option_labels(metadata, item)[len(item_option_labels(metadata, item)) // 2] for item in metadata["items"]},
+            {item: item_option_labels(metadata, item)[0] for item in metadata["items"]},
             {item: item_option_labels(metadata, item)[-1] for item in metadata["items"]},
         ]
         if ordinal
@@ -243,9 +246,11 @@ def _schema(metadata: dict[str, Any]) -> str:
     return '{\n  "persona": "Your views on ...",\n  "probabilities": {\n' + probabilities + "\n  }\n}"
 
 
-def _coherence_instruction(row: dict[str, Any], design: dict[str, Any]) -> str:
+def _coherence_instruction(row: dict[str, Any], design: dict[str, Any], metadata: dict[str, Any]) -> str:
     mode = row["coherence"]
     if mode == "item_specific":
+        if len(metadata.get("items", {})) <= 1:
+            return "Ground the persona in this specific response tendency."
         return "The targeted item may differ from the other items. Do not infer a uniform outlook across the battery."
     if mode == "global":
         return "Use one deliberately global outlook across the battery."
@@ -284,7 +289,7 @@ Battery topic: {metadata['topic']}
 
 {target}
 
-{_coherence_instruction(row, design)}
+{_coherence_instruction(row, design, metadata)}
 {demographic}
 
 Write a concise persona describing the attitudes that distinguish this response pattern. Address the persona in the

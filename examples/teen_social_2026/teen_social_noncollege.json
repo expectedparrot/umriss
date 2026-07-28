@@ -1,0 +1,36 @@
+{
+ "schema_version": 1,
+ "wave": "ATS2026",
+ "battery": "SOCIALTIME",
+ "topic": "daily time spent on social media among US teen girls",
+ "context": "The American Teenagers Survey, 2026 (Survey Center on American Life), a survey of US teens (N=782). This battery covers teen girls, with marginals reported separately by parental education.",
+ "option_codes": [
+  1,
+  2,
+  3
+ ],
+ "option_labels": [
+  "Less than one hour",
+  "One to three hours",
+  "Four or more hours"
+ ],
+ "scale": {
+  "type": "ordinal",
+  "direction": "low_to_high"
+ },
+ "items": {
+  "social_media_hours": {
+   "variable": "SOCIALTIME_girls",
+   "item_text": "About how much time do you spend on social media each day?",
+   "question_stem": "Thinking about a typical day, about how much time do you spend on social media?"
+  }
+ },
+ "survey_key": "teen_social_noncollege",
+ "truth": {
+  "social_media_hours": [
+   0.35,
+   0.29,
+   0.35
+  ]
+ }
+}

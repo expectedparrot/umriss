@@ -85,6 +85,12 @@ def run_marginal_validation(
         parsed = parse_support(raw_path, metadata, tag, out_dir)
         support_path = Path(str(parsed["probabilities_path"]))
         parsed_points_path = Path(str(parsed["points_path"]))
+    if len(metadata.get("items", {})) < 2:
+        raise ValueError(
+            "BATTERY_TOO_SMALL: leave-one-out validation needs at least two items with "
+            f"truth marginals; this battery has {len(metadata.get('items', {}))}. "
+            "Fit all items with `umriss fit` and compare against an external benchmark instead."
+        )
     support, mats = load_support_matrix(support_path)
     uniformity, uniformity_passes = uniformity_rows(support_path, metadata, uniform_tolerance)
     if not uniformity_passes and not allow_nonuniform_support:
