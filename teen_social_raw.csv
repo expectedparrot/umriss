@@ -1,0 +1,326 @@
+agent.agent_index,agent.agent_instruction,agent.agent_name,answer.resp,cache_keys.resp_cache_key,comment.resp_comment,generated_tokens.resp_generated_tokens,iteration.iteration,model.frequency_penalty,model.inference_service,model.logprobs,model.max_tokens,model.model,model.model_index,model.presence_penalty,model.reasoning_effort,model.temperature,model.top_logprobs,model.top_p,prompt.resp_system_prompt,prompt.resp_user_prompt,question_options.resp_question_options,question_text.resp_question_text,question_type.resp_question_type,raw_model_response.resp_cost,raw_model_response.resp_input_price_per_million_tokens,raw_model_response.resp_input_tokens,raw_model_response.resp_one_usd_buys,raw_model_response.resp_output_price_per_million_tokens,raw_model_response.resp_output_tokens,raw_model_response.resp_raw_model_response,raw_model_response.resp_thinking_tokens,reasoning_summary.resp_reasoning_summary,scenario.job_id,scenario.prompt,scenario.scenario_index,validated.resp_validated
+0,You are answering questions as if you were a human. Do not break character.,Agent_0,"{
+  ""persona"": ""Your views on social media are cautious and selective. You see it as useful for checking in or passing a little time, but not something you want taking over your day. You are likely to keep your use brief, dipping in occasionally rather than scrolling for long stretches."",
+  ""probabilities"": {
+    ""social_media_hours"": [0.56, 0.34, 0.1]
+  }
+}",a54543929590f6b02b625c77b1120bea,,"{
+  ""persona"": ""Your views on social media are cautious and selective. You see it as useful for checking in or passing a little time, but not something you want taking over your day. You are likely to keep your use brief, dipping in occasionally rather than scrolling for long stretches."",
+  ""probabilities"": {
+    ""social_media_hours"": [0.56, 0.34, 0.1]
+  }
+}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"Support point identifier: teen_social_001
+
+Survey context: The American Teenagers Survey, 2026 (Survey Center on American Life), a survey of US teens (N=782). This battery covers teen girls, with marginals reported separately by parental education.
+Battery topic: daily time spent on social media among US teen girls
+
+Construct a synthetic survey-response profile for whom ""Less than one hour"" is a plausible response to social_media_hours: About how much time do you spend on social media each day?.
+Response intensity: moderate.
+
+Ground the persona in this specific response tendency.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Write a concise persona describing the attitudes that distinguish this response pattern. Address the persona in the
+second person, beginning with ""Your views..."" or ""You..."". This text will become a visible EDSL agent trait, so include
+only the persona description—not instructions about answering questions or probabilities. Then provide subjective response
+probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers, and sum to
+1. Each probability must be at least 0.01.
+
+Items and response options:
+- social_media_hours: About how much time do you spend on social media each day?
+  Options, in output order: 1. Less than one hour; 2. One to three hours; 3. Four or more hours
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""Your views on ..."",
+  ""probabilities"": {
+    ""social_media_hours"": [numbers in option order]
+  }
+}",,{{ scenario.prompt }},free_text,0.006545,5.0,331,152.78838808250572,30.0,98,"{'id': 'chatcmpl-E6mHg8EmKZXghnXvkSw0x8JzyHaUp', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""persona"": ""Your views on social media are cautious and selective. You see it as useful for checking in or passing a little time, but not something you want taking over your day. You are likely to keep your use brief, dipping in occasionally rather than scrolling for long stretches."",\n  ""probabilities"": {\n    ""social_media_hours"": [0.56, 0.34, 0.1]\n  }\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785284280, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 163, 'prompt_tokens': 331, 'total_tokens': 494, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 65, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",65,,teen_social_001,"Support point identifier: teen_social_001
+
+Survey context: The American Teenagers Survey, 2026 (Survey Center on American Life), a survey of US teens (N=782). This battery covers teen girls, with marginals reported separately by parental education.
+Battery topic: daily time spent on social media among US teen girls
+
+Construct a synthetic survey-response profile for whom ""Less than one hour"" is a plausible response to social_media_hours: About how much time do you spend on social media each day?.
+Response intensity: moderate.
+
+Ground the persona in this specific response tendency.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Write a concise persona describing the attitudes that distinguish this response pattern. Address the persona in the
+second person, beginning with ""Your views..."" or ""You..."". This text will become a visible EDSL agent trait, so include
+only the persona description—not instructions about answering questions or probabilities. Then provide subjective response
+probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers, and sum to
+1. Each probability must be at least 0.01.
+
+Items and response options:
+- social_media_hours: About how much time do you spend on social media each day?
+  Options, in output order: 1. Less than one hour; 2. One to three hours; 3. Four or more hours
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""Your views on ..."",
+  ""probabilities"": {
+    ""social_media_hours"": [numbers in option order]
+  }
+}",0,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_1,"{
+  ""persona"": ""Your views on social media are balanced but engaged: it is a normal daily part of staying connected, keeping up with friends, and passing time, but it does not take over most of your day. You tend to spend a noticeable amount of time checking apps, messaging, scrolling, or watching short videos, while still seeing social media as something you can put down when other priorities come up."",
+  ""probabilities"": {
+    ""social_media_hours"": [0.05, 0.88, 0.07]
+  }
+}",bbb254afd2fe175eb4d41886c0169aee,,"{
+  ""persona"": ""Your views on social media are balanced but engaged: it is a normal daily part of staying connected, keeping up with friends, and passing time, but it does not take over most of your day. You tend to spend a noticeable amount of time checking apps, messaging, scrolling, or watching short videos, while still seeing social media as something you can put down when other priorities come up."",
+  ""probabilities"": {
+    ""social_media_hours"": [0.05, 0.88, 0.07]
+  }
+}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"Support point identifier: teen_social_002
+
+Survey context: The American Teenagers Survey, 2026 (Survey Center on American Life), a survey of US teens (N=782). This battery covers teen girls, with marginals reported separately by parental education.
+Battery topic: daily time spent on social media among US teen girls
+
+Construct a synthetic survey-response profile for whom ""One to three hours"" is a plausible response to social_media_hours: About how much time do you spend on social media each day?.
+Response intensity: strong.
+
+Ground the persona in this specific response tendency.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Write a concise persona describing the attitudes that distinguish this response pattern. Address the persona in the
+second person, beginning with ""Your views..."" or ""You..."". This text will become a visible EDSL agent trait, so include
+only the persona description—not instructions about answering questions or probabilities. Then provide subjective response
+probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers, and sum to
+1. Each probability must be at least 0.01.
+
+Items and response options:
+- social_media_hours: About how much time do you spend on social media each day?
+  Options, in output order: 1. Less than one hour; 2. One to three hours; 3. Four or more hours
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""Your views on ..."",
+  ""probabilities"": {
+    ""social_media_hours"": [numbers in option order]
+  }
+}",,{{ scenario.prompt }},free_text,0.007355,5.0,331,135.96193065941534,30.0,123,"{'id': 'chatcmpl-E6mHgCnoecWXSsiWi6pvQWTZhXPKR', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""persona"": ""Your views on social media are balanced but engaged: it is a normal daily part of staying connected, keeping up with friends, and passing time, but it does not take over most of your day. You tend to spend a noticeable amount of time checking apps, messaging, scrolling, or watching short videos, while still seeing social media as something you can put down when other priorities come up."",\n  ""probabilities"": {\n    ""social_media_hours"": [0.05, 0.88, 0.07]\n  }\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785284280, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 190, 'prompt_tokens': 331, 'total_tokens': 521, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 67, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",67,,teen_social_002,"Support point identifier: teen_social_002
+
+Survey context: The American Teenagers Survey, 2026 (Survey Center on American Life), a survey of US teens (N=782). This battery covers teen girls, with marginals reported separately by parental education.
+Battery topic: daily time spent on social media among US teen girls
+
+Construct a synthetic survey-response profile for whom ""One to three hours"" is a plausible response to social_media_hours: About how much time do you spend on social media each day?.
+Response intensity: strong.
+
+Ground the persona in this specific response tendency.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Write a concise persona describing the attitudes that distinguish this response pattern. Address the persona in the
+second person, beginning with ""Your views..."" or ""You..."". This text will become a visible EDSL agent trait, so include
+only the persona description—not instructions about answering questions or probabilities. Then provide subjective response
+probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers, and sum to
+1. Each probability must be at least 0.01.
+
+Items and response options:
+- social_media_hours: About how much time do you spend on social media each day?
+  Options, in output order: 1. Less than one hour; 2. One to three hours; 3. Four or more hours
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""Your views on ..."",
+  ""probabilities"": {
+    ""social_media_hours"": [numbers in option order]
+  }
+}",1,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_2,"{
+  ""persona"": ""Your views on social media are that it is a regular part of your daily routine and a main way to stay connected, entertained, and aware of what friends and peers are doing. You do not necessarily see your use as extreme or unusual, but you often spend long stretches checking apps, watching videos, messaging, or scrolling throughout the day."",
+  ""probabilities"": {
+    ""social_media_hours"": [0.05, 0.30, 0.65]
+  }
+}",c833bcec857b89d5119b1f3bedfe068b,,"{
+  ""persona"": ""Your views on social media are that it is a regular part of your daily routine and a main way to stay connected, entertained, and aware of what friends and peers are doing. You do not necessarily see your use as extreme or unusual, but you often spend long stretches checking apps, watching videos, messaging, or scrolling throughout the day."",
+  ""probabilities"": {
+    ""social_media_hours"": [0.05, 0.30, 0.65]
+  }
+}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"Support point identifier: teen_social_003
+
+Survey context: The American Teenagers Survey, 2026 (Survey Center on American Life), a survey of US teens (N=782). This battery covers teen girls, with marginals reported separately by parental education.
+Battery topic: daily time spent on social media among US teen girls
+
+Construct a synthetic survey-response profile for whom ""Four or more hours"" is a plausible response to social_media_hours: About how much time do you spend on social media each day?.
+Response intensity: moderate.
+
+Ground the persona in this specific response tendency.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Write a concise persona describing the attitudes that distinguish this response pattern. Address the persona in the
+second person, beginning with ""Your views..."" or ""You..."". This text will become a visible EDSL agent trait, so include
+only the persona description—not instructions about answering questions or probabilities. Then provide subjective response
+probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers, and sum to
+1. Each probability must be at least 0.01.
+
+Items and response options:
+- social_media_hours: About how much time do you spend on social media each day?
+  Options, in output order: 1. Less than one hour; 2. One to three hours; 3. Four or more hours
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""Your views on ..."",
+  ""probabilities"": {
+    ""social_media_hours"": [numbers in option order]
+  }
+}",,{{ scenario.prompt }},free_text,0.008615,5.0,331,116.07661056297157,30.0,113,"{'id': 'chatcmpl-E6mHgxJmhXsxnprz5DUyjf1ybFsht', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""persona"": ""Your views on social media are that it is a regular part of your daily routine and a main way to stay connected, entertained, and aware of what friends and peers are doing. You do not necessarily see your use as extreme or unusual, but you often spend long stretches checking apps, watching videos, messaging, or scrolling throughout the day."",\n  ""probabilities"": {\n    ""social_media_hours"": [0.05, 0.30, 0.65]\n  }\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785284280, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 232, 'prompt_tokens': 331, 'total_tokens': 563, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 119, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",119,,teen_social_003,"Support point identifier: teen_social_003
+
+Survey context: The American Teenagers Survey, 2026 (Survey Center on American Life), a survey of US teens (N=782). This battery covers teen girls, with marginals reported separately by parental education.
+Battery topic: daily time spent on social media among US teen girls
+
+Construct a synthetic survey-response profile for whom ""Four or more hours"" is a plausible response to social_media_hours: About how much time do you spend on social media each day?.
+Response intensity: moderate.
+
+Ground the persona in this specific response tendency.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Write a concise persona describing the attitudes that distinguish this response pattern. Address the persona in the
+second person, beginning with ""Your views..."" or ""You..."". This text will become a visible EDSL agent trait, so include
+only the persona description—not instructions about answering questions or probabilities. Then provide subjective response
+probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers, and sum to
+1. Each probability must be at least 0.01.
+
+Items and response options:
+- social_media_hours: About how much time do you spend on social media each day?
+  Options, in output order: 1. Less than one hour; 2. One to three hours; 3. Four or more hours
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""Your views on ..."",
+  ""probabilities"": {
+    ""social_media_hours"": [numbers in option order]
+  }
+}",2,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_3,"{
+  ""persona"": ""Your views on social media are restrained and low-intensity. You see it as a minor part of daily life rather than a central routine, and you are more likely to limit your time online or use social platforms only briefly."",
+  ""probabilities"": {
+    ""social_media_hours"": [0.88, 0.11, 0.01]
+  }
+}",9162d1106d62879acb2cd2b79d0501ff,,"{
+  ""persona"": ""Your views on social media are restrained and low-intensity. You see it as a minor part of daily life rather than a central routine, and you are more likely to limit your time online or use social platforms only briefly."",
+  ""probabilities"": {
+    ""social_media_hours"": [0.88, 0.11, 0.01]
+  }
+}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"Support point identifier: teen_social_004
+
+Survey context: The American Teenagers Survey, 2026 (Survey Center on American Life), a survey of US teens (N=782). This battery covers teen girls, with marginals reported separately by parental education.
+Battery topic: daily time spent on social media among US teen girls
+
+Construct a synthetic survey-response profile organized around this declared answer pattern:
+- social_media_hours: Less than one hour
+
+Follow the complete response pattern explicitly supplied below.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Write a concise persona describing the attitudes that distinguish this response pattern. Address the persona in the
+second person, beginning with ""Your views..."" or ""You..."". This text will become a visible EDSL agent trait, so include
+only the persona description—not instructions about answering questions or probabilities. Then provide subjective response
+probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers, and sum to
+1. Each probability must be at least 0.01.
+
+Items and response options:
+- social_media_hours: About how much time do you spend on social media each day?
+  Options, in output order: 1. Less than one hour; 2. One to three hours; 3. Four or more hours
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""Your views on ..."",
+  ""probabilities"": {
+    ""social_media_hours"": [numbers in option order]
+  }
+}",,{{ scenario.prompt }},free_text,0.005525,5.0,313,180.99547511312215,30.0,90,"{'id': 'chatcmpl-E6mHgcri8rv19K7buZJU8TmUpfc85', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""persona"": ""Your views on social media are restrained and low-intensity. You see it as a minor part of daily life rather than a central routine, and you are more likely to limit your time online or use social platforms only briefly."",\n  ""probabilities"": {\n    ""social_media_hours"": [0.88, 0.11, 0.01]\n  }\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785284280, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 132, 'prompt_tokens': 313, 'total_tokens': 445, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 42, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",42,,teen_social_004,"Support point identifier: teen_social_004
+
+Survey context: The American Teenagers Survey, 2026 (Survey Center on American Life), a survey of US teens (N=782). This battery covers teen girls, with marginals reported separately by parental education.
+Battery topic: daily time spent on social media among US teen girls
+
+Construct a synthetic survey-response profile organized around this declared answer pattern:
+- social_media_hours: Less than one hour
+
+Follow the complete response pattern explicitly supplied below.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Write a concise persona describing the attitudes that distinguish this response pattern. Address the persona in the
+second person, beginning with ""Your views..."" or ""You..."". This text will become a visible EDSL agent trait, so include
+only the persona description—not instructions about answering questions or probabilities. Then provide subjective response
+probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers, and sum to
+1. Each probability must be at least 0.01.
+
+Items and response options:
+- social_media_hours: About how much time do you spend on social media each day?
+  Options, in output order: 1. Less than one hour; 2. One to three hours; 3. Four or more hours
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""Your views on ..."",
+  ""probabilities"": {
+    ""social_media_hours"": [numbers in option order]
+  }
+}",3,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_4,"{
+  ""persona"": ""Your views on social media reflect that it is a major part of your daily routine, used frequently for connection, entertainment, and keeping up with what others are doing."",
+  ""probabilities"": {
+    ""social_media_hours"": [0.01, 0.04, 0.95]
+  }
+}",955f52a878e60047db16e0b5109e5f0c,,"{
+  ""persona"": ""Your views on social media reflect that it is a major part of your daily routine, used frequently for connection, entertainment, and keeping up with what others are doing."",
+  ""probabilities"": {
+    ""social_media_hours"": [0.01, 0.04, 0.95]
+  }
+}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"Support point identifier: teen_social_005
+
+Survey context: The American Teenagers Survey, 2026 (Survey Center on American Life), a survey of US teens (N=782). This battery covers teen girls, with marginals reported separately by parental education.
+Battery topic: daily time spent on social media among US teen girls
+
+Construct a synthetic survey-response profile organized around this declared answer pattern:
+- social_media_hours: Four or more hours
+
+Follow the complete response pattern explicitly supplied below.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Write a concise persona describing the attitudes that distinguish this response pattern. Address the persona in the
+second person, beginning with ""Your views..."" or ""You..."". This text will become a visible EDSL agent trait, so include
+only the persona description—not instructions about answering questions or probabilities. Then provide subjective response
+probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers, and sum to
+1. Each probability must be at least 0.01.
+
+Items and response options:
+- social_media_hours: About how much time do you spend on social media each day?
+  Options, in output order: 1. Less than one hour; 2. One to three hours; 3. Four or more hours
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""Your views on ..."",
+  ""probabilities"": {
+    ""social_media_hours"": [numbers in option order]
+  }
+}",,{{ scenario.prompt }},free_text,0.005075,5.0,313,197.04433497536945,30.0,78,"{'id': 'chatcmpl-E6mHgvID95bAuS27uPJKolbIerjBC', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""persona"": ""Your views on social media reflect that it is a major part of your daily routine, used frequently for connection, entertainment, and keeping up with what others are doing."",\n  ""probabilities"": {\n    ""social_media_hours"": [0.01, 0.04, 0.95]\n  }\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785284280, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 117, 'prompt_tokens': 313, 'total_tokens': 430, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 39, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",39,,teen_social_005,"Support point identifier: teen_social_005
+
+Survey context: The American Teenagers Survey, 2026 (Survey Center on American Life), a survey of US teens (N=782). This battery covers teen girls, with marginals reported separately by parental education.
+Battery topic: daily time spent on social media among US teen girls
+
+Construct a synthetic survey-response profile organized around this declared answer pattern:
+- social_media_hours: Four or more hours
+
+Follow the complete response pattern explicitly supplied below.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Write a concise persona describing the attitudes that distinguish this response pattern. Address the persona in the
+second person, beginning with ""Your views..."" or ""You..."". This text will become a visible EDSL agent trait, so include
+only the persona description—not instructions about answering questions or probabilities. Then provide subjective response
+probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers, and sum to
+1. Each probability must be at least 0.01.
+
+Items and response options:
+- social_media_hours: About how much time do you spend on social media each day?
+  Options, in output order: 1. Less than one hour; 2. One to three hours; 3. Four or more hours
+
+Return only valid JSON with exactly this schema:
+{
+  ""persona"": ""Your views on ..."",
+  ""probabilities"": {
+    ""social_media_hours"": [numbers in option order]
+  }
+}",4,True

@@ -1,0 +1,2 @@
+tag,inside_convex_hull_at_tolerance,tolerance,minimum_maximum_absolute_residual,witness_rmse,witness_effective_support,witness_max_weight,support_points,constraint_cells,outside_individual_cell_ranges
+teen_social_life_target_blueprints,False,0.01,0.021775843497703784,0.017581020973033268,9.891896673120387,0.1666515583816711,128,28,0

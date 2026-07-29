@@ -1,0 +1,37 @@
+{
+  "kind": "umriss_result_registration",
+  "outputs": {
+    "jobs": {
+      "path": "examples/pew_w154/augmentation/support/repair_1/pew_work_family_repair1_jobs.csv",
+      "sha256": "c277147d8f8a4a78a52f659e11fa43d78ae1f6975597ea8df27316340ffe6480"
+    },
+    "raw": {
+      "path": "examples/pew_w154/augmentation/support/repair_1/pew_work_family_repair1_raw.csv",
+      "sha256": "72b7195e1d1ee7c01b8c09a5c658afc4fbe4390024a5a4986be425a331a03c81"
+    }
+  },
+  "provenance": {
+    "command": "umriss support register-results",
+    "created_at": "2026-07-29T11:42:54Z",
+    "fingerprint": "3d97fe99e3656d17225e0f788eafdec1848d1260269b785d8d5accdd3c36e483",
+    "inputs": {
+      "prompts": {
+        "path": "examples/pew_w154/augmentation/support/repair_1/pew_work_family_repair1_prompts.jsonl",
+        "sha256": "d16ee91b83cdbe964e273cce0eba110fdcbc5a423ab0da97937b19ba70a9c996"
+      },
+      "results": {
+        "path": "examples/pew_w154/augmentation/support/repair_1/pew_work_family_repair1.results.ep",
+        "sha256": "38742a34dcd3b13baf80fde03228afbe8a37247e9addb33e40b13b873b825a7e"
+      }
+    },
+    "parameters": {
+      "out": "examples/pew_w154/augmentation/support/repair_1",
+      "tag": "pew_work_family_repair1"
+    },
+    "schema_version": 1,
+    "umriss_version": "0.1.0"
+  },
+  "rows": 192,
+  "schema_version": 1,
+  "tag": "pew_work_family_repair1"
+}

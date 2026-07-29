@@ -1,0 +1,368 @@
+agent.agent_instruction,agent.agent_name,answer.resp,cache_keys.resp_cache_key,comment.resp_comment,generated_tokens.resp_generated_tokens,iteration.iteration,model.frequency_penalty,model.inference_service,model.logprobs,model.max_tokens,model.model,model.presence_penalty,model.reasoning_effort,model.temperature,model.top_logprobs,model.top_p,prompt.resp_system_prompt,prompt.resp_user_prompt,question_options.resp_question_options,question_text.resp_question_text,question_type.resp_question_type,raw_model_response.resp_cost,raw_model_response.resp_input_price_per_million_tokens,raw_model_response.resp_input_tokens,raw_model_response.resp_one_usd_buys,raw_model_response.resp_output_price_per_million_tokens,raw_model_response.resp_output_tokens,raw_model_response.resp_raw_model_response,raw_model_response.resp_thinking_tokens,reasoning_summary.resp_reasoning_summary,scenario.job_id,scenario.prompt,validated.resp_validated
+You are answering questions as if you were a human. Do not break character.,Agent_0,"{
+  ""reasoning_summary"": ""Synthetic estimate for US teen girls in 2026: posting frequency is skewed toward occasional rather than daily sharing, and negative social comparison is expected to be more common among more active posters, though it also occurs among less frequent posters."",
+  ""joint_probabilities"": [
+    [0.048, 0.084, 0.0816, 0.0264],
+    [0.033, 0.0726, 0.0858, 0.0286],
+    [0.034, 0.0884, 0.1564, 0.0612],
+    [0.015, 0.044, 0.096, 0.045]
+  ]
+}",91b66ebe8d345a40482f0dcffa73bccd,,"{
+  ""reasoning_summary"": ""Synthetic estimate for US teen girls in 2026: posting frequency is skewed toward occasional rather than daily sharing, and negative social comparison is expected to be more common among more active posters, though it also occurs among less frequent posters."",
+  ""joint_probabilities"": [
+    [0.048, 0.084, 0.0816, 0.0264],
+    [0.033, 0.0726, 0.0858, 0.0286],
+    [0.034, 0.0884, 0.1564, 0.0612],
+    [0.015, 0.044, 0.096, 0.045]
+  ]
+}",0,0,openai,False,1200,gpt-5.5,0,,1.0,3,1,,"Predict one joint population response distribution for two survey items.
+
+Population: teen_girls_all
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+First item: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+First-item options, in row order: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Second item: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Second-item options, in column order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return the joint distribution directly. Do not multiply separately estimated marginals.
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""joint_probabilities"": [[one nonnegative cell per column] per row]
+}
+The matrix must have shape 4 by 4 and all cells together must sum to 1.",,{{ scenario.prompt }},free_text,0.017245,5.0,275,57.98782255726297,30.0,166,"{'id': 'chatcmpl-E6nvo53FlS0xpsSi7Cuep8uy5g1bg', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""Synthetic estimate for US teen girls in 2026: posting frequency is skewed toward occasional rather than daily sharing, and negative social comparison is expected to be more common among more active posters, though it also occurs among less frequent posters."",\n  ""joint_probabilities"": [\n    [0.048, 0.084, 0.0816, 0.0264],\n    [0.033, 0.0726, 0.0858, 0.0286],\n    [0.034, 0.0884, 0.1564, 0.0612],\n    [0.015, 0.044, 0.096, 0.045]\n  ]\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785290612, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 529, 'prompt_tokens': 275, 'total_tokens': 804, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 363, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",363.0,,teen_social_candidate_joint_probe_posting_frequency_x_social_comparison,"Predict one joint population response distribution for two survey items.
+
+Population: teen_girls_all
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+First item: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+First-item options, in row order: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Second item: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Second-item options, in column order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return the joint distribution directly. Do not multiply separately estimated marginals.
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""joint_probabilities"": [[one nonnegative cell per column] per row]
+}
+The matrix must have shape 4 by 4 and all cells together must sum to 1.",True
+You are answering questions as if you were a human. Do not break character.,Agent_1,"{
+  ""reasoning_summary"": ""Most teen girls use social media but post publicly infrequently; lurking/consuming is more common than sharing, so the modal posting categories are 'less than once a week' and 'a few times a week', with a substantial share posting almost never and a smaller daily-posting group. For negative comparison, teen girls skew toward 'sometimes' with a meaningful 'often' tail and relatively few saying 'never'. The two items are modestly positively associated: more frequent posters/heavier engagers report somewhat more upward comparison, though many low-posting 'lurkers' also report it, so the association is weak rather than strong."",
+  ""joint_probabilities"": [
+    [0.067, 0.087, 0.092, 0.034],
+    [0.051, 0.096, 0.111, 0.042],
+    [0.042, 0.078, 0.112, 0.048],
+    [0.020, 0.035, 0.056, 0.029]
+  ]
+}",8688dfbf71cbb74bb5959c46261ebd53,,"{
+  ""reasoning_summary"": ""Most teen girls use social media but post publicly infrequently; lurking/consuming is more common than sharing, so the modal posting categories are 'less than once a week' and 'a few times a week', with a substantial share posting almost never and a smaller daily-posting group. For negative comparison, teen girls skew toward 'sometimes' with a meaningful 'often' tail and relatively few saying 'never'. The two items are modestly positively associated: more frequent posters/heavier engagers report somewhat more upward comparison, though many low-posting 'lurkers' also report it, so the association is weak rather than strong."",
+  ""joint_probabilities"": [
+    [0.067, 0.087, 0.092, 0.034],
+    [0.051, 0.096, 0.111, 0.042],
+    [0.042, 0.078, 0.112, 0.048],
+    [0.020, 0.035, 0.056, 0.029]
+  ]
+}",0,0,deep_infra,False,1200,anthropic/claude-opus-5,0,,1.0,3,1,,"Predict one joint population response distribution for two survey items.
+
+Population: teen_girls_all
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+First item: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+First-item options, in row order: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Second item: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Second-item options, in column order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return the joint distribution directly. Do not multiply separately estimated marginals.
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""joint_probabilities"": [[one nonnegative cell per column] per row]
+}
+The matrix must have shape 4 by 4 and all cells together must sum to 1.",,{{ scenario.prompt }},free_text,0.0877304999999999,16.5,427,11.39854440587937,82.5,978,"{'id': 'chatcmpl-RyzOCVKgL2heAEiOgPOXz0CE', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""Most teen girls use social media but post publicly infrequently; lurking/consuming is more common than sharing, so the modal posting categories are \'less than once a week\' and \'a few times a week\', with a substantial share posting almost never and a smaller daily-posting group. For negative comparison, teen girls skew toward \'sometimes\' with a meaningful \'often\' tail and relatively few saying \'never\'. The two items are modestly positively associated: more frequent posters/heavier engagers report somewhat more upward comparison, though many low-posting \'lurkers\' also report it, so the association is weak rather than strong."",\n  ""joint_probabilities"": [\n    [0.067, 0.087, 0.092, 0.034],\n    [0.051, 0.096, 0.111, 0.042],\n    [0.042, 0.078, 0.112, 0.048],\n    [0.020, 0.035, 0.056, 0.029]\n  ]\n}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': None, 'name': None}}], 'created': 1785290624, 'model': 'anthropic/claude-opus-5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 978, 'prompt_tokens': 427, 'total_tokens': 1405, 'completion_tokens_details': None, 'prompt_tokens_details': None, 'estimated_cost': 0.026584999999999998}}",,,teen_social_candidate_joint_probe_posting_frequency_x_social_comparison,"Predict one joint population response distribution for two survey items.
+
+Population: teen_girls_all
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+First item: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+First-item options, in row order: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Second item: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Second-item options, in column order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return the joint distribution directly. Do not multiply separately estimated marginals.
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""joint_probabilities"": [[one nonnegative cell per column] per row]
+}
+The matrix must have shape 4 by 4 and all cells together must sum to 1.",True
+You are answering questions as if you were a human. Do not break character.,Agent_2,"<think>
+**My Thought Process: Predicting a Joint Distribution for Teen Girls' Social Media Habits**
+
+My task is to construct a hypothetical joint probability distribution for two survey items targeting US teen girls in 2026. The first item concerns their posting frequency on social media, and the second relates to the frequency with which they experience negative social comparison from seeing others' posts. I need to output this as a fulsome summary, presented as my own internal thought process, assuming the user is an expert in this domain.
+
+First, I've defined the categories for each item. For posting frequency (let's call this the Row variable), I have four levels: ""Never or almost never"" (coded 0), ""Less than once a week"" (1), ""A few times a week"" (2), and ""At least once a day"" (3). For negative social comparison frequency (the Column variable), I also have four levels: ""Never"" (0), ""Rarely"" (1), ""Sometimes"" (2), and ""Often"" (3).
+
+Before diving into the joint distribution, I believe it's crucial to first establish reasonable marginal distributions for each variable. This will provide a solid framework for the joint probabilities. I'm drawing on general knowledge and insights from sources like Pew Research, which often indicate trends in teen social media usage.
+
+For the **posting frequency marginals**, I'm anticipating a slight decline in very frequent public posting, while viewing/scrolling remains high. My estimates are:
+*   Never or almost never: Approximately 25%
+*   Less than once a week: Approximately 25%
+*   A few times a week: Approximately 30%
+*   At least once a day: Approximately 20%
+
+For the **negative social comparison marginals**, I'm aware that studies often show high rates of negative feelings among teen girls, particularly ""sometimes"" or ""often,"" stemming from viewing others' posts. My estimates here are:
+*   Never: Approximately 15%
+*   Rarely: Approximately 25%
+*   Sometimes: Approximately 40%
+*   Often: Approximately 20%
+
+Now, the core of the task is to consider the **correlation** between these two variables to build the joint distribution. This is where the nuance comes in. One might hypothesize that girls who post more frequently are more invested in social media, potentially making them more susceptible to negative comparison. Conversely, they might possess higher confidence. However, I also recognize that even those who *don't* post frequently (lurkers) can experience significant negative comparison simply by viewing content. The question specifically mentions ""seeing other people's posts,"" which is a universal activity on these platforms. Therefore, I'm leaning towards a *weak positive correlation*, or at least a concentration of probabilities in the middle-to-high ranges for both variables, acknowledging that high engagement in viewing can occur independently of high engagement in posting.
+
+With these marginals and the correlation assumption in mind, I'll start constructing the 4x4 matrix. I'll begin by distributing the probability for each Row category across the Column categories, aiming to reflect the assumed correlation.
+
+My initial attempt at constructing the joint probabilities, ensuring row sums match the marginals:
+
+*   **Row 1: Never or almost never post (25% total)**
+    *   Never feel worse: 0.08
+    *   Rarely: 0.08
+    *   Sometimes: 0.06
+    *   Often: 0.03
+    *(Total for Row 1: 0.25)*
+
+*   **Row 2: Less than once a week (25% total)**
+    *   Never: 0.04
+    *   Rarely: 0.08
+    *   Sometimes: 0.09
+    *   Often: 0.04
+    *(Total for Row 2: 0.25)*
+
+*   **Row 3: A few times a week (30% total)**
+    *   Never: 0.03
+    *   Rarely: 0.07
+    *   Sometimes: 0.13
+    *   Often: 0.07
+    *(Total for Row 3: 0.30)*
+
+*   **Row 4: At least once a day (20% total)**
+    *   Never: 0.02
+    *   Rarely: 0.03
+    *   Sometimes: 0.08
+    *   Often: 0.07
+    *(Total for Row 4: 0.20)*
+
+Now, I'll check the column sums derived from this initial matrix:
+*   Never: 0.08 + 0.04 + 0.03 + 0.02 = 0.17
+*   Rarely: 0.08 + 0.08 + 0.07 + 0.03 = 0.26
+*   Sometimes: 0.06 + 0.09 + 0.13 + 0.08 = 0.36
+*   Often: 0.03 + 0.04 + 0.07 + 0.07 = 0.21
+*(Total Sum: 0.17 + 0.26 + 0.36 + 0.21 = 1.00)*
+
+These column sums (0.17, 0.26, 0.36, 0.21) are reasonably close to my initial marginal estimates for negative social comparison (0.15, 0.25, 0.40, 0.20). The differences are minor, and I can make slight adjustments if needed.
+
+However, I want to refine the narrative. I'm thinking about the relationship more deeply: less frequent posters might be less immersed, leading to lower probabilities of negative feelings. Conversely, high-frequency posters are deeply engaged, suggesting a higher propensity for experiencing ""often"" negative comparison.
+
+Let's re-examine Row 4, particularly the ""Often"" category. It feels a bit low given the presumed high engagement. I'll make a slight adjustment to push the ""Often"" probability higher for the most frequent posters. I'll also slightly adjust ""Sometimes"" in Row 1 and Row 3 to maintain the row sums and the overall structure.
+
+My refined proposed joint distribution:
+
+*   **Row 1: Never or almost never post (25% total)**
+    *   Never: 0.08
+    *   Rarely: 0.08
+    *   Sometimes: **0.07** (adjusted up)
+    *   Often: **0.02** (adjusted down)
+    *(Total for Row 1: 0.25)*
+
+*   **Row 2: Less than once a week (25% total)**
+    *   Never: 0.04
+    *   Rarely: 0.08
+    *   Sometimes: 0.09
+    *   Often: 0.04
+    *(Total for Row 2: 0.25)*
+
+*   **Row 3: A few times a week (30% total)**
+    *   Never: 0.03
+    *   Rarely: 0.07
+    *   Sometimes: **0.12** (adjusted down slightly)
+    *   Often: **0.08** (adjusted up)
+    *(Total for Row 3: 0.30)*
+
+*   **Row 4: At least once a day (20% total)**
+    *   Never: 0.02
+    *   Rarely: 0.03
+    *   Sometimes: **0.07** (adjusted down)
+    *   Often: **0.08** (adjusted up significantly)
+    *(Total for Row 4: 0.20)*
+
+Let me recalculate the column sums with these adjustments:
+*   Never: 0.08 + 0.04 + 0.03 + 0.02 = 0.17
+*   Rarely: 0.08 + 0.08 + 0.07 + 0.03 = 0.26
+*   Sometimes: 0.07 + 0.09 + 0.12 + 0.07 = 0.35
+*   Often: 0.02 + 0.04 + 0.08 + 0.08 = 0.22
+*(Total Sum: 0.17 + 0.26 + 0.35 + 0.22 = 1.00)*
+
+These new column sums (0.17, 0.26, 0.35, 0.22) are still quite aligned with my initial marginal expectations and reflect the nuanced correlation I was aiming for – higher posting frequency is associated with a greater likelihood of experiencing negative comparison ""often,"" while lower posting frequency is associated with lower probabilities of negative feelings. The ""sometimes"" category remains dominant, which aligns with typical survey findings for this demographic. This refined distribution feels more robust and representative of the hypothesized relationship.
+
+ 
+</think>
+
+```json
+{
+  ""reasoning_summary"": ""Many teen girls consume social media heavily even if they do not post frequently, leading to a high baseline of 'sometimes' feeling worse due to social comparison across all groups",de812e37c44bac257d986a781c309e51,,"<think>
+**My Thought Process: Predicting a Joint Distribution for Teen Girls' Social Media Habits**
+
+My task is to construct a hypothetical joint probability distribution for two survey items targeting US teen girls in 2026. The first item concerns their posting frequency on social media, and the second relates to the frequency with which they experience negative social comparison from seeing others' posts. I need to output this as a fulsome summary, presented as my own internal thought process, assuming the user is an expert in this domain.
+
+First, I've defined the categories for each item. For posting frequency (let's call this the Row variable), I have four levels: ""Never or almost never"" (coded 0), ""Less than once a week"" (1), ""A few times a week"" (2), and ""At least once a day"" (3). For negative social comparison frequency (the Column variable), I also have four levels: ""Never"" (0), ""Rarely"" (1), ""Sometimes"" (2), and ""Often"" (3).
+
+Before diving into the joint distribution, I believe it's crucial to first establish reasonable marginal distributions for each variable. This will provide a solid framework for the joint probabilities. I'm drawing on general knowledge and insights from sources like Pew Research, which often indicate trends in teen social media usage.
+
+For the **posting frequency marginals**, I'm anticipating a slight decline in very frequent public posting, while viewing/scrolling remains high. My estimates are:
+*   Never or almost never: Approximately 25%
+*   Less than once a week: Approximately 25%
+*   A few times a week: Approximately 30%
+*   At least once a day: Approximately 20%
+
+For the **negative social comparison marginals**, I'm aware that studies often show high rates of negative feelings among teen girls, particularly ""sometimes"" or ""often,"" stemming from viewing others' posts. My estimates here are:
+*   Never: Approximately 15%
+*   Rarely: Approximately 25%
+*   Sometimes: Approximately 40%
+*   Often: Approximately 20%
+
+Now, the core of the task is to consider the **correlation** between these two variables to build the joint distribution. This is where the nuance comes in. One might hypothesize that girls who post more frequently are more invested in social media, potentially making them more susceptible to negative comparison. Conversely, they might possess higher confidence. However, I also recognize that even those who *don't* post frequently (lurkers) can experience significant negative comparison simply by viewing content. The question specifically mentions ""seeing other people's posts,"" which is a universal activity on these platforms. Therefore, I'm leaning towards a *weak positive correlation*, or at least a concentration of probabilities in the middle-to-high ranges for both variables, acknowledging that high engagement in viewing can occur independently of high engagement in posting.
+
+With these marginals and the correlation assumption in mind, I'll start constructing the 4x4 matrix. I'll begin by distributing the probability for each Row category across the Column categories, aiming to reflect the assumed correlation.
+
+My initial attempt at constructing the joint probabilities, ensuring row sums match the marginals:
+
+*   **Row 1: Never or almost never post (25% total)**
+    *   Never feel worse: 0.08
+    *   Rarely: 0.08
+    *   Sometimes: 0.06
+    *   Often: 0.03
+    *(Total for Row 1: 0.25)*
+
+*   **Row 2: Less than once a week (25% total)**
+    *   Never: 0.04
+    *   Rarely: 0.08
+    *   Sometimes: 0.09
+    *   Often: 0.04
+    *(Total for Row 2: 0.25)*
+
+*   **Row 3: A few times a week (30% total)**
+    *   Never: 0.03
+    *   Rarely: 0.07
+    *   Sometimes: 0.13
+    *   Often: 0.07
+    *(Total for Row 3: 0.30)*
+
+*   **Row 4: At least once a day (20% total)**
+    *   Never: 0.02
+    *   Rarely: 0.03
+    *   Sometimes: 0.08
+    *   Often: 0.07
+    *(Total for Row 4: 0.20)*
+
+Now, I'll check the column sums derived from this initial matrix:
+*   Never: 0.08 + 0.04 + 0.03 + 0.02 = 0.17
+*   Rarely: 0.08 + 0.08 + 0.07 + 0.03 = 0.26
+*   Sometimes: 0.06 + 0.09 + 0.13 + 0.08 = 0.36
+*   Often: 0.03 + 0.04 + 0.07 + 0.07 = 0.21
+*(Total Sum: 0.17 + 0.26 + 0.36 + 0.21 = 1.00)*
+
+These column sums (0.17, 0.26, 0.36, 0.21) are reasonably close to my initial marginal estimates for negative social comparison (0.15, 0.25, 0.40, 0.20). The differences are minor, and I can make slight adjustments if needed.
+
+However, I want to refine the narrative. I'm thinking about the relationship more deeply: less frequent posters might be less immersed, leading to lower probabilities of negative feelings. Conversely, high-frequency posters are deeply engaged, suggesting a higher propensity for experiencing ""often"" negative comparison.
+
+Let's re-examine Row 4, particularly the ""Often"" category. It feels a bit low given the presumed high engagement. I'll make a slight adjustment to push the ""Often"" probability higher for the most frequent posters. I'll also slightly adjust ""Sometimes"" in Row 1 and Row 3 to maintain the row sums and the overall structure.
+
+My refined proposed joint distribution:
+
+*   **Row 1: Never or almost never post (25% total)**
+    *   Never: 0.08
+    *   Rarely: 0.08
+    *   Sometimes: **0.07** (adjusted up)
+    *   Often: **0.02** (adjusted down)
+    *(Total for Row 1: 0.25)*
+
+*   **Row 2: Less than once a week (25% total)**
+    *   Never: 0.04
+    *   Rarely: 0.08
+    *   Sometimes: 0.09
+    *   Often: 0.04
+    *(Total for Row 2: 0.25)*
+
+*   **Row 3: A few times a week (30% total)**
+    *   Never: 0.03
+    *   Rarely: 0.07
+    *   Sometimes: **0.12** (adjusted down slightly)
+    *   Often: **0.08** (adjusted up)
+    *(Total for Row 3: 0.30)*
+
+*   **Row 4: At least once a day (20% total)**
+    *   Never: 0.02
+    *   Rarely: 0.03
+    *   Sometimes: **0.07** (adjusted down)
+    *   Often: **0.08** (adjusted up significantly)
+    *(Total for Row 4: 0.20)*
+
+Let me recalculate the column sums with these adjustments:
+*   Never: 0.08 + 0.04 + 0.03 + 0.02 = 0.17
+*   Rarely: 0.08 + 0.08 + 0.07 + 0.03 = 0.26
+*   Sometimes: 0.07 + 0.09 + 0.12 + 0.07 = 0.35
+*   Often: 0.02 + 0.04 + 0.08 + 0.08 = 0.22
+*(Total Sum: 0.17 + 0.26 + 0.35 + 0.22 = 1.00)*
+
+These new column sums (0.17, 0.26, 0.35, 0.22) are still quite aligned with my initial marginal expectations and reflect the nuanced correlation I was aiming for – higher posting frequency is associated with a greater likelihood of experiencing negative comparison ""often,"" while lower posting frequency is associated with lower probabilities of negative feelings. The ""sometimes"" category remains dominant, which aligns with typical survey findings for this demographic. This refined distribution feels more robust and representative of the hypothesized relationship.
+
+ 
+</think>
+
+```json
+{
+  ""reasoning_summary"": ""Many teen girls consume social media heavily even if they do not post frequently, leading to a high baseline of 'sometimes' feeling worse due to social comparison across all groups",0,0,deep_infra,False,1200,google/gemini-3.1-pro,0,,1.0,3,1,,"Predict one joint population response distribution for two survey items.
+
+Population: teen_girls_all
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+First item: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+First-item options, in row order: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Second item: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Second-item options, in column order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return the joint distribution directly. Do not multiply separately estimated marginals.
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""joint_probabilities"": [[one nonnegative cell per column] per row]
+}
+The matrix must have shape 4 by 4 and all cells together must sum to 1.",,{{ scenario.prompt }},free_text,0.103422,16.5,288,9.669122623813116,82.5,46,"{'id': 'chatcmpl-RhbwqJwGG4ljMm04bhVRgKd7', 'choices': [{'finish_reason': 'length', 'index': 0, 'logprobs': None, 'message': {'content': '<think>\n**My Thought Process: Predicting a Joint Distribution for Teen Girls\' Social Media Habits**\n\nMy task is to construct a hypothetical joint probability distribution for two survey items targeting US teen girls in 2026. The first item concerns their posting frequency on social media, and the second relates to the frequency with which they experience negative social comparison from seeing others\' posts. I need to output this as a fulsome summary, presented as my own internal thought process, assuming the user is an expert in this domain.\n\nFirst, I\'ve defined the categories for each item. For posting frequency (let\'s call this the Row variable), I have four levels: ""Never or almost never"" (coded 0), ""Less than once a week"" (1), ""A few times a week"" (2), and ""At least once a day"" (3). For negative social comparison frequency (the Column variable), I also have four levels: ""Never"" (0), ""Rarely"" (1), ""Sometimes"" (2), and ""Often"" (3).\n\nBefore diving into the joint distribution, I believe it\'s crucial to first establish reasonable marginal distributions for each variable. This will provide a solid framework for the joint probabilities. I\'m drawing on general knowledge and insights from sources like Pew Research, which often indicate trends in teen social media usage.\n\nFor the **posting frequency marginals**, I\'m anticipating a slight decline in very frequent public posting, while viewing/scrolling remains high. My estimates are:\n*   Never or almost never: Approximately 25%\n*   Less than once a week: Approximately 25%\n*   A few times a week: Approximately 30%\n*   At least once a day: Approximately 20%\n\nFor the **negative social comparison marginals**, I\'m aware that studies often show high rates of negative feelings among teen girls, particularly ""sometimes"" or ""often,"" stemming from viewing others\' posts. My estimates here are:\n*   Never: Approximately 15%\n*   Rarely: Approximately 25%\n*   Sometimes: Approximately 40%\n*   Often: Approximately 20%\n\nNow, the core of the task is to consider the **correlation** between these two variables to build the joint distribution. This is where the nuance comes in. One might hypothesize that girls who post more frequently are more invested in social media, potentially making them more susceptible to negative comparison. Conversely, they might possess higher confidence. However, I also recognize that even those who *don\'t* post frequently (lurkers) can experience significant negative comparison simply by viewing content. The question specifically mentions ""seeing other people\'s posts,"" which is a universal activity on these platforms. Therefore, I\'m leaning towards a *weak positive correlation*, or at least a concentration of probabilities in the middle-to-high ranges for both variables, acknowledging that high engagement in viewing can occur independently of high engagement in posting.\n\nWith these marginals and the correlation assumption in mind, I\'ll start constructing the 4x4 matrix. I\'ll begin by distributing the probability for each Row category across the Column categories, aiming to reflect the assumed correlation.\n\nMy initial attempt at constructing the joint probabilities, ensuring row sums match the marginals:\n\n*   **Row 1: Never or almost never post (25% total)**\n    *   Never feel worse: 0.08\n    *   Rarely: 0.08\n    *   Sometimes: 0.06\n    *   Often: 0.03\n    *(Total for Row 1: 0.25)*\n\n*   **Row 2: Less than once a week (25% total)**\n    *   Never: 0.04\n    *   Rarely: 0.08\n    *   Sometimes: 0.09\n    *   Often: 0.04\n    *(Total for Row 2: 0.25)*\n\n*   **Row 3: A few times a week (30% total)**\n    *   Never: 0.03\n    *   Rarely: 0.07\n    *   Sometimes: 0.13\n    *   Often: 0.07\n    *(Total for Row 3: 0.30)*\n\n*   **Row 4: At least once a day (20% total)**\n    *   Never: 0.02\n    *   Rarely: 0.03\n    *   Sometimes: 0.08\n    *   Often: 0.07\n    *(Total for Row 4: 0.20)*\n\nNow, I\'ll check the column sums derived from this initial matrix:\n*   Never: 0.08 + 0.04 + 0.03 + 0.02 = 0.17\n*   Rarely: 0.08 + 0.08 + 0.07 + 0.03 = 0.26\n*   Sometimes: 0.06 + 0.09 + 0.13 + 0.08 = 0.36\n*   Often: 0.03 + 0.04 + 0.07 + 0.07 = 0.21\n*(Total Sum: 0.17 + 0.26 + 0.36 + 0.21 = 1.00)*\n\nThese column sums (0.17, 0.26, 0.36, 0.21) are reasonably close to my initial marginal estimates for negative social comparison (0.15, 0.25, 0.40, 0.20). The differences are minor, and I can make slight adjustments if needed.\n\nHowever, I want to refine the narrative. I\'m thinking about the relationship more deeply: less frequent posters might be less immersed, leading to lower probabilities of negative feelings. Conversely, high-frequency posters are deeply engaged, suggesting a higher propensity for experiencing ""often"" negative comparison.\n\nLet\'s re-examine Row 4, particularly the ""Often"" category. It feels a bit low given the presumed high engagement. I\'ll make a slight adjustment to push the ""Often"" probability higher for the most frequent posters. I\'ll also slightly adjust ""Sometimes"" in Row 1 and Row 3 to maintain the row sums and the overall structure.\n\nMy refined proposed joint distribution:\n\n*   **Row 1: Never or almost never post (25% total)**\n    *   Never: 0.08\n    *   Rarely: 0.08\n    *   Sometimes: **0.07** (adjusted up)\n    *   Often: **0.02** (adjusted down)\n    *(Total for Row 1: 0.25)*\n\n*   **Row 2: Less than once a week (25% total)**\n    *   Never: 0.04\n    *   Rarely: 0.08\n    *   Sometimes: 0.09\n    *   Often: 0.04\n    *(Total for Row 2: 0.25)*\n\n*   **Row 3: A few times a week (30% total)**\n    *   Never: 0.03\n    *   Rarely: 0.07\n    *   Sometimes: **0.12** (adjusted down slightly)\n    *   Often: **0.08** (adjusted up)\n    *(Total for Row 3: 0.30)*\n\n*   **Row 4: At least once a day (20% total)**\n    *   Never: 0.02\n    *   Rarely: 0.03\n    *   Sometimes: **0.07** (adjusted down)\n    *   Often: **0.08** (adjusted up significantly)\n    *(Total for Row 4: 0.20)*\n\nLet me recalculate the column sums with these adjustments:\n*   Never: 0.08 + 0.04 + 0.03 + 0.02 = 0.17\n*   Rarely: 0.08 + 0.08 + 0.07 + 0.03 = 0.26\n*   Sometimes: 0.07 + 0.09 + 0.12 + 0.07 = 0.35\n*   Often: 0.02 + 0.04 + 0.08 + 0.08 = 0.22\n*(Total Sum: 0.17 + 0.26 + 0.35 + 0.22 = 1.00)*\n\nThese new column sums (0.17, 0.26, 0.35, 0.22) are still quite aligned with my initial marginal expectations and reflect the nuanced correlation I was aiming for – higher posting frequency is associated with a greater likelihood of experiencing negative comparison ""often,"" while lower posting frequency is associated with lower probabilities of negative feelings. The ""sometimes"" category remains dominant, which aligns with typical survey findings for this demographic. This refined distribution feels more robust and representative of the hypothesized relationship.\n\n \n</think>\n\n```json\n{\n  ""reasoning_summary"": ""Many teen girls consume social media heavily even if they do not post frequently, leading to a high baseline of \'sometimes\' feeling worse due to social comparison across all groups', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': None, 'name': None}}], 'created': 1785290612, 'model': 'google/gemini-3.1-pro', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 46, 'prompt_tokens': 288, 'total_tokens': 1484, 'completion_tokens_details': {'accepted_prediction_tokens': None, 'audio_tokens': None, 'reasoning_tokens': 1150, 'rejected_prediction_tokens': None}, 'prompt_tokens_details': None, 'estimated_cost': 0.014927999999999999, 'extra_properties': {'google': {'traffic_type': 'ON_DEMAND'}}}}",1150.0,,teen_social_candidate_joint_probe_posting_frequency_x_social_comparison,"Predict one joint population response distribution for two survey items.
+
+Population: teen_girls_all
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+First item: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+First-item options, in row order: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Second item: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Second-item options, in column order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return the joint distribution directly. Do not multiply separately estimated marginals.
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""joint_probabilities"": [[one nonnegative cell per column] per row]
+}
+The matrix must have shape 4 by 4 and all cells together must sum to 1.",True

@@ -1,0 +1,6 @@
+support_id,job_id,design_type,reason,coverage_item,coverage_option,intensity,coherence,pattern,profile
+1,teen_social_001,option_coverage,cover social_media_hours = Less than one hour,social_media_hours,Less than one hour,moderate,item_specific,{},
+2,teen_social_002,option_coverage,cover social_media_hours = One to three hours,social_media_hours,One to three hours,strong,item_specific,{},
+3,teen_social_003,option_coverage,cover social_media_hours = Four or more hours,social_media_hours,Four or more hours,moderate,item_specific,{},
+4,teen_social_004,pattern_anchor,declared response-pattern anchor,,,,explicit,"{""social_media_hours"": ""Less than one hour""}",
+5,teen_social_005,pattern_anchor,declared response-pattern anchor,,,,explicit,"{""social_media_hours"": ""Four or more hours""}",

@@ -1,0 +1,107 @@
+{
+  "data": {
+    "anchors": 0,
+    "coverage_complete": true,
+    "coverage_path": "examples/teen_social_2026/big_support/teen_social_big_support_coverage.csv",
+    "design": null,
+    "duplicate_prompts": 0,
+    "manifest_path": "examples/teen_social_2026/big_support/teen_social_big_support_build_manifest.json",
+    "metadata_source": {
+      "kind": "file",
+      "path": "examples/teen_social_2026/teen_social_candidate_moments.json"
+    },
+    "omitted_coverage_cells": 0,
+    "preset": "pattern-coverage",
+    "prompts_html_path": "examples/teen_social_2026/big_support/teen_social_big_support_prompts.html",
+    "prompts_path": "examples/teen_social_2026/big_support/teen_social_big_support_prompts.jsonl",
+    "resolved_design_path": "examples/teen_social_2026/big_support/teen_social_big_support_resolved_design.yaml",
+    "reused": false,
+    "rows": 64,
+    "support_plan_path": "examples/teen_social_2026/big_support/teen_social_big_support_support_plan.csv",
+    "tag": "teen_social_big_support"
+  },
+  "kind": "umriss_support_build",
+  "outputs": {
+    "teen_social_big_support_coverage.csv": {
+      "path": "examples/teen_social_2026/big_support/teen_social_big_support_coverage.csv",
+      "sha256": "c9bcc892ce9d40c203dc17299799d0b82f015b702ab561d0a68079093978aabe"
+    },
+    "teen_social_big_support_prompts.html": {
+      "path": "examples/teen_social_2026/big_support/teen_social_big_support_prompts.html",
+      "sha256": "0da42bb091d220a273a998452388124035f1468bd9819963649d82bc94c6f2b1"
+    },
+    "teen_social_big_support_prompts.jsonl": {
+      "path": "examples/teen_social_2026/big_support/teen_social_big_support_prompts.jsonl",
+      "sha256": "fea85a5c2107ecde405a50c592f31cf424a61e332024003eba4106640271e1dd"
+    },
+    "teen_social_big_support_resolved_design.yaml": {
+      "path": "examples/teen_social_2026/big_support/teen_social_big_support_resolved_design.yaml",
+      "sha256": "754f3facff788974105eb42b1532ee36a769b4bbfe26365c630a6fea4b72a86e"
+    },
+    "teen_social_big_support_support_plan.csv": {
+      "path": "examples/teen_social_2026/big_support/teen_social_big_support_support_plan.csv",
+      "sha256": "4c895fa4387e32f41b13262485a7da7a030dac2dd333e8a699d277b7a7d33f5a"
+    }
+  },
+  "provenance": {
+    "command": "umriss support build",
+    "created_at": "2026-07-29T02:23:05Z",
+    "fingerprint": "f17b9158c56734787c3f013c6ab4bff899d83c4465f0c3e295658a50bc69c464",
+    "inputs": {
+      "metadata": {
+        "path": "examples/teen_social_2026/teen_social_candidate_moments.json",
+        "sha256": "0fb596eb77f16c60eeb175a1f0a553bb0c09d35ed057e0e5ef33a323d40f3ce0"
+      }
+    },
+    "parameters": {
+      "n_support": 64,
+      "preset": "pattern-coverage",
+      "resolved_design": {
+        "components": [
+          {
+            "coherence": "item_specific",
+            "intensity": {
+              "allocation": "balanced",
+              "values": [
+                "moderate",
+                "strong"
+              ]
+            },
+            "items": "all",
+            "minimum_per_option": 1,
+            "type": "option_coverage"
+          }
+        ],
+        "coverage": {
+          "allocation": "balanced",
+          "mode": "complete"
+        },
+        "guardrails": {
+          "describe_as_recovered_respondents": false,
+          "leak_target_marginals": false,
+          "silent_coverage_truncation": false,
+          "silent_invalid_response_repair": false
+        },
+        "preset": "pattern-coverage",
+        "probabilities": {
+          "allow_zero": false,
+          "interpretation": "subjective_response_probability",
+          "minimum_probability": 0.01,
+          "require_sum": 1
+        },
+        "profile": {
+          "forbid_demographic_invention": true,
+          "framing": "synthetic_respondent"
+        },
+        "schema_version": 1,
+        "seed": 20260728,
+        "size": 64
+      },
+      "seed": 20260728,
+      "tag": "teen_social_big_support"
+    },
+    "schema_version": 1,
+    "umriss_version": "0.1.0"
+  },
+  "schema_version": 1
+}

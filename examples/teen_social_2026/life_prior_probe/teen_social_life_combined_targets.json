@@ -1,0 +1,736 @@
+{
+  "battery": {
+    "battery": "SOCIAL_RICH",
+    "wave": "ATS2026"
+  },
+  "kind": "umriss_targets",
+  "population": {
+    "id": "teen_girls_all"
+  },
+  "provenance": {
+    "command": "umriss targets merge",
+    "created_at": "2026-07-29T02:35:18Z",
+    "fingerprint": "8daeec902d48bb9371a93ce0d96c778dd1b1963451c25e11930a0441cffa063c",
+    "inputs": {
+      "targets_1": {
+        "path": "examples/teen_social_2026/prior_probe/model_aware/teen_social_candidate_priors_consensus_targets.json",
+        "sha256": "4b3004c84aebd9622bf1fe670ccac31ac6b1c93a54b3a5090c36d0e59031772d"
+      },
+      "targets_2": {
+        "path": "examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors_consensus_targets.json",
+        "sha256": "303bff0dc43b4d1b693909848f3c1e78870521789105b71e99c2235a9ebe0ada"
+      }
+    },
+    "parameters": {},
+    "schema_version": 1,
+    "umriss_version": "0.1.0"
+  },
+  "schema_version": 1,
+  "targets": [
+    {
+      "artifact_source": "examples/teen_social_2026/prior_probe/model_aware/teen_social_candidate_priors_consensus_targets.json",
+      "confidence_weight": 1.0,
+      "items": [
+        "social_media_hours"
+      ],
+      "population": "teen_girls_all",
+      "shape": [
+        3
+      ],
+      "source": {
+        "aggregation": "arithmetic_mean",
+        "agreement": {
+          "maximum_option_difference": 0.11999999999999994,
+          "maximum_pairwise_total_variation": 0.11999999999999995,
+          "rule": {
+            "maximum_option_difference": 0.1,
+            "maximum_pairwise_total_variation": 0.1,
+            "minimum_models": 3
+          }
+        },
+        "kind": "model_synthetic",
+        "models": [
+          {
+            "model": "gpt-5.5",
+            "service_name": "openai"
+          },
+          {
+            "model": "anthropic/claude-opus-5",
+            "service_name": "deep_infra"
+          },
+          {
+            "model": "google/gemini-3.1-pro",
+            "service_name": "deep_infra"
+          }
+        ]
+      },
+      "status": "rejected",
+      "target_id": "marginal:social_media_hours",
+      "type": "marginal",
+      "values": [
+        0.11,
+        0.3933333333333333,
+        0.4966666666666666
+      ]
+    },
+    {
+      "artifact_source": "examples/teen_social_2026/prior_probe/model_aware/teen_social_candidate_priors_consensus_targets.json",
+      "confidence_weight": 1.0,
+      "items": [
+        "posting_frequency"
+      ],
+      "population": "teen_girls_all",
+      "shape": [
+        4
+      ],
+      "source": {
+        "aggregation": "arithmetic_mean",
+        "agreement": {
+          "maximum_option_difference": 0.06,
+          "maximum_pairwise_total_variation": 0.07000000000000002,
+          "rule": {
+            "maximum_option_difference": 0.1,
+            "maximum_pairwise_total_variation": 0.1,
+            "minimum_models": 3
+          }
+        },
+        "kind": "model_synthetic",
+        "models": [
+          {
+            "model": "gpt-5.5",
+            "service_name": "openai"
+          },
+          {
+            "model": "anthropic/claude-opus-5",
+            "service_name": "deep_infra"
+          },
+          {
+            "model": "google/gemini-3.1-pro",
+            "service_name": "deep_infra"
+          }
+        ]
+      },
+      "status": "accepted",
+      "target_id": "marginal:posting_frequency",
+      "type": "marginal",
+      "values": [
+        0.20333333333333334,
+        0.26,
+        0.32,
+        0.21666666666666667
+      ]
+    },
+    {
+      "artifact_source": "examples/teen_social_2026/prior_probe/model_aware/teen_social_candidate_priors_consensus_targets.json",
+      "confidence_weight": 1.0,
+      "items": [
+        "late_night_use"
+      ],
+      "population": "teen_girls_all",
+      "shape": [
+        4
+      ],
+      "source": {
+        "aggregation": "arithmetic_mean",
+        "agreement": {
+          "maximum_option_difference": 0.16000000000000003,
+          "maximum_pairwise_total_variation": 0.16000000000000003,
+          "rule": {
+            "maximum_option_difference": 0.1,
+            "maximum_pairwise_total_variation": 0.1,
+            "minimum_models": 3
+          }
+        },
+        "kind": "model_synthetic",
+        "models": [
+          {
+            "model": "gpt-5.5",
+            "service_name": "openai"
+          },
+          {
+            "model": "anthropic/claude-opus-5",
+            "service_name": "deep_infra"
+          },
+          {
+            "model": "google/gemini-3.1-pro",
+            "service_name": "deep_infra"
+          }
+        ]
+      },
+      "status": "rejected",
+      "target_id": "marginal:late_night_use",
+      "type": "marginal",
+      "values": [
+        0.07,
+        0.17333333333333334,
+        0.3866666666666667,
+        0.36999999999999994
+      ]
+    },
+    {
+      "artifact_source": "examples/teen_social_2026/prior_probe/model_aware/teen_social_candidate_priors_consensus_targets.json",
+      "confidence_weight": 1.0,
+      "items": [
+        "sleep_interference"
+      ],
+      "population": "teen_girls_all",
+      "shape": [
+        4
+      ],
+      "source": {
+        "aggregation": "arithmetic_mean",
+        "agreement": {
+          "maximum_option_difference": 0.07,
+          "maximum_pairwise_total_variation": 0.07,
+          "rule": {
+            "maximum_option_difference": 0.1,
+            "maximum_pairwise_total_variation": 0.1,
+            "minimum_models": 3
+          }
+        },
+        "kind": "model_synthetic",
+        "models": [
+          {
+            "model": "gpt-5.5",
+            "service_name": "openai"
+          },
+          {
+            "model": "anthropic/claude-opus-5",
+            "service_name": "deep_infra"
+          },
+          {
+            "model": "google/gemini-3.1-pro",
+            "service_name": "deep_infra"
+          }
+        ]
+      },
+      "status": "accepted",
+      "target_id": "marginal:sleep_interference",
+      "type": "marginal",
+      "values": [
+        0.09000000000000001,
+        0.20999999999999996,
+        0.41,
+        0.29000000000000004
+      ]
+    },
+    {
+      "artifact_source": "examples/teen_social_2026/prior_probe/model_aware/teen_social_candidate_priors_consensus_targets.json",
+      "confidence_weight": 1.0,
+      "items": [
+        "social_comparison"
+      ],
+      "population": "teen_girls_all",
+      "shape": [
+        4
+      ],
+      "source": {
+        "aggregation": "arithmetic_mean",
+        "agreement": {
+          "maximum_option_difference": 0.04999999999999999,
+          "maximum_pairwise_total_variation": 0.05999999999999997,
+          "rule": {
+            "maximum_option_difference": 0.1,
+            "maximum_pairwise_total_variation": 0.1,
+            "minimum_models": 3
+          }
+        },
+        "kind": "model_synthetic",
+        "models": [
+          {
+            "model": "gpt-5.5",
+            "service_name": "openai"
+          },
+          {
+            "model": "anthropic/claude-opus-5",
+            "service_name": "deep_infra"
+          },
+          {
+            "model": "google/gemini-3.1-pro",
+            "service_name": "deep_infra"
+          }
+        ]
+      },
+      "status": "accepted",
+      "target_id": "marginal:social_comparison",
+      "type": "marginal",
+      "values": [
+        0.15,
+        0.29,
+        0.39666666666666667,
+        0.16333333333333333
+      ]
+    },
+    {
+      "artifact_source": "examples/teen_social_2026/prior_probe/model_aware/teen_social_candidate_priors_consensus_targets.json",
+      "confidence_weight": 1.0,
+      "items": [
+        "connection_effect"
+      ],
+      "population": "teen_girls_all",
+      "shape": [
+        3
+      ],
+      "source": {
+        "aggregation": "arithmetic_mean",
+        "agreement": {
+          "maximum_option_difference": 0.19999999999999996,
+          "maximum_pairwise_total_variation": 0.19999999999999996,
+          "rule": {
+            "maximum_option_difference": 0.1,
+            "maximum_pairwise_total_variation": 0.1,
+            "minimum_models": 3
+          }
+        },
+        "kind": "model_synthetic",
+        "models": [
+          {
+            "model": "gpt-5.5",
+            "service_name": "openai"
+          },
+          {
+            "model": "anthropic/claude-opus-5",
+            "service_name": "deep_infra"
+          },
+          {
+            "model": "google/gemini-3.1-pro",
+            "service_name": "deep_infra"
+          }
+        ]
+      },
+      "status": "rejected",
+      "target_id": "marginal:connection_effect",
+      "type": "marginal",
+      "values": [
+        0.12333333333333334,
+        0.25333333333333335,
+        0.6233333333333333
+      ]
+    },
+    {
+      "artifact_source": "examples/teen_social_2026/prior_probe/model_aware/teen_social_candidate_priors_consensus_targets.json",
+      "confidence_weight": 1.0,
+      "items": [
+        "parental_rules"
+      ],
+      "population": "teen_girls_all",
+      "shape": [
+        4
+      ],
+      "source": {
+        "aggregation": "arithmetic_mean",
+        "agreement": {
+          "maximum_option_difference": 0.09999999999999998,
+          "maximum_pairwise_total_variation": 0.12000000000000001,
+          "rule": {
+            "maximum_option_difference": 0.1,
+            "maximum_pairwise_total_variation": 0.1,
+            "minimum_models": 3
+          }
+        },
+        "kind": "model_synthetic",
+        "models": [
+          {
+            "model": "gpt-5.5",
+            "service_name": "openai"
+          },
+          {
+            "model": "anthropic/claude-opus-5",
+            "service_name": "deep_infra"
+          },
+          {
+            "model": "google/gemini-3.1-pro",
+            "service_name": "deep_infra"
+          }
+        ]
+      },
+      "status": "rejected",
+      "target_id": "marginal:parental_rules",
+      "type": "marginal",
+      "values": [
+        0.18666666666666668,
+        0.34,
+        0.33666666666666667,
+        0.1366666666666667
+      ]
+    },
+    {
+      "artifact_source": "examples/teen_social_2026/prior_probe/model_aware/teen_social_candidate_priors_consensus_targets.json",
+      "confidence_weight": 1.0,
+      "items": [
+        "primary_platform"
+      ],
+      "population": "teen_girls_all",
+      "shape": [
+        6
+      ],
+      "source": {
+        "aggregation": "arithmetic_mean",
+        "agreement": {
+          "maximum_option_difference": 0.12,
+          "maximum_pairwise_total_variation": 0.16,
+          "rule": {
+            "maximum_option_difference": 0.1,
+            "maximum_pairwise_total_variation": 0.1,
+            "minimum_models": 3
+          }
+        },
+        "kind": "model_synthetic",
+        "models": [
+          {
+            "model": "gpt-5.5",
+            "service_name": "openai"
+          },
+          {
+            "model": "anthropic/claude-opus-5",
+            "service_name": "deep_infra"
+          },
+          {
+            "model": "google/gemini-3.1-pro",
+            "service_name": "deep_infra"
+          }
+        ]
+      },
+      "status": "rejected",
+      "target_id": "marginal:primary_platform",
+      "type": "marginal",
+      "values": [
+        0.36999999999999994,
+        0.21333333333333335,
+        0.17,
+        0.15666666666666665,
+        0.056666666666666664,
+        0.03333333333333333
+      ]
+    },
+    {
+      "artifact_source": "examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors_consensus_targets.json",
+      "confidence_weight": 1.0,
+      "items": [
+        "school_effort"
+      ],
+      "population": "teen_girls_all",
+      "shape": [
+        4
+      ],
+      "source": {
+        "aggregation": "arithmetic_mean",
+        "agreement": {
+          "maximum_option_difference": 0.04999999999999999,
+          "maximum_pairwise_total_variation": 0.05,
+          "rule": {
+            "maximum_option_difference": 0.1,
+            "maximum_pairwise_total_variation": 0.1,
+            "minimum_models": 3
+          }
+        },
+        "kind": "model_synthetic",
+        "models": [
+          {
+            "model": "gpt-5.5",
+            "service_name": "openai"
+          },
+          {
+            "model": "anthropic/claude-opus-5",
+            "service_name": "deep_infra"
+          },
+          {
+            "model": "grok-4.5",
+            "service_name": "xai"
+          }
+        ]
+      },
+      "status": "accepted",
+      "target_id": "marginal:school_effort",
+      "type": "marginal",
+      "values": [
+        0.03,
+        0.09999999999999999,
+        0.36333333333333334,
+        0.5066666666666667
+      ]
+    },
+    {
+      "artifact_source": "examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors_consensus_targets.json",
+      "confidence_weight": 1.0,
+      "items": [
+        "academic_confidence"
+      ],
+      "population": "teen_girls_all",
+      "shape": [
+        4
+      ],
+      "source": {
+        "aggregation": "arithmetic_mean",
+        "agreement": {
+          "maximum_option_difference": 0.030000000000000027,
+          "maximum_pairwise_total_variation": 0.030000000000000016,
+          "rule": {
+            "maximum_option_difference": 0.1,
+            "maximum_pairwise_total_variation": 0.1,
+            "minimum_models": 3
+          }
+        },
+        "kind": "model_synthetic",
+        "models": [
+          {
+            "model": "gpt-5.5",
+            "service_name": "openai"
+          },
+          {
+            "model": "anthropic/claude-opus-5",
+            "service_name": "deep_infra"
+          },
+          {
+            "model": "grok-4.5",
+            "service_name": "xai"
+          }
+        ]
+      },
+      "status": "accepted",
+      "target_id": "marginal:academic_confidence",
+      "type": "marginal",
+      "values": [
+        0.03333333333333333,
+        0.09999999999999999,
+        0.3433333333333333,
+        0.5233333333333333
+      ]
+    },
+    {
+      "artifact_source": "examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors_consensus_targets.json",
+      "confidence_weight": 1.0,
+      "items": [
+        "homework_distraction"
+      ],
+      "population": "teen_girls_all",
+      "shape": [
+        4
+      ],
+      "source": {
+        "aggregation": "arithmetic_mean",
+        "agreement": {
+          "maximum_option_difference": 0.08000000000000002,
+          "maximum_pairwise_total_variation": 0.11,
+          "rule": {
+            "maximum_option_difference": 0.1,
+            "maximum_pairwise_total_variation": 0.1,
+            "minimum_models": 3
+          }
+        },
+        "kind": "model_synthetic",
+        "models": [
+          {
+            "model": "gpt-5.5",
+            "service_name": "openai"
+          },
+          {
+            "model": "anthropic/claude-opus-5",
+            "service_name": "deep_infra"
+          },
+          {
+            "model": "grok-4.5",
+            "service_name": "xai"
+          }
+        ]
+      },
+      "status": "rejected",
+      "target_id": "marginal:homework_distraction",
+      "type": "marginal",
+      "values": [
+        0.11333333333333333,
+        0.23666666666666666,
+        0.4066666666666667,
+        0.24333333333333332
+      ]
+    },
+    {
+      "artifact_source": "examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors_consensus_targets.json",
+      "confidence_weight": 1.0,
+      "items": [
+        "organized_activity"
+      ],
+      "population": "teen_girls_all",
+      "shape": [
+        4
+      ],
+      "source": {
+        "aggregation": "arithmetic_mean",
+        "agreement": {
+          "maximum_option_difference": 0.13,
+          "maximum_pairwise_total_variation": 0.13,
+          "rule": {
+            "maximum_option_difference": 0.1,
+            "maximum_pairwise_total_variation": 0.1,
+            "minimum_models": 3
+          }
+        },
+        "kind": "model_synthetic",
+        "models": [
+          {
+            "model": "gpt-5.5",
+            "service_name": "openai"
+          },
+          {
+            "model": "anthropic/claude-opus-5",
+            "service_name": "deep_infra"
+          },
+          {
+            "model": "grok-4.5",
+            "service_name": "xai"
+          }
+        ]
+      },
+      "status": "rejected",
+      "target_id": "marginal:organized_activity",
+      "type": "marginal",
+      "values": [
+        0.3066666666666667,
+        0.11333333333333333,
+        0.24,
+        0.34
+      ]
+    },
+    {
+      "artifact_source": "examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors_consensus_targets.json",
+      "confidence_weight": 1.0,
+      "items": [
+        "career_clarity"
+      ],
+      "population": "teen_girls_all",
+      "shape": [
+        4
+      ],
+      "source": {
+        "aggregation": "arithmetic_mean",
+        "agreement": {
+          "maximum_option_difference": 0.05000000000000002,
+          "maximum_pairwise_total_variation": 0.05000000000000002,
+          "rule": {
+            "maximum_option_difference": 0.1,
+            "maximum_pairwise_total_variation": 0.1,
+            "minimum_models": 3
+          }
+        },
+        "kind": "model_synthetic",
+        "models": [
+          {
+            "model": "gpt-5.5",
+            "service_name": "openai"
+          },
+          {
+            "model": "anthropic/claude-opus-5",
+            "service_name": "deep_infra"
+          },
+          {
+            "model": "grok-4.5",
+            "service_name": "xai"
+          }
+        ]
+      },
+      "status": "accepted",
+      "target_id": "marginal:career_clarity",
+      "type": "marginal",
+      "values": [
+        0.15000000000000002,
+        0.37666666666666665,
+        0.33,
+        0.14333333333333334
+      ]
+    },
+    {
+      "artifact_source": "examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors_consensus_targets.json",
+      "confidence_weight": 1.0,
+      "items": [
+        "future_optimism"
+      ],
+      "population": "teen_girls_all",
+      "shape": [
+        4
+      ],
+      "source": {
+        "aggregation": "arithmetic_mean",
+        "agreement": {
+          "maximum_option_difference": 0.10999999999999999,
+          "maximum_pairwise_total_variation": 0.10999999999999999,
+          "rule": {
+            "maximum_option_difference": 0.1,
+            "maximum_pairwise_total_variation": 0.1,
+            "minimum_models": 3
+          }
+        },
+        "kind": "model_synthetic",
+        "models": [
+          {
+            "model": "gpt-5.5",
+            "service_name": "openai"
+          },
+          {
+            "model": "anthropic/claude-opus-5",
+            "service_name": "deep_infra"
+          },
+          {
+            "model": "grok-4.5",
+            "service_name": "xai"
+          }
+        ]
+      },
+      "status": "rejected",
+      "target_id": "marginal:future_optimism",
+      "type": "marginal",
+      "values": [
+        0.07,
+        0.18999999999999997,
+        0.43333333333333335,
+        0.30666666666666664
+      ]
+    },
+    {
+      "artifact_source": "examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors_consensus_targets.json",
+      "confidence_weight": 1.0,
+      "items": [
+        "peer_belonging"
+      ],
+      "population": "teen_girls_all",
+      "shape": [
+        4
+      ],
+      "source": {
+        "aggregation": "arithmetic_mean",
+        "agreement": {
+          "maximum_option_difference": 0.08000000000000002,
+          "maximum_pairwise_total_variation": 0.08,
+          "rule": {
+            "maximum_option_difference": 0.1,
+            "maximum_pairwise_total_variation": 0.1,
+            "minimum_models": 3
+          }
+        },
+        "kind": "model_synthetic",
+        "models": [
+          {
+            "model": "gpt-5.5",
+            "service_name": "openai"
+          },
+          {
+            "model": "anthropic/claude-opus-5",
+            "service_name": "deep_infra"
+          },
+          {
+            "model": "grok-4.5",
+            "service_name": "xai"
+          }
+        ]
+      },
+      "status": "accepted",
+      "target_id": "marginal:peer_belonging",
+      "type": "marginal",
+      "values": [
+        0.06333333333333334,
+        0.16333333333333333,
+        0.4166666666666667,
+        0.3566666666666667
+      ]
+    }
+  ]
+}

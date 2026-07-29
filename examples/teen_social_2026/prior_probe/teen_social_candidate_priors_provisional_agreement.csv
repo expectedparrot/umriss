@@ -1,0 +1,9 @@
+item,valid_models,required_models,pairwise_total_variation,max_option_difference,provisional_two_model_pass,formal_status
+social_media_hours,2,3,0.030,0.030,true,rejected_missing_model
+posting_frequency,2,3,0.070,0.060,true,rejected_missing_model
+late_night_use,2,3,0.120,0.080,false,rejected_missing_model
+sleep_interference,2,3,0.060,0.050,true,rejected_missing_model
+social_comparison,2,3,0.040,0.030,true,rejected_missing_model
+connection_effect,2,3,0.050,0.050,true,rejected_missing_model
+parental_rules,2,3,0.120,0.100,false,rejected_missing_model
+primary_platform,2,3,0.160,0.100,false,rejected_missing_model

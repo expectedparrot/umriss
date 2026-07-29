@@ -1,0 +1,919 @@
+agent.agent_instruction,agent.agent_name,answer.resp,cache_keys.resp_cache_key,comment.resp_comment,generated_tokens.resp_generated_tokens,iteration.iteration,model.frequency_penalty,model.inference_service,model.logprobs,model.max_tokens,model.model,model.presence_penalty,model.reasoning_effort,model.temperature,model.top_logprobs,model.top_p,prompt.resp_system_prompt,prompt.resp_user_prompt,question_options.resp_question_options,question_text.resp_question_text,question_type.resp_question_type,raw_model_response.resp_cost,raw_model_response.resp_input_price_per_million_tokens,raw_model_response.resp_input_tokens,raw_model_response.resp_one_usd_buys,raw_model_response.resp_output_price_per_million_tokens,raw_model_response.resp_output_tokens,raw_model_response.resp_raw_model_response,raw_model_response.resp_thinking_tokens,reasoning_summary.resp_reasoning_summary,scenario.job_id,scenario.prompt,validated.resp_validated
+You are answering questions as if you were a human. Do not break character.,Agent_0,"{
+  ""reasoning_summary"": ""Based on recent U.S. adult marital and cohabitation patterns, about half of adults are married, a smaller share live with an unmarried partner, around one in ten are in a non-cohabiting relationship, and roughly one-third are not currently in a relationship."",
+  ""probabilities"": [0.49, 0.08, 0.11, 0.32]
+}",68a37d238486b5cf378b96639d85b19c,,"{
+  ""reasoning_summary"": ""Based on recent U.S. adult marital and cohabitation patterns, about half of adults are married, a smaller share live with an unmarried partner, around one in ten are in a non-cohabiting relationship, and roughly one-third are not currently in a relationship."",
+  ""probabilities"": [0.49, 0.08, 0.11, 0.32]
+}",0,0,openai,False,1200,gpt-5.5,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: Which best describes your current relationship situation?
+Survey item: Current relationship situation
+Response options, in order: [""Married"", ""Living with a partner"", ""In a relationship but not living together"", ""Not currently in a relationship""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.019185,5.0,183,52.12405525149857,30.0,97,"{'id': 'chatcmpl-E6wuGX8PgT6z9ydLeqdlG2uV6IDI1', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""Based on recent U.S. adult marital and cohabitation patterns, about half of adults are married, a smaller share live with an unmarried partner, around one in ten are in a non-cohabiting relationship, and roughly one-third are not currently in a relationship."",\n  ""probabilities"": [0.49, 0.08, 0.11, 0.32]\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785325112, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 609, 'prompt_tokens': 183, 'total_tokens': 792, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 512, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",512.0,,pew_work_family_priors_one_shot_relationship_status,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: Which best describes your current relationship situation?
+Survey item: Current relationship situation
+Response options, in order: [""Married"", ""Living with a partner"", ""In a relationship but not living together"", ""Not currently in a relationship""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_1,"{""reasoning_summary"": ""Based on Census/Pew benchmarks: roughly half of U.S. adults are married (~48-50%), about 8-9% cohabit with an unmarried partner, roughly 8-10% report a non-cohabiting romantic relationship, and about a third report no current relationship (including widowed, divorced, and never-married singles)."", ""probabilities"": [0.49, 0.09, 0.09, 0.33]}",1ab37f63bca43cc5bd1c2a5d0ba6b9c3,,"{""reasoning_summary"": ""Based on Census/Pew benchmarks: roughly half of U.S. adults are married (~48-50%), about 8-9% cohabit with an unmarried partner, roughly 8-10% report a non-cohabiting romantic relationship, and about a third report no current relationship (including widowed, divorced, and never-married singles)."", ""probabilities"": [0.49, 0.09, 0.09, 0.33]}",0,0,deep_infra,False,1200,anthropic/claude-opus-5,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: Which best describes your current relationship situation?
+Survey item: Current relationship situation
+Response options, in order: [""Married"", ""Living with a partner"", ""In a relationship but not living together"", ""Not currently in a relationship""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.0273405,16.5,292,36.57577586364551,82.5,273,"{'id': 'chatcmpl-Rtp5qkyuDeS0NcUG6ApqlPh9', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"": ""Based on Census/Pew benchmarks: roughly half of U.S. adults are married (~48-50%), about 8-9% cohabit with an unmarried partner, roughly 8-10% report a non-cohabiting romantic relationship, and about a third report no current relationship (including widowed, divorced, and never-married singles)."", ""probabilities"": [0.49, 0.09, 0.09, 0.33]}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': None, 'name': None}}], 'created': 1785325138, 'model': 'anthropic/claude-opus-5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 273, 'prompt_tokens': 292, 'total_tokens': 565, 'completion_tokens_details': None, 'prompt_tokens_details': None, 'estimated_cost': 0.008285}}",,,pew_work_family_priors_one_shot_relationship_status,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: Which best describes your current relationship situation?
+Survey item: Current relationship situation
+Response options, in order: [""Married"", ""Living with a partner"", ""In a relationship but not living together"", ""Not currently in a relationship""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_2,"{
+  ""reasoning_summary"": ""Estimates extrapolated from recent Census/ACS marital status and Pew ATP partnership data (married ~48-51%, cohabiting ~7-9%); remainder split using typical committed-noncohabiting vs. unpartnered adult shares, held roughly stable to 2026."",
+  ""probabilities"": [0.49, 0.08, 0.09, 0.34]
+}",5ee3c16463acbbf7dda6729fa86f479b,,"{
+  ""reasoning_summary"": ""Estimates extrapolated from recent Census/ACS marital status and Pew ATP partnership data (married ~48-51%, cohabiting ~7-9%); remainder split using typical committed-noncohabiting vs. unpartnered adult shares, held roughly stable to 2026."",
+  ""probabilities"": [0.49, 0.08, 0.09, 0.34]
+}",0,0,xai,False,1200,grok-4.5,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: Which best describes your current relationship situation?
+Survey item: Current relationship situation
+Response options, in order: [""Married"", ""Living with a partner"", ""In a relationship but not living together"", ""Not currently in a relationship""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.022965,5.0,383,43.54452427607228,25.0,90,"{'id': 'e9a47e99-b060-91b7-8593-f9365b8eecf5', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""Estimates extrapolated from recent Census/ACS marital status and Pew ATP partnership data (married ~48-51%, cohabiting ~7-9%); remainder split using typical committed-noncohabiting vs. unpartnered adult shares, held roughly stable to 2026."",\n  ""probabilities"": [0.49, 0.08, 0.09, 0.34]\n}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': 'The user wants me to predict the population response distribution for a survey item about current relationship situation.\n{\n  ""reasoning_summary"": ""Based on recent US Census and Pew data trends showing ~48% married, ~8% cohabiting, ~10% in non-cohabiting relationships, and ~34% single, with slight increases in cohabitation projected for 2026."",\n  ""probabilities"": [ 0.48, 0.08, 0.10, 0.'}}], 'created': 1785325111, 'model': 'grok-4.5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': 'fp_a39489019fa99b6e', 'usage': {'completion_tokens': 90, 'prompt_tokens': 383, 'total_tokens': 1225, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 752, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 128, 'text_tokens': 383, 'image_tokens': 0}, 'num_sources_used': 0, 'cost_in_usd_ticks': 56004000}}",752.0,,pew_work_family_priors_one_shot_relationship_status,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: Which best describes your current relationship situation?
+Survey item: Current relationship situation
+Response options, in order: [""Married"", ""Living with a partner"", ""In a relationship but not living together"", ""Not currently in a relationship""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_3,"{""reasoning_summary"":""Estimated from recent U.S. household composition patterns: roughly 30-32% of adults live in a household with children under 18. Among those households, older children only are most common, with smaller but similar shares having only young children or both young and older children."",""probabilities"":[0.68,0.075,0.17,0.075]}",c9b88ac8f325b4d6309ae28fe86a7916,,"{""reasoning_summary"":""Estimated from recent U.S. household composition patterns: roughly 30-32% of adults live in a household with children under 18. Among those households, older children only are most common, with smaller but similar shares having only young children or both young and older children."",""probabilities"":[0.68,0.075,0.17,0.075]}",0,0,openai,False,1200,gpt-5.5,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: Which best describes whether children under age 18 live in your household?
+Survey item: Children under 18 in the household
+Response options, in order: [""No children under 18"", ""At least one child under 6"", ""Only children ages 6 to 17"", ""Children both under 6 and ages 6 to 17""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.042165,5.0,207,23.716352424997034,30.0,99,"{'id': 'chatcmpl-E6wuGzwN1fxFslBtyjtQXKSoLqvrm', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"":""Estimated from recent U.S. household composition patterns: roughly 30-32% of adults live in a household with children under 18. Among those households, older children only are most common, with smaller but similar shares having only young children or both young and older children."",""probabilities"":[0.68,0.075,0.17,0.075]}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785325112, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 1371, 'prompt_tokens': 207, 'total_tokens': 1578, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 1272, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",1272.0,,pew_work_family_priors_one_shot_children_at_home,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: Which best describes whether children under age 18 live in your household?
+Survey item: Children under 18 in the household
+Response options, in order: [""No children under 18"", ""At least one child under 6"", ""Only children ages 6 to 17"", ""Children both under 6 and ages 6 to 17""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_4,"{""reasoning_summary"": ""About one-third of U.S. adults live in a household with children under 18 (household-with-children share ~30-40%, and adults with kids are concentrated in ages 25-49). Among those, most have school-age-only children; younger-child-only households are fewer, and mixed-age households fewer still."", ""probabilities"": [0.64, 0.10, 0.19, 0.07]}",9a14573915b9f5e4c863e7b58db090db,,"{""reasoning_summary"": ""About one-third of U.S. adults live in a household with children under 18 (household-with-children share ~30-40%, and adults with kids are concentrated in ages 25-49). Among those, most have school-age-only children; younger-child-only households are fewer, and mixed-age households fewer still."", ""probabilities"": [0.64, 0.10, 0.19, 0.07]}",0,0,deep_infra,False,1200,anthropic/claude-opus-5,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: Which best describes whether children under age 18 live in your household?
+Survey item: Children under 18 in the household
+Response options, in order: [""No children under 18"", ""At least one child under 6"", ""Only children ages 6 to 17"", ""Children both under 6 and ages 6 to 17""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.034848,16.5,312,28.696051423324143,82.5,360,"{'id': 'chatcmpl-REuKZc7R3RYQvMjMYU4OE3E6', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"": ""About one-third of U.S. adults live in a household with children under 18 (household-with-children share ~30-40%, and adults with kids are concentrated in ages 25-49). Among those, most have school-age-only children; younger-child-only households are fewer, and mixed-age households fewer still."", ""probabilities"": [0.64, 0.10, 0.19, 0.07]}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': None, 'name': None}}], 'created': 1785325118, 'model': 'anthropic/claude-opus-5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 360, 'prompt_tokens': 312, 'total_tokens': 672, 'completion_tokens_details': None, 'prompt_tokens_details': None, 'estimated_cost': 0.01056}}",,,pew_work_family_priors_one_shot_children_at_home,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: Which best describes whether children under age 18 live in your household?
+Survey item: Children under 18 in the household
+Response options, in order: [""No children under 18"", ""At least one child under 6"", ""Only children ages 6 to 17"", ""Children both under 6 and ages 6 to 17""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_5,"{
+  ""reasoning_summary"": ""Estimating from recent Census/CPS/ACS figures adjusted to adults (not households) and slight 2026 aging/fertility decline: ~70% of U.S. adults live in HH with no minors. Of the ~30% who do, steady-state age spacing and parity distributions imply roughly 9% only <6, 14% only 6-17, and 7% both."",
+  ""probabilities"": [0.70, 0.09, 0.14, 0.07]
+}",624ef3795f3bfd5b1c306a339d6645d2,,"{
+  ""reasoning_summary"": ""Estimating from recent Census/CPS/ACS figures adjusted to adults (not households) and slight 2026 aging/fertility decline: ~70% of U.S. adults live in HH with no minors. Of the ~30% who do, steady-state age spacing and parity distributions imply roughly 9% only <6, 14% only 6-17, and 7% both."",
+  ""probabilities"": [0.70, 0.09, 0.14, 0.07]
+}",0,0,xai,False,1200,grok-4.5,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: Which best describes whether children under age 18 live in your household?
+Survey item: Children under 18 in the household
+Response options, in order: [""No children under 18"", ""At least one child under 6"", ""Only children ages 6 to 17"", ""Children both under 6 and ages 6 to 17""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.08234,5.0,408,12.1447656060238,25.0,118,"{'id': '38246d6e-b3ee-91ff-a1b5-4a9e0b7bcd58', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""Estimating from recent Census/CPS/ACS figures adjusted to adults (not households) and slight 2026 aging/fertility decline: ~70% of U.S. adults live in HH with no minors. Of the ~30% who do, steady-state age spacing and parity distributions imply roughly 9% only <6, 14% only 6-17, and 7% both."",\n  ""probabilities"": [0.70, 0.09, 0.14, 0.07]\n}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': 'The user wants me to predict the population response distribution for a survey item about children under 18 in the household.\n{\n  ""reasoning_summary"": ""Based on 2023-2024 Census and Pew data, about 28% of U.S. adults live in households with children under 18. Among those, roughly 40% have at least one child under 6, 35% have only children 6- 17, and 25% have both age groups. Thus the predicted distribution is approximately 72% no children, 11% at least one under 6, 10% only 6-17, and 7% both."",\n  ""probabilities"": [0.72, 0.11,  0.10, 0.07]\n}turn\n\n{\n  ""reasoning_summary"": ""Based on 2023-2024 Census and Pew data, about 28% of U.S. adults live in households with children under 18. Among those, roughly 40% have at least one child under 6, 35% have only children 6-17, and 25% have both age groups. Thus the predicted distribution is approximately 72% no children, 11% at least one under 6, 10% only 6-17, and 7% both."",\n  ""prob abilities"": [0.72, 0.11, 0.10, 0.07]\n}turn\n\n{\n  ""reasoning_summary"": ""Based on 2023-2024 Census and Pew data, about 28% of U.S. adults live in households with children under 18. Among those, roughly 40% have at least one child under 6, 35% have only children 6-17, and 25% have both age groups. Thus the predicted distribution is approximately 72% no children, 11% at least one under 6, 10% only 6 17, and 7% both."",\n  ""probabilities"": [0.72, 0.11, 0.10, 0.07]\n}turn\n\n{\n  ""reasoning_summary"": ""Based on 2023-2024 Census and Pew data, about 28% of U.S adults live in households with children under 18. Among those, roughly 40% have at least one child under 6, 35% have only children 6-17, and 25% have both age groups. Thus the predicted distribution is approximately 72% no children, 11% at least one under 6, 10% only 6-17, and 7% both."",\n  ""probabilities"": [0.72, 0.11, 0.10, 0.'}}], 'created': 1785325111, 'model': 'grok-4.5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': 'fp_a39489019fa99b6e', 'usage': {'completion_tokens': 118, 'prompt_tokens': 408, 'total_tokens': 3620, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 3094, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 128, 'text_tokens': 408, 'image_tokens': 0}, 'num_sources_used': 0, 'cost_in_usd_ticks': 198704000}}",3094.0,,pew_work_family_priors_one_shot_children_at_home,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: Which best describes whether children under age 18 live in your household?
+Survey item: Children under 18 in the household
+Response options, in order: [""No children under 18"", ""At least one child under 6"", ""Only children ages 6 to 17"", ""Children both under 6 and ages 6 to 17""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_6,"{
+  ""reasoning_summary"": ""Estimated from recent U.S. household income distributions, adjusted for nominal income growth by 2026 and for an adult-weighted survey sample, which shifts somewhat more adults into higher-income households than a household-weighted distribution."",
+  ""probabilities"": [0.26, 0.29, 0.20, 0.25]
+}",59aa5ea4b99df09e9953603b81a6069b,,"{
+  ""reasoning_summary"": ""Estimated from recent U.S. household income distributions, adjusted for nominal income growth by 2026 and for an adult-weighted survey sample, which shifts somewhat more adults into higher-income households than a household-weighted distribution."",
+  ""probabilities"": [0.26, 0.29, 0.20, 0.25]
+}",0,0,openai,False,1200,gpt-5.5,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: What was your total household income before taxes last year?
+Survey item: Annual household income
+Response options, in order: [""Less than $50,000"", ""$50,000 to $99,999"", ""$100,000 to $149,999"", ""$150,000 or more""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.0409649999999999,5.0,195,24.41108263151471,30.0,99,"{'id': 'chatcmpl-E6wuGo27DcBut7JK6aL0dvAPbZz4W', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""Estimated from recent U.S. household income distributions, adjusted for nominal income growth by 2026 and for an adult-weighted survey sample, which shifts somewhat more adults into higher-income households than a household-weighted distribution."",\n  ""probabilities"": [0.26, 0.29, 0.20, 0.25]\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785325112, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 1333, 'prompt_tokens': 195, 'total_tokens': 1528, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 1234, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",1234.0,,pew_work_family_priors_one_shot_household_income,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: What was your total household income before taxes last year?
+Survey item: Annual household income
+Response options, in order: [""Less than $50,000"", ""$50,000 to $99,999"", ""$100,000 to $149,999"", ""$150,000 or more""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_7,"{""reasoning_summary"": ""Based on Census household income distribution (median ~$80k in 2024-25), roughly a third of households are under $50k, ~28-29% between $50k-$100k, ~18% $100k-$150k, and ~20% at $150k+. Survey respondents (adults, weighted) skew marginally higher-income than households overall, and item nonresponse is excluded here."", ""probabilities"": [0.33, 0.29, 0.18, 0.20]}",b1b362d48be9be201654d566b216a0c8,,"{""reasoning_summary"": ""Based on Census household income distribution (median ~$80k in 2024-25), roughly a third of households are under $50k, ~28-29% between $50k-$100k, ~18% $100k-$150k, and ~20% at $150k+. Survey respondents (adults, weighted) skew marginally higher-income than households overall, and item nonresponse is excluded here."", ""probabilities"": [0.33, 0.29, 0.18, 0.20]}",0,0,deep_infra,False,1200,anthropic/claude-opus-5,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: What was your total household income before taxes last year?
+Survey item: Annual household income
+Response options, in order: [""Less than $50,000"", ""$50,000 to $99,999"", ""$100,000 to $149,999"", ""$150,000 or more""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.036267,16.5,298,27.57327598091929,82.5,380,"{'id': 'chatcmpl-RkIzc9rxMEjVFzlOk3o5w5QV', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"": ""Based on Census household income distribution (median ~$80k in 2024-25), roughly a third of households are under $50k, ~28-29% between $50k-$100k, ~18% $100k-$150k, and ~20% at $150k+. Survey respondents (adults, weighted) skew marginally higher-income than households overall, and item nonresponse is excluded here."", ""probabilities"": [0.33, 0.29, 0.18, 0.20]}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': None, 'name': None}}], 'created': 1785325118, 'model': 'anthropic/claude-opus-5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 380, 'prompt_tokens': 298, 'total_tokens': 678, 'completion_tokens_details': None, 'prompt_tokens_details': None, 'estimated_cost': 0.01099}}",,,pew_work_family_priors_one_shot_household_income,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: What was your total household income before taxes last year?
+Survey item: Annual household income
+Response options, in order: [""Less than $50,000"", ""$50,000 to $99,999"", ""$100,000 to $149,999"", ""$150,000 or more""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_8,"{
+  ""reasoning_summary"": ""Based on recent Census ACS/CPS household income distributions (median ~$80k in 2023), inflation-adjusted forward to 2026, and typical right-skew: ~30% under $50k, ~28% in $50-100k, ~18% in $100-150k, ~24% at $150k+."",
+  ""probabilities"": [0.30, 0.28, 0.18, 0.24]
+}",9552e703044f540ce491e15e22171116,,"{
+  ""reasoning_summary"": ""Based on recent Census ACS/CPS household income distributions (median ~$80k in 2023), inflation-adjusted forward to 2026, and typical right-skew: ~30% under $50k, ~28% in $50-100k, ~18% in $100-150k, ~24% at $150k+."",
+  ""probabilities"": [0.30, 0.28, 0.18, 0.24]
+}",0,0,xai,False,1200,grok-4.5,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: What was your total household income before taxes last year?
+Survey item: Annual household income
+Response options, in order: [""Less than $50,000"", ""$50,000 to $99,999"", ""$100,000 to $149,999"", ""$150,000 or more""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.023355,5.0,396,42.81738385784628,25.0,107,"{'id': 'c0d3bbc3-968a-9cf2-9700-21128bf5f704', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""Based on recent Census ACS/CPS household income distributions (median ~$80k in 2023), inflation-adjusted forward to 2026, and typical right-skew: ~30% under $50k, ~28% in $50-100k, ~18% in $100-150k, ~24% at $150k+."",\n  ""probabilities"": [0.30, 0.28, 0.18, 0.24]\n}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': 'The user wants me to predict the population response distribution for a survey item about annual household income with options: [""Less than $50,000"", ""$50,000 to $99,999"", ""$100,000 to $149,999"", ""$15...{\n  ""reasoning_summary"": ""Based on recent US Census Bureau data for 2022-2023 median household income around $80k, the distribution is approximately 34% under $50k, 29% in $50-99.9k, 16% in $100-149.'}}], 'created': 1785325112, 'model': 'grok-4.5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': 'fp_a39489019fa99b6e', 'usage': {'completion_tokens': 107, 'prompt_tokens': 396, 'total_tokens': 1251, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 748, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 128, 'text_tokens': 396, 'image_tokens': 0}, 'num_sources_used': 0, 'cost_in_usd_ticks': 57044000}}",748.0,,pew_work_family_priors_one_shot_household_income,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: What was your total household income before taxes last year?
+Survey item: Annual household income
+Response options, in order: [""Less than $50,000"", ""$50,000 to $99,999"", ""$100,000 to $149,999"", ""$150,000 or more""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_9,"{
+  ""reasoning_summary"": ""National attitudes suggest marriage is meaningful for many U.S. adults but no longer viewed as essential to a fulfilling life by a majority. A sizable share would rate it somewhat important, while the rest split between low and no importance."",
+  ""probabilities"": [0.26, 0.22, 0.30, 0.22]
+}",b480e8a39188a2d3208ce9dccc41a44f,,"{
+  ""reasoning_summary"": ""National attitudes suggest marriage is meaningful for many U.S. adults but no longer viewed as essential to a fulfilling life by a majority. A sizable share would rate it somewhat important, while the rest split between low and no importance."",
+  ""probabilities"": [0.26, 0.22, 0.30, 0.22]
+}",0,0,openai,False,1200,gpt-5.5,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: How important is being married to your own idea of a fulfilling life?
+Survey item: Personal importance of marriage
+Response options, in order: [""Not at all important"", ""Not too important"", ""Somewhat important"", ""Very important""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.01892,5.0,184,52.85412262156447,30.0,88,"{'id': 'chatcmpl-E6wuGC8xrOuZQOn9hewoHuS8UcpRK', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""National attitudes suggest marriage is meaningful for many U.S. adults but no longer viewed as essential to a fulfilling life by a majority. A sizable share would rate it somewhat important, while the rest split between low and no importance."",\n  ""probabilities"": [0.26, 0.22, 0.30, 0.22]\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785325112, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 600, 'prompt_tokens': 184, 'total_tokens': 784, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 512, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",512.0,,pew_work_family_priors_one_shot_marriage_importance,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: How important is being married to your own idea of a fulfilling life?
+Survey item: Personal importance of marriage
+Response options, in order: [""Not at all important"", ""Not too important"", ""Somewhat important"", ""Very important""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_10,"{""reasoning_summary"": ""Pew-style items on what matters for a fulfilling life consistently show marriage rated lower than job/career, close friends, or children; only roughly a quarter to a third call it very important, with a large minority saying it is not too/not at all important (driven by unmarried, younger, and previously married adults). A 4-point scale without a neutral option pushes some mass to 'somewhat'."", ""probabilities"": [0.20, 0.20, 0.29, 0.31]}",508e61b8b3b5dc1aa53e4cecbcae6a7c,,"{""reasoning_summary"": ""Pew-style items on what matters for a fulfilling life consistently show marriage rated lower than job/career, close friends, or children; only roughly a quarter to a third call it very important, with a large minority saying it is not too/not at all important (driven by unmarried, younger, and previously married adults). A 4-point scale without a neutral option pushes some mass to 'somewhat'."", ""probabilities"": [0.20, 0.20, 0.29, 0.31]}",0,0,deep_infra,False,1200,anthropic/claude-opus-5,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: How important is being married to your own idea of a fulfilling life?
+Survey item: Personal importance of marriage
+Response options, in order: [""Not at all important"", ""Not too important"", ""Somewhat important"", ""Very important""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.040788,16.5,292,24.51701480827694,82.5,436,"{'id': 'chatcmpl-RmIkqHSkvlSzLQjGMfw0ooNO', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"": ""Pew-style items on what matters for a fulfilling life consistently show marriage rated lower than job/career, close friends, or children; only roughly a quarter to a third call it very important, with a large minority saying it is not too/not at all important (driven by unmarried, younger, and previously married adults). A 4-point scale without a neutral option pushes some mass to \'somewhat\'."", ""probabilities"": [0.20, 0.20, 0.29, 0.31]}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': None, 'name': None}}], 'created': 1785325119, 'model': 'anthropic/claude-opus-5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 436, 'prompt_tokens': 292, 'total_tokens': 728, 'completion_tokens_details': None, 'prompt_tokens_details': None, 'estimated_cost': 0.01236}}",,,pew_work_family_priors_one_shot_marriage_importance,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: How important is being married to your own idea of a fulfilling life?
+Survey item: Personal importance of marriage
+Response options, in order: [""Not at all important"", ""Not too important"", ""Somewhat important"", ""Very important""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_11,"{
+  ""reasoning_summary"": ""Based on long-term U.S. trends of delayed/declining marriage, rising singlehood, and generational shifts (younger adults de-emphasizing marriage), roughly 40% view it as unimportant while ~60% still rate it somewhat/very important; slight tilt toward 'very' among older cohorts yields this 2026 adult distribution."",
+  ""probabilities"": [0.14, 0.24, 0.31, 0.31]
+}",2db3ab02de937b509948459ac6cf79f4,,"{
+  ""reasoning_summary"": ""Based on long-term U.S. trends of delayed/declining marriage, rising singlehood, and generational shifts (younger adults de-emphasizing marriage), roughly 40% view it as unimportant while ~60% still rate it somewhat/very important; slight tilt toward 'very' among older cohorts yields this 2026 adult distribution."",
+  ""probabilities"": [0.14, 0.24, 0.31, 0.31]
+}",0,0,xai,False,1200,grok-4.5,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: How important is being married to your own idea of a fulfilling life?
+Survey item: Personal importance of marriage
+Response options, in order: [""Not at all important"", ""Not too important"", ""Somewhat important"", ""Very important""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.01992,5.0,384,50.2008032128514,25.0,106,"{'id': '0001097c-1f2e-9f2f-a548-3a1673837a70', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""Based on long-term U.S. trends of delayed/declining marriage, rising singlehood, and generational shifts (younger adults de-emphasizing marriage), roughly 40% view it as unimportant while ~60% still rate it somewhat/very important; slight tilt toward \'very\' among older cohorts yields this 2026 adult distribution."",\n  ""probabilities"": [0.14, 0.24, 0.31, 0.31]\n}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': 'The user wants me to predict the population response distribution for a survey item about the importance of being married to one\'s idea of a fulfilling life.\n{\n  ""reasoning_summary"": ""Marriage remains culturally central but its perceived importance has declined over decades. Pew data show roughly 55-60% of adults rate marriage as very or somewhat important for a fulfilling life, with younger cohorts and those in non-traditional relationships reporting lower endorsement.'}}], 'created': 1785325111, 'model': 'grok-4.5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': 'fp_a39489019fa99b6e', 'usage': {'completion_tokens': 106, 'prompt_tokens': 384, 'total_tokens': 1104, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 614, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 128, 'text_tokens': 384, 'image_tokens': 0}, 'num_sources_used': 0, 'cost_in_usd_ticks': 48704000}}",614.0,,pew_work_family_priors_one_shot_marriage_importance,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: How important is being married to your own idea of a fulfilling life?
+Survey item: Personal importance of marriage
+Response options, in order: [""Not at all important"", ""Not too important"", ""Somewhat important"", ""Very important""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_12,"{
+  ""reasoning_summary"": ""Raising children is likely seen as highly meaningful by many parents and some prospective parents, but a sizable minority of U.S. adults are childless or do not view parenthood as central to fulfillment."",
+  ""probabilities"": [0.14, 0.13, 0.26, 0.47]
+}",878fc13d3038136c4a48d900a83905fb,,"{
+  ""reasoning_summary"": ""Raising children is likely seen as highly meaningful by many parents and some prospective parents, but a sizable minority of U.S. adults are childless or do not view parenthood as central to fulfillment."",
+  ""probabilities"": [0.14, 0.13, 0.26, 0.47]
+}",0,0,openai,False,1200,gpt-5.5,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: How important is raising children to your own idea of a fulfilling life?
+Survey item: Personal importance of raising children
+Response options, in order: [""Not at all important"", ""Not too important"", ""Somewhat important"", ""Very important""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.018775,5.0,185,53.26231691078562,30.0,83,"{'id': 'chatcmpl-E6wuG5JxA333W998eLzEU9bFM0HJK', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""Raising children is likely seen as highly meaningful by many parents and some prospective parents, but a sizable minority of U.S. adults are childless or do not view parenthood as central to fulfillment."",\n  ""probabilities"": [0.14, 0.13, 0.26, 0.47]\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785325112, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 595, 'prompt_tokens': 185, 'total_tokens': 780, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 512, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",512.0,,pew_work_family_priors_one_shot_parenthood_importance,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: How important is raising children to your own idea of a fulfilling life?
+Survey item: Personal importance of raising children
+Response options, in order: [""Not at all important"", ""Not too important"", ""Somewhat important"", ""Very important""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_13,"{""reasoning_summary"": ""Pew-style items on what matters for a fulfilling life show children rank well below job/career and friendships, with only about a quarter to a third rating it at the top on a 5-point scale. Collapsing to a 4-point scale shifts more mass into 'Very important,' but a substantial minority (childfree adults, older adults past that stage, younger adults deprioritizing parenthood) place low importance. Expect a bimodal-ish spread with a plurality at 'Very important'."", ""probabilities"": [0.17, 0.18, 0.28, 0.37]}",589ef8a5f59f3cfc9e14588aec52fd0e,,"{""reasoning_summary"": ""Pew-style items on what matters for a fulfilling life show children rank well below job/career and friendships, with only about a quarter to a third rating it at the top on a 5-point scale. Collapsing to a 4-point scale shifts more mass into 'Very important,' but a substantial minority (childfree adults, older adults past that stage, younger adults deprioritizing parenthood) place low importance. Expect a bimodal-ish spread with a plurality at 'Very important'."", ""probabilities"": [0.17, 0.18, 0.28, 0.37]}",0,0,deep_infra,False,1200,anthropic/claude-opus-5,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: How important is raising children to your own idea of a fulfilling life?
+Survey item: Personal importance of raising children
+Response options, in order: [""Not at all important"", ""Not too important"", ""Somewhat important"", ""Very important""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.0549119999999999,16.5,293,18.210955710955712,82.5,607,"{'id': 'chatcmpl-RrxX5g4vsAisKHI07C7LVeQL', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"": ""Pew-style items on what matters for a fulfilling life show children rank well below job/career and friendships, with only about a quarter to a third rating it at the top on a 5-point scale. Collapsing to a 4-point scale shifts more mass into \'Very important,\' but a substantial minority (childfree adults, older adults past that stage, younger adults deprioritizing parenthood) place low importance. Expect a bimodal-ish spread with a plurality at \'Very important\'."", ""probabilities"": [0.17, 0.18, 0.28, 0.37]}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': None, 'name': None}}], 'created': 1785325121, 'model': 'anthropic/claude-opus-5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 607, 'prompt_tokens': 293, 'total_tokens': 900, 'completion_tokens_details': None, 'prompt_tokens_details': None, 'estimated_cost': 0.016640000000000002}}",,,pew_work_family_priors_one_shot_parenthood_importance,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: How important is raising children to your own idea of a fulfilling life?
+Survey item: Personal importance of raising children
+Response options, in order: [""Not at all important"", ""Not too important"", ""Somewhat important"", ""Very important""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_14,"{
+  ""reasoning_summary"": ""Based on recent Pew/Gallup trends in US family values, declining fertility ideals, and personal fulfillment surveys (where parenthood ranks high but not universally essential amid rising childfree rates), estimated ~42% view raising kids as very important to their own fulfillment, with the rest tapering off."",
+  ""probabilities"": [0.12, 0.18, 0.28, 0.42]
+}",5c45884546afe8f22faa29854466353a,,"{
+  ""reasoning_summary"": ""Based on recent Pew/Gallup trends in US family values, declining fertility ideals, and personal fulfillment surveys (where parenthood ranks high but not universally essential amid rising childfree rates), estimated ~42% view raising kids as very important to their own fulfillment, with the rest tapering off."",
+  ""probabilities"": [0.12, 0.18, 0.28, 0.42]
+}",0,0,xai,False,1200,grok-4.5,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: How important is raising children to your own idea of a fulfilling life?
+Survey item: Personal importance of raising children
+Response options, in order: [""Not at all important"", ""Not too important"", ""Somewhat important"", ""Very important""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.019925,5.0,385,50.18820577164366,25.0,93,"{'id': 'd5574ff4-e420-935f-8324-c28982b5dca3', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""Based on recent Pew/Gallup trends in US family values, declining fertility ideals, and personal fulfillment surveys (where parenthood ranks high but not universally essential amid rising childfree rates), estimated ~42% view raising kids as very important to their own fulfillment, with the rest tapering off."",\n  ""probabilities"": [0.12, 0.18, 0.28, 0.42]\n}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': 'The user wants me to predict the population response distribution for a survey item about how important raising children is to one\'s own idea of a fulfilling life. Options are: [""Not at all important""...{\n  ""reasoning_summary"": ""Based on Pew Research patterns from similar questions on life fulfillment and parenthood importance, plus trends in declining fertility and rising childfree identification, I estimate that most U.S. adults still view raising children as quite meaningful, but with growing minority who see it as less central.'}}], 'created': 1785325112, 'model': 'grok-4.5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': 'fp_a39489019fa99b6e', 'usage': {'completion_tokens': 93, 'prompt_tokens': 385, 'total_tokens': 1105, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 627, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 128, 'text_tokens': 385, 'image_tokens': 0}, 'num_sources_used': 0, 'cost_in_usd_ticks': 48724000}}",627.0,,pew_work_family_priors_one_shot_parenthood_importance,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: How important is raising children to your own idea of a fulfilling life?
+Survey item: Personal importance of raising children
+Response options, in order: [""Not at all important"", ""Not too important"", ""Somewhat important"", ""Very important""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_15,"{
+  ""reasoning_summary"": ""Most U.S. adults are likely to see paid-work or career success as at least somewhat tied to a fulfilling life, but the share saying it is very important is moderated by retirees, nonworkers, caregivers, and adults who prioritize family, health, or personal autonomy over career achievement."",
+  ""probabilities"": [0.08, 0.16, 0.39, 0.37]
+}",0d92be34f80f836ab61cd15d5ee15f10,,"{
+  ""reasoning_summary"": ""Most U.S. adults are likely to see paid-work or career success as at least somewhat tied to a fulfilling life, but the share saying it is very important is moderated by retirees, nonworkers, caregivers, and adults who prioritize family, health, or personal autonomy over career achievement."",
+  ""probabilities"": [0.08, 0.16, 0.39, 0.37]
+}",0,0,openai,False,1200,gpt-5.5,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: How important is success in paid work or a career to your own idea of a fulfilling life?
+Survey item: Personal importance of paid-work or career success
+Response options, in order: [""Not at all important"", ""Not too important"", ""Somewhat important"", ""Very important""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.009065,5.0,193,110.31439602868174,30.0,100,"{'id': 'chatcmpl-E6wuGEiW03q0Cg18oQGiFfj7MgO1D', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""Most U.S. adults are likely to see paid-work or career success as at least somewhat tied to a fulfilling life, but the share saying it is very important is moderated by retirees, nonworkers, caregivers, and adults who prioritize family, health, or personal autonomy over career achievement."",\n  ""probabilities"": [0.08, 0.16, 0.39, 0.37]\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785325112, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 270, 'prompt_tokens': 193, 'total_tokens': 463, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 170, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",170.0,,pew_work_family_priors_one_shot_paid_work_priority,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: How important is success in paid work or a career to your own idea of a fulfilling life?
+Survey item: Personal importance of paid-work or career success
+Response options, in order: [""Not at all important"", ""Not too important"", ""Somewhat important"", ""Very important""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_16,"{""reasoning_summary"": ""Most U.S. adults value work/career success, but the wording emphasizes 'success' (more competitive framing) and the sample includes retirees, homemakers, and those prioritizing family, so the top box is high but not dominant; 'Somewhat' absorbs a large share. Prior Pew-style items show ~70-80% rating career fulfillment at least somewhat/very important."", ""probabilities"": [0.07, 0.14, 0.37, 0.42]}",550ad65bff91a0b93bbfc24a95f68731,,"{""reasoning_summary"": ""Most U.S. adults value work/career success, but the wording emphasizes 'success' (more competitive framing) and the sample includes retirees, homemakers, and those prioritizing family, so the top box is high but not dominant; 'Somewhat' absorbs a large share. Prior Pew-style items show ~70-80% rating career fulfillment at least somewhat/very important."", ""probabilities"": [0.07, 0.14, 0.37, 0.42]}",0,0,deep_infra,False,1200,anthropic/claude-opus-5,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: How important is success in paid work or a career to your own idea of a fulfilling life?
+Survey item: Personal importance of paid-work or career success
+Response options, in order: [""Not at all important"", ""Not too important"", ""Somewhat important"", ""Very important""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.0341879999999999,16.5,302,29.250029250029257,82.5,354,"{'id': 'chatcmpl-R08iT6MEEjatEFDBuimk18Lf', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"": ""Most U.S. adults value work/career success, but the wording emphasizes \'success\' (more competitive framing) and the sample includes retirees, homemakers, and those prioritizing family, so the top box is high but not dominant; \'Somewhat\' absorbs a large share. Prior Pew-style items show ~70-80% rating career fulfillment at least somewhat/very important."", ""probabilities"": [0.07, 0.14, 0.37, 0.42]}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': None, 'name': None}}], 'created': 1785325118, 'model': 'anthropic/claude-opus-5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 354, 'prompt_tokens': 302, 'total_tokens': 656, 'completion_tokens_details': None, 'prompt_tokens_details': None, 'estimated_cost': 0.010360000000000001}}",,,pew_work_family_priors_one_shot_paid_work_priority,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: How important is success in paid work or a career to your own idea of a fulfilling life?
+Survey item: Personal importance of paid-work or career success
+Response options, in order: [""Not at all important"", ""Not too important"", ""Somewhat important"", ""Very important""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_17,"{
+  ""reasoning_summary"": ""U.S. adults typically rate career/paid-work success as a core (if secondary to family) component of a fulfilling life in value surveys; thus low shares dismiss it while a plurality call it very important and most of the rest somewhat important."",
+  ""probabilities"": [0.06, 0.14, 0.35, 0.45]
+}",659e5dc1348cef261b9ab239fb63157b,,"{
+  ""reasoning_summary"": ""U.S. adults typically rate career/paid-work success as a core (if secondary to family) component of a fulfilling life in value surveys; thus low shares dismiss it while a plurality call it very important and most of the rest somewhat important."",
+  ""probabilities"": [0.06, 0.14, 0.35, 0.45]
+}",0,0,xai,False,1200,grok-4.5,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: How important is success in paid work or a career to your own idea of a fulfilling life?
+Survey item: Personal importance of paid-work or career success
+Response options, in order: [""Not at all important"", ""Not too important"", ""Somewhat important"", ""Very important""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.01937,5.0,394,51.62622612287041,25.0,85,"{'id': 'a02cb08b-bd14-9600-a4e0-d9715fab78c3', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""U.S. adults typically rate career/paid-work success as a core (if secondary to family) component of a fulfilling life in value surveys; thus low shares dismiss it while a plurality call it very important and most of the rest somewhat important."",\n  ""probabilities"": [0.06, 0.14, 0.35, 0.45]\n}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': 'The user wants me to predict the population response distribution for a survey item about how important success in paid work or a career is to one\'s idea of a fulfilling life.\n{\n  ""reasoning_summary"": ""Americans generally view career success as a core part of a fulfilling life, with family often ranking higher.'}}], 'created': 1785325111, 'model': 'grok-4.5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': 'fp_a39489019fa99b6e', 'usage': {'completion_tokens': 85, 'prompt_tokens': 394, 'total_tokens': 1090, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 611, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 128, 'text_tokens': 394, 'image_tokens': 0}, 'num_sources_used': 0, 'cost_in_usd_ticks': 47464000}}",611.0,,pew_work_family_priors_one_shot_paid_work_priority,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: How important is success in paid work or a career to your own idea of a fulfilling life?
+Survey item: Personal importance of paid-work or career success
+Response options, in order: [""Not at all important"", ""Not too important"", ""Somewhat important"", ""Very important""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_18,"{
+  ""reasoning_summary"": ""Most U.S. adults are likely to reject the idea that childcare should fall mainly to one parent, favoring either an equal split or a flexible arrangement based on circumstances. The broad 'depends on the family' option would attract many respondents because it accommodates work schedules, preferences, and practical constraints."",
+  ""probabilities"": [0.04, 0.35, 0.23, 0.38]
+}",8f26c741046851b328b57a997497ff17,,"{
+  ""reasoning_summary"": ""Most U.S. adults are likely to reject the idea that childcare should fall mainly to one parent, favoring either an equal split or a flexible arrangement based on circumstances. The broad 'depends on the family' option would attract many respondents because it accommodates work schedules, preferences, and practical constraints."",
+  ""probabilities"": [0.04, 0.35, 0.23, 0.38]
+}",0,0,openai,False,1200,gpt-5.5,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: In a two-parent household with children, what is generally the best way to divide day-to-day childcare?
+Survey item: Preferred division of day-to-day childcare
+Response options, in order: [""One parent should do most of it"", ""Both parents should divide it about equally"", ""The parent with more available time should do more"", ""It depends entirely on the family""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.009395,5.0,211,106.439595529537,30.0,102,"{'id': 'chatcmpl-E6wuGt7JxMJ9yavwpkbn7atWlO32R', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""Most U.S. adults are likely to reject the idea that childcare should fall mainly to one parent, favoring either an equal split or a flexible arrangement based on circumstances. The broad \'depends on the family\' option would attract many respondents because it accommodates work schedules, preferences, and practical constraints."",\n  ""probabilities"": [0.04, 0.35, 0.23, 0.38]\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785325112, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 278, 'prompt_tokens': 211, 'total_tokens': 489, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 176, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",176.0,,pew_work_family_priors_one_shot_childcare_division,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: In a two-parent household with children, what is generally the best way to divide day-to-day childcare?
+Survey item: Preferred division of day-to-day childcare
+Response options, in order: [""One parent should do most of it"", ""Both parents should divide it about equally"", ""The parent with more available time should do more"", ""It depends entirely on the family""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_19,"{""reasoning_summary"": ""Americans strongly endorse egalitarian ideals for childcare, so 'divide about equally' should dominate (~45-50%). 'Depends on the family' is a common hedge (~20-25%), 'parent with more available time' is a pragmatic option drawing ~20-25%, and only a small traditionalist minority (~6-8%) says one parent should do most of it."", ""probabilities"": [0.07, 0.47, 0.24, 0.22]}",fd87d103e666d01bdada16762876c5e1,,"{""reasoning_summary"": ""Americans strongly endorse egalitarian ideals for childcare, so 'divide about equally' should dominate (~45-50%). 'Depends on the family' is a common hedge (~20-25%), 'parent with more available time' is a pragmatic option drawing ~20-25%, and only a small traditionalist minority (~6-8%) says one parent should do most of it."", ""probabilities"": [0.07, 0.47, 0.24, 0.22]}",0,0,deep_infra,False,1200,anthropic/claude-opus-5,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: In a two-parent household with children, what is generally the best way to divide day-to-day childcare?
+Survey item: Preferred division of day-to-day childcare
+Response options, in order: [""One parent should do most of it"", ""Both parents should divide it about equally"", ""The parent with more available time should do more"", ""It depends entirely on the family""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.0185955,16.5,327,53.77645129197924,82.5,160,"{'id': 'chatcmpl-RDcaqYXoLpTI2SMklUvEhNqE', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"": ""Americans strongly endorse egalitarian ideals for childcare, so \'divide about equally\' should dominate (~45-50%). \'Depends on the family\' is a common hedge (~20-25%), \'parent with more available time\' is a pragmatic option drawing ~20-25%, and only a small traditionalist minority (~6-8%) says one parent should do most of it."", ""probabilities"": [0.07, 0.47, 0.24, 0.22]}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': None, 'name': None}}], 'created': 1785325115, 'model': 'anthropic/claude-opus-5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 160, 'prompt_tokens': 327, 'total_tokens': 487, 'completion_tokens_details': None, 'prompt_tokens_details': None, 'estimated_cost': 0.005635}}",,,pew_work_family_priors_one_shot_childcare_division,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: In a two-parent household with children, what is generally the best way to divide day-to-day childcare?
+Survey item: Preferred division of day-to-day childcare
+Response options, in order: [""One parent should do most of it"", ""Both parents should divide it about equally"", ""The parent with more available time should do more"", ""It depends entirely on the family""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_20,"{
+  ""reasoning_summary"": ""Egalitarian norms dominate U.S. opinion on parenting; equal sharing is the modal preference, followed by pragmatic time-availability, with smaller shares for traditional one-parent primacy or pure relativism."",
+  ""probabilities"": [0.13, 0.44, 0.27, 0.16]
+}",dfde479005786dd21bebfd75740cd800,,"{
+  ""reasoning_summary"": ""Egalitarian norms dominate U.S. opinion on parenting; equal sharing is the modal preference, followed by pragmatic time-availability, with smaller shares for traditional one-parent primacy or pure relativism."",
+  ""probabilities"": [0.13, 0.44, 0.27, 0.16]
+}",0,0,xai,False,1200,grok-4.5,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: In a two-parent household with children, what is generally the best way to divide day-to-day childcare?
+Survey item: Preferred division of day-to-day childcare
+Response options, in order: [""One parent should do most of it"", ""Both parents should divide it about equally"", ""The parent with more available time should do more"", ""It depends entirely on the family""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.016685,5.0,417,59.93407252022776,25.0,74,"{'id': 'cf7ee9da-d96f-9282-88f1-3caea4553d08', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""Egalitarian norms dominate U.S. opinion on parenting; equal sharing is the modal preference, followed by pragmatic time-availability, with smaller shares for traditional one-parent primacy or pure relativism."",\n  ""probabilities"": [0.13, 0.44, 0.27, 0.16]\n}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': 'The user wants me to predict the population response distribution for a survey item about the preferred division of day-to-day childcare in a two-parent household with children.\n{\n  ""reasoning_summary"": ""In a nationally representative 2026 sample, attitudes toward childcare division in two-parent households with children lean toward egalitarian sharing, but with pragmatic flexibility. \'Both parents should divide it about equally\' is the modal response, reflecting broad support for shared parenting.'}}], 'created': 1785325111, 'model': 'grok-4.5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': 'fp_a39489019fa99b6e', 'usage': {'completion_tokens': 74, 'prompt_tokens': 417, 'total_tokens': 1001, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 510, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 128, 'text_tokens': 417, 'image_tokens': 0}, 'num_sources_used': 0, 'cost_in_usd_ticks': 41204000}}",510.0,,pew_work_family_priors_one_shot_childcare_division,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: In a two-parent household with children, what is generally the best way to divide day-to-day childcare?
+Survey item: Preferred division of day-to-day childcare
+Response options, in order: [""One parent should do most of it"", ""Both parents should divide it about equally"", ""The parent with more available time should do more"", ""It depends entirely on the family""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_21,"{""reasoning_summary"":""Most U.S. adults are likely to endorse an egalitarian division of routine housework, though many would qualify this by available time or household-specific circumstances; few would say one person should generally do most of it."",""probabilities"":[0.05,0.47,0.32,0.16]}",30e5acea8ea64d03d4ce618d650c491f,,"{""reasoning_summary"":""Most U.S. adults are likely to endorse an egalitarian division of routine housework, though many would qualify this by available time or household-specific circumstances; few would say one person should generally do most of it."",""probabilities"":[0.05,0.47,0.32,0.16]}",0,0,openai,False,1200,gpt-5.5,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: In a household with two adults, what is generally the best way to divide cooking, cleaning, and other routine housework?
+Survey item: Preferred division of routine housework
+Response options, in order: [""One person should do most of it"", ""Both adults should divide it about equally"", ""The person with more available time should do more"", ""It depends entirely on the household""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.01001,5.0,214,99.9000999000999,30.0,76,"{'id': 'chatcmpl-E6wuGWay0ERdH6hiz5b7TlMwoIPhZ', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"":""Most U.S. adults are likely to endorse an egalitarian division of routine housework, though many would qualify this by available time or household-specific circumstances; few would say one person should generally do most of it."",""probabilities"":[0.05,0.47,0.32,0.16]}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785325112, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 298, 'prompt_tokens': 214, 'total_tokens': 512, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 222, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",222.0,,pew_work_family_priors_one_shot_housework_division,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: In a household with two adults, what is generally the best way to divide cooking, cleaning, and other routine housework?
+Survey item: Preferred division of routine housework
+Response options, in order: [""One person should do most of it"", ""Both adults should divide it about equally"", ""The person with more available time should do more"", ""It depends entirely on the household""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_22,"{""reasoning_summary"": ""Americans strongly endorse egalitarian norms in housework; 'divide about equally' should dominate, followed by the time-availability rationale and 'depends on the household' as a hedge. Very few endorse one person doing most of it."", ""probabilities"": [0.04, 0.55, 0.24, 0.17]}",dff2e52db4c7efc32583b74ce2c71f71,,"{""reasoning_summary"": ""Americans strongly endorse egalitarian norms in housework; 'divide about equally' should dominate, followed by the time-availability rationale and 'depends on the household' as a hedge. Very few endorse one person doing most of it."", ""probabilities"": [0.04, 0.55, 0.24, 0.17]}",0,0,deep_infra,False,1200,anthropic/claude-opus-5,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: In a household with two adults, what is generally the best way to divide cooking, cleaning, and other routine housework?
+Survey item: Preferred division of routine housework
+Response options, in order: [""One person should do most of it"", ""Both adults should divide it about equally"", ""The person with more available time should do more"", ""It depends entirely on the household""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.014784,16.5,326,67.64069264069263,82.5,114,"{'id': 'chatcmpl-RWlappziVBJSB97z8SZ4nv6z', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"": ""Americans strongly endorse egalitarian norms in housework; \'divide about equally\' should dominate, followed by the time-availability rationale and \'depends on the household\' as a hedge. Very few endorse one person doing most of it."", ""probabilities"": [0.04, 0.55, 0.24, 0.17]}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': None, 'name': None}}], 'created': 1785325114, 'model': 'anthropic/claude-opus-5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 114, 'prompt_tokens': 326, 'total_tokens': 440, 'completion_tokens_details': None, 'prompt_tokens_details': None, 'estimated_cost': 0.0044800000000000005}}",,,pew_work_family_priors_one_shot_housework_division,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: In a household with two adults, what is generally the best way to divide cooking, cleaning, and other routine housework?
+Survey item: Preferred division of routine housework
+Response options, in order: [""One person should do most of it"", ""Both adults should divide it about equally"", ""The person with more available time should do more"", ""It depends entirely on the household""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_23,"{
+  ""reasoning_summary"": ""US adults increasingly favor egalitarian norms for housework per long-running Pew/GSS trends on gender roles; equal-sharing is modal, followed by pragmatic time-availability, residual situational flexibility, and low support for one-sided traditional loads."",
+  ""probabilities"": [0.11, 0.47, 0.26, 0.16]
+}",5d415c7d06327d98c1e9ec0a26fd0134,,"{
+  ""reasoning_summary"": ""US adults increasingly favor egalitarian norms for housework per long-running Pew/GSS trends on gender roles; equal-sharing is modal, followed by pragmatic time-availability, residual situational flexibility, and low support for one-sided traditional loads."",
+  ""probabilities"": [0.11, 0.47, 0.26, 0.16]
+}",0,0,xai,False,1200,grok-4.5,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: In a household with two adults, what is generally the best way to divide cooking, cleaning, and other routine housework?
+Survey item: Preferred division of routine housework
+Response options, in order: [""One person should do most of it"", ""Both adults should divide it about equally"", ""The person with more available time should do more"", ""It depends entirely on the household""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.019315,5.0,413,51.773233238415735,25.0,82,"{'id': 'f34ca338-9045-9894-961e-1cc7dc1b5ab2', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""US adults increasingly favor egalitarian norms for housework per long-running Pew/GSS trends on gender roles; equal-sharing is modal, followed by pragmatic time-availability, residual situational flexibility, and low support for one-sided traditional loads."",\n  ""probabilities"": [0.11, 0.47, 0.26, 0.16]\n}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': 'The user wants me to predict the population response distribution for a survey item about the preferred division of routine housework.\n{\n  ""reasoning_summary"": ""Based on Pew Research trends and GSS data showing majority preference for egalitarian sharing in dual-earner households, the distribution tilts toward equal division while acknowledging situational factors. Traditional \'one person\' views have declined sharply since the 1970s.'}}], 'created': 1785325112, 'model': 'grok-4.5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': 'fp_a39489019fa99b6e', 'usage': {'completion_tokens': 82, 'prompt_tokens': 413, 'total_tokens': 1103, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 608, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 128, 'text_tokens': 413, 'image_tokens': 0}, 'num_sources_used': 0, 'cost_in_usd_ticks': 47484000}}",608.0,,pew_work_family_priors_one_shot_housework_division,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: In a household with two adults, what is generally the best way to divide cooking, cleaning, and other routine housework?
+Survey item: Preferred division of routine housework
+Response options, in order: [""One person should do most of it"", ""Both adults should divide it about equally"", ""The person with more available time should do more"", ""It depends entirely on the household""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_24,"{
+  ""reasoning_summary"": ""Most U.S. adults are likely to favor an egalitarian norm for major household financial decisions, with a smaller share saying it depends on the specific decision. Few would endorse authority based mainly on earning more or handling day-to-day money management."",
+  ""probabilities"": [0.02, 0.06, 0.76, 0.16]
+}",dd60d7c65880416693b4e31063d97091,,"{
+  ""reasoning_summary"": ""Most U.S. adults are likely to favor an egalitarian norm for major household financial decisions, with a smaller share saying it depends on the specific decision. Few would endorse authority based mainly on earning more or handling day-to-day money management."",
+  ""probabilities"": [0.02, 0.06, 0.76, 0.16]
+}",0,0,openai,False,1200,gpt-5.5,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: In a household with two adults, what is generally the best way to make major financial decisions?
+Survey item: Preferred style for major household financial decisions
+Response options, in order: [""The higher earner should usually decide"", ""The person who manages the money should usually decide"", ""Both adults should decide together"", ""It depends on the decision""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.00664,5.0,206,150.6024096385542,30.0,91,"{'id': 'chatcmpl-E6wuGzaSWkEdWsbOGZAiPq0kSCMdo', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""Most U.S. adults are likely to favor an egalitarian norm for major household financial decisions, with a smaller share saying it depends on the specific decision. Few would endorse authority based mainly on earning more or handling day-to-day money management."",\n  ""probabilities"": [0.02, 0.06, 0.76, 0.16]\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785325112, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 187, 'prompt_tokens': 206, 'total_tokens': 393, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 96, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",96.0,,pew_work_family_priors_one_shot_financial_decision_style,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: In a household with two adults, what is generally the best way to make major financial decisions?
+Survey item: Preferred style for major household financial decisions
+Response options, in order: [""The higher earner should usually decide"", ""The person who manages the money should usually decide"", ""Both adults should decide together"", ""It depends on the decision""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_25,"{""reasoning_summary"": ""U.S. adults overwhelmingly endorse egalitarian joint decision-making for major household finances; norm-consistent 'both together' dominates, with 'it depends' a modest second, and very few endorsing higher-earner or money-manager authority."", ""probabilities"": [0.03, 0.07, 0.74, 0.16]}",8fa0d3d2ace547103147c00a454612bb,,"{""reasoning_summary"": ""U.S. adults overwhelmingly endorse egalitarian joint decision-making for major household finances; norm-consistent 'both together' dominates, with 'it depends' a modest second, and very few endorsing higher-earner or money-manager authority."", ""probabilities"": [0.03, 0.07, 0.74, 0.16]}",0,0,deep_infra,False,1200,anthropic/claude-opus-5,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: In a household with two adults, what is generally the best way to make major financial decisions?
+Survey item: Preferred style for major household financial decisions
+Response options, in order: [""The higher earner should usually decide"", ""The person who manages the money should usually decide"", ""Both adults should decide together"", ""It depends on the decision""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.0152625,16.5,320,65.52006552006551,82.5,121,"{'id': 'chatcmpl-RZ59DOvtrlguFYUelQA5xkui', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"": ""U.S. adults overwhelmingly endorse egalitarian joint decision-making for major household finances; norm-consistent \'both together\' dominates, with \'it depends\' a modest second, and very few endorsing higher-earner or money-manager authority."", ""probabilities"": [0.03, 0.07, 0.74, 0.16]}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': None, 'name': None}}], 'created': 1785325114, 'model': 'anthropic/claude-opus-5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 121, 'prompt_tokens': 320, 'total_tokens': 441, 'completion_tokens_details': None, 'prompt_tokens_details': None, 'estimated_cost': 0.004625000000000001}}",,,pew_work_family_priors_one_shot_financial_decision_style,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: In a household with two adults, what is generally the best way to make major financial decisions?
+Survey item: Preferred style for major household financial decisions
+Response options, in order: [""The higher earner should usually decide"", ""The person who manages the money should usually decide"", ""Both adults should decide together"", ""It depends on the decision""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_26,"{
+  ""reasoning_summary"": ""Egalitarian norms dominate modern U.S. views on household finances; joint decisions are strongly preferred for major choices, followed by situational flexibility. Hierarchical options (higher earner or money manager) attract only small minorities."",
+  ""probabilities"": [0.09, 0.13, 0.53, 0.25]
+}",23e60cdb3d1e5e6b2dade6fd3178d77d,,"{
+  ""reasoning_summary"": ""Egalitarian norms dominate modern U.S. views on household finances; joint decisions are strongly preferred for major choices, followed by situational flexibility. Hierarchical options (higher earner or money manager) attract only small minorities."",
+  ""probabilities"": [0.09, 0.13, 0.53, 0.25]
+}",0,0,xai,False,1200,grok-4.5,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: In a household with two adults, what is generally the best way to make major financial decisions?
+Survey item: Preferred style for major household financial decisions
+Response options, in order: [""The higher earner should usually decide"", ""The person who manages the money should usually decide"", ""Both adults should decide together"", ""It depends on the decision""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.014335,5.0,407,69.75933031042902,25.0,77,"{'id': 'af3ad70d-0ae4-9a13-9ec6-fa59955e2b4b', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""Egalitarian norms dominate modern U.S. views on household finances; joint decisions are strongly preferred for major choices, followed by situational flexibility. Hierarchical options (higher earner or money manager) attract only small minorities."",\n  ""probabilities"": [0.09, 0.13, 0.53, 0.25]\n}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': 'The user wants me to predict the population response distribution for a survey item about preferred style for major household financial decisions.\n{\n  ""reasoning_summary"": ""In a nationally representative 2026 sample, egalitarian norms and preference for shared responsibility in relationships favor joint decision-making as the modal response.'}}], 'created': 1785325112, 'model': 'grok-4.5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': 'fp_a39489019fa99b6e', 'usage': {'completion_tokens': 77, 'prompt_tokens': 407, 'total_tokens': 899, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 415, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 128, 'text_tokens': 407, 'image_tokens': 0}, 'num_sources_used': 0, 'cost_in_usd_ticks': 35484000}}",415.0,,pew_work_family_priors_one_shot_financial_decision_style,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: In a household with two adults, what is generally the best way to make major financial decisions?
+Survey item: Preferred style for major household financial decisions
+Response options, in order: [""The higher earner should usually decide"", ""The person who manages the money should usually decide"", ""Both adults should decide together"", ""It depends on the decision""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_27,"{
+  ""reasoning_summary"": ""U.S. adults would likely favor a family-specific approach over a single rule, with substantial support for sharing reductions equally or using job flexibility; fewer would choose the lower earner rule because it can seem economically practical but less egalitarian."",
+  ""probabilities"": [0.1, 0.22, 0.25, 0.43]
+}",bad90a767bab837c25ff22f978553b2f,,"{
+  ""reasoning_summary"": ""U.S. adults would likely favor a family-specific approach over a single rule, with substantial support for sharing reductions equally or using job flexibility; fewer would choose the lower earner rule because it can seem economically practical but less egalitarian."",
+  ""probabilities"": [0.1, 0.22, 0.25, 0.43]
+}",0,0,openai,False,1200,gpt-5.5,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: If a couple with children needs one adult to reduce paid work for family needs, what is generally the fairest approach?
+Survey item: Preferred rule for deciding who reduces paid work
+Response options, in order: [""The lower earner should reduce work"", ""The adult with the more flexible job should reduce work"", ""Both adults should reduce work as equally as possible"", ""It depends entirely on the family""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.00742,5.0,218,134.77088948787062,30.0,90,"{'id': 'chatcmpl-E6wuGDm34Zwie3lMuHIGssePIBMLQ', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""U.S. adults would likely favor a family-specific approach over a single rule, with substantial support for sharing reductions equally or using job flexibility; fewer would choose the lower earner rule because it can seem economically practical but less egalitarian."",\n  ""probabilities"": [0.1, 0.22, 0.25, 0.43]\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785325112, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 211, 'prompt_tokens': 218, 'total_tokens': 429, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 121, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",121.0,,pew_work_family_priors_one_shot_career_sacrifice_rule,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: If a couple with children needs one adult to reduce paid work for family needs, what is generally the fairest approach?
+Survey item: Preferred rule for deciding who reduces paid work
+Response options, in order: [""The lower earner should reduce work"", ""The adult with the more flexible job should reduce work"", ""Both adults should reduce work as equally as possible"", ""It depends entirely on the family""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_28,"{""reasoning_summary"": ""Explicit 'it depends' options draw heavy support on normative family-tradeoff questions, likely a plurality (~35-40%). Among substantive rules, 'more flexible job' reads as practical and gender-neutral, while 'both reduce equally' appeals to egalitarian respondents (especially younger/liberal); 'lower earner' is economically intuitive but sounds like it disadvantages women, so it lags."", ""probabilities"": [0.16, 0.23, 0.22, 0.39]}",2946dbf69b6be36845e2342b5d5eead6,,"{""reasoning_summary"": ""Explicit 'it depends' options draw heavy support on normative family-tradeoff questions, likely a plurality (~35-40%). Among substantive rules, 'more flexible job' reads as practical and gender-neutral, while 'both reduce equally' appeals to egalitarian respondents (especially younger/liberal); 'lower earner' is economically intuitive but sounds like it disadvantages women, so it lags."", ""probabilities"": [0.16, 0.23, 0.22, 0.39]}",0,0,deep_infra,False,1200,anthropic/claude-opus-5,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: If a couple with children needs one adult to reduce paid work for family needs, what is generally the fairest approach?
+Survey item: Preferred rule for deciding who reduces paid work
+Response options, in order: [""The lower earner should reduce work"", ""The adult with the more flexible job should reduce work"", ""Both adults should reduce work as equally as possible"", ""It depends entirely on the family""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.035574,16.5,346,28.11041772080733,82.5,362,"{'id': 'chatcmpl-Rks4hcGj3fBCzxYvQxS5hMU7', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"": ""Explicit \'it depends\' options draw heavy support on normative family-tradeoff questions, likely a plurality (~35-40%). Among substantive rules, \'more flexible job\' reads as practical and gender-neutral, while \'both reduce equally\' appeals to egalitarian respondents (especially younger/liberal); \'lower earner\' is economically intuitive but sounds like it disadvantages women, so it lags."", ""probabilities"": [0.16, 0.23, 0.22, 0.39]}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': None, 'name': None}}], 'created': 1785325118, 'model': 'anthropic/claude-opus-5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 362, 'prompt_tokens': 346, 'total_tokens': 708, 'completion_tokens_details': None, 'prompt_tokens_details': None, 'estimated_cost': 0.010780000000000001}}",,,pew_work_family_priors_one_shot_career_sacrifice_rule,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: If a couple with children needs one adult to reduce paid work for family needs, what is generally the fairest approach?
+Survey item: Preferred rule for deciding who reduces paid work
+Response options, in order: [""The lower earner should reduce work"", ""The adult with the more flexible job should reduce work"", ""Both adults should reduce work as equally as possible"", ""It depends entirely on the family""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",True
+You are answering questions as if you were a human. Do not break character.,Agent_29,"{
+  ""reasoning_summary"": ""Egalitarian norms favor equal sharing as fairest; pragmatism boosts flexibility and 'depends' options; pure economic logic (lower earner) least endorsed amid dual-earner realities."",
+  ""probabilities"": [0.15, 0.25, 0.35, 0.25]
+}",d193fcc54fec5ef8cead19549f597a80,,"{
+  ""reasoning_summary"": ""Egalitarian norms favor equal sharing as fairest; pragmatism boosts flexibility and 'depends' options; pure economic logic (lower earner) least endorsed amid dual-earner realities."",
+  ""probabilities"": [0.15, 0.25, 0.35, 0.25]
+}",0,0,xai,False,1200,grok-4.5,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: If a couple with children needs one adult to reduce paid work for family needs, what is generally the fairest approach?
+Survey item: Preferred rule for deciding who reduces paid work
+Response options, in order: [""The lower earner should reduce work"", ""The adult with the more flexible job should reduce work"", ""Both adults should reduce work as equally as possible"", ""It depends entirely on the family""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.017845,5.0,419,56.03810591202017,25.0,72,"{'id': 'f04ddf21-f92d-93c6-9fc8-d4a0f256746a', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""Egalitarian norms favor equal sharing as fairest; pragmatism boosts flexibility and \'depends\' options; pure economic logic (lower earner) least endorsed amid dual-earner realities."",\n  ""probabilities"": [0.15, 0.25, 0.35, 0.25]\n}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': 'The user wants me to predict the population response distribution for a survey item. I need to return a JSON with reasoning_summary and probabilities.\n{\n  ""reasoning_summary"": ""Americans increasingly favor fairness in work-family decisions, but recognize practical realities. \'Both adults should reduce work as equally as possible\' captures egalitarian ideals, while \'It depends entirely on the family\' reflects acceptance of individual circumstances.'}}], 'created': 1785325112, 'model': 'grok-4.5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': 'fp_a39489019fa99b6e', 'usage': {'completion_tokens': 72, 'prompt_tokens': 419, 'total_tokens': 1049, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 558, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 128, 'text_tokens': 419, 'image_tokens': 0}, 'num_sources_used': 0, 'cost_in_usd_ticks': 44004000}}",558.0,,pew_work_family_priors_one_shot_career_sacrifice_rule,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: If a couple with children needs one adult to reduce paid work for family needs, what is generally the fairest approach?
+Survey item: Preferred rule for deciding who reduces paid work
+Response options, in order: [""The lower earner should reduce work"", ""The adult with the more flexible job should reduce work"", ""Both adults should reduce work as equally as possible"", ""It depends entirely on the family""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",True

@@ -1,0 +1,99 @@
+held_in,holdout,items,job_id,mode,option_count,prompt,shape,stage,target_id,target_type
+[],school_effort,['school_effort'],teen_life_candidate_priors_one_shot_school_effort,one_shot,4,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How often do you work hard on schoolwork even when the assignment is difficult or not interesting?
+Survey item: Persistence and effort in schoolwork
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",[4],baseline,marginal:school_effort,marginal
+[],academic_confidence,['academic_confidence'],teen_life_candidate_priors_one_shot_academic_confidence,one_shot,4,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How confident are you that you can do well in your classes when you put in the effort?
+Survey item: Confidence in ability to succeed academically
+Response options, in order: [""Not at all confident"", ""A little confident"", ""Somewhat confident"", ""Very confident""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",[4],baseline,marginal:academic_confidence,marginal
+[],homework_distraction,['homework_distraction'],teen_life_candidate_priors_one_shot_homework_distraction,one_shot,4,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How often does social media make it harder for you to finish homework or study as much as you intended?
+Survey item: Social-media interference with homework
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",[4],baseline,marginal:homework_distraction,marginal
+[],organized_activity,['organized_activity'],teen_life_candidate_priors_one_shot_organized_activity,one_shot,4,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: During a typical week, how often do you take part in organized sports, dance, exercise classes, or another structured physical activity?
+Survey item: Participation in organized physical activity
+Response options, in order: [""Never"", ""Less than once a week"", ""One or two days a week"", ""Three or more days a week""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",[4],baseline,marginal:organized_activity,marginal
+[],career_clarity,['career_clarity'],teen_life_candidate_priors_one_shot_career_clarity,one_shot,4,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How clear an idea do you currently have about the kind of work or career you might want as an adult?
+Survey item: Clarity about a future career
+Response options, in order: [""No clear idea"", ""A few vague ideas"", ""A fairly clear idea"", ""A very clear plan""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",[4],baseline,marginal:career_clarity,marginal
+[],future_optimism,['future_optimism'],teen_life_candidate_priors_one_shot_future_optimism,one_shot,4,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: Overall, how optimistic do you feel about your own future?
+Survey item: Optimism about personal future
+Response options, in order: [""Not at all optimistic"", ""A little optimistic"", ""Somewhat optimistic"", ""Very optimistic""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",[4],baseline,marginal:future_optimism,marginal
+[],peer_belonging,['peer_belonging'],teen_life_candidate_priors_one_shot_peer_belonging,one_shot,4,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How often do you feel that you belong and are accepted among people your age?
+Survey item: Sense of belonging among peers
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",[4],baseline,marginal:peer_belonging,marginal

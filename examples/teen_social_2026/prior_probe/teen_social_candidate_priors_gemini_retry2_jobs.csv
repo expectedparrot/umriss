@@ -1,0 +1,113 @@
+held_in,holdout,job_id,mode,prompt,stage
+[],social_media_hours,teen_social_candidate_priors_one_shot_social_media_hours,one_shot,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: Thinking about a typical day, about how much time do you spend on social media?
+Survey item: Daily time on social media
+Response options, in order: [""Less than one hour"", ""One to three hours"", ""Four or more hours""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",baseline
+[],posting_frequency,teen_social_candidate_priors_one_shot_posting_frequency,one_shot,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: Thinking about a typical week, how often do you post or share something publicly or with followers on social media?
+Survey item: Posting or sharing frequency
+Response options, in order: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",baseline
+[],late_night_use,teen_social_candidate_priors_one_shot_late_night_use,one_shot,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: How often do you use social media after you intended to go to sleep?
+Survey item: Social-media use after intended bedtime
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",baseline
+[],sleep_interference,teen_social_candidate_priors_one_shot_sleep_interference,one_shot,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: How often does social media interfere with getting enough sleep?
+Survey item: Social-media interference with sleep
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",baseline
+[],social_comparison,teen_social_candidate_priors_one_shot_social_comparison,one_shot,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: How often does seeing other people's posts on social media make you feel worse about your own life?
+Survey item: Negative social comparison
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",baseline
+[],connection_effect,teen_social_candidate_priors_one_shot_connection_effect,one_shot,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: Overall, what effect does social media have on how connected you feel to friends?
+Survey item: Effect on connection to friends
+Response options, in order: [""Makes me feel less connected"", ""Makes little difference"", ""Makes me feel more connected""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",baseline
+[],parental_rules,teen_social_candidate_priors_one_shot_parental_rules,one_shot,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: How would you describe the rules your parent or guardian sets about your social-media use?
+Survey item: Strictness of parental social-media rules
+Response options, in order: [""No rules"", ""A few loose rules"", ""Some clear rules"", ""Very strict rules""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",baseline
+[],primary_platform,teen_social_candidate_priors_one_shot_primary_platform,one_shot,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: Which social-media platform do you spend the most time on?
+Survey item: Primary social-media platform
+Response options, in order: [""TikTok"", ""Instagram"", ""YouTube"", ""Snapchat"", ""Another platform"", ""I do not use social media""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",baseline

@@ -1,0 +1,107 @@
+{
+  "data": {
+    "anchors": 0,
+    "coverage_complete": true,
+    "coverage_path": "examples/teen_social_2026/life_support/teen_social_life_support_coverage.csv",
+    "design": null,
+    "duplicate_prompts": 0,
+    "manifest_path": "examples/teen_social_2026/life_support/teen_social_life_support_build_manifest.json",
+    "metadata_source": {
+      "kind": "file",
+      "path": "examples/teen_social_2026/teen_social_life_moments.json"
+    },
+    "omitted_coverage_cells": 0,
+    "preset": "pattern-coverage",
+    "prompts_html_path": "examples/teen_social_2026/life_support/teen_social_life_support_prompts.html",
+    "prompts_path": "examples/teen_social_2026/life_support/teen_social_life_support_prompts.jsonl",
+    "resolved_design_path": "examples/teen_social_2026/life_support/teen_social_life_support_resolved_design.yaml",
+    "reused": false,
+    "rows": 512,
+    "support_plan_path": "examples/teen_social_2026/life_support/teen_social_life_support_support_plan.csv",
+    "tag": "teen_social_life_support"
+  },
+  "kind": "umriss_support_build",
+  "outputs": {
+    "teen_social_life_support_coverage.csv": {
+      "path": "examples/teen_social_2026/life_support/teen_social_life_support_coverage.csv",
+      "sha256": "92c04758477e7fe0a255ea5c8dd93138d8cb6cf563b2461621379dad91b4fb1c"
+    },
+    "teen_social_life_support_prompts.html": {
+      "path": "examples/teen_social_2026/life_support/teen_social_life_support_prompts.html",
+      "sha256": "4ed45e6776f1183e88a8fe1a38ef5590d2ee41ce7fad43e661ecf5263cc6012c"
+    },
+    "teen_social_life_support_prompts.jsonl": {
+      "path": "examples/teen_social_2026/life_support/teen_social_life_support_prompts.jsonl",
+      "sha256": "3017ef895a92084bbb915a280922f9ac5a69b903fb2b71a1dc718ce9c2ae389a"
+    },
+    "teen_social_life_support_resolved_design.yaml": {
+      "path": "examples/teen_social_2026/life_support/teen_social_life_support_resolved_design.yaml",
+      "sha256": "157ff62008d9f535216560e1c37446e7849ee3b88c6bb9af62fec94b8ff0efc8"
+    },
+    "teen_social_life_support_support_plan.csv": {
+      "path": "examples/teen_social_2026/life_support/teen_social_life_support_support_plan.csv",
+      "sha256": "c9bd166ef3c6f3dbdd232bd291dae4e24b808c91fc9e49a36d583e84acbccc5f"
+    }
+  },
+  "provenance": {
+    "command": "umriss support build",
+    "created_at": "2026-07-29T02:35:27Z",
+    "fingerprint": "cceb20cf5f1a7a8d74aa97e23c5d1680649d1ad5b574036256dbea0eaf5294f5",
+    "inputs": {
+      "metadata": {
+        "path": "examples/teen_social_2026/teen_social_life_moments.json",
+        "sha256": "133efcbfd0854aef145dd478b440c0ff990a777bdb524de59ffa5f11c1086ee3"
+      }
+    },
+    "parameters": {
+      "n_support": 512,
+      "preset": "pattern-coverage",
+      "resolved_design": {
+        "components": [
+          {
+            "coherence": "item_specific",
+            "intensity": {
+              "allocation": "balanced",
+              "values": [
+                "moderate",
+                "strong"
+              ]
+            },
+            "items": "all",
+            "minimum_per_option": 1,
+            "type": "option_coverage"
+          }
+        ],
+        "coverage": {
+          "allocation": "balanced",
+          "mode": "complete"
+        },
+        "guardrails": {
+          "describe_as_recovered_respondents": false,
+          "leak_target_marginals": false,
+          "silent_coverage_truncation": false,
+          "silent_invalid_response_repair": false
+        },
+        "preset": "pattern-coverage",
+        "probabilities": {
+          "allow_zero": false,
+          "interpretation": "subjective_response_probability",
+          "minimum_probability": 0.01,
+          "require_sum": 1
+        },
+        "profile": {
+          "forbid_demographic_invention": true,
+          "framing": "synthetic_respondent"
+        },
+        "schema_version": 1,
+        "seed": 20260801,
+        "size": 512
+      },
+      "seed": 20260801,
+      "tag": "teen_social_life_support"
+    },
+    "schema_version": 1,
+    "umriss_version": "0.1.0"
+  },
+  "schema_version": 1
+}

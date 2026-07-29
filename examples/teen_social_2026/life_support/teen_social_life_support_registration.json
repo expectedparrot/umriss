@@ -1,0 +1,37 @@
+{
+  "kind": "umriss_result_registration",
+  "outputs": {
+    "jobs": {
+      "path": "examples/teen_social_2026/life_support/teen_social_life_support_jobs.csv",
+      "sha256": "91ef6b48e7420f8fd02b7171ebd023b072635175f5b97753c204e7ed5975e018"
+    },
+    "raw": {
+      "path": "examples/teen_social_2026/life_support/teen_social_life_support_raw.csv",
+      "sha256": "11611d323be391086407de49027b2abf30aa12efa474b60e1fa848997f40ad8a"
+    }
+  },
+  "provenance": {
+    "command": "umriss support register-results",
+    "created_at": "2026-07-29T02:36:59Z",
+    "fingerprint": "3de4ec57e42fe69577de17c26a6fb0674d69b0b2189b877df292a75292f1ab71",
+    "inputs": {
+      "prompts": {
+        "path": "examples/teen_social_2026/life_support/teen_social_life_support_prompts.jsonl",
+        "sha256": "3017ef895a92084bbb915a280922f9ac5a69b903fb2b71a1dc718ce9c2ae389a"
+      },
+      "results": {
+        "path": "examples/teen_social_2026/life_support/teen_social_life_support.results.ep",
+        "sha256": "2dda063136bbd5c83afa9fdc4fe9c0a5c6f3a2fe499e5dedd22eb835e48b454a"
+      }
+    },
+    "parameters": {
+      "out": "examples/teen_social_2026/life_support",
+      "tag": "teen_social_life_support"
+    },
+    "schema_version": 1,
+    "umriss_version": "0.1.0"
+  },
+  "rows": 512,
+  "schema_version": 1,
+  "tag": "teen_social_life_support"
+}

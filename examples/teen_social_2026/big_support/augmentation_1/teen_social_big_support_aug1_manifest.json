@@ -1,0 +1,82 @@
+{
+  "execution": {
+    "cost_estimate": {
+      "available": true,
+      "basis": "call_counts",
+      "expected_model_calls": 64,
+      "models": 1,
+      "pricing_note": "Dollar cost depends on provider pricing; inspect the package with `ep inspect` before authorizing `ep run`.",
+      "scenarios": 64
+    },
+    "mode": "unspecified",
+    "owner": "external_ep"
+  },
+  "iterations": 1,
+  "jobs": "examples/teen_social_2026/big_support/augmentation_1/teen_social_big_support_aug1.jobs.ep",
+  "manifest_path": "examples/teen_social_2026/big_support/augmentation_1/teen_social_big_support_aug1_manifest.json",
+  "model_calls": 64,
+  "model_count": 1,
+  "models": [
+    {
+      "model": "gpt-5.5",
+      "service_name": "openai"
+    }
+  ],
+  "next_steps": [
+    "ep run --jobs examples/teen_social_2026/big_support/augmentation_1/teen_social_big_support_aug1.jobs.ep --output examples/teen_social_2026/big_support/augmentation_1/teen_social_big_support_aug1.results.ep",
+    "umriss support register-results --results examples/teen_social_2026/big_support/augmentation_1/teen_social_big_support_aug1.results.ep --prompts examples/teen_social_2026/big_support/augmentation_1/teen_social_big_support_aug1_prompts.jsonl --tag teen_social_big_support_aug1 --out examples/teen_social_2026/big_support/augmentation_1"
+  ],
+  "outputs": {
+    "jobs": {
+      "path": "examples/teen_social_2026/big_support/augmentation_1/teen_social_big_support_aug1.jobs.ep",
+      "sha256": "1550c0df76966d477dca383cf6fed6cdafc4afe9af2f309f3b08707fad9da703"
+    }
+  },
+  "prompts": "examples/teen_social_2026/big_support/augmentation_1/teen_social_big_support_aug1_prompts.jsonl",
+  "provenance": {
+    "command": "umriss support export",
+    "created_at": "2026-07-29T02:24:35Z",
+    "fingerprint": "6af6ff8050dca500b06a06cec4c1ad583542868a222da00408df912013bf4432",
+    "inputs": {
+      "prompts": {
+        "path": "examples/teen_social_2026/big_support/augmentation_1/teen_social_big_support_aug1_prompts.jsonl",
+        "sha256": "981b93b597ca77c0147a9dc6b08c21912fe2bf7688efafefb78eefe983961e5d"
+      }
+    },
+    "parameters": {
+      "job_ids_path": null,
+      "limit": null,
+      "max_tokens": 2200,
+      "models": [
+        {
+          "model": "gpt-5.5",
+          "service_name": "openai"
+        }
+      ],
+      "path": "examples/teen_social_2026/big_support/augmentation_1/teen_social_big_support_aug1.jobs.ep",
+      "registration_out": "examples/teen_social_2026/big_support/augmentation_1",
+      "tag": "teen_social_big_support_aug1",
+      "temperature": 1.0
+    },
+    "schema_version": 1,
+    "umriss_version": "0.1.0"
+  },
+  "questions": 1,
+  "register_command": "umriss support register-results --results examples/teen_social_2026/big_support/augmentation_1/teen_social_big_support_aug1.results.ep --prompts examples/teen_social_2026/big_support/augmentation_1/teen_social_big_support_aug1_prompts.jsonl --tag teen_social_big_support_aug1 --out examples/teen_social_2026/big_support/augmentation_1",
+  "registration_out": "examples/teen_social_2026/big_support/augmentation_1",
+  "results": "examples/teen_social_2026/big_support/augmentation_1/teen_social_big_support_aug1.results.ep",
+  "reused": false,
+  "run_command": "ep run --jobs examples/teen_social_2026/big_support/augmentation_1/teen_social_big_support_aug1.jobs.ep --output examples/teen_social_2026/big_support/augmentation_1/teen_social_big_support_aug1.results.ep",
+  "run_contract": {
+    "expected_results_path": "examples/teen_social_2026/big_support/augmentation_1/teen_social_big_support_aug1.results.ep",
+    "jobs_path": "examples/teen_social_2026/big_support/augmentation_1/teen_social_big_support_aug1.jobs.ep",
+    "owner": "external_ep",
+    "register_command": "umriss support register-results --results examples/teen_social_2026/big_support/augmentation_1/teen_social_big_support_aug1.results.ep --prompts examples/teen_social_2026/big_support/augmentation_1/teen_social_big_support_aug1_prompts.jsonl --tag teen_social_big_support_aug1 --out examples/teen_social_2026/big_support/augmentation_1",
+    "run_command": "ep run --jobs examples/teen_social_2026/big_support/augmentation_1/teen_social_big_support_aug1.jobs.ep --output examples/teen_social_2026/big_support/augmentation_1/teen_social_big_support_aug1.results.ep"
+  },
+  "save_format": "edsl_ep",
+  "scenarios": 64,
+  "schema_version": 1,
+  "tag": "teen_social_big_support_aug1",
+  "workflow": "support"
+}

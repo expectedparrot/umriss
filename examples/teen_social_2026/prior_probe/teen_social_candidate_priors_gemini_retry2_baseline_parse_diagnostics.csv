@@ -1,0 +1,9 @@
+job_id,mode,holdout,valid,raw_sum,min_probability,max_probability
+teen_social_candidate_priors_one_shot_social_media_hours,one_shot,social_media_hours,True,1.0,0.1,0.57
+teen_social_candidate_priors_one_shot_posting_frequency,one_shot,posting_frequency,True,1.0,0.21,0.31
+teen_social_candidate_priors_one_shot_late_night_use,one_shot,late_night_use,True,1.0,0.05,0.45
+teen_social_candidate_priors_one_shot_sleep_interference,one_shot,sleep_interference,True,1.0,0.08,0.42
+teen_social_candidate_priors_one_shot_social_comparison,one_shot,social_comparison,True,1.0,0.16,0.38
+teen_social_candidate_priors_one_shot_connection_effect,one_shot,connection_effect,True,1.0,0.09,0.74
+teen_social_candidate_priors_one_shot_parental_rules,one_shot,parental_rules,True,1.0,0.12,0.36
+teen_social_candidate_priors_one_shot_primary_platform,one_shot,primary_platform,True,1.0,0.03,0.43

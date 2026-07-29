@@ -1,0 +1,593 @@
+agent.agent_index,agent.agent_instruction,agent.agent_name,answer.resp,cache_keys.resp_cache_key,comment.resp_comment,generated_tokens.resp_generated_tokens,iteration.iteration,model.frequency_penalty,model.inference_service,model.logprobs,model.maxOutputTokens,model.max_tokens,model.model,model.model_index,model.presence_penalty,model.reasoning_effort,model.stopSequences,model.temperature,model.thinking_budget,model.topK,model.topP,model.top_logprobs,model.top_p,prompt.resp_system_prompt,prompt.resp_user_prompt,question_options.resp_question_options,question_text.resp_question_text,question_type.resp_question_type,raw_model_response.resp_cost,raw_model_response.resp_input_price_per_million_tokens,raw_model_response.resp_input_tokens,raw_model_response.resp_one_usd_buys,raw_model_response.resp_output_price_per_million_tokens,raw_model_response.resp_output_tokens,raw_model_response.resp_raw_model_response,raw_model_response.resp_thinking_tokens,reasoning_summary.resp_reasoning_summary,scenario.job_id,scenario.prompt,scenario.scenario_index,validated.resp_validated
+0,You are answering questions as if you were a human. Do not break character.,Agent_0,"{
+  ""reasoning_summary"": ""Teen girls are very high social-media users, with most spending at least an hour daily and a large minority reporting heavy daily use. The middle and highest categories are likely similar in size, with relatively few under one hour."",
+  ""probabilities"": [0.13, 0.42, 0.45]
+}",94c4b5c065055a59ba0c95a23818a0a7,,"{
+  ""reasoning_summary"": ""Teen girls are very high social-media users, with most spending at least an hour daily and a large minority reporting heavy daily use. The middle and highest categories are likely similar in size, with relatively few under one hour."",
+  ""probabilities"": [0.13, 0.42, 0.45]
+}",0,0.0,openai,False,,1200.0,gpt-5.5,0,0.0,,,1.0,,,,3.0,1.0,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: Thinking about a typical day, about how much time do you spend on social media?
+Survey item: Daily time on social media
+Response options, in order: [""Less than one hour"", ""One to three hours"", ""Four or more hours""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.03424,5.0,176.0,29.20560747663551,30.0,88.0,"{'id': 'chatcmpl-E6n8Ozv3zmOhEYpSft9juw7t0c3mt', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""Teen girls are very high social-media users, with most spending at least an hour daily and a large minority reporting heavy daily use. The middle and highest categories are likely similar in size, with relatively few under one hour."",\n  ""probabilities"": [0.13, 0.42, 0.45]\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785287548, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 1112, 'prompt_tokens': 176, 'total_tokens': 1288, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 1024, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",1024.0,,teen_social_candidate_priors_one_shot_social_media_hours,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: Thinking about a typical day, about how much time do you spend on social media?
+Survey item: Daily time on social media
+Response options, in order: [""Less than one hour"", ""One to three hours"", ""Four or more hours""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",0,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_1,"{""reasoning_summary"": ""Self-report data (Gallup, Pew, Common Sense) indicate US teen girls average roughly 4-5 hours daily on social media, with girls higher than boys. Few report under an hour; the distribution splits between the 1-3 hour and 4+ hour categories, with heavy users slightly edging out or matching moderate users."", ""probabilities"": [0.10, 0.43, 0.47]}",f7882f664afc9ece0baa4b482a0033a7,,"{""reasoning_summary"": ""Self-report data (Gallup, Pew, Common Sense) indicate US teen girls average roughly 4-5 hours daily on social media, with girls higher than boys. Few report under an hour; the distribution splits between the 1-3 hour and 4+ hour categories, with heavy users slightly edging out or matching moderate users."", ""probabilities"": [0.10, 0.43, 0.47]}",0,0.0,deep_infra,False,,1200.0,anthropic/claude-opus-5,1,0.0,,,1.0,,,,3.0,1.0,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: Thinking about a typical day, about how much time do you spend on social media?
+Survey item: Daily time on social media
+Response options, in order: [""Less than one hour"", ""One to three hours"", ""Four or more hours""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.0267465,16.5,276.0,37.38806946703307,82.5,269.0,"{'id': 'chatcmpl-RqRTOntIdg8lRQ6A3RS9Ie5f', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"": ""Self-report data (Gallup, Pew, Common Sense) indicate US teen girls average roughly 4-5 hours daily on social media, with girls higher than boys. Few report under an hour; the distribution splits between the 1-3 hour and 4+ hour categories, with heavy users slightly edging out or matching moderate users."", ""probabilities"": [0.10, 0.43, 0.47]}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': None, 'name': None}}], 'created': 1785287552, 'model': 'anthropic/claude-opus-5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 269, 'prompt_tokens': 276, 'total_tokens': 545, 'completion_tokens_details': None, 'prompt_tokens_details': None, 'estimated_cost': 0.008105}}",,,teen_social_candidate_priors_one_shot_social_media_hours,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: Thinking about a typical day, about how much time do you spend on social media?
+Survey item: Daily time on social media
+Response options, in order: [""Less than one hour"", ""One to three hours"", ""Four or more hours""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",0,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_2,,,,,0,,google,,1200.0,,gemini-3.1-pro,2,,,[],1.0,,1.0,1.0,,,,,,{{ scenario.prompt }},free_text,,,,,,,,,,teen_social_candidate_priors_one_shot_social_media_hours,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: Thinking about a typical day, about how much time do you spend on social media?
+Survey item: Daily time on social media
+Response options, in order: [""Less than one hour"", ""One to three hours"", ""Four or more hours""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",0,
+0,You are answering questions as if you were a human. Do not break character.,Agent_3,"{
+  ""reasoning_summary"": ""Teen girls are heavy social-media users, but many primarily consume or message rather than post publicly; posting to followers is common weekly, while daily posting is a smaller but substantial share."",
+  ""probabilities"": [0.18, 0.24, 0.33, 0.25]
+}",ffc590da65663ee14347865780856419,,"{
+  ""reasoning_summary"": ""Teen girls are heavy social-media users, but many primarily consume or message rather than post publicly; posting to followers is common weekly, while daily posting is a smaller but substantial share."",
+  ""probabilities"": [0.18, 0.24, 0.33, 0.25]
+}",0,0.0,openai,False,,1200.0,gpt-5.5,0,0.0,,,1.0,,,,3.0,1.0,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: Thinking about a typical week, how often do you post or share something publicly or with followers on social media?
+Survey item: Posting or sharing frequency
+Response options, in order: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.014475,5.0,189.0,69.08462867012089,30.0,79.0,"{'id': 'chatcmpl-E6n8O9naIHle1LPtBVRmfM2ii2pmY', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""Teen girls are heavy social-media users, but many primarily consume or message rather than post publicly; posting to followers is common weekly, while daily posting is a smaller but substantial share."",\n  ""probabilities"": [0.18, 0.24, 0.33, 0.25]\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785287548, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 451, 'prompt_tokens': 189, 'total_tokens': 640, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 372, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",372.0,,teen_social_candidate_priors_one_shot_posting_frequency,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: Thinking about a typical week, how often do you post or share something publicly or with followers on social media?
+Survey item: Posting or sharing frequency
+Response options, in order: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",1,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_4,"{""reasoning_summary"": ""Most teen girls consume far more content than they post publicly; frequent public posting is a minority behavior, though ephemeral 'story' posting keeps a meaningful daily-poster segment. Expect the bulk in the low-to-moderate frequency categories."", ""probabilities"": [0.21, 0.28, 0.32, 0.19]}",d306ea68a5dfd619d05b5194ff069501,,"{""reasoning_summary"": ""Most teen girls consume far more content than they post publicly; frequent public posting is a minority behavior, though ephemeral 'story' posting keeps a meaningful daily-poster segment. Expect the bulk in the low-to-moderate frequency categories."", ""probabilities"": [0.21, 0.28, 0.32, 0.19]}",0,0.0,deep_infra,False,,1200.0,anthropic/claude-opus-5,1,0.0,,,1.0,,,,3.0,1.0,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: Thinking about a typical week, how often do you post or share something publicly or with followers on social media?
+Survey item: Posting or sharing frequency
+Response options, in order: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.0254595,16.5,293.0,39.27806909012352,82.5,250.0,"{'id': 'chatcmpl-RxoQbFrEjruWF8uGk02PjXjM', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"": ""Most teen girls consume far more content than they post publicly; frequent public posting is a minority behavior, though ephemeral \'story\' posting keeps a meaningful daily-poster segment. Expect the bulk in the low-to-moderate frequency categories."", ""probabilities"": [0.21, 0.28, 0.32, 0.19]}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': None, 'name': None}}], 'created': 1785287552, 'model': 'anthropic/claude-opus-5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 250, 'prompt_tokens': 293, 'total_tokens': 543, 'completion_tokens_details': None, 'prompt_tokens_details': None, 'estimated_cost': 0.007715}}",,,teen_social_candidate_priors_one_shot_posting_frequency,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: Thinking about a typical week, how often do you post or share something publicly or with followers on social media?
+Survey item: Posting or sharing frequency
+Response options, in order: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",1,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_5,,,,,0,,google,,1200.0,,gemini-3.1-pro,2,,,[],1.0,,1.0,1.0,,,,,,{{ scenario.prompt }},free_text,,,,,,,,,,teen_social_candidate_priors_one_shot_posting_frequency,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: Thinking about a typical week, how often do you post or share something publicly or with followers on social media?
+Survey item: Posting or sharing frequency
+Response options, in order: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",1,
+0,You are answering questions as if you were a human. Do not break character.,Agent_6,"{
+  ""reasoning_summary"": ""Teen girls are heavy social-media users, and bedtime phone use is common, but the phrasing asks about use after intending to sleep, so responses are likely concentrated in 'Sometimes' and 'Often' rather than unanimously frequent."",
+  ""probabilities"": [0.11, 0.22, 0.38, 0.29]
+}",fed402b2f8c8100617bf87ce78a711d0,,"{
+  ""reasoning_summary"": ""Teen girls are heavy social-media users, and bedtime phone use is common, but the phrasing asks about use after intending to sleep, so responses are likely concentrated in 'Sometimes' and 'Often' rather than unanimously frequent."",
+  ""probabilities"": [0.11, 0.22, 0.38, 0.29]
+}",0,0.0,openai,False,,1200.0,gpt-5.5,0,0.0,,,1.0,,,,3.0,1.0,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: How often do you use social media after you intended to go to sleep?
+Survey item: Social-media use after intended bedtime
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.00862,5.0,170.0,116.0092807424594,30.0,88.0,"{'id': 'chatcmpl-E6n8OR0vwc0MJAcQ1csk6O2dqVf8Z', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""Teen girls are heavy social-media users, and bedtime phone use is common, but the phrasing asks about use after intending to sleep, so responses are likely concentrated in \'Sometimes\' and \'Often\' rather than unanimously frequent."",\n  ""probabilities"": [0.11, 0.22, 0.38, 0.29]\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785287548, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 259, 'prompt_tokens': 170, 'total_tokens': 429, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 171, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",171.0,,teen_social_candidate_priors_one_shot_late_night_use,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: How often do you use social media after you intended to go to sleep?
+Survey item: Social-media use after intended bedtime
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",2,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_7,"{""reasoning_summary"": ""Bedtime social-media use is near-universal among teen girls; most report at least occasional delayed sleep from scrolling. With only four options and no 'always', the mass concentrates in 'Sometimes' and 'Often', with a small minority reporting 'Rarely' and very few 'Never'."", ""probabilities"": [0.05, 0.16, 0.42, 0.37]}",c15d029abf82cacfad99ba7da15a1861,,"{""reasoning_summary"": ""Bedtime social-media use is near-universal among teen girls; most report at least occasional delayed sleep from scrolling. With only four options and no 'always', the mass concentrates in 'Sometimes' and 'Often', with a small minority reporting 'Rarely' and very few 'Never'."", ""probabilities"": [0.05, 0.16, 0.42, 0.37]}",0,0.0,deep_infra,False,,1200.0,anthropic/claude-opus-5,1,0.0,,,1.0,,,,3.0,1.0,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: How often do you use social media after you intended to go to sleep?
+Survey item: Social-media use after intended bedtime
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.025575,16.5,275.0,39.100684261974585,82.5,255.0,"{'id': 'chatcmpl-R4X8NHWkTJjrT0Ip6u4dBTmn', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"": ""Bedtime social-media use is near-universal among teen girls; most report at least occasional delayed sleep from scrolling. With only four options and no \'always\', the mass concentrates in \'Sometimes\' and \'Often\', with a small minority reporting \'Rarely\' and very few \'Never\'."", ""probabilities"": [0.05, 0.16, 0.42, 0.37]}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': None, 'name': None}}], 'created': 1785287552, 'model': 'anthropic/claude-opus-5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 255, 'prompt_tokens': 275, 'total_tokens': 530, 'completion_tokens_details': None, 'prompt_tokens_details': None, 'estimated_cost': 0.007750000000000002}}",,,teen_social_candidate_priors_one_shot_late_night_use,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: How often do you use social media after you intended to go to sleep?
+Survey item: Social-media use after intended bedtime
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",2,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_8,,,,,0,,google,,1200.0,,gemini-3.1-pro,2,,,[],1.0,,1.0,1.0,,,,,,{{ scenario.prompt }},free_text,,,,,,,,,,teen_social_candidate_priors_one_shot_late_night_use,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: How often do you use social media after you intended to go to sleep?
+Survey item: Social-media use after intended bedtime
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",2,
+0,You are answering questions as if you were a human. Do not break character.,Agent_9,"{
+  ""reasoning_summary"": ""Teen girls are heavy social-media users, and sleep disruption is a commonly reported effect, but many would describe it as intermittent rather than constant."",
+  ""probabilities"": [0.1, 0.21, 0.39, 0.3]
+}",1dc07a115bb6c92cf6886e81f43ad03b,,"{
+  ""reasoning_summary"": ""Teen girls are heavy social-media users, and sleep disruption is a commonly reported effect, but many would describe it as intermittent rather than constant."",
+  ""probabilities"": [0.1, 0.21, 0.39, 0.3]
+}",0,0.0,openai,False,,1200.0,gpt-5.5,0,0.0,,,1.0,,,,3.0,1.0,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: How often does social media interfere with getting enough sleep?
+Survey item: Social-media interference with sleep
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.008415,5.0,165.0,118.83541295306,30.0,71.0,"{'id': 'chatcmpl-E6n8Pkid926yIT7vlOdnEJmjiEBau', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""Teen girls are heavy social-media users, and sleep disruption is a commonly reported effect, but many would describe it as intermittent rather than constant."",\n  ""probabilities"": [0.1, 0.21, 0.39, 0.3]\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785287549, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 253, 'prompt_tokens': 165, 'total_tokens': 418, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 182, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",182.0,,teen_social_candidate_priors_one_shot_sleep_interference,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: How often does social media interfere with getting enough sleep?
+Survey item: Social-media interference with sleep
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",3,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_10,"{""reasoning_summary"": ""Most US teen girls report at least occasional sleep disruption from social media; national data (e.g., Pew) show large majorities using phones at night and a substantial minority reporting frequent sleep loss. 'Sometimes' should be the modal category, with 'Often' a sizable minority and only a small share saying 'Never'."", ""probabilities"": [0.09, 0.24, 0.42, 0.25]}",efa6b1dc23537eee0ce65ded3572bda7,,"{""reasoning_summary"": ""Most US teen girls report at least occasional sleep disruption from social media; national data (e.g., Pew) show large majorities using phones at night and a substantial minority reporting frequent sleep loss. 'Sometimes' should be the modal category, with 'Often' a sizable minority and only a small share saying 'Never'."", ""probabilities"": [0.09, 0.24, 0.42, 0.25]}",0,0.0,deep_infra,False,,1200.0,anthropic/claude-opus-5,1,0.0,,,1.0,,,,3.0,1.0,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: How often does social media interfere with getting enough sleep?
+Survey item: Social-media interference with sleep
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.024783,16.5,272.0,40.3502400839285,82.5,246.0,"{'id': 'chatcmpl-RQtWi9WlmsX1wNAPqyBKzGAO', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"": ""Most US teen girls report at least occasional sleep disruption from social media; national data (e.g., Pew) show large majorities using phones at night and a substantial minority reporting frequent sleep loss. \'Sometimes\' should be the modal category, with \'Often\' a sizable minority and only a small share saying \'Never\'."", ""probabilities"": [0.09, 0.24, 0.42, 0.25]}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': None, 'name': None}}], 'created': 1785287552, 'model': 'anthropic/claude-opus-5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 246, 'prompt_tokens': 272, 'total_tokens': 518, 'completion_tokens_details': None, 'prompt_tokens_details': None, 'estimated_cost': 0.00751}}",,,teen_social_candidate_priors_one_shot_sleep_interference,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: How often does social media interfere with getting enough sleep?
+Survey item: Social-media interference with sleep
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",3,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_11,,,,,0,,google,,1200.0,,gemini-3.1-pro,2,,,[],1.0,,1.0,1.0,,,,,,{{ scenario.prompt }},free_text,,,,,,,,,,teen_social_candidate_priors_one_shot_sleep_interference,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: How often does social media interfere with getting enough sleep?
+Survey item: Social-media interference with sleep
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",3,
+0,You are answering questions as if you were a human. Do not break character.,Agent_12,"{
+  ""reasoning_summary"": ""Teen girls are heavy social-media users and negative comparison is a common but not usually constant experience; most would report this happening sometimes or rarely, with a smaller share saying often and relatively few saying never."",
+  ""probabilities"": [0.13, 0.30, 0.42, 0.15]
+}",6de9d90f4ea7f8b292a84341919cb514,,"{
+  ""reasoning_summary"": ""Teen girls are heavy social-media users and negative comparison is a common but not usually constant experience; most would report this happening sometimes or rarely, with a smaller share saying often and relatively few saying never."",
+  ""probabilities"": [0.13, 0.30, 0.42, 0.15]
+}",0,0.0,openai,False,,1200.0,gpt-5.5,0,0.0,,,1.0,,,,3.0,1.0,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: How often does seeing other people's posts on social media make you feel worse about your own life?
+Survey item: Negative social comparison
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.010065,5.0,171.0,99.35419771485346,30.0,83.0,"{'id': 'chatcmpl-E6n8PiLpzSxp9z79yTPlKedrvf2xw', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""Teen girls are heavy social-media users and negative comparison is a common but not usually constant experience; most would report this happening sometimes or rarely, with a smaller share saying often and relatively few saying never."",\n  ""probabilities"": [0.13, 0.30, 0.42, 0.15]\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785287549, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 307, 'prompt_tokens': 171, 'total_tokens': 478, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 224, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",224.0,,teen_social_candidate_priors_one_shot_social_comparison,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: How often does seeing other people's posts on social media make you feel worse about your own life?
+Survey item: Negative social comparison
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",4,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_13,"{""reasoning_summary"": ""Teen girls report more upward social comparison than boys, but most frame it as occasional rather than constant. Prior survey work (e.g., Pew) suggests roughly half report at least sometimes feeling worse, with a modest 'often' tail and a minority saying never. Modal response is 'Sometimes', with 'Rarely' close behind."", ""probabilities"": [0.14, 0.29, 0.39, 0.18]}",8f09acf1caa9e929fbd20c48e60b42a1,,"{""reasoning_summary"": ""Teen girls report more upward social comparison than boys, but most frame it as occasional rather than constant. Prior survey work (e.g., Pew) suggests roughly half report at least sometimes feeling worse, with a modest 'often' tail and a minority saying never. Modal response is 'Sometimes', with 'Rarely' close behind."", ""probabilities"": [0.14, 0.29, 0.39, 0.18]}",0,0.0,deep_infra,False,,1200.0,anthropic/claude-opus-5,1,0.0,,,1.0,,,,3.0,1.0,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: How often does seeing other people's posts on social media make you feel worse about your own life?
+Survey item: Negative social comparison
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.0326205,16.5,277.0,30.65556935056177,82.5,340.0,"{'id': 'chatcmpl-RW7lDzh56COhC49NtWCi2ZVX', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"": ""Teen girls report more upward social comparison than boys, but most frame it as occasional rather than constant. Prior survey work (e.g., Pew) suggests roughly half report at least sometimes feeling worse, with a modest \'often\' tail and a minority saying never. Modal response is \'Sometimes\', with \'Rarely\' close behind."", ""probabilities"": [0.14, 0.29, 0.39, 0.18]}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': None, 'name': None}}], 'created': 1785287553, 'model': 'anthropic/claude-opus-5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 340, 'prompt_tokens': 277, 'total_tokens': 617, 'completion_tokens_details': None, 'prompt_tokens_details': None, 'estimated_cost': 0.009885}}",,,teen_social_candidate_priors_one_shot_social_comparison,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: How often does seeing other people's posts on social media make you feel worse about your own life?
+Survey item: Negative social comparison
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",4,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_14,,,,,0,,google,,1200.0,,gemini-3.1-pro,2,,,[],1.0,,1.0,1.0,,,,,,{{ scenario.prompt }},free_text,,,,,,,,,,teen_social_candidate_priors_one_shot_social_comparison,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: How often does seeing other people's posts on social media make you feel worse about your own life?
+Survey item: Negative social comparison
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",4,
+0,You are answering questions as if you were a human. Do not break character.,Agent_15,"{
+  ""reasoning_summary"": ""Teen girls are likely to see social media as helping them stay in touch and aware of friends' lives, though a substantial minority may view it as neutral and some may feel it worsens connection through exclusion, comparison, or conflict."",
+  ""probabilities"": [0.16, 0.30, 0.54]
+}",d4fc5d2e98e52151efd14b4686290416,,"{
+  ""reasoning_summary"": ""Teen girls are likely to see social media as helping them stay in touch and aware of friends' lives, though a substantial minority may view it as neutral and some may feel it worsens connection through exclusion, comparison, or conflict."",
+  ""probabilities"": [0.16, 0.30, 0.54]
+}",0,0.0,openai,False,,1200.0,gpt-5.5,0,0.0,,,1.0,,,,3.0,1.0,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: Overall, what effect does social media have on how connected you feel to friends?
+Survey item: Effect on connection to friends
+Response options, in order: [""Makes me feel less connected"", ""Makes little difference"", ""Makes me feel more connected""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.01108,5.0,176.0,90.25270758122744,30.0,84.0,"{'id': 'chatcmpl-E6n8PeT4BxiHRwisW2RUpbY9Iy4Ae', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""Teen girls are likely to see social media as helping them stay in touch and aware of friends\' lives, though a substantial minority may view it as neutral and some may feel it worsens connection through exclusion, comparison, or conflict."",\n  ""probabilities"": [0.16, 0.30, 0.54]\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785287549, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 340, 'prompt_tokens': 176, 'total_tokens': 516, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 256, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",256.0,,teen_social_candidate_priors_one_shot_connection_effect,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: Overall, what effect does social media have on how connected you feel to friends?
+Survey item: Effect on connection to friends
+Response options, in order: [""Makes me feel less connected"", ""Makes little difference"", ""Makes me feel more connected""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",5,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_16,"{""reasoning_summary"": ""Prior research (e.g., Pew) consistently finds most US teens say social media makes them feel more connected to friends' lives, with a minority reporting negative effects. Teen girls report both stronger connection benefits and somewhat more negative emotional effects than boys, so a solid majority choose 'more connected,' about a quarter say it makes little difference, and roughly one in eight report feeling less connected."", ""probabilities"": [0.12, 0.29, 0.59]}",7e3e71e655eece05571608c9567d30ea,,"{""reasoning_summary"": ""Prior research (e.g., Pew) consistently finds most US teens say social media makes them feel more connected to friends' lives, with a minority reporting negative effects. Teen girls report both stronger connection benefits and somewhat more negative emotional effects than boys, so a solid majority choose 'more connected,' about a quarter say it makes little difference, and roughly one in eight report feeling less connected."", ""probabilities"": [0.12, 0.29, 0.59]}",0,0.0,deep_infra,False,,1200.0,anthropic/claude-opus-5,1,0.0,,,1.0,,,,3.0,1.0,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: Overall, what effect does social media have on how connected you feel to friends?
+Survey item: Effect on connection to friends
+Response options, in order: [""Makes me feel less connected"", ""Makes little difference"", ""Makes me feel more connected""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.02871,16.5,285.0,34.83106931382793,82.5,291.0,"{'id': 'chatcmpl-RfTDsQ2UkOmSXNPDODo0EMiY', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"": ""Prior research (e.g., Pew) consistently finds most US teens say social media makes them feel more connected to friends\' lives, with a minority reporting negative effects. Teen girls report both stronger connection benefits and somewhat more negative emotional effects than boys, so a solid majority choose \'more connected,\' about a quarter say it makes little difference, and roughly one in eight report feeling less connected."", ""probabilities"": [0.12, 0.29, 0.59]}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': None, 'name': None}}], 'created': 1785287554, 'model': 'anthropic/claude-opus-5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 291, 'prompt_tokens': 285, 'total_tokens': 576, 'completion_tokens_details': None, 'prompt_tokens_details': None, 'estimated_cost': 0.008700000000000001}}",,,teen_social_candidate_priors_one_shot_connection_effect,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: Overall, what effect does social media have on how connected you feel to friends?
+Survey item: Effect on connection to friends
+Response options, in order: [""Makes me feel less connected"", ""Makes little difference"", ""Makes me feel more connected""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",5,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_17,,,,,0,,google,,1200.0,,gemini-3.1-pro,2,,,[],1.0,,1.0,1.0,,,,,,{{ scenario.prompt }},free_text,,,,,,,,,,teen_social_candidate_priors_one_shot_connection_effect,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: Overall, what effect does social media have on how connected you feel to friends?
+Survey item: Effect on connection to friends
+Response options, in order: [""Makes me feel less connected"", ""Makes little difference"", ""Makes me feel more connected""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",5,
+0,You are answering questions as if you were a human. Do not break character.,Agent_18,"{
+  ""reasoning_summary"": ""Most US teen girls likely experience at least some parental expectations around social-media use, but fully strict rules are less common, especially among older teens. A smaller minority likely report no rules at all."",
+  ""probabilities"": [0.14, 0.32, 0.37, 0.17]
+}",23f2748fdd46112357a201d7d052f769,,"{
+  ""reasoning_summary"": ""Most US teen girls likely experience at least some parental expectations around social-media use, but fully strict rules are less common, especially among older teens. A smaller minority likely report no rules at all."",
+  ""probabilities"": [0.14, 0.32, 0.37, 0.17]
+}",0,0.0,openai,False,,1200.0,gpt-5.5,0,0.0,,,1.0,,,,3.0,1.0,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: How would you describe the rules your parent or guardian sets about your social-media use?
+Survey item: Strictness of parental social-media rules
+Response options, in order: [""No rules"", ""A few loose rules"", ""Some clear rules"", ""Very strict rules""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.00795,5.0,180.0,125.78616352201256,30.0,82.0,"{'id': 'chatcmpl-E6n8PsHXx6kXYyVZcxREhBBJpMbEd', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""Most US teen girls likely experience at least some parental expectations around social-media use, but fully strict rules are less common, especially among older teens. A smaller minority likely report no rules at all."",\n  ""probabilities"": [0.14, 0.32, 0.37, 0.17]\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785287549, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 235, 'prompt_tokens': 180, 'total_tokens': 415, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 153, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",153.0,,teen_social_candidate_priors_one_shot_parental_rules,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: How would you describe the rules your parent or guardian sets about your social-media use?
+Survey item: Strictness of parental social-media rules
+Response options, in order: [""No rules"", ""A few loose rules"", ""Some clear rules"", ""Very strict rules""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",6,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_19,"{""reasoning_summary"": ""Most US teen girls report at least some parental involvement in social media, but self-reports skew toward loose or moderate rules rather than strict control; older teens (15-17) often report no rules, while younger teens report clearer limits. Prior survey work (e.g., Pew) shows roughly a quarter to a third of teens saying parents set no real restrictions, a plurality describing informal/loose limits, a sizable minority describing clear rules, and only about 1 in 8 describing very strict rules."", ""probabilities"": [0.24, 0.34, 0.30, 0.12]}",5d6a29371c4992e4f94b2ffa4be71ff1,,"{""reasoning_summary"": ""Most US teen girls report at least some parental involvement in social media, but self-reports skew toward loose or moderate rules rather than strict control; older teens (15-17) often report no rules, while younger teens report clearer limits. Prior survey work (e.g., Pew) shows roughly a quarter to a third of teens saying parents set no real restrictions, a plurality describing informal/loose limits, a sizable minority describing clear rules, and only about 1 in 8 describing very strict rules."", ""probabilities"": [0.24, 0.34, 0.30, 0.12]}",0,0.0,deep_infra,False,,1200.0,anthropic/claude-opus-5,1,0.0,,,1.0,,,,3.0,1.0,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: How would you describe the rules your parent or guardian sets about your social-media use?
+Survey item: Strictness of parental social-media rules
+Response options, in order: [""No rules"", ""A few loose rules"", ""Some clear rules"", ""Very strict rules""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.0333135,16.5,289.0,30.017860627073105,82.5,346.0,"{'id': 'chatcmpl-RHIm7pM7D1BfN2hZaOksuddW', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"": ""Most US teen girls report at least some parental involvement in social media, but self-reports skew toward loose or moderate rules rather than strict control; older teens (15-17) often report no rules, while younger teens report clearer limits. Prior survey work (e.g., Pew) shows roughly a quarter to a third of teens saying parents set no real restrictions, a plurality describing informal/loose limits, a sizable minority describing clear rules, and only about 1 in 8 describing very strict rules."", ""probabilities"": [0.24, 0.34, 0.30, 0.12]}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': None, 'name': None}}], 'created': 1785287556, 'model': 'anthropic/claude-opus-5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 346, 'prompt_tokens': 289, 'total_tokens': 635, 'completion_tokens_details': None, 'prompt_tokens_details': None, 'estimated_cost': 0.010095}}",,,teen_social_candidate_priors_one_shot_parental_rules,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: How would you describe the rules your parent or guardian sets about your social-media use?
+Survey item: Strictness of parental social-media rules
+Response options, in order: [""No rules"", ""A few loose rules"", ""Some clear rules"", ""Very strict rules""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",6,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_20,,,,,0,,google,,1200.0,,gemini-3.1-pro,2,,,[],1.0,,1.0,1.0,,,,,,{{ scenario.prompt }},free_text,,,,,,,,,,teen_social_candidate_priors_one_shot_parental_rules,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: How would you describe the rules your parent or guardian sets about your social-media use?
+Survey item: Strictness of parental social-media rules
+Response options, in order: [""No rules"", ""A few loose rules"", ""Some clear rules"", ""Very strict rules""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",6,
+0,You are answering questions as if you were a human. Do not break character.,Agent_21,"{
+  ""reasoning_summary"": ""Among US teen girls, TikTok is likely the most common primary time-spent platform, with YouTube also very strong. Instagram and Snapchat remain major but somewhat less likely to be the single top platform; nonuse is rare."",
+  ""probabilities"": [0.37, 0.18, 0.23, 0.15, 0.04, 0.03]
+}",7f1ed9b5717b9ceb87596f175cb9001e,,"{
+  ""reasoning_summary"": ""Among US teen girls, TikTok is likely the most common primary time-spent platform, with YouTube also very strong. Instagram and Snapchat remain major but somewhat less likely to be the single top platform; nonuse is rare."",
+  ""probabilities"": [0.37, 0.18, 0.23, 0.15, 0.04, 0.03]
+}",0,0.0,openai,False,,1200.0,gpt-5.5,0,0.0,,,1.0,,,,3.0,1.0,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: Which social-media platform do you spend the most time on?
+Survey item: Primary social-media platform
+Response options, in order: [""TikTok"", ""Instagram"", ""YouTube"", ""Snapchat"", ""Another platform"", ""I do not use social media""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.017275,5.0,179.0,57.887120115774245,30.0,99.0,"{'id': 'chatcmpl-E6n8OaNOkLAiyatJyEvBbdJmdP4zw', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""Among US teen girls, TikTok is likely the most common primary time-spent platform, with YouTube also very strong. Instagram and Snapchat remain major but somewhat less likely to be the single top platform; nonuse is rare."",\n  ""probabilities"": [0.37, 0.18, 0.23, 0.15, 0.04, 0.03]\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785287548, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 546, 'prompt_tokens': 179, 'total_tokens': 725, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 447, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",447.0,,teen_social_candidate_priors_one_shot_primary_platform,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: Which social-media platform do you spend the most time on?
+Survey item: Primary social-media platform
+Response options, in order: [""TikTok"", ""Instagram"", ""YouTube"", ""Snapchat"", ""Another platform"", ""I do not use social media""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",7,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_22,"{""reasoning_summary"": ""US teen girls skew heavily toward TikTok, Snapchat, and Instagram for time spent; YouTube is widely used but often seen as video/entertainment rather than the 'most time' social platform for girls (more male-skewed). A small share names other platforms (Pinterest, Discord, Reddit, BeReal, X) and a small minority report not using social media at all."", ""probabilities"": [0.31, 0.24, 0.13, 0.20, 0.08, 0.04]}",12f60d785396b15b4bdee22449c33d69,,"{""reasoning_summary"": ""US teen girls skew heavily toward TikTok, Snapchat, and Instagram for time spent; YouTube is widely used but often seen as video/entertainment rather than the 'most time' social platform for girls (more male-skewed). A small share names other platforms (Pinterest, Discord, Reddit, BeReal, X) and a small minority report not using social media at all."", ""probabilities"": [0.31, 0.24, 0.13, 0.20, 0.08, 0.04]}",0,0.0,deep_infra,False,,1200.0,anthropic/claude-opus-5,1,0.0,,,1.0,,,,3.0,1.0,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: Which social-media platform do you spend the most time on?
+Survey item: Primary social-media platform
+Response options, in order: [""TikTok"", ""Instagram"", ""YouTube"", ""Snapchat"", ""Another platform"", ""I do not use social media""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.031218,16.5,287.0,32.032801588826956,82.5,321.0,"{'id': 'chatcmpl-R2pY7WMYj9KUlj91KOnl6j0U', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"": ""US teen girls skew heavily toward TikTok, Snapchat, and Instagram for time spent; YouTube is widely used but often seen as video/entertainment rather than the \'most time\' social platform for girls (more male-skewed). A small share names other platforms (Pinterest, Discord, Reddit, BeReal, X) and a small minority report not using social media at all."", ""probabilities"": [0.31, 0.24, 0.13, 0.20, 0.08, 0.04]}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': None, 'name': None}}], 'created': 1785287553, 'model': 'anthropic/claude-opus-5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 321, 'prompt_tokens': 287, 'total_tokens': 608, 'completion_tokens_details': None, 'prompt_tokens_details': None, 'estimated_cost': 0.00946}}",,,teen_social_candidate_priors_one_shot_primary_platform,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: Which social-media platform do you spend the most time on?
+Survey item: Primary social-media platform
+Response options, in order: [""TikTok"", ""Instagram"", ""YouTube"", ""Snapchat"", ""Another platform"", ""I do not use social media""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",7,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_23,,,,,0,,google,,1200.0,,gemini-3.1-pro,2,,,[],1.0,,1.0,1.0,,,,,,{{ scenario.prompt }},free_text,,,,,,,,,,teen_social_candidate_priors_one_shot_primary_platform,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+Question stem: Which social-media platform do you spend the most time on?
+Survey item: Primary social-media platform
+Response options, in order: [""TikTok"", ""Instagram"", ""YouTube"", ""Snapchat"", ""Another platform"", ""I do not use social media""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",7,

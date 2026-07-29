@@ -1,0 +1,2049 @@
+support_id,job_id,item,option_index,option_code,option_label,probability
+1,teen_social_big_support_001,social_media_hours,0,1,Less than one hour,0.58
+1,teen_social_big_support_001,social_media_hours,1,2,One to three hours,0.32
+1,teen_social_big_support_001,social_media_hours,2,3,Four or more hours,0.1
+1,teen_social_big_support_001,posting_frequency,0,1,Never or almost never,0.34
+1,teen_social_big_support_001,posting_frequency,1,2,Less than once a week,0.31
+1,teen_social_big_support_001,posting_frequency,2,3,A few times a week,0.24
+1,teen_social_big_support_001,posting_frequency,3,4,At least once a day,0.11
+1,teen_social_big_support_001,late_night_use,0,1,Never,0.28
+1,teen_social_big_support_001,late_night_use,1,2,Rarely,0.4
+1,teen_social_big_support_001,late_night_use,2,3,Sometimes,0.23
+1,teen_social_big_support_001,late_night_use,3,4,Often,0.09
+1,teen_social_big_support_001,sleep_interference,0,1,Never,0.38
+1,teen_social_big_support_001,sleep_interference,1,2,Rarely,0.36
+1,teen_social_big_support_001,sleep_interference,2,3,Sometimes,0.18
+1,teen_social_big_support_001,sleep_interference,3,4,Often,0.08
+1,teen_social_big_support_001,social_comparison,0,1,Never,0.25
+1,teen_social_big_support_001,social_comparison,1,2,Rarely,0.4
+1,teen_social_big_support_001,social_comparison,2,3,Sometimes,0.26
+1,teen_social_big_support_001,social_comparison,3,4,Often,0.09
+1,teen_social_big_support_001,connection_effect,0,1,Makes me feel less connected,0.13
+1,teen_social_big_support_001,connection_effect,1,2,Makes little difference,0.52
+1,teen_social_big_support_001,connection_effect,2,3,Makes me feel more connected,0.35
+1,teen_social_big_support_001,parental_rules,0,1,No rules,0.13
+1,teen_social_big_support_001,parental_rules,1,2,A few loose rules,0.31
+1,teen_social_big_support_001,parental_rules,2,3,Some clear rules,0.39
+1,teen_social_big_support_001,parental_rules,3,4,Very strict rules,0.17
+1,teen_social_big_support_001,primary_platform,0,1,TikTok,0.18
+1,teen_social_big_support_001,primary_platform,1,2,Instagram,0.2
+1,teen_social_big_support_001,primary_platform,2,3,YouTube,0.24
+1,teen_social_big_support_001,primary_platform,3,4,Snapchat,0.19
+1,teen_social_big_support_001,primary_platform,4,5,Another platform,0.12
+1,teen_social_big_support_001,primary_platform,5,6,I do not use social media,0.07
+2,teen_social_big_support_002,social_media_hours,0,1,Less than one hour,0.07
+2,teen_social_big_support_002,social_media_hours,1,2,One to three hours,0.86
+2,teen_social_big_support_002,social_media_hours,2,3,Four or more hours,0.07
+2,teen_social_big_support_002,posting_frequency,0,1,Never or almost never,0.18
+2,teen_social_big_support_002,posting_frequency,1,2,Less than once a week,0.34
+2,teen_social_big_support_002,posting_frequency,2,3,A few times a week,0.34
+2,teen_social_big_support_002,posting_frequency,3,4,At least once a day,0.14
+2,teen_social_big_support_002,late_night_use,0,1,Never,0.1
+2,teen_social_big_support_002,late_night_use,1,2,Rarely,0.34
+2,teen_social_big_support_002,late_night_use,2,3,Sometimes,0.41
+2,teen_social_big_support_002,late_night_use,3,4,Often,0.15
+2,teen_social_big_support_002,sleep_interference,0,1,Never,0.18
+2,teen_social_big_support_002,sleep_interference,1,2,Rarely,0.39
+2,teen_social_big_support_002,sleep_interference,2,3,Sometimes,0.32
+2,teen_social_big_support_002,sleep_interference,3,4,Often,0.11
+2,teen_social_big_support_002,social_comparison,0,1,Never,0.16
+2,teen_social_big_support_002,social_comparison,1,2,Rarely,0.38
+2,teen_social_big_support_002,social_comparison,2,3,Sometimes,0.34
+2,teen_social_big_support_002,social_comparison,3,4,Often,0.12
+2,teen_social_big_support_002,connection_effect,0,1,Makes me feel less connected,0.08
+2,teen_social_big_support_002,connection_effect,1,2,Makes little difference,0.32
+2,teen_social_big_support_002,connection_effect,2,3,Makes me feel more connected,0.6
+2,teen_social_big_support_002,parental_rules,0,1,No rules,0.12
+2,teen_social_big_support_002,parental_rules,1,2,A few loose rules,0.38
+2,teen_social_big_support_002,parental_rules,2,3,Some clear rules,0.35
+2,teen_social_big_support_002,parental_rules,3,4,Very strict rules,0.15
+2,teen_social_big_support_002,primary_platform,0,1,TikTok,0.25
+2,teen_social_big_support_002,primary_platform,1,2,Instagram,0.22
+2,teen_social_big_support_002,primary_platform,2,3,YouTube,0.17
+2,teen_social_big_support_002,primary_platform,3,4,Snapchat,0.24
+2,teen_social_big_support_002,primary_platform,4,5,Another platform,0.11
+2,teen_social_big_support_002,primary_platform,5,6,I do not use social media,0.01
+3,teen_social_big_support_003,social_media_hours,0,1,Less than one hour,0.12
+3,teen_social_big_support_003,social_media_hours,1,2,One to three hours,0.28
+3,teen_social_big_support_003,social_media_hours,2,3,Four or more hours,0.6
+3,teen_social_big_support_003,posting_frequency,0,1,Never or almost never,0.1
+3,teen_social_big_support_003,posting_frequency,1,2,Less than once a week,0.2
+3,teen_social_big_support_003,posting_frequency,2,3,A few times a week,0.4
+3,teen_social_big_support_003,posting_frequency,3,4,At least once a day,0.3
+3,teen_social_big_support_003,late_night_use,0,1,Never,0.05
+3,teen_social_big_support_003,late_night_use,1,2,Rarely,0.15
+3,teen_social_big_support_003,late_night_use,2,3,Sometimes,0.4
+3,teen_social_big_support_003,late_night_use,3,4,Often,0.4
+3,teen_social_big_support_003,sleep_interference,0,1,Never,0.1
+3,teen_social_big_support_003,sleep_interference,1,2,Rarely,0.25
+3,teen_social_big_support_003,sleep_interference,2,3,Sometimes,0.43
+3,teen_social_big_support_003,sleep_interference,3,4,Often,0.22
+3,teen_social_big_support_003,social_comparison,0,1,Never,0.08
+3,teen_social_big_support_003,social_comparison,1,2,Rarely,0.25
+3,teen_social_big_support_003,social_comparison,2,3,Sometimes,0.45
+3,teen_social_big_support_003,social_comparison,3,4,Often,0.22
+3,teen_social_big_support_003,connection_effect,0,1,Makes me feel less connected,0.08
+3,teen_social_big_support_003,connection_effect,1,2,Makes little difference,0.27
+3,teen_social_big_support_003,connection_effect,2,3,Makes me feel more connected,0.65
+3,teen_social_big_support_003,parental_rules,0,1,No rules,0.16
+3,teen_social_big_support_003,parental_rules,1,2,A few loose rules,0.38
+3,teen_social_big_support_003,parental_rules,2,3,Some clear rules,0.34
+3,teen_social_big_support_003,parental_rules,3,4,Very strict rules,0.12
+3,teen_social_big_support_003,primary_platform,0,1,TikTok,0.36
+3,teen_social_big_support_003,primary_platform,1,2,Instagram,0.25
+3,teen_social_big_support_003,primary_platform,2,3,YouTube,0.15
+3,teen_social_big_support_003,primary_platform,3,4,Snapchat,0.2
+3,teen_social_big_support_003,primary_platform,4,5,Another platform,0.03
+3,teen_social_big_support_003,primary_platform,5,6,I do not use social media,0.01
+4,teen_social_big_support_004,social_media_hours,0,1,Less than one hour,0.2
+4,teen_social_big_support_004,social_media_hours,1,2,One to three hours,0.55
+4,teen_social_big_support_004,social_media_hours,2,3,Four or more hours,0.25
+4,teen_social_big_support_004,posting_frequency,0,1,Never or almost never,0.82
+4,teen_social_big_support_004,posting_frequency,1,2,Less than once a week,0.12
+4,teen_social_big_support_004,posting_frequency,2,3,A few times a week,0.04
+4,teen_social_big_support_004,posting_frequency,3,4,At least once a day,0.02
+4,teen_social_big_support_004,late_night_use,0,1,Never,0.12
+4,teen_social_big_support_004,late_night_use,1,2,Rarely,0.28
+4,teen_social_big_support_004,late_night_use,2,3,Sometimes,0.38
+4,teen_social_big_support_004,late_night_use,3,4,Often,0.22
+4,teen_social_big_support_004,sleep_interference,0,1,Never,0.2
+4,teen_social_big_support_004,sleep_interference,1,2,Rarely,0.35
+4,teen_social_big_support_004,sleep_interference,2,3,Sometimes,0.3
+4,teen_social_big_support_004,sleep_interference,3,4,Often,0.15
+4,teen_social_big_support_004,social_comparison,0,1,Never,0.18
+4,teen_social_big_support_004,social_comparison,1,2,Rarely,0.36
+4,teen_social_big_support_004,social_comparison,2,3,Sometimes,0.32
+4,teen_social_big_support_004,social_comparison,3,4,Often,0.14
+4,teen_social_big_support_004,connection_effect,0,1,Makes me feel less connected,0.16
+4,teen_social_big_support_004,connection_effect,1,2,Makes little difference,0.56
+4,teen_social_big_support_004,connection_effect,2,3,Makes me feel more connected,0.28
+4,teen_social_big_support_004,parental_rules,0,1,No rules,0.13
+4,teen_social_big_support_004,parental_rules,1,2,A few loose rules,0.33
+4,teen_social_big_support_004,parental_rules,2,3,Some clear rules,0.38
+4,teen_social_big_support_004,parental_rules,3,4,Very strict rules,0.16
+4,teen_social_big_support_004,primary_platform,0,1,TikTok,0.24
+4,teen_social_big_support_004,primary_platform,1,2,Instagram,0.2
+4,teen_social_big_support_004,primary_platform,2,3,YouTube,0.3
+4,teen_social_big_support_004,primary_platform,3,4,Snapchat,0.14
+4,teen_social_big_support_004,primary_platform,4,5,Another platform,0.08
+4,teen_social_big_support_004,primary_platform,5,6,I do not use social media,0.04
+5,teen_social_big_support_005,social_media_hours,0,1,Less than one hour,0.26
+5,teen_social_big_support_005,social_media_hours,1,2,One to three hours,0.56
+5,teen_social_big_support_005,social_media_hours,2,3,Four or more hours,0.18
+5,teen_social_big_support_005,posting_frequency,0,1,Never or almost never,0.18
+5,teen_social_big_support_005,posting_frequency,1,2,Less than once a week,0.48
+5,teen_social_big_support_005,posting_frequency,2,3,A few times a week,0.25
+5,teen_social_big_support_005,posting_frequency,3,4,At least once a day,0.09
+5,teen_social_big_support_005,late_night_use,0,1,Never,0.12
+5,teen_social_big_support_005,late_night_use,1,2,Rarely,0.34
+5,teen_social_big_support_005,late_night_use,2,3,Sometimes,0.38
+5,teen_social_big_support_005,late_night_use,3,4,Often,0.16
+5,teen_social_big_support_005,sleep_interference,0,1,Never,0.2
+5,teen_social_big_support_005,sleep_interference,1,2,Rarely,0.4
+5,teen_social_big_support_005,sleep_interference,2,3,Sometimes,0.28
+5,teen_social_big_support_005,sleep_interference,3,4,Often,0.12
+5,teen_social_big_support_005,social_comparison,0,1,Never,0.16
+5,teen_social_big_support_005,social_comparison,1,2,Rarely,0.38
+5,teen_social_big_support_005,social_comparison,2,3,Sometimes,0.32
+5,teen_social_big_support_005,social_comparison,3,4,Often,0.14
+5,teen_social_big_support_005,connection_effect,0,1,Makes me feel less connected,0.12
+5,teen_social_big_support_005,connection_effect,1,2,Makes little difference,0.42
+5,teen_social_big_support_005,connection_effect,2,3,Makes me feel more connected,0.46
+5,teen_social_big_support_005,parental_rules,0,1,No rules,0.18
+5,teen_social_big_support_005,parental_rules,1,2,A few loose rules,0.38
+5,teen_social_big_support_005,parental_rules,2,3,Some clear rules,0.32
+5,teen_social_big_support_005,parental_rules,3,4,Very strict rules,0.12
+5,teen_social_big_support_005,primary_platform,0,1,TikTok,0.28
+5,teen_social_big_support_005,primary_platform,1,2,Instagram,0.22
+5,teen_social_big_support_005,primary_platform,2,3,YouTube,0.17
+5,teen_social_big_support_005,primary_platform,3,4,Snapchat,0.2
+5,teen_social_big_support_005,primary_platform,4,5,Another platform,0.12
+5,teen_social_big_support_005,primary_platform,5,6,I do not use social media,0.01
+6,teen_social_big_support_006,social_media_hours,0,1,Less than one hour,0.1
+6,teen_social_big_support_006,social_media_hours,1,2,One to three hours,0.57
+6,teen_social_big_support_006,social_media_hours,2,3,Four or more hours,0.33
+6,teen_social_big_support_006,posting_frequency,0,1,Never or almost never,0.02
+6,teen_social_big_support_006,posting_frequency,1,2,Less than once a week,0.08
+6,teen_social_big_support_006,posting_frequency,2,3,A few times a week,0.82
+6,teen_social_big_support_006,posting_frequency,3,4,At least once a day,0.08
+6,teen_social_big_support_006,late_night_use,0,1,Never,0.08
+6,teen_social_big_support_006,late_night_use,1,2,Rarely,0.22
+6,teen_social_big_support_006,late_night_use,2,3,Sometimes,0.44
+6,teen_social_big_support_006,late_night_use,3,4,Often,0.26
+6,teen_social_big_support_006,sleep_interference,0,1,Never,0.13
+6,teen_social_big_support_006,sleep_interference,1,2,Rarely,0.31
+6,teen_social_big_support_006,sleep_interference,2,3,Sometimes,0.38
+6,teen_social_big_support_006,sleep_interference,3,4,Often,0.18
+6,teen_social_big_support_006,social_comparison,0,1,Never,0.1
+6,teen_social_big_support_006,social_comparison,1,2,Rarely,0.28
+6,teen_social_big_support_006,social_comparison,2,3,Sometimes,0.43
+6,teen_social_big_support_006,social_comparison,3,4,Often,0.19
+6,teen_social_big_support_006,connection_effect,0,1,Makes me feel less connected,0.08
+6,teen_social_big_support_006,connection_effect,1,2,Makes little difference,0.28
+6,teen_social_big_support_006,connection_effect,2,3,Makes me feel more connected,0.64
+6,teen_social_big_support_006,parental_rules,0,1,No rules,0.17
+6,teen_social_big_support_006,parental_rules,1,2,A few loose rules,0.38
+6,teen_social_big_support_006,parental_rules,2,3,Some clear rules,0.34
+6,teen_social_big_support_006,parental_rules,3,4,Very strict rules,0.11
+6,teen_social_big_support_006,primary_platform,0,1,TikTok,0.31
+6,teen_social_big_support_006,primary_platform,1,2,Instagram,0.27
+6,teen_social_big_support_006,primary_platform,2,3,YouTube,0.1
+6,teen_social_big_support_006,primary_platform,3,4,Snapchat,0.24
+6,teen_social_big_support_006,primary_platform,4,5,Another platform,0.07
+6,teen_social_big_support_006,primary_platform,5,6,I do not use social media,0.01
+7,teen_social_big_support_007,social_media_hours,0,1,Less than one hour,0.05
+7,teen_social_big_support_007,social_media_hours,1,2,One to three hours,0.55
+7,teen_social_big_support_007,social_media_hours,2,3,Four or more hours,0.4
+7,teen_social_big_support_007,posting_frequency,0,1,Never or almost never,0.03
+7,teen_social_big_support_007,posting_frequency,1,2,Less than once a week,0.08
+7,teen_social_big_support_007,posting_frequency,2,3,A few times a week,0.29
+7,teen_social_big_support_007,posting_frequency,3,4,At least once a day,0.6
+7,teen_social_big_support_007,late_night_use,0,1,Never,0.05
+7,teen_social_big_support_007,late_night_use,1,2,Rarely,0.18
+7,teen_social_big_support_007,late_night_use,2,3,Sometimes,0.42
+7,teen_social_big_support_007,late_night_use,3,4,Often,0.35
+7,teen_social_big_support_007,sleep_interference,0,1,Never,0.12
+7,teen_social_big_support_007,sleep_interference,1,2,Rarely,0.35
+7,teen_social_big_support_007,sleep_interference,2,3,Sometimes,0.35
+7,teen_social_big_support_007,sleep_interference,3,4,Often,0.18
+7,teen_social_big_support_007,social_comparison,0,1,Never,0.08
+7,teen_social_big_support_007,social_comparison,1,2,Rarely,0.32
+7,teen_social_big_support_007,social_comparison,2,3,Sometimes,0.42
+7,teen_social_big_support_007,social_comparison,3,4,Often,0.18
+7,teen_social_big_support_007,connection_effect,0,1,Makes me feel less connected,0.08
+7,teen_social_big_support_007,connection_effect,1,2,Makes little difference,0.25
+7,teen_social_big_support_007,connection_effect,2,3,Makes me feel more connected,0.67
+7,teen_social_big_support_007,parental_rules,0,1,No rules,0.2
+7,teen_social_big_support_007,parental_rules,1,2,A few loose rules,0.4
+7,teen_social_big_support_007,parental_rules,2,3,Some clear rules,0.3
+7,teen_social_big_support_007,parental_rules,3,4,Very strict rules,0.1
+7,teen_social_big_support_007,primary_platform,0,1,TikTok,0.28
+7,teen_social_big_support_007,primary_platform,1,2,Instagram,0.3
+7,teen_social_big_support_007,primary_platform,2,3,YouTube,0.07
+7,teen_social_big_support_007,primary_platform,3,4,Snapchat,0.25
+7,teen_social_big_support_007,primary_platform,4,5,Another platform,0.09
+7,teen_social_big_support_007,primary_platform,5,6,I do not use social media,0.01
+8,teen_social_big_support_008,social_media_hours,0,1,Less than one hour,0.45
+8,teen_social_big_support_008,social_media_hours,1,2,One to three hours,0.45
+8,teen_social_big_support_008,social_media_hours,2,3,Four or more hours,0.1
+8,teen_social_big_support_008,posting_frequency,0,1,Never or almost never,0.5
+8,teen_social_big_support_008,posting_frequency,1,2,Less than once a week,0.28
+8,teen_social_big_support_008,posting_frequency,2,3,A few times a week,0.17
+8,teen_social_big_support_008,posting_frequency,3,4,At least once a day,0.05
+8,teen_social_big_support_008,late_night_use,0,1,Never,0.82
+8,teen_social_big_support_008,late_night_use,1,2,Rarely,0.12
+8,teen_social_big_support_008,late_night_use,2,3,Sometimes,0.04
+8,teen_social_big_support_008,late_night_use,3,4,Often,0.02
+8,teen_social_big_support_008,sleep_interference,0,1,Never,0.65
+8,teen_social_big_support_008,sleep_interference,1,2,Rarely,0.25
+8,teen_social_big_support_008,sleep_interference,2,3,Sometimes,0.08
+8,teen_social_big_support_008,sleep_interference,3,4,Often,0.02
+8,teen_social_big_support_008,social_comparison,0,1,Never,0.32
+8,teen_social_big_support_008,social_comparison,1,2,Rarely,0.4
+8,teen_social_big_support_008,social_comparison,2,3,Sometimes,0.22
+8,teen_social_big_support_008,social_comparison,3,4,Often,0.06
+8,teen_social_big_support_008,connection_effect,0,1,Makes me feel less connected,0.1
+8,teen_social_big_support_008,connection_effect,1,2,Makes little difference,0.55
+8,teen_social_big_support_008,connection_effect,2,3,Makes me feel more connected,0.35
+8,teen_social_big_support_008,parental_rules,0,1,No rules,0.05
+8,teen_social_big_support_008,parental_rules,1,2,A few loose rules,0.15
+8,teen_social_big_support_008,parental_rules,2,3,Some clear rules,0.45
+8,teen_social_big_support_008,parental_rules,3,4,Very strict rules,0.35
+8,teen_social_big_support_008,primary_platform,0,1,TikTok,0.24
+8,teen_social_big_support_008,primary_platform,1,2,Instagram,0.2
+8,teen_social_big_support_008,primary_platform,2,3,YouTube,0.25
+8,teen_social_big_support_008,primary_platform,3,4,Snapchat,0.2
+8,teen_social_big_support_008,primary_platform,4,5,Another platform,0.08
+8,teen_social_big_support_008,primary_platform,5,6,I do not use social media,0.03
+9,teen_social_big_support_009,social_media_hours,0,1,Less than one hour,0.25
+9,teen_social_big_support_009,social_media_hours,1,2,One to three hours,0.55
+9,teen_social_big_support_009,social_media_hours,2,3,Four or more hours,0.2
+9,teen_social_big_support_009,posting_frequency,0,1,Never or almost never,0.18
+9,teen_social_big_support_009,posting_frequency,1,2,Less than once a week,0.34
+9,teen_social_big_support_009,posting_frequency,2,3,A few times a week,0.33
+9,teen_social_big_support_009,posting_frequency,3,4,At least once a day,0.15
+9,teen_social_big_support_009,late_night_use,0,1,Never,0.22
+9,teen_social_big_support_009,late_night_use,1,2,Rarely,0.48
+9,teen_social_big_support_009,late_night_use,2,3,Sometimes,0.24
+9,teen_social_big_support_009,late_night_use,3,4,Often,0.06
+9,teen_social_big_support_009,sleep_interference,0,1,Never,0.3
+9,teen_social_big_support_009,sleep_interference,1,2,Rarely,0.45
+9,teen_social_big_support_009,sleep_interference,2,3,Sometimes,0.2
+9,teen_social_big_support_009,sleep_interference,3,4,Often,0.05
+9,teen_social_big_support_009,social_comparison,0,1,Never,0.18
+9,teen_social_big_support_009,social_comparison,1,2,Rarely,0.36
+9,teen_social_big_support_009,social_comparison,2,3,Sometimes,0.34
+9,teen_social_big_support_009,social_comparison,3,4,Often,0.12
+9,teen_social_big_support_009,connection_effect,0,1,Makes me feel less connected,0.1
+9,teen_social_big_support_009,connection_effect,1,2,Makes little difference,0.38
+9,teen_social_big_support_009,connection_effect,2,3,Makes me feel more connected,0.52
+9,teen_social_big_support_009,parental_rules,0,1,No rules,0.12
+9,teen_social_big_support_009,parental_rules,1,2,A few loose rules,0.32
+9,teen_social_big_support_009,parental_rules,2,3,Some clear rules,0.4
+9,teen_social_big_support_009,parental_rules,3,4,Very strict rules,0.16
+9,teen_social_big_support_009,primary_platform,0,1,TikTok,0.28
+9,teen_social_big_support_009,primary_platform,1,2,Instagram,0.21
+9,teen_social_big_support_009,primary_platform,2,3,YouTube,0.16
+9,teen_social_big_support_009,primary_platform,3,4,Snapchat,0.24
+9,teen_social_big_support_009,primary_platform,4,5,Another platform,0.09
+9,teen_social_big_support_009,primary_platform,5,6,I do not use social media,0.02
+10,teen_social_big_support_010,social_media_hours,0,1,Less than one hour,0.08
+10,teen_social_big_support_010,social_media_hours,1,2,One to three hours,0.57
+10,teen_social_big_support_010,social_media_hours,2,3,Four or more hours,0.35
+10,teen_social_big_support_010,posting_frequency,0,1,Never or almost never,0.12
+10,teen_social_big_support_010,posting_frequency,1,2,Less than once a week,0.26
+10,teen_social_big_support_010,posting_frequency,2,3,A few times a week,0.42
+10,teen_social_big_support_010,posting_frequency,3,4,At least once a day,0.2
+10,teen_social_big_support_010,late_night_use,0,1,Never,0.03
+10,teen_social_big_support_010,late_night_use,1,2,Rarely,0.15
+10,teen_social_big_support_010,late_night_use,2,3,Sometimes,0.72
+10,teen_social_big_support_010,late_night_use,3,4,Often,0.1
+10,teen_social_big_support_010,sleep_interference,0,1,Never,0.08
+10,teen_social_big_support_010,sleep_interference,1,2,Rarely,0.32
+10,teen_social_big_support_010,sleep_interference,2,3,Sometimes,0.47
+10,teen_social_big_support_010,sleep_interference,3,4,Often,0.13
+10,teen_social_big_support_010,social_comparison,0,1,Never,0.1
+10,teen_social_big_support_010,social_comparison,1,2,Rarely,0.27
+10,teen_social_big_support_010,social_comparison,2,3,Sometimes,0.48
+10,teen_social_big_support_010,social_comparison,3,4,Often,0.15
+10,teen_social_big_support_010,connection_effect,0,1,Makes me feel less connected,0.08
+10,teen_social_big_support_010,connection_effect,1,2,Makes little difference,0.31
+10,teen_social_big_support_010,connection_effect,2,3,Makes me feel more connected,0.61
+10,teen_social_big_support_010,parental_rules,0,1,No rules,0.1
+10,teen_social_big_support_010,parental_rules,1,2,A few loose rules,0.39
+10,teen_social_big_support_010,parental_rules,2,3,Some clear rules,0.41
+10,teen_social_big_support_010,parental_rules,3,4,Very strict rules,0.1
+10,teen_social_big_support_010,primary_platform,0,1,TikTok,0.3
+10,teen_social_big_support_010,primary_platform,1,2,Instagram,0.22
+10,teen_social_big_support_010,primary_platform,2,3,YouTube,0.13
+10,teen_social_big_support_010,primary_platform,3,4,Snapchat,0.28
+10,teen_social_big_support_010,primary_platform,4,5,Another platform,0.06
+10,teen_social_big_support_010,primary_platform,5,6,I do not use social media,0.01
+11,teen_social_big_support_011,social_media_hours,0,1,Less than one hour,0.1
+11,teen_social_big_support_011,social_media_hours,1,2,One to three hours,0.45
+11,teen_social_big_support_011,social_media_hours,2,3,Four or more hours,0.45
+11,teen_social_big_support_011,posting_frequency,0,1,Never or almost never,0.12
+11,teen_social_big_support_011,posting_frequency,1,2,Less than once a week,0.28
+11,teen_social_big_support_011,posting_frequency,2,3,A few times a week,0.38
+11,teen_social_big_support_011,posting_frequency,3,4,At least once a day,0.22
+11,teen_social_big_support_011,late_night_use,0,1,Never,0.02
+11,teen_social_big_support_011,late_night_use,1,2,Rarely,0.08
+11,teen_social_big_support_011,late_night_use,2,3,Sometimes,0.3
+11,teen_social_big_support_011,late_night_use,3,4,Often,0.6
+11,teen_social_big_support_011,sleep_interference,0,1,Never,0.06
+11,teen_social_big_support_011,sleep_interference,1,2,Rarely,0.18
+11,teen_social_big_support_011,sleep_interference,2,3,Sometimes,0.46
+11,teen_social_big_support_011,sleep_interference,3,4,Often,0.3
+11,teen_social_big_support_011,social_comparison,0,1,Never,0.1
+11,teen_social_big_support_011,social_comparison,1,2,Rarely,0.26
+11,teen_social_big_support_011,social_comparison,2,3,Sometimes,0.44
+11,teen_social_big_support_011,social_comparison,3,4,Often,0.2
+11,teen_social_big_support_011,connection_effect,0,1,Makes me feel less connected,0.12
+11,teen_social_big_support_011,connection_effect,1,2,Makes little difference,0.32
+11,teen_social_big_support_011,connection_effect,2,3,Makes me feel more connected,0.56
+11,teen_social_big_support_011,parental_rules,0,1,No rules,0.2
+11,teen_social_big_support_011,parental_rules,1,2,A few loose rules,0.38
+11,teen_social_big_support_011,parental_rules,2,3,Some clear rules,0.32
+11,teen_social_big_support_011,parental_rules,3,4,Very strict rules,0.1
+11,teen_social_big_support_011,primary_platform,0,1,TikTok,0.34
+11,teen_social_big_support_011,primary_platform,1,2,Instagram,0.22
+11,teen_social_big_support_011,primary_platform,2,3,YouTube,0.11
+11,teen_social_big_support_011,primary_platform,3,4,Snapchat,0.25
+11,teen_social_big_support_011,primary_platform,4,5,Another platform,0.07
+11,teen_social_big_support_011,primary_platform,5,6,I do not use social media,0.01
+12,teen_social_big_support_012,social_media_hours,0,1,Less than one hour,0.45
+12,teen_social_big_support_012,social_media_hours,1,2,One to three hours,0.43
+12,teen_social_big_support_012,social_media_hours,2,3,Four or more hours,0.12
+12,teen_social_big_support_012,posting_frequency,0,1,Never or almost never,0.42
+12,teen_social_big_support_012,posting_frequency,1,2,Less than once a week,0.28
+12,teen_social_big_support_012,posting_frequency,2,3,A few times a week,0.2
+12,teen_social_big_support_012,posting_frequency,3,4,At least once a day,0.1
+12,teen_social_big_support_012,late_night_use,0,1,Never,0.55
+12,teen_social_big_support_012,late_night_use,1,2,Rarely,0.31
+12,teen_social_big_support_012,late_night_use,2,3,Sometimes,0.11
+12,teen_social_big_support_012,late_night_use,3,4,Often,0.03
+12,teen_social_big_support_012,sleep_interference,0,1,Never,0.86
+12,teen_social_big_support_012,sleep_interference,1,2,Rarely,0.1
+12,teen_social_big_support_012,sleep_interference,2,3,Sometimes,0.03
+12,teen_social_big_support_012,sleep_interference,3,4,Often,0.01
+12,teen_social_big_support_012,social_comparison,0,1,Never,0.36
+12,teen_social_big_support_012,social_comparison,1,2,Rarely,0.34
+12,teen_social_big_support_012,social_comparison,2,3,Sometimes,0.22
+12,teen_social_big_support_012,social_comparison,3,4,Often,0.08
+12,teen_social_big_support_012,connection_effect,0,1,Makes me feel less connected,0.08
+12,teen_social_big_support_012,connection_effect,1,2,Makes little difference,0.52
+12,teen_social_big_support_012,connection_effect,2,3,Makes me feel more connected,0.4
+12,teen_social_big_support_012,parental_rules,0,1,No rules,0.08
+12,teen_social_big_support_012,parental_rules,1,2,A few loose rules,0.26
+12,teen_social_big_support_012,parental_rules,2,3,Some clear rules,0.42
+12,teen_social_big_support_012,parental_rules,3,4,Very strict rules,0.24
+12,teen_social_big_support_012,primary_platform,0,1,TikTok,0.22
+12,teen_social_big_support_012,primary_platform,1,2,Instagram,0.18
+12,teen_social_big_support_012,primary_platform,2,3,YouTube,0.24
+12,teen_social_big_support_012,primary_platform,3,4,Snapchat,0.17
+12,teen_social_big_support_012,primary_platform,4,5,Another platform,0.1
+12,teen_social_big_support_012,primary_platform,5,6,I do not use social media,0.09
+13,teen_social_big_support_013,social_media_hours,0,1,Less than one hour,0.18
+13,teen_social_big_support_013,social_media_hours,1,2,One to three hours,0.58
+13,teen_social_big_support_013,social_media_hours,2,3,Four or more hours,0.24
+13,teen_social_big_support_013,posting_frequency,0,1,Never or almost never,0.28
+13,teen_social_big_support_013,posting_frequency,1,2,Less than once a week,0.32
+13,teen_social_big_support_013,posting_frequency,2,3,A few times a week,0.28
+13,teen_social_big_support_013,posting_frequency,3,4,At least once a day,0.12
+13,teen_social_big_support_013,late_night_use,0,1,Never,0.24
+13,teen_social_big_support_013,late_night_use,1,2,Rarely,0.42
+13,teen_social_big_support_013,late_night_use,2,3,Sometimes,0.25
+13,teen_social_big_support_013,late_night_use,3,4,Often,0.09
+13,teen_social_big_support_013,sleep_interference,0,1,Never,0.28
+13,teen_social_big_support_013,sleep_interference,1,2,Rarely,0.48
+13,teen_social_big_support_013,sleep_interference,2,3,Sometimes,0.19
+13,teen_social_big_support_013,sleep_interference,3,4,Often,0.05
+13,teen_social_big_support_013,social_comparison,0,1,Never,0.2
+13,teen_social_big_support_013,social_comparison,1,2,Rarely,0.36
+13,teen_social_big_support_013,social_comparison,2,3,Sometimes,0.32
+13,teen_social_big_support_013,social_comparison,3,4,Often,0.12
+13,teen_social_big_support_013,connection_effect,0,1,Makes me feel less connected,0.12
+13,teen_social_big_support_013,connection_effect,1,2,Makes little difference,0.43
+13,teen_social_big_support_013,connection_effect,2,3,Makes me feel more connected,0.45
+13,teen_social_big_support_013,parental_rules,0,1,No rules,0.15
+13,teen_social_big_support_013,parental_rules,1,2,A few loose rules,0.38
+13,teen_social_big_support_013,parental_rules,2,3,Some clear rules,0.34
+13,teen_social_big_support_013,parental_rules,3,4,Very strict rules,0.13
+13,teen_social_big_support_013,primary_platform,0,1,TikTok,0.25
+13,teen_social_big_support_013,primary_platform,1,2,Instagram,0.22
+13,teen_social_big_support_013,primary_platform,2,3,YouTube,0.17
+13,teen_social_big_support_013,primary_platform,3,4,Snapchat,0.25
+13,teen_social_big_support_013,primary_platform,4,5,Another platform,0.09
+13,teen_social_big_support_013,primary_platform,5,6,I do not use social media,0.02
+14,teen_social_big_support_014,social_media_hours,0,1,Less than one hour,0.08
+14,teen_social_big_support_014,social_media_hours,1,2,One to three hours,0.49
+14,teen_social_big_support_014,social_media_hours,2,3,Four or more hours,0.43
+14,teen_social_big_support_014,posting_frequency,0,1,Never or almost never,0.16
+14,teen_social_big_support_014,posting_frequency,1,2,Less than once a week,0.24
+14,teen_social_big_support_014,posting_frequency,2,3,A few times a week,0.38
+14,teen_social_big_support_014,posting_frequency,3,4,At least once a day,0.22
+14,teen_social_big_support_014,late_night_use,0,1,Never,0.04
+14,teen_social_big_support_014,late_night_use,1,2,Rarely,0.18
+14,teen_social_big_support_014,late_night_use,2,3,Sometimes,0.48
+14,teen_social_big_support_014,late_night_use,3,4,Often,0.3
+14,teen_social_big_support_014,sleep_interference,0,1,Never,0.03
+14,teen_social_big_support_014,sleep_interference,1,2,Rarely,0.13
+14,teen_social_big_support_014,sleep_interference,2,3,Sometimes,0.72
+14,teen_social_big_support_014,sleep_interference,3,4,Often,0.12
+14,teen_social_big_support_014,social_comparison,0,1,Never,0.08
+14,teen_social_big_support_014,social_comparison,1,2,Rarely,0.25
+14,teen_social_big_support_014,social_comparison,2,3,Sometimes,0.48
+14,teen_social_big_support_014,social_comparison,3,4,Often,0.19
+14,teen_social_big_support_014,connection_effect,0,1,Makes me feel less connected,0.13
+14,teen_social_big_support_014,connection_effect,1,2,Makes little difference,0.35
+14,teen_social_big_support_014,connection_effect,2,3,Makes me feel more connected,0.52
+14,teen_social_big_support_014,parental_rules,0,1,No rules,0.16
+14,teen_social_big_support_014,parental_rules,1,2,A few loose rules,0.39
+14,teen_social_big_support_014,parental_rules,2,3,Some clear rules,0.34
+14,teen_social_big_support_014,parental_rules,3,4,Very strict rules,0.11
+14,teen_social_big_support_014,primary_platform,0,1,TikTok,0.34
+14,teen_social_big_support_014,primary_platform,1,2,Instagram,0.23
+14,teen_social_big_support_014,primary_platform,2,3,YouTube,0.1
+14,teen_social_big_support_014,primary_platform,3,4,Snapchat,0.25
+14,teen_social_big_support_014,primary_platform,4,5,Another platform,0.06
+14,teen_social_big_support_014,primary_platform,5,6,I do not use social media,0.02
+15,teen_social_big_support_015,social_media_hours,0,1,Less than one hour,0.05
+15,teen_social_big_support_015,social_media_hours,1,2,One to three hours,0.35
+15,teen_social_big_support_015,social_media_hours,2,3,Four or more hours,0.6
+15,teen_social_big_support_015,posting_frequency,0,1,Never or almost never,0.12
+15,teen_social_big_support_015,posting_frequency,1,2,Less than once a week,0.25
+15,teen_social_big_support_015,posting_frequency,2,3,A few times a week,0.38
+15,teen_social_big_support_015,posting_frequency,3,4,At least once a day,0.25
+15,teen_social_big_support_015,late_night_use,0,1,Never,0.03
+15,teen_social_big_support_015,late_night_use,1,2,Rarely,0.1
+15,teen_social_big_support_015,late_night_use,2,3,Sometimes,0.35
+15,teen_social_big_support_015,late_night_use,3,4,Often,0.52
+15,teen_social_big_support_015,sleep_interference,0,1,Never,0.04
+15,teen_social_big_support_015,sleep_interference,1,2,Rarely,0.14
+15,teen_social_big_support_015,sleep_interference,2,3,Sometimes,0.34
+15,teen_social_big_support_015,sleep_interference,3,4,Often,0.48
+15,teen_social_big_support_015,social_comparison,0,1,Never,0.08
+15,teen_social_big_support_015,social_comparison,1,2,Rarely,0.24
+15,teen_social_big_support_015,social_comparison,2,3,Sometimes,0.46
+15,teen_social_big_support_015,social_comparison,3,4,Often,0.22
+15,teen_social_big_support_015,connection_effect,0,1,Makes me feel less connected,0.14
+15,teen_social_big_support_015,connection_effect,1,2,Makes little difference,0.32
+15,teen_social_big_support_015,connection_effect,2,3,Makes me feel more connected,0.54
+15,teen_social_big_support_015,parental_rules,0,1,No rules,0.18
+15,teen_social_big_support_015,parental_rules,1,2,A few loose rules,0.37
+15,teen_social_big_support_015,parental_rules,2,3,Some clear rules,0.32
+15,teen_social_big_support_015,parental_rules,3,4,Very strict rules,0.13
+15,teen_social_big_support_015,primary_platform,0,1,TikTok,0.34
+15,teen_social_big_support_015,primary_platform,1,2,Instagram,0.18
+15,teen_social_big_support_015,primary_platform,2,3,YouTube,0.16
+15,teen_social_big_support_015,primary_platform,3,4,Snapchat,0.22
+15,teen_social_big_support_015,primary_platform,4,5,Another platform,0.09
+15,teen_social_big_support_015,primary_platform,5,6,I do not use social media,0.01
+16,teen_social_big_support_016,social_media_hours,0,1,Less than one hour,0.18
+16,teen_social_big_support_016,social_media_hours,1,2,One to three hours,0.55
+16,teen_social_big_support_016,social_media_hours,2,3,Four or more hours,0.27
+16,teen_social_big_support_016,posting_frequency,0,1,Never or almost never,0.22
+16,teen_social_big_support_016,posting_frequency,1,2,Less than once a week,0.28
+16,teen_social_big_support_016,posting_frequency,2,3,A few times a week,0.32
+16,teen_social_big_support_016,posting_frequency,3,4,At least once a day,0.18
+16,teen_social_big_support_016,late_night_use,0,1,Never,0.18
+16,teen_social_big_support_016,late_night_use,1,2,Rarely,0.32
+16,teen_social_big_support_016,late_night_use,2,3,Sometimes,0.34
+16,teen_social_big_support_016,late_night_use,3,4,Often,0.16
+16,teen_social_big_support_016,sleep_interference,0,1,Never,0.3
+16,teen_social_big_support_016,sleep_interference,1,2,Rarely,0.35
+16,teen_social_big_support_016,sleep_interference,2,3,Sometimes,0.25
+16,teen_social_big_support_016,sleep_interference,3,4,Often,0.1
+16,teen_social_big_support_016,social_comparison,0,1,Never,0.86
+16,teen_social_big_support_016,social_comparison,1,2,Rarely,0.1
+16,teen_social_big_support_016,social_comparison,2,3,Sometimes,0.03
+16,teen_social_big_support_016,social_comparison,3,4,Often,0.01
+16,teen_social_big_support_016,connection_effect,0,1,Makes me feel less connected,0.08
+16,teen_social_big_support_016,connection_effect,1,2,Makes little difference,0.32
+16,teen_social_big_support_016,connection_effect,2,3,Makes me feel more connected,0.6
+16,teen_social_big_support_016,parental_rules,0,1,No rules,0.14
+16,teen_social_big_support_016,parental_rules,1,2,A few loose rules,0.38
+16,teen_social_big_support_016,parental_rules,2,3,Some clear rules,0.34
+16,teen_social_big_support_016,parental_rules,3,4,Very strict rules,0.14
+16,teen_social_big_support_016,primary_platform,0,1,TikTok,0.22
+16,teen_social_big_support_016,primary_platform,1,2,Instagram,0.27
+16,teen_social_big_support_016,primary_platform,2,3,YouTube,0.16
+16,teen_social_big_support_016,primary_platform,3,4,Snapchat,0.25
+16,teen_social_big_support_016,primary_platform,4,5,Another platform,0.09
+16,teen_social_big_support_016,primary_platform,5,6,I do not use social media,0.01
+17,teen_social_big_support_017,social_media_hours,0,1,Less than one hour,0.18
+17,teen_social_big_support_017,social_media_hours,1,2,One to three hours,0.58
+17,teen_social_big_support_017,social_media_hours,2,3,Four or more hours,0.24
+17,teen_social_big_support_017,posting_frequency,0,1,Never or almost never,0.22
+17,teen_social_big_support_017,posting_frequency,1,2,Less than once a week,0.34
+17,teen_social_big_support_017,posting_frequency,2,3,A few times a week,0.3
+17,teen_social_big_support_017,posting_frequency,3,4,At least once a day,0.14
+17,teen_social_big_support_017,late_night_use,0,1,Never,0.16
+17,teen_social_big_support_017,late_night_use,1,2,Rarely,0.36
+17,teen_social_big_support_017,late_night_use,2,3,Sometimes,0.33
+17,teen_social_big_support_017,late_night_use,3,4,Often,0.15
+17,teen_social_big_support_017,sleep_interference,0,1,Never,0.24
+17,teen_social_big_support_017,sleep_interference,1,2,Rarely,0.4
+17,teen_social_big_support_017,sleep_interference,2,3,Sometimes,0.27
+17,teen_social_big_support_017,sleep_interference,3,4,Often,0.09
+17,teen_social_big_support_017,social_comparison,0,1,Never,0.26
+17,teen_social_big_support_017,social_comparison,1,2,Rarely,0.5
+17,teen_social_big_support_017,social_comparison,2,3,Sometimes,0.19
+17,teen_social_big_support_017,social_comparison,3,4,Often,0.05
+17,teen_social_big_support_017,connection_effect,0,1,Makes me feel less connected,0.1
+17,teen_social_big_support_017,connection_effect,1,2,Makes little difference,0.43
+17,teen_social_big_support_017,connection_effect,2,3,Makes me feel more connected,0.47
+17,teen_social_big_support_017,parental_rules,0,1,No rules,0.16
+17,teen_social_big_support_017,parental_rules,1,2,A few loose rules,0.37
+17,teen_social_big_support_017,parental_rules,2,3,Some clear rules,0.34
+17,teen_social_big_support_017,parental_rules,3,4,Very strict rules,0.13
+17,teen_social_big_support_017,primary_platform,0,1,TikTok,0.28
+17,teen_social_big_support_017,primary_platform,1,2,Instagram,0.24
+17,teen_social_big_support_017,primary_platform,2,3,YouTube,0.16
+17,teen_social_big_support_017,primary_platform,3,4,Snapchat,0.22
+17,teen_social_big_support_017,primary_platform,4,5,Another platform,0.08
+17,teen_social_big_support_017,primary_platform,5,6,I do not use social media,0.02
+18,teen_social_big_support_018,social_media_hours,0,1,Less than one hour,0.07
+18,teen_social_big_support_018,social_media_hours,1,2,One to three hours,0.5
+18,teen_social_big_support_018,social_media_hours,2,3,Four or more hours,0.43
+18,teen_social_big_support_018,posting_frequency,0,1,Never or almost never,0.1
+18,teen_social_big_support_018,posting_frequency,1,2,Less than once a week,0.22
+18,teen_social_big_support_018,posting_frequency,2,3,A few times a week,0.45
+18,teen_social_big_support_018,posting_frequency,3,4,At least once a day,0.23
+18,teen_social_big_support_018,late_night_use,0,1,Never,0.04
+18,teen_social_big_support_018,late_night_use,1,2,Rarely,0.2
+18,teen_social_big_support_018,late_night_use,2,3,Sometimes,0.48
+18,teen_social_big_support_018,late_night_use,3,4,Often,0.28
+18,teen_social_big_support_018,sleep_interference,0,1,Never,0.08
+18,teen_social_big_support_018,sleep_interference,1,2,Rarely,0.27
+18,teen_social_big_support_018,sleep_interference,2,3,Sometimes,0.47
+18,teen_social_big_support_018,sleep_interference,3,4,Often,0.18
+18,teen_social_big_support_018,social_comparison,0,1,Never,0.02
+18,teen_social_big_support_018,social_comparison,1,2,Rarely,0.1
+18,teen_social_big_support_018,social_comparison,2,3,Sometimes,0.76
+18,teen_social_big_support_018,social_comparison,3,4,Often,0.12
+18,teen_social_big_support_018,connection_effect,0,1,Makes me feel less connected,0.08
+18,teen_social_big_support_018,connection_effect,1,2,Makes little difference,0.31
+18,teen_social_big_support_018,connection_effect,2,3,Makes me feel more connected,0.61
+18,teen_social_big_support_018,parental_rules,0,1,No rules,0.12
+18,teen_social_big_support_018,parental_rules,1,2,A few loose rules,0.38
+18,teen_social_big_support_018,parental_rules,2,3,Some clear rules,0.37
+18,teen_social_big_support_018,parental_rules,3,4,Very strict rules,0.13
+18,teen_social_big_support_018,primary_platform,0,1,TikTok,0.34
+18,teen_social_big_support_018,primary_platform,1,2,Instagram,0.23
+18,teen_social_big_support_018,primary_platform,2,3,YouTube,0.13
+18,teen_social_big_support_018,primary_platform,3,4,Snapchat,0.22
+18,teen_social_big_support_018,primary_platform,4,5,Another platform,0.07
+18,teen_social_big_support_018,primary_platform,5,6,I do not use social media,0.01
+19,teen_social_big_support_019,social_media_hours,0,1,Less than one hour,0.08
+19,teen_social_big_support_019,social_media_hours,1,2,One to three hours,0.47
+19,teen_social_big_support_019,social_media_hours,2,3,Four or more hours,0.45
+19,teen_social_big_support_019,posting_frequency,0,1,Never or almost never,0.14
+19,teen_social_big_support_019,posting_frequency,1,2,Less than once a week,0.26
+19,teen_social_big_support_019,posting_frequency,2,3,A few times a week,0.38
+19,teen_social_big_support_019,posting_frequency,3,4,At least once a day,0.22
+19,teen_social_big_support_019,late_night_use,0,1,Never,0.04
+19,teen_social_big_support_019,late_night_use,1,2,Rarely,0.16
+19,teen_social_big_support_019,late_night_use,2,3,Sometimes,0.43
+19,teen_social_big_support_019,late_night_use,3,4,Often,0.37
+19,teen_social_big_support_019,sleep_interference,0,1,Never,0.06
+19,teen_social_big_support_019,sleep_interference,1,2,Rarely,0.22
+19,teen_social_big_support_019,sleep_interference,2,3,Sometimes,0.47
+19,teen_social_big_support_019,sleep_interference,3,4,Often,0.25
+19,teen_social_big_support_019,social_comparison,0,1,Never,0.04
+19,teen_social_big_support_019,social_comparison,1,2,Rarely,0.14
+19,teen_social_big_support_019,social_comparison,2,3,Sometimes,0.37
+19,teen_social_big_support_019,social_comparison,3,4,Often,0.45
+19,teen_social_big_support_019,connection_effect,0,1,Makes me feel less connected,0.18
+19,teen_social_big_support_019,connection_effect,1,2,Makes little difference,0.34
+19,teen_social_big_support_019,connection_effect,2,3,Makes me feel more connected,0.48
+19,teen_social_big_support_019,parental_rules,0,1,No rules,0.18
+19,teen_social_big_support_019,parental_rules,1,2,A few loose rules,0.37
+19,teen_social_big_support_019,parental_rules,2,3,Some clear rules,0.34
+19,teen_social_big_support_019,parental_rules,3,4,Very strict rules,0.11
+19,teen_social_big_support_019,primary_platform,0,1,TikTok,0.34
+19,teen_social_big_support_019,primary_platform,1,2,Instagram,0.25
+19,teen_social_big_support_019,primary_platform,2,3,YouTube,0.13
+19,teen_social_big_support_019,primary_platform,3,4,Snapchat,0.19
+19,teen_social_big_support_019,primary_platform,4,5,Another platform,0.08
+19,teen_social_big_support_019,primary_platform,5,6,I do not use social media,0.01
+20,teen_social_big_support_020,social_media_hours,0,1,Less than one hour,0.12
+20,teen_social_big_support_020,social_media_hours,1,2,One to three hours,0.52
+20,teen_social_big_support_020,social_media_hours,2,3,Four or more hours,0.36
+20,teen_social_big_support_020,posting_frequency,0,1,Never or almost never,0.28
+20,teen_social_big_support_020,posting_frequency,1,2,Less than once a week,0.34
+20,teen_social_big_support_020,posting_frequency,2,3,A few times a week,0.27
+20,teen_social_big_support_020,posting_frequency,3,4,At least once a day,0.11
+20,teen_social_big_support_020,late_night_use,0,1,Never,0.08
+20,teen_social_big_support_020,late_night_use,1,2,Rarely,0.22
+20,teen_social_big_support_020,late_night_use,2,3,Sometimes,0.41
+20,teen_social_big_support_020,late_night_use,3,4,Often,0.29
+20,teen_social_big_support_020,sleep_interference,0,1,Never,0.1
+20,teen_social_big_support_020,sleep_interference,1,2,Rarely,0.25
+20,teen_social_big_support_020,sleep_interference,2,3,Sometimes,0.42
+20,teen_social_big_support_020,sleep_interference,3,4,Often,0.23
+20,teen_social_big_support_020,social_comparison,0,1,Never,0.04
+20,teen_social_big_support_020,social_comparison,1,2,Rarely,0.18
+20,teen_social_big_support_020,social_comparison,2,3,Sometimes,0.43
+20,teen_social_big_support_020,social_comparison,3,4,Often,0.35
+20,teen_social_big_support_020,connection_effect,0,1,Makes me feel less connected,0.84
+20,teen_social_big_support_020,connection_effect,1,2,Makes little difference,0.12
+20,teen_social_big_support_020,connection_effect,2,3,Makes me feel more connected,0.04
+20,teen_social_big_support_020,parental_rules,0,1,No rules,0.14
+20,teen_social_big_support_020,parental_rules,1,2,A few loose rules,0.35
+20,teen_social_big_support_020,parental_rules,2,3,Some clear rules,0.36
+20,teen_social_big_support_020,parental_rules,3,4,Very strict rules,0.15
+20,teen_social_big_support_020,primary_platform,0,1,TikTok,0.3
+20,teen_social_big_support_020,primary_platform,1,2,Instagram,0.26
+20,teen_social_big_support_020,primary_platform,2,3,YouTube,0.12
+20,teen_social_big_support_020,primary_platform,3,4,Snapchat,0.24
+20,teen_social_big_support_020,primary_platform,4,5,Another platform,0.07
+20,teen_social_big_support_020,primary_platform,5,6,I do not use social media,0.01
+21,teen_social_big_support_021,social_media_hours,0,1,Less than one hour,0.18
+21,teen_social_big_support_021,social_media_hours,1,2,One to three hours,0.55
+21,teen_social_big_support_021,social_media_hours,2,3,Four or more hours,0.27
+21,teen_social_big_support_021,posting_frequency,0,1,Never or almost never,0.26
+21,teen_social_big_support_021,posting_frequency,1,2,Less than once a week,0.31
+21,teen_social_big_support_021,posting_frequency,2,3,A few times a week,0.29
+21,teen_social_big_support_021,posting_frequency,3,4,At least once a day,0.14
+21,teen_social_big_support_021,late_night_use,0,1,Never,0.14
+21,teen_social_big_support_021,late_night_use,1,2,Rarely,0.33
+21,teen_social_big_support_021,late_night_use,2,3,Sometimes,0.34
+21,teen_social_big_support_021,late_night_use,3,4,Often,0.19
+21,teen_social_big_support_021,sleep_interference,0,1,Never,0.23
+21,teen_social_big_support_021,sleep_interference,1,2,Rarely,0.38
+21,teen_social_big_support_021,sleep_interference,2,3,Sometimes,0.27
+21,teen_social_big_support_021,sleep_interference,3,4,Often,0.12
+21,teen_social_big_support_021,social_comparison,0,1,Never,0.2
+21,teen_social_big_support_021,social_comparison,1,2,Rarely,0.4
+21,teen_social_big_support_021,social_comparison,2,3,Sometimes,0.29
+21,teen_social_big_support_021,social_comparison,3,4,Often,0.11
+21,teen_social_big_support_021,connection_effect,0,1,Makes me feel less connected,0.18
+21,teen_social_big_support_021,connection_effect,1,2,Makes little difference,0.62
+21,teen_social_big_support_021,connection_effect,2,3,Makes me feel more connected,0.2
+21,teen_social_big_support_021,parental_rules,0,1,No rules,0.16
+21,teen_social_big_support_021,parental_rules,1,2,A few loose rules,0.36
+21,teen_social_big_support_021,parental_rules,2,3,Some clear rules,0.34
+21,teen_social_big_support_021,parental_rules,3,4,Very strict rules,0.14
+21,teen_social_big_support_021,primary_platform,0,1,TikTok,0.32
+21,teen_social_big_support_021,primary_platform,1,2,Instagram,0.21
+21,teen_social_big_support_021,primary_platform,2,3,YouTube,0.13
+21,teen_social_big_support_021,primary_platform,3,4,Snapchat,0.23
+21,teen_social_big_support_021,primary_platform,4,5,Another platform,0.1
+21,teen_social_big_support_021,primary_platform,5,6,I do not use social media,0.01
+22,teen_social_big_support_022,social_media_hours,0,1,Less than one hour,0.07
+22,teen_social_big_support_022,social_media_hours,1,2,One to three hours,0.43
+22,teen_social_big_support_022,social_media_hours,2,3,Four or more hours,0.5
+22,teen_social_big_support_022,posting_frequency,0,1,Never or almost never,0.08
+22,teen_social_big_support_022,posting_frequency,1,2,Less than once a week,0.18
+22,teen_social_big_support_022,posting_frequency,2,3,A few times a week,0.42
+22,teen_social_big_support_022,posting_frequency,3,4,At least once a day,0.32
+22,teen_social_big_support_022,late_night_use,0,1,Never,0.04
+22,teen_social_big_support_022,late_night_use,1,2,Rarely,0.18
+22,teen_social_big_support_022,late_night_use,2,3,Sometimes,0.43
+22,teen_social_big_support_022,late_night_use,3,4,Often,0.35
+22,teen_social_big_support_022,sleep_interference,0,1,Never,0.08
+22,teen_social_big_support_022,sleep_interference,1,2,Rarely,0.28
+22,teen_social_big_support_022,sleep_interference,2,3,Sometimes,0.42
+22,teen_social_big_support_022,sleep_interference,3,4,Often,0.22
+22,teen_social_big_support_022,social_comparison,0,1,Never,0.09
+22,teen_social_big_support_022,social_comparison,1,2,Rarely,0.28
+22,teen_social_big_support_022,social_comparison,2,3,Sometimes,0.45
+22,teen_social_big_support_022,social_comparison,3,4,Often,0.18
+22,teen_social_big_support_022,connection_effect,0,1,Makes me feel less connected,0.03
+22,teen_social_big_support_022,connection_effect,1,2,Makes little difference,0.11
+22,teen_social_big_support_022,connection_effect,2,3,Makes me feel more connected,0.86
+22,teen_social_big_support_022,parental_rules,0,1,No rules,0.16
+22,teen_social_big_support_022,parental_rules,1,2,A few loose rules,0.36
+22,teen_social_big_support_022,parental_rules,2,3,Some clear rules,0.34
+22,teen_social_big_support_022,parental_rules,3,4,Very strict rules,0.14
+22,teen_social_big_support_022,primary_platform,0,1,TikTok,0.27
+22,teen_social_big_support_022,primary_platform,1,2,Instagram,0.25
+22,teen_social_big_support_022,primary_platform,2,3,YouTube,0.12
+22,teen_social_big_support_022,primary_platform,3,4,Snapchat,0.28
+22,teen_social_big_support_022,primary_platform,4,5,Another platform,0.07
+22,teen_social_big_support_022,primary_platform,5,6,I do not use social media,0.01
+23,teen_social_big_support_023,social_media_hours,0,1,Less than one hour,0.12
+23,teen_social_big_support_023,social_media_hours,1,2,One to three hours,0.47
+23,teen_social_big_support_023,social_media_hours,2,3,Four or more hours,0.41
+23,teen_social_big_support_023,posting_frequency,0,1,Never or almost never,0.18
+23,teen_social_big_support_023,posting_frequency,1,2,Less than once a week,0.28
+23,teen_social_big_support_023,posting_frequency,2,3,A few times a week,0.34
+23,teen_social_big_support_023,posting_frequency,3,4,At least once a day,0.2
+23,teen_social_big_support_023,late_night_use,0,1,Never,0.08
+23,teen_social_big_support_023,late_night_use,1,2,Rarely,0.25
+23,teen_social_big_support_023,late_night_use,2,3,Sometimes,0.42
+23,teen_social_big_support_023,late_night_use,3,4,Often,0.25
+23,teen_social_big_support_023,sleep_interference,0,1,Never,0.14
+23,teen_social_big_support_023,sleep_interference,1,2,Rarely,0.33
+23,teen_social_big_support_023,sleep_interference,2,3,Sometimes,0.37
+23,teen_social_big_support_023,sleep_interference,3,4,Often,0.16
+23,teen_social_big_support_023,social_comparison,0,1,Never,0.12
+23,teen_social_big_support_023,social_comparison,1,2,Rarely,0.34
+23,teen_social_big_support_023,social_comparison,2,3,Sometimes,0.38
+23,teen_social_big_support_023,social_comparison,3,4,Often,0.16
+23,teen_social_big_support_023,connection_effect,0,1,Makes me feel less connected,0.12
+23,teen_social_big_support_023,connection_effect,1,2,Makes little difference,0.34
+23,teen_social_big_support_023,connection_effect,2,3,Makes me feel more connected,0.54
+23,teen_social_big_support_023,parental_rules,0,1,No rules,0.58
+23,teen_social_big_support_023,parental_rules,1,2,A few loose rules,0.25
+23,teen_social_big_support_023,parental_rules,2,3,Some clear rules,0.12
+23,teen_social_big_support_023,parental_rules,3,4,Very strict rules,0.05
+23,teen_social_big_support_023,primary_platform,0,1,TikTok,0.33
+23,teen_social_big_support_023,primary_platform,1,2,Instagram,0.23
+23,teen_social_big_support_023,primary_platform,2,3,YouTube,0.13
+23,teen_social_big_support_023,primary_platform,3,4,Snapchat,0.22
+23,teen_social_big_support_023,primary_platform,4,5,Another platform,0.08
+23,teen_social_big_support_023,primary_platform,5,6,I do not use social media,0.01
+24,teen_social_big_support_024,social_media_hours,0,1,Less than one hour,0.08
+24,teen_social_big_support_024,social_media_hours,1,2,One to three hours,0.44
+24,teen_social_big_support_024,social_media_hours,2,3,Four or more hours,0.48
+24,teen_social_big_support_024,posting_frequency,0,1,Never or almost never,0.12
+24,teen_social_big_support_024,posting_frequency,1,2,Less than once a week,0.24
+24,teen_social_big_support_024,posting_frequency,2,3,A few times a week,0.4
+24,teen_social_big_support_024,posting_frequency,3,4,At least once a day,0.24
+24,teen_social_big_support_024,late_night_use,0,1,Never,0.04
+24,teen_social_big_support_024,late_night_use,1,2,Rarely,0.18
+24,teen_social_big_support_024,late_night_use,2,3,Sometimes,0.42
+24,teen_social_big_support_024,late_night_use,3,4,Often,0.36
+24,teen_social_big_support_024,sleep_interference,0,1,Never,0.08
+24,teen_social_big_support_024,sleep_interference,1,2,Rarely,0.28
+24,teen_social_big_support_024,sleep_interference,2,3,Sometimes,0.42
+24,teen_social_big_support_024,sleep_interference,3,4,Often,0.22
+24,teen_social_big_support_024,social_comparison,0,1,Never,0.08
+24,teen_social_big_support_024,social_comparison,1,2,Rarely,0.25
+24,teen_social_big_support_024,social_comparison,2,3,Sometimes,0.45
+24,teen_social_big_support_024,social_comparison,3,4,Often,0.22
+24,teen_social_big_support_024,connection_effect,0,1,Makes me feel less connected,0.1
+24,teen_social_big_support_024,connection_effect,1,2,Makes little difference,0.28
+24,teen_social_big_support_024,connection_effect,2,3,Makes me feel more connected,0.62
+24,teen_social_big_support_024,parental_rules,0,1,No rules,0.12
+24,teen_social_big_support_024,parental_rules,1,2,A few loose rules,0.78
+24,teen_social_big_support_024,parental_rules,2,3,Some clear rules,0.08
+24,teen_social_big_support_024,parental_rules,3,4,Very strict rules,0.02
+24,teen_social_big_support_024,primary_platform,0,1,TikTok,0.34
+24,teen_social_big_support_024,primary_platform,1,2,Instagram,0.24
+24,teen_social_big_support_024,primary_platform,2,3,YouTube,0.13
+24,teen_social_big_support_024,primary_platform,3,4,Snapchat,0.22
+24,teen_social_big_support_024,primary_platform,4,5,Another platform,0.06
+24,teen_social_big_support_024,primary_platform,5,6,I do not use social media,0.01
+25,teen_social_big_support_025,social_media_hours,0,1,Less than one hour,0.12
+25,teen_social_big_support_025,social_media_hours,1,2,One to three hours,0.55
+25,teen_social_big_support_025,social_media_hours,2,3,Four or more hours,0.33
+25,teen_social_big_support_025,posting_frequency,0,1,Never or almost never,0.18
+25,teen_social_big_support_025,posting_frequency,1,2,Less than once a week,0.28
+25,teen_social_big_support_025,posting_frequency,2,3,A few times a week,0.36
+25,teen_social_big_support_025,posting_frequency,3,4,At least once a day,0.18
+25,teen_social_big_support_025,late_night_use,0,1,Never,0.12
+25,teen_social_big_support_025,late_night_use,1,2,Rarely,0.3
+25,teen_social_big_support_025,late_night_use,2,3,Sometimes,0.4
+25,teen_social_big_support_025,late_night_use,3,4,Often,0.18
+25,teen_social_big_support_025,sleep_interference,0,1,Never,0.18
+25,teen_social_big_support_025,sleep_interference,1,2,Rarely,0.34
+25,teen_social_big_support_025,sleep_interference,2,3,Sometimes,0.34
+25,teen_social_big_support_025,sleep_interference,3,4,Often,0.14
+25,teen_social_big_support_025,social_comparison,0,1,Never,0.14
+25,teen_social_big_support_025,social_comparison,1,2,Rarely,0.32
+25,teen_social_big_support_025,social_comparison,2,3,Sometimes,0.38
+25,teen_social_big_support_025,social_comparison,3,4,Often,0.16
+25,teen_social_big_support_025,connection_effect,0,1,Makes me feel less connected,0.12
+25,teen_social_big_support_025,connection_effect,1,2,Makes little difference,0.34
+25,teen_social_big_support_025,connection_effect,2,3,Makes me feel more connected,0.54
+25,teen_social_big_support_025,parental_rules,0,1,No rules,0.06
+25,teen_social_big_support_025,parental_rules,1,2,A few loose rules,0.26
+25,teen_social_big_support_025,parental_rules,2,3,Some clear rules,0.55
+25,teen_social_big_support_025,parental_rules,3,4,Very strict rules,0.13
+25,teen_social_big_support_025,primary_platform,0,1,TikTok,0.3
+25,teen_social_big_support_025,primary_platform,1,2,Instagram,0.22
+25,teen_social_big_support_025,primary_platform,2,3,YouTube,0.16
+25,teen_social_big_support_025,primary_platform,3,4,Snapchat,0.24
+25,teen_social_big_support_025,primary_platform,4,5,Another platform,0.06
+25,teen_social_big_support_025,primary_platform,5,6,I do not use social media,0.02
+26,teen_social_big_support_026,social_media_hours,0,1,Less than one hour,0.34
+26,teen_social_big_support_026,social_media_hours,1,2,One to three hours,0.49
+26,teen_social_big_support_026,social_media_hours,2,3,Four or more hours,0.17
+26,teen_social_big_support_026,posting_frequency,0,1,Never or almost never,0.39
+26,teen_social_big_support_026,posting_frequency,1,2,Less than once a week,0.31
+26,teen_social_big_support_026,posting_frequency,2,3,A few times a week,0.2
+26,teen_social_big_support_026,posting_frequency,3,4,At least once a day,0.1
+26,teen_social_big_support_026,late_night_use,0,1,Never,0.38
+26,teen_social_big_support_026,late_night_use,1,2,Rarely,0.34
+26,teen_social_big_support_026,late_night_use,2,3,Sometimes,0.2
+26,teen_social_big_support_026,late_night_use,3,4,Often,0.08
+26,teen_social_big_support_026,sleep_interference,0,1,Never,0.45
+26,teen_social_big_support_026,sleep_interference,1,2,Rarely,0.32
+26,teen_social_big_support_026,sleep_interference,2,3,Sometimes,0.17
+26,teen_social_big_support_026,sleep_interference,3,4,Often,0.06
+26,teen_social_big_support_026,social_comparison,0,1,Never,0.23
+26,teen_social_big_support_026,social_comparison,1,2,Rarely,0.36
+26,teen_social_big_support_026,social_comparison,2,3,Sometimes,0.29
+26,teen_social_big_support_026,social_comparison,3,4,Often,0.12
+26,teen_social_big_support_026,connection_effect,0,1,Makes me feel less connected,0.18
+26,teen_social_big_support_026,connection_effect,1,2,Makes little difference,0.39
+26,teen_social_big_support_026,connection_effect,2,3,Makes me feel more connected,0.43
+26,teen_social_big_support_026,parental_rules,0,1,No rules,0.01
+26,teen_social_big_support_026,parental_rules,1,2,A few loose rules,0.04
+26,teen_social_big_support_026,parental_rules,2,3,Some clear rules,0.13
+26,teen_social_big_support_026,parental_rules,3,4,Very strict rules,0.82
+26,teen_social_big_support_026,primary_platform,0,1,TikTok,0.22
+26,teen_social_big_support_026,primary_platform,1,2,Instagram,0.2
+26,teen_social_big_support_026,primary_platform,2,3,YouTube,0.24
+26,teen_social_big_support_026,primary_platform,3,4,Snapchat,0.17
+26,teen_social_big_support_026,primary_platform,4,5,Another platform,0.07
+26,teen_social_big_support_026,primary_platform,5,6,I do not use social media,0.1
+27,teen_social_big_support_027,social_media_hours,0,1,Less than one hour,0.08
+27,teen_social_big_support_027,social_media_hours,1,2,One to three hours,0.58
+27,teen_social_big_support_027,social_media_hours,2,3,Four or more hours,0.34
+27,teen_social_big_support_027,posting_frequency,0,1,Never or almost never,0.16
+27,teen_social_big_support_027,posting_frequency,1,2,Less than once a week,0.27
+27,teen_social_big_support_027,posting_frequency,2,3,A few times a week,0.39
+27,teen_social_big_support_027,posting_frequency,3,4,At least once a day,0.18
+27,teen_social_big_support_027,late_night_use,0,1,Never,0.08
+27,teen_social_big_support_027,late_night_use,1,2,Rarely,0.24
+27,teen_social_big_support_027,late_night_use,2,3,Sometimes,0.43
+27,teen_social_big_support_027,late_night_use,3,4,Often,0.25
+27,teen_social_big_support_027,sleep_interference,0,1,Never,0.13
+27,teen_social_big_support_027,sleep_interference,1,2,Rarely,0.33
+27,teen_social_big_support_027,sleep_interference,2,3,Sometimes,0.38
+27,teen_social_big_support_027,sleep_interference,3,4,Often,0.16
+27,teen_social_big_support_027,social_comparison,0,1,Never,0.11
+27,teen_social_big_support_027,social_comparison,1,2,Rarely,0.3
+27,teen_social_big_support_027,social_comparison,2,3,Sometimes,0.43
+27,teen_social_big_support_027,social_comparison,3,4,Often,0.16
+27,teen_social_big_support_027,connection_effect,0,1,Makes me feel less connected,0.1
+27,teen_social_big_support_027,connection_effect,1,2,Makes little difference,0.42
+27,teen_social_big_support_027,connection_effect,2,3,Makes me feel more connected,0.48
+27,teen_social_big_support_027,parental_rules,0,1,No rules,0.16
+27,teen_social_big_support_027,parental_rules,1,2,A few loose rules,0.38
+27,teen_social_big_support_027,parental_rules,2,3,Some clear rules,0.34
+27,teen_social_big_support_027,parental_rules,3,4,Very strict rules,0.12
+27,teen_social_big_support_027,primary_platform,0,1,TikTok,0.55
+27,teen_social_big_support_027,primary_platform,1,2,Instagram,0.16
+27,teen_social_big_support_027,primary_platform,2,3,YouTube,0.12
+27,teen_social_big_support_027,primary_platform,3,4,Snapchat,0.13
+27,teen_social_big_support_027,primary_platform,4,5,Another platform,0.03
+27,teen_social_big_support_027,primary_platform,5,6,I do not use social media,0.01
+28,teen_social_big_support_028,social_media_hours,0,1,Less than one hour,0.05
+28,teen_social_big_support_028,social_media_hours,1,2,One to three hours,0.42
+28,teen_social_big_support_028,social_media_hours,2,3,Four or more hours,0.53
+28,teen_social_big_support_028,posting_frequency,0,1,Never or almost never,0.06
+28,teen_social_big_support_028,posting_frequency,1,2,Less than once a week,0.2
+28,teen_social_big_support_028,posting_frequency,2,3,A few times a week,0.46
+28,teen_social_big_support_028,posting_frequency,3,4,At least once a day,0.28
+28,teen_social_big_support_028,late_night_use,0,1,Never,0.03
+28,teen_social_big_support_028,late_night_use,1,2,Rarely,0.13
+28,teen_social_big_support_028,late_night_use,2,3,Sometimes,0.38
+28,teen_social_big_support_028,late_night_use,3,4,Often,0.46
+28,teen_social_big_support_028,sleep_interference,0,1,Never,0.08
+28,teen_social_big_support_028,sleep_interference,1,2,Rarely,0.23
+28,teen_social_big_support_028,sleep_interference,2,3,Sometimes,0.43
+28,teen_social_big_support_028,sleep_interference,3,4,Often,0.26
+28,teen_social_big_support_028,social_comparison,0,1,Never,0.05
+28,teen_social_big_support_028,social_comparison,1,2,Rarely,0.19
+28,teen_social_big_support_028,social_comparison,2,3,Sometimes,0.48
+28,teen_social_big_support_028,social_comparison,3,4,Often,0.28
+28,teen_social_big_support_028,connection_effect,0,1,Makes me feel less connected,0.08
+28,teen_social_big_support_028,connection_effect,1,2,Makes little difference,0.22
+28,teen_social_big_support_028,connection_effect,2,3,Makes me feel more connected,0.7
+28,teen_social_big_support_028,parental_rules,0,1,No rules,0.13
+28,teen_social_big_support_028,parental_rules,1,2,A few loose rules,0.4
+28,teen_social_big_support_028,parental_rules,2,3,Some clear rules,0.34
+28,teen_social_big_support_028,parental_rules,3,4,Very strict rules,0.13
+28,teen_social_big_support_028,primary_platform,0,1,TikTok,0.08
+28,teen_social_big_support_028,primary_platform,1,2,Instagram,0.78
+28,teen_social_big_support_028,primary_platform,2,3,YouTube,0.03
+28,teen_social_big_support_028,primary_platform,3,4,Snapchat,0.07
+28,teen_social_big_support_028,primary_platform,4,5,Another platform,0.03
+28,teen_social_big_support_028,primary_platform,5,6,I do not use social media,0.01
+29,teen_social_big_support_029,social_media_hours,0,1,Less than one hour,0.16
+29,teen_social_big_support_029,social_media_hours,1,2,One to three hours,0.58
+29,teen_social_big_support_029,social_media_hours,2,3,Four or more hours,0.26
+29,teen_social_big_support_029,posting_frequency,0,1,Never or almost never,0.25
+29,teen_social_big_support_029,posting_frequency,1,2,Less than once a week,0.35
+29,teen_social_big_support_029,posting_frequency,2,3,A few times a week,0.27
+29,teen_social_big_support_029,posting_frequency,3,4,At least once a day,0.13
+29,teen_social_big_support_029,late_night_use,0,1,Never,0.12
+29,teen_social_big_support_029,late_night_use,1,2,Rarely,0.32
+29,teen_social_big_support_029,late_night_use,2,3,Sometimes,0.38
+29,teen_social_big_support_029,late_night_use,3,4,Often,0.18
+29,teen_social_big_support_029,sleep_interference,0,1,Never,0.2
+29,teen_social_big_support_029,sleep_interference,1,2,Rarely,0.38
+29,teen_social_big_support_029,sleep_interference,2,3,Sometimes,0.3
+29,teen_social_big_support_029,sleep_interference,3,4,Often,0.12
+29,teen_social_big_support_029,social_comparison,0,1,Never,0.26
+29,teen_social_big_support_029,social_comparison,1,2,Rarely,0.42
+29,teen_social_big_support_029,social_comparison,2,3,Sometimes,0.24
+29,teen_social_big_support_029,social_comparison,3,4,Often,0.08
+29,teen_social_big_support_029,connection_effect,0,1,Makes me feel less connected,0.12
+29,teen_social_big_support_029,connection_effect,1,2,Makes little difference,0.48
+29,teen_social_big_support_029,connection_effect,2,3,Makes me feel more connected,0.4
+29,teen_social_big_support_029,parental_rules,0,1,No rules,0.16
+29,teen_social_big_support_029,parental_rules,1,2,A few loose rules,0.36
+29,teen_social_big_support_029,parental_rules,2,3,Some clear rules,0.34
+29,teen_social_big_support_029,parental_rules,3,4,Very strict rules,0.14
+29,teen_social_big_support_029,primary_platform,0,1,TikTok,0.2
+29,teen_social_big_support_029,primary_platform,1,2,Instagram,0.13
+29,teen_social_big_support_029,primary_platform,2,3,YouTube,0.43
+29,teen_social_big_support_029,primary_platform,3,4,Snapchat,0.13
+29,teen_social_big_support_029,primary_platform,4,5,Another platform,0.08
+29,teen_social_big_support_029,primary_platform,5,6,I do not use social media,0.03
+30,teen_social_big_support_030,social_media_hours,0,1,Less than one hour,0.04
+30,teen_social_big_support_030,social_media_hours,1,2,One to three hours,0.38
+30,teen_social_big_support_030,social_media_hours,2,3,Four or more hours,0.58
+30,teen_social_big_support_030,posting_frequency,0,1,Never or almost never,0.03
+30,teen_social_big_support_030,posting_frequency,1,2,Less than once a week,0.08
+30,teen_social_big_support_030,posting_frequency,2,3,A few times a week,0.31
+30,teen_social_big_support_030,posting_frequency,3,4,At least once a day,0.58
+30,teen_social_big_support_030,late_night_use,0,1,Never,0.04
+30,teen_social_big_support_030,late_night_use,1,2,Rarely,0.15
+30,teen_social_big_support_030,late_night_use,2,3,Sometimes,0.36
+30,teen_social_big_support_030,late_night_use,3,4,Often,0.45
+30,teen_social_big_support_030,sleep_interference,0,1,Never,0.07
+30,teen_social_big_support_030,sleep_interference,1,2,Rarely,0.24
+30,teen_social_big_support_030,sleep_interference,2,3,Sometimes,0.43
+30,teen_social_big_support_030,sleep_interference,3,4,Often,0.26
+30,teen_social_big_support_030,social_comparison,0,1,Never,0.12
+30,teen_social_big_support_030,social_comparison,1,2,Rarely,0.34
+30,teen_social_big_support_030,social_comparison,2,3,Sometimes,0.38
+30,teen_social_big_support_030,social_comparison,3,4,Often,0.16
+30,teen_social_big_support_030,connection_effect,0,1,Makes me feel less connected,0.04
+30,teen_social_big_support_030,connection_effect,1,2,Makes little difference,0.18
+30,teen_social_big_support_030,connection_effect,2,3,Makes me feel more connected,0.78
+30,teen_social_big_support_030,parental_rules,0,1,No rules,0.12
+30,teen_social_big_support_030,parental_rules,1,2,A few loose rules,0.4
+30,teen_social_big_support_030,parental_rules,2,3,Some clear rules,0.36
+30,teen_social_big_support_030,parental_rules,3,4,Very strict rules,0.12
+30,teen_social_big_support_030,primary_platform,0,1,TikTok,0.05
+30,teen_social_big_support_030,primary_platform,1,2,Instagram,0.05
+30,teen_social_big_support_030,primary_platform,2,3,YouTube,0.03
+30,teen_social_big_support_030,primary_platform,3,4,Snapchat,0.82
+30,teen_social_big_support_030,primary_platform,4,5,Another platform,0.04
+30,teen_social_big_support_030,primary_platform,5,6,I do not use social media,0.01
+31,teen_social_big_support_031,social_media_hours,0,1,Less than one hour,0.18
+31,teen_social_big_support_031,social_media_hours,1,2,One to three hours,0.56
+31,teen_social_big_support_031,social_media_hours,2,3,Four or more hours,0.26
+31,teen_social_big_support_031,posting_frequency,0,1,Never or almost never,0.2
+31,teen_social_big_support_031,posting_frequency,1,2,Less than once a week,0.34
+31,teen_social_big_support_031,posting_frequency,2,3,A few times a week,0.31
+31,teen_social_big_support_031,posting_frequency,3,4,At least once a day,0.15
+31,teen_social_big_support_031,late_night_use,0,1,Never,0.1
+31,teen_social_big_support_031,late_night_use,1,2,Rarely,0.25
+31,teen_social_big_support_031,late_night_use,2,3,Sometimes,0.42
+31,teen_social_big_support_031,late_night_use,3,4,Often,0.23
+31,teen_social_big_support_031,sleep_interference,0,1,Never,0.18
+31,teen_social_big_support_031,sleep_interference,1,2,Rarely,0.35
+31,teen_social_big_support_031,sleep_interference,2,3,Sometimes,0.32
+31,teen_social_big_support_031,sleep_interference,3,4,Often,0.15
+31,teen_social_big_support_031,social_comparison,0,1,Never,0.2
+31,teen_social_big_support_031,social_comparison,1,2,Rarely,0.39
+31,teen_social_big_support_031,social_comparison,2,3,Sometimes,0.3
+31,teen_social_big_support_031,social_comparison,3,4,Often,0.11
+31,teen_social_big_support_031,connection_effect,0,1,Makes me feel less connected,0.14
+31,teen_social_big_support_031,connection_effect,1,2,Makes little difference,0.41
+31,teen_social_big_support_031,connection_effect,2,3,Makes me feel more connected,0.45
+31,teen_social_big_support_031,parental_rules,0,1,No rules,0.15
+31,teen_social_big_support_031,parental_rules,1,2,A few loose rules,0.35
+31,teen_social_big_support_031,parental_rules,2,3,Some clear rules,0.37
+31,teen_social_big_support_031,parental_rules,3,4,Very strict rules,0.13
+31,teen_social_big_support_031,primary_platform,0,1,TikTok,0.12
+31,teen_social_big_support_031,primary_platform,1,2,Instagram,0.12
+31,teen_social_big_support_031,primary_platform,2,3,YouTube,0.16
+31,teen_social_big_support_031,primary_platform,3,4,Snapchat,0.13
+31,teen_social_big_support_031,primary_platform,4,5,Another platform,0.45
+31,teen_social_big_support_031,primary_platform,5,6,I do not use social media,0.02
+32,teen_social_big_support_032,social_media_hours,0,1,Less than one hour,0.94
+32,teen_social_big_support_032,social_media_hours,1,2,One to three hours,0.04
+32,teen_social_big_support_032,social_media_hours,2,3,Four or more hours,0.02
+32,teen_social_big_support_032,posting_frequency,0,1,Never or almost never,0.93
+32,teen_social_big_support_032,posting_frequency,1,2,Less than once a week,0.04
+32,teen_social_big_support_032,posting_frequency,2,3,A few times a week,0.02
+32,teen_social_big_support_032,posting_frequency,3,4,At least once a day,0.01
+32,teen_social_big_support_032,late_night_use,0,1,Never,0.9
+32,teen_social_big_support_032,late_night_use,1,2,Rarely,0.07
+32,teen_social_big_support_032,late_night_use,2,3,Sometimes,0.02
+32,teen_social_big_support_032,late_night_use,3,4,Often,0.01
+32,teen_social_big_support_032,sleep_interference,0,1,Never,0.91
+32,teen_social_big_support_032,sleep_interference,1,2,Rarely,0.06
+32,teen_social_big_support_032,sleep_interference,2,3,Sometimes,0.02
+32,teen_social_big_support_032,sleep_interference,3,4,Often,0.01
+32,teen_social_big_support_032,social_comparison,0,1,Never,0.8
+32,teen_social_big_support_032,social_comparison,1,2,Rarely,0.14
+32,teen_social_big_support_032,social_comparison,2,3,Sometimes,0.04
+32,teen_social_big_support_032,social_comparison,3,4,Often,0.02
+32,teen_social_big_support_032,connection_effect,0,1,Makes me feel less connected,0.08
+32,teen_social_big_support_032,connection_effect,1,2,Makes little difference,0.82
+32,teen_social_big_support_032,connection_effect,2,3,Makes me feel more connected,0.1
+32,teen_social_big_support_032,parental_rules,0,1,No rules,0.08
+32,teen_social_big_support_032,parental_rules,1,2,A few loose rules,0.17
+32,teen_social_big_support_032,parental_rules,2,3,Some clear rules,0.3
+32,teen_social_big_support_032,parental_rules,3,4,Very strict rules,0.45
+32,teen_social_big_support_032,primary_platform,0,1,TikTok,0.01
+32,teen_social_big_support_032,primary_platform,1,2,Instagram,0.01
+32,teen_social_big_support_032,primary_platform,2,3,YouTube,0.03
+32,teen_social_big_support_032,primary_platform,3,4,Snapchat,0.01
+32,teen_social_big_support_032,primary_platform,4,5,Another platform,0.02
+32,teen_social_big_support_032,primary_platform,5,6,I do not use social media,0.92
+33,teen_social_big_support_033,social_media_hours,0,1,Less than one hour,0.64
+33,teen_social_big_support_033,social_media_hours,1,2,One to three hours,0.31
+33,teen_social_big_support_033,social_media_hours,2,3,Four or more hours,0.05
+33,teen_social_big_support_033,posting_frequency,0,1,Never or almost never,0.35
+33,teen_social_big_support_033,posting_frequency,1,2,Less than once a week,0.31
+33,teen_social_big_support_033,posting_frequency,2,3,A few times a week,0.23
+33,teen_social_big_support_033,posting_frequency,3,4,At least once a day,0.11
+33,teen_social_big_support_033,late_night_use,0,1,Never,0.36
+33,teen_social_big_support_033,late_night_use,1,2,Rarely,0.34
+33,teen_social_big_support_033,late_night_use,2,3,Sometimes,0.22
+33,teen_social_big_support_033,late_night_use,3,4,Often,0.08
+33,teen_social_big_support_033,sleep_interference,0,1,Never,0.44
+33,teen_social_big_support_033,sleep_interference,1,2,Rarely,0.32
+33,teen_social_big_support_033,sleep_interference,2,3,Sometimes,0.18
+33,teen_social_big_support_033,sleep_interference,3,4,Often,0.06
+33,teen_social_big_support_033,social_comparison,0,1,Never,0.3
+33,teen_social_big_support_033,social_comparison,1,2,Rarely,0.36
+33,teen_social_big_support_033,social_comparison,2,3,Sometimes,0.25
+33,teen_social_big_support_033,social_comparison,3,4,Often,0.09
+33,teen_social_big_support_033,connection_effect,0,1,Makes me feel less connected,0.14
+33,teen_social_big_support_033,connection_effect,1,2,Makes little difference,0.52
+33,teen_social_big_support_033,connection_effect,2,3,Makes me feel more connected,0.34
+33,teen_social_big_support_033,parental_rules,0,1,No rules,0.13
+33,teen_social_big_support_033,parental_rules,1,2,A few loose rules,0.3
+33,teen_social_big_support_033,parental_rules,2,3,Some clear rules,0.38
+33,teen_social_big_support_033,parental_rules,3,4,Very strict rules,0.19
+33,teen_social_big_support_033,primary_platform,0,1,TikTok,0.19
+33,teen_social_big_support_033,primary_platform,1,2,Instagram,0.18
+33,teen_social_big_support_033,primary_platform,2,3,YouTube,0.23
+33,teen_social_big_support_033,primary_platform,3,4,Snapchat,0.2
+33,teen_social_big_support_033,primary_platform,4,5,Another platform,0.08
+33,teen_social_big_support_033,primary_platform,5,6,I do not use social media,0.12
+34,teen_social_big_support_034,social_media_hours,0,1,Less than one hour,0.12
+34,teen_social_big_support_034,social_media_hours,1,2,One to three hours,0.82
+34,teen_social_big_support_034,social_media_hours,2,3,Four or more hours,0.06
+34,teen_social_big_support_034,posting_frequency,0,1,Never or almost never,0.2
+34,teen_social_big_support_034,posting_frequency,1,2,Less than once a week,0.3
+34,teen_social_big_support_034,posting_frequency,2,3,A few times a week,0.34
+34,teen_social_big_support_034,posting_frequency,3,4,At least once a day,0.16
+34,teen_social_big_support_034,late_night_use,0,1,Never,0.12
+34,teen_social_big_support_034,late_night_use,1,2,Rarely,0.36
+34,teen_social_big_support_034,late_night_use,2,3,Sometimes,0.36
+34,teen_social_big_support_034,late_night_use,3,4,Often,0.16
+34,teen_social_big_support_034,sleep_interference,0,1,Never,0.22
+34,teen_social_big_support_034,sleep_interference,1,2,Rarely,0.42
+34,teen_social_big_support_034,sleep_interference,2,3,Sometimes,0.27
+34,teen_social_big_support_034,sleep_interference,3,4,Often,0.09
+34,teen_social_big_support_034,social_comparison,0,1,Never,0.16
+34,teen_social_big_support_034,social_comparison,1,2,Rarely,0.36
+34,teen_social_big_support_034,social_comparison,2,3,Sometimes,0.34
+34,teen_social_big_support_034,social_comparison,3,4,Often,0.14
+34,teen_social_big_support_034,connection_effect,0,1,Makes me feel less connected,0.08
+34,teen_social_big_support_034,connection_effect,1,2,Makes little difference,0.34
+34,teen_social_big_support_034,connection_effect,2,3,Makes me feel more connected,0.58
+34,teen_social_big_support_034,parental_rules,0,1,No rules,0.14
+34,teen_social_big_support_034,parental_rules,1,2,A few loose rules,0.38
+34,teen_social_big_support_034,parental_rules,2,3,Some clear rules,0.36
+34,teen_social_big_support_034,parental_rules,3,4,Very strict rules,0.12
+34,teen_social_big_support_034,primary_platform,0,1,TikTok,0.3
+34,teen_social_big_support_034,primary_platform,1,2,Instagram,0.24
+34,teen_social_big_support_034,primary_platform,2,3,YouTube,0.16
+34,teen_social_big_support_034,primary_platform,3,4,Snapchat,0.22
+34,teen_social_big_support_034,primary_platform,4,5,Another platform,0.07
+34,teen_social_big_support_034,primary_platform,5,6,I do not use social media,0.01
+35,teen_social_big_support_035,social_media_hours,0,1,Less than one hour,0.03
+35,teen_social_big_support_035,social_media_hours,1,2,One to three hours,0.32
+35,teen_social_big_support_035,social_media_hours,2,3,Four or more hours,0.65
+35,teen_social_big_support_035,posting_frequency,0,1,Never or almost never,0.12
+35,teen_social_big_support_035,posting_frequency,1,2,Less than once a week,0.24
+35,teen_social_big_support_035,posting_frequency,2,3,A few times a week,0.38
+35,teen_social_big_support_035,posting_frequency,3,4,At least once a day,0.26
+35,teen_social_big_support_035,late_night_use,0,1,Never,0.05
+35,teen_social_big_support_035,late_night_use,1,2,Rarely,0.18
+35,teen_social_big_support_035,late_night_use,2,3,Sometimes,0.43
+35,teen_social_big_support_035,late_night_use,3,4,Often,0.34
+35,teen_social_big_support_035,sleep_interference,0,1,Never,0.08
+35,teen_social_big_support_035,sleep_interference,1,2,Rarely,0.25
+35,teen_social_big_support_035,sleep_interference,2,3,Sometimes,0.45
+35,teen_social_big_support_035,sleep_interference,3,4,Often,0.22
+35,teen_social_big_support_035,social_comparison,0,1,Never,0.1
+35,teen_social_big_support_035,social_comparison,1,2,Rarely,0.28
+35,teen_social_big_support_035,social_comparison,2,3,Sometimes,0.46
+35,teen_social_big_support_035,social_comparison,3,4,Often,0.16
+35,teen_social_big_support_035,connection_effect,0,1,Makes me feel less connected,0.13
+35,teen_social_big_support_035,connection_effect,1,2,Makes little difference,0.32
+35,teen_social_big_support_035,connection_effect,2,3,Makes me feel more connected,0.55
+35,teen_social_big_support_035,parental_rules,0,1,No rules,0.22
+35,teen_social_big_support_035,parental_rules,1,2,A few loose rules,0.41
+35,teen_social_big_support_035,parental_rules,2,3,Some clear rules,0.28
+35,teen_social_big_support_035,parental_rules,3,4,Very strict rules,0.09
+35,teen_social_big_support_035,primary_platform,0,1,TikTok,0.34
+35,teen_social_big_support_035,primary_platform,1,2,Instagram,0.2
+35,teen_social_big_support_035,primary_platform,2,3,YouTube,0.13
+35,teen_social_big_support_035,primary_platform,3,4,Snapchat,0.24
+35,teen_social_big_support_035,primary_platform,4,5,Another platform,0.08
+35,teen_social_big_support_035,primary_platform,5,6,I do not use social media,0.01
+36,teen_social_big_support_036,social_media_hours,0,1,Less than one hour,0.28
+36,teen_social_big_support_036,social_media_hours,1,2,One to three hours,0.55
+36,teen_social_big_support_036,social_media_hours,2,3,Four or more hours,0.17
+36,teen_social_big_support_036,posting_frequency,0,1,Never or almost never,0.82
+36,teen_social_big_support_036,posting_frequency,1,2,Less than once a week,0.12
+36,teen_social_big_support_036,posting_frequency,2,3,A few times a week,0.04
+36,teen_social_big_support_036,posting_frequency,3,4,At least once a day,0.02
+36,teen_social_big_support_036,late_night_use,0,1,Never,0.25
+36,teen_social_big_support_036,late_night_use,1,2,Rarely,0.37
+36,teen_social_big_support_036,late_night_use,2,3,Sometimes,0.27
+36,teen_social_big_support_036,late_night_use,3,4,Often,0.11
+36,teen_social_big_support_036,sleep_interference,0,1,Never,0.36
+36,teen_social_big_support_036,sleep_interference,1,2,Rarely,0.35
+36,teen_social_big_support_036,sleep_interference,2,3,Sometimes,0.2
+36,teen_social_big_support_036,sleep_interference,3,4,Often,0.09
+36,teen_social_big_support_036,social_comparison,0,1,Never,0.22
+36,teen_social_big_support_036,social_comparison,1,2,Rarely,0.39
+36,teen_social_big_support_036,social_comparison,2,3,Sometimes,0.29
+36,teen_social_big_support_036,social_comparison,3,4,Often,0.1
+36,teen_social_big_support_036,connection_effect,0,1,Makes me feel less connected,0.16
+36,teen_social_big_support_036,connection_effect,1,2,Makes little difference,0.57
+36,teen_social_big_support_036,connection_effect,2,3,Makes me feel more connected,0.27
+36,teen_social_big_support_036,parental_rules,0,1,No rules,0.09
+36,teen_social_big_support_036,parental_rules,1,2,A few loose rules,0.34
+36,teen_social_big_support_036,parental_rules,2,3,Some clear rules,0.39
+36,teen_social_big_support_036,parental_rules,3,4,Very strict rules,0.18
+36,teen_social_big_support_036,primary_platform,0,1,TikTok,0.27
+36,teen_social_big_support_036,primary_platform,1,2,Instagram,0.18
+36,teen_social_big_support_036,primary_platform,2,3,YouTube,0.3
+36,teen_social_big_support_036,primary_platform,3,4,Snapchat,0.15
+36,teen_social_big_support_036,primary_platform,4,5,Another platform,0.05
+36,teen_social_big_support_036,primary_platform,5,6,I do not use social media,0.05
+37,teen_social_big_support_037,social_media_hours,0,1,Less than one hour,0.2
+37,teen_social_big_support_037,social_media_hours,1,2,One to three hours,0.55
+37,teen_social_big_support_037,social_media_hours,2,3,Four or more hours,0.25
+37,teen_social_big_support_037,posting_frequency,0,1,Never or almost never,0.2
+37,teen_social_big_support_037,posting_frequency,1,2,Less than once a week,0.46
+37,teen_social_big_support_037,posting_frequency,2,3,A few times a week,0.24
+37,teen_social_big_support_037,posting_frequency,3,4,At least once a day,0.1
+37,teen_social_big_support_037,late_night_use,0,1,Never,0.12
+37,teen_social_big_support_037,late_night_use,1,2,Rarely,0.34
+37,teen_social_big_support_037,late_night_use,2,3,Sometimes,0.38
+37,teen_social_big_support_037,late_night_use,3,4,Often,0.16
+37,teen_social_big_support_037,sleep_interference,0,1,Never,0.2
+37,teen_social_big_support_037,sleep_interference,1,2,Rarely,0.42
+37,teen_social_big_support_037,sleep_interference,2,3,Sometimes,0.28
+37,teen_social_big_support_037,sleep_interference,3,4,Often,0.1
+37,teen_social_big_support_037,social_comparison,0,1,Never,0.16
+37,teen_social_big_support_037,social_comparison,1,2,Rarely,0.38
+37,teen_social_big_support_037,social_comparison,2,3,Sometimes,0.34
+37,teen_social_big_support_037,social_comparison,3,4,Often,0.12
+37,teen_social_big_support_037,connection_effect,0,1,Makes me feel less connected,0.12
+37,teen_social_big_support_037,connection_effect,1,2,Makes little difference,0.43
+37,teen_social_big_support_037,connection_effect,2,3,Makes me feel more connected,0.45
+37,teen_social_big_support_037,parental_rules,0,1,No rules,0.16
+37,teen_social_big_support_037,parental_rules,1,2,A few loose rules,0.41
+37,teen_social_big_support_037,parental_rules,2,3,Some clear rules,0.32
+37,teen_social_big_support_037,parental_rules,3,4,Very strict rules,0.11
+37,teen_social_big_support_037,primary_platform,0,1,TikTok,0.23
+37,teen_social_big_support_037,primary_platform,1,2,Instagram,0.25
+37,teen_social_big_support_037,primary_platform,2,3,YouTube,0.18
+37,teen_social_big_support_037,primary_platform,3,4,Snapchat,0.22
+37,teen_social_big_support_037,primary_platform,4,5,Another platform,0.1
+37,teen_social_big_support_037,primary_platform,5,6,I do not use social media,0.02
+38,teen_social_big_support_038,social_media_hours,0,1,Less than one hour,0.08
+38,teen_social_big_support_038,social_media_hours,1,2,One to three hours,0.57
+38,teen_social_big_support_038,social_media_hours,2,3,Four or more hours,0.35
+38,teen_social_big_support_038,posting_frequency,0,1,Never or almost never,0.02
+38,teen_social_big_support_038,posting_frequency,1,2,Less than once a week,0.08
+38,teen_social_big_support_038,posting_frequency,2,3,A few times a week,0.78
+38,teen_social_big_support_038,posting_frequency,3,4,At least once a day,0.12
+38,teen_social_big_support_038,late_night_use,0,1,Never,0.07
+38,teen_social_big_support_038,late_night_use,1,2,Rarely,0.22
+38,teen_social_big_support_038,late_night_use,2,3,Sometimes,0.43
+38,teen_social_big_support_038,late_night_use,3,4,Often,0.28
+38,teen_social_big_support_038,sleep_interference,0,1,Never,0.12
+38,teen_social_big_support_038,sleep_interference,1,2,Rarely,0.35
+38,teen_social_big_support_038,sleep_interference,2,3,Sometimes,0.38
+38,teen_social_big_support_038,sleep_interference,3,4,Often,0.15
+38,teen_social_big_support_038,social_comparison,0,1,Never,0.1
+38,teen_social_big_support_038,social_comparison,1,2,Rarely,0.28
+38,teen_social_big_support_038,social_comparison,2,3,Sometimes,0.43
+38,teen_social_big_support_038,social_comparison,3,4,Often,0.19
+38,teen_social_big_support_038,connection_effect,0,1,Makes me feel less connected,0.08
+38,teen_social_big_support_038,connection_effect,1,2,Makes little difference,0.3
+38,teen_social_big_support_038,connection_effect,2,3,Makes me feel more connected,0.62
+38,teen_social_big_support_038,parental_rules,0,1,No rules,0.15
+38,teen_social_big_support_038,parental_rules,1,2,A few loose rules,0.42
+38,teen_social_big_support_038,parental_rules,2,3,Some clear rules,0.34
+38,teen_social_big_support_038,parental_rules,3,4,Very strict rules,0.09
+38,teen_social_big_support_038,primary_platform,0,1,TikTok,0.3
+38,teen_social_big_support_038,primary_platform,1,2,Instagram,0.26
+38,teen_social_big_support_038,primary_platform,2,3,YouTube,0.12
+38,teen_social_big_support_038,primary_platform,3,4,Snapchat,0.25
+38,teen_social_big_support_038,primary_platform,4,5,Another platform,0.06
+38,teen_social_big_support_038,primary_platform,5,6,I do not use social media,0.01
+39,teen_social_big_support_039,social_media_hours,0,1,Less than one hour,0.08
+39,teen_social_big_support_039,social_media_hours,1,2,One to three hours,0.52
+39,teen_social_big_support_039,social_media_hours,2,3,Four or more hours,0.4
+39,teen_social_big_support_039,posting_frequency,0,1,Never or almost never,0.03
+39,teen_social_big_support_039,posting_frequency,1,2,Less than once a week,0.12
+39,teen_social_big_support_039,posting_frequency,2,3,A few times a week,0.3
+39,teen_social_big_support_039,posting_frequency,3,4,At least once a day,0.55
+39,teen_social_big_support_039,late_night_use,0,1,Never,0.06
+39,teen_social_big_support_039,late_night_use,1,2,Rarely,0.2
+39,teen_social_big_support_039,late_night_use,2,3,Sometimes,0.44
+39,teen_social_big_support_039,late_night_use,3,4,Often,0.3
+39,teen_social_big_support_039,sleep_interference,0,1,Never,0.12
+39,teen_social_big_support_039,sleep_interference,1,2,Rarely,0.32
+39,teen_social_big_support_039,sleep_interference,2,3,Sometimes,0.38
+39,teen_social_big_support_039,sleep_interference,3,4,Often,0.18
+39,teen_social_big_support_039,social_comparison,0,1,Never,0.08
+39,teen_social_big_support_039,social_comparison,1,2,Rarely,0.28
+39,teen_social_big_support_039,social_comparison,2,3,Sometimes,0.43
+39,teen_social_big_support_039,social_comparison,3,4,Often,0.21
+39,teen_social_big_support_039,connection_effect,0,1,Makes me feel less connected,0.08
+39,teen_social_big_support_039,connection_effect,1,2,Makes little difference,0.27
+39,teen_social_big_support_039,connection_effect,2,3,Makes me feel more connected,0.65
+39,teen_social_big_support_039,parental_rules,0,1,No rules,0.13
+39,teen_social_big_support_039,parental_rules,1,2,A few loose rules,0.38
+39,teen_social_big_support_039,parental_rules,2,3,Some clear rules,0.34
+39,teen_social_big_support_039,parental_rules,3,4,Very strict rules,0.15
+39,teen_social_big_support_039,primary_platform,0,1,TikTok,0.3
+39,teen_social_big_support_039,primary_platform,1,2,Instagram,0.27
+39,teen_social_big_support_039,primary_platform,2,3,YouTube,0.09
+39,teen_social_big_support_039,primary_platform,3,4,Snapchat,0.25
+39,teen_social_big_support_039,primary_platform,4,5,Another platform,0.08
+39,teen_social_big_support_039,primary_platform,5,6,I do not use social media,0.01
+40,teen_social_big_support_040,social_media_hours,0,1,Less than one hour,0.45
+40,teen_social_big_support_040,social_media_hours,1,2,One to three hours,0.45
+40,teen_social_big_support_040,social_media_hours,2,3,Four or more hours,0.1
+40,teen_social_big_support_040,posting_frequency,0,1,Never or almost never,0.45
+40,teen_social_big_support_040,posting_frequency,1,2,Less than once a week,0.25
+40,teen_social_big_support_040,posting_frequency,2,3,A few times a week,0.2
+40,teen_social_big_support_040,posting_frequency,3,4,At least once a day,0.1
+40,teen_social_big_support_040,late_night_use,0,1,Never,0.86
+40,teen_social_big_support_040,late_night_use,1,2,Rarely,0.1
+40,teen_social_big_support_040,late_night_use,2,3,Sometimes,0.03
+40,teen_social_big_support_040,late_night_use,3,4,Often,0.01
+40,teen_social_big_support_040,sleep_interference,0,1,Never,0.75
+40,teen_social_big_support_040,sleep_interference,1,2,Rarely,0.18
+40,teen_social_big_support_040,sleep_interference,2,3,Sometimes,0.06
+40,teen_social_big_support_040,sleep_interference,3,4,Often,0.01
+40,teen_social_big_support_040,social_comparison,0,1,Never,0.35
+40,teen_social_big_support_040,social_comparison,1,2,Rarely,0.35
+40,teen_social_big_support_040,social_comparison,2,3,Sometimes,0.2
+40,teen_social_big_support_040,social_comparison,3,4,Often,0.1
+40,teen_social_big_support_040,connection_effect,0,1,Makes me feel less connected,0.08
+40,teen_social_big_support_040,connection_effect,1,2,Makes little difference,0.47
+40,teen_social_big_support_040,connection_effect,2,3,Makes me feel more connected,0.45
+40,teen_social_big_support_040,parental_rules,0,1,No rules,0.05
+40,teen_social_big_support_040,parental_rules,1,2,A few loose rules,0.15
+40,teen_social_big_support_040,parental_rules,2,3,Some clear rules,0.45
+40,teen_social_big_support_040,parental_rules,3,4,Very strict rules,0.35
+40,teen_social_big_support_040,primary_platform,0,1,TikTok,0.18
+40,teen_social_big_support_040,primary_platform,1,2,Instagram,0.2
+40,teen_social_big_support_040,primary_platform,2,3,YouTube,0.3
+40,teen_social_big_support_040,primary_platform,3,4,Snapchat,0.15
+40,teen_social_big_support_040,primary_platform,4,5,Another platform,0.09
+40,teen_social_big_support_040,primary_platform,5,6,I do not use social media,0.08
+41,teen_social_big_support_041,social_media_hours,0,1,Less than one hour,0.23
+41,teen_social_big_support_041,social_media_hours,1,2,One to three hours,0.62
+41,teen_social_big_support_041,social_media_hours,2,3,Four or more hours,0.15
+41,teen_social_big_support_041,posting_frequency,0,1,Never or almost never,0.22
+41,teen_social_big_support_041,posting_frequency,1,2,Less than once a week,0.34
+41,teen_social_big_support_041,posting_frequency,2,3,A few times a week,0.31
+41,teen_social_big_support_041,posting_frequency,3,4,At least once a day,0.13
+41,teen_social_big_support_041,late_night_use,0,1,Never,0.25
+41,teen_social_big_support_041,late_night_use,1,2,Rarely,0.55
+41,teen_social_big_support_041,late_night_use,2,3,Sometimes,0.17
+41,teen_social_big_support_041,late_night_use,3,4,Often,0.03
+41,teen_social_big_support_041,sleep_interference,0,1,Never,0.31
+41,teen_social_big_support_041,sleep_interference,1,2,Rarely,0.46
+41,teen_social_big_support_041,sleep_interference,2,3,Sometimes,0.19
+41,teen_social_big_support_041,sleep_interference,3,4,Often,0.04
+41,teen_social_big_support_041,social_comparison,0,1,Never,0.2
+41,teen_social_big_support_041,social_comparison,1,2,Rarely,0.39
+41,teen_social_big_support_041,social_comparison,2,3,Sometimes,0.32
+41,teen_social_big_support_041,social_comparison,3,4,Often,0.09
+41,teen_social_big_support_041,connection_effect,0,1,Makes me feel less connected,0.1
+41,teen_social_big_support_041,connection_effect,1,2,Makes little difference,0.39
+41,teen_social_big_support_041,connection_effect,2,3,Makes me feel more connected,0.51
+41,teen_social_big_support_041,parental_rules,0,1,No rules,0.1
+41,teen_social_big_support_041,parental_rules,1,2,A few loose rules,0.31
+41,teen_social_big_support_041,parental_rules,2,3,Some clear rules,0.43
+41,teen_social_big_support_041,parental_rules,3,4,Very strict rules,0.16
+41,teen_social_big_support_041,primary_platform,0,1,TikTok,0.26
+41,teen_social_big_support_041,primary_platform,1,2,Instagram,0.24
+41,teen_social_big_support_041,primary_platform,2,3,YouTube,0.17
+41,teen_social_big_support_041,primary_platform,3,4,Snapchat,0.23
+41,teen_social_big_support_041,primary_platform,4,5,Another platform,0.09
+41,teen_social_big_support_041,primary_platform,5,6,I do not use social media,0.01
+42,teen_social_big_support_042,social_media_hours,0,1,Less than one hour,0.12
+42,teen_social_big_support_042,social_media_hours,1,2,One to three hours,0.58
+42,teen_social_big_support_042,social_media_hours,2,3,Four or more hours,0.3
+42,teen_social_big_support_042,posting_frequency,0,1,Never or almost never,0.18
+42,teen_social_big_support_042,posting_frequency,1,2,Less than once a week,0.32
+42,teen_social_big_support_042,posting_frequency,2,3,A few times a week,0.34
+42,teen_social_big_support_042,posting_frequency,3,4,At least once a day,0.16
+42,teen_social_big_support_042,late_night_use,0,1,Never,0.03
+42,teen_social_big_support_042,late_night_use,1,2,Rarely,0.14
+42,teen_social_big_support_042,late_night_use,2,3,Sometimes,0.72
+42,teen_social_big_support_042,late_night_use,3,4,Often,0.11
+42,teen_social_big_support_042,sleep_interference,0,1,Never,0.08
+42,teen_social_big_support_042,sleep_interference,1,2,Rarely,0.34
+42,teen_social_big_support_042,sleep_interference,2,3,Sometimes,0.46
+42,teen_social_big_support_042,sleep_interference,3,4,Often,0.12
+42,teen_social_big_support_042,social_comparison,0,1,Never,0.1
+42,teen_social_big_support_042,social_comparison,1,2,Rarely,0.36
+42,teen_social_big_support_042,social_comparison,2,3,Sometimes,0.42
+42,teen_social_big_support_042,social_comparison,3,4,Often,0.12
+42,teen_social_big_support_042,connection_effect,0,1,Makes me feel less connected,0.1
+42,teen_social_big_support_042,connection_effect,1,2,Makes little difference,0.35
+42,teen_social_big_support_042,connection_effect,2,3,Makes me feel more connected,0.55
+42,teen_social_big_support_042,parental_rules,0,1,No rules,0.12
+42,teen_social_big_support_042,parental_rules,1,2,A few loose rules,0.36
+42,teen_social_big_support_042,parental_rules,2,3,Some clear rules,0.4
+42,teen_social_big_support_042,parental_rules,3,4,Very strict rules,0.12
+42,teen_social_big_support_042,primary_platform,0,1,TikTok,0.28
+42,teen_social_big_support_042,primary_platform,1,2,Instagram,0.24
+42,teen_social_big_support_042,primary_platform,2,3,YouTube,0.13
+42,teen_social_big_support_042,primary_platform,3,4,Snapchat,0.26
+42,teen_social_big_support_042,primary_platform,4,5,Another platform,0.08
+42,teen_social_big_support_042,primary_platform,5,6,I do not use social media,0.01
+43,teen_social_big_support_043,social_media_hours,0,1,Less than one hour,0.05
+43,teen_social_big_support_043,social_media_hours,1,2,One to three hours,0.52
+43,teen_social_big_support_043,social_media_hours,2,3,Four or more hours,0.43
+43,teen_social_big_support_043,posting_frequency,0,1,Never or almost never,0.16
+43,teen_social_big_support_043,posting_frequency,1,2,Less than once a week,0.28
+43,teen_social_big_support_043,posting_frequency,2,3,A few times a week,0.36
+43,teen_social_big_support_043,posting_frequency,3,4,At least once a day,0.2
+43,teen_social_big_support_043,late_night_use,0,1,Never,0.02
+43,teen_social_big_support_043,late_night_use,1,2,Rarely,0.1
+43,teen_social_big_support_043,late_night_use,2,3,Sometimes,0.35
+43,teen_social_big_support_043,late_night_use,3,4,Often,0.53
+43,teen_social_big_support_043,sleep_interference,0,1,Never,0.06
+43,teen_social_big_support_043,sleep_interference,1,2,Rarely,0.22
+43,teen_social_big_support_043,sleep_interference,2,3,Sometimes,0.45
+43,teen_social_big_support_043,sleep_interference,3,4,Often,0.27
+43,teen_social_big_support_043,social_comparison,0,1,Never,0.11
+43,teen_social_big_support_043,social_comparison,1,2,Rarely,0.3
+43,teen_social_big_support_043,social_comparison,2,3,Sometimes,0.42
+43,teen_social_big_support_043,social_comparison,3,4,Often,0.17
+43,teen_social_big_support_043,connection_effect,0,1,Makes me feel less connected,0.12
+43,teen_social_big_support_043,connection_effect,1,2,Makes little difference,0.31
+43,teen_social_big_support_043,connection_effect,2,3,Makes me feel more connected,0.57
+43,teen_social_big_support_043,parental_rules,0,1,No rules,0.18
+43,teen_social_big_support_043,parental_rules,1,2,A few loose rules,0.39
+43,teen_social_big_support_043,parental_rules,2,3,Some clear rules,0.33
+43,teen_social_big_support_043,parental_rules,3,4,Very strict rules,0.1
+43,teen_social_big_support_043,primary_platform,0,1,TikTok,0.36
+43,teen_social_big_support_043,primary_platform,1,2,Instagram,0.23
+43,teen_social_big_support_043,primary_platform,2,3,YouTube,0.16
+43,teen_social_big_support_043,primary_platform,3,4,Snapchat,0.2
+43,teen_social_big_support_043,primary_platform,4,5,Another platform,0.04
+43,teen_social_big_support_043,primary_platform,5,6,I do not use social media,0.01
+44,teen_social_big_support_044,social_media_hours,0,1,Less than one hour,0.42
+44,teen_social_big_support_044,social_media_hours,1,2,One to three hours,0.48
+44,teen_social_big_support_044,social_media_hours,2,3,Four or more hours,0.1
+44,teen_social_big_support_044,posting_frequency,0,1,Never or almost never,0.42
+44,teen_social_big_support_044,posting_frequency,1,2,Less than once a week,0.28
+44,teen_social_big_support_044,posting_frequency,2,3,A few times a week,0.2
+44,teen_social_big_support_044,posting_frequency,3,4,At least once a day,0.1
+44,teen_social_big_support_044,late_night_use,0,1,Never,0.68
+44,teen_social_big_support_044,late_night_use,1,2,Rarely,0.2
+44,teen_social_big_support_044,late_night_use,2,3,Sometimes,0.09
+44,teen_social_big_support_044,late_night_use,3,4,Often,0.03
+44,teen_social_big_support_044,sleep_interference,0,1,Never,0.86
+44,teen_social_big_support_044,sleep_interference,1,2,Rarely,0.1
+44,teen_social_big_support_044,sleep_interference,2,3,Sometimes,0.03
+44,teen_social_big_support_044,sleep_interference,3,4,Often,0.01
+44,teen_social_big_support_044,social_comparison,0,1,Never,0.43
+44,teen_social_big_support_044,social_comparison,1,2,Rarely,0.34
+44,teen_social_big_support_044,social_comparison,2,3,Sometimes,0.18
+44,teen_social_big_support_044,social_comparison,3,4,Often,0.05
+44,teen_social_big_support_044,connection_effect,0,1,Makes me feel less connected,0.08
+44,teen_social_big_support_044,connection_effect,1,2,Makes little difference,0.48
+44,teen_social_big_support_044,connection_effect,2,3,Makes me feel more connected,0.44
+44,teen_social_big_support_044,parental_rules,0,1,No rules,0.12
+44,teen_social_big_support_044,parental_rules,1,2,A few loose rules,0.31
+44,teen_social_big_support_044,parental_rules,2,3,Some clear rules,0.39
+44,teen_social_big_support_044,parental_rules,3,4,Very strict rules,0.18
+44,teen_social_big_support_044,primary_platform,0,1,TikTok,0.19
+44,teen_social_big_support_044,primary_platform,1,2,Instagram,0.22
+44,teen_social_big_support_044,primary_platform,2,3,YouTube,0.25
+44,teen_social_big_support_044,primary_platform,3,4,Snapchat,0.2
+44,teen_social_big_support_044,primary_platform,4,5,Another platform,0.08
+44,teen_social_big_support_044,primary_platform,5,6,I do not use social media,0.06
+45,teen_social_big_support_045,social_media_hours,0,1,Less than one hour,0.18
+45,teen_social_big_support_045,social_media_hours,1,2,One to three hours,0.55
+45,teen_social_big_support_045,social_media_hours,2,3,Four or more hours,0.27
+45,teen_social_big_support_045,posting_frequency,0,1,Never or almost never,0.18
+45,teen_social_big_support_045,posting_frequency,1,2,Less than once a week,0.3
+45,teen_social_big_support_045,posting_frequency,2,3,A few times a week,0.34
+45,teen_social_big_support_045,posting_frequency,3,4,At least once a day,0.18
+45,teen_social_big_support_045,late_night_use,0,1,Never,0.16
+45,teen_social_big_support_045,late_night_use,1,2,Rarely,0.44
+45,teen_social_big_support_045,late_night_use,2,3,Sometimes,0.3
+45,teen_social_big_support_045,late_night_use,3,4,Often,0.1
+45,teen_social_big_support_045,sleep_interference,0,1,Never,0.26
+45,teen_social_big_support_045,sleep_interference,1,2,Rarely,0.48
+45,teen_social_big_support_045,sleep_interference,2,3,Sometimes,0.21
+45,teen_social_big_support_045,sleep_interference,3,4,Often,0.05
+45,teen_social_big_support_045,social_comparison,0,1,Never,0.17
+45,teen_social_big_support_045,social_comparison,1,2,Rarely,0.37
+45,teen_social_big_support_045,social_comparison,2,3,Sometimes,0.34
+45,teen_social_big_support_045,social_comparison,3,4,Often,0.12
+45,teen_social_big_support_045,connection_effect,0,1,Makes me feel less connected,0.12
+45,teen_social_big_support_045,connection_effect,1,2,Makes little difference,0.43
+45,teen_social_big_support_045,connection_effect,2,3,Makes me feel more connected,0.45
+45,teen_social_big_support_045,parental_rules,0,1,No rules,0.16
+45,teen_social_big_support_045,parental_rules,1,2,A few loose rules,0.39
+45,teen_social_big_support_045,parental_rules,2,3,Some clear rules,0.34
+45,teen_social_big_support_045,parental_rules,3,4,Very strict rules,0.11
+45,teen_social_big_support_045,primary_platform,0,1,TikTok,0.31
+45,teen_social_big_support_045,primary_platform,1,2,Instagram,0.25
+45,teen_social_big_support_045,primary_platform,2,3,YouTube,0.16
+45,teen_social_big_support_045,primary_platform,3,4,Snapchat,0.2
+45,teen_social_big_support_045,primary_platform,4,5,Another platform,0.06
+45,teen_social_big_support_045,primary_platform,5,6,I do not use social media,0.02
+46,teen_social_big_support_046,social_media_hours,0,1,Less than one hour,0.05
+46,teen_social_big_support_046,social_media_hours,1,2,One to three hours,0.45
+46,teen_social_big_support_046,social_media_hours,2,3,Four or more hours,0.5
+46,teen_social_big_support_046,posting_frequency,0,1,Never or almost never,0.12
+46,teen_social_big_support_046,posting_frequency,1,2,Less than once a week,0.25
+46,teen_social_big_support_046,posting_frequency,2,3,A few times a week,0.4
+46,teen_social_big_support_046,posting_frequency,3,4,At least once a day,0.23
+46,teen_social_big_support_046,late_night_use,0,1,Never,0.03
+46,teen_social_big_support_046,late_night_use,1,2,Rarely,0.18
+46,teen_social_big_support_046,late_night_use,2,3,Sometimes,0.54
+46,teen_social_big_support_046,late_night_use,3,4,Often,0.25
+46,teen_social_big_support_046,sleep_interference,0,1,Never,0.02
+46,teen_social_big_support_046,sleep_interference,1,2,Rarely,0.12
+46,teen_social_big_support_046,sleep_interference,2,3,Sometimes,0.76
+46,teen_social_big_support_046,sleep_interference,3,4,Often,0.1
+46,teen_social_big_support_046,social_comparison,0,1,Never,0.08
+46,teen_social_big_support_046,social_comparison,1,2,Rarely,0.27
+46,teen_social_big_support_046,social_comparison,2,3,Sometimes,0.5
+46,teen_social_big_support_046,social_comparison,3,4,Often,0.15
+46,teen_social_big_support_046,connection_effect,0,1,Makes me feel less connected,0.1
+46,teen_social_big_support_046,connection_effect,1,2,Makes little difference,0.3
+46,teen_social_big_support_046,connection_effect,2,3,Makes me feel more connected,0.6
+46,teen_social_big_support_046,parental_rules,0,1,No rules,0.12
+46,teen_social_big_support_046,parental_rules,1,2,A few loose rules,0.3
+46,teen_social_big_support_046,parental_rules,2,3,Some clear rules,0.43
+46,teen_social_big_support_046,parental_rules,3,4,Very strict rules,0.15
+46,teen_social_big_support_046,primary_platform,0,1,TikTok,0.34
+46,teen_social_big_support_046,primary_platform,1,2,Instagram,0.24
+46,teen_social_big_support_046,primary_platform,2,3,YouTube,0.12
+46,teen_social_big_support_046,primary_platform,3,4,Snapchat,0.23
+46,teen_social_big_support_046,primary_platform,4,5,Another platform,0.06
+46,teen_social_big_support_046,primary_platform,5,6,I do not use social media,0.01
+47,teen_social_big_support_047,social_media_hours,0,1,Less than one hour,0.05
+47,teen_social_big_support_047,social_media_hours,1,2,One to three hours,0.35
+47,teen_social_big_support_047,social_media_hours,2,3,Four or more hours,0.6
+47,teen_social_big_support_047,posting_frequency,0,1,Never or almost never,0.1
+47,teen_social_big_support_047,posting_frequency,1,2,Less than once a week,0.2
+47,teen_social_big_support_047,posting_frequency,2,3,A few times a week,0.4
+47,teen_social_big_support_047,posting_frequency,3,4,At least once a day,0.3
+47,teen_social_big_support_047,late_night_use,0,1,Never,0.02
+47,teen_social_big_support_047,late_night_use,1,2,Rarely,0.08
+47,teen_social_big_support_047,late_night_use,2,3,Sometimes,0.3
+47,teen_social_big_support_047,late_night_use,3,4,Often,0.6
+47,teen_social_big_support_047,sleep_interference,0,1,Never,0.03
+47,teen_social_big_support_047,sleep_interference,1,2,Rarely,0.12
+47,teen_social_big_support_047,sleep_interference,2,3,Sometimes,0.35
+47,teen_social_big_support_047,sleep_interference,3,4,Often,0.5
+47,teen_social_big_support_047,social_comparison,0,1,Never,0.08
+47,teen_social_big_support_047,social_comparison,1,2,Rarely,0.22
+47,teen_social_big_support_047,social_comparison,2,3,Sometimes,0.45
+47,teen_social_big_support_047,social_comparison,3,4,Often,0.25
+47,teen_social_big_support_047,connection_effect,0,1,Makes me feel less connected,0.12
+47,teen_social_big_support_047,connection_effect,1,2,Makes little difference,0.28
+47,teen_social_big_support_047,connection_effect,2,3,Makes me feel more connected,0.6
+47,teen_social_big_support_047,parental_rules,0,1,No rules,0.15
+47,teen_social_big_support_047,parental_rules,1,2,A few loose rules,0.35
+47,teen_social_big_support_047,parental_rules,2,3,Some clear rules,0.35
+47,teen_social_big_support_047,parental_rules,3,4,Very strict rules,0.15
+47,teen_social_big_support_047,primary_platform,0,1,TikTok,0.35
+47,teen_social_big_support_047,primary_platform,1,2,Instagram,0.2
+47,teen_social_big_support_047,primary_platform,2,3,YouTube,0.12
+47,teen_social_big_support_047,primary_platform,3,4,Snapchat,0.25
+47,teen_social_big_support_047,primary_platform,4,5,Another platform,0.07
+47,teen_social_big_support_047,primary_platform,5,6,I do not use social media,0.01
+48,teen_social_big_support_048,social_media_hours,0,1,Less than one hour,0.3
+48,teen_social_big_support_048,social_media_hours,1,2,One to three hours,0.53
+48,teen_social_big_support_048,social_media_hours,2,3,Four or more hours,0.17
+48,teen_social_big_support_048,posting_frequency,0,1,Never or almost never,0.38
+48,teen_social_big_support_048,posting_frequency,1,2,Less than once a week,0.29
+48,teen_social_big_support_048,posting_frequency,2,3,A few times a week,0.23
+48,teen_social_big_support_048,posting_frequency,3,4,At least once a day,0.1
+48,teen_social_big_support_048,late_night_use,0,1,Never,0.32
+48,teen_social_big_support_048,late_night_use,1,2,Rarely,0.37
+48,teen_social_big_support_048,late_night_use,2,3,Sometimes,0.22
+48,teen_social_big_support_048,late_night_use,3,4,Often,0.09
+48,teen_social_big_support_048,sleep_interference,0,1,Never,0.43
+48,teen_social_big_support_048,sleep_interference,1,2,Rarely,0.34
+48,teen_social_big_support_048,sleep_interference,2,3,Sometimes,0.17
+48,teen_social_big_support_048,sleep_interference,3,4,Often,0.06
+48,teen_social_big_support_048,social_comparison,0,1,Never,0.82
+48,teen_social_big_support_048,social_comparison,1,2,Rarely,0.13
+48,teen_social_big_support_048,social_comparison,2,3,Sometimes,0.04
+48,teen_social_big_support_048,social_comparison,3,4,Often,0.01
+48,teen_social_big_support_048,connection_effect,0,1,Makes me feel less connected,0.08
+48,teen_social_big_support_048,connection_effect,1,2,Makes little difference,0.48
+48,teen_social_big_support_048,connection_effect,2,3,Makes me feel more connected,0.44
+48,teen_social_big_support_048,parental_rules,0,1,No rules,0.14
+48,teen_social_big_support_048,parental_rules,1,2,A few loose rules,0.34
+48,teen_social_big_support_048,parental_rules,2,3,Some clear rules,0.35
+48,teen_social_big_support_048,parental_rules,3,4,Very strict rules,0.17
+48,teen_social_big_support_048,primary_platform,0,1,TikTok,0.22
+48,teen_social_big_support_048,primary_platform,1,2,Instagram,0.2
+48,teen_social_big_support_048,primary_platform,2,3,YouTube,0.23
+48,teen_social_big_support_048,primary_platform,3,4,Snapchat,0.23
+48,teen_social_big_support_048,primary_platform,4,5,Another platform,0.08
+48,teen_social_big_support_048,primary_platform,5,6,I do not use social media,0.04
+49,teen_social_big_support_049,social_media_hours,0,1,Less than one hour,0.12
+49,teen_social_big_support_049,social_media_hours,1,2,One to three hours,0.56
+49,teen_social_big_support_049,social_media_hours,2,3,Four or more hours,0.32
+49,teen_social_big_support_049,posting_frequency,0,1,Never or almost never,0.18
+49,teen_social_big_support_049,posting_frequency,1,2,Less than once a week,0.34
+49,teen_social_big_support_049,posting_frequency,2,3,A few times a week,0.32
+49,teen_social_big_support_049,posting_frequency,3,4,At least once a day,0.16
+49,teen_social_big_support_049,late_night_use,0,1,Never,0.16
+49,teen_social_big_support_049,late_night_use,1,2,Rarely,0.34
+49,teen_social_big_support_049,late_night_use,2,3,Sometimes,0.34
+49,teen_social_big_support_049,late_night_use,3,4,Often,0.16
+49,teen_social_big_support_049,sleep_interference,0,1,Never,0.26
+49,teen_social_big_support_049,sleep_interference,1,2,Rarely,0.38
+49,teen_social_big_support_049,sleep_interference,2,3,Sometimes,0.25
+49,teen_social_big_support_049,sleep_interference,3,4,Often,0.11
+49,teen_social_big_support_049,social_comparison,0,1,Never,0.24
+49,teen_social_big_support_049,social_comparison,1,2,Rarely,0.45
+49,teen_social_big_support_049,social_comparison,2,3,Sometimes,0.25
+49,teen_social_big_support_049,social_comparison,3,4,Often,0.06
+49,teen_social_big_support_049,connection_effect,0,1,Makes me feel less connected,0.1
+49,teen_social_big_support_049,connection_effect,1,2,Makes little difference,0.39
+49,teen_social_big_support_049,connection_effect,2,3,Makes me feel more connected,0.51
+49,teen_social_big_support_049,parental_rules,0,1,No rules,0.14
+49,teen_social_big_support_049,parental_rules,1,2,A few loose rules,0.36
+49,teen_social_big_support_049,parental_rules,2,3,Some clear rules,0.34
+49,teen_social_big_support_049,parental_rules,3,4,Very strict rules,0.16
+49,teen_social_big_support_049,primary_platform,0,1,TikTok,0.3
+49,teen_social_big_support_049,primary_platform,1,2,Instagram,0.24
+49,teen_social_big_support_049,primary_platform,2,3,YouTube,0.13
+49,teen_social_big_support_049,primary_platform,3,4,Snapchat,0.24
+49,teen_social_big_support_049,primary_platform,4,5,Another platform,0.07
+49,teen_social_big_support_049,primary_platform,5,6,I do not use social media,0.02
+50,teen_social_big_support_050,social_media_hours,0,1,Less than one hour,0.08
+50,teen_social_big_support_050,social_media_hours,1,2,One to three hours,0.47
+50,teen_social_big_support_050,social_media_hours,2,3,Four or more hours,0.45
+50,teen_social_big_support_050,posting_frequency,0,1,Never or almost never,0.12
+50,teen_social_big_support_050,posting_frequency,1,2,Less than once a week,0.28
+50,teen_social_big_support_050,posting_frequency,2,3,A few times a week,0.4
+50,teen_social_big_support_050,posting_frequency,3,4,At least once a day,0.2
+50,teen_social_big_support_050,late_night_use,0,1,Never,0.05
+50,teen_social_big_support_050,late_night_use,1,2,Rarely,0.2
+50,teen_social_big_support_050,late_night_use,2,3,Sometimes,0.45
+50,teen_social_big_support_050,late_night_use,3,4,Often,0.3
+50,teen_social_big_support_050,sleep_interference,0,1,Never,0.07
+50,teen_social_big_support_050,sleep_interference,1,2,Rarely,0.28
+50,teen_social_big_support_050,sleep_interference,2,3,Sometimes,0.45
+50,teen_social_big_support_050,sleep_interference,3,4,Often,0.2
+50,teen_social_big_support_050,social_comparison,0,1,Never,0.03
+50,teen_social_big_support_050,social_comparison,1,2,Rarely,0.14
+50,teen_social_big_support_050,social_comparison,2,3,Sometimes,0.68
+50,teen_social_big_support_050,social_comparison,3,4,Often,0.15
+50,teen_social_big_support_050,connection_effect,0,1,Makes me feel less connected,0.12
+50,teen_social_big_support_050,connection_effect,1,2,Makes little difference,0.3
+50,teen_social_big_support_050,connection_effect,2,3,Makes me feel more connected,0.58
+50,teen_social_big_support_050,parental_rules,0,1,No rules,0.13
+50,teen_social_big_support_050,parental_rules,1,2,A few loose rules,0.34
+50,teen_social_big_support_050,parental_rules,2,3,Some clear rules,0.39
+50,teen_social_big_support_050,parental_rules,3,4,Very strict rules,0.14
+50,teen_social_big_support_050,primary_platform,0,1,TikTok,0.34
+50,teen_social_big_support_050,primary_platform,1,2,Instagram,0.26
+50,teen_social_big_support_050,primary_platform,2,3,YouTube,0.11
+50,teen_social_big_support_050,primary_platform,3,4,Snapchat,0.22
+50,teen_social_big_support_050,primary_platform,4,5,Another platform,0.06
+50,teen_social_big_support_050,primary_platform,5,6,I do not use social media,0.01
+51,teen_social_big_support_051,social_media_hours,0,1,Less than one hour,0.08
+51,teen_social_big_support_051,social_media_hours,1,2,One to three hours,0.52
+51,teen_social_big_support_051,social_media_hours,2,3,Four or more hours,0.4
+51,teen_social_big_support_051,posting_frequency,0,1,Never or almost never,0.2
+51,teen_social_big_support_051,posting_frequency,1,2,Less than once a week,0.34
+51,teen_social_big_support_051,posting_frequency,2,3,A few times a week,0.31
+51,teen_social_big_support_051,posting_frequency,3,4,At least once a day,0.15
+51,teen_social_big_support_051,late_night_use,0,1,Never,0.07
+51,teen_social_big_support_051,late_night_use,1,2,Rarely,0.2
+51,teen_social_big_support_051,late_night_use,2,3,Sometimes,0.43
+51,teen_social_big_support_051,late_night_use,3,4,Often,0.3
+51,teen_social_big_support_051,sleep_interference,0,1,Never,0.12
+51,teen_social_big_support_051,sleep_interference,1,2,Rarely,0.27
+51,teen_social_big_support_051,sleep_interference,2,3,Sometimes,0.42
+51,teen_social_big_support_051,sleep_interference,3,4,Often,0.19
+51,teen_social_big_support_051,social_comparison,0,1,Never,0.02
+51,teen_social_big_support_051,social_comparison,1,2,Rarely,0.11
+51,teen_social_big_support_051,social_comparison,2,3,Sometimes,0.32
+51,teen_social_big_support_051,social_comparison,3,4,Often,0.55
+51,teen_social_big_support_051,connection_effect,0,1,Makes me feel less connected,0.22
+51,teen_social_big_support_051,connection_effect,1,2,Makes little difference,0.35
+51,teen_social_big_support_051,connection_effect,2,3,Makes me feel more connected,0.43
+51,teen_social_big_support_051,parental_rules,0,1,No rules,0.15
+51,teen_social_big_support_051,parental_rules,1,2,A few loose rules,0.4
+51,teen_social_big_support_051,parental_rules,2,3,Some clear rules,0.35
+51,teen_social_big_support_051,parental_rules,3,4,Very strict rules,0.1
+51,teen_social_big_support_051,primary_platform,0,1,TikTok,0.36
+51,teen_social_big_support_051,primary_platform,1,2,Instagram,0.26
+51,teen_social_big_support_051,primary_platform,2,3,YouTube,0.12
+51,teen_social_big_support_051,primary_platform,3,4,Snapchat,0.2
+51,teen_social_big_support_051,primary_platform,4,5,Another platform,0.05
+51,teen_social_big_support_051,primary_platform,5,6,I do not use social media,0.01
+52,teen_social_big_support_052,social_media_hours,0,1,Less than one hour,0.08
+52,teen_social_big_support_052,social_media_hours,1,2,One to three hours,0.45
+52,teen_social_big_support_052,social_media_hours,2,3,Four or more hours,0.47
+52,teen_social_big_support_052,posting_frequency,0,1,Never or almost never,0.33
+52,teen_social_big_support_052,posting_frequency,1,2,Less than once a week,0.3
+52,teen_social_big_support_052,posting_frequency,2,3,A few times a week,0.25
+52,teen_social_big_support_052,posting_frequency,3,4,At least once a day,0.12
+52,teen_social_big_support_052,late_night_use,0,1,Never,0.04
+52,teen_social_big_support_052,late_night_use,1,2,Rarely,0.18
+52,teen_social_big_support_052,late_night_use,2,3,Sometimes,0.38
+52,teen_social_big_support_052,late_night_use,3,4,Often,0.4
+52,teen_social_big_support_052,sleep_interference,0,1,Never,0.05
+52,teen_social_big_support_052,sleep_interference,1,2,Rarely,0.2
+52,teen_social_big_support_052,sleep_interference,2,3,Sometimes,0.38
+52,teen_social_big_support_052,sleep_interference,3,4,Often,0.37
+52,teen_social_big_support_052,social_comparison,0,1,Never,0.03
+52,teen_social_big_support_052,social_comparison,1,2,Rarely,0.14
+52,teen_social_big_support_052,social_comparison,2,3,Sometimes,0.37
+52,teen_social_big_support_052,social_comparison,3,4,Often,0.46
+52,teen_social_big_support_052,connection_effect,0,1,Makes me feel less connected,0.84
+52,teen_social_big_support_052,connection_effect,1,2,Makes little difference,0.12
+52,teen_social_big_support_052,connection_effect,2,3,Makes me feel more connected,0.04
+52,teen_social_big_support_052,parental_rules,0,1,No rules,0.1
+52,teen_social_big_support_052,parental_rules,1,2,A few loose rules,0.36
+52,teen_social_big_support_052,parental_rules,2,3,Some clear rules,0.34
+52,teen_social_big_support_052,parental_rules,3,4,Very strict rules,0.2
+52,teen_social_big_support_052,primary_platform,0,1,TikTok,0.38
+52,teen_social_big_support_052,primary_platform,1,2,Instagram,0.28
+52,teen_social_big_support_052,primary_platform,2,3,YouTube,0.08
+52,teen_social_big_support_052,primary_platform,3,4,Snapchat,0.2
+52,teen_social_big_support_052,primary_platform,4,5,Another platform,0.05
+52,teen_social_big_support_052,primary_platform,5,6,I do not use social media,0.01
+53,teen_social_big_support_053,social_media_hours,0,1,Less than one hour,0.12
+53,teen_social_big_support_053,social_media_hours,1,2,One to three hours,0.58
+53,teen_social_big_support_053,social_media_hours,2,3,Four or more hours,0.3
+53,teen_social_big_support_053,posting_frequency,0,1,Never or almost never,0.16
+53,teen_social_big_support_053,posting_frequency,1,2,Less than once a week,0.32
+53,teen_social_big_support_053,posting_frequency,2,3,A few times a week,0.34
+53,teen_social_big_support_053,posting_frequency,3,4,At least once a day,0.18
+53,teen_social_big_support_053,late_night_use,0,1,Never,0.08
+53,teen_social_big_support_053,late_night_use,1,2,Rarely,0.29
+53,teen_social_big_support_053,late_night_use,2,3,Sometimes,0.42
+53,teen_social_big_support_053,late_night_use,3,4,Often,0.21
+53,teen_social_big_support_053,sleep_interference,0,1,Never,0.14
+53,teen_social_big_support_053,sleep_interference,1,2,Rarely,0.36
+53,teen_social_big_support_053,sleep_interference,2,3,Sometimes,0.35
+53,teen_social_big_support_053,sleep_interference,3,4,Often,0.15
+53,teen_social_big_support_053,social_comparison,0,1,Never,0.12
+53,teen_social_big_support_053,social_comparison,1,2,Rarely,0.37
+53,teen_social_big_support_053,social_comparison,2,3,Sometimes,0.36
+53,teen_social_big_support_053,social_comparison,3,4,Often,0.15
+53,teen_social_big_support_053,connection_effect,0,1,Makes me feel less connected,0.16
+53,teen_social_big_support_053,connection_effect,1,2,Makes little difference,0.62
+53,teen_social_big_support_053,connection_effect,2,3,Makes me feel more connected,0.22
+53,teen_social_big_support_053,parental_rules,0,1,No rules,0.18
+53,teen_social_big_support_053,parental_rules,1,2,A few loose rules,0.38
+53,teen_social_big_support_053,parental_rules,2,3,Some clear rules,0.32
+53,teen_social_big_support_053,parental_rules,3,4,Very strict rules,0.12
+53,teen_social_big_support_053,primary_platform,0,1,TikTok,0.31
+53,teen_social_big_support_053,primary_platform,1,2,Instagram,0.21
+53,teen_social_big_support_053,primary_platform,2,3,YouTube,0.18
+53,teen_social_big_support_053,primary_platform,3,4,Snapchat,0.22
+53,teen_social_big_support_053,primary_platform,4,5,Another platform,0.06
+53,teen_social_big_support_053,primary_platform,5,6,I do not use social media,0.02
+54,teen_social_big_support_054,social_media_hours,0,1,Less than one hour,0.06
+54,teen_social_big_support_054,social_media_hours,1,2,One to three hours,0.44
+54,teen_social_big_support_054,social_media_hours,2,3,Four or more hours,0.5
+54,teen_social_big_support_054,posting_frequency,0,1,Never or almost never,0.04
+54,teen_social_big_support_054,posting_frequency,1,2,Less than once a week,0.16
+54,teen_social_big_support_054,posting_frequency,2,3,A few times a week,0.43
+54,teen_social_big_support_054,posting_frequency,3,4,At least once a day,0.37
+54,teen_social_big_support_054,late_night_use,0,1,Never,0.05
+54,teen_social_big_support_054,late_night_use,1,2,Rarely,0.18
+54,teen_social_big_support_054,late_night_use,2,3,Sometimes,0.42
+54,teen_social_big_support_054,late_night_use,3,4,Often,0.35
+54,teen_social_big_support_054,sleep_interference,0,1,Never,0.09
+54,teen_social_big_support_054,sleep_interference,1,2,Rarely,0.27
+54,teen_social_big_support_054,sleep_interference,2,3,Sometimes,0.41
+54,teen_social_big_support_054,sleep_interference,3,4,Often,0.23
+54,teen_social_big_support_054,social_comparison,0,1,Never,0.12
+54,teen_social_big_support_054,social_comparison,1,2,Rarely,0.32
+54,teen_social_big_support_054,social_comparison,2,3,Sometimes,0.39
+54,teen_social_big_support_054,social_comparison,3,4,Often,0.17
+54,teen_social_big_support_054,connection_effect,0,1,Makes me feel less connected,0.01
+54,teen_social_big_support_054,connection_effect,1,2,Makes little difference,0.08
+54,teen_social_big_support_054,connection_effect,2,3,Makes me feel more connected,0.91
+54,teen_social_big_support_054,parental_rules,0,1,No rules,0.16
+54,teen_social_big_support_054,parental_rules,1,2,A few loose rules,0.39
+54,teen_social_big_support_054,parental_rules,2,3,Some clear rules,0.33
+54,teen_social_big_support_054,parental_rules,3,4,Very strict rules,0.12
+54,teen_social_big_support_054,primary_platform,0,1,TikTok,0.24
+54,teen_social_big_support_054,primary_platform,1,2,Instagram,0.25
+54,teen_social_big_support_054,primary_platform,2,3,YouTube,0.08
+54,teen_social_big_support_054,primary_platform,3,4,Snapchat,0.33
+54,teen_social_big_support_054,primary_platform,4,5,Another platform,0.09
+54,teen_social_big_support_054,primary_platform,5,6,I do not use social media,0.01
+55,teen_social_big_support_055,social_media_hours,0,1,Less than one hour,0.08
+55,teen_social_big_support_055,social_media_hours,1,2,One to three hours,0.47
+55,teen_social_big_support_055,social_media_hours,2,3,Four or more hours,0.45
+55,teen_social_big_support_055,posting_frequency,0,1,Never or almost never,0.18
+55,teen_social_big_support_055,posting_frequency,1,2,Less than once a week,0.28
+55,teen_social_big_support_055,posting_frequency,2,3,A few times a week,0.32
+55,teen_social_big_support_055,posting_frequency,3,4,At least once a day,0.22
+55,teen_social_big_support_055,late_night_use,0,1,Never,0.06
+55,teen_social_big_support_055,late_night_use,1,2,Rarely,0.2
+55,teen_social_big_support_055,late_night_use,2,3,Sometimes,0.38
+55,teen_social_big_support_055,late_night_use,3,4,Often,0.36
+55,teen_social_big_support_055,sleep_interference,0,1,Never,0.12
+55,teen_social_big_support_055,sleep_interference,1,2,Rarely,0.29
+55,teen_social_big_support_055,sleep_interference,2,3,Sometimes,0.38
+55,teen_social_big_support_055,sleep_interference,3,4,Often,0.21
+55,teen_social_big_support_055,social_comparison,0,1,Never,0.13
+55,teen_social_big_support_055,social_comparison,1,2,Rarely,0.3
+55,teen_social_big_support_055,social_comparison,2,3,Sometimes,0.39
+55,teen_social_big_support_055,social_comparison,3,4,Often,0.18
+55,teen_social_big_support_055,connection_effect,0,1,Makes me feel less connected,0.09
+55,teen_social_big_support_055,connection_effect,1,2,Makes little difference,0.31
+55,teen_social_big_support_055,connection_effect,2,3,Makes me feel more connected,0.6
+55,teen_social_big_support_055,parental_rules,0,1,No rules,0.56
+55,teen_social_big_support_055,parental_rules,1,2,A few loose rules,0.27
+55,teen_social_big_support_055,parental_rules,2,3,Some clear rules,0.12
+55,teen_social_big_support_055,parental_rules,3,4,Very strict rules,0.05
+55,teen_social_big_support_055,primary_platform,0,1,TikTok,0.33
+55,teen_social_big_support_055,primary_platform,1,2,Instagram,0.24
+55,teen_social_big_support_055,primary_platform,2,3,YouTube,0.11
+55,teen_social_big_support_055,primary_platform,3,4,Snapchat,0.22
+55,teen_social_big_support_055,primary_platform,4,5,Another platform,0.09
+55,teen_social_big_support_055,primary_platform,5,6,I do not use social media,0.01
+56,teen_social_big_support_056,social_media_hours,0,1,Less than one hour,0.08
+56,teen_social_big_support_056,social_media_hours,1,2,One to three hours,0.55
+56,teen_social_big_support_056,social_media_hours,2,3,Four or more hours,0.37
+56,teen_social_big_support_056,posting_frequency,0,1,Never or almost never,0.1
+56,teen_social_big_support_056,posting_frequency,1,2,Less than once a week,0.22
+56,teen_social_big_support_056,posting_frequency,2,3,A few times a week,0.42
+56,teen_social_big_support_056,posting_frequency,3,4,At least once a day,0.26
+56,teen_social_big_support_056,late_night_use,0,1,Never,0.04
+56,teen_social_big_support_056,late_night_use,1,2,Rarely,0.18
+56,teen_social_big_support_056,late_night_use,2,3,Sometimes,0.45
+56,teen_social_big_support_056,late_night_use,3,4,Often,0.33
+56,teen_social_big_support_056,sleep_interference,0,1,Never,0.08
+56,teen_social_big_support_056,sleep_interference,1,2,Rarely,0.28
+56,teen_social_big_support_056,sleep_interference,2,3,Sometimes,0.44
+56,teen_social_big_support_056,sleep_interference,3,4,Often,0.2
+56,teen_social_big_support_056,social_comparison,0,1,Never,0.07
+56,teen_social_big_support_056,social_comparison,1,2,Rarely,0.24
+56,teen_social_big_support_056,social_comparison,2,3,Sometimes,0.48
+56,teen_social_big_support_056,social_comparison,3,4,Often,0.21
+56,teen_social_big_support_056,connection_effect,0,1,Makes me feel less connected,0.08
+56,teen_social_big_support_056,connection_effect,1,2,Makes little difference,0.26
+56,teen_social_big_support_056,connection_effect,2,3,Makes me feel more connected,0.66
+56,teen_social_big_support_056,parental_rules,0,1,No rules,0.07
+56,teen_social_big_support_056,parental_rules,1,2,A few loose rules,0.78
+56,teen_social_big_support_056,parental_rules,2,3,Some clear rules,0.12
+56,teen_social_big_support_056,parental_rules,3,4,Very strict rules,0.03
+56,teen_social_big_support_056,primary_platform,0,1,TikTok,0.35
+56,teen_social_big_support_056,primary_platform,1,2,Instagram,0.26
+56,teen_social_big_support_056,primary_platform,2,3,YouTube,0.14
+56,teen_social_big_support_056,primary_platform,3,4,Snapchat,0.2
+56,teen_social_big_support_056,primary_platform,4,5,Another platform,0.04
+56,teen_social_big_support_056,primary_platform,5,6,I do not use social media,0.01
+57,teen_social_big_support_057,social_media_hours,0,1,Less than one hour,0.12
+57,teen_social_big_support_057,social_media_hours,1,2,One to three hours,0.52
+57,teen_social_big_support_057,social_media_hours,2,3,Four or more hours,0.36
+57,teen_social_big_support_057,posting_frequency,0,1,Never or almost never,0.18
+57,teen_social_big_support_057,posting_frequency,1,2,Less than once a week,0.3
+57,teen_social_big_support_057,posting_frequency,2,3,A few times a week,0.36
+57,teen_social_big_support_057,posting_frequency,3,4,At least once a day,0.16
+57,teen_social_big_support_057,late_night_use,0,1,Never,0.1
+57,teen_social_big_support_057,late_night_use,1,2,Rarely,0.34
+57,teen_social_big_support_057,late_night_use,2,3,Sometimes,0.4
+57,teen_social_big_support_057,late_night_use,3,4,Often,0.16
+57,teen_social_big_support_057,sleep_interference,0,1,Never,0.16
+57,teen_social_big_support_057,sleep_interference,1,2,Rarely,0.38
+57,teen_social_big_support_057,sleep_interference,2,3,Sometimes,0.34
+57,teen_social_big_support_057,sleep_interference,3,4,Often,0.12
+57,teen_social_big_support_057,social_comparison,0,1,Never,0.12
+57,teen_social_big_support_057,social_comparison,1,2,Rarely,0.35
+57,teen_social_big_support_057,social_comparison,2,3,Sometimes,0.38
+57,teen_social_big_support_057,social_comparison,3,4,Often,0.15
+57,teen_social_big_support_057,connection_effect,0,1,Makes me feel less connected,0.1
+57,teen_social_big_support_057,connection_effect,1,2,Makes little difference,0.34
+57,teen_social_big_support_057,connection_effect,2,3,Makes me feel more connected,0.56
+57,teen_social_big_support_057,parental_rules,0,1,No rules,0.05
+57,teen_social_big_support_057,parental_rules,1,2,A few loose rules,0.25
+57,teen_social_big_support_057,parental_rules,2,3,Some clear rules,0.55
+57,teen_social_big_support_057,parental_rules,3,4,Very strict rules,0.15
+57,teen_social_big_support_057,primary_platform,0,1,TikTok,0.28
+57,teen_social_big_support_057,primary_platform,1,2,Instagram,0.24
+57,teen_social_big_support_057,primary_platform,2,3,YouTube,0.16
+57,teen_social_big_support_057,primary_platform,3,4,Snapchat,0.23
+57,teen_social_big_support_057,primary_platform,4,5,Another platform,0.08
+57,teen_social_big_support_057,primary_platform,5,6,I do not use social media,0.01
+58,teen_social_big_support_058,social_media_hours,0,1,Less than one hour,0.35
+58,teen_social_big_support_058,social_media_hours,1,2,One to three hours,0.48
+58,teen_social_big_support_058,social_media_hours,2,3,Four or more hours,0.17
+58,teen_social_big_support_058,posting_frequency,0,1,Never or almost never,0.42
+58,teen_social_big_support_058,posting_frequency,1,2,Less than once a week,0.32
+58,teen_social_big_support_058,posting_frequency,2,3,A few times a week,0.18
+58,teen_social_big_support_058,posting_frequency,3,4,At least once a day,0.08
+58,teen_social_big_support_058,late_night_use,0,1,Never,0.38
+58,teen_social_big_support_058,late_night_use,1,2,Rarely,0.36
+58,teen_social_big_support_058,late_night_use,2,3,Sometimes,0.2
+58,teen_social_big_support_058,late_night_use,3,4,Often,0.06
+58,teen_social_big_support_058,sleep_interference,0,1,Never,0.45
+58,teen_social_big_support_058,sleep_interference,1,2,Rarely,0.32
+58,teen_social_big_support_058,sleep_interference,2,3,Sometimes,0.17
+58,teen_social_big_support_058,sleep_interference,3,4,Often,0.06
+58,teen_social_big_support_058,social_comparison,0,1,Never,0.2
+58,teen_social_big_support_058,social_comparison,1,2,Rarely,0.34
+58,teen_social_big_support_058,social_comparison,2,3,Sometimes,0.32
+58,teen_social_big_support_058,social_comparison,3,4,Often,0.14
+58,teen_social_big_support_058,connection_effect,0,1,Makes me feel less connected,0.12
+58,teen_social_big_support_058,connection_effect,1,2,Makes little difference,0.48
+58,teen_social_big_support_058,connection_effect,2,3,Makes me feel more connected,0.4
+58,teen_social_big_support_058,parental_rules,0,1,No rules,0.01
+58,teen_social_big_support_058,parental_rules,1,2,A few loose rules,0.03
+58,teen_social_big_support_058,parental_rules,2,3,Some clear rules,0.14
+58,teen_social_big_support_058,parental_rules,3,4,Very strict rules,0.82
+58,teen_social_big_support_058,primary_platform,0,1,TikTok,0.16
+58,teen_social_big_support_058,primary_platform,1,2,Instagram,0.18
+58,teen_social_big_support_058,primary_platform,2,3,YouTube,0.31
+58,teen_social_big_support_058,primary_platform,3,4,Snapchat,0.18
+58,teen_social_big_support_058,primary_platform,4,5,Another platform,0.11
+58,teen_social_big_support_058,primary_platform,5,6,I do not use social media,0.06
+59,teen_social_big_support_059,social_media_hours,0,1,Less than one hour,0.08
+59,teen_social_big_support_059,social_media_hours,1,2,One to three hours,0.55
+59,teen_social_big_support_059,social_media_hours,2,3,Four or more hours,0.37
+59,teen_social_big_support_059,posting_frequency,0,1,Never or almost never,0.22
+59,teen_social_big_support_059,posting_frequency,1,2,Less than once a week,0.3
+59,teen_social_big_support_059,posting_frequency,2,3,A few times a week,0.33
+59,teen_social_big_support_059,posting_frequency,3,4,At least once a day,0.15
+59,teen_social_big_support_059,late_night_use,0,1,Never,0.08
+59,teen_social_big_support_059,late_night_use,1,2,Rarely,0.25
+59,teen_social_big_support_059,late_night_use,2,3,Sometimes,0.43
+59,teen_social_big_support_059,late_night_use,3,4,Often,0.24
+59,teen_social_big_support_059,sleep_interference,0,1,Never,0.14
+59,teen_social_big_support_059,sleep_interference,1,2,Rarely,0.34
+59,teen_social_big_support_059,sleep_interference,2,3,Sometimes,0.36
+59,teen_social_big_support_059,sleep_interference,3,4,Often,0.16
+59,teen_social_big_support_059,social_comparison,0,1,Never,0.12
+59,teen_social_big_support_059,social_comparison,1,2,Rarely,0.32
+59,teen_social_big_support_059,social_comparison,2,3,Sometimes,0.4
+59,teen_social_big_support_059,social_comparison,3,4,Often,0.16
+59,teen_social_big_support_059,connection_effect,0,1,Makes me feel less connected,0.12
+59,teen_social_big_support_059,connection_effect,1,2,Makes little difference,0.34
+59,teen_social_big_support_059,connection_effect,2,3,Makes me feel more connected,0.54
+59,teen_social_big_support_059,parental_rules,0,1,No rules,0.16
+59,teen_social_big_support_059,parental_rules,1,2,A few loose rules,0.39
+59,teen_social_big_support_059,parental_rules,2,3,Some clear rules,0.34
+59,teen_social_big_support_059,parental_rules,3,4,Very strict rules,0.11
+59,teen_social_big_support_059,primary_platform,0,1,TikTok,0.55
+59,teen_social_big_support_059,primary_platform,1,2,Instagram,0.18
+59,teen_social_big_support_059,primary_platform,2,3,YouTube,0.12
+59,teen_social_big_support_059,primary_platform,3,4,Snapchat,0.1
+59,teen_social_big_support_059,primary_platform,4,5,Another platform,0.04
+59,teen_social_big_support_059,primary_platform,5,6,I do not use social media,0.01
+60,teen_social_big_support_060,social_media_hours,0,1,Less than one hour,0.04
+60,teen_social_big_support_060,social_media_hours,1,2,One to three hours,0.48
+60,teen_social_big_support_060,social_media_hours,2,3,Four or more hours,0.48
+60,teen_social_big_support_060,posting_frequency,0,1,Never or almost never,0.08
+60,teen_social_big_support_060,posting_frequency,1,2,Less than once a week,0.2
+60,teen_social_big_support_060,posting_frequency,2,3,A few times a week,0.47
+60,teen_social_big_support_060,posting_frequency,3,4,At least once a day,0.25
+60,teen_social_big_support_060,late_night_use,0,1,Never,0.04
+60,teen_social_big_support_060,late_night_use,1,2,Rarely,0.18
+60,teen_social_big_support_060,late_night_use,2,3,Sometimes,0.42
+60,teen_social_big_support_060,late_night_use,3,4,Often,0.36
+60,teen_social_big_support_060,sleep_interference,0,1,Never,0.08
+60,teen_social_big_support_060,sleep_interference,1,2,Rarely,0.25
+60,teen_social_big_support_060,sleep_interference,2,3,Sometimes,0.43
+60,teen_social_big_support_060,sleep_interference,3,4,Often,0.24
+60,teen_social_big_support_060,social_comparison,0,1,Never,0.05
+60,teen_social_big_support_060,social_comparison,1,2,Rarely,0.18
+60,teen_social_big_support_060,social_comparison,2,3,Sometimes,0.48
+60,teen_social_big_support_060,social_comparison,3,4,Often,0.29
+60,teen_social_big_support_060,connection_effect,0,1,Makes me feel less connected,0.09
+60,teen_social_big_support_060,connection_effect,1,2,Makes little difference,0.28
+60,teen_social_big_support_060,connection_effect,2,3,Makes me feel more connected,0.63
+60,teen_social_big_support_060,parental_rules,0,1,No rules,0.14
+60,teen_social_big_support_060,parental_rules,1,2,A few loose rules,0.38
+60,teen_social_big_support_060,parental_rules,2,3,Some clear rules,0.34
+60,teen_social_big_support_060,parental_rules,3,4,Very strict rules,0.14
+60,teen_social_big_support_060,primary_platform,0,1,TikTok,0.07
+60,teen_social_big_support_060,primary_platform,1,2,Instagram,0.78
+60,teen_social_big_support_060,primary_platform,2,3,YouTube,0.03
+60,teen_social_big_support_060,primary_platform,3,4,Snapchat,0.08
+60,teen_social_big_support_060,primary_platform,4,5,Another platform,0.03
+60,teen_social_big_support_060,primary_platform,5,6,I do not use social media,0.01
+61,teen_social_big_support_061,social_media_hours,0,1,Less than one hour,0.16
+61,teen_social_big_support_061,social_media_hours,1,2,One to three hours,0.58
+61,teen_social_big_support_061,social_media_hours,2,3,Four or more hours,0.26
+61,teen_social_big_support_061,posting_frequency,0,1,Never or almost never,0.34
+61,teen_social_big_support_061,posting_frequency,1,2,Less than once a week,0.31
+61,teen_social_big_support_061,posting_frequency,2,3,A few times a week,0.23
+61,teen_social_big_support_061,posting_frequency,3,4,At least once a day,0.12
+61,teen_social_big_support_061,late_night_use,0,1,Never,0.12
+61,teen_social_big_support_061,late_night_use,1,2,Rarely,0.33
+61,teen_social_big_support_061,late_night_use,2,3,Sometimes,0.37
+61,teen_social_big_support_061,late_night_use,3,4,Often,0.18
+61,teen_social_big_support_061,sleep_interference,0,1,Never,0.2
+61,teen_social_big_support_061,sleep_interference,1,2,Rarely,0.38
+61,teen_social_big_support_061,sleep_interference,2,3,Sometimes,0.3
+61,teen_social_big_support_061,sleep_interference,3,4,Often,0.12
+61,teen_social_big_support_061,social_comparison,0,1,Never,0.24
+61,teen_social_big_support_061,social_comparison,1,2,Rarely,0.39
+61,teen_social_big_support_061,social_comparison,2,3,Sometimes,0.27
+61,teen_social_big_support_061,social_comparison,3,4,Often,0.1
+61,teen_social_big_support_061,connection_effect,0,1,Makes me feel less connected,0.13
+61,teen_social_big_support_061,connection_effect,1,2,Makes little difference,0.47
+61,teen_social_big_support_061,connection_effect,2,3,Makes me feel more connected,0.4
+61,teen_social_big_support_061,parental_rules,0,1,No rules,0.16
+61,teen_social_big_support_061,parental_rules,1,2,A few loose rules,0.34
+61,teen_social_big_support_061,parental_rules,2,3,Some clear rules,0.35
+61,teen_social_big_support_061,parental_rules,3,4,Very strict rules,0.15
+61,teen_social_big_support_061,primary_platform,0,1,TikTok,0.15
+61,teen_social_big_support_061,primary_platform,1,2,Instagram,0.1
+61,teen_social_big_support_061,primary_platform,2,3,YouTube,0.55
+61,teen_social_big_support_061,primary_platform,3,4,Snapchat,0.13
+61,teen_social_big_support_061,primary_platform,4,5,Another platform,0.06
+61,teen_social_big_support_061,primary_platform,5,6,I do not use social media,0.01
+62,teen_social_big_support_062,social_media_hours,0,1,Less than one hour,0.03
+62,teen_social_big_support_062,social_media_hours,1,2,One to three hours,0.38
+62,teen_social_big_support_062,social_media_hours,2,3,Four or more hours,0.59
+62,teen_social_big_support_062,posting_frequency,0,1,Never or almost never,0.08
+62,teen_social_big_support_062,posting_frequency,1,2,Less than once a week,0.18
+62,teen_social_big_support_062,posting_frequency,2,3,A few times a week,0.4
+62,teen_social_big_support_062,posting_frequency,3,4,At least once a day,0.34
+62,teen_social_big_support_062,late_night_use,0,1,Never,0.02
+62,teen_social_big_support_062,late_night_use,1,2,Rarely,0.12
+62,teen_social_big_support_062,late_night_use,2,3,Sometimes,0.38
+62,teen_social_big_support_062,late_night_use,3,4,Often,0.48
+62,teen_social_big_support_062,sleep_interference,0,1,Never,0.06
+62,teen_social_big_support_062,sleep_interference,1,2,Rarely,0.22
+62,teen_social_big_support_062,sleep_interference,2,3,Sometimes,0.43
+62,teen_social_big_support_062,sleep_interference,3,4,Often,0.29
+62,teen_social_big_support_062,social_comparison,0,1,Never,0.15
+62,teen_social_big_support_062,social_comparison,1,2,Rarely,0.35
+62,teen_social_big_support_062,social_comparison,2,3,Sometimes,0.34
+62,teen_social_big_support_062,social_comparison,3,4,Often,0.16
+62,teen_social_big_support_062,connection_effect,0,1,Makes me feel less connected,0.03
+62,teen_social_big_support_062,connection_effect,1,2,Makes little difference,0.15
+62,teen_social_big_support_062,connection_effect,2,3,Makes me feel more connected,0.82
+62,teen_social_big_support_062,parental_rules,0,1,No rules,0.14
+62,teen_social_big_support_062,parental_rules,1,2,A few loose rules,0.38
+62,teen_social_big_support_062,parental_rules,2,3,Some clear rules,0.35
+62,teen_social_big_support_062,parental_rules,3,4,Very strict rules,0.13
+62,teen_social_big_support_062,primary_platform,0,1,TikTok,0.08
+62,teen_social_big_support_062,primary_platform,1,2,Instagram,0.08
+62,teen_social_big_support_062,primary_platform,2,3,YouTube,0.04
+62,teen_social_big_support_062,primary_platform,3,4,Snapchat,0.76
+62,teen_social_big_support_062,primary_platform,4,5,Another platform,0.03
+62,teen_social_big_support_062,primary_platform,5,6,I do not use social media,0.01
+63,teen_social_big_support_063,social_media_hours,0,1,Less than one hour,0.12
+63,teen_social_big_support_063,social_media_hours,1,2,One to three hours,0.6
+63,teen_social_big_support_063,social_media_hours,2,3,Four or more hours,0.28
+63,teen_social_big_support_063,posting_frequency,0,1,Never or almost never,0.2
+63,teen_social_big_support_063,posting_frequency,1,2,Less than once a week,0.34
+63,teen_social_big_support_063,posting_frequency,2,3,A few times a week,0.31
+63,teen_social_big_support_063,posting_frequency,3,4,At least once a day,0.15
+63,teen_social_big_support_063,late_night_use,0,1,Never,0.1
+63,teen_social_big_support_063,late_night_use,1,2,Rarely,0.3
+63,teen_social_big_support_063,late_night_use,2,3,Sometimes,0.4
+63,teen_social_big_support_063,late_night_use,3,4,Often,0.2
+63,teen_social_big_support_063,sleep_interference,0,1,Never,0.18
+63,teen_social_big_support_063,sleep_interference,1,2,Rarely,0.38
+63,teen_social_big_support_063,sleep_interference,2,3,Sometimes,0.31
+63,teen_social_big_support_063,sleep_interference,3,4,Often,0.13
+63,teen_social_big_support_063,social_comparison,0,1,Never,0.18
+63,teen_social_big_support_063,social_comparison,1,2,Rarely,0.39
+63,teen_social_big_support_063,social_comparison,2,3,Sometimes,0.31
+63,teen_social_big_support_063,social_comparison,3,4,Often,0.12
+63,teen_social_big_support_063,connection_effect,0,1,Makes me feel less connected,0.12
+63,teen_social_big_support_063,connection_effect,1,2,Makes little difference,0.43
+63,teen_social_big_support_063,connection_effect,2,3,Makes me feel more connected,0.45
+63,teen_social_big_support_063,parental_rules,0,1,No rules,0.14
+63,teen_social_big_support_063,parental_rules,1,2,A few loose rules,0.4
+63,teen_social_big_support_063,parental_rules,2,3,Some clear rules,0.34
+63,teen_social_big_support_063,parental_rules,3,4,Very strict rules,0.12
+63,teen_social_big_support_063,primary_platform,0,1,TikTok,0.12
+63,teen_social_big_support_063,primary_platform,1,2,Instagram,0.11
+63,teen_social_big_support_063,primary_platform,2,3,YouTube,0.13
+63,teen_social_big_support_063,primary_platform,3,4,Snapchat,0.13
+63,teen_social_big_support_063,primary_platform,4,5,Another platform,0.5
+63,teen_social_big_support_063,primary_platform,5,6,I do not use social media,0.01
+64,teen_social_big_support_064,social_media_hours,0,1,Less than one hour,0.88
+64,teen_social_big_support_064,social_media_hours,1,2,One to three hours,0.1
+64,teen_social_big_support_064,social_media_hours,2,3,Four or more hours,0.02
+64,teen_social_big_support_064,posting_frequency,0,1,Never or almost never,0.86
+64,teen_social_big_support_064,posting_frequency,1,2,Less than once a week,0.1
+64,teen_social_big_support_064,posting_frequency,2,3,A few times a week,0.03
+64,teen_social_big_support_064,posting_frequency,3,4,At least once a day,0.01
+64,teen_social_big_support_064,late_night_use,0,1,Never,0.82
+64,teen_social_big_support_064,late_night_use,1,2,Rarely,0.13
+64,teen_social_big_support_064,late_night_use,2,3,Sometimes,0.04
+64,teen_social_big_support_064,late_night_use,3,4,Often,0.01
+64,teen_social_big_support_064,sleep_interference,0,1,Never,0.84
+64,teen_social_big_support_064,sleep_interference,1,2,Rarely,0.11
+64,teen_social_big_support_064,sleep_interference,2,3,Sometimes,0.04
+64,teen_social_big_support_064,sleep_interference,3,4,Often,0.01
+64,teen_social_big_support_064,social_comparison,0,1,Never,0.7
+64,teen_social_big_support_064,social_comparison,1,2,Rarely,0.2
+64,teen_social_big_support_064,social_comparison,2,3,Sometimes,0.08
+64,teen_social_big_support_064,social_comparison,3,4,Often,0.02
+64,teen_social_big_support_064,connection_effect,0,1,Makes me feel less connected,0.1
+64,teen_social_big_support_064,connection_effect,1,2,Makes little difference,0.78
+64,teen_social_big_support_064,connection_effect,2,3,Makes me feel more connected,0.12
+64,teen_social_big_support_064,parental_rules,0,1,No rules,0.08
+64,teen_social_big_support_064,parental_rules,1,2,A few loose rules,0.18
+64,teen_social_big_support_064,parental_rules,2,3,Some clear rules,0.34
+64,teen_social_big_support_064,parental_rules,3,4,Very strict rules,0.4
+64,teen_social_big_support_064,primary_platform,0,1,TikTok,0.03
+64,teen_social_big_support_064,primary_platform,1,2,Instagram,0.03
+64,teen_social_big_support_064,primary_platform,2,3,YouTube,0.06
+64,teen_social_big_support_064,primary_platform,3,4,Snapchat,0.03
+64,teen_social_big_support_064,primary_platform,4,5,Another platform,0.03
+64,teen_social_big_support_064,primary_platform,5,6,I do not use social media,0.82

@@ -127,6 +127,10 @@ def _adaptive_prompt(
         for item, meta in metadata["items"].items()
     )
     schema = ",\n".join(f'    "{item}": [numbers in option order]' for item in metadata["items"])
+    details = ",\n".join(
+        f'    "{item}": "You explicitly believe or experience ..."'
+        for item in metadata["items"]
+    )
     return f"""Support point identifier: {support_id}
 
 Survey context: {metadata['context']}
@@ -139,19 +143,25 @@ pattern with one uniformly positive or negative outlook.
 Target response tendencies:
 {tendencies}
 
-Write a concise persona that could make this combination of responses coherent without inventing demographic
-characteristics. Address the persona in the second person, beginning with "Your views..." or "You...". Include only the
-persona description, not instructions about answering or probabilities. Then provide subjective response probabilities
-for every item. Put more probability on each targeted option than on the alternatives, while preserving genuine
-uncertainty. Each vector must follow the displayed option order, contain nonnegative numbers, sum to 1, and assign at least
-{minimum_probability:g} to every option.
+Write a readable second-person synthesis in "persona", beginning with "Your " or "You ", without compressing distinct
+answers into broad ideological labels. In "persona_details", write one explicit, second-person sentence for every item,
+using the exact item keys shown in the schema. Each sentence must state the substantive position represented by that
+item's target tendency. The complete persona will be assembled from the synthesis and every detail, so its length should
+grow with the battery. Do not invent demographic characteristics or include instructions about answering.
+
+Then provide subjective response probabilities for every item. Put more probability on each targeted option than on the
+alternatives, while preserving genuine uncertainty. Each vector must follow the displayed option order, contain
+nonnegative numbers, sum to 1, and assign at least {minimum_probability:g} to every option.
 
 Items and response options:
 {items}
 
 Return only valid JSON with exactly this schema:
 {{
-  "persona": "Your views on ...",
+  "persona": "You are ...",
+  "persona_details": {{
+{details}
+  }},
   "probabilities": {{
 {schema}
   }}

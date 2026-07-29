@@ -1,0 +1,51 @@
+item,option,covered,support_rows
+hobbies,Men and women are basically similar,True,55
+hobbies,Men and women are basically different,True,137
+physical_abilities,Men and women are basically similar,True,29
+physical_abilities,Men and women are basically different,True,163
+parenting,Men and women are basically similar,True,44
+parenting,Men and women are basically different,True,148
+feelings,Men and women are basically similar,True,5
+feelings,Men and women are basically different,True,187
+workplace,Men and women are basically similar,True,111
+workplace,Men and women are basically different,True,81
+relationship_status,Married,True,97
+relationship_status,Living with a partner,True,14
+relationship_status,In a relationship but not living together,True,15
+relationship_status,Not currently in a relationship,True,66
+children_at_home,No children under 18,True,137
+children_at_home,At least one child under 6,True,15
+children_at_home,Only children ages 6 to 17,True,28
+children_at_home,Children both under 6 and ages 6 to 17,True,12
+household_income,"Less than $50,000",True,59
+household_income,"$50,000 to $99,999",True,56
+household_income,"$100,000 to $149,999",True,33
+household_income,"$150,000 or more",True,44
+marriage_importance,Not at all important,True,48
+marriage_importance,Not too important,True,48
+marriage_importance,Somewhat important,True,48
+marriage_importance,Very important,True,48
+parenthood_importance,Not at all important,True,26
+parenthood_importance,Not too important,True,30
+parenthood_importance,Somewhat important,True,53
+parenthood_importance,Very important,True,83
+paid_work_priority,Not at all important,True,10
+paid_work_priority,Not too important,True,25
+paid_work_priority,Somewhat important,True,75
+paid_work_priority,Very important,True,82
+childcare_division,One parent should do most of it,True,48
+childcare_division,Both parents should divide it about equally,True,48
+childcare_division,The parent with more available time should do more,True,48
+childcare_division,It depends entirely on the family,True,48
+housework_division,One person should do most of it,True,12
+housework_division,Both adults should divide it about equally,True,102
+housework_division,The person with more available time should do more,True,50
+housework_division,It depends entirely on the household,True,28
+financial_decision_style,The higher earner should usually decide,True,48
+financial_decision_style,The person who manages the money should usually decide,True,48
+financial_decision_style,Both adults should decide together,True,48
+financial_decision_style,It depends on the decision,True,48
+career_sacrifice_rule,The lower earner should reduce work,True,48
+career_sacrifice_rule,The adult with the more flexible job should reduce work,True,48
+career_sacrifice_rule,Both adults should reduce work as equally as possible,True,48
+career_sacrifice_rule,It depends entirely on the family,True,48

@@ -57,7 +57,8 @@ and `umriss design list`.
 
 ```text
 umriss design create (--metadata FILE | --battery ID)
-  --preset (pattern-coverage | uniform-patterns) [--size N] [--seed N] --out FILE
+  --preset (pattern-coverage | uniform-patterns | balanced-blueprints)
+  [--size N] [--seed N] --out FILE
 
 umriss design validate (--metadata FILE | --battery ID) --design FILE
 ```
@@ -70,6 +71,7 @@ Only `schema_version: 1` is accepted. The schema supports:
 | `pattern_anchors` | Supply complete response-pattern scaffolds |
 | `profiles` | Supply expert-authored substantive profiles |
 | `uniform_patterns` | Replicate the full response-pattern grid with unique prompt identities |
+| `balanced_blueprints` | Construct unique complete response vectors with item marginals balanced to within one row |
 
 `coherence` is one of `global`, `item_specific`, `grouped`, or `explicit`.
 Complete coverage is checked before prompts are generated. If the declared
@@ -80,7 +82,8 @@ components need 14 rows and `size` is 12, validation returns
 
 ```text
 umriss support build (--metadata FILE | --battery ID)
-  (--preset pattern-coverage | --preset uniform-patterns | --design FILE)
+  (--preset pattern-coverage | --preset uniform-patterns |
+   --preset balanced-blueprints | --design FILE)
   --tag TAG [--n-support N] [--seed N] --out DIR [--force]
 ```
 
@@ -158,10 +161,88 @@ umriss baseline parse --raw FILE --prompts FILE.jsonl
 Conditioned-direct prompts contain every held-in real marginal and exclude the
 held-out marginal by construction.
 
+### Synthetic priors and generalized targets
+
+Model-panel priors use a model-aware workflow. Completeness is checked over
+`(job_id, model, service_name)`, not merely the prompt job ID:
+
+```text
+umriss prior build-marginals --metadata FILE --tag TAG --out DIR
+umriss prior build-joints --metadata FILE --pair ITEM_A:ITEM_B
+  [--pair ITEM_C:ITEM_D ...] --population ID --tag TAG --out DIR
+umriss prior export --prompts FILE --path FILE.jobs.ep
+  [--model SERVICE:MODEL ...] [--tag TAG] [--registration-out DIR]
+umriss prior register-results --results FILE.results.ep
+  --prompts FILE.jsonl --tag TAG --out DIR
+umriss prior parse --raw FILE [--raw RETRY.csv ...]
+  --prompts FILE.jsonl --metadata FILE --tag TAG --out DIR
+umriss prior consensus --predictions FILE [--predictions RETRY.csv ...]
+  --metadata FILE --population ID [--minimum-models N]
+  [--max-total-variation FLOAT] [--max-option-difference FLOAT]
+  [--confidence-weight FLOAT] --tag TAG --out DIR
+```
+
+Consensus writes a schema-v1 `umriss_targets` artifact containing accepted and
+rejected targets, population identity, model/service provenance, dispersion,
+the declared acceptance rule, simplex-preserving aggregation method, and
+confidence weight.
+Model-synthetic targets are never relabeled as observed truth.
+
+Observed targets can be converted and combined without losing their source:
+
+```text
+umriss targets from-metadata --metadata FILE --population ID
+  [--confidence-weight FLOAT] --out TARGETS.json
+umriss targets merge --targets OBSERVED.json --targets SYNTHETIC.json
+  --out MERGED.json
+umriss targets audit --targets TARGETS.json --metadata FILE
+  [--consistency-tolerance FLOAT] [--out AUDIT.csv]
+umriss targets feasibility --targets TARGETS.json --support PROBABILITIES.csv
+  --metadata FILE [--tolerance FLOAT] --tag TAG --out DIR
+```
+
+The audit validates marginal vectors, joint-table shape and probability mass,
+source metadata, population identity, and agreement between accepted joint
+tables and accepted marginal targets.
+
+Existing personas can be measured on new items without regenerating their
+identities:
+
+```text
+umriss support extend-items --points POINTS.csv --metadata FILE
+  [--item ITEM ...] [--joint ITEM_A:ITEM_B ...] --tag TAG --out DIR
+umriss support export --prompts TAG_extension_prompts.jsonl
+  --path TAG.jobs.ep [--model SERVICE:MODEL ...]
+umriss support parse-extension --raw FILE --prompts FILE
+  --base-support PROBABILITIES.csv --metadata FILE --tag TAG --out DIR
+```
+
+Direct joint elicitation produces a separate joint-feature bank. Generalized
+fitting consumes accepted marginal, checkbox-marginal, and joint targets:
+
+```text
+umriss targets fit --targets TARGETS.json --support PROBABILITIES.csv
+  [--joint-features JOINT.csv] [--allow-conditional-independence]
+  [--minimum-effective-support FLOAT] [--maximum-weight FLOAT]
+  [--require-convergence]
+  --metadata FILE --tag TAG --out DIR
+```
+
+Without directly elicited persona-level joint features, a joint target fails
+closed. `--allow-conditional-independence` is an explicit authorization to
+derive each persona's joint cells as the outer product of its two marginal
+vectors. Constraint diagnostics record which method was used and report
+source-specific residuals.
+
 ## Parsing and estimation
 
 ```text
 umriss support parse --raw FILE --metadata FILE --tag TAG --out DIR
+  [--allow-legacy-persona]
+
+umriss support validate-blueprints --support FILE --plan FILE
+  --metadata FILE --tag TAG [--minimum-match-fraction FLOAT]
+  [--minimum-intended-probability FLOAT] --out DIR
 
 umriss support uniformity --support FILE --metadata FILE
   [--tolerance FLOAT] [--max-duplicate-fraction FLOAT]
@@ -169,6 +250,9 @@ umriss support uniformity --support FILE --metadata FILE
 
 umriss support augment-uniform --support FILE --metadata FILE
   --tag TAG [--n-add N] [--tolerance FLOAT] [--seed N] --out DIR
+
+umriss support augment-targets --support FILE --targets TARGETS.json
+  --metadata FILE --tag TAG [--n-add N] [--seed N] --out DIR
 
 umriss support merge --base FILE --additions FILE --tag TAG --out DIR
 
@@ -196,8 +280,13 @@ Parsing never repairs invalid responses silently. Fitting and design selection
 remain separate: held-out performance may compare declared designs, but any
 search over designs must be reported.
 
-Support generation returns a `persona` written in the second person. EDSL
-export stores that text in the visible trait selected by `--persona-trait`;
+Support generation returns a second-person synthesis plus one explicit
+`persona_details` statement per battery item. Parsing requires complete detail
+coverage, assembles the statements into the visible `persona`, and records the
+summary, detail JSON, count, and coverage in the points artifact. The
+`--allow-legacy-persona` escape hatch is only for reparsing results produced
+under the older summary-only contract. EDSL export stores the assembled text
+in the visible trait selected by `--persona-trait`;
 umriss does not set a custom agent instruction. The normalized coefficient is
 stored as hidden `_weight` metadata and repeated in a CSV sidecar. EDSL
 serializes hidden traits but does not interpret `_weight` as a sampling rule.
@@ -221,6 +310,12 @@ Every registered command (options and defaults live in `umriss <command> --help`
 | `umriss baseline export` |  |
 | `umriss baseline parse` |  |
 | `umriss baseline register-results` |  |
+| `umriss prior build-joints` | Build population joint-table prior prompts for declared item pairs. |
+| `umriss prior build-marginals` | Build independent marginal prior prompts for every battery item. |
+| `umriss prior consensus` | Apply a declared multi-model agreement rule and write provenance-bearing targets. |
+| `umriss prior export` | Export model-panel prior prompts as an externally executed Jobs package. |
+| `umriss prior parse` | Strictly parse model-aware marginal or joint priors. |
+| `umriss prior register-results` | Register an externally executed prior Results package. |
 | `umriss battery compile` |  |
 | `umriss battery create` |  |
 | `umriss battery export-edsl` |  |
@@ -255,13 +350,22 @@ Every registered command (options and defaults live in `umriss <command> --help`
 | `umriss status` |  |
 | `umriss support audit-results` |  |
 | `umriss support augment-uniform` |  |
+| `umriss support augment-targets` | Build complete repair blueprints whose declared addition allocation offsets measured target gaps. |
 | `umriss support build` |  |
 | `umriss support export` |  |
+| `umriss support extend-items` | Build measurement prompts for new marginal and direct-joint features on stable personas. |
 | `umriss support inspect` |  |
 | `umriss support merge` |  |
 | `umriss support parse` |  |
+| `umriss support parse-extension` | Strictly merge newly measured item probabilities and write direct joint features. |
 | `umriss support register-results` |  |
 | `umriss support uniformity` |  |
+| `umriss support validate-blueprints` | Compare generated response probabilities with complete intended blueprints and emit accepted support plus retry-only job IDs. |
+| `umriss targets audit` | Validate target probabilities, provenance, and joint/marginal consistency. |
+| `umriss targets feasibility` | Diagnose whether accepted marginal targets lie in the support bank's convex hull and write a witness fit. |
+| `umriss targets fit` | Fit generalized marginal and joint constraints with per-target diagnostics. |
+| `umriss targets from-metadata` | Convert observed metadata truth into a provenance-bearing target artifact. |
+| `umriss targets merge` | Merge nonoverlapping target artifacts for one population. |
 | `umriss twins analyze-logprobs` |  |
 | `umriss twins analyze-probabilistic-survey` |  |
 | `umriss twins analyze-resolution` |  |

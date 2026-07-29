@@ -1,0 +1,4 @@
+job_id,target_id,model,service_name,valid,raw_sum,reason,observed_shape,expected_shape
+teen_social_candidate_joint_probe_posting_frequency_x_social_comparison,joint:posting_frequency:social_comparison,gpt-5.5,openai,True,1.0,,,
+teen_social_candidate_joint_probe_posting_frequency_x_social_comparison,joint:posting_frequency:social_comparison,anthropic/claude-opus-5,deep_infra,True,1.0,,,
+teen_social_candidate_joint_probe_posting_frequency_x_social_comparison,joint:posting_frequency:social_comparison,google/gemini-3.1-pro,deep_infra,False,,shape_mismatch,[],"[4, 4]"

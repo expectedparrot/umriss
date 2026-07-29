@@ -1,0 +1,82 @@
+{
+  "execution": {
+    "cost_estimate": {
+      "available": true,
+      "basis": "call_counts",
+      "expected_model_calls": 96,
+      "models": 1,
+      "pricing_note": "Dollar cost depends on provider pricing; inspect the package with `ep inspect` before authorizing `ep run`.",
+      "scenarios": 96
+    },
+    "mode": "unspecified",
+    "owner": "external_ep"
+  },
+  "iterations": 1,
+  "jobs": "examples/pew_w154/augmentation/support/pew_work_family_blueprints.jobs.ep",
+  "manifest_path": "examples/pew_w154/augmentation/support/pew_work_family_blueprints_manifest.json",
+  "model_calls": 96,
+  "model_count": 1,
+  "models": [
+    {
+      "model": "gpt-5.5",
+      "service_name": "openai"
+    }
+  ],
+  "next_steps": [
+    "ep run --jobs examples/pew_w154/augmentation/support/pew_work_family_blueprints.jobs.ep --output examples/pew_w154/augmentation/support/pew_work_family_blueprints.results.ep",
+    "umriss support register-results --results examples/pew_w154/augmentation/support/pew_work_family_blueprints.results.ep --prompts examples/pew_w154/augmentation/support/pew_work_family_blueprints_prompts.jsonl --tag pew_work_family_blueprints --out examples/pew_w154/augmentation/support"
+  ],
+  "outputs": {
+    "jobs": {
+      "path": "examples/pew_w154/augmentation/support/pew_work_family_blueprints.jobs.ep",
+      "sha256": "6ae6c02f60b9c15ddb86425ef0c8ee510731d534bb30018830f2abc552532754"
+    }
+  },
+  "prompts": "examples/pew_w154/augmentation/support/pew_work_family_blueprints_prompts.jsonl",
+  "provenance": {
+    "command": "umriss support export",
+    "created_at": "2026-07-29T11:40:24Z",
+    "fingerprint": "9d1ca574033abf7d2e9df3c8160d1b982917b16183c1d065a1531a91b02d1a13",
+    "inputs": {
+      "prompts": {
+        "path": "examples/pew_w154/augmentation/support/pew_work_family_blueprints_prompts.jsonl",
+        "sha256": "30d23356ffe228402a00ab0753728b36ef724b9649d55fa7a93687970d150c45"
+      }
+    },
+    "parameters": {
+      "job_ids_path": null,
+      "limit": null,
+      "max_tokens": 2200,
+      "models": [
+        {
+          "model": "gpt-5.5",
+          "service_name": "openai"
+        }
+      ],
+      "path": "examples/pew_w154/augmentation/support/pew_work_family_blueprints.jobs.ep",
+      "registration_out": "examples/pew_w154/augmentation/support",
+      "tag": "pew_work_family_blueprints",
+      "temperature": 1.0
+    },
+    "schema_version": 1,
+    "umriss_version": "0.1.0"
+  },
+  "questions": 1,
+  "register_command": "umriss support register-results --results examples/pew_w154/augmentation/support/pew_work_family_blueprints.results.ep --prompts examples/pew_w154/augmentation/support/pew_work_family_blueprints_prompts.jsonl --tag pew_work_family_blueprints --out examples/pew_w154/augmentation/support",
+  "registration_out": "examples/pew_w154/augmentation/support",
+  "results": "examples/pew_w154/augmentation/support/pew_work_family_blueprints.results.ep",
+  "reused": false,
+  "run_command": "ep run --jobs examples/pew_w154/augmentation/support/pew_work_family_blueprints.jobs.ep --output examples/pew_w154/augmentation/support/pew_work_family_blueprints.results.ep",
+  "run_contract": {
+    "expected_results_path": "examples/pew_w154/augmentation/support/pew_work_family_blueprints.results.ep",
+    "jobs_path": "examples/pew_w154/augmentation/support/pew_work_family_blueprints.jobs.ep",
+    "owner": "external_ep",
+    "register_command": "umriss support register-results --results examples/pew_w154/augmentation/support/pew_work_family_blueprints.results.ep --prompts examples/pew_w154/augmentation/support/pew_work_family_blueprints_prompts.jsonl --tag pew_work_family_blueprints --out examples/pew_w154/augmentation/support",
+    "run_command": "ep run --jobs examples/pew_w154/augmentation/support/pew_work_family_blueprints.jobs.ep --output examples/pew_w154/augmentation/support/pew_work_family_blueprints.results.ep"
+  },
+  "save_format": "edsl_ep",
+  "scenarios": 96,
+  "schema_version": 1,
+  "tag": "pew_work_family_blueprints",
+  "workflow": "support"
+}

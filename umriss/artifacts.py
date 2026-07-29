@@ -598,6 +598,18 @@ GUIDES = {
             "Use `umriss report --tag <tag> --derived <dir> --out <tag>.md` for a compact Markdown artifact.",
         ],
     },
+    "synthetic-targets": {
+        "summary": "Model-panel priors, consensus targets, joint moments, and enriched support banks.",
+        "steps": [
+            "Build marginal priors with `umriss prior build-marginals`; build joint-table priors with `umriss prior build-joints --pair ITEM_A:ITEM_B`.",
+            "Export several explicitly service-qualified models, execute the Jobs externally, and register every Results attempt.",
+            "Parse with `umriss prior parse`; completeness is checked over `(job_id, model, service)`.",
+            "Apply a declared agreement rule with `umriss prior consensus`; accepted and rejected targets retain model provenance.",
+            "Audit target probabilities and source metadata with `umriss targets audit`.",
+            "Measure new marginal or direct-joint features on a stable persona roster with `umriss support extend-items` and `parse-extension`.",
+            "Fit observed and synthetic marginal/joint constraints with `umriss targets fit`; conditional independence must be explicitly authorized.",
+        ],
+    },
 }
 
 
@@ -621,6 +633,8 @@ def next_for_artifacts(
     jobs = prompt_dir / f"{tag}.jobs.ep"
     results = prompt_dir / f"{tag}.results.ep"
     manifest_path = prompt_dir / f"{tag}_manifest.json"
+    workflow = "support"
+    register_command: str | None = None
     if manifest_path.exists():
         manifest = json.loads(manifest_path.read_text())
         if manifest.get("tag") != tag:
@@ -632,10 +646,25 @@ def next_for_artifacts(
         prompts = Path(manifest["prompts"])
         jobs = Path(manifest["jobs"])
         results = Path(manifest["results"])
+        workflow = str(manifest.get("workflow") or "support")
+        register_command = manifest.get("register_command")
         if manifest.get("registration_out"):
             raw_dir = Path(manifest["registration_out"])
+    else:
+        prior_candidates = [
+            prompt_dir / f"{tag}_joint_prior_prompts.jsonl",
+            prompt_dir / f"{tag}_baseline_prompts.jsonl",
+        ]
+        extension_candidate = prompt_dir / f"{tag}_extension_prompts.jsonl"
+        if any(path.exists() for path in prior_candidates):
+            prompts = next(path for path in prior_candidates if path.exists())
+            workflow = "prior"
+        elif extension_candidate.exists():
+            prompts = extension_candidate
+            workflow = "extension"
     raw = raw_dir / f"{tag}_raw.csv"
     probabilities = bank_dir / f"{tag}_probabilities.csv"
+    prior_predictions = bank_dir / f"{tag}_prior_predictions.csv"
     summary = derived_dir / f"{tag}_generated_support_summary.csv"
     report = derived_dir / f"{tag}_report.md"
 
@@ -648,6 +677,7 @@ def next_for_artifacts(
         "results": str(results),
         "raw": str(raw),
         "probabilities": str(probabilities),
+        "prior_predictions": str(prior_predictions),
         "summary": str(summary),
     }
     exists = {key: (Path(value).exists() if value else False) for key, value in artifacts.items()}
@@ -661,14 +691,35 @@ def next_for_artifacts(
             command = f"umriss support build --metadata {metadata or '<metadata.json>'} --preset pattern-coverage --tag {tag} --out {prompt_dir}"
         return {"stage": "build-prompts", "recommendation": command, "artifacts": artifacts, "exists": exists}
     if not jobs.exists():
-        command = f"umriss support export --prompts {prompts} --path {jobs} --tag {tag} --registration-out {raw_dir}"
+        export_group = "support" if workflow == "extension" else workflow
+        workflow_flag = " --workflow extension" if workflow == "extension" else ""
+        command = f"umriss {export_group} export --prompts {prompts} --path {jobs} --tag {tag} --registration-out {raw_dir}{workflow_flag}"
         return {"stage": "export-jobs", "recommendation": command, "artifacts": artifacts, "exists": exists}
     if not results.exists() and not raw.exists():
         command = f"ep run --jobs {jobs} --output {results}"
         return {"stage": "run-externally", "recommendation": command, "note": "Run this outside umriss; umriss only creates and registers EP files.", "artifacts": artifacts, "exists": exists}
     if results.exists() and not raw.exists():
-        command = f"umriss support register-results --results {results} --prompts {prompts} --tag {tag} --out {raw_dir}"
+        command = register_command or f"umriss {workflow} register-results --results {results} --prompts {prompts} --tag {tag} --out {raw_dir}"
         return {"stage": "register-results", "recommendation": command, "artifacts": artifacts, "exists": exists}
+    if workflow in {"prior", "baseline"} and raw.exists() and not prior_predictions.exists():
+        command = (
+            f"umriss prior parse --raw {raw} --prompts {prompts} "
+            f"--metadata {metadata or '<metadata.json>'} --tag {tag} --out {bank_dir}"
+        )
+        return {"stage": "parse-priors", "recommendation": command, "artifacts": artifacts, "exists": exists}
+    if workflow in {"prior", "baseline"} and prior_predictions.exists():
+        command = (
+            f"umriss prior consensus --predictions {prior_predictions} "
+            f"--metadata {metadata or '<metadata.json>'} --population <population-id> --tag {tag} --out {derived_dir}"
+        )
+        return {"stage": "consensus", "recommendation": command, "artifacts": artifacts, "exists": exists}
+    if workflow == "extension" and raw.exists():
+        command = (
+            f"umriss support parse-extension --raw {raw} --prompts {prompts} "
+            f"--base-support <existing_probabilities.csv> --metadata {metadata or '<metadata.json>'} "
+            f"--tag {tag} --out {bank_dir}"
+        )
+        return {"stage": "parse-extension", "recommendation": command, "artifacts": artifacts, "exists": exists}
     if raw.exists() and not probabilities.exists():
         command = (
             f"umriss support parse --raw {raw} --metadata {metadata or '<metadata.json>'} "

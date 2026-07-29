@@ -1,0 +1,16 @@
+{
+  "agents": 5,
+  "agents_path": "teen_social_college.agents.ep",
+  "holdout": null,
+  "kind": "umriss_edsl_agent_list",
+  "minimum_weight": 0.0,
+  "persona_contract": "Each Agent stores its second-person persona in the visible `social_media_outlook` trait. Umriss does not set a custom Agent instruction.",
+  "persona_trait": "social_media_outlook",
+  "retained_mass_before_renormalization": 0.9999999999999999,
+  "source_points": [
+    "teen_social_points.csv"
+  ],
+  "source_weights": "fits/college/fit_college_weights.csv",
+  "weight_contract": "Each Agent stores its normalized coefficient as the hidden `_weight` trait. EDSL excludes underscore-prefixed traits from prompts but does not automatically perform weighted sampling.",
+  "weights_path": "teen_social_college.agents_weights.csv"
+}

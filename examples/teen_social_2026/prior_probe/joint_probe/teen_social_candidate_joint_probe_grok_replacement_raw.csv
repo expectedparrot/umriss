@@ -1,0 +1,54 @@
+agent.agent_index,agent.agent_instruction,agent.agent_name,answer.resp,cache_keys.resp_cache_key,comment.resp_comment,generated_tokens.resp_generated_tokens,iteration.iteration,model.frequency_penalty,model.inference_service,model.logprobs,model.max_tokens,model.model,model.model_index,model.presence_penalty,model.reasoning_effort,model.temperature,model.top_logprobs,model.top_p,prompt.resp_system_prompt,prompt.resp_user_prompt,question_options.resp_question_options,question_text.resp_question_text,question_type.resp_question_type,raw_model_response.resp_cost,raw_model_response.resp_input_price_per_million_tokens,raw_model_response.resp_input_tokens,raw_model_response.resp_one_usd_buys,raw_model_response.resp_output_price_per_million_tokens,raw_model_response.resp_output_tokens,raw_model_response.resp_raw_model_response,raw_model_response.resp_thinking_tokens,reasoning_summary.resp_reasoning_summary,scenario.job_id,scenario.prompt,scenario.scenario_index,validated.resp_validated
+0,You are answering questions as if you were a human. Do not break character.,Agent_0,"{
+  ""reasoning_summary"": ""Plausible 2026 joint for US teen girls: posting is moderately frequent (higher daily/few-times shares via Stories/TikTok/IG) while negative comparison is common (esp. sometimes); mild positive dependence as heavier posters have more exposure/engagement, raising conditional odds of sometimes/often feeling worse, without assuming independence."",
+  ""joint_probabilities"": [
+    [0.10, 0.08, 0.05, 0.02],
+    [0.06, 0.10, 0.10, 0.04],
+    [0.03, 0.07, 0.10, 0.05],
+    [0.01, 0.05, 0.10, 0.04]
+  ]
+}",85e84bd990b602ae3d21bc232c0aacde,,"{
+  ""reasoning_summary"": ""Plausible 2026 joint for US teen girls: posting is moderately frequent (higher daily/few-times shares via Stories/TikTok/IG) while negative comparison is common (esp. sometimes); mild positive dependence as heavier posters have more exposure/engagement, raising conditional odds of sometimes/often feeling worse, without assuming independence."",
+  ""joint_probabilities"": [
+    [0.10, 0.08, 0.05, 0.02],
+    [0.06, 0.10, 0.10, 0.04],
+    [0.03, 0.07, 0.10, 0.05],
+    [0.01, 0.05, 0.10, 0.04]
+  ]
+}",0,0,xai,False,1200,grok-4.5,0,0,,1.0,3,1,,"Predict one joint population response distribution for two survey items.
+
+Population: teen_girls_all
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+First item: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+First-item options, in row order: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Second item: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Second-item options, in column order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return the joint distribution directly. Do not multiply separately estimated marginals.
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""joint_probabilities"": [[one nonnegative cell per column] per row]
+}
+The matrix must have shape 4 by 4 and all cells together must sum to 1.",,{{ scenario.prompt }},free_text,0.04667,5.0,484,21.427040925648168,25.0,173,"{'id': '717663c5-2a27-980d-8aa1-89333bbcdc4b', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""Plausible 2026 joint for US teen girls: posting is moderately frequent (higher daily/few-times shares via Stories/TikTok/IG) while negative comparison is common (esp. sometimes); mild positive dependence as heavier posters have more exposure/engagement, raising conditional odds of sometimes/often feeling worse, without assuming independence."",\n  ""joint_probabilities"": [\n    [0.10, 0.08, 0.05, 0.02],\n    [0.06, 0.10, 0.10, 0.04],\n    [0.03, 0.07, 0.10, 0.05],\n    [0.01, 0.05, 0.10, 0.04]\n  ]\n}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': 'The user wants a joint population response distribution for two survey items about social media habits among US teen girls.\n{\n  ""reasoning_summary"": ""I modeled teen girls\' posting habits as moderately frequent (skewed toward daily or near-daily) while negative social comparison is common but not universal, creating moderate positive dependence: frequent posters experience more comparison, and frequent comparers post more to seek validation."",\n  ""joint_probabilities"": [\n    [0.08, 0.12, 0.10, 0.03],\n    [0.10, 0.15, 0.12, 0.05],\n    [0.07, 0.10, 0.12, 0.05],\n [0.05, 0.08, 0.10, 0.'}}], 'created': 1785291544, 'model': 'grok-4.5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': 'fp_a39489019fa99b6e', 'usage': {'completion_tokens': 173, 'prompt_tokens': 484, 'total_tokens': 2254, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 1597, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 128, 'text_tokens': 484, 'image_tokens': 0}, 'num_sources_used': 0, 'cost_in_usd_ticks': 113704000}}",1597,,teen_social_candidate_joint_probe_posting_frequency_x_social_comparison,"Predict one joint population response distribution for two survey items.
+
+Population: teen_girls_all
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+First item: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+First-item options, in row order: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Second item: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Second-item options, in column order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return the joint distribution directly. Do not multiply separately estimated marginals.
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""joint_probabilities"": [[one nonnegative cell per column] per row]
+}
+The matrix must have shape 4 by 4 and all cells together must sum to 1.",0,True

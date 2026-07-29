@@ -1,0 +1,16 @@
+target_id,type,status,valid,problems,source_kind,confidence_weight
+marginal:hobbies,marginal,accepted,True,[],observed,1.0
+marginal:physical_abilities,marginal,accepted,True,[],observed,1.0
+marginal:parenting,marginal,accepted,True,[],observed,1.0
+marginal:feelings,marginal,accepted,True,[],observed,1.0
+marginal:workplace,marginal,accepted,True,[],observed,1.0
+marginal:relationship_status,marginal,accepted,True,[],model_synthetic,1.0
+marginal:children_at_home,marginal,accepted,True,[],model_synthetic,1.0
+marginal:household_income,marginal,accepted,True,[],model_synthetic,1.0
+marginal:marriage_importance,marginal,rejected,True,[],model_synthetic,1.0
+marginal:parenthood_importance,marginal,accepted,True,[],model_synthetic,1.0
+marginal:paid_work_priority,marginal,accepted,True,[],model_synthetic,1.0
+marginal:childcare_division,marginal,rejected,True,[],model_synthetic,1.0
+marginal:housework_division,marginal,accepted,True,[],model_synthetic,1.0
+marginal:financial_decision_style,marginal,rejected,True,[],model_synthetic,1.0
+marginal:career_sacrifice_rule,marginal,rejected,True,[],model_synthetic,1.0

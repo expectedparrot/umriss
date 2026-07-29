@@ -1,0 +1,4 @@
+tag,fit_id,item,option_index,option_code,option_label,prediction
+fit_college,fit_college,social_media_hours,0,1,Less than one hour,0.39994176150642424
+fit_college,fit_college,social_media_hours,1,2,One to three hours,0.3699566491991459
+fit_college,fit_college,social_media_hours,2,3,Four or more hours,0.2301015892944298

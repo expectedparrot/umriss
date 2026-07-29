@@ -61,6 +61,12 @@ def build_baseline_prompts(
                     )
                     + "\nUse these as evidence, but do not assume that response distributions are identical across items.\n"
                 )
+            checkbox = metadata["items"][holdout].get("question_type") == "checkbox"
+            response_contract = (
+                '"inclusion_probabilities": [one probability per option; rates do not need to sum to 1]'
+                if checkbox
+                else '"probabilities": [one nonnegative probability per option, summing to 1]'
+            )
             prompt = f"""Predict the population response distribution for one survey item.
 
 Survey context: {context}
@@ -71,7 +77,7 @@ Battery topic: {metadata.get('topic', '')}
 Return only valid JSON:
 {{
   "reasoning_summary": "brief explanation",
-  "probabilities": [one nonnegative probability per option, summing to 1]
+  {response_contract}
 }}"""
             rows.append(
                 {
@@ -80,6 +86,11 @@ Return only valid JSON:
                     "mode": baseline_mode,
                     "holdout": holdout,
                     "held_in": held_in,
+                    "target_id": f"{'checkbox' if checkbox else 'marginal'}:{holdout}",
+                    "target_type": "checkbox_marginal" if checkbox else "marginal",
+                    "items": [holdout],
+                    "shape": [len(item_option_labels(metadata, holdout))],
+                    "option_count": len(item_option_labels(metadata, holdout)),
                     "prompt": prompt,
                 }
             )
@@ -104,13 +115,25 @@ def parse_baseline_results(
     prompts = {str(row["job_id"]): row for row in read_jsonl(prompts_path)}
     parsed_rows: list[dict[str, Any]] = []
     diagnostics: list[dict[str, Any]] = []
-    seen: set[str] = set()
-    for idx, row in enumerate(read_raw_rows(raw_path)):
+    seen: set[tuple[str, str, str]] = set()
+    expected: set[tuple[str, str, str]] = set()
+    raw_rows = read_raw_rows(raw_path)
+    model_keys = {
+        (
+            str(row.get("model.model") or row.get("model") or "unknown"),
+            str(row.get("model.inference_service") or row.get("service_name") or "unknown"),
+        )
+        for row in raw_rows
+    }
+    expected = {(job_id, model, service) for job_id in prompts for model, service in model_keys}
+    for idx, row in enumerate(raw_rows):
         job_id = str(row.get("scenario.job_id") or row.get("job_id") or f"row_{idx}")
         contract = prompts.get(job_id)
         if contract is None:
             raise UmrissError("invalid_input", f"Raw result has unknown baseline job_id: {job_id}")
         response = extract_json(str(row.get("answer.resp") or row.get("response") or ""))
+        model = str(row.get("model.model") or row.get("model") or "unknown")
+        service_name = str(row.get("model.inference_service") or row.get("service_name") or "unknown")
         holdout = contract["holdout"]
         vec, diag = normalized_vec(
             response.get("probabilities") if response else None,
@@ -122,12 +145,14 @@ def parse_baseline_results(
                 "job_id": job_id,
                 "mode": contract["mode"],
                 "holdout": holdout,
+                "model": model,
+                "service_name": service_name,
                 "valid": valid,
                 **diag,
             }
         )
         if valid:
-            seen.add(job_id)
+            seen.add((job_id, model, service_name))
             parsed_rows.append(
                 {
                     "tag": tag,
@@ -138,14 +163,21 @@ def parse_baseline_results(
                     "reasoning_summary": str(response.get("reasoning_summary", "")),
                     "held_in": json.dumps(contract.get("held_in", [])),
                     "job_id": job_id,
+                    "model": model,
+                    "service_name": service_name,
                 }
             )
-    missing = sorted(set(prompts) - seen)
+    missing = sorted(expected - seen)
     if missing:
         raise UmrissError(
-            "invalid_input",
-            f"Baseline results are incomplete or invalid: {len(missing)} of {len(prompts)} jobs failed.",
-            context={"missing_job_ids": missing[:20]},
+            "incomplete_results",
+            f"Baseline results are incomplete or invalid: {len(missing)} of {len(expected)} model-job responses failed.",
+            context={
+                "missing_model_jobs": [
+                    {"job_id": job_id, "model": model, "service_name": service}
+                    for job_id, model, service in missing[:20]
+                ]
+            },
         )
     out_dir.mkdir(parents=True, exist_ok=True)
     outputs: dict[str, str] = {}

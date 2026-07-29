@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "wave": "W154_AUG2026",
+  "battery": "WORK_FAMILY_CANDIDATES",
+  "survey_key": "pew_work_family_candidates",
+  "topic": "family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults",
+  "context": "Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.",
+  "items": {
+    "relationship_status": {
+      "variable": "RELATIONSHIP_SYNTH",
+      "question_stem": "Which best describes your current relationship situation?",
+      "item_text": "Current relationship situation",
+      "option_codes": [1, 2, 3, 4],
+      "option_labels": ["Married", "Living with a partner", "In a relationship but not living together", "Not currently in a relationship"],
+      "scale": {"type": "nominal"}
+    },
+    "children_at_home": {
+      "variable": "CHILDRENHOME_SYNTH",
+      "question_stem": "Which best describes whether children under age 18 live in your household?",
+      "item_text": "Children under 18 in the household",
+      "option_codes": [1, 2, 3, 4],
+      "option_labels": ["No children under 18", "At least one child under 6", "Only children ages 6 to 17", "Children both under 6 and ages 6 to 17"],
+      "scale": {"type": "nominal"}
+    },
+    "household_income": {
+      "variable": "HHINCOME_SYNTH",
+      "question_stem": "What was your total household income before taxes last year?",
+      "item_text": "Annual household income",
+      "option_codes": [1, 2, 3, 4],
+      "option_labels": ["Less than $50,000", "$50,000 to $99,999", "$100,000 to $149,999", "$150,000 or more"],
+      "scale": {"type": "ordinal", "direction": "low_to_high"}
+    },
+    "marriage_importance": {
+      "variable": "MARRIAGEIMPORT_SYNTH",
+      "question_stem": "How important is being married to your own idea of a fulfilling life?",
+      "item_text": "Personal importance of marriage",
+      "option_codes": [1, 2, 3, 4],
+      "option_labels": ["Not at all important", "Not too important", "Somewhat important", "Very important"],
+      "scale": {"type": "ordinal", "direction": "low_to_high"}
+    },
+    "parenthood_importance": {
+      "variable": "PARENTHOODIMPORT_SYNTH",
+      "question_stem": "How important is raising children to your own idea of a fulfilling life?",
+      "item_text": "Personal importance of raising children",
+      "option_codes": [1, 2, 3, 4],
+      "option_labels": ["Not at all important", "Not too important", "Somewhat important", "Very important"],
+      "scale": {"type": "ordinal", "direction": "low_to_high"}
+    },
+    "paid_work_priority": {
+      "variable": "WORKPRIORITY_SYNTH",
+      "question_stem": "How important is success in paid work or a career to your own idea of a fulfilling life?",
+      "item_text": "Personal importance of paid-work or career success",
+      "option_codes": [1, 2, 3, 4],
+      "option_labels": ["Not at all important", "Not too important", "Somewhat important", "Very important"],
+      "scale": {"type": "ordinal", "direction": "low_to_high"}
+    },
+    "childcare_division": {
+      "variable": "CHILDCAREDIV_SYNTH",
+      "question_stem": "In a two-parent household with children, what is generally the best way to divide day-to-day childcare?",
+      "item_text": "Preferred division of day-to-day childcare",
+      "option_codes": [1, 2, 3, 4],
+      "option_labels": ["One parent should do most of it", "Both parents should divide it about equally", "The parent with more available time should do more", "It depends entirely on the family"],
+      "scale": {"type": "nominal"}
+    },
+    "housework_division": {
+      "variable": "HOUSEWORKDIV_SYNTH",
+      "question_stem": "In a household with two adults, what is generally the best way to divide cooking, cleaning, and other routine housework?",
+      "item_text": "Preferred division of routine housework",
+      "option_codes": [1, 2, 3, 4],
+      "option_labels": ["One person should do most of it", "Both adults should divide it about equally", "The person with more available time should do more", "It depends entirely on the household"],
+      "scale": {"type": "nominal"}
+    },
+    "financial_decision_style": {
+      "variable": "FINDECISION_SYNTH",
+      "question_stem": "In a household with two adults, what is generally the best way to make major financial decisions?",
+      "item_text": "Preferred style for major household financial decisions",
+      "option_codes": [1, 2, 3, 4],
+      "option_labels": ["The higher earner should usually decide", "The person who manages the money should usually decide", "Both adults should decide together", "It depends on the decision"],
+      "scale": {"type": "nominal"}
+    },
+    "career_sacrifice_rule": {
+      "variable": "CAREERSACRIFICE_SYNTH",
+      "question_stem": "If a couple with children needs one adult to reduce paid work for family needs, what is generally the fairest approach?",
+      "item_text": "Preferred rule for deciding who reduces paid work",
+      "option_codes": [1, 2, 3, 4],
+      "option_labels": ["The lower earner should reduce work", "The adult with the more flexible job should reduce work", "Both adults should reduce work as equally as possible", "It depends entirely on the family"],
+      "scale": {"type": "nominal"}
+    }
+  }
+}

@@ -1,0 +1,622 @@
+agent.agent_index,agent.agent_instruction,agent.agent_name,answer.resp,cache_keys.resp_cache_key,comment.resp_comment,generated_tokens.resp_generated_tokens,iteration.iteration,model.frequency_penalty,model.inference_service,model.logprobs,model.max_tokens,model.model,model.model_index,model.presence_penalty,model.reasoning_effort,model.temperature,model.top_logprobs,model.top_p,prompt.resp_system_prompt,prompt.resp_user_prompt,question_options.resp_question_options,question_text.resp_question_text,question_type.resp_question_type,raw_model_response.resp_cost,raw_model_response.resp_input_price_per_million_tokens,raw_model_response.resp_input_tokens,raw_model_response.resp_one_usd_buys,raw_model_response.resp_output_price_per_million_tokens,raw_model_response.resp_output_tokens,raw_model_response.resp_raw_model_response,raw_model_response.resp_thinking_tokens,reasoning_summary.resp_reasoning_summary,scenario.job_id,scenario.prompt,scenario.scenario_index,validated.resp_validated
+0,You are answering questions as if you were a human. Do not break character.,Agent_0,"{""reasoning_summary"":""Most US teen girls would report at least moderate persistence with schoolwork, with substantial social desirability and generally higher academic conscientiousness among girls pushing responses toward 'Often,' while a minority would say they rarely or never persist when work is difficult or uninteresting."",""probabilities"":[0.03,0.10,0.38,0.49]}",ed17dc172e20615dcaccbdc77b425de4,,"{""reasoning_summary"":""Most US teen girls would report at least moderate persistence with schoolwork, with substantial social desirability and generally higher academic conscientiousness among girls pushing responses toward 'Often,' while a minority would say they rarely or never persist when work is difficult or uninteresting."",""probabilities"":[0.03,0.10,0.38,0.49]}",0,0,openai,False,1200,gpt-5.5,0,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How often do you work hard on schoolwork even when the assignment is difficult or not interesting?
+Survey item: Persistence and effort in schoolwork
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.00746,5.0,178,134.04825737265415,30.0,84,"{'id': 'chatcmpl-E6oPl7FVXKy3zYgV1HngStJIrQ3Xw', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"":""Most US teen girls would report at least moderate persistence with schoolwork, with substantial social desirability and generally higher academic conscientiousness among girls pushing responses toward \'Often,\' while a minority would say they rarely or never persist when work is difficult or uninteresting."",""probabilities"":[0.03,0.10,0.38,0.49]}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785292469, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 219, 'prompt_tokens': 178, 'total_tokens': 397, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 135, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",135.0,,teen_life_candidate_priors_one_shot_school_effort,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How often do you work hard on schoolwork even when the assignment is difficult or not interesting?
+Survey item: Persistence and effort in schoolwork
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",0,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_1,"{""reasoning_summary"": ""Self-reported effort items are strongly positively skewed, especially among teen girls who report higher conscientiousness and school engagement. With only four options and no 'Always', most respondents cluster in 'Often', with a substantial 'Sometimes' group reflecting acknowledged struggles with boring or hard assignments; few admit 'Never'."", ""probabilities"": [0.02, 0.09, 0.38, 0.51]}",efa79a67a3057c614a3679f56f315d8c,,"{""reasoning_summary"": ""Self-reported effort items are strongly positively skewed, especially among teen girls who report higher conscientiousness and school engagement. With only four options and no 'Always', most respondents cluster in 'Often', with a substantial 'Sometimes' group reflecting acknowledged struggles with boring or hard assignments; few admit 'Never'."", ""probabilities"": [0.02, 0.09, 0.38, 0.51]}",0,0,deep_infra,False,1200,anthropic/claude-opus-5,1,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How often do you work hard on schoolwork even when the assignment is difficult or not interesting?
+Survey item: Persistence and effort in schoolwork
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.0271755,16.5,292,36.79785100550128,82.5,271,"{'id': 'chatcmpl-RK5M7XxBE8wgRljYniCFaLH7', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"": ""Self-reported effort items are strongly positively skewed, especially among teen girls who report higher conscientiousness and school engagement. With only four options and no \'Always\', most respondents cluster in \'Often\', with a substantial \'Sometimes\' group reflecting acknowledged struggles with boring or hard assignments; few admit \'Never\'."", ""probabilities"": [0.02, 0.09, 0.38, 0.51]}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': None, 'name': None}}], 'created': 1785292474, 'model': 'anthropic/claude-opus-5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 271, 'prompt_tokens': 292, 'total_tokens': 563, 'completion_tokens_details': None, 'prompt_tokens_details': None, 'estimated_cost': 0.008235}}",,,teen_life_candidate_priors_one_shot_school_effort,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How often do you work hard on schoolwork even when the assignment is difficult or not interesting?
+Survey item: Persistence and effort in schoolwork
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",0,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_2,"{
+  ""reasoning_summary"": ""US teen girls typically report high academic conscientiousness and effort (higher than boys on average); social-desirability and genuine persistence skew responses toward 'Often'/'Sometimes', with very few endorsing 'Never'."",
+  ""probabilities"": [0.04, 0.11, 0.33, 0.52]
+}",2fe8f2cc84e043f6d9d073bb32e1c8f0,,"{
+  ""reasoning_summary"": ""US teen girls typically report high academic conscientiousness and effort (higher than boys on average); social-desirability and genuine persistence skew responses toward 'Often'/'Sometimes', with very few endorsing 'Never'."",
+  ""probabilities"": [0.04, 0.11, 0.33, 0.52]
+}",0,0,xai,False,1200,grok-4.5,2,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How often do you work hard on schoolwork even when the assignment is difficult or not interesting?
+Survey item: Persistence and effort in schoolwork
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.01504,5.0,378,66.48936170212765,25.0,78,"{'id': '6f4090f2-1fe8-9ca3-a6d8-4223ceea61a1', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""US teen girls typically report high academic conscientiousness and effort (higher than boys on average); social-desirability and genuine persistence skew responses toward \'Often\'/\'Sometimes\', with very few endorsing \'Never\'."",\n  ""probabilities"": [0.04, 0.11, 0.33, 0.52]\n}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': 'The user wants me to predict the population response distribution for a survey item about US teen girls in 2026.\n{\n  ""reasoning_summary"": ""US teen girls tend to report higher conscientiousness and effort in schoolwork than boys, based on patterns in NCES and Pew surveys. With the 2026 projection, I expect a distribution skewed toward frequent effort, but still with some variation due to assignment difficulty and personal motivation.'}}], 'created': 1785292470, 'model': 'grok-4.5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': 'fp_a39489019fa99b6e', 'usage': {'completion_tokens': 78, 'prompt_tokens': 378, 'total_tokens': 904, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 448, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 128, 'text_tokens': 378, 'image_tokens': 0}, 'num_sources_used': 0, 'cost_in_usd_ticks': 36944000}}",448.0,,teen_life_candidate_priors_one_shot_school_effort,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How often do you work hard on schoolwork even when the assignment is difficult or not interesting?
+Survey item: Persistence and effort in schoolwork
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",0,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_3,"{
+  ""reasoning_summary"": ""Most US teen girls would likely express positive academic self-efficacy, especially with the condition that they put in effort, though some would report only moderate confidence due to stress, grades, or school difficulties."",
+  ""probabilities"": [0.03, 0.10, 0.36, 0.51]
+}",d1cbd3bd22d78f925251513156a7f4cd,,"{
+  ""reasoning_summary"": ""Most US teen girls would likely express positive academic self-efficacy, especially with the condition that they put in effort, though some would report only moderate confidence due to stress, grades, or school difficulties."",
+  ""probabilities"": [0.03, 0.10, 0.36, 0.51]
+}",0,0,openai,False,1200,gpt-5.5,0,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How confident are you that you can do well in your classes when you put in the effort?
+Survey item: Confidence in ability to succeed academically
+Response options, in order: [""Not at all confident"", ""A little confident"", ""Somewhat confident"", ""Very confident""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.007255,5.0,185,137.83597518952445,30.0,84,"{'id': 'chatcmpl-E6oPlUfeBoDuKTRjV9bZuOOjgwrdF', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""Most US teen girls would likely express positive academic self-efficacy, especially with the condition that they put in effort, though some would report only moderate confidence due to stress, grades, or school difficulties."",\n  ""probabilities"": [0.03, 0.10, 0.36, 0.51]\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785292469, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 211, 'prompt_tokens': 185, 'total_tokens': 396, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 127, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",127.0,,teen_life_candidate_priors_one_shot_academic_confidence,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How confident are you that you can do well in your classes when you put in the effort?
+Survey item: Confidence in ability to succeed academically
+Response options, in order: [""Not at all confident"", ""A little confident"", ""Somewhat confident"", ""Very confident""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",1,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_4,"{""reasoning_summary"": ""Academic self-efficacy items with an explicit 'when you put in the effort' framing elicit strongly positive responses among teens; most girls report high confidence, though a substantial minority hedge at 'somewhat' given anxiety and self-doubt patterns documented among teen girls. Very few select the lowest categories."", ""probabilities"": [0.03, 0.09, 0.34, 0.54]}",a3555e1d656761c41ef2fbfb1af2b3a6,,"{""reasoning_summary"": ""Academic self-efficacy items with an explicit 'when you put in the effort' framing elicit strongly positive responses among teens; most girls report high confidence, though a substantial minority hedge at 'somewhat' given anxiety and self-doubt patterns documented among teen girls. Very few select the lowest categories."", ""probabilities"": [0.03, 0.09, 0.34, 0.54]}",0,0,deep_infra,False,1200,anthropic/claude-opus-5,1,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How confident are you that you can do well in your classes when you put in the effort?
+Survey item: Confidence in ability to succeed academically
+Response options, in order: [""Not at all confident"", ""A little confident"", ""Somewhat confident"", ""Very confident""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.0165495,16.5,293,60.42478624731864,82.5,142,"{'id': 'chatcmpl-RK4svTauzI1vau2kr0Aow24e', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"": ""Academic self-efficacy items with an explicit \'when you put in the effort\' framing elicit strongly positive responses among teens; most girls report high confidence, though a substantial minority hedge at \'somewhat\' given anxiety and self-doubt patterns documented among teen girls. Very few select the lowest categories."", ""probabilities"": [0.03, 0.09, 0.34, 0.54]}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': None, 'name': None}}], 'created': 1785292473, 'model': 'anthropic/claude-opus-5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 142, 'prompt_tokens': 293, 'total_tokens': 435, 'completion_tokens_details': None, 'prompt_tokens_details': None, 'estimated_cost': 0.0050149999999999995}}",,,teen_life_candidate_priors_one_shot_academic_confidence,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How confident are you that you can do well in your classes when you put in the effort?
+Survey item: Confidence in ability to succeed academically
+Response options, in order: [""Not at all confident"", ""A little confident"", ""Somewhat confident"", ""Very confident""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",1,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_5,"{
+  ""reasoning_summary"": ""Phrasing conditions on effort (raising self-efficacy); teen girls show high academic confidence/engagement in youth surveys, so mass on top two options with small left tail."",
+  ""probabilities"": [0.04, 0.11, 0.33, 0.52]
+}",b7d9951b1ff2aa778531806f8b06e977,,"{
+  ""reasoning_summary"": ""Phrasing conditions on effort (raising self-efficacy); teen girls show high academic confidence/engagement in youth surveys, so mass on top two options with small left tail."",
+  ""probabilities"": [0.04, 0.11, 0.33, 0.52]
+}",0,0,xai,False,1200,grok-4.5,2,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How confident are you that you can do well in your classes when you put in the effort?
+Survey item: Confidence in ability to succeed academically
+Response options, in order: [""Not at all confident"", ""A little confident"", ""Somewhat confident"", ""Very confident""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.012425,5.0,385,80.48289738430583,25.0,69,"{'id': '623082cf-02d4-94f9-83c1-91d3891f13f8', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""Phrasing conditions on effort (raising self-efficacy); teen girls show high academic confidence/engagement in youth surveys, so mass on top two options with small left tail."",\n  ""probabilities"": [0.04, 0.11, 0.33, 0.52]\n}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': 'The user wants me to predict the population response distribution for a survey item about US teen girls\' confidence in their academic ability.\n{\n  ""reasoning_summary"": ""US teen girls tend to report high academic self-efficacy, especially when the item frames success as effort-dependent.'}}], 'created': 1785292470, 'model': 'grok-4.5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': 'fp_a39489019fa99b6e', 'usage': {'completion_tokens': 69, 'prompt_tokens': 385, 'total_tokens': 805, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 351, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 128, 'text_tokens': 385, 'image_tokens': 0}, 'num_sources_used': 0, 'cost_in_usd_ticks': 30724000}}",351.0,,teen_life_candidate_priors_one_shot_academic_confidence,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How confident are you that you can do well in your classes when you put in the effort?
+Survey item: Confidence in ability to succeed academically
+Response options, in order: [""Not at all confident"", ""A little confident"", ""Somewhat confident"", ""Very confident""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",1,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_6,"{""reasoning_summary"":""Most US teen girls use social media frequently, and many report distraction or reduced focus from phones while studying, but the strongest interference is likely concentrated in a minority; thus responses should cluster around sometimes, with often also common."",""probabilities"":[0.09,0.23,0.43,0.25]}",9129d67df81354d618e739a390dc1f49,,"{""reasoning_summary"":""Most US teen girls use social media frequently, and many report distraction or reduced focus from phones while studying, but the strongest interference is likely concentrated in a minority; thus responses should cluster around sometimes, with often also common."",""probabilities"":[0.09,0.23,0.43,0.25]}",0,0,openai,False,1200,gpt-5.5,0,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How often does social media make it harder for you to finish homework or study as much as you intended?
+Survey item: Social-media interference with homework
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.006325,5.0,179,158.10276679841897,30.0,77,"{'id': 'chatcmpl-E6oPlCVHOWjw8QbyKhRU7GZfsPDeU', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"":""Most US teen girls use social media frequently, and many report distraction or reduced focus from phones while studying, but the strongest interference is likely concentrated in a minority; thus responses should cluster around sometimes, with often also common."",""probabilities"":[0.09,0.23,0.43,0.25]}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785292469, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 181, 'prompt_tokens': 179, 'total_tokens': 360, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 104, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",104.0,,teen_life_candidate_priors_one_shot_homework_distraction,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How often does social media make it harder for you to finish homework or study as much as you intended?
+Survey item: Social-media interference with homework
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",2,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_7,"{""reasoning_summary"": ""Most US teen girls report at least occasional distraction from social media while doing schoolwork; prior Pew-style findings show large majorities acknowledging some interference. 'Sometimes' is typically the modal response, with a substantial 'Often' share (heavy smartphone/social use, self-reported distraction), and a minority saying 'Rarely' or 'Never' (some teens are low users or self-regulate)."", ""probabilities"": [0.09, 0.22, 0.41, 0.28]}",06140e0b798facfdcad14b30a5ef4fed,,"{""reasoning_summary"": ""Most US teen girls report at least occasional distraction from social media while doing schoolwork; prior Pew-style findings show large majorities acknowledging some interference. 'Sometimes' is typically the modal response, with a substantial 'Often' share (heavy smartphone/social use, self-reported distraction), and a minority saying 'Rarely' or 'Never' (some teens are low users or self-regulate)."", ""probabilities"": [0.09, 0.22, 0.41, 0.28]}",0,0,deep_infra,False,1200,anthropic/claude-opus-5,1,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How often does social media make it harder for you to finish homework or study as much as you intended?
+Survey item: Social-media interference with homework
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.018876,16.5,284,52.97732570459843,82.5,172,"{'id': 'chatcmpl-R4LHre0G1t70CcrxKOYLUfW2', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"": ""Most US teen girls report at least occasional distraction from social media while doing schoolwork; prior Pew-style findings show large majorities acknowledging some interference. \'Sometimes\' is typically the modal response, with a substantial \'Often\' share (heavy smartphone/social use, self-reported distraction), and a minority saying \'Rarely\' or \'Never\' (some teens are low users or self-regulate)."", ""probabilities"": [0.09, 0.22, 0.41, 0.28]}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': None, 'name': None}}], 'created': 1785292473, 'model': 'anthropic/claude-opus-5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 172, 'prompt_tokens': 284, 'total_tokens': 456, 'completion_tokens_details': None, 'prompt_tokens_details': None, 'estimated_cost': 0.00572}}",,,teen_life_candidate_priors_one_shot_homework_distraction,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How often does social media make it harder for you to finish homework or study as much as you intended?
+Survey item: Social-media interference with homework
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",2,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_8,"{
+  ""reasoning_summary"": ""High social-media penetration among US teen girls, plus consistent findings from Pew/Common Sense on distraction from schoolwork, imply most experience at least occasional interference; modal response is therefore 'Sometimes', with non-trivial 'Often' and smaller never/rarely tails."",
+  ""probabilities"": [0.16, 0.26, 0.38, 0.20]
+}",275e42adb081f990f9c129d62685d7ae,,"{
+  ""reasoning_summary"": ""High social-media penetration among US teen girls, plus consistent findings from Pew/Common Sense on distraction from schoolwork, imply most experience at least occasional interference; modal response is therefore 'Sometimes', with non-trivial 'Often' and smaller never/rarely tails."",
+  ""probabilities"": [0.16, 0.26, 0.38, 0.20]
+}",0,0,xai,False,1200,grok-4.5,2,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How often does social media make it harder for you to finish homework or study as much as you intended?
+Survey item: Social-media interference with homework
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.014525,5.0,380,68.84681583476764,25.0,87,"{'id': '3e50e88c-1faa-9370-ac1c-a3f2795e2af1', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""High social-media penetration among US teen girls, plus consistent findings from Pew/Common Sense on distraction from schoolwork, imply most experience at least occasional interference; modal response is therefore \'Sometimes\', with non-trivial \'Often\' and smaller never/rarely tails."",\n  ""probabilities"": [0.16, 0.26, 0.38, 0.20]\n}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': 'The user wants me to predict the population response distribution for a survey item about US teen girls and how often social media makes it harder to finish homework or study.\n'}}], 'created': 1785292470, 'model': 'grok-4.5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': 'fp_a39489019fa99b6e', 'usage': {'completion_tokens': 87, 'prompt_tokens': 380, 'total_tokens': 885, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 418, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0, 'text_tokens': 380, 'image_tokens': 0}, 'num_sources_used': 0, 'cost_in_usd_ticks': 37900000}}",418.0,,teen_life_candidate_priors_one_shot_homework_distraction,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How often does social media make it harder for you to finish homework or study as much as you intended?
+Survey item: Social-media interference with homework
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",2,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_9,"{
+  ""reasoning_summary"": ""Organized physical activity is common among teen girls through school sports, dance, gyms, and classes, but participation is far from universal and declines in later teen years. Those who are actively involved often attend practices or classes multiple days per week."",
+  ""probabilities"": [0.39, 0.09, 0.21, 0.31]
+}",34150f2a747854054d9d1db455f31505,,"{
+  ""reasoning_summary"": ""Organized physical activity is common among teen girls through school sports, dance, gyms, and classes, but participation is far from universal and declines in later teen years. Those who are actively involved often attend practices or classes multiple days per week."",
+  ""probabilities"": [0.39, 0.09, 0.21, 0.31]
+}",0,0,openai,False,1200,gpt-5.5,0,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: During a typical week, how often do you take part in organized sports, dance, exercise classes, or another structured physical activity?
+Survey item: Participation in organized physical activity
+Response options, in order: [""Never"", ""Less than once a week"", ""One or two days a week"", ""Three or more days a week""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.019075,5.0,197,52.42463958060288,30.0,91,"{'id': 'chatcmpl-E6oPlBmZEHTJqGFm2dC4rnaP9inrG', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""Organized physical activity is common among teen girls through school sports, dance, gyms, and classes, but participation is far from universal and declines in later teen years. Those who are actively involved often attend practices or classes multiple days per week."",\n  ""probabilities"": [0.39, 0.09, 0.21, 0.31]\n}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785292469, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 603, 'prompt_tokens': 197, 'total_tokens': 800, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 512, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",512.0,,teen_life_candidate_priors_one_shot_organized_activity,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: During a typical week, how often do you take part in organized sports, dance, exercise classes, or another structured physical activity?
+Survey item: Participation in organized physical activity
+Response options, in order: [""Never"", ""Less than once a week"", ""One or two days a week"", ""Three or more days a week""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",3,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_10,"{""reasoning_summary"": ""About half to 60% of US teen girls take part in some structured physical activity (school/club sports, dance, martial arts, gym or fitness classes), and among participants, in-season training is typically several days per week. Roughly a quarter to a third report no organized activity at all, with a smaller group participating sporadically."", ""probabilities"": [0.26, 0.13, 0.23, 0.38]}",9a9510ec8f018a409a5dc3ef03dc7c19,,"{""reasoning_summary"": ""About half to 60% of US teen girls take part in some structured physical activity (school/club sports, dance, martial arts, gym or fitness classes), and among participants, in-season training is typically several days per week. Roughly a quarter to a third report no organized activity at all, with a smaller group participating sporadically."", ""probabilities"": [0.26, 0.13, 0.23, 0.38]}",0,0,deep_infra,False,1200,anthropic/claude-opus-5,1,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: During a typical week, how often do you take part in organized sports, dance, exercise classes, or another structured physical activity?
+Survey item: Participation in organized physical activity
+Response options, in order: [""Never"", ""Less than once a week"", ""One or two days a week"", ""Three or more days a week""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.0280335,16.5,304,35.67160718426169,82.5,279,"{'id': 'chatcmpl-RxWSdE4b93C6ahdreE9p2oAz', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"": ""About half to 60% of US teen girls take part in some structured physical activity (school/club sports, dance, martial arts, gym or fitness classes), and among participants, in-season training is typically several days per week. Roughly a quarter to a third report no organized activity at all, with a smaller group participating sporadically."", ""probabilities"": [0.26, 0.13, 0.23, 0.38]}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': None, 'name': None}}], 'created': 1785292474, 'model': 'anthropic/claude-opus-5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 279, 'prompt_tokens': 304, 'total_tokens': 583, 'completion_tokens_details': None, 'prompt_tokens_details': None, 'estimated_cost': 0.008495}}",,,teen_life_candidate_priors_one_shot_organized_activity,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: During a typical week, how often do you take part in organized sports, dance, exercise classes, or another structured physical activity?
+Survey item: Participation in organized physical activity
+Response options, in order: [""Never"", ""Less than once a week"", ""One or two days a week"", ""Three or more days a week""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",3,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_11,"{
+  ""reasoning_summary"": ""Based on YRBS/CDC and related teen activity data showing ~40-50% of US high-school girls in organized sports/dance (often multi-day practices when active), plus lower overall female PA rates and seasonal/drop-off patterns, a plurality report 3+ days while a sizable share report never; residual mass splits toward 1-2 days over rare participation."",
+  ""probabilities"": [0.27, 0.12, 0.28, 0.33]
+}",cf3b89de24f94b430ec16a746ee9a539,,"{
+  ""reasoning_summary"": ""Based on YRBS/CDC and related teen activity data showing ~40-50% of US high-school girls in organized sports/dance (often multi-day practices when active), plus lower overall female PA rates and seasonal/drop-off patterns, a plurality report 3+ days while a sizable share report never; residual mass splits toward 1-2 days over rare participation."",
+  ""probabilities"": [0.27, 0.12, 0.28, 0.33]
+}",0,0,xai,False,1200,grok-4.5,2,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: During a typical week, how often do you take part in organized sports, dance, exercise classes, or another structured physical activity?
+Survey item: Participation in organized physical activity
+Response options, in order: [""Never"", ""Less than once a week"", ""One or two days a week"", ""Three or more days a week""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.02081,5.0,397,48.05382027871215,25.0,113,"{'id': 'b8a5cca4-6f25-9e1a-ad16-44c3bad48128', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""Based on YRBS/CDC and related teen activity data showing ~40-50% of US high-school girls in organized sports/dance (often multi-day practices when active), plus lower overall female PA rates and seasonal/drop-off patterns, a plurality report 3+ days while a sizable share report never; residual mass splits toward 1-2 days over rare participation."",\n  ""probabilities"": [0.27, 0.12, 0.28, 0.33]\n}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': ""The user wants me to predict the population response distribution for a survey item about US teen girls' participation in organized physical activity.\n""}}], 'created': 1785292470, 'model': 'grok-4.5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': 'fp_a39489019fa99b6e', 'usage': {'completion_tokens': 113, 'prompt_tokens': 397, 'total_tokens': 1150, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 640, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 128, 'text_tokens': 397, 'image_tokens': 0}, 'num_sources_used': 0, 'cost_in_usd_ticks': 50944000}}",640.0,,teen_life_candidate_priors_one_shot_organized_activity,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: During a typical week, how often do you take part in organized sports, dance, exercise classes, or another structured physical activity?
+Survey item: Participation in organized physical activity
+Response options, in order: [""Never"", ""Less than once a week"", ""One or two days a week"", ""Three or more days a week""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",3,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_12,"{""reasoning_summary"":""Teen girls commonly have at least some career interests, but many are still exploring and few have a firm plan; responses likely cluster around vague or fairly clear ideas."",""probabilities"":[0.16,0.36,0.33,0.15]}",83c8c5d69b7c283c128bbc7c776106f5,,"{""reasoning_summary"":""Teen girls commonly have at least some career interests, but many are still exploring and few have a firm plan; responses likely cluster around vague or fairly clear ideas."",""probabilities"":[0.16,0.36,0.33,0.15]}",0,0,openai,False,1200,gpt-5.5,0,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How clear an idea do you currently have about the kind of work or career you might want as an adult?
+Survey item: Clarity about a future career
+Response options, in order: [""No clear idea"", ""A few vague ideas"", ""A fairly clear idea"", ""A very clear plan""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.005725,5.0,191,174.67248908296943,30.0,65,"{'id': 'chatcmpl-E6oPlx1J7BOaQXoGqpf8D6EtQzGc0', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"":""Teen girls commonly have at least some career interests, but many are still exploring and few have a firm plan; responses likely cluster around vague or fairly clear ideas."",""probabilities"":[0.16,0.36,0.33,0.15]}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785292469, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 159, 'prompt_tokens': 191, 'total_tokens': 350, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 94, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",94.0,,teen_life_candidate_priors_one_shot_career_clarity,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How clear an idea do you currently have about the kind of work or career you might want as an adult?
+Survey item: Clarity about a future career
+Response options, in order: [""No clear idea"", ""A few vague ideas"", ""A fairly clear idea"", ""A very clear plan""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",4,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_13,"{""reasoning_summary"": ""Most US teen girls are still exploring; the modal response is having a few vague ideas, with a substantial minority reporting a fairly clear idea. Fewer have a very clear plan (more common among older teens with strong vocational interests), and a modest minority report no idea at all. Girls tend to report slightly more career clarity than boys, so the distribution tilts a bit toward the clearer categories."", ""probabilities"": [0.12, 0.39, 0.34, 0.15]}",21ca5d9494dd38c783a9949b28a1a792,,"{""reasoning_summary"": ""Most US teen girls are still exploring; the modal response is having a few vague ideas, with a substantial minority reporting a fairly clear idea. Fewer have a very clear plan (more common among older teens with strong vocational interests), and a modest minority report no idea at all. Girls tend to report slightly more career clarity than boys, so the distribution tilts a bit toward the clearer categories."", ""probabilities"": [0.12, 0.39, 0.34, 0.15]}",0,0,deep_infra,False,1200,anthropic/claude-opus-5,1,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How clear an idea do you currently have about the kind of work or career you might want as an adult?
+Survey item: Clarity about a future career
+Response options, in order: [""No clear idea"", ""A few vague ideas"", ""A fairly clear idea"", ""A very clear plan""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.0252945,16.5,298,39.534286109628574,82.5,247,"{'id': 'chatcmpl-RgsWg7QHgOHKK7lwMqCHsXN1', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"": ""Most US teen girls are still exploring; the modal response is having a few vague ideas, with a substantial minority reporting a fairly clear idea. Fewer have a very clear plan (more common among older teens with strong vocational interests), and a modest minority report no idea at all. Girls tend to report slightly more career clarity than boys, so the distribution tilts a bit toward the clearer categories."", ""probabilities"": [0.12, 0.39, 0.34, 0.15]}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': None, 'name': None}}], 'created': 1785292474, 'model': 'anthropic/claude-opus-5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 247, 'prompt_tokens': 298, 'total_tokens': 545, 'completion_tokens_details': None, 'prompt_tokens_details': None, 'estimated_cost': 0.007665000000000001}}",,,teen_life_candidate_priors_one_shot_career_clarity,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How clear an idea do you currently have about the kind of work or career you might want as an adult?
+Survey item: Clarity about a future career
+Response options, in order: [""No clear idea"", ""A few vague ideas"", ""A fairly clear idea"", ""A very clear plan""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",4,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_14,"{
+  ""reasoning_summary"": ""US teen girls (typically 13-18) show moderate career exploration by mid-late high school via school, media, and peers, but most lack concrete plans due to limited work experience, evolving interests, and developmental stage; thus middle options dominate, with 'vague ideas' slightly ahead of 'fairly clear,' and extremes smaller (few totally blank or locked-in)."",
+  ""probabilities"": [0.17, 0.38, 0.32, 0.13]
+}",fbb144eb1c3770385871a27d618832d2,,"{
+  ""reasoning_summary"": ""US teen girls (typically 13-18) show moderate career exploration by mid-late high school via school, media, and peers, but most lack concrete plans due to limited work experience, evolving interests, and developmental stage; thus middle options dominate, with 'vague ideas' slightly ahead of 'fairly clear,' and extremes smaller (few totally blank or locked-in)."",
+  ""probabilities"": [0.17, 0.38, 0.32, 0.13]
+}",0,0,xai,False,1200,grok-4.5,2,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How clear an idea do you currently have about the kind of work or career you might want as an adult?
+Survey item: Clarity about a future career
+Response options, in order: [""No clear idea"", ""A few vague ideas"", ""A fairly clear idea"", ""A very clear plan""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.018025,5.0,390,55.47850208044382,25.0,110,"{'id': '713b8506-7a52-9b99-8ab5-8619204c0b7a', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""US teen girls (typically 13-18) show moderate career exploration by mid-late high school via school, media, and peers, but most lack concrete plans due to limited work experience, evolving interests, and developmental stage; thus middle options dominate, with \'vague ideas\' slightly ahead of \'fairly clear,\' and extremes smaller (few totally blank or locked-in)."",\n  ""probabilities"": [0.17, 0.38, 0.32, 0.13]\n}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': 'The user wants me to predict the population response distribution for a survey item about US teen girls\' clarity on future careers.\n{\n  ""reasoning_summary"": ""US teen girls in 2026 are still early in career exploration; high-school age means many lack concrete plans, but social media and school programs push more toward vague ideas than total uncertainty.'}}], 'created': 1785292470, 'model': 'grok-4.5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': 'fp_a39489019fa99b6e', 'usage': {'completion_tokens': 110, 'prompt_tokens': 390, 'total_tokens': 1033, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 533, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 128, 'text_tokens': 390, 'image_tokens': 0}, 'num_sources_used': 0, 'cost_in_usd_ticks': 44204000}}",533.0,,teen_life_candidate_priors_one_shot_career_clarity,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How clear an idea do you currently have about the kind of work or career you might want as an adult?
+Survey item: Clarity about a future career
+Response options, in order: [""No clear idea"", ""A few vague ideas"", ""A fairly clear idea"", ""A very clear plan""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",4,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_15,"{""reasoning_summary"":""US teen girls are likely to report generally positive but tempered expectations about their own futures, with most choosing somewhat or very optimistic; elevated stress and uncertainty keep a meaningful minority in the lower categories."",""probabilities"":[0.07,0.19,0.45,0.29]}",b554abfa7bbd6b73f651b75e666312eb,,"{""reasoning_summary"":""US teen girls are likely to report generally positive but tempered expectations about their own futures, with most choosing somewhat or very optimistic; elevated stress and uncertainty keep a meaningful minority in the lower categories."",""probabilities"":[0.07,0.19,0.45,0.29]}",0,0,openai,False,1200,gpt-5.5,0,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: Overall, how optimistic do you feel about your own future?
+Survey item: Optimism about personal future
+Response options, in order: [""Not at all optimistic"", ""A little optimistic"", ""Somewhat optimistic"", ""Very optimistic""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.006375,5.0,177,156.8627450980392,30.0,71,"{'id': 'chatcmpl-E6oPlbJjPID5LiwrxNN8BYWwkAo8A', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"":""US teen girls are likely to report generally positive but tempered expectations about their own futures, with most choosing somewhat or very optimistic; elevated stress and uncertainty keep a meaningful minority in the lower categories."",""probabilities"":[0.07,0.19,0.45,0.29]}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785292469, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 183, 'prompt_tokens': 177, 'total_tokens': 360, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 112, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",112.0,,teen_life_candidate_priors_one_shot_future_optimism,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: Overall, how optimistic do you feel about your own future?
+Survey item: Optimism about personal future
+Response options, in order: [""Not at all optimistic"", ""A little optimistic"", ""Somewhat optimistic"", ""Very optimistic""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",5,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_16,"{""reasoning_summary"": ""Teen girls generally report personal optimism about their own futures even amid pessimism about the country/world; most select the top two categories. Expect a modest left tail reflecting elevated rates of anxiety and depressive symptoms among adolescent girls. Estimated: ~5% not at all, ~16% a little, ~42% somewhat, ~37% very optimistic."", ""probabilities"": [0.05, 0.16, 0.42, 0.37]}",2641a8e10a107b70191e3659fc7e7e80,,"{""reasoning_summary"": ""Teen girls generally report personal optimism about their own futures even amid pessimism about the country/world; most select the top two categories. Expect a modest left tail reflecting elevated rates of anxiety and depressive symptoms among adolescent girls. Estimated: ~5% not at all, ~16% a little, ~42% somewhat, ~37% very optimistic."", ""probabilities"": [0.05, 0.16, 0.42, 0.37]}",0,0,deep_infra,False,1200,anthropic/claude-opus-5,1,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: Overall, how optimistic do you feel about your own future?
+Survey item: Optimism about personal future
+Response options, in order: [""Not at all optimistic"", ""A little optimistic"", ""Somewhat optimistic"", ""Very optimistic""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.017853,16.5,292,56.01299501484344,82.5,158,"{'id': 'chatcmpl-RrN0bzp1pOGmk9iYuXtQAdgL', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"": ""Teen girls generally report personal optimism about their own futures even amid pessimism about the country/world; most select the top two categories. Expect a modest left tail reflecting elevated rates of anxiety and depressive symptoms among adolescent girls. Estimated: ~5% not at all, ~16% a little, ~42% somewhat, ~37% very optimistic."", ""probabilities"": [0.05, 0.16, 0.42, 0.37]}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': None, 'name': None}}], 'created': 1785292473, 'model': 'anthropic/claude-opus-5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 158, 'prompt_tokens': 292, 'total_tokens': 450, 'completion_tokens_details': None, 'prompt_tokens_details': None, 'estimated_cost': 0.005410000000000001}}",,,teen_life_candidate_priors_one_shot_future_optimism,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: Overall, how optimistic do you feel about your own future?
+Survey item: Optimism about personal future
+Response options, in order: [""Not at all optimistic"", ""A little optimistic"", ""Somewhat optimistic"", ""Very optimistic""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",5,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_17,"{
+  ""reasoning_summary"": ""Teen girls show elevated anxiety/depression in recent data, tempering extreme optimism, yet most retain moderate personal-future hope (distinct from societal views); modal response is therefore 'somewhat', with tails smaller on the low end."",
+  ""probabilities"": [0.09, 0.22, 0.43, 0.26]
+}",c2976c6580c332c84f57c26c4e6f0e86,,"{
+  ""reasoning_summary"": ""Teen girls show elevated anxiety/depression in recent data, tempering extreme optimism, yet most retain moderate personal-future hope (distinct from societal views); modal response is therefore 'somewhat', with tails smaller on the low end."",
+  ""probabilities"": [0.09, 0.22, 0.43, 0.26]
+}",0,0,xai,False,1200,grok-4.5,2,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: Overall, how optimistic do you feel about your own future?
+Survey item: Optimism about personal future
+Response options, in order: [""Not at all optimistic"", ""A little optimistic"", ""Somewhat optimistic"", ""Very optimistic""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.015,5.0,375,66.66666666666666,25.0,79,"{'id': '0bb8eab9-e569-9bcc-bcfa-0627e1967dbc', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""Teen girls show elevated anxiety/depression in recent data, tempering extreme optimism, yet most retain moderate personal-future hope (distinct from societal views); modal response is therefore \'somewhat\', with tails smaller on the low end."",\n  ""probabilities"": [0.09, 0.22, 0.43, 0.26]\n}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': 'The user wants me to predict the population response distribution for a survey item about US teen girls\' optimism about their own future.\n{\n  ""reasoning_summary"": ""Based on trends in teen mental health surveys (e.g., declining well-being post-pandemic, higher anxiety among girls), I estimate moderate optimism with a slight skew toward \'somewhat\' and \'very\' optimistic responses, as personal future outlook often remains positive despite broader concerns.'}}], 'created': 1785292470, 'model': 'grok-4.5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': 'fp_a39489019fa99b6e', 'usage': {'completion_tokens': 79, 'prompt_tokens': 375, 'total_tokens': 900, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 446, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 256, 'text_tokens': 375, 'image_tokens': 0}, 'num_sources_used': 0, 'cost_in_usd_ticks': 34648000}}",446.0,,teen_life_candidate_priors_one_shot_future_optimism,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: Overall, how optimistic do you feel about your own future?
+Survey item: Optimism about personal future
+Response options, in order: [""Not at all optimistic"", ""A little optimistic"", ""Somewhat optimistic"", ""Very optimistic""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",5,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_18,"{""reasoning_summary"":""Most teen girls are likely to report at least some peer belonging, but adolescence and social comparison make intermittent or low belonging fairly common; thus responses concentrate in 'Sometimes' and 'Often' with a smaller minority in 'Rarely' or 'Never'."",""probabilities"":[0.06,0.16,0.41,0.37]}",fbc45d981cee955a33e9d022579dd8b9,,"{""reasoning_summary"":""Most teen girls are likely to report at least some peer belonging, but adolescence and social comparison make intermittent or low belonging fairly common; thus responses concentrate in 'Sometimes' and 'Often' with a smaller minority in 'Rarely' or 'Never'."",""probabilities"":[0.06,0.16,0.41,0.37]}",0,0,openai,False,1200,gpt-5.5,0,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How often do you feel that you belong and are accepted among people your age?
+Survey item: Sense of belonging among peers
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.0063,5.0,174,158.7301587301587,30.0,84,"{'id': 'chatcmpl-E6oPl314ziuTjBugo1F8VTU6jvAWf', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"":""Most teen girls are likely to report at least some peer belonging, but adolescence and social comparison make intermittent or low belonging fairly common; thus responses concentrate in \'Sometimes\' and \'Often\' with a smaller minority in \'Rarely\' or \'Never\'."",""probabilities"":[0.06,0.16,0.41,0.37]}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785292469, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 181, 'prompt_tokens': 174, 'total_tokens': 355, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 97, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",97.0,,teen_life_candidate_priors_one_shot_peer_belonging,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How often do you feel that you belong and are accepted among people your age?
+Survey item: Sense of belonging among peers
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",6,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_19,"{""reasoning_summary"": ""Most US teen girls report at least occasional peer belonging, but frequent loneliness and social anxiety are common; typical distributions on such 4-point belonging items cluster in 'Sometimes' and 'Often', with a modest minority reporting 'Rarely' and a small share 'Never'."", ""probabilities"": [0.04, 0.15, 0.42, 0.39]}",0fa574d0537ce9d89ac25f8493582079,,"{""reasoning_summary"": ""Most US teen girls report at least occasional peer belonging, but frequent loneliness and social anxiety are common; typical distributions on such 4-point belonging items cluster in 'Sometimes' and 'Often', with a modest minority reporting 'Rarely' and a small share 'Never'."", ""probabilities"": [0.04, 0.15, 0.42, 0.39]}",0,0,deep_infra,False,1200,anthropic/claude-opus-5,1,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How often do you feel that you belong and are accepted among people your age?
+Survey item: Sense of belonging among peers
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.01584,16.5,280,63.131313131313135,82.5,136,"{'id': 'chatcmpl-R6iOFr1beGT7shLUK0DJKh5T', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""reasoning_summary"": ""Most US teen girls report at least occasional peer belonging, but frequent loneliness and social anxiety are common; typical distributions on such 4-point belonging items cluster in \'Sometimes\' and \'Often\', with a modest minority reporting \'Rarely\' and a small share \'Never\'."", ""probabilities"": [0.04, 0.15, 0.42, 0.39]}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': None, 'name': None}}], 'created': 1785292474, 'model': 'anthropic/claude-opus-5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 136, 'prompt_tokens': 280, 'total_tokens': 416, 'completion_tokens_details': None, 'prompt_tokens_details': None, 'estimated_cost': 0.0048000000000000004}}",,,teen_life_candidate_priors_one_shot_peer_belonging,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How often do you feel that you belong and are accepted among people your age?
+Survey item: Sense of belonging among peers
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",6,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_20,"{
+  ""reasoning_summary"": ""Teen girls report moderate peer belonging ongoing post-pandemic/social-media pressures; modal response is 'sometimes', with 'often' next, and low extremes for never/rarely, consistent with YRBS/Pew-style connectedness data circa 2023-25 extrapolated to 2026."",
+  ""probabilities"": [0.09, 0.18, 0.42, 0.31]
+}",a7e3f022d97c6b14e54b4491e2009a1c,,"{
+  ""reasoning_summary"": ""Teen girls report moderate peer belonging ongoing post-pandemic/social-media pressures; modal response is 'sometimes', with 'often' next, and low extremes for never/rarely, consistent with YRBS/Pew-style connectedness data circa 2023-25 extrapolated to 2026."",
+  ""probabilities"": [0.09, 0.18, 0.42, 0.31]
+}",0,0,xai,False,1200,grok-4.5,2,0,,1.0,3,1,,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How often do you feel that you belong and are accepted among people your age?
+Survey item: Sense of belonging among peers
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",,{{ scenario.prompt }},free_text,0.01572,5.0,374,63.61323155216285,25.0,96,"{'id': '29df810e-9f77-9421-a70e-bf999b58e334', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{\n  ""reasoning_summary"": ""Teen girls report moderate peer belonging ongoing post-pandemic/social-media pressures; modal response is \'sometimes\', with \'often\' next, and low extremes for never/rarely, consistent with YRBS/Pew-style connectedness data circa 2023-25 extrapolated to 2026."",\n  ""probabilities"": [0.09, 0.18, 0.42, 0.31]\n}', 'refusal': None, 'role': 'assistant', 'annotations': None, 'audio': None, 'function_call': None, 'tool_calls': None, 'reasoning_content': 'The user wants me to predict the population response distribution for a survey item about US teen girls in 2026 feeling a sense of belonging among peers.\n'}}], 'created': 1785292470, 'model': 'grok-4.5', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': 'fp_a39489019fa99b6e', 'usage': {'completion_tokens': 96, 'prompt_tokens': 374, 'total_tokens': 928, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 458, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 128, 'text_tokens': 374, 'image_tokens': 0}, 'num_sources_used': 0, 'cost_in_usd_ticks': 38544000}}",458.0,,teen_life_candidate_priors_one_shot_peer_belonging,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: school, activities, relationships, and future outlook among US teen girls
+
+Question stem: How often do you feel that you belong and are accepted among people your age?
+Survey item: Sense of belonging among peers
+Response options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",6,True

@@ -1,0 +1,4 @@
+item,option,covered,support_rows
+social_media_hours,Less than one hour,True,2
+social_media_hours,One to three hours,True,1
+social_media_hours,Four or more hours,True,2

@@ -53,7 +53,7 @@
   <p class="kicker">Python CLI · schema version 1 · MIT licensed</p>
   <h1>umriss</h1>
   <p class="lede">Build an auditable synthetic population from reported survey marginals — and measure its performance.</p>
-  <p>This page is the worked methodological argument: it explains one real run, including its failed approaches and diagnostics. For current option names and defaults, use <code>umriss &lt;command&gt; --help</code>. During a live project, <code>umriss guide</code> and <code>umriss next</code> are the authoritative workflow interfaces.</p>
+  <p>This page is the worked methodological argument: it explains one real run, including its failed approaches and diagnostics. The <a href="pew-augmentation.html">companion Pew augmentation study</a> adds model-screened work-and-family moments and shows real generated persona text. For current option names and defaults, use <code>umriss &lt;command&gt; --help</code>. During a live project, <code>umriss guide</code> and <code>umriss next</code> are the authoritative workflow interfaces.</p>
 
   <h2>The problem this tutorial solves</h2>
   <p>Suppose a survey report tells you how the population answered each question, but does not release the respondent-level records. You can see that 68 percent chose one answer on a hobbies question and 81 percent chose one answer on a physical-abilities question, for example, but you cannot see whether the same people gave both answers. The published tables describe each question separately and omit the relationships among them.</p>
@@ -221,7 +221,7 @@ umriss design validate</code></pre>
     <tr><td><a href="../examples/pew_w154/run/pew_w154_diff1_n12_build_manifest.json">build manifest</a></td><td>Input, parameter, and output hashes for reproducing this exact plan.</td></tr>
   </table>
   <p>The build manifest records the umriss version, input hashes, resolved parameters, creation time, and output hashes. This checked-in example was rebuilt with the current CLI and its prompts correspond to the current executed Results. Repeating an identical build reuses the artifacts; changing an input under the same tag requires an explicit <code>--force</code>.</p>
-  <p>Each coverage prompt states that its targeted domain may differ from the other domains. It asks for a concise <code>persona</code>, written in the second person for later use as an agent trait, plus subjective response probabilities. Target marginals are intentionally absent from every prompt.</p>
+  <p>Each coverage prompt states that its targeted domain may differ from the other domains. It asks for a readable second-person synthesis plus one explicit <code>persona_details</code> statement for every battery item. Parsing rejects incomplete detail sets and assembles the synthesis and statements into an agent trait whose detail grows with the battery. It also asks for subjective response probabilities. Target marginals are intentionally absent from every prompt.</p>
 
   <h2>5. Export one executable job object</h2>
   <pre><code>umriss support export \
@@ -668,6 +668,85 @@ umriss design validate</code></pre>
   </table>
   <p>Two follow-up diagnostics pinned down the mechanism. A coded-answer experiment with top-20 token log probabilities (GPT-4.1, since GPT-5.5 rejects <code>logprobs</code>; UUID <code>0ef4d9c0-1860-489f-86eb-a0124fdf06ab</code>) showed that sampling itself operates correctly — the realized answers track the token-probability expectation, including occasional low-probability draws — so the gap lies between two model measurements: probabilities elicited explicitly during support construction and the far more concentrated token probabilities induced by an ordinary survey. And embedding each persona’s elicited probabilities as a visible trait (UUID <code>31204575-6d2a-4449-8c26-3a0ae35cbd1f</code>) did not help: the model reads “your probabilities are 30/70” as evidence for choosing the 70-percent answer, and 99.96 percent of fitted weight selected its modal category. Prose is the wrong place to ask for randomness.</p>
   <p>Those three findings are exactly why the response contract separates description from resolution: the model states a distribution, and deterministic code does the sampling. The full commands, comparison tables, and checked-in artifacts for all three diagnostics are preserved in <code>examples/pew_w154/run/agent_survey/</code>.</p>
+
+  <h2>12. Enrich twins with synthetic candidate moments</h2>
+  <p>A richer population may need questions that were not in the published survey. Umriss now supports a guarded version of that workflow: several models independently one-shot candidate marginals or joint tables; a declared agreement rule accepts or rejects each target; observed and model-synthetic evidence remain distinguishable; and the stable persona roster is measured on only the newly accepted items.</p>
+  <p>The teen social-media capability probe used GPT-5.5, Claude Opus 5, and Gemini 3.1 Pro on eight candidate marginals. We required at least three valid models, maximum pairwise total-variation distance of 0.10, and no option-level difference above 0.10. Only posting frequency, sleep interference, and negative social comparison passed. The complete <a href="../examples/teen_social_2026/candidate_moments_plan.md">probe plan and failure audit</a> and <a href="../examples/teen_social_2026/prior_probe/teen_social_candidate_priors_consensus.csv">model-level consensus table</a> preserve the result.</p>
+  <table>
+    <thead><tr><th>Candidate</th><th>Maximum pairwise TV</th><th>Decision</th></tr></thead>
+    <tbody>
+      <tr><td>Posting frequency</td><td>0.07</td><td>Accept</td></tr>
+      <tr><td>Sleep interference</td><td>0.07</td><td>Accept</td></tr>
+      <tr><td>Negative social comparison</td><td>0.06</td><td>Accept</td></tr>
+      <tr><td>Daily social-media time</td><td>0.12</td><td>Reject</td></tr>
+      <tr><td>Late-night use</td><td>0.16</td><td>Reject</td></tr>
+      <tr><td>Connection effect</td><td>0.20</td><td>Reject</td></tr>
+      <tr><td>Parental rules</td><td>0.12</td><td>Reject</td></tr>
+      <tr><td>Primary platform</td><td>0.16</td><td>Reject</td></tr>
+    </tbody>
+  </table>
+  <p>The observed daily-time item is a useful negative control. The model-panel mean was 11 percent under one hour, 39.3 percent one-to-three hours, and 49.7 percent four-or-more hours. The real college-parent marginal was 40, 37, and 23 percent. Agreement is therefore a screening rule for synthetic assumptions, not empirical validation. The consensus uses an arithmetic mean because it remains a valid probability vector by construction; coordinate-wise medians need not sum to one and are not silently renormalized.</p>
+  <pre><code>umriss prior build-marginals \
+  --metadata examples/teen_social_2026/teen_social_candidate_moments.json \
+  --tag teen_social_candidate_priors --out prior_probe
+
+umriss prior consensus \
+  --predictions prior_probe/teen_social_candidate_priors_prior_predictions.csv \
+  --metadata examples/teen_social_2026/teen_social_candidate_moments.json \
+  --population girls_college --minimum-models 3 \
+  --max-total-variation 0.10 --max-option-difference 0.10 \
+  --tag girls_college_consensus --out prior_probe</code></pre>
+  <p>The target artifact records every accepted and rejected vector, model and service identity, dispersion statistic, population slice, aggregation rule, and confidence weight. Observed targets are converted separately with <code>umriss targets from-metadata</code> and combined with <code>umriss targets merge</code>; synthetic priors never become an unlabeled <code>truth</code> vector.</p>
+  <pre><code>umriss support extend-items \
+  --points teen_social_points.csv \
+  --metadata examples/teen_social_2026/teen_social_candidate_moments.json \
+  --item posting_frequency --item sleep_interference --item social_comparison \
+  --joint posting_frequency:social_comparison \
+  --tag teen_social_enrichment --out enrichment
+
+umriss targets fit \
+  --targets enrichment/girls_college_targets.json \
+  --support enrichment/teen_social_enriched_probabilities.csv \
+  --joint-features enrichment/teen_social_enriched_joint_features.csv \
+  --metadata examples/teen_social_2026/teen_social_candidate_moments.json \
+  --tag girls_college_rich --out enrichment/fits/college</code></pre>
+  <p>A population cross-tab is not identified by two marginal vectors. The extension workflow can ask every existing persona for a direct joint probability table and records <code>direct_joint</code> in the feature bank. If those measurements are unavailable, fitting fails closed unless the caller explicitly authorizes <code>--allow-conditional-independence</code>; the constraint diagnostics then expose that assumption.</p>
+  <p>The probe also caught a production-safety defect: one provider returned eight empty Gemini rows while the runner reported 24 results. Prior parsing now checks completeness over the full <code>(job_id, model, service)</code> key, retains model identity, and writes partial diagnostics before returning <code>incomplete_results</code>. Failed Results and retry attribution remain preserved.</p>
+
+  <h2>Constraint-first support for larger batteries</h2>
+  <p>One-item coverage prompts can produce many unique personas while still collapsing into a small number of stereotyped cross-item profiles. For a larger battery, build complete blueprints instead. Every support point receives an explicit answer cell for every item; unusual combinations are intentional, and no population marginal appears in an individual prompt.</p>
+  <pre><code>umriss support build \
+  --metadata battery.json \
+  --preset balanced-blueprints \
+  --n-support 128 \
+  --tag blueprints \
+  --out run/blueprints
+
+umriss support validate-blueprints \
+  --support run/bank/blueprints_probabilities.csv \
+  --plan run/blueprints/blueprints_support_plan.csv \
+  --metadata battery.json \
+  --tag blueprints \
+  --out run/validation</code></pre>
+  <p>Validation compares every intended blueprint cell with the generated probability vector, writes row- and cell-level fidelity diagnostics, filters accepted support, and emits retry-only job IDs. Before fitting, <code>umriss targets feasibility</code> solves for the smallest possible worst-cell error over the support simplex. If targets remain outside the measured geometry, <code>umriss support augment-targets</code> creates a declared repair batch whose allocation offsets the measured gaps.</p>
+  <pre><code>umriss targets feasibility \
+  --targets targets.json \
+  --support run/validation/blueprints_validated_probabilities.csv \
+  --metadata battery.json \
+  --tolerance 0.01 \
+  --tag blueprints \
+  --out run/feasibility
+
+umriss targets fit \
+  --targets targets.json \
+  --support run/final_probabilities.csv \
+  --metadata battery.json \
+  --minimum-effective-support 50 \
+  --maximum-weight 0.05 \
+  --require-convergence \
+  --tag final \
+  --out run/fit</code></pre>
+  <p>When fit gates are declared, umriss selects among regularization candidates that satisfy them. If none does, the fit is returned as <code>fit_rejected</code> with explicit violations rather than being presented as a completed panel.</p>
 
   <h2>Flexibility without hidden assumptions</h2>
   <p>Experts can edit coherence, intensities, anchors, partial coverage, probability constraints, or add user-authored profiles. A custom Jinja template is also allowed with <code>prompt.validation: strict</code>. It must still contain every item, preserve option order, request a second-person persona, and state the probability and sum-to-one contract.</p>

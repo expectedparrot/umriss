@@ -1,0 +1,6 @@
+answer.social_media_sites,agent._umriss_support_id,agent._umriss_job_id,agent._weight,validated.social_media_sites_validated
+"['YouTube', 'Reddit']",4,teen_social_004,0.27597176686794284,True
+"['Instagram', 'YouTube', 'Reddit']",1,teen_social_001,0.24502336001505473,True
+"['TikTok', 'Instagram', 'YouTube', 'Facebook', 'X (formerly Twitter)', 'Reddit', 'Discord', 'Pinterest']",2,teen_social_002,0.23980865761060893,True
+"['TikTok', 'Instagram', 'YouTube', 'Snapchat', 'Facebook', 'X (formerly Twitter)', 'Reddit', 'Discord']",3,teen_social_003,0.13727825046523853,True
+"['TikTok', 'Instagram', 'YouTube', 'Snapchat', 'Facebook', 'X (formerly Twitter)', 'Reddit', 'Discord', 'Pinterest']",5,teen_social_005,0.10191796504115501,True

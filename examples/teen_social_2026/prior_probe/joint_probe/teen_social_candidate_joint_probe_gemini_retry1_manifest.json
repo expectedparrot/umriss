@@ -1,0 +1,86 @@
+{
+  "execution": {
+    "cost_estimate": {
+      "available": true,
+      "basis": "call_counts",
+      "expected_model_calls": 1,
+      "models": 1,
+      "pricing_note": "Dollar cost depends on provider pricing; inspect the package with `ep inspect` before authorizing `ep run`.",
+      "scenarios": 1
+    },
+    "mode": "unspecified",
+    "owner": "external_ep"
+  },
+  "iterations": 1,
+  "jobs": "examples/teen_social_2026/prior_probe/joint_probe/teen_social_candidate_joint_probe_gemini_retry1.jobs.ep",
+  "manifest_path": "examples/teen_social_2026/prior_probe/joint_probe/teen_social_candidate_joint_probe_gemini_retry1_manifest.json",
+  "model_calls": 1,
+  "model_count": 1,
+  "models": [
+    {
+      "model": "google/gemini-3.1-pro",
+      "service_name": "deep_infra"
+    }
+  ],
+  "next_steps": [
+    "ep run --jobs examples/teen_social_2026/prior_probe/joint_probe/teen_social_candidate_joint_probe_gemini_retry1.jobs.ep --output examples/teen_social_2026/prior_probe/joint_probe/teen_social_candidate_joint_probe_gemini_retry1.results.ep",
+    "umriss prior register-results --results examples/teen_social_2026/prior_probe/joint_probe/teen_social_candidate_joint_probe_gemini_retry1.results.ep --prompts examples/teen_social_2026/prior_probe/joint_probe/teen_social_candidate_joint_probe_joint_prior_prompts.jsonl --tag teen_social_candidate_joint_probe_gemini_retry1 --out examples/teen_social_2026/prior_probe/joint_probe"
+  ],
+  "outputs": {
+    "jobs": {
+      "path": "examples/teen_social_2026/prior_probe/joint_probe/teen_social_candidate_joint_probe_gemini_retry1.jobs.ep",
+      "sha256": "de5ac76be758e906dc6f59259128480c399f60fedf3eac601e27754b41ba1e17"
+    }
+  },
+  "prompts": "examples/teen_social_2026/prior_probe/joint_probe/teen_social_candidate_joint_probe_joint_prior_prompts.jsonl",
+  "provenance": {
+    "command": "umriss prior export",
+    "created_at": "2026-07-29T02:07:52Z",
+    "fingerprint": "1378111579ab3c522ab4c4110bdf1b937551dc88c8899567233431e91c6c3b86",
+    "inputs": {
+      "job_ids": {
+        "path": "examples/teen_social_2026/prior_probe/joint_probe/teen_social_candidate_joint_probe_gemini_retry1_job_ids.csv",
+        "sha256": "6246431a6a3de6b1e8021683e7a63fec4d5cc882418c9d58b54868c43040d102"
+      },
+      "prompts": {
+        "path": "examples/teen_social_2026/prior_probe/joint_probe/teen_social_candidate_joint_probe_joint_prior_prompts.jsonl",
+        "sha256": "151c66b37feb6b1c16dc37aa8671500ecd9cfa10375eaac64318c759e95eec10"
+      }
+    },
+    "parameters": {
+      "job_ids_path": "examples/teen_social_2026/prior_probe/joint_probe/teen_social_candidate_joint_probe_gemini_retry1_job_ids.csv",
+      "limit": null,
+      "max_tokens": 1200,
+      "models": [
+        {
+          "model": "google/gemini-3.1-pro",
+          "service_name": "deep_infra"
+        }
+      ],
+      "path": "examples/teen_social_2026/prior_probe/joint_probe/teen_social_candidate_joint_probe_gemini_retry1.jobs.ep",
+      "registration_out": "examples/teen_social_2026/prior_probe/joint_probe",
+      "tag": "teen_social_candidate_joint_probe_gemini_retry1",
+      "temperature": 1.0
+    },
+    "schema_version": 1,
+    "umriss_version": "0.1.0"
+  },
+  "questions": 1,
+  "register_command": "umriss prior register-results --results examples/teen_social_2026/prior_probe/joint_probe/teen_social_candidate_joint_probe_gemini_retry1.results.ep --prompts examples/teen_social_2026/prior_probe/joint_probe/teen_social_candidate_joint_probe_joint_prior_prompts.jsonl --tag teen_social_candidate_joint_probe_gemini_retry1 --out examples/teen_social_2026/prior_probe/joint_probe",
+  "registration_out": "examples/teen_social_2026/prior_probe/joint_probe",
+  "results": "examples/teen_social_2026/prior_probe/joint_probe/teen_social_candidate_joint_probe_gemini_retry1.results.ep",
+  "reused": false,
+  "run_command": "ep run --jobs examples/teen_social_2026/prior_probe/joint_probe/teen_social_candidate_joint_probe_gemini_retry1.jobs.ep --output examples/teen_social_2026/prior_probe/joint_probe/teen_social_candidate_joint_probe_gemini_retry1.results.ep",
+  "run_contract": {
+    "expected_results_path": "examples/teen_social_2026/prior_probe/joint_probe/teen_social_candidate_joint_probe_gemini_retry1.results.ep",
+    "jobs_path": "examples/teen_social_2026/prior_probe/joint_probe/teen_social_candidate_joint_probe_gemini_retry1.jobs.ep",
+    "owner": "external_ep",
+    "register_command": "umriss prior register-results --results examples/teen_social_2026/prior_probe/joint_probe/teen_social_candidate_joint_probe_gemini_retry1.results.ep --prompts examples/teen_social_2026/prior_probe/joint_probe/teen_social_candidate_joint_probe_joint_prior_prompts.jsonl --tag teen_social_candidate_joint_probe_gemini_retry1 --out examples/teen_social_2026/prior_probe/joint_probe",
+    "run_command": "ep run --jobs examples/teen_social_2026/prior_probe/joint_probe/teen_social_candidate_joint_probe_gemini_retry1.jobs.ep --output examples/teen_social_2026/prior_probe/joint_probe/teen_social_candidate_joint_probe_gemini_retry1.results.ep"
+  },
+  "save_format": "edsl_ep",
+  "scenarios": 1,
+  "schema_version": 1,
+  "tag": "teen_social_candidate_joint_probe_gemini_retry1",
+  "workflow": "prior"
+}

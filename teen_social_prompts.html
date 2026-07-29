@@ -1,0 +1,140 @@
+<!doctype html><meta charset='utf-8'><meta name='viewport' content='width=device-width'><title>teen_social prompts</title><style>body{font:16px/1.55 system-ui;max-width:960px;margin:3rem auto;padding:0 1rem;color:#18211d}}details{border:1px solid #ccd7d0;border-radius:8px;padding:1rem;margin:1rem 0}summary{font-weight:650;cursor:pointer}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f5f7f5;padding:1rem;border-radius:6px}</style><h1>teen_social prompts</h1><p>Review every consequential prompt before model execution.</p><details><summary>Support point 1: cover social_media_hours = Less than one hour</summary><pre>Support point identifier: teen_social_001
+
+Survey context: The American Teenagers Survey, 2026 (Survey Center on American Life), a survey of US teens (N=782). This battery covers teen girls, with marginals reported separately by parental education.
+Battery topic: daily time spent on social media among US teen girls
+
+Construct a synthetic survey-response profile for whom &quot;Less than one hour&quot; is a plausible response to social_media_hours: About how much time do you spend on social media each day?.
+Response intensity: moderate.
+
+Ground the persona in this specific response tendency.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Write a concise persona describing the attitudes that distinguish this response pattern. Address the persona in the
+second person, beginning with &quot;Your views...&quot; or &quot;You...&quot;. This text will become a visible EDSL agent trait, so include
+only the persona description—not instructions about answering questions or probabilities. Then provide subjective response
+probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers, and sum to
+1. Each probability must be at least 0.01.
+
+Items and response options:
+- social_media_hours: About how much time do you spend on social media each day?
+  Options, in output order: 1. Less than one hour; 2. One to three hours; 3. Four or more hours
+
+Return only valid JSON with exactly this schema:
+{
+  &quot;persona&quot;: &quot;Your views on ...&quot;,
+  &quot;probabilities&quot;: {
+    &quot;social_media_hours&quot;: [numbers in option order]
+  }
+}</pre></details>
+<details><summary>Support point 2: cover social_media_hours = One to three hours</summary><pre>Support point identifier: teen_social_002
+
+Survey context: The American Teenagers Survey, 2026 (Survey Center on American Life), a survey of US teens (N=782). This battery covers teen girls, with marginals reported separately by parental education.
+Battery topic: daily time spent on social media among US teen girls
+
+Construct a synthetic survey-response profile for whom &quot;One to three hours&quot; is a plausible response to social_media_hours: About how much time do you spend on social media each day?.
+Response intensity: strong.
+
+Ground the persona in this specific response tendency.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Write a concise persona describing the attitudes that distinguish this response pattern. Address the persona in the
+second person, beginning with &quot;Your views...&quot; or &quot;You...&quot;. This text will become a visible EDSL agent trait, so include
+only the persona description—not instructions about answering questions or probabilities. Then provide subjective response
+probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers, and sum to
+1. Each probability must be at least 0.01.
+
+Items and response options:
+- social_media_hours: About how much time do you spend on social media each day?
+  Options, in output order: 1. Less than one hour; 2. One to three hours; 3. Four or more hours
+
+Return only valid JSON with exactly this schema:
+{
+  &quot;persona&quot;: &quot;Your views on ...&quot;,
+  &quot;probabilities&quot;: {
+    &quot;social_media_hours&quot;: [numbers in option order]
+  }
+}</pre></details>
+<details><summary>Support point 3: cover social_media_hours = Four or more hours</summary><pre>Support point identifier: teen_social_003
+
+Survey context: The American Teenagers Survey, 2026 (Survey Center on American Life), a survey of US teens (N=782). This battery covers teen girls, with marginals reported separately by parental education.
+Battery topic: daily time spent on social media among US teen girls
+
+Construct a synthetic survey-response profile for whom &quot;Four or more hours&quot; is a plausible response to social_media_hours: About how much time do you spend on social media each day?.
+Response intensity: moderate.
+
+Ground the persona in this specific response tendency.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Write a concise persona describing the attitudes that distinguish this response pattern. Address the persona in the
+second person, beginning with &quot;Your views...&quot; or &quot;You...&quot;. This text will become a visible EDSL agent trait, so include
+only the persona description—not instructions about answering questions or probabilities. Then provide subjective response
+probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers, and sum to
+1. Each probability must be at least 0.01.
+
+Items and response options:
+- social_media_hours: About how much time do you spend on social media each day?
+  Options, in output order: 1. Less than one hour; 2. One to three hours; 3. Four or more hours
+
+Return only valid JSON with exactly this schema:
+{
+  &quot;persona&quot;: &quot;Your views on ...&quot;,
+  &quot;probabilities&quot;: {
+    &quot;social_media_hours&quot;: [numbers in option order]
+  }
+}</pre></details>
+<details><summary>Support point 4: declared response-pattern anchor</summary><pre>Support point identifier: teen_social_004
+
+Survey context: The American Teenagers Survey, 2026 (Survey Center on American Life), a survey of US teens (N=782). This battery covers teen girls, with marginals reported separately by parental education.
+Battery topic: daily time spent on social media among US teen girls
+
+Construct a synthetic survey-response profile organized around this declared answer pattern:
+- social_media_hours: Less than one hour
+
+Follow the complete response pattern explicitly supplied below.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Write a concise persona describing the attitudes that distinguish this response pattern. Address the persona in the
+second person, beginning with &quot;Your views...&quot; or &quot;You...&quot;. This text will become a visible EDSL agent trait, so include
+only the persona description—not instructions about answering questions or probabilities. Then provide subjective response
+probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers, and sum to
+1. Each probability must be at least 0.01.
+
+Items and response options:
+- social_media_hours: About how much time do you spend on social media each day?
+  Options, in output order: 1. Less than one hour; 2. One to three hours; 3. Four or more hours
+
+Return only valid JSON with exactly this schema:
+{
+  &quot;persona&quot;: &quot;Your views on ...&quot;,
+  &quot;probabilities&quot;: {
+    &quot;social_media_hours&quot;: [numbers in option order]
+  }
+}</pre></details>
+<details><summary>Support point 5: declared response-pattern anchor</summary><pre>Support point identifier: teen_social_005
+
+Survey context: The American Teenagers Survey, 2026 (Survey Center on American Life), a survey of US teens (N=782). This battery covers teen girls, with marginals reported separately by parental education.
+Battery topic: daily time spent on social media among US teen girls
+
+Construct a synthetic survey-response profile organized around this declared answer pattern:
+- social_media_hours: Four or more hours
+
+Follow the complete response pattern explicitly supplied below.
+Do not invent demographic characteristics unless the design explicitly supplies them.
+
+Write a concise persona describing the attitudes that distinguish this response pattern. Address the persona in the
+second person, beginning with &quot;Your views...&quot; or &quot;You...&quot;. This text will become a visible EDSL agent trait, so include
+only the persona description—not instructions about answering questions or probabilities. Then provide subjective response
+probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers, and sum to
+1. Each probability must be at least 0.01.
+
+Items and response options:
+- social_media_hours: About how much time do you spend on social media each day?
+  Options, in output order: 1. Less than one hour; 2. One to three hours; 3. Four or more hours
+
+Return only valid JSON with exactly this schema:
+{
+  &quot;persona&quot;: &quot;Your views on ...&quot;,
+  &quot;probabilities&quot;: {
+    &quot;social_media_hours&quot;: [numbers in option order]
+  }
+}</pre></details>

@@ -1,0 +1,141 @@
+held_in,holdout,items,job_id,mode,option_count,prompt,shape,stage,target_id,target_type
+[],relationship_status,['relationship_status'],pew_work_family_priors_one_shot_relationship_status,one_shot,4,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: Which best describes your current relationship situation?
+Survey item: Current relationship situation
+Response options, in order: [""Married"", ""Living with a partner"", ""In a relationship but not living together"", ""Not currently in a relationship""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",[4],baseline,marginal:relationship_status,marginal
+[],children_at_home,['children_at_home'],pew_work_family_priors_one_shot_children_at_home,one_shot,4,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: Which best describes whether children under age 18 live in your household?
+Survey item: Children under 18 in the household
+Response options, in order: [""No children under 18"", ""At least one child under 6"", ""Only children ages 6 to 17"", ""Children both under 6 and ages 6 to 17""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",[4],baseline,marginal:children_at_home,marginal
+[],household_income,['household_income'],pew_work_family_priors_one_shot_household_income,one_shot,4,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: What was your total household income before taxes last year?
+Survey item: Annual household income
+Response options, in order: [""Less than $50,000"", ""$50,000 to $99,999"", ""$100,000 to $149,999"", ""$150,000 or more""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",[4],baseline,marginal:household_income,marginal
+[],marriage_importance,['marriage_importance'],pew_work_family_priors_one_shot_marriage_importance,one_shot,4,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: How important is being married to your own idea of a fulfilling life?
+Survey item: Personal importance of marriage
+Response options, in order: [""Not at all important"", ""Not too important"", ""Somewhat important"", ""Very important""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",[4],baseline,marginal:marriage_importance,marginal
+[],parenthood_importance,['parenthood_importance'],pew_work_family_priors_one_shot_parenthood_importance,one_shot,4,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: How important is raising children to your own idea of a fulfilling life?
+Survey item: Personal importance of raising children
+Response options, in order: [""Not at all important"", ""Not too important"", ""Somewhat important"", ""Very important""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",[4],baseline,marginal:parenthood_importance,marginal
+[],paid_work_priority,['paid_work_priority'],pew_work_family_priors_one_shot_paid_work_priority,one_shot,4,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: How important is success in paid work or a career to your own idea of a fulfilling life?
+Survey item: Personal importance of paid-work or career success
+Response options, in order: [""Not at all important"", ""Not too important"", ""Somewhat important"", ""Very important""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",[4],baseline,marginal:paid_work_priority,marginal
+[],childcare_division,['childcare_division'],pew_work_family_priors_one_shot_childcare_division,one_shot,4,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: In a two-parent household with children, what is generally the best way to divide day-to-day childcare?
+Survey item: Preferred division of day-to-day childcare
+Response options, in order: [""One parent should do most of it"", ""Both parents should divide it about equally"", ""The parent with more available time should do more"", ""It depends entirely on the family""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",[4],baseline,marginal:childcare_division,marginal
+[],housework_division,['housework_division'],pew_work_family_priors_one_shot_housework_division,one_shot,4,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: In a household with two adults, what is generally the best way to divide cooking, cleaning, and other routine housework?
+Survey item: Preferred division of routine housework
+Response options, in order: [""One person should do most of it"", ""Both adults should divide it about equally"", ""The person with more available time should do more"", ""It depends entirely on the household""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",[4],baseline,marginal:housework_division,marginal
+[],financial_decision_style,['financial_decision_style'],pew_work_family_priors_one_shot_financial_decision_style,one_shot,4,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: In a household with two adults, what is generally the best way to make major financial decisions?
+Survey item: Preferred style for major household financial decisions
+Response options, in order: [""The higher earner should usually decide"", ""The person who manages the money should usually decide"", ""Both adults should decide together"", ""It depends on the decision""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",[4],baseline,marginal:financial_decision_style,marginal
+[],career_sacrifice_rule,['career_sacrifice_rule'],pew_work_family_priors_one_shot_career_sacrifice_rule,one_shot,4,"Predict the population response distribution for one survey item.
+
+Survey context: Imagine a nationally representative 2026 survey of U.S. adults. Predict the response distribution for the population named in the survey item. These questions were not observed in Pew American Trends Panel Wave 154 and are used only as explicitly model-synthetic candidate calibration moments.
+Battery topic: family circumstances, marriage, children, paid work, household labor, and financial bargaining among U.S. adults
+
+Question stem: If a couple with children needs one adult to reduce paid work for family needs, what is generally the fairest approach?
+Survey item: Preferred rule for deciding who reduces paid work
+Response options, in order: [""The lower earner should reduce work"", ""The adult with the more flexible job should reduce work"", ""Both adults should reduce work as equally as possible"", ""It depends entirely on the family""]
+
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}",[4],baseline,marginal:career_sacrifice_rule,marginal

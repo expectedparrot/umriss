@@ -1,0 +1,35 @@
+target_id,item,option_index,option_label,target,support_minimum,support_maximum,outside_cell_range
+marginal:hobbies,hobbies,0,Men and women are basically similar,0.3199908774739627,0.12,0.76,False
+marginal:hobbies,hobbies,1,Men and women are basically different,0.6800091225260373,0.24,0.88,False
+marginal:physical_abilities,physical_abilities,0,Men and women are basically similar,0.19070482765971405,0.08,0.72,False
+marginal:physical_abilities,physical_abilities,1,Men and women are basically different,0.8092951723402859,0.28,0.92,False
+marginal:parenting,parenting,0,Men and women are basically similar,0.2876218161953853,0.18,0.72,False
+marginal:parenting,parenting,1,Men and women are basically different,0.7123781838046147,0.28,0.82,False
+marginal:feelings,feelings,0,Men and women are basically similar,0.10958316743872445,0.14,0.68,True
+marginal:feelings,feelings,1,Men and women are basically different,0.8904168325612756,0.32,0.86,True
+marginal:workplace,workplace,0,Men and women are basically similar,0.5725168549843521,0.22,0.79,False
+marginal:workplace,workplace,1,Men and women are basically different,0.4274831450156478,0.21,0.78,False
+marginal:relationship_status,relationship_status,0,Married,0.49,0.03,0.94,False
+marginal:relationship_status,relationship_status,1,Living with a partner,0.08333333333333333,0.02,0.87,False
+marginal:relationship_status,relationship_status,2,In a relationship but not living together,0.09666666666666668,0.02,0.82,False
+marginal:relationship_status,relationship_status,3,Not currently in a relationship,0.33,0.02,0.9,False
+marginal:children_at_home,children_at_home,0,No children under 18,0.6733333333333333,0.03,0.91,False
+marginal:children_at_home,children_at_home,1,At least one child under 6,0.08833333333333333,0.02,0.86,False
+marginal:children_at_home,children_at_home,2,Only children ages 6 to 17,0.16666666666666666,0.03,0.9,False
+marginal:children_at_home,children_at_home,3,Children both under 6 and ages 6 to 17,0.07166666666666667,0.01,0.75,False
+marginal:household_income,household_income,0,"Less than $50,000",0.2966666666666667,0.02,0.78,False
+marginal:household_income,household_income,1,"$50,000 to $99,999",0.2866666666666667,0.04,0.72,False
+marginal:household_income,household_income,2,"$100,000 to $149,999",0.18666666666666668,0.04,0.72,False
+marginal:household_income,household_income,3,"$150,000 or more",0.22999999999999998,0.02,0.82,False
+marginal:parenthood_importance,parenthood_importance,0,Not at all important,0.14333333333333334,0.01,0.7,False
+marginal:parenthood_importance,parenthood_importance,1,Not too important,0.16333333333333333,0.03,0.52,False
+marginal:parenthood_importance,parenthood_importance,2,Somewhat important,0.2733333333333334,0.09,0.56,False
+marginal:parenthood_importance,parenthood_importance,3,Very important,0.42,0.04,0.82,False
+marginal:paid_work_priority,paid_work_priority,0,Not at all important,0.07,0.01,0.68,False
+marginal:paid_work_priority,paid_work_priority,1,Not too important,0.1466666666666667,0.03,0.52,False
+marginal:paid_work_priority,paid_work_priority,2,Somewhat important,0.36999999999999994,0.1,0.58,False
+marginal:paid_work_priority,paid_work_priority,3,Very important,0.41333333333333333,0.04,0.79,False
+marginal:housework_division,housework_division,0,One person should do most of it,0.06666666666666667,0.03,0.48,False
+marginal:housework_division,housework_division,1,Both adults should divide it about equally,0.49666666666666665,0.2,0.72,False
+marginal:housework_division,housework_division,2,The person with more available time should do more,0.2733333333333334,0.12,0.58,False
+marginal:housework_division,housework_division,3,It depends entirely on the household,0.16333333333333333,0.07,0.51,False

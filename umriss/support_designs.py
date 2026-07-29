@@ -5,10 +5,13 @@ import hashlib
 import html
 import itertools
 import json
+import random
 from collections import Counter
 from pathlib import Path
 from typing import Any
 
+import numpy as np
+import pandas as pd
 import yaml
 
 from .metadata import item_option_labels
@@ -106,11 +109,192 @@ def uniform_patterns_preset(metadata: dict[str, Any], size: int | None, seed: in
     }
 
 
+def balanced_blueprints_preset(metadata: dict[str, Any], size: int | None, seed: int) -> dict[str, Any]:
+    resolved_size = size if size is not None else max(128, 8 * len(metadata["items"]))
+    return {
+        "schema_version": SCHEMA_VERSION,
+        "preset": "balanced-blueprints",
+        "size": resolved_size,
+        "seed": seed,
+        "coverage": {"mode": "complete", "allocation": "balanced"},
+        "components": [{"type": "balanced_blueprints", "coherence": "explicit"}],
+        "profile": {
+            "framing": "synthetic_respondent",
+            "forbid_demographic_invention": True,
+        },
+        "probabilities": {
+            "interpretation": "subjective_response_probability",
+            "require_sum": 1,
+            "allow_zero": False,
+            "minimum_probability": 0.01,
+        },
+        "guardrails": {
+            "leak_target_marginals": False,
+            "silent_coverage_truncation": False,
+            "silent_invalid_response_repair": False,
+            "describe_as_recovered_respondents": False,
+            "validate_blueprint_fidelity": True,
+        },
+    }
+
+
+def target_informed_blueprint_design(
+    metadata: dict[str, Any],
+    targets: dict[str, Any],
+    size: int,
+    seed: int,
+    target_source: str,
+) -> dict[str, Any]:
+    if size < 1:
+        raise ValueError("Target-informed blueprint size must be at least 1.")
+    accepted: dict[str, list[float]] = {}
+    target_ids: list[str] = []
+    for target in targets.get("targets", []):
+        if target.get("status") != "accepted" or target.get("type") != "marginal":
+            continue
+        item = str(target["items"][0])
+        if item not in metadata["items"]:
+            raise ValueError(f"Accepted target references unknown item {item}.")
+        values = [float(value) for value in target["values"]]
+        if len(values) != len(item_option_labels(metadata, item)):
+            raise ValueError(f"Accepted target {target['target_id']} has the wrong shape.")
+        accepted[item] = values
+        target_ids.append(str(target["target_id"]))
+    if not accepted:
+        raise ValueError("No accepted marginal targets are available for target-informed blueprints.")
+
+    rng = random.Random(seed)
+    items = list(metadata["items"])
+    possible = 1
+    for item in items:
+        possible *= len(item_option_labels(metadata, item))
+    if size > possible:
+        raise ValueError(f"Requested {size} blueprints but only {possible} distinct patterns exist.")
+
+    patterns: list[dict[str, str]] | None = None
+    for _ in range(500):
+        columns: dict[str, list[str]] = {}
+        for item in items:
+            labels = item_option_labels(metadata, item)
+            if item in accepted:
+                exact = np.asarray(accepted[item], dtype=float) * size
+                counts = np.floor(exact).astype(int)
+                remainder = size - int(counts.sum())
+                order = np.argsort(-(exact - counts))
+                for index in order[:remainder]:
+                    counts[index] += 1
+                values = [
+                    label
+                    for label, count in zip(labels, counts, strict=True)
+                    for _ in range(int(count))
+                ]
+            else:
+                values = [labels[index % len(labels)] for index in range(size)]
+            rng.shuffle(values)
+            columns[item] = values
+        candidate = [{item: columns[item][row_index] for item in items} for row_index in range(size)]
+        signatures = {tuple(pattern[item] for item in items) for pattern in candidate}
+        if len(signatures) == size:
+            patterns = candidate
+            break
+    if patterns is None:
+        raise ValueError("Could not construct unique target-informed blueprints.")
+    return {
+        "schema_version": SCHEMA_VERSION,
+        "preset": "target-informed-blueprints",
+        "size": size,
+        "seed": seed,
+        "coverage": {"mode": "complete", "allocation": "target_informed_largest_remainder"},
+        "components": [{"type": "pattern_anchors", "patterns": patterns, "coherence": "explicit"}],
+        "target_informed": {
+            "source": target_source,
+            "accepted_target_ids": target_ids,
+            "allocation": "largest_remainder",
+            "population_marginals_in_individual_prompts": False,
+        },
+        "profile": {"framing": "synthetic_respondent", "forbid_demographic_invention": True},
+        "probabilities": {
+            "interpretation": "subjective_response_probability",
+            "require_sum": 1,
+            "allow_zero": False,
+            "minimum_probability": 0.01,
+        },
+        "guardrails": {
+            "leak_target_marginals": False,
+            "silent_coverage_truncation": False,
+            "silent_invalid_response_repair": False,
+            "describe_as_recovered_respondents": False,
+            "validate_blueprint_fidelity": True,
+        },
+    }
+
+
+def target_repair_blueprint_design(
+    metadata: dict[str, Any],
+    targets: dict[str, Any],
+    support_path: Path,
+    n_add: int,
+    seed: int,
+    target_source: str,
+) -> dict[str, Any]:
+    support = pd.read_csv(support_path)
+    identities = support[["support_id", "job_id"]].drop_duplicates()
+    base_n = len(identities)
+    if base_n < 1 or n_add < 1:
+        raise ValueError("Target repair requires positive base and addition sizes.")
+    adjusted = json.loads(json.dumps(targets))
+    adjustments: list[dict[str, Any]] = []
+    for target in adjusted.get("targets", []):
+        if target.get("status") != "accepted" or target.get("type") != "marginal":
+            continue
+        item = str(target["items"][0])
+        group = support[support["item"].astype(str).eq(item)]
+        current = (
+            group.groupby("option_index")["probability"]
+            .mean()
+            .sort_index()
+            .to_numpy(dtype=float)
+        )
+        desired = np.asarray(target["values"], dtype=float)
+        if len(current) != len(desired):
+            raise ValueError(f"Base support is incomplete for accepted target item {item}.")
+        addition = ((base_n + n_add) * desired - base_n * current) / n_add
+        if (addition < -1e-9).any() or (addition > 1 + 1e-9).any():
+            raise ValueError(
+                f"TARGET_REPAIR_TOO_SMALL: {n_add} additions cannot correct {item} without invalid allocation "
+                f"(range {addition.min():.6f} to {addition.max():.6f}). Increase --n-add."
+            )
+        addition = np.clip(addition, 0.0, 1.0)
+        if not np.isclose(addition.sum(), 1.0, atol=1e-8):
+            raise ValueError(f"Derived repair allocation for {item} does not sum to one.")
+        target["values"] = addition.tolist()
+        adjustments.append(
+            {
+                "item": item,
+                "base_equal_weight_prediction": current.tolist(),
+                "population_target": desired.tolist(),
+                "addition_blueprint_allocation": addition.tolist(),
+            }
+        )
+    design = target_informed_blueprint_design(metadata, adjusted, n_add, seed, target_source)
+    design["preset"] = "target-repair-blueprints"
+    design["target_repair"] = {
+        "base_support": str(support_path),
+        "base_n": base_n,
+        "n_add": n_add,
+        "formula": "((base_n + n_add) * target - base_n * base_equal_weight_prediction) / n_add",
+        "adjustments": adjustments,
+    }
+    return design
+
+
 def preset_design(metadata: dict[str, Any], preset: str, size: int | None, seed: int) -> dict[str, Any]:
     if preset == "pattern-coverage":
         return pattern_coverage_preset(metadata, size, seed)
     if preset == "uniform-patterns":
         return uniform_patterns_preset(metadata, size, seed)
+    if preset == "balanced-blueprints":
+        return balanced_blueprints_preset(metadata, size, seed)
     raise ValueError(f"Unsupported preset: {preset}.")
 
 
@@ -151,6 +335,8 @@ def _required_rows(design: dict[str, Any], metadata: dict[str, Any]) -> tuple[in
         elif ctype == "profiles":
             count = len(component.get("profiles", []))
         elif ctype == "uniform_patterns":
+            count = int(design["size"])
+        elif ctype == "balanced_blueprints":
             count = int(design["size"])
         else:
             raise ValueError(f"Unsupported component type: {ctype}.")
@@ -199,6 +385,8 @@ def validate_design(design: dict[str, Any], metadata: dict[str, Any]) -> dict[st
                 raise ValueError("profiles requires a non-empty profiles list.")
         elif ctype == "uniform_patterns":
             pass
+        elif ctype == "balanced_blueprints":
+            pass
         else:
             raise ValueError(f"Unsupported component type: {ctype}.")
     required, detail = _required_rows(design, metadata)
@@ -242,8 +430,18 @@ def _item_lines(metadata: dict[str, Any]) -> str:
 
 
 def _schema(metadata: dict[str, Any]) -> str:
+    details = ",\n".join(
+        f'    "{item}": "You explicitly believe or experience ..."'
+        for item in metadata["items"]
+    )
     probabilities = ",\n".join(f'    "{item}": [numbers in option order]' for item in metadata["items"])
-    return '{\n  "persona": "Your views on ...",\n  "probabilities": {\n' + probabilities + "\n  }\n}"
+    return (
+        '{\n  "persona": "You are ...",\n  "persona_details": {\n'
+        + details
+        + '\n  },\n  "probabilities": {\n'
+        + probabilities
+        + "\n  }\n}"
+    )
 
 
 def _coherence_instruction(row: dict[str, Any], design: dict[str, Any], metadata: dict[str, Any]) -> str:
@@ -273,7 +471,11 @@ def _default_prompt(metadata: dict[str, Any], row: dict[str, Any], design: dict[
         )
     elif row["design_type"] == "pattern_anchor":
         lines = "\n".join(f"- {item}: {option}" for item, option in row["pattern"].items())
-        target = f"Construct a synthetic survey-response profile organized around this declared answer pattern:\n{lines}"
+        target = (
+            "Construct a synthetic survey-response profile that preserves every cell in this declared answer blueprint. "
+            "Unusual combinations are intentional; do not replace them with a more stereotypically coherent profile.\n"
+            f"{lines}"
+        )
     else:
         target = f"Construct this declared synthetic survey-response profile:\n{row['profile']}"
     demographic = (
@@ -282,6 +484,12 @@ def _default_prompt(metadata: dict[str, Any], row: dict[str, Any], design: dict[
         else ""
     )
     minimum = float(probs.get("minimum_probability", 0.0))
+    blueprint_rule = (
+        "For every declared blueprint cell, assign that option the largest probability in its item vector. "
+        "The persona must make the complete combination understandable without changing any declared answer."
+        if row["design_type"] == "pattern_anchor"
+        else ""
+    )
     return f"""Support point identifier: {row['job_id']}
 
 Survey context: {metadata['context']}
@@ -290,13 +498,18 @@ Battery topic: {metadata['topic']}
 {target}
 
 {_coherence_instruction(row, design, metadata)}
+{blueprint_rule}
 {demographic}
 
-Write a concise persona describing the attitudes that distinguish this response pattern. Address the persona in the
-second person, beginning with "Your views..." or "You...". This text will become a visible EDSL agent trait, so include
-only the persona description—not instructions about answering questions or probabilities. Then provide subjective response
-probabilities for every item. Each vector must follow the displayed option order, contain nonnegative numbers, and sum to
-1. Each probability must be at least {minimum:g}.
+Write a readable second-person synthesis in "persona", beginning with "Your " or "You ". Do not compress distinct
+answers into labels such as "traditional", "egalitarian", or "mixed". In "persona_details", write one explicit,
+second-person sentence for every item, using the exact item keys shown in the schema. Each sentence must state the
+substantive position or circumstance represented by that item's declared response pattern. The complete persona will be
+assembled from the synthesis and every detail, so its length should grow with the battery. Include only persona
+description—not instructions about answering questions or probabilities.
+
+Then provide subjective response probabilities for every item. Each vector must follow the displayed option order,
+contain nonnegative numbers, and sum to 1. Each probability must be at least {minimum:g}.
 
 Items and response options:
 {_item_lines(metadata)}
@@ -316,7 +529,14 @@ def _custom_prompt(template_path: Path, metadata: dict[str, Any], row: dict[str,
         prompt = template.render(metadata=prompt_metadata, support=row, design=design, items_text=_item_lines(metadata))
     except Exception as exc:
         raise ValueError(f"Custom prompt rendering failed: {exc}") from exc
-    required = [*metadata["items"], "persona", "second person", "probabil", "sum to 1"]
+    required = [
+        *metadata["items"],
+        "persona",
+        "persona_details",
+        "second person",
+        "probabil",
+        "sum to 1",
+    ]
     missing = [token for token in required if token.lower() not in prompt.lower()]
     if missing:
         raise ValueError(f"Custom prompt failed strict validation; missing: {', '.join(missing)}.")
@@ -385,6 +605,44 @@ def compile_support_plan(metadata: dict[str, Any], tag: str, design: dict[str, A
                             "coherence": "explicit",
                         }
                     )
+        elif ctype == "balanced_blueprints":
+            items = list(metadata["items"])
+            size = int(design["size"])
+            possible = 1
+            for item in items:
+                possible *= len(item_option_labels(metadata, item))
+            if size > possible:
+                raise ValueError(
+                    f"balanced_blueprints size {size} exceeds the number of distinct response patterns ({possible})."
+                )
+            rng = random.Random(int(design.get("seed", 0)))
+            patterns: list[dict[str, str]] | None = None
+            for _ in range(250):
+                columns: dict[str, list[str]] = {}
+                for item in items:
+                    labels = item_option_labels(metadata, item)
+                    values = [labels[index % len(labels)] for index in range(size)]
+                    rng.shuffle(values)
+                    columns[item] = values
+                candidate = [
+                    {item: columns[item][row_index] for item in items}
+                    for row_index in range(size)
+                ]
+                signatures = {tuple(pattern[item] for item in items) for pattern in candidate}
+                if len(signatures) == size:
+                    patterns = candidate
+                    break
+            if patterns is None:
+                raise ValueError("Could not construct unique balanced blueprints for the requested size and battery.")
+            for pattern in patterns:
+                rows.append(
+                    {
+                        "design_type": "pattern_anchor",
+                        "reason": "balanced complete response blueprint",
+                        "pattern": pattern,
+                        "coherence": "explicit",
+                    }
+                )
     rows = rows[:size]
     coverage_components = [component for component in components if _component_type(component) == "option_coverage"]
     fill_index = 0

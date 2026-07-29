@@ -1,0 +1,2 @@
+tag,fit_id,heldout_item,selected_rho,held_in_residual,effective_support,max_weight,top10_weight_share,n_support_valid,converged
+fit_college,fit_college,,0.0003,7.209114326418704e-05,4.485559180062189,0.2759717668679428,0.9999999999999999,5,True

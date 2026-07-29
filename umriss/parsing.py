@@ -3,6 +3,7 @@ from __future__ import annotations
 import ast
 import csv
 import json
+import re
 import shutil
 from pathlib import Path
 from typing import Any
@@ -53,6 +54,11 @@ def normalized_vec(value: Any, k: int) -> tuple[np.ndarray | None, dict[str, Any
     return arr, diag
 
 
+def _is_second_person_statement(value: Any) -> bool:
+    text = str(value).strip()
+    return bool(re.search(r"(?:^|[.!?:]\s+)(?:You|Your)\s", text))
+
+
 def read_raw_rows(path: Path) -> list[dict[str, Any]]:
     if path.suffix == ".jsonl":
         rows = []
@@ -65,7 +71,14 @@ def read_raw_rows(path: Path) -> list[dict[str, Any]]:
         return list(csv.DictReader(f))
 
 
-def parse_support(raw_path: Path, metadata: dict[str, Any], tag: str, out_dir: Path) -> dict[str, str | int]:
+def parse_support(
+    raw_path: Path,
+    metadata: dict[str, Any],
+    tag: str,
+    out_dir: Path,
+    *,
+    allow_legacy_persona: bool = False,
+) -> dict[str, str | int]:
     rows = read_raw_rows(raw_path)
     points: list[dict[str, Any]] = []
     probs: list[dict[str, Any]] = []
@@ -82,6 +95,10 @@ def parse_support(raw_path: Path, metadata: dict[str, Any], tag: str, out_dir: P
             "job_id": job_id,
             "variant": row.get("variant", ""),
             "persona": "",
+            "persona_summary": "",
+            "persona_details": "",
+            "persona_detail_count": 0,
+            "persona_detail_coverage": 0.0,
             "valid": False,
         }
         if not parsed or not isinstance(parsed.get("probabilities"), dict):
@@ -105,7 +122,76 @@ def parse_support(raw_path: Path, metadata: dict[str, Any], tag: str, out_dir: P
             )
             points.append(point)
             continue
-        point["persona"] = persona
+        details = parsed.get("persona_details")
+        if details is not None:
+            if not isinstance(details, dict):
+                diagnostics.append(
+                    {
+                        "job_id": job_id,
+                        "support_id": support_id,
+                        "status": "invalid",
+                        "code": "persona_details_invalid",
+                        "message": "persona_details must be an object with one second-person statement per item.",
+                        "item": "",
+                        "raw_sum": "",
+                        "min_probability": "",
+                        "max_probability": "",
+                    }
+                )
+                points.append(point)
+                continue
+            missing_details = [
+                item
+                for item in items
+                if not _is_second_person_statement(details.get(item, ""))
+            ]
+            extra_details = sorted(set(details) - set(items))
+            if missing_details or extra_details:
+                diagnostics.append(
+                    {
+                        "job_id": job_id,
+                        "support_id": support_id,
+                        "status": "invalid",
+                        "code": "persona_details_incomplete",
+                        "message": (
+                            "persona_details must contain exactly one nonempty second-person statement per item."
+                        ),
+                        "item": ",".join(missing_details + extra_details),
+                        "raw_sum": "",
+                        "min_probability": "",
+                        "max_probability": "",
+                    }
+                )
+                points.append(point)
+                continue
+            ordered_details = {item: str(details[item]).strip() for item in items}
+            expanded_persona = "\n\n".join([persona, *ordered_details.values()])
+            point["persona_details"] = json.dumps(ordered_details, ensure_ascii=False)
+            point["persona_detail_count"] = len(ordered_details)
+            point["persona_detail_coverage"] = 1.0
+        elif allow_legacy_persona:
+            expanded_persona = persona
+        else:
+            diagnostics.append(
+                {
+                    "job_id": job_id,
+                    "support_id": support_id,
+                    "status": "invalid",
+                    "code": "persona_details_missing",
+                    "message": (
+                        "persona_details is required so the text persona explicitly covers every battery item. "
+                        "Use --allow-legacy-persona only to reparse results generated under the older contract."
+                    ),
+                    "item": ",".join(items),
+                    "raw_sum": "",
+                    "min_probability": "",
+                    "max_probability": "",
+                }
+            )
+            points.append(point)
+            continue
+        point["persona"] = expanded_persona
+        point["persona_summary"] = persona
         item_vecs: dict[str, np.ndarray] = {}
         valid = True
         for item in items:

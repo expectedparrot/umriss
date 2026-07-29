@@ -1,0 +1,98 @@
+{
+  "execution": {
+    "cost_estimate": {
+      "available": true,
+      "basis": "call_counts",
+      "expected_model_calls": 24,
+      "models": 3,
+      "pricing_note": "Dollar cost depends on provider pricing; inspect the package with `ep inspect` before authorizing `ep run`.",
+      "scenarios": 8
+    },
+    "mode": "unspecified",
+    "owner": "external_ep"
+  },
+  "iterations": 1,
+  "jobs": "examples/teen_social_2026/prior_probe/teen_social_candidate_priors.jobs.ep",
+  "manifest_path": "examples/teen_social_2026/prior_probe/teen_social_candidate_priors_manifest.json",
+  "model_calls": 24,
+  "model_count": 3,
+  "models": [
+    {
+      "model": "gpt-5.5",
+      "service_name": "openai"
+    },
+    {
+      "model": "anthropic/claude-opus-5",
+      "service_name": "deep_infra"
+    },
+    {
+      "model": "gemini-3.1-pro",
+      "service_name": "google"
+    }
+  ],
+  "next_steps": [
+    "ep run --jobs examples/teen_social_2026/prior_probe/teen_social_candidate_priors.jobs.ep --output examples/teen_social_2026/prior_probe/teen_social_candidate_priors.results.ep",
+    "umriss baseline register-results --results examples/teen_social_2026/prior_probe/teen_social_candidate_priors.results.ep --prompts examples/teen_social_2026/prior_probe/teen_social_candidate_priors_baseline_prompts.jsonl --tag teen_social_candidate_priors --out examples/teen_social_2026/prior_probe"
+  ],
+  "outputs": {
+    "jobs": {
+      "path": "examples/teen_social_2026/prior_probe/teen_social_candidate_priors.jobs.ep",
+      "sha256": "8929793c9fdbcd63b69b23727ffd2d0c7f779760f88304bbeb4f2f182ec167c2"
+    }
+  },
+  "prompts": "examples/teen_social_2026/prior_probe/teen_social_candidate_priors_baseline_prompts.jsonl",
+  "provenance": {
+    "command": "umriss baseline export",
+    "created_at": "2026-07-29T01:12:04Z",
+    "fingerprint": "7d0bba589cd735a1e91d071ba08c62a7e5471579fe5029882e86f37ebc24984e",
+    "inputs": {
+      "prompts": {
+        "path": "examples/teen_social_2026/prior_probe/teen_social_candidate_priors_baseline_prompts.jsonl",
+        "sha256": "e70066076b33df510ee62ddd711595867cbcbbf7f0df4587c82e05e096434856"
+      }
+    },
+    "parameters": {
+      "job_ids_path": null,
+      "limit": null,
+      "max_tokens": 1200,
+      "models": [
+        {
+          "model": "gpt-5.5",
+          "service_name": "openai"
+        },
+        {
+          "model": "anthropic/claude-opus-5",
+          "service_name": "deep_infra"
+        },
+        {
+          "model": "gemini-3.1-pro",
+          "service_name": "google"
+        }
+      ],
+      "path": "examples/teen_social_2026/prior_probe/teen_social_candidate_priors.jobs.ep",
+      "registration_out": "examples/teen_social_2026/prior_probe",
+      "tag": "teen_social_candidate_priors",
+      "temperature": 1.0
+    },
+    "schema_version": 1,
+    "umriss_version": "0.1.0"
+  },
+  "questions": 1,
+  "register_command": "umriss baseline register-results --results examples/teen_social_2026/prior_probe/teen_social_candidate_priors.results.ep --prompts examples/teen_social_2026/prior_probe/teen_social_candidate_priors_baseline_prompts.jsonl --tag teen_social_candidate_priors --out examples/teen_social_2026/prior_probe",
+  "registration_out": "examples/teen_social_2026/prior_probe",
+  "results": "examples/teen_social_2026/prior_probe/teen_social_candidate_priors.results.ep",
+  "reused": false,
+  "run_command": "ep run --jobs examples/teen_social_2026/prior_probe/teen_social_candidate_priors.jobs.ep --output examples/teen_social_2026/prior_probe/teen_social_candidate_priors.results.ep",
+  "run_contract": {
+    "expected_results_path": "examples/teen_social_2026/prior_probe/teen_social_candidate_priors.results.ep",
+    "jobs_path": "examples/teen_social_2026/prior_probe/teen_social_candidate_priors.jobs.ep",
+    "owner": "external_ep",
+    "register_command": "umriss baseline register-results --results examples/teen_social_2026/prior_probe/teen_social_candidate_priors.results.ep --prompts examples/teen_social_2026/prior_probe/teen_social_candidate_priors_baseline_prompts.jsonl --tag teen_social_candidate_priors --out examples/teen_social_2026/prior_probe",
+    "run_command": "ep run --jobs examples/teen_social_2026/prior_probe/teen_social_candidate_priors.jobs.ep --output examples/teen_social_2026/prior_probe/teen_social_candidate_priors.results.ep"
+  },
+  "save_format": "edsl_ep",
+  "scenarios": 8,
+  "schema_version": 1,
+  "tag": "teen_social_candidate_priors",
+  "workflow": "baseline"
+}

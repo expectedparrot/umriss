@@ -1,0 +1,37 @@
+{
+  "kind": "umriss_result_registration",
+  "outputs": {
+    "jobs": {
+      "path": "examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors_jobs.csv",
+      "sha256": "1eb2814edcf78389197eeb1ad225950a3f296f448ba4ad930b6fb57daffbd927"
+    },
+    "raw": {
+      "path": "examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors_raw.csv",
+      "sha256": "b0124814b35ad4c8880f4bf9e083488d66284f11f939ef78c244f618002f2af6"
+    }
+  },
+  "provenance": {
+    "command": "umriss support register-results",
+    "created_at": "2026-07-29T02:34:53Z",
+    "fingerprint": "9d1d0b6bf5a3d161c2d7ac0ca408eefadcfdb18e38777cfdaf303b8f7c0c7c84",
+    "inputs": {
+      "prompts": {
+        "path": "examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors_baseline_prompts.jsonl",
+        "sha256": "4a5966e8160b395ed1f2bb5f37528cd35027294d531349e1ba5f536b99b775cf"
+      },
+      "results": {
+        "path": "examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors.results.ep",
+        "sha256": "2300c1cf7ef993776c7271dc324cf19354c2f2ec55162fbded6041dc75a3a764"
+      }
+    },
+    "parameters": {
+      "out": "examples/teen_social_2026/life_prior_probe",
+      "tag": "teen_life_candidate_priors"
+    },
+    "schema_version": 1,
+    "umriss_version": "0.1.0"
+  },
+  "rows": 21,
+  "schema_version": 1,
+  "tag": "teen_life_candidate_priors"
+}

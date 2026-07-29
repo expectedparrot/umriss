@@ -1,0 +1,135 @@
+{
+  "battery": {
+    "battery": "GENDER_WORK_FAMILY",
+    "wave": "W154_AUG2026"
+  },
+  "kind": "umriss_targets",
+  "population": {
+    "id": "us_adults_2026"
+  },
+  "provenance": {
+    "command": "umriss targets from-metadata",
+    "created_at": "2026-07-29T11:40:11Z",
+    "fingerprint": "d35f63d6b37c5dc3d8334213f54ad43bd833594ec70dcb93f5230b6a9c039835",
+    "inputs": {
+      "metadata": {
+        "path": "examples/pew_w154/augmentation/pew_gender_work_family_battery.json",
+        "sha256": "c8cd847580c3130615bac94049b97b2b0209218259d7fa3dcefa897e42f06098"
+      }
+    },
+    "parameters": {
+      "confidence_weight": 1.0,
+      "population": "us_adults_2026"
+    },
+    "schema_version": 1,
+    "umriss_version": "0.1.0"
+  },
+  "schema_version": 1,
+  "targets": [
+    {
+      "confidence_weight": 1.0,
+      "items": [
+        "hobbies"
+      ],
+      "population": "us_adults_2026",
+      "shape": [
+        2
+      ],
+      "source": {
+        "kind": "observed",
+        "metadata_path": "examples/pew_w154/augmentation/pew_gender_work_family_battery.json"
+      },
+      "status": "accepted",
+      "target_id": "marginal:hobbies",
+      "type": "marginal",
+      "values": [
+        0.3199908774739627,
+        0.6800091225260373
+      ]
+    },
+    {
+      "confidence_weight": 1.0,
+      "items": [
+        "physical_abilities"
+      ],
+      "population": "us_adults_2026",
+      "shape": [
+        2
+      ],
+      "source": {
+        "kind": "observed",
+        "metadata_path": "examples/pew_w154/augmentation/pew_gender_work_family_battery.json"
+      },
+      "status": "accepted",
+      "target_id": "marginal:physical_abilities",
+      "type": "marginal",
+      "values": [
+        0.19070482765971405,
+        0.8092951723402859
+      ]
+    },
+    {
+      "confidence_weight": 1.0,
+      "items": [
+        "parenting"
+      ],
+      "population": "us_adults_2026",
+      "shape": [
+        2
+      ],
+      "source": {
+        "kind": "observed",
+        "metadata_path": "examples/pew_w154/augmentation/pew_gender_work_family_battery.json"
+      },
+      "status": "accepted",
+      "target_id": "marginal:parenting",
+      "type": "marginal",
+      "values": [
+        0.2876218161953853,
+        0.7123781838046147
+      ]
+    },
+    {
+      "confidence_weight": 1.0,
+      "items": [
+        "feelings"
+      ],
+      "population": "us_adults_2026",
+      "shape": [
+        2
+      ],
+      "source": {
+        "kind": "observed",
+        "metadata_path": "examples/pew_w154/augmentation/pew_gender_work_family_battery.json"
+      },
+      "status": "accepted",
+      "target_id": "marginal:feelings",
+      "type": "marginal",
+      "values": [
+        0.10958316743872445,
+        0.8904168325612756
+      ]
+    },
+    {
+      "confidence_weight": 1.0,
+      "items": [
+        "workplace"
+      ],
+      "population": "us_adults_2026",
+      "shape": [
+        2
+      ],
+      "source": {
+        "kind": "observed",
+        "metadata_path": "examples/pew_w154/augmentation/pew_gender_work_family_battery.json"
+      },
+      "status": "accepted",
+      "target_id": "marginal:workplace",
+      "type": "marginal",
+      "values": [
+        0.5725168549843521,
+        0.4274831450156478
+      ]
+    }
+  ]
+}

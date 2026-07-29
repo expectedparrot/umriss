@@ -1,0 +1,98 @@
+{
+  "battery": {
+    "battery": "SOCIAL_RICH",
+    "wave": "ATS2026"
+  },
+  "kind": "umriss_targets",
+  "population": {
+    "id": "teen_girls_all"
+  },
+  "provenance": {
+    "command": "umriss prior consensus",
+    "created_at": "2026-07-29T02:20:03Z",
+    "fingerprint": "d74ac3dd7b09df8f5a2844e9fe063b09fcc8e0781fa42008c6de1519ecf50afa",
+    "inputs": {
+      "predictions_1": {
+        "path": "examples/teen_social_2026/prior_probe/joint_probe/teen_social_candidate_joint_base_prior_predictions.csv",
+        "sha256": "e528f811e6ff4259cbaac6197c540792a37342494c98c62838a8f061751d346f"
+      },
+      "predictions_2": {
+        "path": "examples/teen_social_2026/prior_probe/joint_probe/teen_social_candidate_joint_probe_grok_replacement_prior_predictions.csv",
+        "sha256": "7b7f9f6bb2b5c0f60c63e777928925c8f490cc531afb5e2cc51b4d1e298f31ea"
+      }
+    },
+    "parameters": {
+      "confidence_weight": 1.0,
+      "max_option_difference": 0.1,
+      "max_total_variation": 0.1,
+      "minimum_models": 3,
+      "population": "teen_girls_all",
+      "tag": "teen_social_candidate_joint_consensus"
+    },
+    "schema_version": 1,
+    "umriss_version": "0.1.0"
+  },
+  "schema_version": 1,
+  "targets": [
+    {
+      "confidence_weight": 1.0,
+      "items": [
+        "posting_frequency",
+        "social_comparison"
+      ],
+      "population": "teen_girls_all",
+      "shape": [
+        4,
+        4
+      ],
+      "source": {
+        "aggregation": "arithmetic_mean",
+        "agreement": {
+          "maximum_option_difference": 0.056400000000000006,
+          "maximum_pairwise_total_variation": 0.14200000000000002,
+          "rule": {
+            "maximum_option_difference": 0.1,
+            "maximum_pairwise_total_variation": 0.1,
+            "minimum_models": 3
+          }
+        },
+        "kind": "model_synthetic",
+        "models": [
+          {
+            "model": "gpt-5.5",
+            "service_name": "openai"
+          },
+          {
+            "model": "anthropic/claude-opus-5",
+            "service_name": "deep_infra"
+          },
+          {
+            "model": "grok-4.5",
+            "service_name": "xai"
+          }
+        ]
+      },
+      "status": "rejected",
+      "target_id": "joint:posting_frequency:social_comparison",
+      "type": "joint",
+      "values": [
+        0.07166666666666667,
+        0.08366666666666667,
+        0.07453333333333334,
+        0.0268,
+        0.047999999999999994,
+        0.08953333333333334,
+        0.09893333333333333,
+        0.036866666666666666,
+        0.035333333333333335,
+        0.0788,
+        0.12280000000000002,
+        0.05306666666666667,
+        0.015000000000000001,
+        0.043000000000000003,
+        0.084,
+        0.038
+      ]
+    }
+  ]
+}

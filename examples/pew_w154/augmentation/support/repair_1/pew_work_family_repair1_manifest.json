@@ -1,0 +1,82 @@
+{
+  "execution": {
+    "cost_estimate": {
+      "available": true,
+      "basis": "call_counts",
+      "expected_model_calls": 192,
+      "models": 1,
+      "pricing_note": "Dollar cost depends on provider pricing; inspect the package with `ep inspect` before authorizing `ep run`.",
+      "scenarios": 192
+    },
+    "mode": "unspecified",
+    "owner": "external_ep"
+  },
+  "iterations": 1,
+  "jobs": "examples/pew_w154/augmentation/support/repair_1/pew_work_family_repair1.jobs.ep",
+  "manifest_path": "examples/pew_w154/augmentation/support/repair_1/pew_work_family_repair1_manifest.json",
+  "model_calls": 192,
+  "model_count": 1,
+  "models": [
+    {
+      "model": "gpt-5.5",
+      "service_name": "openai"
+    }
+  ],
+  "next_steps": [
+    "ep run --jobs examples/pew_w154/augmentation/support/repair_1/pew_work_family_repair1.jobs.ep --output examples/pew_w154/augmentation/support/repair_1/pew_work_family_repair1.results.ep",
+    "umriss support register-results --results examples/pew_w154/augmentation/support/repair_1/pew_work_family_repair1.results.ep --prompts examples/pew_w154/augmentation/support/repair_1/pew_work_family_repair1_prompts.jsonl --tag pew_work_family_repair1 --out examples/pew_w154/augmentation/support/repair_1"
+  ],
+  "outputs": {
+    "jobs": {
+      "path": "examples/pew_w154/augmentation/support/repair_1/pew_work_family_repair1.jobs.ep",
+      "sha256": "d11848bce66b8e25a1ad6afbe7cb4e1ff1e2affaa898fb28944556829a42d17e"
+    }
+  },
+  "prompts": "examples/pew_w154/augmentation/support/repair_1/pew_work_family_repair1_prompts.jsonl",
+  "provenance": {
+    "command": "umriss support export",
+    "created_at": "2026-07-29T11:41:47Z",
+    "fingerprint": "6e06ca6268876096e2c5263158b45d2f51c0b2146bced94875a0fb07fd685b46",
+    "inputs": {
+      "prompts": {
+        "path": "examples/pew_w154/augmentation/support/repair_1/pew_work_family_repair1_prompts.jsonl",
+        "sha256": "d16ee91b83cdbe964e273cce0eba110fdcbc5a423ab0da97937b19ba70a9c996"
+      }
+    },
+    "parameters": {
+      "job_ids_path": null,
+      "limit": null,
+      "max_tokens": 2200,
+      "models": [
+        {
+          "model": "gpt-5.5",
+          "service_name": "openai"
+        }
+      ],
+      "path": "examples/pew_w154/augmentation/support/repair_1/pew_work_family_repair1.jobs.ep",
+      "registration_out": "examples/pew_w154/augmentation/support/repair_1",
+      "tag": "pew_work_family_repair1",
+      "temperature": 1.0
+    },
+    "schema_version": 1,
+    "umriss_version": "0.1.0"
+  },
+  "questions": 1,
+  "register_command": "umriss support register-results --results examples/pew_w154/augmentation/support/repair_1/pew_work_family_repair1.results.ep --prompts examples/pew_w154/augmentation/support/repair_1/pew_work_family_repair1_prompts.jsonl --tag pew_work_family_repair1 --out examples/pew_w154/augmentation/support/repair_1",
+  "registration_out": "examples/pew_w154/augmentation/support/repair_1",
+  "results": "examples/pew_w154/augmentation/support/repair_1/pew_work_family_repair1.results.ep",
+  "reused": false,
+  "run_command": "ep run --jobs examples/pew_w154/augmentation/support/repair_1/pew_work_family_repair1.jobs.ep --output examples/pew_w154/augmentation/support/repair_1/pew_work_family_repair1.results.ep",
+  "run_contract": {
+    "expected_results_path": "examples/pew_w154/augmentation/support/repair_1/pew_work_family_repair1.results.ep",
+    "jobs_path": "examples/pew_w154/augmentation/support/repair_1/pew_work_family_repair1.jobs.ep",
+    "owner": "external_ep",
+    "register_command": "umriss support register-results --results examples/pew_w154/augmentation/support/repair_1/pew_work_family_repair1.results.ep --prompts examples/pew_w154/augmentation/support/repair_1/pew_work_family_repair1_prompts.jsonl --tag pew_work_family_repair1 --out examples/pew_w154/augmentation/support/repair_1",
+    "run_command": "ep run --jobs examples/pew_w154/augmentation/support/repair_1/pew_work_family_repair1.jobs.ep --output examples/pew_w154/augmentation/support/repair_1/pew_work_family_repair1.results.ep"
+  },
+  "save_format": "edsl_ep",
+  "scenarios": 192,
+  "schema_version": 1,
+  "tag": "pew_work_family_repair1",
+  "workflow": "support"
+}

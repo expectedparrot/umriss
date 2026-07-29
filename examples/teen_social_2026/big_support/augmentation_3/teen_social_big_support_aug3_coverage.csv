@@ -1,0 +1,33 @@
+item,option,covered,support_rows
+social_media_hours,Less than one hour,True,98
+social_media_hours,One to three hours,True,67
+social_media_hours,Four or more hours,True,91
+posting_frequency,Never or almost never,True,66
+posting_frequency,Less than once a week,True,64
+posting_frequency,A few times a week,True,57
+posting_frequency,At least once a day,True,69
+late_night_use,Never,True,67
+late_night_use,Rarely,True,60
+late_night_use,Sometimes,True,57
+late_night_use,Often,True,72
+sleep_interference,Never,True,64
+sleep_interference,Rarely,True,58
+sleep_interference,Sometimes,True,58
+sleep_interference,Often,True,76
+social_comparison,Never,True,67
+social_comparison,Rarely,True,57
+social_comparison,Sometimes,True,56
+social_comparison,Often,True,76
+connection_effect,Makes me feel less connected,True,104
+connection_effect,Makes little difference,True,71
+connection_effect,Makes me feel more connected,True,81
+parental_rules,No rules,True,75
+parental_rules,A few loose rules,True,57
+parental_rules,Some clear rules,True,54
+parental_rules,Very strict rules,True,70
+primary_platform,TikTok,True,34
+primary_platform,Instagram,True,39
+primary_platform,YouTube,True,37
+primary_platform,Snapchat,True,40
+primary_platform,Another platform,True,50
+primary_platform,I do not use social media,True,56

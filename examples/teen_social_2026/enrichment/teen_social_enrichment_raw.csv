@@ -1,0 +1,541 @@
+agent.agent_index,agent.agent_instruction,agent.agent_name,answer.resp,cache_keys.resp_cache_key,comment.resp_comment,generated_tokens.resp_generated_tokens,iteration.iteration,model.frequency_penalty,model.inference_service,model.logprobs,model.max_tokens,model.model,model.model_index,model.presence_penalty,model.reasoning_effort,model.temperature,model.top_logprobs,model.top_p,prompt.resp_system_prompt,prompt.resp_user_prompt,question_options.resp_question_options,question_text.resp_question_text,question_type.resp_question_type,raw_model_response.resp_cost,raw_model_response.resp_input_price_per_million_tokens,raw_model_response.resp_input_tokens,raw_model_response.resp_one_usd_buys,raw_model_response.resp_output_price_per_million_tokens,raw_model_response.resp_output_tokens,raw_model_response.resp_raw_model_response,raw_model_response.resp_thinking_tokens,reasoning_summary.resp_reasoning_summary,scenario.job_id,scenario.prompt,scenario.scenario_index,validated.resp_validated
+0,You are answering questions as if you were a human. Do not break character.,Agent_0,"{""probabilities"":[0.5,0.35,0.12,0.03]}",7e928dc1abf490b8ccaa3a3e9f9b2076,,"{""probabilities"":[0.5,0.35,0.12,0.03]}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are cautious and selective. You see it as useful for checking in or passing a little time, but not something you want taking over your day. You are likely to keep your use brief, dipping in occasionally rather than scrolling for long stretches.
+
+Question: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+Options, in order: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",,{{ scenario.prompt }},free_text,0.003825,5.0,171,261.437908496732,30.0,29,"{'id': 'chatcmpl-E6noBpKyHwFfzxppT7Lg9EIlWMyn7', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""probabilities"":[0.5,0.35,0.12,0.03]}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785290139, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 99, 'prompt_tokens': 171, 'total_tokens': 270, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 70, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",70,,teen_social_enrichment_1_posting_frequency,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are cautious and selective. You see it as useful for checking in or passing a little time, but not something you want taking over your day. You are likely to keep your use brief, dipping in occasionally rather than scrolling for long stretches.
+
+Question: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+Options, in order: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",0,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_1,"{""probabilities"":[0.45,0.4,0.12,0.03]}",13368105a4f56b91cddc35a3645615e5,,"{""probabilities"":[0.45,0.4,0.12,0.03]}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are cautious and selective. You see it as useful for checking in or passing a little time, but not something you want taking over your day. You are likely to keep your use brief, dipping in occasionally rather than scrolling for long stretches.
+
+Question: How often does social media interfere with getting enough sleep? Social-media interference with sleep
+Options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",,{{ scenario.prompt }},free_text,0.003375,5.0,147,296.2962962962963,30.0,29,"{'id': 'chatcmpl-E6noBRSlDQ1xf51YeWipznVLbmicu', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""probabilities"":[0.45,0.4,0.12,0.03]}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785290139, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 88, 'prompt_tokens': 147, 'total_tokens': 235, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 59, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",59,,teen_social_enrichment_1_sleep_interference,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are cautious and selective. You see it as useful for checking in or passing a little time, but not something you want taking over your day. You are likely to keep your use brief, dipping in occasionally rather than scrolling for long stretches.
+
+Question: How often does social media interfere with getting enough sleep? Social-media interference with sleep
+Options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",1,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_2,"{""probabilities"":[0.25,0.45,0.25,0.05]}",bc84fabc3b0a035d7fcd33c5213a722a,,"{""probabilities"":[0.25,0.45,0.25,0.05]}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are cautious and selective. You see it as useful for checking in or passing a little time, but not something you want taking over your day. You are likely to keep your use brief, dipping in occasionally rather than scrolling for long stretches.
+
+Question: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",,{{ scenario.prompt }},free_text,0.003315,5.0,153,301.6591251885369,30.0,29,"{'id': 'chatcmpl-E6noBMzgAHuz4qLWAdn4Qf3PBNUfR', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""probabilities"":[0.25,0.45,0.25,0.05]}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785290139, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 85, 'prompt_tokens': 153, 'total_tokens': 238, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 56, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",56,,teen_social_enrichment_1_social_comparison,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are cautious and selective. You see it as useful for checking in or passing a little time, but not something you want taking over your day. You are likely to keep your use brief, dipping in occasionally rather than scrolling for long stretches.
+
+Question: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",2,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_3,"{""joint_probabilities"":[[0.18,0.22,0.07,0.01],[0.09,0.15,0.07,0.01],[0.03,0.06,0.055,0.015],[0.005,0.01,0.015,0.01]]}",c03f06e7c8df9b1f6560ebf490d1c1ec,,"{""joint_probabilities"":[[0.18,0.22,0.07,0.01],[0.09,0.15,0.07,0.01],[0.03,0.06,0.055,0.015],[0.005,0.01,0.015,0.01]]}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"Give this existing persona's joint response probabilities for two survey items.
+
+Persona:
+Your views on social media are cautious and selective. You see it as useful for checking in or passing a little time, but not something you want taking over your day. You are likely to keep your use brief, dipping in occasionally rather than scrolling for long stretches.
+
+First question: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+Rows: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Second question: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Columns: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return the joint distribution directly, including any residual dependence within this persona.
+Return only valid JSON:
+{
+  ""joint_probabilities"": [[one nonnegative cell per column] per row]
+}
+The 4 by 4 matrix must sum to 1.",,{{ scenario.prompt }},free_text,0.0130949999999999,5.0,225,76.36502481863307,30.0,80,"{'id': 'chatcmpl-E6noBAsCDeinthlDfXb59s2JhwlNH', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""joint_probabilities"":[[0.18,0.22,0.07,0.01],[0.09,0.15,0.07,0.01],[0.03,0.06,0.055,0.015],[0.005,0.01,0.015,0.01]]}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785290139, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 399, 'prompt_tokens': 225, 'total_tokens': 624, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 319, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",319,,teen_social_enrichment_1_posting_frequency_x_social_comparison,"Give this existing persona's joint response probabilities for two survey items.
+
+Persona:
+Your views on social media are cautious and selective. You see it as useful for checking in or passing a little time, but not something you want taking over your day. You are likely to keep your use brief, dipping in occasionally rather than scrolling for long stretches.
+
+First question: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+Rows: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Second question: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Columns: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return the joint distribution directly, including any residual dependence within this persona.
+Return only valid JSON:
+{
+  ""joint_probabilities"": [[one nonnegative cell per column] per row]
+}
+The 4 by 4 matrix must sum to 1.",3,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_4,"{""probabilities"":[0.08,0.27,0.45,0.2]}",aa0ce1273be3569435e3f7c857248463,,"{""probabilities"":[0.08,0.27,0.45,0.2]}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are balanced but engaged: it is a normal daily part of staying connected, keeping up with friends, and passing time, but it does not take over most of your day. You tend to spend a noticeable amount of time checking apps, messaging, scrolling, or watching short videos, while still seeing social media as something you can put down when other priorities come up.
+
+Question: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+Options, in order: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",,{{ scenario.prompt }},free_text,0.0044,5.0,196,227.27272727272725,30.0,29,"{'id': 'chatcmpl-E6noB6AlrQa6xrkLxpT5tgDjs2iwU', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""probabilities"":[0.08,0.27,0.45,0.2]}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785290139, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 114, 'prompt_tokens': 196, 'total_tokens': 310, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 85, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",85,,teen_social_enrichment_2_posting_frequency,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are balanced but engaged: it is a normal daily part of staying connected, keeping up with friends, and passing time, but it does not take over most of your day. You tend to spend a noticeable amount of time checking apps, messaging, scrolling, or watching short videos, while still seeing social media as something you can put down when other priorities come up.
+
+Question: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+Options, in order: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",4,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_5,"{""probabilities"":[0.12,0.36,0.40,0.12]}",738aab16d4890a0af4c031add955f6cb,,"{""probabilities"":[0.12,0.36,0.40,0.12]}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are balanced but engaged: it is a normal daily part of staying connected, keeping up with friends, and passing time, but it does not take over most of your day. You tend to spend a noticeable amount of time checking apps, messaging, scrolling, or watching short videos, while still seeing social media as something you can put down when other priorities come up.
+
+Question: How often does social media interfere with getting enough sleep? Social-media interference with sleep
+Options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",,{{ scenario.prompt }},free_text,0.00368,5.0,172,271.7391304347826,30.0,29,"{'id': 'chatcmpl-E6noBHPoh9n6DochkbWQJByZD2tPp', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""probabilities"":[0.12,0.36,0.40,0.12]}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785290139, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 94, 'prompt_tokens': 172, 'total_tokens': 266, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 65, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",65,,teen_social_enrichment_2_sleep_interference,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are balanced but engaged: it is a normal daily part of staying connected, keeping up with friends, and passing time, but it does not take over most of your day. You tend to spend a noticeable amount of time checking apps, messaging, scrolling, or watching short videos, while still seeing social media as something you can put down when other priorities come up.
+
+Question: How often does social media interfere with getting enough sleep? Social-media interference with sleep
+Options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",5,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_6,"{""probabilities"":[0.12,0.43,0.35,0.10]}",8680f252e4b149038cb5bed06d57cbef,,"{""probabilities"":[0.12,0.43,0.35,0.10]}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are balanced but engaged: it is a normal daily part of staying connected, keeping up with friends, and passing time, but it does not take over most of your day. You tend to spend a noticeable amount of time checking apps, messaging, scrolling, or watching short videos, while still seeing social media as something you can put down when other priorities come up.
+
+Question: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",,{{ scenario.prompt }},free_text,0.0041,5.0,178,243.90243902439025,30.0,29,"{'id': 'chatcmpl-E6noBxFjTIempsvXDxh5SSqtPl31q', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""probabilities"":[0.12,0.43,0.35,0.10]}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785290139, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 107, 'prompt_tokens': 178, 'total_tokens': 285, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 78, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",78,,teen_social_enrichment_2_social_comparison,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are balanced but engaged: it is a normal daily part of staying connected, keeping up with friends, and passing time, but it does not take over most of your day. You tend to spend a noticeable amount of time checking apps, messaging, scrolling, or watching short videos, while still seeing social media as something you can put down when other priorities come up.
+
+Question: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",6,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_7,"{""joint_probabilities"":[[0.04,0.055,0.022,0.003],[0.075,0.14,0.077,0.008],[0.075,0.165,0.115,0.025],[0.03,0.08,0.076,0.014]]}",5950821d5269abfde25202eca0994e5e,,"{""joint_probabilities"":[[0.04,0.055,0.022,0.003],[0.075,0.14,0.077,0.008],[0.075,0.165,0.115,0.025],[0.03,0.08,0.076,0.014]]}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"Give this existing persona's joint response probabilities for two survey items.
+
+Persona:
+Your views on social media are balanced but engaged: it is a normal daily part of staying connected, keeping up with friends, and passing time, but it does not take over most of your day. You tend to spend a noticeable amount of time checking apps, messaging, scrolling, or watching short videos, while still seeing social media as something you can put down when other priorities come up.
+
+First question: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+Rows: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Second question: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Columns: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return the joint distribution directly, including any residual dependence within this persona.
+Return only valid JSON:
+{
+  ""joint_probabilities"": [[one nonnegative cell per column] per row]
+}
+The 4 by 4 matrix must sum to 1.",,{{ scenario.prompt }},free_text,0.0143299999999999,5.0,250,69.78367062107468,30.0,80,"{'id': 'chatcmpl-E6noBVo2PhdaUiANxQzlibzTG0CJI', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""joint_probabilities"":[[0.04,0.055,0.022,0.003],[0.075,0.14,0.077,0.008],[0.075,0.165,0.115,0.025],[0.03,0.08,0.076,0.014]]}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785290139, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 436, 'prompt_tokens': 250, 'total_tokens': 686, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 356, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",356,,teen_social_enrichment_2_posting_frequency_x_social_comparison,"Give this existing persona's joint response probabilities for two survey items.
+
+Persona:
+Your views on social media are balanced but engaged: it is a normal daily part of staying connected, keeping up with friends, and passing time, but it does not take over most of your day. You tend to spend a noticeable amount of time checking apps, messaging, scrolling, or watching short videos, while still seeing social media as something you can put down when other priorities come up.
+
+First question: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+Rows: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Second question: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Columns: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return the joint distribution directly, including any residual dependence within this persona.
+Return only valid JSON:
+{
+  ""joint_probabilities"": [[one nonnegative cell per column] per row]
+}
+The 4 by 4 matrix must sum to 1.",7,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_8,"{""probabilities"":[0.05,0.15,0.45,0.35]}",342a03a935915f5b760f0a1a481505c8,,"{""probabilities"":[0.05,0.15,0.45,0.35]}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are that it is a regular part of your daily routine and a main way to stay connected, entertained, and aware of what friends and peers are doing. You do not necessarily see your use as extreme or unusual, but you often spend long stretches checking apps, watching videos, messaging, or scrolling throughout the day.
+
+Question: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+Options, in order: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",,{{ scenario.prompt }},free_text,0.00351,5.0,186,284.9002849002849,30.0,29,"{'id': 'chatcmpl-E6noBhgbYxottaXEGp0DO6miwtbq7', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""probabilities"":[0.05,0.15,0.45,0.35]}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785290139, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 86, 'prompt_tokens': 186, 'total_tokens': 272, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 57, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",57,,teen_social_enrichment_3_posting_frequency,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are that it is a regular part of your daily routine and a main way to stay connected, entertained, and aware of what friends and peers are doing. You do not necessarily see your use as extreme or unusual, but you often spend long stretches checking apps, watching videos, messaging, or scrolling throughout the day.
+
+Question: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+Options, in order: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",8,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_9,"{""probabilities"":[0.05,0.2,0.5,0.25]}",289022996335da0dcca12095c6658257,,"{""probabilities"":[0.05,0.2,0.5,0.25]}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are that it is a regular part of your daily routine and a main way to stay connected, entertained, and aware of what friends and peers are doing. You do not necessarily see your use as extreme or unusual, but you often spend long stretches checking apps, watching videos, messaging, or scrolling throughout the day.
+
+Question: How often does social media interfere with getting enough sleep? Social-media interference with sleep
+Options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",,{{ scenario.prompt }},free_text,0.00306,5.0,162,326.797385620915,30.0,29,"{'id': 'chatcmpl-E6noB3ifoGHbxv6vekRLK7AAjNv05', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""probabilities"":[0.05,0.2,0.5,0.25]}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785290139, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 75, 'prompt_tokens': 162, 'total_tokens': 237, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 46, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",46,,teen_social_enrichment_3_sleep_interference,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are that it is a regular part of your daily routine and a main way to stay connected, entertained, and aware of what friends and peers are doing. You do not necessarily see your use as extreme or unusual, but you often spend long stretches checking apps, watching videos, messaging, or scrolling throughout the day.
+
+Question: How often does social media interfere with getting enough sleep? Social-media interference with sleep
+Options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",9,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_10,"{""probabilities"":[0.05,0.25,0.5,0.2]}",f5a73e2b68af30e714ef6c7906eb04ef,,"{""probabilities"":[0.05,0.25,0.5,0.2]}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are that it is a regular part of your daily routine and a main way to stay connected, entertained, and aware of what friends and peers are doing. You do not necessarily see your use as extreme or unusual, but you often spend long stretches checking apps, watching videos, messaging, or scrolling throughout the day.
+
+Question: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",,{{ scenario.prompt }},free_text,0.00336,5.0,168,297.6190476190476,30.0,29,"{'id': 'chatcmpl-E6noBWFTfvtHTmAZMEIt3jIWOEB0q', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""probabilities"":[0.05,0.25,0.5,0.2]}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785290139, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 84, 'prompt_tokens': 168, 'total_tokens': 252, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 55, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",55,,teen_social_enrichment_3_social_comparison,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are that it is a regular part of your daily routine and a main way to stay connected, entertained, and aware of what friends and peers are doing. You do not necessarily see your use as extreme or unusual, but you often spend long stretches checking apps, watching videos, messaging, or scrolling throughout the day.
+
+Question: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",10,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_11,"{""joint_probabilities"":[[0.02,0.03,0.02,0.01],[0.025,0.065,0.06,0.02],[0.04,0.13,0.19,0.07],[0.015,0.075,0.16,0.07]]}",519e268caca46f345ca8eea2dceccd9c,,"{""joint_probabilities"":[[0.02,0.03,0.02,0.01],[0.025,0.065,0.06,0.02],[0.04,0.13,0.19,0.07],[0.015,0.075,0.16,0.07]]}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"Give this existing persona's joint response probabilities for two survey items.
+
+Persona:
+Your views on social media are that it is a regular part of your daily routine and a main way to stay connected, entertained, and aware of what friends and peers are doing. You do not necessarily see your use as extreme or unusual, but you often spend long stretches checking apps, watching videos, messaging, or scrolling throughout the day.
+
+First question: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+Rows: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Second question: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Columns: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return the joint distribution directly, including any residual dependence within this persona.
+Return only valid JSON:
+{
+  ""joint_probabilities"": [[one nonnegative cell per column] per row]
+}
+The 4 by 4 matrix must sum to 1.",,{{ scenario.prompt }},free_text,0.0129,5.0,240,77.51937984496124,30.0,80,"{'id': 'chatcmpl-E6noBeMcO6U2ucWlg158EolgoLEkD', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""joint_probabilities"":[[0.02,0.03,0.02,0.01],[0.025,0.065,0.06,0.02],[0.04,0.13,0.19,0.07],[0.015,0.075,0.16,0.07]]}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785290139, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 390, 'prompt_tokens': 240, 'total_tokens': 630, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 310, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",310,,teen_social_enrichment_3_posting_frequency_x_social_comparison,"Give this existing persona's joint response probabilities for two survey items.
+
+Persona:
+Your views on social media are that it is a regular part of your daily routine and a main way to stay connected, entertained, and aware of what friends and peers are doing. You do not necessarily see your use as extreme or unusual, but you often spend long stretches checking apps, watching videos, messaging, or scrolling throughout the day.
+
+First question: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+Rows: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Second question: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Columns: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return the joint distribution directly, including any residual dependence within this persona.
+Return only valid JSON:
+{
+  ""joint_probabilities"": [[one nonnegative cell per column] per row]
+}
+The 4 by 4 matrix must sum to 1.",11,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_12,"{""probabilities"":[0.5,0.35,0.12,0.03]}",47e39c730dcf25736d09d600eb6562a4,,"{""probabilities"":[0.5,0.35,0.12,0.03]}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are restrained and low-intensity. You see it as a minor part of daily life rather than a central routine, and you are more likely to limit your time online or use social platforms only briefly.
+
+Question: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+Options, in order: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",,{{ scenario.prompt }},free_text,0.003785,5.0,163,264.2007926023778,30.0,29,"{'id': 'chatcmpl-E6noB1585G7FUVshF6AqNEX7f25Ov', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""probabilities"":[0.5,0.35,0.12,0.03]}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785290139, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 99, 'prompt_tokens': 163, 'total_tokens': 262, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 70, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",70,,teen_social_enrichment_4_posting_frequency,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are restrained and low-intensity. You see it as a minor part of daily life rather than a central routine, and you are more likely to limit your time online or use social platforms only briefly.
+
+Question: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+Options, in order: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",12,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_13,"{""probabilities"":[0.45,0.4,0.12,0.03]}",14419983702d844ac1b81f877da98b4b,,"{""probabilities"":[0.45,0.4,0.12,0.03]}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are restrained and low-intensity. You see it as a minor part of daily life rather than a central routine, and you are more likely to limit your time online or use social platforms only briefly.
+
+Question: How often does social media interfere with getting enough sleep? Social-media interference with sleep
+Options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",,{{ scenario.prompt }},free_text,0.002465,5.0,139,405.67951318458415,30.0,29,"{'id': 'chatcmpl-E6noBhgMpPSRJE5lqxsnQ5PM6TbYx', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""probabilities"":[0.45,0.4,0.12,0.03]}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785290139, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 59, 'prompt_tokens': 139, 'total_tokens': 198, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 30, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",30,,teen_social_enrichment_4_sleep_interference,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are restrained and low-intensity. You see it as a minor part of daily life rather than a central routine, and you are more likely to limit your time online or use social platforms only briefly.
+
+Question: How often does social media interfere with getting enough sleep? Social-media interference with sleep
+Options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",13,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_14,"{""probabilities"":[0.35,0.45,0.17,0.03]}",4e23cb85ad0e3525116ee6aa2cf6c6e0,,"{""probabilities"":[0.35,0.45,0.17,0.03]}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are restrained and low-intensity. You see it as a minor part of daily life rather than a central routine, and you are more likely to limit your time online or use social platforms only briefly.
+
+Question: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",,{{ scenario.prompt }},free_text,0.003575,5.0,145,279.72027972027973,30.0,29,"{'id': 'chatcmpl-E6noBfW5FLdOAivZ1NpHYNRwoOMia', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""probabilities"":[0.35,0.45,0.17,0.03]}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785290139, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 95, 'prompt_tokens': 145, 'total_tokens': 240, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 66, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",66,,teen_social_enrichment_4_social_comparison,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are restrained and low-intensity. You see it as a minor part of daily life rather than a central routine, and you are more likely to limit your time online or use social platforms only briefly.
+
+Question: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",14,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_15,"{""joint_probabilities"":[[0.3,0.18,0.035,0.005],[0.12,0.13,0.045,0.005],[0.035,0.05,0.035,0.01],[0.01,0.015,0.015,0.01]]}",62d356feae28476ef825b98336789912,,"{""joint_probabilities"":[[0.3,0.18,0.035,0.005],[0.12,0.13,0.045,0.005],[0.035,0.05,0.035,0.01],[0.01,0.015,0.015,0.01]]}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"Give this existing persona's joint response probabilities for two survey items.
+
+Persona:
+Your views on social media are restrained and low-intensity. You see it as a minor part of daily life rather than a central routine, and you are more likely to limit your time online or use social platforms only briefly.
+
+First question: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+Rows: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Second question: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Columns: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return the joint distribution directly, including any residual dependence within this persona.
+Return only valid JSON:
+{
+  ""joint_probabilities"": [[one nonnegative cell per column] per row]
+}
+The 4 by 4 matrix must sum to 1.",,{{ scenario.prompt }},free_text,0.012545,5.0,217,79.71303308090873,30.0,80,"{'id': 'chatcmpl-E6noBWAgnvnJWYL4Fe8EGZzruDPJ9', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""joint_probabilities"":[[0.3,0.18,0.035,0.005],[0.12,0.13,0.045,0.005],[0.035,0.05,0.035,0.01],[0.01,0.015,0.015,0.01]]}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785290139, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 382, 'prompt_tokens': 217, 'total_tokens': 599, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 302, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",302,,teen_social_enrichment_4_posting_frequency_x_social_comparison,"Give this existing persona's joint response probabilities for two survey items.
+
+Persona:
+Your views on social media are restrained and low-intensity. You see it as a minor part of daily life rather than a central routine, and you are more likely to limit your time online or use social platforms only briefly.
+
+First question: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+Rows: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Second question: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Columns: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return the joint distribution directly, including any residual dependence within this persona.
+Return only valid JSON:
+{
+  ""joint_probabilities"": [[one nonnegative cell per column] per row]
+}
+The 4 by 4 matrix must sum to 1.",15,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_16,"{""probabilities"":[0.03,0.10,0.37,0.50]}",4a01658ef87623c8795d724c7ed27cfe,,"{""probabilities"":[0.03,0.10,0.37,0.50]}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media reflect that it is a major part of your daily routine, used frequently for connection, entertainment, and keeping up with what others are doing.
+
+Question: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+Options, in order: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",,{{ scenario.prompt }},free_text,0.004295,5.0,151,232.8288707799767,30.0,29,"{'id': 'chatcmpl-E6noB2gs2qeZnAdTRHwjX8PgAXLon', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""probabilities"":[0.03,0.10,0.37,0.50]}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785290139, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 118, 'prompt_tokens': 151, 'total_tokens': 269, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 89, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",89,,teen_social_enrichment_5_posting_frequency,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media reflect that it is a major part of your daily routine, used frequently for connection, entertainment, and keeping up with what others are doing.
+
+Question: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+Options, in order: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",16,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_17,"{""probabilities"":[0.05,0.15,0.45,0.35]}",9ef78496a2851b662eab3b19314ef1c6,,"{""probabilities"":[0.05,0.15,0.45,0.35]}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media reflect that it is a major part of your daily routine, used frequently for connection, entertainment, and keeping up with what others are doing.
+
+Question: How often does social media interfere with getting enough sleep? Social-media interference with sleep
+Options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",,{{ scenario.prompt }},free_text,0.002465,5.0,127,405.67951318458415,30.0,29,"{'id': 'chatcmpl-E6noBKClzRbMKKgvEHnxpV4kv8e13', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""probabilities"":[0.05,0.15,0.45,0.35]}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785290139, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 61, 'prompt_tokens': 127, 'total_tokens': 188, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 32, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",32,,teen_social_enrichment_5_sleep_interference,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media reflect that it is a major part of your daily routine, used frequently for connection, entertainment, and keeping up with what others are doing.
+
+Question: How often does social media interfere with getting enough sleep? Social-media interference with sleep
+Options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",17,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_18,"{""probabilities"":[0.08,0.27,0.47,0.18]}",203fa9e48ab1588c8935240b16e33db2,,"{""probabilities"":[0.08,0.27,0.47,0.18]}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media reflect that it is a major part of your daily routine, used frequently for connection, entertainment, and keeping up with what others are doing.
+
+Question: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",,{{ scenario.prompt }},free_text,0.004025,5.0,133,248.4472049689441,30.0,29,"{'id': 'chatcmpl-E6noBaeHrHDwDmJq4vY4Pu8tt2ILi', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""probabilities"":[0.08,0.27,0.47,0.18]}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785290139, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 112, 'prompt_tokens': 133, 'total_tokens': 245, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 83, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",83,,teen_social_enrichment_5_social_comparison,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media reflect that it is a major part of your daily routine, used frequently for connection, entertainment, and keeping up with what others are doing.
+
+Question: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",18,True
+0,You are answering questions as if you were a human. Do not break character.,Agent_19,"{""joint_probabilities"":[[0.015,0.015,0.008,0.002],[0.03,0.05,0.03,0.01],[0.07,0.155,0.15,0.045],[0.035,0.13,0.162,0.093]]}",298014b56ed56300e399fb2f329b6768,,"{""joint_probabilities"":[[0.015,0.015,0.008,0.002],[0.03,0.05,0.03,0.01],[0.07,0.155,0.15,0.045],[0.035,0.13,0.162,0.093]]}",0,0,openai,False,2200,gpt-5.5,0,0,,1.0,3,1,,"Give this existing persona's joint response probabilities for two survey items.
+
+Persona:
+Your views on social media reflect that it is a major part of your daily routine, used frequently for connection, entertainment, and keeping up with what others are doing.
+
+First question: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+Rows: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Second question: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Columns: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return the joint distribution directly, including any residual dependence within this persona.
+Return only valid JSON:
+{
+  ""joint_probabilities"": [[one nonnegative cell per column] per row]
+}
+The 4 by 4 matrix must sum to 1.",,{{ scenario.prompt }},free_text,0.014195,5.0,205,70.44734061289186,30.0,80,"{'id': 'chatcmpl-E6noBoeUw3RmUPUIlhU87zAkQGwmL', 'choices': [{'finish_reason': 'stop', 'index': 0, 'logprobs': None, 'message': {'content': '{""joint_probabilities"":[[0.015,0.015,0.008,0.002],[0.03,0.05,0.03,0.01],[0.07,0.155,0.15,0.045],[0.035,0.13,0.162,0.093]]}', 'refusal': None, 'role': 'assistant', 'annotations': [], 'audio': None, 'function_call': None, 'tool_calls': None}}], 'created': 1785290139, 'model': 'gpt-5.5-2026-04-23', 'object': 'chat.completion', 'moderation': None, 'service_tier': 'default', 'system_fingerprint': None, 'usage': {'completion_tokens': 439, 'prompt_tokens': 205, 'total_tokens': 644, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 359, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': None, 'cached_tokens': 0}}}",359,,teen_social_enrichment_5_posting_frequency_x_social_comparison,"Give this existing persona's joint response probabilities for two survey items.
+
+Persona:
+Your views on social media reflect that it is a major part of your daily routine, used frequently for connection, entertainment, and keeping up with what others are doing.
+
+First question: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+Rows: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Second question: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Columns: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return the joint distribution directly, including any residual dependence within this persona.
+Return only valid JSON:
+{
+  ""joint_probabilities"": [[one nonnegative cell per column] per row]
+}
+The 4 by 4 matrix must sum to 1.",19,True

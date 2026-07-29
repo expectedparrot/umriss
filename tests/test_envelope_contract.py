@@ -125,6 +125,7 @@ def test_store_ids_resolve_for_metadata_and_design(tmp_path: Path) -> None:
 
     _sys.path.insert(0, str(REPO / "tests"))
     from test_umriss_cli import mini_metadata
+
     from umriss.jsonlio import write_json
 
     metadata_path = tmp_path / "mini_metadata.json"
@@ -202,11 +203,11 @@ def test_store_ids_resolve_for_metadata_and_design(tmp_path: Path) -> None:
 
 
 def test_run_store_pipeline_needs_no_path_flags(tmp_path: Path) -> None:
-    import csv
     import sys as _sys
 
     _sys.path.insert(0, str(REPO / "tests"))
     from test_umriss_cli import mini_metadata, write_raw
+
     from umriss.jsonlio import write_json
 
     metadata_path = tmp_path / "mini_metadata.json"
@@ -343,6 +344,210 @@ def test_single_item_ordinal_battery_two_populations(tmp_path: Path) -> None:
     error = json.loads(loo.stdout)["errors"][0]
     assert error["code"] == "battery_too_small"
     assert "umriss fit" in error["message"]
+
+
+def test_prior_parse_is_model_complete_and_consensus_is_provenanced(tmp_path: Path) -> None:
+    import csv
+
+    from umriss.jsonlio import write_json
+
+    metadata = _teen_social_metadata("probe", [0.4, 0.37, 0.23])
+    metadata_path = tmp_path / "metadata.json"
+    write_json(metadata_path, metadata)
+    built = run_umriss(
+        "prior", "build-marginals", "--metadata", str(metadata_path),
+        "--tag", "probe", "--out", str(tmp_path), cwd=tmp_path,
+    )
+    assert built.returncode == 0, built.stdout
+    prompts = tmp_path / "probe_baseline_prompts.jsonl"
+    job_id = json.loads(prompts.read_text().strip())["job_id"]
+    raw = tmp_path / "raw.csv"
+    with raw.open("w", newline="") as handle:
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=["scenario.job_id", "model.model", "model.inference_service", "answer.resp"],
+        )
+        writer.writeheader()
+        writer.writerow({
+            "scenario.job_id": job_id, "model.model": "m1", "model.inference_service": "s1",
+            "answer.resp": json.dumps({"probabilities": [0.2, 0.4, 0.4]}),
+        })
+        writer.writerow({
+            "scenario.job_id": job_id, "model.model": "m2", "model.inference_service": "s2",
+            "answer.resp": "",
+        })
+    incomplete = run_umriss(
+        "prior", "parse", "--raw", str(raw), "--prompts", str(prompts),
+        "--metadata", str(metadata_path), "--tag", "probe", "--out", str(tmp_path / "parsed"), cwd=tmp_path,
+    )
+    assert incomplete.returncode == 1, incomplete.stdout
+    error = json.loads(incomplete.stdout)["errors"][0]
+    assert error["code"] == "incomplete_results"
+    assert error["context"]["missing_model_jobs"][0]["model"] == "m2"
+    assert (tmp_path / "parsed" / "probe_prior_predictions.csv").exists()
+
+    with raw.open("a", newline="") as handle:
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=["scenario.job_id", "model.model", "model.inference_service", "answer.resp"],
+        )
+        writer.writerow({
+            "scenario.job_id": job_id, "model.model": "m3", "model.inference_service": "s3",
+            "answer.resp": json.dumps({"probabilities": [0.21, 0.39, 0.40]}),
+        })
+    # Replace the invalid m2 row rather than silently accepting it.
+    rows = list(csv.DictReader(raw.open()))
+    rows[1]["answer.resp"] = json.dumps({"probabilities": [0.19, 0.41, 0.40]})
+    with raw.open("w", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=rows[0].keys())
+        writer.writeheader()
+        writer.writerows(rows)
+    parsed = run_umriss(
+        "prior", "parse", "--raw", str(raw), "--prompts", str(prompts),
+        "--metadata", str(metadata_path), "--tag", "complete", "--out", str(tmp_path / "complete"), cwd=tmp_path,
+    )
+    assert parsed.returncode == 0, parsed.stdout
+    predictions = tmp_path / "complete" / "complete_prior_predictions.csv"
+    frame = __import__("pandas").read_csv(predictions)
+    assert set(frame["model"]) == {"m1", "m2", "m3"}
+    consensus = run_umriss(
+        "prior", "consensus", "--predictions", str(predictions), "--metadata", str(metadata_path),
+        "--population", "teen_girls", "--minimum-models", "3", "--tag", "consensus",
+        "--out", str(tmp_path / "consensus"), cwd=tmp_path,
+    )
+    assert consensus.returncode == 0, consensus.stdout
+    targets = json.loads((tmp_path / "consensus" / "consensus_targets.json").read_text())
+    assert targets["targets"][0]["status"] == "accepted"
+    assert len(targets["targets"][0]["source"]["models"]) == 3
+
+
+def test_joint_targets_require_consistency_and_explicit_feature_method(tmp_path: Path) -> None:
+    import csv
+
+    from umriss.jsonlio import write_json
+
+    metadata = {
+        "schema_version": 1, "wave": "T1", "battery": "B", "topic": "t", "context": "c",
+        "items": {
+            "a": {"item_text": "A", "question_stem": "A?", "option_labels": ["No", "Yes"],
+                  "option_codes": [0, 1], "scale": {"type": "nominal"}},
+            "b": {"item_text": "B", "question_stem": "B?", "option_labels": ["No", "Yes"],
+                  "option_codes": [0, 1], "scale": {"type": "nominal"}},
+        },
+    }
+    metadata_path = tmp_path / "metadata.json"
+    write_json(metadata_path, metadata)
+    artifact = {
+        "schema_version": 1, "kind": "umriss_targets", "population": {"id": "p"},
+        "targets": [
+            {"target_id": "marginal:a", "type": "marginal", "items": ["a"], "shape": [2],
+             "values": [0.5, 0.5], "status": "accepted", "source": {"kind": "observed"}},
+            {"target_id": "marginal:b", "type": "marginal", "items": ["b"], "shape": [2],
+             "values": [0.5, 0.5], "status": "accepted", "source": {"kind": "model_synthetic"}},
+            {"target_id": "joint:a:b", "type": "joint", "items": ["a", "b"], "shape": [2, 2],
+             "values": [0.4, 0.1, 0.1, 0.4], "status": "accepted",
+             "source": {"kind": "model_synthetic"}},
+        ],
+    }
+    targets_path = tmp_path / "targets.json"
+    write_json(targets_path, artifact)
+    audited = run_umriss(
+        "targets", "audit", "--targets", str(targets_path), "--metadata", str(metadata_path),
+        "--out", str(tmp_path / "audit.csv"), cwd=tmp_path,
+    )
+    assert audited.returncode == 0, audited.stdout
+
+    support = tmp_path / "support.csv"
+    with support.open("w", newline="") as handle:
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=["support_id", "job_id", "item", "option_index", "option_code", "option_label", "probability"],
+        )
+        writer.writeheader()
+        vectors = {"s1": {"a": [0.8, 0.2], "b": [0.8, 0.2]}, "s2": {"a": [0.2, 0.8], "b": [0.2, 0.8]}}
+        for sid, items in vectors.items():
+            for item, vector in items.items():
+                for index, value in enumerate(vector):
+                    writer.writerow({
+                        "support_id": sid, "job_id": sid, "item": item, "option_index": index,
+                        "option_code": index, "option_label": ["No", "Yes"][index], "probability": value,
+                    })
+    blocked = run_umriss(
+        "targets", "fit", "--targets", str(targets_path), "--support", str(support),
+        "--metadata", str(metadata_path), "--tag", "fit", "--out", str(tmp_path / "fit"), cwd=tmp_path,
+    )
+    assert blocked.returncode == 1
+    assert json.loads(blocked.stdout)["errors"][0]["code"] == "joint_features_missing"
+    fitted = run_umriss(
+        "targets", "fit", "--targets", str(targets_path), "--support", str(support),
+        "--metadata", str(metadata_path), "--allow-conditional-independence",
+        "--tag", "fit", "--out", str(tmp_path / "fit"), cwd=tmp_path,
+    )
+    assert fitted.returncode == 0, fitted.stdout
+    diagnostics = __import__("pandas").read_csv(tmp_path / "fit" / "fit_constraint_diagnostics.csv")
+    assert "conditional_independence" in set(diagnostics["feature_method"])
+
+    artifact["targets"][2]["values"] = [0.7, 0.1, 0.1, 0.1]
+    write_json(targets_path, artifact)
+    inconsistent = run_umriss(
+        "targets", "audit", "--targets", str(targets_path), "--metadata", str(metadata_path),
+        "--consistency-tolerance", "0.05", "--out", str(tmp_path / "bad_audit.csv"), cwd=tmp_path,
+    )
+    assert inconsistent.returncode == 1
+    assert "marginal_inconsistency" in inconsistent.stdout
+
+
+def test_support_extension_preserves_persona_ids_and_adds_direct_joint_features(tmp_path: Path) -> None:
+    import csv
+
+    from umriss.jsonlio import write_json
+
+    metadata = {
+        "schema_version": 1, "wave": "T", "battery": "B", "topic": "t", "context": "c",
+        "items": {
+            item: {"item_text": item, "question_stem": f"{item}?", "option_labels": ["No", "Yes"],
+                   "option_codes": [0, 1], "scale": {"type": "nominal"}}
+            for item in ("old", "new")
+        },
+    }
+    metadata_path = tmp_path / "metadata.json"
+    write_json(metadata_path, metadata)
+    points = tmp_path / "points.csv"
+    points.write_text("support_id,job_id,persona\ns1,j1,Your views are cautious.\n")
+    built = run_umriss(
+        "support", "extend-items", "--points", str(points), "--metadata", str(metadata_path),
+        "--item", "new", "--joint", "old:new", "--tag", "ext", "--out", str(tmp_path), cwd=tmp_path,
+    )
+    assert built.returncode == 0, built.stdout
+    prompts_path = tmp_path / "ext_extension_prompts.jsonl"
+    prompts = [json.loads(line) for line in prompts_path.read_text().splitlines()]
+    raw = tmp_path / "raw.csv"
+    with raw.open("w", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=["scenario.job_id", "answer.resp"])
+        writer.writeheader()
+        for prompt in prompts:
+            response = (
+                {"probabilities": [0.3, 0.7]}
+                if prompt["target_type"] == "marginal"
+                else {"joint_probabilities": [[0.2, 0.3], [0.1, 0.4]]}
+            )
+            writer.writerow({"scenario.job_id": prompt["job_id"], "answer.resp": json.dumps(response)})
+    base = tmp_path / "base.csv"
+    base.write_text(
+        "support_id,job_id,item,option_index,option_code,option_label,probability\n"
+        "s1,j1,old,0,0,No,0.6\ns1,j1,old,1,1,Yes,0.4\n"
+    )
+    parsed = run_umriss(
+        "support", "parse-extension", "--raw", str(raw), "--prompts", str(prompts_path),
+        "--base-support", str(base), "--metadata", str(metadata_path),
+        "--tag", "extended", "--out", str(tmp_path / "extended"), cwd=tmp_path,
+    )
+    assert parsed.returncode == 0, parsed.stdout
+    probabilities = __import__("pandas").read_csv(tmp_path / "extended" / "extended_probabilities.csv")
+    assert set(probabilities["item"]) == {"old", "new"}
+    joints = __import__("pandas").read_csv(tmp_path / "extended" / "extended_joint_features.csv")
+    assert set(joints["feature_method"]) == {"direct_joint"}
+    assert set(joints["support_id"]) == {"s1"}
 
 
 def test_every_leaf_command_has_handler() -> None:

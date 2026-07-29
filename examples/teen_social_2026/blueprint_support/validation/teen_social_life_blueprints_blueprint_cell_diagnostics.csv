@@ -1,0 +1,1921 @@
+support_id,job_id,item,intended_option_index,intended_option_label,measured_argmax_index,measured_argmax_label,intended_probability,argmax_match
+1,teen_social_life_blueprints_001,academic_confidence,0,Not at all confident,0,Not at all confident,0.52,True
+1,teen_social_life_blueprints_001,career_clarity,3,A very clear plan,3,A very clear plan,0.55,True
+1,teen_social_life_blueprints_001,connection_effect,1,Makes little difference,1,Makes little difference,0.58,True
+1,teen_social_life_blueprints_001,future_optimism,1,A little optimistic,1,A little optimistic,0.42,True
+1,teen_social_life_blueprints_001,homework_distraction,3,Often,3,Often,0.53,True
+1,teen_social_life_blueprints_001,late_night_use,0,Never,0,Never,0.7,True
+1,teen_social_life_blueprints_001,organized_activity,1,Less than once a week,1,Less than once a week,0.42,True
+1,teen_social_life_blueprints_001,parental_rules,3,Very strict rules,3,Very strict rules,0.67,True
+1,teen_social_life_blueprints_001,peer_belonging,3,Often,3,Often,0.56,True
+1,teen_social_life_blueprints_001,posting_frequency,1,Less than once a week,1,Less than once a week,0.5,True
+1,teen_social_life_blueprints_001,primary_platform,4,Another platform,4,Another platform,0.44,True
+1,teen_social_life_blueprints_001,school_effort,1,Rarely,1,Rarely,0.45,True
+1,teen_social_life_blueprints_001,sleep_interference,1,Rarely,1,Rarely,0.55,True
+1,teen_social_life_blueprints_001,social_comparison,3,Often,3,Often,0.55,True
+1,teen_social_life_blueprints_001,social_media_hours,1,One to three hours,1,One to three hours,0.65,True
+2,teen_social_life_blueprints_002,academic_confidence,3,Very confident,3,Very confident,0.68,True
+2,teen_social_life_blueprints_002,career_clarity,3,A very clear plan,3,A very clear plan,0.6,True
+2,teen_social_life_blueprints_002,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.52,True
+2,teen_social_life_blueprints_002,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.52,True
+2,teen_social_life_blueprints_002,homework_distraction,1,Rarely,1,Rarely,0.47,True
+2,teen_social_life_blueprints_002,late_night_use,3,Often,3,Often,0.56,True
+2,teen_social_life_blueprints_002,organized_activity,3,Three or more days a week,3,Three or more days a week,0.66,True
+2,teen_social_life_blueprints_002,parental_rules,1,A few loose rules,1,A few loose rules,0.5,True
+2,teen_social_life_blueprints_002,peer_belonging,1,Rarely,1,Rarely,0.45,True
+2,teen_social_life_blueprints_002,posting_frequency,0,Never or almost never,0,Never or almost never,0.62,True
+2,teen_social_life_blueprints_002,primary_platform,1,Instagram,1,Instagram,0.48,True
+2,teen_social_life_blueprints_002,school_effort,3,Often,3,Often,0.65,True
+2,teen_social_life_blueprints_002,sleep_interference,0,Never,0,Never,0.55,True
+2,teen_social_life_blueprints_002,social_comparison,1,Rarely,1,Rarely,0.48,True
+2,teen_social_life_blueprints_002,social_media_hours,2,Four or more hours,2,Four or more hours,0.7,True
+3,teen_social_life_blueprints_003,academic_confidence,1,A little confident,1,A little confident,0.48,True
+3,teen_social_life_blueprints_003,career_clarity,3,A very clear plan,3,A very clear plan,0.56,True
+3,teen_social_life_blueprints_003,connection_effect,1,Makes little difference,1,Makes little difference,0.58,True
+3,teen_social_life_blueprints_003,future_optimism,1,A little optimistic,1,A little optimistic,0.45,True
+3,teen_social_life_blueprints_003,homework_distraction,2,Sometimes,2,Sometimes,0.4,True
+3,teen_social_life_blueprints_003,late_night_use,0,Never,0,Never,0.76,True
+3,teen_social_life_blueprints_003,organized_activity,0,Never,0,Never,0.74,True
+3,teen_social_life_blueprints_003,parental_rules,3,Very strict rules,3,Very strict rules,0.72,True
+3,teen_social_life_blueprints_003,peer_belonging,3,Often,3,Often,0.54,True
+3,teen_social_life_blueprints_003,posting_frequency,0,Never or almost never,0,Never or almost never,0.7,True
+3,teen_social_life_blueprints_003,primary_platform,1,Instagram,1,Instagram,0.48,True
+3,teen_social_life_blueprints_003,school_effort,1,Rarely,1,Rarely,0.46,True
+3,teen_social_life_blueprints_003,sleep_interference,2,Sometimes,2,Sometimes,0.45,True
+3,teen_social_life_blueprints_003,social_comparison,3,Often,3,Often,0.5,True
+3,teen_social_life_blueprints_003,social_media_hours,0,Less than one hour,0,Less than one hour,0.72,True
+4,teen_social_life_blueprints_004,academic_confidence,3,Very confident,3,Very confident,0.65,True
+4,teen_social_life_blueprints_004,career_clarity,0,No clear idea,0,No clear idea,0.65,True
+4,teen_social_life_blueprints_004,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.62,True
+4,teen_social_life_blueprints_004,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.6,True
+4,teen_social_life_blueprints_004,homework_distraction,2,Sometimes,2,Sometimes,0.5,True
+4,teen_social_life_blueprints_004,late_night_use,3,Often,3,Often,0.62,True
+4,teen_social_life_blueprints_004,organized_activity,1,Less than once a week,1,Less than once a week,0.45,True
+4,teen_social_life_blueprints_004,parental_rules,3,Very strict rules,3,Very strict rules,0.7,True
+4,teen_social_life_blueprints_004,peer_belonging,0,Never,0,Never,0.62,True
+4,teen_social_life_blueprints_004,posting_frequency,2,A few times a week,2,A few times a week,0.55,True
+4,teen_social_life_blueprints_004,primary_platform,5,I do not use social media,5,I do not use social media,0.65,True
+4,teen_social_life_blueprints_004,school_effort,0,Never,0,Never,0.55,True
+4,teen_social_life_blueprints_004,sleep_interference,2,Sometimes,2,Sometimes,0.48,True
+4,teen_social_life_blueprints_004,social_comparison,0,Never,0,Never,0.7,True
+4,teen_social_life_blueprints_004,social_media_hours,2,Four or more hours,2,Four or more hours,0.75,True
+5,teen_social_life_blueprints_005,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.48,True
+5,teen_social_life_blueprints_005,career_clarity,0,No clear idea,0,No clear idea,0.52,True
+5,teen_social_life_blueprints_005,connection_effect,1,Makes little difference,1,Makes little difference,0.58,True
+5,teen_social_life_blueprints_005,future_optimism,1,A little optimistic,1,A little optimistic,0.43,True
+5,teen_social_life_blueprints_005,homework_distraction,2,Sometimes,2,Sometimes,0.42,True
+5,teen_social_life_blueprints_005,late_night_use,0,Never,0,Never,0.7,True
+5,teen_social_life_blueprints_005,organized_activity,3,Three or more days a week,3,Three or more days a week,0.56,True
+5,teen_social_life_blueprints_005,parental_rules,0,No rules,0,No rules,0.64,True
+5,teen_social_life_blueprints_005,peer_belonging,3,Often,3,Often,0.58,True
+5,teen_social_life_blueprints_005,posting_frequency,0,Never or almost never,0,Never or almost never,0.62,True
+5,teen_social_life_blueprints_005,primary_platform,4,Another platform,4,Another platform,0.4,True
+5,teen_social_life_blueprints_005,school_effort,0,Never,0,Never,0.46,True
+5,teen_social_life_blueprints_005,sleep_interference,0,Never,0,Never,0.74,True
+5,teen_social_life_blueprints_005,social_comparison,1,Rarely,1,Rarely,0.46,True
+5,teen_social_life_blueprints_005,social_media_hours,2,Four or more hours,2,Four or more hours,0.66,True
+6,teen_social_life_blueprints_006,academic_confidence,0,Not at all confident,0,Not at all confident,0.5,True
+6,teen_social_life_blueprints_006,career_clarity,1,A few vague ideas,1,A few vague ideas,0.45,True
+6,teen_social_life_blueprints_006,connection_effect,1,Makes little difference,1,Makes little difference,0.55,True
+6,teen_social_life_blueprints_006,future_optimism,3,Very optimistic,3,Very optimistic,0.63,True
+6,teen_social_life_blueprints_006,homework_distraction,0,Never,0,Never,0.58,True
+6,teen_social_life_blueprints_006,late_night_use,3,Often,3,Often,0.65,True
+6,teen_social_life_blueprints_006,organized_activity,3,Three or more days a week,3,Three or more days a week,0.7,True
+6,teen_social_life_blueprints_006,parental_rules,1,A few loose rules,1,A few loose rules,0.5,True
+6,teen_social_life_blueprints_006,peer_belonging,3,Often,3,Often,0.62,True
+6,teen_social_life_blueprints_006,posting_frequency,1,Less than once a week,1,Less than once a week,0.45,True
+6,teen_social_life_blueprints_006,primary_platform,4,Another platform,4,Another platform,0.37,True
+6,teen_social_life_blueprints_006,school_effort,2,Sometimes,2,Sometimes,0.48,True
+6,teen_social_life_blueprints_006,sleep_interference,3,Often,3,Often,0.57,True
+6,teen_social_life_blueprints_006,social_comparison,1,Rarely,1,Rarely,0.48,True
+6,teen_social_life_blueprints_006,social_media_hours,2,Four or more hours,2,Four or more hours,0.7,True
+7,teen_social_life_blueprints_007,academic_confidence,0,Not at all confident,0,Not at all confident,0.51,True
+7,teen_social_life_blueprints_007,career_clarity,3,A very clear plan,3,A very clear plan,0.55,True
+7,teen_social_life_blueprints_007,connection_effect,1,Makes little difference,1,Makes little difference,0.57,True
+7,teen_social_life_blueprints_007,future_optimism,3,Very optimistic,3,Very optimistic,0.62,True
+7,teen_social_life_blueprints_007,homework_distraction,1,Rarely,1,Rarely,0.43,True
+7,teen_social_life_blueprints_007,late_night_use,2,Sometimes,2,Sometimes,0.46,True
+7,teen_social_life_blueprints_007,organized_activity,1,Less than once a week,1,Less than once a week,0.38,True
+7,teen_social_life_blueprints_007,parental_rules,0,No rules,0,No rules,0.62,True
+7,teen_social_life_blueprints_007,peer_belonging,1,Rarely,1,Rarely,0.45,True
+7,teen_social_life_blueprints_007,posting_frequency,3,At least once a day,3,At least once a day,0.73,True
+7,teen_social_life_blueprints_007,primary_platform,2,YouTube,2,YouTube,0.49,True
+7,teen_social_life_blueprints_007,school_effort,3,Often,3,Often,0.6,True
+7,teen_social_life_blueprints_007,sleep_interference,0,Never,0,Never,0.64,True
+7,teen_social_life_blueprints_007,social_comparison,3,Often,3,Often,0.56,True
+7,teen_social_life_blueprints_007,social_media_hours,2,Four or more hours,2,Four or more hours,0.81,True
+8,teen_social_life_blueprints_008,academic_confidence,0,Not at all confident,0,Not at all confident,0.52,True
+8,teen_social_life_blueprints_008,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.5,True
+8,teen_social_life_blueprints_008,connection_effect,1,Makes little difference,1,Makes little difference,0.55,True
+8,teen_social_life_blueprints_008,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.52,True
+8,teen_social_life_blueprints_008,homework_distraction,3,Often,3,Often,0.57,True
+8,teen_social_life_blueprints_008,late_night_use,3,Often,3,Often,0.62,True
+8,teen_social_life_blueprints_008,organized_activity,3,Three or more days a week,3,Three or more days a week,0.6,True
+8,teen_social_life_blueprints_008,parental_rules,1,A few loose rules,1,A few loose rules,0.46,True
+8,teen_social_life_blueprints_008,peer_belonging,3,Often,3,Often,0.6,True
+8,teen_social_life_blueprints_008,posting_frequency,3,At least once a day,3,At least once a day,0.65,True
+8,teen_social_life_blueprints_008,primary_platform,5,I do not use social media,5,I do not use social media,0.41,True
+8,teen_social_life_blueprints_008,school_effort,0,Never,0,Never,0.5,True
+8,teen_social_life_blueprints_008,sleep_interference,0,Never,0,Never,0.58,True
+8,teen_social_life_blueprints_008,social_comparison,3,Often,3,Often,0.54,True
+8,teen_social_life_blueprints_008,social_media_hours,2,Four or more hours,2,Four or more hours,0.75,True
+9,teen_social_life_blueprints_009,academic_confidence,3,Very confident,3,Very confident,0.65,True
+9,teen_social_life_blueprints_009,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.54,True
+9,teen_social_life_blueprints_009,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.56,True
+9,teen_social_life_blueprints_009,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.5,True
+9,teen_social_life_blueprints_009,homework_distraction,3,Often,3,Often,0.55,True
+9,teen_social_life_blueprints_009,late_night_use,0,Never,0,Never,0.78,True
+9,teen_social_life_blueprints_009,organized_activity,1,Less than once a week,1,Less than once a week,0.4,True
+9,teen_social_life_blueprints_009,parental_rules,2,Some clear rules,2,Some clear rules,0.52,True
+9,teen_social_life_blueprints_009,peer_belonging,2,Sometimes,2,Sometimes,0.45,True
+9,teen_social_life_blueprints_009,posting_frequency,1,Less than once a week,1,Less than once a week,0.42,True
+9,teen_social_life_blueprints_009,primary_platform,5,I do not use social media,5,I do not use social media,0.56,True
+9,teen_social_life_blueprints_009,school_effort,2,Sometimes,2,Sometimes,0.45,True
+9,teen_social_life_blueprints_009,sleep_interference,0,Never,0,Never,0.76,True
+9,teen_social_life_blueprints_009,social_comparison,3,Often,3,Often,0.55,True
+9,teen_social_life_blueprints_009,social_media_hours,0,Less than one hour,0,Less than one hour,0.72,True
+10,teen_social_life_blueprints_010,academic_confidence,3,Very confident,3,Very confident,0.64,True
+10,teen_social_life_blueprints_010,career_clarity,0,No clear idea,0,No clear idea,0.53,True
+10,teen_social_life_blueprints_010,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.5,True
+10,teen_social_life_blueprints_010,future_optimism,3,Very optimistic,3,Very optimistic,0.64,True
+10,teen_social_life_blueprints_010,homework_distraction,0,Never,0,Never,0.68,True
+10,teen_social_life_blueprints_010,late_night_use,2,Sometimes,2,Sometimes,0.43,True
+10,teen_social_life_blueprints_010,organized_activity,1,Less than once a week,1,Less than once a week,0.39,True
+10,teen_social_life_blueprints_010,parental_rules,1,A few loose rules,1,A few loose rules,0.48,True
+10,teen_social_life_blueprints_010,peer_belonging,2,Sometimes,2,Sometimes,0.45,True
+10,teen_social_life_blueprints_010,posting_frequency,1,Less than once a week,1,Less than once a week,0.46,True
+10,teen_social_life_blueprints_010,primary_platform,0,TikTok,0,TikTok,0.52,True
+10,teen_social_life_blueprints_010,school_effort,1,Rarely,1,Rarely,0.43,True
+10,teen_social_life_blueprints_010,sleep_interference,0,Never,0,Never,0.62,True
+10,teen_social_life_blueprints_010,social_comparison,0,Never,0,Never,0.66,True
+10,teen_social_life_blueprints_010,social_media_hours,2,Four or more hours,2,Four or more hours,0.7,True
+11,teen_social_life_blueprints_011,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.55,True
+11,teen_social_life_blueprints_011,career_clarity,1,A few vague ideas,1,A few vague ideas,0.5,True
+11,teen_social_life_blueprints_011,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.55,True
+11,teen_social_life_blueprints_011,future_optimism,3,Very optimistic,3,Very optimistic,0.61,True
+11,teen_social_life_blueprints_011,homework_distraction,2,Sometimes,2,Sometimes,0.46,True
+11,teen_social_life_blueprints_011,late_night_use,3,Often,3,Often,0.56,True
+11,teen_social_life_blueprints_011,organized_activity,0,Never,0,Never,0.7,True
+11,teen_social_life_blueprints_011,parental_rules,3,Very strict rules,3,Very strict rules,0.68,True
+11,teen_social_life_blueprints_011,peer_belonging,3,Often,3,Often,0.57,True
+11,teen_social_life_blueprints_011,posting_frequency,2,A few times a week,2,A few times a week,0.58,True
+11,teen_social_life_blueprints_011,primary_platform,1,Instagram,1,Instagram,0.48,True
+11,teen_social_life_blueprints_011,school_effort,0,Never,0,Never,0.47,True
+11,teen_social_life_blueprints_011,sleep_interference,0,Never,0,Never,0.55,True
+11,teen_social_life_blueprints_011,social_comparison,1,Rarely,1,Rarely,0.52,True
+11,teen_social_life_blueprints_011,social_media_hours,1,One to three hours,1,One to three hours,0.62,True
+12,teen_social_life_blueprints_012,academic_confidence,3,Very confident,3,Very confident,0.61,True
+12,teen_social_life_blueprints_012,career_clarity,3,A very clear plan,3,A very clear plan,0.63,True
+12,teen_social_life_blueprints_012,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.57,True
+12,teen_social_life_blueprints_012,future_optimism,3,Very optimistic,3,Very optimistic,0.66,True
+12,teen_social_life_blueprints_012,homework_distraction,0,Never,0,Never,0.64,True
+12,teen_social_life_blueprints_012,late_night_use,3,Often,3,Often,0.58,True
+12,teen_social_life_blueprints_012,organized_activity,0,Never,0,Never,0.67,True
+12,teen_social_life_blueprints_012,parental_rules,0,No rules,0,No rules,0.62,True
+12,teen_social_life_blueprints_012,peer_belonging,0,Never,0,Never,0.51,True
+12,teen_social_life_blueprints_012,posting_frequency,1,Less than once a week,1,Less than once a week,0.52,True
+12,teen_social_life_blueprints_012,primary_platform,5,I do not use social media,5,I do not use social media,0.35,True
+12,teen_social_life_blueprints_012,school_effort,1,Rarely,1,Rarely,0.44,True
+12,teen_social_life_blueprints_012,sleep_interference,2,Sometimes,2,Sometimes,0.49,True
+12,teen_social_life_blueprints_012,social_comparison,3,Often,3,Often,0.52,True
+12,teen_social_life_blueprints_012,social_media_hours,1,One to three hours,1,One to three hours,0.61,True
+13,teen_social_life_blueprints_013,academic_confidence,0,Not at all confident,0,Not at all confident,0.55,True
+13,teen_social_life_blueprints_013,career_clarity,1,A few vague ideas,1,A few vague ideas,0.5,True
+13,teen_social_life_blueprints_013,connection_effect,1,Makes little difference,1,Makes little difference,0.7,True
+13,teen_social_life_blueprints_013,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.55,True
+13,teen_social_life_blueprints_013,homework_distraction,0,Never,0,Never,0.76,True
+13,teen_social_life_blueprints_013,late_night_use,1,Rarely,1,Rarely,0.55,True
+13,teen_social_life_blueprints_013,organized_activity,2,One or two days a week,2,One or two days a week,0.46,True
+13,teen_social_life_blueprints_013,parental_rules,3,Very strict rules,3,Very strict rules,0.7,True
+13,teen_social_life_blueprints_013,peer_belonging,2,Sometimes,2,Sometimes,0.43,True
+13,teen_social_life_blueprints_013,posting_frequency,0,Never or almost never,0,Never or almost never,0.72,True
+13,teen_social_life_blueprints_013,primary_platform,2,YouTube,2,YouTube,0.62,True
+13,teen_social_life_blueprints_013,school_effort,2,Sometimes,2,Sometimes,0.46,True
+13,teen_social_life_blueprints_013,sleep_interference,2,Sometimes,2,Sometimes,0.47,True
+13,teen_social_life_blueprints_013,social_comparison,0,Never,0,Never,0.68,True
+13,teen_social_life_blueprints_013,social_media_hours,0,Less than one hour,0,Less than one hour,0.7,True
+14,teen_social_life_blueprints_014,academic_confidence,1,A little confident,1,A little confident,0.5,True
+14,teen_social_life_blueprints_014,career_clarity,0,No clear idea,0,No clear idea,0.57,True
+14,teen_social_life_blueprints_014,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.58,True
+14,teen_social_life_blueprints_014,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.54,True
+14,teen_social_life_blueprints_014,homework_distraction,1,Rarely,1,Rarely,0.44,True
+14,teen_social_life_blueprints_014,late_night_use,0,Never,0,Never,0.76,True
+14,teen_social_life_blueprints_014,organized_activity,1,Less than once a week,1,Less than once a week,0.43,True
+14,teen_social_life_blueprints_014,parental_rules,3,Very strict rules,3,Very strict rules,0.7,True
+14,teen_social_life_blueprints_014,peer_belonging,3,Often,3,Often,0.61,True
+14,teen_social_life_blueprints_014,posting_frequency,0,Never or almost never,0,Never or almost never,0.7,True
+14,teen_social_life_blueprints_014,primary_platform,1,Instagram,1,Instagram,0.52,True
+14,teen_social_life_blueprints_014,school_effort,0,Never,0,Never,0.46,True
+14,teen_social_life_blueprints_014,sleep_interference,2,Sometimes,2,Sometimes,0.45,True
+14,teen_social_life_blueprints_014,social_comparison,0,Never,0,Never,0.64,True
+14,teen_social_life_blueprints_014,social_media_hours,1,One to three hours,1,One to three hours,0.72,True
+15,teen_social_life_blueprints_015,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.48,True
+15,teen_social_life_blueprints_015,career_clarity,3,A very clear plan,3,A very clear plan,0.5,True
+15,teen_social_life_blueprints_015,connection_effect,1,Makes little difference,1,Makes little difference,0.58,True
+15,teen_social_life_blueprints_015,future_optimism,1,A little optimistic,1,A little optimistic,0.43,True
+15,teen_social_life_blueprints_015,homework_distraction,0,Never,0,Never,0.58,True
+15,teen_social_life_blueprints_015,late_night_use,2,Sometimes,2,Sometimes,0.42,True
+15,teen_social_life_blueprints_015,organized_activity,1,Less than once a week,1,Less than once a week,0.4,True
+15,teen_social_life_blueprints_015,parental_rules,1,A few loose rules,1,A few loose rules,0.5,True
+15,teen_social_life_blueprints_015,peer_belonging,0,Never,0,Never,0.47,True
+15,teen_social_life_blueprints_015,posting_frequency,2,A few times a week,2,A few times a week,0.55,True
+15,teen_social_life_blueprints_015,primary_platform,1,Instagram,1,Instagram,0.48,True
+15,teen_social_life_blueprints_015,school_effort,1,Rarely,1,Rarely,0.45,True
+15,teen_social_life_blueprints_015,sleep_interference,0,Never,0,Never,0.62,True
+15,teen_social_life_blueprints_015,social_comparison,3,Often,3,Often,0.5,True
+15,teen_social_life_blueprints_015,social_media_hours,2,Four or more hours,2,Four or more hours,0.7,True
+16,teen_social_life_blueprints_016,academic_confidence,3,Very confident,3,Very confident,0.69,True
+16,teen_social_life_blueprints_016,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.55,True
+16,teen_social_life_blueprints_016,connection_effect,1,Makes little difference,1,Makes little difference,0.58,True
+16,teen_social_life_blueprints_016,future_optimism,3,Very optimistic,3,Very optimistic,0.65,True
+16,teen_social_life_blueprints_016,homework_distraction,0,Never,0,Never,0.68,True
+16,teen_social_life_blueprints_016,late_night_use,1,Rarely,1,Rarely,0.5,True
+16,teen_social_life_blueprints_016,organized_activity,3,Three or more days a week,3,Three or more days a week,0.68,True
+16,teen_social_life_blueprints_016,parental_rules,3,Very strict rules,3,Very strict rules,0.68,True
+16,teen_social_life_blueprints_016,peer_belonging,0,Never,0,Never,0.52,True
+16,teen_social_life_blueprints_016,posting_frequency,3,At least once a day,3,At least once a day,0.61,True
+16,teen_social_life_blueprints_016,primary_platform,1,Instagram,1,Instagram,0.5,True
+16,teen_social_life_blueprints_016,school_effort,1,Rarely,1,Rarely,0.44,True
+16,teen_social_life_blueprints_016,sleep_interference,2,Sometimes,2,Sometimes,0.45,True
+16,teen_social_life_blueprints_016,social_comparison,3,Often,3,Often,0.51,True
+16,teen_social_life_blueprints_016,social_media_hours,0,Less than one hour,0,Less than one hour,0.62,True
+17,teen_social_life_blueprints_017,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.48,True
+17,teen_social_life_blueprints_017,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.48,True
+17,teen_social_life_blueprints_017,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.48,True
+17,teen_social_life_blueprints_017,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.52,True
+17,teen_social_life_blueprints_017,homework_distraction,3,Often,3,Often,0.41,True
+17,teen_social_life_blueprints_017,late_night_use,1,Rarely,1,Rarely,0.46,True
+17,teen_social_life_blueprints_017,organized_activity,1,Less than once a week,1,Less than once a week,0.39,True
+17,teen_social_life_blueprints_017,parental_rules,3,Very strict rules,3,Very strict rules,0.7,True
+17,teen_social_life_blueprints_017,peer_belonging,3,Often,3,Often,0.53,True
+17,teen_social_life_blueprints_017,posting_frequency,0,Never or almost never,0,Never or almost never,0.7,True
+17,teen_social_life_blueprints_017,primary_platform,1,Instagram,1,Instagram,0.45,True
+17,teen_social_life_blueprints_017,school_effort,0,Never,0,Never,0.42,True
+17,teen_social_life_blueprints_017,sleep_interference,0,Never,0,Never,0.64,True
+17,teen_social_life_blueprints_017,social_comparison,2,Sometimes,2,Sometimes,0.43,True
+17,teen_social_life_blueprints_017,social_media_hours,0,Less than one hour,0,Less than one hour,0.62,True
+18,teen_social_life_blueprints_018,academic_confidence,0,Not at all confident,0,Not at all confident,0.55,True
+18,teen_social_life_blueprints_018,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.5,True
+18,teen_social_life_blueprints_018,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.7,True
+18,teen_social_life_blueprints_018,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.53,True
+18,teen_social_life_blueprints_018,homework_distraction,0,Never,0,Never,0.58,True
+18,teen_social_life_blueprints_018,late_night_use,3,Often,3,Often,0.6,True
+18,teen_social_life_blueprints_018,organized_activity,0,Never,0,Never,0.65,True
+18,teen_social_life_blueprints_018,parental_rules,0,No rules,0,No rules,0.68,True
+18,teen_social_life_blueprints_018,peer_belonging,2,Sometimes,2,Sometimes,0.44,True
+18,teen_social_life_blueprints_018,posting_frequency,3,At least once a day,3,At least once a day,0.7,True
+18,teen_social_life_blueprints_018,primary_platform,3,Snapchat,3,Snapchat,0.48,True
+18,teen_social_life_blueprints_018,school_effort,1,Rarely,1,Rarely,0.45,True
+18,teen_social_life_blueprints_018,sleep_interference,1,Rarely,1,Rarely,0.52,True
+18,teen_social_life_blueprints_018,social_comparison,2,Sometimes,2,Sometimes,0.45,True
+18,teen_social_life_blueprints_018,social_media_hours,2,Four or more hours,2,Four or more hours,0.75,True
+19,teen_social_life_blueprints_019,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.52,True
+19,teen_social_life_blueprints_019,career_clarity,3,A very clear plan,3,A very clear plan,0.56,True
+19,teen_social_life_blueprints_019,connection_effect,1,Makes little difference,1,Makes little difference,0.64,True
+19,teen_social_life_blueprints_019,future_optimism,1,A little optimistic,1,A little optimistic,0.45,True
+19,teen_social_life_blueprints_019,homework_distraction,1,Rarely,1,Rarely,0.42,True
+19,teen_social_life_blueprints_019,late_night_use,0,Never,0,Never,0.7,True
+19,teen_social_life_blueprints_019,organized_activity,2,One or two days a week,2,One or two days a week,0.5,True
+19,teen_social_life_blueprints_019,parental_rules,3,Very strict rules,3,Very strict rules,0.68,True
+19,teen_social_life_blueprints_019,peer_belonging,0,Never,0,Never,0.5,True
+19,teen_social_life_blueprints_019,posting_frequency,2,A few times a week,2,A few times a week,0.55,True
+19,teen_social_life_blueprints_019,primary_platform,1,Instagram,1,Instagram,0.48,True
+19,teen_social_life_blueprints_019,school_effort,0,Never,0,Never,0.5,True
+19,teen_social_life_blueprints_019,sleep_interference,3,Often,3,Often,0.55,True
+19,teen_social_life_blueprints_019,social_comparison,1,Rarely,1,Rarely,0.5,True
+19,teen_social_life_blueprints_019,social_media_hours,1,One to three hours,1,One to three hours,0.68,True
+20,teen_social_life_blueprints_020,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.5,True
+20,teen_social_life_blueprints_020,career_clarity,1,A few vague ideas,1,A few vague ideas,0.45,True
+20,teen_social_life_blueprints_020,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.55,True
+20,teen_social_life_blueprints_020,future_optimism,1,A little optimistic,1,A little optimistic,0.44,True
+20,teen_social_life_blueprints_020,homework_distraction,3,Often,3,Often,0.48,True
+20,teen_social_life_blueprints_020,late_night_use,0,Never,0,Never,0.72,True
+20,teen_social_life_blueprints_020,organized_activity,3,Three or more days a week,3,Three or more days a week,0.71,True
+20,teen_social_life_blueprints_020,parental_rules,3,Very strict rules,3,Very strict rules,0.68,True
+20,teen_social_life_blueprints_020,peer_belonging,2,Sometimes,2,Sometimes,0.46,True
+20,teen_social_life_blueprints_020,posting_frequency,1,Less than once a week,1,Less than once a week,0.48,True
+20,teen_social_life_blueprints_020,primary_platform,0,TikTok,0,TikTok,0.58,True
+20,teen_social_life_blueprints_020,school_effort,3,Often,3,Often,0.64,True
+20,teen_social_life_blueprints_020,sleep_interference,3,Often,3,Often,0.49,True
+20,teen_social_life_blueprints_020,social_comparison,3,Often,3,Often,0.49,True
+20,teen_social_life_blueprints_020,social_media_hours,1,One to three hours,1,One to three hours,0.66,True
+21,teen_social_life_blueprints_021,academic_confidence,0,Not at all confident,0,Not at all confident,0.46,True
+21,teen_social_life_blueprints_021,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.51,True
+21,teen_social_life_blueprints_021,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.45,True
+21,teen_social_life_blueprints_021,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.5,True
+21,teen_social_life_blueprints_021,homework_distraction,0,Never,0,Never,0.68,True
+21,teen_social_life_blueprints_021,late_night_use,1,Rarely,1,Rarely,0.5,True
+21,teen_social_life_blueprints_021,organized_activity,3,Three or more days a week,3,Three or more days a week,0.7,True
+21,teen_social_life_blueprints_021,parental_rules,2,Some clear rules,2,Some clear rules,0.5,True
+21,teen_social_life_blueprints_021,peer_belonging,3,Often,3,Often,0.65,True
+21,teen_social_life_blueprints_021,posting_frequency,2,A few times a week,2,A few times a week,0.48,True
+21,teen_social_life_blueprints_021,primary_platform,3,Snapchat,3,Snapchat,0.43,True
+21,teen_social_life_blueprints_021,school_effort,3,Often,3,Often,0.65,True
+21,teen_social_life_blueprints_021,sleep_interference,1,Rarely,1,Rarely,0.46,True
+21,teen_social_life_blueprints_021,social_comparison,0,Never,0,Never,0.7,True
+21,teen_social_life_blueprints_021,social_media_hours,0,Less than one hour,0,Less than one hour,0.62,True
+22,teen_social_life_blueprints_022,academic_confidence,0,Not at all confident,0,Not at all confident,0.54,True
+22,teen_social_life_blueprints_022,career_clarity,0,No clear idea,0,No clear idea,0.57,True
+22,teen_social_life_blueprints_022,connection_effect,1,Makes little difference,1,Makes little difference,0.58,True
+22,teen_social_life_blueprints_022,future_optimism,3,Very optimistic,3,Very optimistic,0.61,True
+22,teen_social_life_blueprints_022,homework_distraction,0,Never,0,Never,0.69,True
+22,teen_social_life_blueprints_022,late_night_use,2,Sometimes,2,Sometimes,0.45,True
+22,teen_social_life_blueprints_022,organized_activity,2,One or two days a week,2,One or two days a week,0.47,True
+22,teen_social_life_blueprints_022,parental_rules,3,Very strict rules,3,Very strict rules,0.72,True
+22,teen_social_life_blueprints_022,peer_belonging,1,Rarely,1,Rarely,0.42,True
+22,teen_social_life_blueprints_022,posting_frequency,2,A few times a week,2,A few times a week,0.52,True
+22,teen_social_life_blueprints_022,primary_platform,5,I do not use social media,5,I do not use social media,0.53,True
+22,teen_social_life_blueprints_022,school_effort,2,Sometimes,2,Sometimes,0.43,True
+22,teen_social_life_blueprints_022,sleep_interference,0,Never,0,Never,0.68,True
+22,teen_social_life_blueprints_022,social_comparison,1,Rarely,1,Rarely,0.48,True
+22,teen_social_life_blueprints_022,social_media_hours,2,Four or more hours,2,Four or more hours,0.75,True
+23,teen_social_life_blueprints_023,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.5,True
+23,teen_social_life_blueprints_023,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.49,True
+23,teen_social_life_blueprints_023,connection_effect,1,Makes little difference,1,Makes little difference,0.62,True
+23,teen_social_life_blueprints_023,future_optimism,1,A little optimistic,1,A little optimistic,0.4,True
+23,teen_social_life_blueprints_023,homework_distraction,3,Often,3,Often,0.42,True
+23,teen_social_life_blueprints_023,late_night_use,1,Rarely,1,Rarely,0.46,True
+23,teen_social_life_blueprints_023,organized_activity,1,Less than once a week,1,Less than once a week,0.39,True
+23,teen_social_life_blueprints_023,parental_rules,2,Some clear rules,2,Some clear rules,0.52,True
+23,teen_social_life_blueprints_023,peer_belonging,0,Never,0,Never,0.6,True
+23,teen_social_life_blueprints_023,posting_frequency,1,Less than once a week,1,Less than once a week,0.48,True
+23,teen_social_life_blueprints_023,primary_platform,5,I do not use social media,5,I do not use social media,0.53,True
+23,teen_social_life_blueprints_023,school_effort,2,Sometimes,2,Sometimes,0.43,True
+23,teen_social_life_blueprints_023,sleep_interference,2,Sometimes,2,Sometimes,0.42,True
+23,teen_social_life_blueprints_023,social_comparison,1,Rarely,1,Rarely,0.45,True
+23,teen_social_life_blueprints_023,social_media_hours,1,One to three hours,1,One to three hours,0.62,True
+24,teen_social_life_blueprints_024,academic_confidence,1,A little confident,1,A little confident,0.43,True
+24,teen_social_life_blueprints_024,career_clarity,0,No clear idea,0,No clear idea,0.57,True
+24,teen_social_life_blueprints_024,connection_effect,1,Makes little difference,1,Makes little difference,0.65,True
+24,teen_social_life_blueprints_024,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.5,True
+24,teen_social_life_blueprints_024,homework_distraction,3,Often,3,Often,0.48,True
+24,teen_social_life_blueprints_024,late_night_use,1,Rarely,1,Rarely,0.46,True
+24,teen_social_life_blueprints_024,organized_activity,0,Never,0,Never,0.62,True
+24,teen_social_life_blueprints_024,parental_rules,3,Very strict rules,3,Very strict rules,0.7,True
+24,teen_social_life_blueprints_024,peer_belonging,2,Sometimes,2,Sometimes,0.45,True
+24,teen_social_life_blueprints_024,posting_frequency,1,Less than once a week,1,Less than once a week,0.48,True
+24,teen_social_life_blueprints_024,primary_platform,2,YouTube,2,YouTube,0.55,True
+24,teen_social_life_blueprints_024,school_effort,3,Often,3,Often,0.53,True
+24,teen_social_life_blueprints_024,sleep_interference,3,Often,3,Often,0.47,True
+24,teen_social_life_blueprints_024,social_comparison,1,Rarely,1,Rarely,0.44,True
+24,teen_social_life_blueprints_024,social_media_hours,1,One to three hours,1,One to three hours,0.68,True
+25,teen_social_life_blueprints_025,academic_confidence,3,Very confident,3,Very confident,0.62,True
+25,teen_social_life_blueprints_025,career_clarity,1,A few vague ideas,1,A few vague ideas,0.48,True
+25,teen_social_life_blueprints_025,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.55,True
+25,teen_social_life_blueprints_025,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.49,True
+25,teen_social_life_blueprints_025,homework_distraction,0,Never,0,Never,0.68,True
+25,teen_social_life_blueprints_025,late_night_use,2,Sometimes,2,Sometimes,0.43,True
+25,teen_social_life_blueprints_025,organized_activity,0,Never,0,Never,0.63,True
+25,teen_social_life_blueprints_025,parental_rules,0,No rules,0,No rules,0.62,True
+25,teen_social_life_blueprints_025,peer_belonging,1,Rarely,1,Rarely,0.49,True
+25,teen_social_life_blueprints_025,posting_frequency,2,A few times a week,2,A few times a week,0.49,True
+25,teen_social_life_blueprints_025,primary_platform,2,YouTube,2,YouTube,0.48,True
+25,teen_social_life_blueprints_025,school_effort,1,Rarely,1,Rarely,0.45,True
+25,teen_social_life_blueprints_025,sleep_interference,2,Sometimes,2,Sometimes,0.41,True
+25,teen_social_life_blueprints_025,social_comparison,3,Often,3,Often,0.51,True
+25,teen_social_life_blueprints_025,social_media_hours,0,Less than one hour,0,Less than one hour,0.64,True
+26,teen_social_life_blueprints_026,academic_confidence,3,Very confident,3,Very confident,0.58,True
+26,teen_social_life_blueprints_026,career_clarity,0,No clear idea,0,No clear idea,0.48,True
+26,teen_social_life_blueprints_026,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.66,True
+26,teen_social_life_blueprints_026,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.53,True
+26,teen_social_life_blueprints_026,homework_distraction,0,Never,0,Never,0.61,True
+26,teen_social_life_blueprints_026,late_night_use,2,Sometimes,2,Sometimes,0.45,True
+26,teen_social_life_blueprints_026,organized_activity,0,Never,0,Never,0.5,True
+26,teen_social_life_blueprints_026,parental_rules,2,Some clear rules,2,Some clear rules,0.52,True
+26,teen_social_life_blueprints_026,peer_belonging,2,Sometimes,2,Sometimes,0.43,True
+26,teen_social_life_blueprints_026,posting_frequency,3,At least once a day,3,At least once a day,0.55,True
+26,teen_social_life_blueprints_026,primary_platform,1,Instagram,1,Instagram,0.46,True
+26,teen_social_life_blueprints_026,school_effort,0,Never,0,Never,0.45,True
+26,teen_social_life_blueprints_026,sleep_interference,1,Rarely,1,Rarely,0.46,True
+26,teen_social_life_blueprints_026,social_comparison,0,Never,0,Never,0.62,True
+26,teen_social_life_blueprints_026,social_media_hours,0,Less than one hour,0,Less than one hour,0.56,True
+27,teen_social_life_blueprints_027,academic_confidence,3,Very confident,3,Very confident,0.65,True
+27,teen_social_life_blueprints_027,career_clarity,1,A few vague ideas,1,A few vague ideas,0.45,True
+27,teen_social_life_blueprints_027,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.67,True
+27,teen_social_life_blueprints_027,future_optimism,1,A little optimistic,1,A little optimistic,0.42,True
+27,teen_social_life_blueprints_027,homework_distraction,0,Never,0,Never,0.65,True
+27,teen_social_life_blueprints_027,late_night_use,1,Rarely,1,Rarely,0.5,True
+27,teen_social_life_blueprints_027,organized_activity,3,Three or more days a week,3,Three or more days a week,0.7,True
+27,teen_social_life_blueprints_027,parental_rules,2,Some clear rules,2,Some clear rules,0.55,True
+27,teen_social_life_blueprints_027,peer_belonging,2,Sometimes,2,Sometimes,0.45,True
+27,teen_social_life_blueprints_027,posting_frequency,2,A few times a week,2,A few times a week,0.55,True
+27,teen_social_life_blueprints_027,primary_platform,4,Another platform,4,Another platform,0.44,True
+27,teen_social_life_blueprints_027,school_effort,2,Sometimes,2,Sometimes,0.48,True
+27,teen_social_life_blueprints_027,sleep_interference,3,Often,3,Often,0.45,True
+27,teen_social_life_blueprints_027,social_comparison,1,Rarely,1,Rarely,0.5,True
+27,teen_social_life_blueprints_027,social_media_hours,1,One to three hours,1,One to three hours,0.7,True
+28,teen_social_life_blueprints_028,academic_confidence,1,A little confident,1,A little confident,0.45,True
+28,teen_social_life_blueprints_028,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.52,True
+28,teen_social_life_blueprints_028,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.47,True
+28,teen_social_life_blueprints_028,future_optimism,3,Very optimistic,3,Very optimistic,0.64,True
+28,teen_social_life_blueprints_028,homework_distraction,3,Often,3,Often,0.46,True
+28,teen_social_life_blueprints_028,late_night_use,0,Never,0,Never,0.7,True
+28,teen_social_life_blueprints_028,organized_activity,3,Three or more days a week,3,Three or more days a week,0.67,True
+28,teen_social_life_blueprints_028,parental_rules,0,No rules,0,No rules,0.55,True
+28,teen_social_life_blueprints_028,peer_belonging,2,Sometimes,2,Sometimes,0.44,True
+28,teen_social_life_blueprints_028,posting_frequency,0,Never or almost never,0,Never or almost never,0.64,True
+28,teen_social_life_blueprints_028,primary_platform,1,Instagram,1,Instagram,0.48,True
+28,teen_social_life_blueprints_028,school_effort,1,Rarely,1,Rarely,0.43,True
+28,teen_social_life_blueprints_028,sleep_interference,2,Sometimes,2,Sometimes,0.46,True
+28,teen_social_life_blueprints_028,social_comparison,1,Rarely,1,Rarely,0.46,True
+28,teen_social_life_blueprints_028,social_media_hours,1,One to three hours,1,One to three hours,0.68,True
+29,teen_social_life_blueprints_029,academic_confidence,1,A little confident,1,A little confident,0.42,True
+29,teen_social_life_blueprints_029,career_clarity,3,A very clear plan,3,A very clear plan,0.5,True
+29,teen_social_life_blueprints_029,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.58,True
+29,teen_social_life_blueprints_029,future_optimism,1,A little optimistic,1,A little optimistic,0.38,True
+29,teen_social_life_blueprints_029,homework_distraction,1,Rarely,1,Rarely,0.5,True
+29,teen_social_life_blueprints_029,late_night_use,2,Sometimes,2,Sometimes,0.45,True
+29,teen_social_life_blueprints_029,organized_activity,1,Less than once a week,1,Less than once a week,0.4,True
+29,teen_social_life_blueprints_029,parental_rules,2,Some clear rules,2,Some clear rules,0.5,True
+29,teen_social_life_blueprints_029,peer_belonging,1,Rarely,1,Rarely,0.45,True
+29,teen_social_life_blueprints_029,posting_frequency,0,Never or almost never,0,Never or almost never,0.7,True
+29,teen_social_life_blueprints_029,primary_platform,4,Another platform,4,Another platform,0.42,True
+29,teen_social_life_blueprints_029,school_effort,3,Often,3,Often,0.6,True
+29,teen_social_life_blueprints_029,sleep_interference,3,Often,3,Often,0.45,True
+29,teen_social_life_blueprints_029,social_comparison,1,Rarely,1,Rarely,0.5,True
+29,teen_social_life_blueprints_029,social_media_hours,0,Less than one hour,0,Less than one hour,0.62,True
+30,teen_social_life_blueprints_030,academic_confidence,1,A little confident,1,A little confident,0.42,True
+30,teen_social_life_blueprints_030,career_clarity,3,A very clear plan,3,A very clear plan,0.65,True
+30,teen_social_life_blueprints_030,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.63,True
+30,teen_social_life_blueprints_030,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.52,True
+30,teen_social_life_blueprints_030,homework_distraction,3,Often,3,Often,0.49,True
+30,teen_social_life_blueprints_030,late_night_use,0,Never,0,Never,0.78,True
+30,teen_social_life_blueprints_030,organized_activity,3,Three or more days a week,3,Three or more days a week,0.72,True
+30,teen_social_life_blueprints_030,parental_rules,3,Very strict rules,3,Very strict rules,0.75,True
+30,teen_social_life_blueprints_030,peer_belonging,3,Often,3,Often,0.55,True
+30,teen_social_life_blueprints_030,posting_frequency,1,Less than once a week,1,Less than once a week,0.45,True
+30,teen_social_life_blueprints_030,primary_platform,5,I do not use social media,5,I do not use social media,0.63,True
+30,teen_social_life_blueprints_030,school_effort,2,Sometimes,2,Sometimes,0.45,True
+30,teen_social_life_blueprints_030,sleep_interference,0,Never,0,Never,0.8,True
+30,teen_social_life_blueprints_030,social_comparison,1,Rarely,1,Rarely,0.55,True
+30,teen_social_life_blueprints_030,social_media_hours,1,One to three hours,1,One to three hours,0.65,True
+31,teen_social_life_blueprints_031,academic_confidence,3,Very confident,3,Very confident,0.69,True
+31,teen_social_life_blueprints_031,career_clarity,0,No clear idea,0,No clear idea,0.58,True
+31,teen_social_life_blueprints_031,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.67,True
+31,teen_social_life_blueprints_031,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.51,True
+31,teen_social_life_blueprints_031,homework_distraction,2,Sometimes,2,Sometimes,0.5,True
+31,teen_social_life_blueprints_031,late_night_use,3,Often,3,Often,0.61,True
+31,teen_social_life_blueprints_031,organized_activity,1,Less than once a week,1,Less than once a week,0.48,True
+31,teen_social_life_blueprints_031,parental_rules,2,Some clear rules,2,Some clear rules,0.52,True
+31,teen_social_life_blueprints_031,peer_belonging,2,Sometimes,2,Sometimes,0.49,True
+31,teen_social_life_blueprints_031,posting_frequency,3,At least once a day,3,At least once a day,0.7,True
+31,teen_social_life_blueprints_031,primary_platform,0,TikTok,0,TikTok,0.6,True
+31,teen_social_life_blueprints_031,school_effort,2,Sometimes,2,Sometimes,0.52,True
+31,teen_social_life_blueprints_031,sleep_interference,0,Never,0,Never,0.64,True
+31,teen_social_life_blueprints_031,social_comparison,1,Rarely,1,Rarely,0.55,True
+31,teen_social_life_blueprints_031,social_media_hours,1,One to three hours,1,One to three hours,0.72,True
+32,teen_social_life_blueprints_032,academic_confidence,3,Very confident,3,Very confident,0.62,True
+32,teen_social_life_blueprints_032,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.55,True
+32,teen_social_life_blueprints_032,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.66,True
+32,teen_social_life_blueprints_032,future_optimism,1,A little optimistic,1,A little optimistic,0.43,True
+32,teen_social_life_blueprints_032,homework_distraction,2,Sometimes,2,Sometimes,0.4,True
+32,teen_social_life_blueprints_032,late_night_use,0,Never,0,Never,0.6,True
+32,teen_social_life_blueprints_032,organized_activity,3,Three or more days a week,3,Three or more days a week,0.63,True
+32,teen_social_life_blueprints_032,parental_rules,2,Some clear rules,2,Some clear rules,0.5,True
+32,teen_social_life_blueprints_032,peer_belonging,3,Often,3,Often,0.55,True
+32,teen_social_life_blueprints_032,posting_frequency,1,Less than once a week,1,Less than once a week,0.43,True
+32,teen_social_life_blueprints_032,primary_platform,4,Another platform,4,Another platform,0.39,True
+32,teen_social_life_blueprints_032,school_effort,0,Never,0,Never,0.45,True
+32,teen_social_life_blueprints_032,sleep_interference,1,Rarely,1,Rarely,0.49,True
+32,teen_social_life_blueprints_032,social_comparison,0,Never,0,Never,0.62,True
+32,teen_social_life_blueprints_032,social_media_hours,2,Four or more hours,2,Four or more hours,0.7,True
+33,teen_social_life_blueprints_033,academic_confidence,1,A little confident,1,A little confident,0.46,True
+33,teen_social_life_blueprints_033,career_clarity,1,A few vague ideas,1,A few vague ideas,0.5,True
+33,teen_social_life_blueprints_033,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.68,True
+33,teen_social_life_blueprints_033,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.54,True
+33,teen_social_life_blueprints_033,homework_distraction,0,Never,0,Never,0.7,True
+33,teen_social_life_blueprints_033,late_night_use,0,Never,0,Never,0.7,True
+33,teen_social_life_blueprints_033,organized_activity,3,Three or more days a week,3,Three or more days a week,0.65,True
+33,teen_social_life_blueprints_033,parental_rules,2,Some clear rules,2,Some clear rules,0.52,True
+33,teen_social_life_blueprints_033,peer_belonging,3,Often,3,Often,0.58,True
+33,teen_social_life_blueprints_033,posting_frequency,2,A few times a week,2,A few times a week,0.58,True
+33,teen_social_life_blueprints_033,primary_platform,0,TikTok,0,TikTok,0.58,True
+33,teen_social_life_blueprints_033,school_effort,1,Rarely,1,Rarely,0.43,True
+33,teen_social_life_blueprints_033,sleep_interference,2,Sometimes,2,Sometimes,0.45,True
+33,teen_social_life_blueprints_033,social_comparison,2,Sometimes,2,Sometimes,0.49,True
+33,teen_social_life_blueprints_033,social_media_hours,1,One to three hours,1,One to three hours,0.66,True
+34,teen_social_life_blueprints_034,academic_confidence,3,Very confident,3,Very confident,0.64,True
+34,teen_social_life_blueprints_034,career_clarity,0,No clear idea,0,No clear idea,0.55,True
+34,teen_social_life_blueprints_034,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.46,True
+34,teen_social_life_blueprints_034,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.45,True
+34,teen_social_life_blueprints_034,homework_distraction,3,Often,3,Often,0.46,True
+34,teen_social_life_blueprints_034,late_night_use,2,Sometimes,2,Sometimes,0.4,True
+34,teen_social_life_blueprints_034,organized_activity,2,One or two days a week,2,One or two days a week,0.44,True
+34,teen_social_life_blueprints_034,parental_rules,1,A few loose rules,1,A few loose rules,0.48,True
+34,teen_social_life_blueprints_034,peer_belonging,3,Often,3,Often,0.54,True
+34,teen_social_life_blueprints_034,posting_frequency,1,Less than once a week,1,Less than once a week,0.5,True
+34,teen_social_life_blueprints_034,primary_platform,2,YouTube,2,YouTube,0.5,True
+34,teen_social_life_blueprints_034,school_effort,2,Sometimes,2,Sometimes,0.43,True
+34,teen_social_life_blueprints_034,sleep_interference,2,Sometimes,2,Sometimes,0.42,True
+34,teen_social_life_blueprints_034,social_comparison,1,Rarely,1,Rarely,0.48,True
+34,teen_social_life_blueprints_034,social_media_hours,0,Less than one hour,0,Less than one hour,0.62,True
+35,teen_social_life_blueprints_035,academic_confidence,0,Not at all confident,0,Not at all confident,0.58,True
+35,teen_social_life_blueprints_035,career_clarity,0,No clear idea,0,No clear idea,0.56,True
+35,teen_social_life_blueprints_035,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.6,True
+35,teen_social_life_blueprints_035,future_optimism,1,A little optimistic,1,A little optimistic,0.44,True
+35,teen_social_life_blueprints_035,homework_distraction,2,Sometimes,2,Sometimes,0.42,True
+35,teen_social_life_blueprints_035,late_night_use,1,Rarely,1,Rarely,0.45,True
+35,teen_social_life_blueprints_035,organized_activity,0,Never,0,Never,0.72,True
+35,teen_social_life_blueprints_035,parental_rules,0,No rules,0,No rules,0.64,True
+35,teen_social_life_blueprints_035,peer_belonging,0,Never,0,Never,0.55,True
+35,teen_social_life_blueprints_035,posting_frequency,2,A few times a week,2,A few times a week,0.5,True
+35,teen_social_life_blueprints_035,primary_platform,5,I do not use social media,5,I do not use social media,0.39,True
+35,teen_social_life_blueprints_035,school_effort,1,Rarely,1,Rarely,0.47,True
+35,teen_social_life_blueprints_035,sleep_interference,0,Never,0,Never,0.62,True
+35,teen_social_life_blueprints_035,social_comparison,3,Often,3,Often,0.5,True
+35,teen_social_life_blueprints_035,social_media_hours,2,Four or more hours,2,Four or more hours,0.7,True
+36,teen_social_life_blueprints_036,academic_confidence,1,A little confident,1,A little confident,0.44,True
+36,teen_social_life_blueprints_036,career_clarity,0,No clear idea,0,No clear idea,0.51,True
+36,teen_social_life_blueprints_036,connection_effect,1,Makes little difference,1,Makes little difference,0.58,True
+36,teen_social_life_blueprints_036,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.5,True
+36,teen_social_life_blueprints_036,homework_distraction,1,Rarely,1,Rarely,0.48,True
+36,teen_social_life_blueprints_036,late_night_use,1,Rarely,1,Rarely,0.5,True
+36,teen_social_life_blueprints_036,organized_activity,2,One or two days a week,2,One or two days a week,0.42,True
+36,teen_social_life_blueprints_036,parental_rules,2,Some clear rules,2,Some clear rules,0.49,True
+36,teen_social_life_blueprints_036,peer_belonging,1,Rarely,1,Rarely,0.43,True
+36,teen_social_life_blueprints_036,posting_frequency,1,Less than once a week,1,Less than once a week,0.48,True
+36,teen_social_life_blueprints_036,primary_platform,2,YouTube,2,YouTube,0.52,True
+36,teen_social_life_blueprints_036,school_effort,2,Sometimes,2,Sometimes,0.43,True
+36,teen_social_life_blueprints_036,sleep_interference,1,Rarely,1,Rarely,0.46,True
+36,teen_social_life_blueprints_036,social_comparison,1,Rarely,1,Rarely,0.45,True
+36,teen_social_life_blueprints_036,social_media_hours,0,Less than one hour,0,Less than one hour,0.62,True
+37,teen_social_life_blueprints_037,academic_confidence,1,A little confident,1,A little confident,0.42,True
+37,teen_social_life_blueprints_037,career_clarity,1,A few vague ideas,1,A few vague ideas,0.43,True
+37,teen_social_life_blueprints_037,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.65,True
+37,teen_social_life_blueprints_037,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.5,True
+37,teen_social_life_blueprints_037,homework_distraction,2,Sometimes,2,Sometimes,0.43,True
+37,teen_social_life_blueprints_037,late_night_use,0,Never,0,Never,0.55,True
+37,teen_social_life_blueprints_037,organized_activity,3,Three or more days a week,3,Three or more days a week,0.65,True
+37,teen_social_life_blueprints_037,parental_rules,0,No rules,0,No rules,0.67,True
+37,teen_social_life_blueprints_037,peer_belonging,1,Rarely,1,Rarely,0.4,True
+37,teen_social_life_blueprints_037,posting_frequency,0,Never or almost never,0,Never or almost never,0.62,True
+37,teen_social_life_blueprints_037,primary_platform,0,TikTok,0,TikTok,0.55,True
+37,teen_social_life_blueprints_037,school_effort,2,Sometimes,2,Sometimes,0.45,True
+37,teen_social_life_blueprints_037,sleep_interference,1,Rarely,1,Rarely,0.44,True
+37,teen_social_life_blueprints_037,social_comparison,2,Sometimes,2,Sometimes,0.43,True
+37,teen_social_life_blueprints_037,social_media_hours,2,Four or more hours,2,Four or more hours,0.7,True
+38,teen_social_life_blueprints_038,academic_confidence,3,Very confident,3,Very confident,0.63,True
+38,teen_social_life_blueprints_038,career_clarity,0,No clear idea,0,No clear idea,0.52,True
+38,teen_social_life_blueprints_038,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.6,True
+38,teen_social_life_blueprints_038,future_optimism,1,A little optimistic,1,A little optimistic,0.45,True
+38,teen_social_life_blueprints_038,homework_distraction,0,Never,0,Never,0.7,True
+38,teen_social_life_blueprints_038,late_night_use,3,Often,3,Often,0.53,True
+38,teen_social_life_blueprints_038,organized_activity,1,Less than once a week,1,Less than once a week,0.44,True
+38,teen_social_life_blueprints_038,parental_rules,0,No rules,0,No rules,0.74,True
+38,teen_social_life_blueprints_038,peer_belonging,2,Sometimes,2,Sometimes,0.46,True
+38,teen_social_life_blueprints_038,posting_frequency,1,Less than once a week,1,Less than once a week,0.5,True
+38,teen_social_life_blueprints_038,primary_platform,4,Another platform,4,Another platform,0.4,True
+38,teen_social_life_blueprints_038,school_effort,1,Rarely,1,Rarely,0.42,True
+38,teen_social_life_blueprints_038,sleep_interference,1,Rarely,1,Rarely,0.45,True
+38,teen_social_life_blueprints_038,social_comparison,3,Often,3,Often,0.49,True
+38,teen_social_life_blueprints_038,social_media_hours,1,One to three hours,1,One to three hours,0.62,True
+39,teen_social_life_blueprints_039,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.55,True
+39,teen_social_life_blueprints_039,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.55,True
+39,teen_social_life_blueprints_039,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.73,True
+39,teen_social_life_blueprints_039,future_optimism,3,Very optimistic,3,Very optimistic,0.65,True
+39,teen_social_life_blueprints_039,homework_distraction,2,Sometimes,2,Sometimes,0.45,True
+39,teen_social_life_blueprints_039,late_night_use,0,Never,0,Never,0.62,True
+39,teen_social_life_blueprints_039,organized_activity,0,Never,0,Never,0.7,True
+39,teen_social_life_blueprints_039,parental_rules,2,Some clear rules,2,Some clear rules,0.53,True
+39,teen_social_life_blueprints_039,peer_belonging,1,Rarely,1,Rarely,0.41,True
+39,teen_social_life_blueprints_039,posting_frequency,3,At least once a day,3,At least once a day,0.65,True
+39,teen_social_life_blueprints_039,primary_platform,3,Snapchat,3,Snapchat,0.58,True
+39,teen_social_life_blueprints_039,school_effort,1,Rarely,1,Rarely,0.43,True
+39,teen_social_life_blueprints_039,sleep_interference,1,Rarely,1,Rarely,0.51,True
+39,teen_social_life_blueprints_039,social_comparison,0,Never,0,Never,0.7,True
+39,teen_social_life_blueprints_039,social_media_hours,2,Four or more hours,2,Four or more hours,0.76,True
+40,teen_social_life_blueprints_040,academic_confidence,3,Very confident,3,Very confident,0.65,True
+40,teen_social_life_blueprints_040,career_clarity,1,A few vague ideas,1,A few vague ideas,0.48,True
+40,teen_social_life_blueprints_040,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.55,True
+40,teen_social_life_blueprints_040,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.51,True
+40,teen_social_life_blueprints_040,homework_distraction,3,Often,3,Often,0.55,True
+40,teen_social_life_blueprints_040,late_night_use,1,Rarely,1,Rarely,0.5,True
+40,teen_social_life_blueprints_040,organized_activity,1,Less than once a week,1,Less than once a week,0.45,True
+40,teen_social_life_blueprints_040,parental_rules,0,No rules,0,No rules,0.7,True
+40,teen_social_life_blueprints_040,peer_belonging,3,Often,3,Often,0.6,True
+40,teen_social_life_blueprints_040,posting_frequency,0,Never or almost never,0,Never or almost never,0.66,True
+40,teen_social_life_blueprints_040,primary_platform,1,Instagram,1,Instagram,0.5,True
+40,teen_social_life_blueprints_040,school_effort,2,Sometimes,2,Sometimes,0.45,True
+40,teen_social_life_blueprints_040,sleep_interference,3,Often,3,Often,0.6,True
+40,teen_social_life_blueprints_040,social_comparison,0,Never,0,Never,0.7,True
+40,teen_social_life_blueprints_040,social_media_hours,2,Four or more hours,2,Four or more hours,0.7,True
+41,teen_social_life_blueprints_041,academic_confidence,3,Very confident,3,Very confident,0.6,True
+41,teen_social_life_blueprints_041,career_clarity,0,No clear idea,0,No clear idea,0.55,True
+41,teen_social_life_blueprints_041,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.58,True
+41,teen_social_life_blueprints_041,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.52,True
+41,teen_social_life_blueprints_041,homework_distraction,1,Rarely,1,Rarely,0.45,True
+41,teen_social_life_blueprints_041,late_night_use,3,Often,3,Often,0.5,True
+41,teen_social_life_blueprints_041,organized_activity,2,One or two days a week,2,One or two days a week,0.46,True
+41,teen_social_life_blueprints_041,parental_rules,3,Very strict rules,3,Very strict rules,0.65,True
+41,teen_social_life_blueprints_041,peer_belonging,1,Rarely,1,Rarely,0.46,True
+41,teen_social_life_blueprints_041,posting_frequency,0,Never or almost never,0,Never or almost never,0.7,True
+41,teen_social_life_blueprints_041,primary_platform,2,YouTube,2,YouTube,0.45,True
+41,teen_social_life_blueprints_041,school_effort,2,Sometimes,2,Sometimes,0.43,True
+41,teen_social_life_blueprints_041,sleep_interference,0,Never,0,Never,0.58,True
+41,teen_social_life_blueprints_041,social_comparison,1,Rarely,1,Rarely,0.47,True
+41,teen_social_life_blueprints_041,social_media_hours,0,Less than one hour,0,Less than one hour,0.62,True
+42,teen_social_life_blueprints_042,academic_confidence,1,A little confident,1,A little confident,0.44,True
+42,teen_social_life_blueprints_042,career_clarity,0,No clear idea,0,No clear idea,0.49,True
+42,teen_social_life_blueprints_042,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.45,True
+42,teen_social_life_blueprints_042,future_optimism,3,Very optimistic,3,Very optimistic,0.61,True
+42,teen_social_life_blueprints_042,homework_distraction,2,Sometimes,2,Sometimes,0.42,True
+42,teen_social_life_blueprints_042,late_night_use,3,Often,3,Often,0.53,True
+42,teen_social_life_blueprints_042,organized_activity,2,One or two days a week,2,One or two days a week,0.45,True
+42,teen_social_life_blueprints_042,parental_rules,1,A few loose rules,1,A few loose rules,0.5,True
+42,teen_social_life_blueprints_042,peer_belonging,2,Sometimes,2,Sometimes,0.43,True
+42,teen_social_life_blueprints_042,posting_frequency,3,At least once a day,3,At least once a day,0.6,True
+42,teen_social_life_blueprints_042,primary_platform,0,TikTok,0,TikTok,0.52,True
+42,teen_social_life_blueprints_042,school_effort,3,Often,3,Often,0.58,True
+42,teen_social_life_blueprints_042,sleep_interference,2,Sometimes,2,Sometimes,0.45,True
+42,teen_social_life_blueprints_042,social_comparison,1,Rarely,1,Rarely,0.47,True
+42,teen_social_life_blueprints_042,social_media_hours,0,Less than one hour,0,Less than one hour,0.56,True
+43,teen_social_life_blueprints_043,academic_confidence,1,A little confident,1,A little confident,0.44,True
+43,teen_social_life_blueprints_043,career_clarity,0,No clear idea,0,No clear idea,0.57,True
+43,teen_social_life_blueprints_043,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.62,True
+43,teen_social_life_blueprints_043,future_optimism,3,Very optimistic,3,Very optimistic,0.67,True
+43,teen_social_life_blueprints_043,homework_distraction,3,Often,3,Often,0.45,True
+43,teen_social_life_blueprints_043,late_night_use,0,Never,0,Never,0.78,True
+43,teen_social_life_blueprints_043,organized_activity,0,Never,0,Never,0.66,True
+43,teen_social_life_blueprints_043,parental_rules,1,A few loose rules,1,A few loose rules,0.5,True
+43,teen_social_life_blueprints_043,peer_belonging,1,Rarely,1,Rarely,0.43,True
+43,teen_social_life_blueprints_043,posting_frequency,0,Never or almost never,0,Never or almost never,0.72,True
+43,teen_social_life_blueprints_043,primary_platform,4,Another platform,4,Another platform,0.39,True
+43,teen_social_life_blueprints_043,school_effort,3,Often,3,Often,0.6,True
+43,teen_social_life_blueprints_043,sleep_interference,0,Never,0,Never,0.76,True
+43,teen_social_life_blueprints_043,social_comparison,2,Sometimes,2,Sometimes,0.46,True
+43,teen_social_life_blueprints_043,social_media_hours,1,One to three hours,1,One to three hours,0.62,True
+44,teen_social_life_blueprints_044,academic_confidence,0,Not at all confident,0,Not at all confident,0.55,True
+44,teen_social_life_blueprints_044,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.52,True
+44,teen_social_life_blueprints_044,connection_effect,1,Makes little difference,1,Makes little difference,0.57,True
+44,teen_social_life_blueprints_044,future_optimism,3,Very optimistic,3,Very optimistic,0.63,True
+44,teen_social_life_blueprints_044,homework_distraction,1,Rarely,1,Rarely,0.43,True
+44,teen_social_life_blueprints_044,late_night_use,1,Rarely,1,Rarely,0.5,True
+44,teen_social_life_blueprints_044,organized_activity,2,One or two days a week,2,One or two days a week,0.47,True
+44,teen_social_life_blueprints_044,parental_rules,1,A few loose rules,1,A few loose rules,0.48,True
+44,teen_social_life_blueprints_044,peer_belonging,0,Never,0,Never,0.51,True
+44,teen_social_life_blueprints_044,posting_frequency,1,Less than once a week,1,Less than once a week,0.45,True
+44,teen_social_life_blueprints_044,primary_platform,0,TikTok,0,TikTok,0.49,True
+44,teen_social_life_blueprints_044,school_effort,0,Never,0,Never,0.48,True
+44,teen_social_life_blueprints_044,sleep_interference,3,Often,3,Often,0.43,True
+44,teen_social_life_blueprints_044,social_comparison,2,Sometimes,2,Sometimes,0.44,True
+44,teen_social_life_blueprints_044,social_media_hours,0,Less than one hour,0,Less than one hour,0.62,True
+45,teen_social_life_blueprints_045,academic_confidence,1,A little confident,1,A little confident,0.42,True
+45,teen_social_life_blueprints_045,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.49,True
+45,teen_social_life_blueprints_045,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.48,True
+45,teen_social_life_blueprints_045,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.5,True
+45,teen_social_life_blueprints_045,homework_distraction,0,Never,0,Never,0.62,True
+45,teen_social_life_blueprints_045,late_night_use,1,Rarely,1,Rarely,0.48,True
+45,teen_social_life_blueprints_045,organized_activity,3,Three or more days a week,3,Three or more days a week,0.71,True
+45,teen_social_life_blueprints_045,parental_rules,3,Very strict rules,3,Very strict rules,0.72,True
+45,teen_social_life_blueprints_045,peer_belonging,2,Sometimes,2,Sometimes,0.43,True
+45,teen_social_life_blueprints_045,posting_frequency,3,At least once a day,3,At least once a day,0.68,True
+45,teen_social_life_blueprints_045,primary_platform,4,Another platform,4,Another platform,0.43,True
+45,teen_social_life_blueprints_045,school_effort,2,Sometimes,2,Sometimes,0.43,True
+45,teen_social_life_blueprints_045,sleep_interference,2,Sometimes,2,Sometimes,0.45,True
+45,teen_social_life_blueprints_045,social_comparison,2,Sometimes,2,Sometimes,0.42,True
+45,teen_social_life_blueprints_045,social_media_hours,2,Four or more hours,2,Four or more hours,0.75,True
+46,teen_social_life_blueprints_046,academic_confidence,0,Not at all confident,0,Not at all confident,0.48,True
+46,teen_social_life_blueprints_046,career_clarity,1,A few vague ideas,1,A few vague ideas,0.44,True
+46,teen_social_life_blueprints_046,connection_effect,1,Makes little difference,1,Makes little difference,0.62,True
+46,teen_social_life_blueprints_046,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.51,True
+46,teen_social_life_blueprints_046,homework_distraction,3,Often,3,Often,0.5,True
+46,teen_social_life_blueprints_046,late_night_use,1,Rarely,1,Rarely,0.46,True
+46,teen_social_life_blueprints_046,organized_activity,0,Never,0,Never,0.66,True
+46,teen_social_life_blueprints_046,parental_rules,1,A few loose rules,1,A few loose rules,0.44,True
+46,teen_social_life_blueprints_046,peer_belonging,3,Often,3,Often,0.59,True
+46,teen_social_life_blueprints_046,posting_frequency,3,At least once a day,3,At least once a day,0.55,True
+46,teen_social_life_blueprints_046,primary_platform,5,I do not use social media,5,I do not use social media,0.55,True
+46,teen_social_life_blueprints_046,school_effort,3,Often,3,Often,0.58,True
+46,teen_social_life_blueprints_046,sleep_interference,3,Often,3,Often,0.5,True
+46,teen_social_life_blueprints_046,social_comparison,1,Rarely,1,Rarely,0.47,True
+46,teen_social_life_blueprints_046,social_media_hours,0,Less than one hour,0,Less than one hour,0.62,True
+47,teen_social_life_blueprints_047,academic_confidence,0,Not at all confident,0,Not at all confident,0.45,True
+47,teen_social_life_blueprints_047,career_clarity,0,No clear idea,0,No clear idea,0.55,True
+47,teen_social_life_blueprints_047,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.52,True
+47,teen_social_life_blueprints_047,future_optimism,3,Very optimistic,3,Very optimistic,0.6,True
+47,teen_social_life_blueprints_047,homework_distraction,2,Sometimes,2,Sometimes,0.44,True
+47,teen_social_life_blueprints_047,late_night_use,1,Rarely,1,Rarely,0.46,True
+47,teen_social_life_blueprints_047,organized_activity,3,Three or more days a week,3,Three or more days a week,0.63,True
+47,teen_social_life_blueprints_047,parental_rules,1,A few loose rules,1,A few loose rules,0.5,True
+47,teen_social_life_blueprints_047,peer_belonging,1,Rarely,1,Rarely,0.47,True
+47,teen_social_life_blueprints_047,posting_frequency,2,A few times a week,2,A few times a week,0.58,True
+47,teen_social_life_blueprints_047,primary_platform,1,Instagram,1,Instagram,0.44,True
+47,teen_social_life_blueprints_047,school_effort,2,Sometimes,2,Sometimes,0.49,True
+47,teen_social_life_blueprints_047,sleep_interference,3,Often,3,Often,0.54,True
+47,teen_social_life_blueprints_047,social_comparison,2,Sometimes,2,Sometimes,0.47,True
+47,teen_social_life_blueprints_047,social_media_hours,2,Four or more hours,2,Four or more hours,0.72,True
+48,teen_social_life_blueprints_048,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.55,True
+48,teen_social_life_blueprints_048,career_clarity,3,A very clear plan,3,A very clear plan,0.64,True
+48,teen_social_life_blueprints_048,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.65,True
+48,teen_social_life_blueprints_048,future_optimism,3,Very optimistic,3,Very optimistic,0.7,True
+48,teen_social_life_blueprints_048,homework_distraction,0,Never,0,Never,0.61,True
+48,teen_social_life_blueprints_048,late_night_use,2,Sometimes,2,Sometimes,0.43,True
+48,teen_social_life_blueprints_048,organized_activity,3,Three or more days a week,3,Three or more days a week,0.7,True
+48,teen_social_life_blueprints_048,parental_rules,2,Some clear rules,2,Some clear rules,0.52,True
+48,teen_social_life_blueprints_048,peer_belonging,2,Sometimes,2,Sometimes,0.48,True
+48,teen_social_life_blueprints_048,posting_frequency,1,Less than once a week,1,Less than once a week,0.45,True
+48,teen_social_life_blueprints_048,primary_platform,2,YouTube,2,YouTube,0.52,True
+48,teen_social_life_blueprints_048,school_effort,3,Often,3,Often,0.62,True
+48,teen_social_life_blueprints_048,sleep_interference,0,Never,0,Never,0.62,True
+48,teen_social_life_blueprints_048,social_comparison,0,Never,0,Never,0.58,True
+48,teen_social_life_blueprints_048,social_media_hours,2,Four or more hours,2,Four or more hours,0.66,True
+49,teen_social_life_blueprints_049,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.5,True
+49,teen_social_life_blueprints_049,career_clarity,1,A few vague ideas,1,A few vague ideas,0.45,True
+49,teen_social_life_blueprints_049,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.5,True
+49,teen_social_life_blueprints_049,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.46,True
+49,teen_social_life_blueprints_049,homework_distraction,2,Sometimes,2,Sometimes,0.43,True
+49,teen_social_life_blueprints_049,late_night_use,3,Often,3,Often,0.6,True
+49,teen_social_life_blueprints_049,organized_activity,1,Less than once a week,1,Less than once a week,0.42,True
+49,teen_social_life_blueprints_049,parental_rules,2,Some clear rules,2,Some clear rules,0.48,True
+49,teen_social_life_blueprints_049,peer_belonging,2,Sometimes,2,Sometimes,0.45,True
+49,teen_social_life_blueprints_049,posting_frequency,1,Less than once a week,1,Less than once a week,0.45,True
+49,teen_social_life_blueprints_049,primary_platform,0,TikTok,0,TikTok,0.55,True
+49,teen_social_life_blueprints_049,school_effort,3,Often,3,Often,0.6,True
+49,teen_social_life_blueprints_049,sleep_interference,2,Sometimes,2,Sometimes,0.45,True
+49,teen_social_life_blueprints_049,social_comparison,1,Rarely,1,Rarely,0.45,True
+49,teen_social_life_blueprints_049,social_media_hours,2,Four or more hours,2,Four or more hours,0.7,True
+50,teen_social_life_blueprints_050,academic_confidence,3,Very confident,3,Very confident,0.68,True
+50,teen_social_life_blueprints_050,career_clarity,0,No clear idea,0,No clear idea,0.48,True
+50,teen_social_life_blueprints_050,connection_effect,1,Makes little difference,1,Makes little difference,0.6,True
+50,teen_social_life_blueprints_050,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.52,True
+50,teen_social_life_blueprints_050,homework_distraction,2,Sometimes,2,Sometimes,0.43,True
+50,teen_social_life_blueprints_050,late_night_use,3,Often,3,Often,0.58,True
+50,teen_social_life_blueprints_050,organized_activity,3,Three or more days a week,3,Three or more days a week,0.71,True
+50,teen_social_life_blueprints_050,parental_rules,3,Very strict rules,3,Very strict rules,0.68,True
+50,teen_social_life_blueprints_050,peer_belonging,2,Sometimes,2,Sometimes,0.45,True
+50,teen_social_life_blueprints_050,posting_frequency,0,Never or almost never,0,Never or almost never,0.67,True
+50,teen_social_life_blueprints_050,primary_platform,5,I do not use social media,5,I do not use social media,0.45,True
+50,teen_social_life_blueprints_050,school_effort,2,Sometimes,2,Sometimes,0.48,True
+50,teen_social_life_blueprints_050,sleep_interference,2,Sometimes,2,Sometimes,0.45,True
+50,teen_social_life_blueprints_050,social_comparison,1,Rarely,1,Rarely,0.5,True
+50,teen_social_life_blueprints_050,social_media_hours,2,Four or more hours,2,Four or more hours,0.75,True
+51,teen_social_life_blueprints_051,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.5,True
+51,teen_social_life_blueprints_051,career_clarity,1,A few vague ideas,1,A few vague ideas,0.42,True
+51,teen_social_life_blueprints_051,connection_effect,1,Makes little difference,1,Makes little difference,0.58,True
+51,teen_social_life_blueprints_051,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.47,True
+51,teen_social_life_blueprints_051,homework_distraction,1,Rarely,1,Rarely,0.45,True
+51,teen_social_life_blueprints_051,late_night_use,2,Sometimes,2,Sometimes,0.45,True
+51,teen_social_life_blueprints_051,organized_activity,2,One or two days a week,2,One or two days a week,0.45,True
+51,teen_social_life_blueprints_051,parental_rules,1,A few loose rules,1,A few loose rules,0.49,True
+51,teen_social_life_blueprints_051,peer_belonging,2,Sometimes,2,Sometimes,0.44,True
+51,teen_social_life_blueprints_051,posting_frequency,3,At least once a day,3,At least once a day,0.63,True
+51,teen_social_life_blueprints_051,primary_platform,3,Snapchat,3,Snapchat,0.43,True
+51,teen_social_life_blueprints_051,school_effort,2,Sometimes,2,Sometimes,0.45,True
+51,teen_social_life_blueprints_051,sleep_interference,1,Rarely,1,Rarely,0.46,True
+51,teen_social_life_blueprints_051,social_comparison,2,Sometimes,2,Sometimes,0.45,True
+51,teen_social_life_blueprints_051,social_media_hours,1,One to three hours,1,One to three hours,0.67,True
+52,teen_social_life_blueprints_052,academic_confidence,0,Not at all confident,0,Not at all confident,0.55,True
+52,teen_social_life_blueprints_052,career_clarity,3,A very clear plan,3,A very clear plan,0.45,True
+52,teen_social_life_blueprints_052,connection_effect,1,Makes little difference,1,Makes little difference,0.58,True
+52,teen_social_life_blueprints_052,future_optimism,1,A little optimistic,1,A little optimistic,0.45,True
+52,teen_social_life_blueprints_052,homework_distraction,2,Sometimes,2,Sometimes,0.42,True
+52,teen_social_life_blueprints_052,late_night_use,3,Often,3,Often,0.58,True
+52,teen_social_life_blueprints_052,organized_activity,1,Less than once a week,1,Less than once a week,0.49,True
+52,teen_social_life_blueprints_052,parental_rules,1,A few loose rules,1,A few loose rules,0.47,True
+52,teen_social_life_blueprints_052,peer_belonging,1,Rarely,1,Rarely,0.48,True
+52,teen_social_life_blueprints_052,posting_frequency,2,A few times a week,2,A few times a week,0.5,True
+52,teen_social_life_blueprints_052,primary_platform,5,I do not use social media,5,I do not use social media,0.35,True
+52,teen_social_life_blueprints_052,school_effort,0,Never,0,Never,0.5,True
+52,teen_social_life_blueprints_052,sleep_interference,3,Often,3,Often,0.56,True
+52,teen_social_life_blueprints_052,social_comparison,2,Sometimes,2,Sometimes,0.43,True
+52,teen_social_life_blueprints_052,social_media_hours,2,Four or more hours,2,Four or more hours,0.74,True
+53,teen_social_life_blueprints_053,academic_confidence,0,Not at all confident,0,Not at all confident,0.53,True
+53,teen_social_life_blueprints_053,career_clarity,3,A very clear plan,3,A very clear plan,0.52,True
+53,teen_social_life_blueprints_053,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.67,True
+53,teen_social_life_blueprints_053,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.51,True
+53,teen_social_life_blueprints_053,homework_distraction,2,Sometimes,2,Sometimes,0.47,True
+53,teen_social_life_blueprints_053,late_night_use,0,Never,0,Never,0.7,True
+53,teen_social_life_blueprints_053,organized_activity,0,Never,0,Never,0.71,True
+53,teen_social_life_blueprints_053,parental_rules,3,Very strict rules,3,Very strict rules,0.72,True
+53,teen_social_life_blueprints_053,peer_belonging,2,Sometimes,2,Sometimes,0.48,True
+53,teen_social_life_blueprints_053,posting_frequency,3,At least once a day,3,At least once a day,0.62,True
+53,teen_social_life_blueprints_053,primary_platform,0,TikTok,0,TikTok,0.58,True
+53,teen_social_life_blueprints_053,school_effort,2,Sometimes,2,Sometimes,0.46,True
+53,teen_social_life_blueprints_053,sleep_interference,1,Rarely,1,Rarely,0.5,True
+53,teen_social_life_blueprints_053,social_comparison,1,Rarely,1,Rarely,0.48,True
+53,teen_social_life_blueprints_053,social_media_hours,0,Less than one hour,0,Less than one hour,0.62,True
+54,teen_social_life_blueprints_054,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.55,True
+54,teen_social_life_blueprints_054,career_clarity,1,A few vague ideas,1,A few vague ideas,0.46,True
+54,teen_social_life_blueprints_054,connection_effect,1,Makes little difference,1,Makes little difference,0.57,True
+54,teen_social_life_blueprints_054,future_optimism,3,Very optimistic,3,Very optimistic,0.67,True
+54,teen_social_life_blueprints_054,homework_distraction,1,Rarely,1,Rarely,0.48,True
+54,teen_social_life_blueprints_054,late_night_use,2,Sometimes,2,Sometimes,0.49,True
+54,teen_social_life_blueprints_054,organized_activity,0,Never,0,Never,0.62,True
+54,teen_social_life_blueprints_054,parental_rules,1,A few loose rules,1,A few loose rules,0.48,True
+54,teen_social_life_blueprints_054,peer_belonging,3,Often,3,Often,0.57,True
+54,teen_social_life_blueprints_054,posting_frequency,2,A few times a week,2,A few times a week,0.52,True
+54,teen_social_life_blueprints_054,primary_platform,4,Another platform,4,Another platform,0.45,True
+54,teen_social_life_blueprints_054,school_effort,3,Often,3,Often,0.58,True
+54,teen_social_life_blueprints_054,sleep_interference,3,Often,3,Often,0.47,True
+54,teen_social_life_blueprints_054,social_comparison,2,Sometimes,2,Sometimes,0.43,True
+54,teen_social_life_blueprints_054,social_media_hours,2,Four or more hours,2,Four or more hours,0.71,True
+55,teen_social_life_blueprints_055,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.52,True
+55,teen_social_life_blueprints_055,career_clarity,3,A very clear plan,3,A very clear plan,0.6,True
+55,teen_social_life_blueprints_055,connection_effect,1,Makes little difference,1,Makes little difference,0.68,True
+55,teen_social_life_blueprints_055,future_optimism,3,Very optimistic,3,Very optimistic,0.69,True
+55,teen_social_life_blueprints_055,homework_distraction,0,Never,0,Never,0.76,True
+55,teen_social_life_blueprints_055,late_night_use,0,Never,0,Never,0.78,True
+55,teen_social_life_blueprints_055,organized_activity,0,Never,0,Never,0.67,True
+55,teen_social_life_blueprints_055,parental_rules,0,No rules,0,No rules,0.58,True
+55,teen_social_life_blueprints_055,peer_belonging,2,Sometimes,2,Sometimes,0.48,True
+55,teen_social_life_blueprints_055,posting_frequency,0,Never or almost never,0,Never or almost never,0.7,True
+55,teen_social_life_blueprints_055,primary_platform,1,Instagram,1,Instagram,0.45,True
+55,teen_social_life_blueprints_055,school_effort,0,Never,0,Never,0.5,True
+55,teen_social_life_blueprints_055,sleep_interference,1,Rarely,1,Rarely,0.48,True
+55,teen_social_life_blueprints_055,social_comparison,2,Sometimes,2,Sometimes,0.45,True
+55,teen_social_life_blueprints_055,social_media_hours,0,Less than one hour,0,Less than one hour,0.64,True
+56,teen_social_life_blueprints_056,academic_confidence,3,Very confident,3,Very confident,0.64,True
+56,teen_social_life_blueprints_056,career_clarity,3,A very clear plan,3,A very clear plan,0.62,True
+56,teen_social_life_blueprints_056,connection_effect,1,Makes little difference,1,Makes little difference,0.62,True
+56,teen_social_life_blueprints_056,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.51,True
+56,teen_social_life_blueprints_056,homework_distraction,3,Often,3,Often,0.46,True
+56,teen_social_life_blueprints_056,late_night_use,2,Sometimes,2,Sometimes,0.45,True
+56,teen_social_life_blueprints_056,organized_activity,2,One or two days a week,2,One or two days a week,0.45,True
+56,teen_social_life_blueprints_056,parental_rules,3,Very strict rules,3,Very strict rules,0.67,True
+56,teen_social_life_blueprints_056,peer_belonging,1,Rarely,1,Rarely,0.44,True
+56,teen_social_life_blueprints_056,posting_frequency,3,At least once a day,3,At least once a day,0.59,True
+56,teen_social_life_blueprints_056,primary_platform,0,TikTok,0,TikTok,0.48,True
+56,teen_social_life_blueprints_056,school_effort,1,Rarely,1,Rarely,0.43,True
+56,teen_social_life_blueprints_056,sleep_interference,2,Sometimes,2,Sometimes,0.43,True
+56,teen_social_life_blueprints_056,social_comparison,3,Often,3,Often,0.5,True
+56,teen_social_life_blueprints_056,social_media_hours,0,Less than one hour,0,Less than one hour,0.58,True
+57,teen_social_life_blueprints_057,academic_confidence,1,A little confident,1,A little confident,0.43,True
+57,teen_social_life_blueprints_057,career_clarity,1,A few vague ideas,1,A few vague ideas,0.46,True
+57,teen_social_life_blueprints_057,connection_effect,1,Makes little difference,1,Makes little difference,0.58,True
+57,teen_social_life_blueprints_057,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.51,True
+57,teen_social_life_blueprints_057,homework_distraction,1,Rarely,1,Rarely,0.43,True
+57,teen_social_life_blueprints_057,late_night_use,1,Rarely,1,Rarely,0.45,True
+57,teen_social_life_blueprints_057,organized_activity,0,Never,0,Never,0.68,True
+57,teen_social_life_blueprints_057,parental_rules,0,No rules,0,No rules,0.62,True
+57,teen_social_life_blueprints_057,peer_belonging,0,Never,0,Never,0.52,True
+57,teen_social_life_blueprints_057,posting_frequency,3,At least once a day,3,At least once a day,0.62,True
+57,teen_social_life_blueprints_057,primary_platform,4,Another platform,4,Another platform,0.37,True
+57,teen_social_life_blueprints_057,school_effort,1,Rarely,1,Rarely,0.44,True
+57,teen_social_life_blueprints_057,sleep_interference,3,Often,3,Often,0.48,True
+57,teen_social_life_blueprints_057,social_comparison,2,Sometimes,2,Sometimes,0.42,True
+57,teen_social_life_blueprints_057,social_media_hours,1,One to three hours,1,One to three hours,0.62,True
+58,teen_social_life_blueprints_058,academic_confidence,3,Very confident,3,Very confident,0.74,True
+58,teen_social_life_blueprints_058,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.59,True
+58,teen_social_life_blueprints_058,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.75,True
+58,teen_social_life_blueprints_058,future_optimism,3,Very optimistic,3,Very optimistic,0.77,True
+58,teen_social_life_blueprints_058,homework_distraction,1,Rarely,1,Rarely,0.48,True
+58,teen_social_life_blueprints_058,late_night_use,3,Often,3,Often,0.61,True
+58,teen_social_life_blueprints_058,organized_activity,3,Three or more days a week,3,Three or more days a week,0.75,True
+58,teen_social_life_blueprints_058,parental_rules,1,A few loose rules,1,A few loose rules,0.58,True
+58,teen_social_life_blueprints_058,peer_belonging,3,Often,3,Often,0.65,True
+58,teen_social_life_blueprints_058,posting_frequency,3,At least once a day,3,At least once a day,0.7,True
+58,teen_social_life_blueprints_058,primary_platform,2,YouTube,2,YouTube,0.46,True
+58,teen_social_life_blueprints_058,school_effort,0,Never,0,Never,0.52,True
+58,teen_social_life_blueprints_058,sleep_interference,0,Never,0,Never,0.66,True
+58,teen_social_life_blueprints_058,social_comparison,1,Rarely,1,Rarely,0.56,True
+58,teen_social_life_blueprints_058,social_media_hours,1,One to three hours,1,One to three hours,0.74,True
+59,teen_social_life_blueprints_059,academic_confidence,3,Very confident,3,Very confident,0.65,True
+59,teen_social_life_blueprints_059,career_clarity,1,A few vague ideas,1,A few vague ideas,0.46,True
+59,teen_social_life_blueprints_059,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.68,True
+59,teen_social_life_blueprints_059,future_optimism,1,A little optimistic,1,A little optimistic,0.43,True
+59,teen_social_life_blueprints_059,homework_distraction,2,Sometimes,2,Sometimes,0.45,True
+59,teen_social_life_blueprints_059,late_night_use,1,Rarely,1,Rarely,0.5,True
+59,teen_social_life_blueprints_059,organized_activity,2,One or two days a week,2,One or two days a week,0.5,True
+59,teen_social_life_blueprints_059,parental_rules,2,Some clear rules,2,Some clear rules,0.5,True
+59,teen_social_life_blueprints_059,peer_belonging,3,Often,3,Often,0.55,True
+59,teen_social_life_blueprints_059,posting_frequency,3,At least once a day,3,At least once a day,0.7,True
+59,teen_social_life_blueprints_059,primary_platform,4,Another platform,4,Another platform,0.52,True
+59,teen_social_life_blueprints_059,school_effort,0,Never,0,Never,0.55,True
+59,teen_social_life_blueprints_059,sleep_interference,1,Rarely,1,Rarely,0.52,True
+59,teen_social_life_blueprints_059,social_comparison,1,Rarely,1,Rarely,0.48,True
+59,teen_social_life_blueprints_059,social_media_hours,2,Four or more hours,2,Four or more hours,0.7,True
+60,teen_social_life_blueprints_060,academic_confidence,3,Very confident,3,Very confident,0.56,True
+60,teen_social_life_blueprints_060,career_clarity,3,A very clear plan,3,A very clear plan,0.55,True
+60,teen_social_life_blueprints_060,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.55,True
+60,teen_social_life_blueprints_060,future_optimism,1,A little optimistic,1,A little optimistic,0.42,True
+60,teen_social_life_blueprints_060,homework_distraction,1,Rarely,1,Rarely,0.45,True
+60,teen_social_life_blueprints_060,late_night_use,3,Often,3,Often,0.53,True
+60,teen_social_life_blueprints_060,organized_activity,0,Never,0,Never,0.61,True
+60,teen_social_life_blueprints_060,parental_rules,2,Some clear rules,2,Some clear rules,0.48,True
+60,teen_social_life_blueprints_060,peer_belonging,0,Never,0,Never,0.51,True
+60,teen_social_life_blueprints_060,posting_frequency,2,A few times a week,2,A few times a week,0.49,True
+60,teen_social_life_blueprints_060,primary_platform,3,Snapchat,3,Snapchat,0.5,True
+60,teen_social_life_blueprints_060,school_effort,1,Rarely,1,Rarely,0.43,True
+60,teen_social_life_blueprints_060,sleep_interference,3,Often,3,Often,0.53,True
+60,teen_social_life_blueprints_060,social_comparison,3,Often,3,Often,0.52,True
+60,teen_social_life_blueprints_060,social_media_hours,0,Less than one hour,0,Less than one hour,0.62,True
+61,teen_social_life_blueprints_061,academic_confidence,1,A little confident,1,A little confident,0.45,True
+61,teen_social_life_blueprints_061,career_clarity,1,A few vague ideas,1,A few vague ideas,0.46,True
+61,teen_social_life_blueprints_061,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.52,True
+61,teen_social_life_blueprints_061,future_optimism,3,Very optimistic,3,Very optimistic,0.55,True
+61,teen_social_life_blueprints_061,homework_distraction,3,Often,3,Often,0.54,True
+61,teen_social_life_blueprints_061,late_night_use,3,Often,3,Often,0.56,True
+61,teen_social_life_blueprints_061,organized_activity,1,Less than once a week,1,Less than once a week,0.43,True
+61,teen_social_life_blueprints_061,parental_rules,3,Very strict rules,3,Very strict rules,0.64,True
+61,teen_social_life_blueprints_061,peer_belonging,2,Sometimes,2,Sometimes,0.41,True
+61,teen_social_life_blueprints_061,posting_frequency,2,A few times a week,2,A few times a week,0.48,True
+61,teen_social_life_blueprints_061,primary_platform,4,Another platform,4,Another platform,0.34,True
+61,teen_social_life_blueprints_061,school_effort,0,Never,0,Never,0.5,True
+61,teen_social_life_blueprints_061,sleep_interference,3,Often,3,Often,0.55,True
+61,teen_social_life_blueprints_061,social_comparison,2,Sometimes,2,Sometimes,0.44,True
+61,teen_social_life_blueprints_061,social_media_hours,0,Less than one hour,0,Less than one hour,0.62,True
+62,teen_social_life_blueprints_062,academic_confidence,1,A little confident,1,A little confident,0.45,True
+62,teen_social_life_blueprints_062,career_clarity,1,A few vague ideas,1,A few vague ideas,0.48,True
+62,teen_social_life_blueprints_062,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.64,True
+62,teen_social_life_blueprints_062,future_optimism,1,A little optimistic,1,A little optimistic,0.43,True
+62,teen_social_life_blueprints_062,homework_distraction,1,Rarely,1,Rarely,0.45,True
+62,teen_social_life_blueprints_062,late_night_use,1,Rarely,1,Rarely,0.48,True
+62,teen_social_life_blueprints_062,organized_activity,0,Never,0,Never,0.59,True
+62,teen_social_life_blueprints_062,parental_rules,0,No rules,0,No rules,0.58,True
+62,teen_social_life_blueprints_062,peer_belonging,3,Often,3,Often,0.5,True
+62,teen_social_life_blueprints_062,posting_frequency,2,A few times a week,2,A few times a week,0.5,True
+62,teen_social_life_blueprints_062,primary_platform,2,YouTube,2,YouTube,0.52,True
+62,teen_social_life_blueprints_062,school_effort,2,Sometimes,2,Sometimes,0.46,True
+62,teen_social_life_blueprints_062,sleep_interference,2,Sometimes,2,Sometimes,0.42,True
+62,teen_social_life_blueprints_062,social_comparison,3,Often,3,Often,0.47,True
+62,teen_social_life_blueprints_062,social_media_hours,1,One to three hours,1,One to three hours,0.68,True
+63,teen_social_life_blueprints_063,academic_confidence,0,Not at all confident,0,Not at all confident,0.55,True
+63,teen_social_life_blueprints_063,career_clarity,1,A few vague ideas,1,A few vague ideas,0.48,True
+63,teen_social_life_blueprints_063,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.63,True
+63,teen_social_life_blueprints_063,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.47,True
+63,teen_social_life_blueprints_063,homework_distraction,2,Sometimes,2,Sometimes,0.42,True
+63,teen_social_life_blueprints_063,late_night_use,2,Sometimes,2,Sometimes,0.45,True
+63,teen_social_life_blueprints_063,organized_activity,0,Never,0,Never,0.62,True
+63,teen_social_life_blueprints_063,parental_rules,0,No rules,0,No rules,0.58,True
+63,teen_social_life_blueprints_063,peer_belonging,1,Rarely,1,Rarely,0.45,True
+63,teen_social_life_blueprints_063,posting_frequency,0,Never or almost never,0,Never or almost never,0.7,True
+63,teen_social_life_blueprints_063,primary_platform,1,Instagram,1,Instagram,0.42,True
+63,teen_social_life_blueprints_063,school_effort,1,Rarely,1,Rarely,0.45,True
+63,teen_social_life_blueprints_063,sleep_interference,3,Often,3,Often,0.45,True
+63,teen_social_life_blueprints_063,social_comparison,0,Never,0,Never,0.65,True
+63,teen_social_life_blueprints_063,social_media_hours,0,Less than one hour,0,Less than one hour,0.62,True
+64,teen_social_life_blueprints_064,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.5,True
+64,teen_social_life_blueprints_064,career_clarity,0,No clear idea,0,No clear idea,0.52,True
+64,teen_social_life_blueprints_064,connection_effect,1,Makes little difference,1,Makes little difference,0.62,True
+64,teen_social_life_blueprints_064,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.48,True
+64,teen_social_life_blueprints_064,homework_distraction,2,Sometimes,2,Sometimes,0.43,True
+64,teen_social_life_blueprints_064,late_night_use,0,Never,0,Never,0.76,True
+64,teen_social_life_blueprints_064,organized_activity,3,Three or more days a week,3,Three or more days a week,0.67,True
+64,teen_social_life_blueprints_064,parental_rules,3,Very strict rules,3,Very strict rules,0.69,True
+64,teen_social_life_blueprints_064,peer_belonging,0,Never,0,Never,0.48,True
+64,teen_social_life_blueprints_064,posting_frequency,0,Never or almost never,0,Never or almost never,0.7,True
+64,teen_social_life_blueprints_064,primary_platform,0,TikTok,0,TikTok,0.43,True
+64,teen_social_life_blueprints_064,school_effort,1,Rarely,1,Rarely,0.41,True
+64,teen_social_life_blueprints_064,sleep_interference,0,Never,0,Never,0.74,True
+64,teen_social_life_blueprints_064,social_comparison,2,Sometimes,2,Sometimes,0.43,True
+64,teen_social_life_blueprints_064,social_media_hours,0,Less than one hour,0,Less than one hour,0.68,True
+65,teen_social_life_blueprints_065,academic_confidence,3,Very confident,3,Very confident,0.64,True
+65,teen_social_life_blueprints_065,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.53,True
+65,teen_social_life_blueprints_065,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.65,True
+65,teen_social_life_blueprints_065,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.52,True
+65,teen_social_life_blueprints_065,homework_distraction,3,Often,3,Often,0.55,True
+65,teen_social_life_blueprints_065,late_night_use,0,Never,0,Never,0.72,True
+65,teen_social_life_blueprints_065,organized_activity,2,One or two days a week,2,One or two days a week,0.47,True
+65,teen_social_life_blueprints_065,parental_rules,2,Some clear rules,2,Some clear rules,0.48,True
+65,teen_social_life_blueprints_065,peer_belonging,2,Sometimes,2,Sometimes,0.46,True
+65,teen_social_life_blueprints_065,posting_frequency,0,Never or almost never,0,Never or almost never,0.62,True
+65,teen_social_life_blueprints_065,primary_platform,0,TikTok,0,TikTok,0.58,True
+65,teen_social_life_blueprints_065,school_effort,0,Never,0,Never,0.43,True
+65,teen_social_life_blueprints_065,sleep_interference,3,Often,3,Often,0.55,True
+65,teen_social_life_blueprints_065,social_comparison,2,Sometimes,2,Sometimes,0.45,True
+65,teen_social_life_blueprints_065,social_media_hours,1,One to three hours,1,One to three hours,0.64,True
+66,teen_social_life_blueprints_066,academic_confidence,1,A little confident,1,A little confident,0.43,True
+66,teen_social_life_blueprints_066,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.47,True
+66,teen_social_life_blueprints_066,connection_effect,1,Makes little difference,1,Makes little difference,0.58,True
+66,teen_social_life_blueprints_066,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.46,True
+66,teen_social_life_blueprints_066,homework_distraction,0,Never,0,Never,0.62,True
+66,teen_social_life_blueprints_066,late_night_use,2,Sometimes,2,Sometimes,0.45,True
+66,teen_social_life_blueprints_066,organized_activity,1,Less than once a week,1,Less than once a week,0.43,True
+66,teen_social_life_blueprints_066,parental_rules,3,Very strict rules,3,Very strict rules,0.65,True
+66,teen_social_life_blueprints_066,peer_belonging,1,Rarely,1,Rarely,0.44,True
+66,teen_social_life_blueprints_066,posting_frequency,1,Less than once a week,1,Less than once a week,0.5,True
+66,teen_social_life_blueprints_066,primary_platform,2,YouTube,2,YouTube,0.48,True
+66,teen_social_life_blueprints_066,school_effort,2,Sometimes,2,Sometimes,0.44,True
+66,teen_social_life_blueprints_066,sleep_interference,2,Sometimes,2,Sometimes,0.42,True
+66,teen_social_life_blueprints_066,social_comparison,2,Sometimes,2,Sometimes,0.44,True
+66,teen_social_life_blueprints_066,social_media_hours,1,One to three hours,1,One to three hours,0.66,True
+67,teen_social_life_blueprints_067,academic_confidence,1,A little confident,1,A little confident,0.43,True
+67,teen_social_life_blueprints_067,career_clarity,3,A very clear plan,3,A very clear plan,0.54,True
+67,teen_social_life_blueprints_067,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.62,True
+67,teen_social_life_blueprints_067,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.47,True
+67,teen_social_life_blueprints_067,homework_distraction,1,Rarely,1,Rarely,0.48,True
+67,teen_social_life_blueprints_067,late_night_use,1,Rarely,1,Rarely,0.5,True
+67,teen_social_life_blueprints_067,organized_activity,3,Three or more days a week,3,Three or more days a week,0.66,True
+67,teen_social_life_blueprints_067,parental_rules,3,Very strict rules,3,Very strict rules,0.65,True
+67,teen_social_life_blueprints_067,peer_belonging,3,Often,3,Often,0.57,True
+67,teen_social_life_blueprints_067,posting_frequency,0,Never or almost never,0,Never or almost never,0.65,True
+67,teen_social_life_blueprints_067,primary_platform,3,Snapchat,3,Snapchat,0.48,True
+67,teen_social_life_blueprints_067,school_effort,2,Sometimes,2,Sometimes,0.46,True
+67,teen_social_life_blueprints_067,sleep_interference,1,Rarely,1,Rarely,0.52,True
+67,teen_social_life_blueprints_067,social_comparison,1,Rarely,1,Rarely,0.48,True
+67,teen_social_life_blueprints_067,social_media_hours,0,Less than one hour,0,Less than one hour,0.62,True
+68,teen_social_life_blueprints_068,academic_confidence,0,Not at all confident,0,Not at all confident,0.5,True
+68,teen_social_life_blueprints_068,career_clarity,3,A very clear plan,3,A very clear plan,0.6,True
+68,teen_social_life_blueprints_068,connection_effect,1,Makes little difference,1,Makes little difference,0.68,True
+68,teen_social_life_blueprints_068,future_optimism,1,A little optimistic,1,A little optimistic,0.46,True
+68,teen_social_life_blueprints_068,homework_distraction,1,Rarely,1,Rarely,0.48,True
+68,teen_social_life_blueprints_068,late_night_use,1,Rarely,1,Rarely,0.5,True
+68,teen_social_life_blueprints_068,organized_activity,2,One or two days a week,2,One or two days a week,0.45,True
+68,teen_social_life_blueprints_068,parental_rules,2,Some clear rules,2,Some clear rules,0.52,True
+68,teen_social_life_blueprints_068,peer_belonging,2,Sometimes,2,Sometimes,0.45,True
+68,teen_social_life_blueprints_068,posting_frequency,0,Never or almost never,0,Never or almost never,0.62,True
+68,teen_social_life_blueprints_068,primary_platform,3,Snapchat,3,Snapchat,0.46,True
+68,teen_social_life_blueprints_068,school_effort,3,Often,3,Often,0.6,True
+68,teen_social_life_blueprints_068,sleep_interference,2,Sometimes,2,Sometimes,0.44,True
+68,teen_social_life_blueprints_068,social_comparison,0,Never,0,Never,0.68,True
+68,teen_social_life_blueprints_068,social_media_hours,2,Four or more hours,2,Four or more hours,0.7,True
+69,teen_social_life_blueprints_069,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.48,True
+69,teen_social_life_blueprints_069,career_clarity,3,A very clear plan,3,A very clear plan,0.58,True
+69,teen_social_life_blueprints_069,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.49,True
+69,teen_social_life_blueprints_069,future_optimism,3,Very optimistic,3,Very optimistic,0.64,True
+69,teen_social_life_blueprints_069,homework_distraction,0,Never,0,Never,0.58,True
+69,teen_social_life_blueprints_069,late_night_use,2,Sometimes,2,Sometimes,0.44,True
+69,teen_social_life_blueprints_069,organized_activity,2,One or two days a week,2,One or two days a week,0.38,True
+69,teen_social_life_blueprints_069,parental_rules,0,No rules,0,No rules,0.62,True
+69,teen_social_life_blueprints_069,peer_belonging,1,Rarely,1,Rarely,0.44,True
+69,teen_social_life_blueprints_069,posting_frequency,2,A few times a week,2,A few times a week,0.55,True
+69,teen_social_life_blueprints_069,primary_platform,3,Snapchat,3,Snapchat,0.42,True
+69,teen_social_life_blueprints_069,school_effort,0,Never,0,Never,0.47,True
+69,teen_social_life_blueprints_069,sleep_interference,2,Sometimes,2,Sometimes,0.39,True
+69,teen_social_life_blueprints_069,social_comparison,2,Sometimes,2,Sometimes,0.42,True
+69,teen_social_life_blueprints_069,social_media_hours,1,One to three hours,1,One to three hours,0.68,True
+70,teen_social_life_blueprints_070,academic_confidence,1,A little confident,1,A little confident,0.46,True
+70,teen_social_life_blueprints_070,career_clarity,0,No clear idea,0,No clear idea,0.55,True
+70,teen_social_life_blueprints_070,connection_effect,1,Makes little difference,1,Makes little difference,0.62,True
+70,teen_social_life_blueprints_070,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.52,True
+70,teen_social_life_blueprints_070,homework_distraction,2,Sometimes,2,Sometimes,0.46,True
+70,teen_social_life_blueprints_070,late_night_use,1,Rarely,1,Rarely,0.46,True
+70,teen_social_life_blueprints_070,organized_activity,2,One or two days a week,2,One or two days a week,0.45,True
+70,teen_social_life_blueprints_070,parental_rules,1,A few loose rules,1,A few loose rules,0.5,True
+70,teen_social_life_blueprints_070,peer_belonging,1,Rarely,1,Rarely,0.44,True
+70,teen_social_life_blueprints_070,posting_frequency,2,A few times a week,2,A few times a week,0.55,True
+70,teen_social_life_blueprints_070,primary_platform,0,TikTok,0,TikTok,0.55,True
+70,teen_social_life_blueprints_070,school_effort,3,Often,3,Often,0.53,True
+70,teen_social_life_blueprints_070,sleep_interference,1,Rarely,1,Rarely,0.5,True
+70,teen_social_life_blueprints_070,social_comparison,3,Often,3,Often,0.53,True
+70,teen_social_life_blueprints_070,social_media_hours,2,Four or more hours,2,Four or more hours,0.73,True
+71,teen_social_life_blueprints_071,academic_confidence,0,Not at all confident,0,Not at all confident,0.48,True
+71,teen_social_life_blueprints_071,career_clarity,0,No clear idea,0,No clear idea,0.55,True
+71,teen_social_life_blueprints_071,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.54,True
+71,teen_social_life_blueprints_071,future_optimism,1,A little optimistic,1,A little optimistic,0.41,True
+71,teen_social_life_blueprints_071,homework_distraction,0,Never,0,Never,0.76,True
+71,teen_social_life_blueprints_071,late_night_use,1,Rarely,1,Rarely,0.44,True
+71,teen_social_life_blueprints_071,organized_activity,0,Never,0,Never,0.68,True
+71,teen_social_life_blueprints_071,parental_rules,1,A few loose rules,1,A few loose rules,0.47,True
+71,teen_social_life_blueprints_071,peer_belonging,3,Often,3,Often,0.58,True
+71,teen_social_life_blueprints_071,posting_frequency,0,Never or almost never,0,Never or almost never,0.82,True
+71,teen_social_life_blueprints_071,primary_platform,5,I do not use social media,5,I do not use social media,0.79,True
+71,teen_social_life_blueprints_071,school_effort,1,Rarely,1,Rarely,0.4,True
+71,teen_social_life_blueprints_071,sleep_interference,0,Never,0,Never,0.7,True
+71,teen_social_life_blueprints_071,social_comparison,2,Sometimes,2,Sometimes,0.42,True
+71,teen_social_life_blueprints_071,social_media_hours,0,Less than one hour,0,Less than one hour,0.72,True
+72,teen_social_life_blueprints_072,academic_confidence,0,Not at all confident,0,Not at all confident,0.52,True
+72,teen_social_life_blueprints_072,career_clarity,1,A few vague ideas,1,A few vague ideas,0.48,True
+72,teen_social_life_blueprints_072,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.58,True
+72,teen_social_life_blueprints_072,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.5,True
+72,teen_social_life_blueprints_072,homework_distraction,3,Often,3,Often,0.48,True
+72,teen_social_life_blueprints_072,late_night_use,1,Rarely,1,Rarely,0.45,True
+72,teen_social_life_blueprints_072,organized_activity,2,One or two days a week,2,One or two days a week,0.47,True
+72,teen_social_life_blueprints_072,parental_rules,3,Very strict rules,3,Very strict rules,0.65,True
+72,teen_social_life_blueprints_072,peer_belonging,0,Never,0,Never,0.55,True
+72,teen_social_life_blueprints_072,posting_frequency,2,A few times a week,2,A few times a week,0.55,True
+72,teen_social_life_blueprints_072,primary_platform,3,Snapchat,3,Snapchat,0.5,True
+72,teen_social_life_blueprints_072,school_effort,3,Often,3,Often,0.62,True
+72,teen_social_life_blueprints_072,sleep_interference,1,Rarely,1,Rarely,0.46,True
+72,teen_social_life_blueprints_072,social_comparison,3,Often,3,Often,0.55,True
+72,teen_social_life_blueprints_072,social_media_hours,1,One to three hours,1,One to three hours,0.65,True
+73,teen_social_life_blueprints_073,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.52,True
+73,teen_social_life_blueprints_073,career_clarity,0,No clear idea,0,No clear idea,0.55,True
+73,teen_social_life_blueprints_073,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.65,True
+73,teen_social_life_blueprints_073,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.5,True
+73,teen_social_life_blueprints_073,homework_distraction,3,Often,3,Often,0.53,True
+73,teen_social_life_blueprints_073,late_night_use,3,Often,3,Often,0.58,True
+73,teen_social_life_blueprints_073,organized_activity,2,One or two days a week,2,One or two days a week,0.48,True
+73,teen_social_life_blueprints_073,parental_rules,3,Very strict rules,3,Very strict rules,0.7,True
+73,teen_social_life_blueprints_073,peer_belonging,1,Rarely,1,Rarely,0.45,True
+73,teen_social_life_blueprints_073,posting_frequency,1,Less than once a week,1,Less than once a week,0.5,True
+73,teen_social_life_blueprints_073,primary_platform,0,TikTok,0,TikTok,0.46,True
+73,teen_social_life_blueprints_073,school_effort,3,Often,3,Often,0.65,True
+73,teen_social_life_blueprints_073,sleep_interference,3,Often,3,Often,0.53,True
+73,teen_social_life_blueprints_073,social_comparison,0,Never,0,Never,0.6,True
+73,teen_social_life_blueprints_073,social_media_hours,0,Less than one hour,0,Less than one hour,0.62,True
+74,teen_social_life_blueprints_074,academic_confidence,0,Not at all confident,0,Not at all confident,0.56,True
+74,teen_social_life_blueprints_074,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.47,True
+74,teen_social_life_blueprints_074,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.55,True
+74,teen_social_life_blueprints_074,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.52,True
+74,teen_social_life_blueprints_074,homework_distraction,2,Sometimes,2,Sometimes,0.45,True
+74,teen_social_life_blueprints_074,late_night_use,3,Often,3,Often,0.65,True
+74,teen_social_life_blueprints_074,organized_activity,2,One or two days a week,2,One or two days a week,0.41,True
+74,teen_social_life_blueprints_074,parental_rules,1,A few loose rules,1,A few loose rules,0.5,True
+74,teen_social_life_blueprints_074,peer_belonging,3,Often,3,Often,0.55,True
+74,teen_social_life_blueprints_074,posting_frequency,3,At least once a day,3,At least once a day,0.65,True
+74,teen_social_life_blueprints_074,primary_platform,2,YouTube,2,YouTube,0.45,True
+74,teen_social_life_blueprints_074,school_effort,1,Rarely,1,Rarely,0.44,True
+74,teen_social_life_blueprints_074,sleep_interference,1,Rarely,1,Rarely,0.46,True
+74,teen_social_life_blueprints_074,social_comparison,0,Never,0,Never,0.58,True
+74,teen_social_life_blueprints_074,social_media_hours,2,Four or more hours,2,Four or more hours,0.75,True
+75,teen_social_life_blueprints_075,academic_confidence,1,A little confident,1,A little confident,0.43,True
+75,teen_social_life_blueprints_075,career_clarity,3,A very clear plan,3,A very clear plan,0.61,True
+75,teen_social_life_blueprints_075,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.52,True
+75,teen_social_life_blueprints_075,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.52,True
+75,teen_social_life_blueprints_075,homework_distraction,3,Often,3,Often,0.48,True
+75,teen_social_life_blueprints_075,late_night_use,2,Sometimes,2,Sometimes,0.45,True
+75,teen_social_life_blueprints_075,organized_activity,0,Never,0,Never,0.57,True
+75,teen_social_life_blueprints_075,parental_rules,1,A few loose rules,1,A few loose rules,0.48,True
+75,teen_social_life_blueprints_075,peer_belonging,3,Often,3,Often,0.59,True
+75,teen_social_life_blueprints_075,posting_frequency,3,At least once a day,3,At least once a day,0.62,True
+75,teen_social_life_blueprints_075,primary_platform,1,Instagram,1,Instagram,0.5,True
+75,teen_social_life_blueprints_075,school_effort,3,Often,3,Often,0.59,True
+75,teen_social_life_blueprints_075,sleep_interference,2,Sometimes,2,Sometimes,0.43,True
+75,teen_social_life_blueprints_075,social_comparison,0,Never,0,Never,0.7,True
+75,teen_social_life_blueprints_075,social_media_hours,0,Less than one hour,0,Less than one hour,0.62,True
+76,teen_social_life_blueprints_076,academic_confidence,0,Not at all confident,0,Not at all confident,0.52,True
+76,teen_social_life_blueprints_076,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.49,True
+76,teen_social_life_blueprints_076,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.56,True
+76,teen_social_life_blueprints_076,future_optimism,1,A little optimistic,1,A little optimistic,0.44,True
+76,teen_social_life_blueprints_076,homework_distraction,3,Often,3,Often,0.57,True
+76,teen_social_life_blueprints_076,late_night_use,3,Often,3,Often,0.64,True
+76,teen_social_life_blueprints_076,organized_activity,1,Less than once a week,1,Less than once a week,0.42,True
+76,teen_social_life_blueprints_076,parental_rules,3,Very strict rules,3,Very strict rules,0.65,True
+76,teen_social_life_blueprints_076,peer_belonging,0,Never,0,Never,0.57,True
+76,teen_social_life_blueprints_076,posting_frequency,3,At least once a day,3,At least once a day,0.61,True
+76,teen_social_life_blueprints_076,primary_platform,2,YouTube,2,YouTube,0.55,True
+76,teen_social_life_blueprints_076,school_effort,3,Often,3,Often,0.61,True
+76,teen_social_life_blueprints_076,sleep_interference,1,Rarely,1,Rarely,0.46,True
+76,teen_social_life_blueprints_076,social_comparison,1,Rarely,1,Rarely,0.47,True
+76,teen_social_life_blueprints_076,social_media_hours,1,One to three hours,1,One to three hours,0.62,True
+77,teen_social_life_blueprints_077,academic_confidence,0,Not at all confident,0,Not at all confident,0.43,True
+77,teen_social_life_blueprints_077,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.5,True
+77,teen_social_life_blueprints_077,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.55,True
+77,teen_social_life_blueprints_077,future_optimism,3,Very optimistic,3,Very optimistic,0.58,True
+77,teen_social_life_blueprints_077,homework_distraction,2,Sometimes,2,Sometimes,0.39,True
+77,teen_social_life_blueprints_077,late_night_use,2,Sometimes,2,Sometimes,0.41,True
+77,teen_social_life_blueprints_077,organized_activity,2,One or two days a week,2,One or two days a week,0.42,True
+77,teen_social_life_blueprints_077,parental_rules,3,Very strict rules,3,Very strict rules,0.63,True
+77,teen_social_life_blueprints_077,peer_belonging,1,Rarely,1,Rarely,0.45,True
+77,teen_social_life_blueprints_077,posting_frequency,1,Less than once a week,1,Less than once a week,0.48,True
+77,teen_social_life_blueprints_077,primary_platform,2,YouTube,2,YouTube,0.52,True
+77,teen_social_life_blueprints_077,school_effort,2,Sometimes,2,Sometimes,0.46,True
+77,teen_social_life_blueprints_077,sleep_interference,0,Never,0,Never,0.64,True
+77,teen_social_life_blueprints_077,social_comparison,3,Often,3,Often,0.51,True
+77,teen_social_life_blueprints_077,social_media_hours,0,Less than one hour,0,Less than one hour,0.62,True
+78,teen_social_life_blueprints_078,academic_confidence,3,Very confident,3,Very confident,0.64,True
+78,teen_social_life_blueprints_078,career_clarity,3,A very clear plan,3,A very clear plan,0.63,True
+78,teen_social_life_blueprints_078,connection_effect,1,Makes little difference,1,Makes little difference,0.58,True
+78,teen_social_life_blueprints_078,future_optimism,1,A little optimistic,1,A little optimistic,0.42,True
+78,teen_social_life_blueprints_078,homework_distraction,2,Sometimes,2,Sometimes,0.47,True
+78,teen_social_life_blueprints_078,late_night_use,2,Sometimes,2,Sometimes,0.45,True
+78,teen_social_life_blueprints_078,organized_activity,3,Three or more days a week,3,Three or more days a week,0.65,True
+78,teen_social_life_blueprints_078,parental_rules,0,No rules,0,No rules,0.66,True
+78,teen_social_life_blueprints_078,peer_belonging,1,Rarely,1,Rarely,0.43,True
+78,teen_social_life_blueprints_078,posting_frequency,2,A few times a week,2,A few times a week,0.55,True
+78,teen_social_life_blueprints_078,primary_platform,3,Snapchat,3,Snapchat,0.46,True
+78,teen_social_life_blueprints_078,school_effort,1,Rarely,1,Rarely,0.43,True
+78,teen_social_life_blueprints_078,sleep_interference,1,Rarely,1,Rarely,0.5,True
+78,teen_social_life_blueprints_078,social_comparison,3,Often,3,Often,0.52,True
+78,teen_social_life_blueprints_078,social_media_hours,2,Four or more hours,2,Four or more hours,0.7,True
+79,teen_social_life_blueprints_079,academic_confidence,1,A little confident,1,A little confident,0.42,True
+79,teen_social_life_blueprints_079,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.49,True
+79,teen_social_life_blueprints_079,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.47,True
+79,teen_social_life_blueprints_079,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.53,True
+79,teen_social_life_blueprints_079,homework_distraction,1,Rarely,1,Rarely,0.45,True
+79,teen_social_life_blueprints_079,late_night_use,2,Sometimes,2,Sometimes,0.46,True
+79,teen_social_life_blueprints_079,organized_activity,3,Three or more days a week,3,Three or more days a week,0.64,True
+79,teen_social_life_blueprints_079,parental_rules,0,No rules,0,No rules,0.48,True
+79,teen_social_life_blueprints_079,peer_belonging,1,Rarely,1,Rarely,0.45,True
+79,teen_social_life_blueprints_079,posting_frequency,1,Less than once a week,1,Less than once a week,0.5,True
+79,teen_social_life_blueprints_079,primary_platform,1,Instagram,1,Instagram,0.43,True
+79,teen_social_life_blueprints_079,school_effort,3,Often,3,Often,0.56,True
+79,teen_social_life_blueprints_079,sleep_interference,2,Sometimes,2,Sometimes,0.43,True
+79,teen_social_life_blueprints_079,social_comparison,2,Sometimes,2,Sometimes,0.42,True
+79,teen_social_life_blueprints_079,social_media_hours,0,Less than one hour,0,Less than one hour,0.62,True
+80,teen_social_life_blueprints_080,academic_confidence,0,Not at all confident,0,Not at all confident,0.55,True
+80,teen_social_life_blueprints_080,career_clarity,3,A very clear plan,3,A very clear plan,0.6,True
+80,teen_social_life_blueprints_080,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.7,True
+80,teen_social_life_blueprints_080,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.52,True
+80,teen_social_life_blueprints_080,homework_distraction,2,Sometimes,2,Sometimes,0.4,True
+80,teen_social_life_blueprints_080,late_night_use,0,Never,0,Never,0.7,True
+80,teen_social_life_blueprints_080,organized_activity,3,Three or more days a week,3,Three or more days a week,0.66,True
+80,teen_social_life_blueprints_080,parental_rules,2,Some clear rules,2,Some clear rules,0.55,True
+80,teen_social_life_blueprints_080,peer_belonging,2,Sometimes,2,Sometimes,0.43,True
+80,teen_social_life_blueprints_080,posting_frequency,3,At least once a day,3,At least once a day,0.55,True
+80,teen_social_life_blueprints_080,primary_platform,2,YouTube,2,YouTube,0.55,True
+80,teen_social_life_blueprints_080,school_effort,1,Rarely,1,Rarely,0.45,True
+80,teen_social_life_blueprints_080,sleep_interference,1,Rarely,1,Rarely,0.5,True
+80,teen_social_life_blueprints_080,social_comparison,0,Never,0,Never,0.68,True
+80,teen_social_life_blueprints_080,social_media_hours,0,Less than one hour,0,Less than one hour,0.62,True
+81,teen_social_life_blueprints_081,academic_confidence,3,Very confident,3,Very confident,0.65,True
+81,teen_social_life_blueprints_081,career_clarity,0,No clear idea,0,No clear idea,0.46,True
+81,teen_social_life_blueprints_081,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.5,True
+81,teen_social_life_blueprints_081,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.5,True
+81,teen_social_life_blueprints_081,homework_distraction,3,Often,3,Often,0.55,True
+81,teen_social_life_blueprints_081,late_night_use,3,Often,3,Often,0.55,True
+81,teen_social_life_blueprints_081,organized_activity,3,Three or more days a week,3,Three or more days a week,0.62,True
+81,teen_social_life_blueprints_081,parental_rules,1,A few loose rules,1,A few loose rules,0.48,True
+81,teen_social_life_blueprints_081,peer_belonging,2,Sometimes,2,Sometimes,0.48,True
+81,teen_social_life_blueprints_081,posting_frequency,1,Less than once a week,1,Less than once a week,0.45,True
+81,teen_social_life_blueprints_081,primary_platform,0,TikTok,0,TikTok,0.52,True
+81,teen_social_life_blueprints_081,school_effort,0,Never,0,Never,0.42,True
+81,teen_social_life_blueprints_081,sleep_interference,0,Never,0,Never,0.58,True
+81,teen_social_life_blueprints_081,social_comparison,0,Never,0,Never,0.62,True
+81,teen_social_life_blueprints_081,social_media_hours,1,One to three hours,1,One to three hours,0.62,True
+82,teen_social_life_blueprints_082,academic_confidence,3,Very confident,3,Very confident,0.62,True
+82,teen_social_life_blueprints_082,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.5,True
+82,teen_social_life_blueprints_082,connection_effect,1,Makes little difference,1,Makes little difference,0.56,True
+82,teen_social_life_blueprints_082,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.55,True
+82,teen_social_life_blueprints_082,homework_distraction,0,Never,0,Never,0.63,True
+82,teen_social_life_blueprints_082,late_night_use,2,Sometimes,2,Sometimes,0.43,True
+82,teen_social_life_blueprints_082,organized_activity,2,One or two days a week,2,One or two days a week,0.47,True
+82,teen_social_life_blueprints_082,parental_rules,2,Some clear rules,2,Some clear rules,0.5,True
+82,teen_social_life_blueprints_082,peer_belonging,1,Rarely,1,Rarely,0.45,True
+82,teen_social_life_blueprints_082,posting_frequency,2,A few times a week,2,A few times a week,0.48,True
+82,teen_social_life_blueprints_082,primary_platform,3,Snapchat,3,Snapchat,0.42,True
+82,teen_social_life_blueprints_082,school_effort,2,Sometimes,2,Sometimes,0.44,True
+82,teen_social_life_blueprints_082,sleep_interference,0,Never,0,Never,0.62,True
+82,teen_social_life_blueprints_082,social_comparison,2,Sometimes,2,Sometimes,0.42,True
+82,teen_social_life_blueprints_082,social_media_hours,0,Less than one hour,0,Less than one hour,0.54,True
+83,teen_social_life_blueprints_083,academic_confidence,3,Very confident,3,Very confident,0.63,True
+83,teen_social_life_blueprints_083,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.55,True
+83,teen_social_life_blueprints_083,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.6,True
+83,teen_social_life_blueprints_083,future_optimism,3,Very optimistic,3,Very optimistic,0.68,True
+83,teen_social_life_blueprints_083,homework_distraction,1,Rarely,1,Rarely,0.46,True
+83,teen_social_life_blueprints_083,late_night_use,0,Never,0,Never,0.7,True
+83,teen_social_life_blueprints_083,organized_activity,1,Less than once a week,1,Less than once a week,0.43,True
+83,teen_social_life_blueprints_083,parental_rules,0,No rules,0,No rules,0.55,True
+83,teen_social_life_blueprints_083,peer_belonging,0,Never,0,Never,0.49,True
+83,teen_social_life_blueprints_083,posting_frequency,3,At least once a day,3,At least once a day,0.6,True
+83,teen_social_life_blueprints_083,primary_platform,0,TikTok,0,TikTok,0.62,True
+83,teen_social_life_blueprints_083,school_effort,1,Rarely,1,Rarely,0.39,True
+83,teen_social_life_blueprints_083,sleep_interference,3,Often,3,Often,0.45,True
+83,teen_social_life_blueprints_083,social_comparison,2,Sometimes,2,Sometimes,0.43,True
+83,teen_social_life_blueprints_083,social_media_hours,0,Less than one hour,0,Less than one hour,0.58,True
+84,teen_social_life_blueprints_084,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.53,True
+84,teen_social_life_blueprints_084,career_clarity,1,A few vague ideas,1,A few vague ideas,0.49,True
+84,teen_social_life_blueprints_084,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.66,True
+84,teen_social_life_blueprints_084,future_optimism,3,Very optimistic,3,Very optimistic,0.64,True
+84,teen_social_life_blueprints_084,homework_distraction,0,Never,0,Never,0.57,True
+84,teen_social_life_blueprints_084,late_night_use,2,Sometimes,2,Sometimes,0.44,True
+84,teen_social_life_blueprints_084,organized_activity,1,Less than once a week,1,Less than once a week,0.43,True
+84,teen_social_life_blueprints_084,parental_rules,1,A few loose rules,1,A few loose rules,0.5,True
+84,teen_social_life_blueprints_084,peer_belonging,0,Never,0,Never,0.45,True
+84,teen_social_life_blueprints_084,posting_frequency,3,At least once a day,3,At least once a day,0.66,True
+84,teen_social_life_blueprints_084,primary_platform,3,Snapchat,3,Snapchat,0.5,True
+84,teen_social_life_blueprints_084,school_effort,1,Rarely,1,Rarely,0.39,True
+84,teen_social_life_blueprints_084,sleep_interference,1,Rarely,1,Rarely,0.45,True
+84,teen_social_life_blueprints_084,social_comparison,2,Sometimes,2,Sometimes,0.43,True
+84,teen_social_life_blueprints_084,social_media_hours,1,One to three hours,1,One to three hours,0.72,True
+85,teen_social_life_blueprints_085,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.51,True
+85,teen_social_life_blueprints_085,career_clarity,0,No clear idea,0,No clear idea,0.48,True
+85,teen_social_life_blueprints_085,connection_effect,1,Makes little difference,1,Makes little difference,0.62,True
+85,teen_social_life_blueprints_085,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.53,True
+85,teen_social_life_blueprints_085,homework_distraction,1,Rarely,1,Rarely,0.52,True
+85,teen_social_life_blueprints_085,late_night_use,1,Rarely,1,Rarely,0.48,True
+85,teen_social_life_blueprints_085,organized_activity,1,Less than once a week,1,Less than once a week,0.42,True
+85,teen_social_life_blueprints_085,parental_rules,0,No rules,0,No rules,0.61,True
+85,teen_social_life_blueprints_085,peer_belonging,2,Sometimes,2,Sometimes,0.47,True
+85,teen_social_life_blueprints_085,posting_frequency,2,A few times a week,2,A few times a week,0.56,True
+85,teen_social_life_blueprints_085,primary_platform,4,Another platform,4,Another platform,0.37,True
+85,teen_social_life_blueprints_085,school_effort,2,Sometimes,2,Sometimes,0.48,True
+85,teen_social_life_blueprints_085,sleep_interference,0,Never,0,Never,0.7,True
+85,teen_social_life_blueprints_085,social_comparison,3,Often,3,Often,0.52,True
+85,teen_social_life_blueprints_085,social_media_hours,1,One to three hours,1,One to three hours,0.64,True
+86,teen_social_life_blueprints_086,academic_confidence,0,Not at all confident,0,Not at all confident,0.55,True
+86,teen_social_life_blueprints_086,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.52,True
+86,teen_social_life_blueprints_086,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.75,True
+86,teen_social_life_blueprints_086,future_optimism,3,Very optimistic,3,Very optimistic,0.7,True
+86,teen_social_life_blueprints_086,homework_distraction,2,Sometimes,2,Sometimes,0.46,True
+86,teen_social_life_blueprints_086,late_night_use,3,Often,3,Often,0.54,True
+86,teen_social_life_blueprints_086,organized_activity,3,Three or more days a week,3,Three or more days a week,0.6,True
+86,teen_social_life_blueprints_086,parental_rules,2,Some clear rules,2,Some clear rules,0.48,True
+86,teen_social_life_blueprints_086,peer_belonging,2,Sometimes,2,Sometimes,0.48,True
+86,teen_social_life_blueprints_086,posting_frequency,3,At least once a day,3,At least once a day,0.66,True
+86,teen_social_life_blueprints_086,primary_platform,4,Another platform,4,Another platform,0.44,True
+86,teen_social_life_blueprints_086,school_effort,0,Never,0,Never,0.5,True
+86,teen_social_life_blueprints_086,sleep_interference,1,Rarely,1,Rarely,0.45,True
+86,teen_social_life_blueprints_086,social_comparison,1,Rarely,1,Rarely,0.5,True
+86,teen_social_life_blueprints_086,social_media_hours,2,Four or more hours,2,Four or more hours,0.75,True
+87,teen_social_life_blueprints_087,academic_confidence,3,Very confident,3,Very confident,0.72,True
+87,teen_social_life_blueprints_087,career_clarity,0,No clear idea,0,No clear idea,0.58,True
+87,teen_social_life_blueprints_087,connection_effect,1,Makes little difference,1,Makes little difference,0.62,True
+87,teen_social_life_blueprints_087,future_optimism,3,Very optimistic,3,Very optimistic,0.69,True
+87,teen_social_life_blueprints_087,homework_distraction,1,Rarely,1,Rarely,0.45,True
+87,teen_social_life_blueprints_087,late_night_use,0,Never,0,Never,0.7,True
+87,teen_social_life_blueprints_087,organized_activity,1,Less than once a week,1,Less than once a week,0.43,True
+87,teen_social_life_blueprints_087,parental_rules,3,Very strict rules,3,Very strict rules,0.7,True
+87,teen_social_life_blueprints_087,peer_belonging,0,Never,0,Never,0.57,True
+87,teen_social_life_blueprints_087,posting_frequency,3,At least once a day,3,At least once a day,0.55,True
+87,teen_social_life_blueprints_087,primary_platform,5,I do not use social media,5,I do not use social media,0.75,True
+87,teen_social_life_blueprints_087,school_effort,1,Rarely,1,Rarely,0.46,True
+87,teen_social_life_blueprints_087,sleep_interference,3,Often,3,Often,0.55,True
+87,teen_social_life_blueprints_087,social_comparison,0,Never,0,Never,0.72,True
+87,teen_social_life_blueprints_087,social_media_hours,0,Less than one hour,0,Less than one hour,0.76,True
+88,teen_social_life_blueprints_088,academic_confidence,0,Not at all confident,0,Not at all confident,0.5,True
+88,teen_social_life_blueprints_088,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.5,True
+88,teen_social_life_blueprints_088,connection_effect,1,Makes little difference,1,Makes little difference,0.62,True
+88,teen_social_life_blueprints_088,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.5,True
+88,teen_social_life_blueprints_088,homework_distraction,2,Sometimes,2,Sometimes,0.35,True
+88,teen_social_life_blueprints_088,late_night_use,0,Never,0,Never,0.76,True
+88,teen_social_life_blueprints_088,organized_activity,2,One or two days a week,2,One or two days a week,0.42,True
+88,teen_social_life_blueprints_088,parental_rules,0,No rules,0,No rules,0.53,True
+88,teen_social_life_blueprints_088,peer_belonging,0,Never,0,Never,0.49,True
+88,teen_social_life_blueprints_088,posting_frequency,0,Never or almost never,0,Never or almost never,0.7,True
+88,teen_social_life_blueprints_088,primary_platform,0,TikTok,0,TikTok,0.46,True
+88,teen_social_life_blueprints_088,school_effort,2,Sometimes,2,Sometimes,0.45,True
+88,teen_social_life_blueprints_088,sleep_interference,1,Rarely,1,Rarely,0.5,True
+88,teen_social_life_blueprints_088,social_comparison,0,Never,0,Never,0.67,True
+88,teen_social_life_blueprints_088,social_media_hours,0,Less than one hour,0,Less than one hour,0.62,True
+89,teen_social_life_blueprints_089,academic_confidence,0,Not at all confident,0,Not at all confident,0.55,True
+89,teen_social_life_blueprints_089,career_clarity,3,A very clear plan,3,A very clear plan,0.61,True
+89,teen_social_life_blueprints_089,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.69,True
+89,teen_social_life_blueprints_089,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.54,True
+89,teen_social_life_blueprints_089,homework_distraction,2,Sometimes,2,Sometimes,0.42,True
+89,teen_social_life_blueprints_089,late_night_use,3,Often,3,Often,0.58,True
+89,teen_social_life_blueprints_089,organized_activity,3,Three or more days a week,3,Three or more days a week,0.68,True
+89,teen_social_life_blueprints_089,parental_rules,1,A few loose rules,1,A few loose rules,0.47,True
+89,teen_social_life_blueprints_089,peer_belonging,0,Never,0,Never,0.51,True
+89,teen_social_life_blueprints_089,posting_frequency,1,Less than once a week,1,Less than once a week,0.45,True
+89,teen_social_life_blueprints_089,primary_platform,3,Snapchat,3,Snapchat,0.47,True
+89,teen_social_life_blueprints_089,school_effort,3,Often,3,Often,0.58,True
+89,teen_social_life_blueprints_089,sleep_interference,2,Sometimes,2,Sometimes,0.46,True
+89,teen_social_life_blueprints_089,social_comparison,0,Never,0,Never,0.62,True
+89,teen_social_life_blueprints_089,social_media_hours,2,Four or more hours,2,Four or more hours,0.71,True
+90,teen_social_life_blueprints_090,academic_confidence,0,Not at all confident,0,Not at all confident,0.55,True
+90,teen_social_life_blueprints_090,career_clarity,1,A few vague ideas,1,A few vague ideas,0.5,True
+90,teen_social_life_blueprints_090,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.65,True
+90,teen_social_life_blueprints_090,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.55,True
+90,teen_social_life_blueprints_090,homework_distraction,0,Never,0,Never,0.6,True
+90,teen_social_life_blueprints_090,late_night_use,1,Rarely,1,Rarely,0.45,True
+90,teen_social_life_blueprints_090,organized_activity,2,One or two days a week,2,One or two days a week,0.45,True
+90,teen_social_life_blueprints_090,parental_rules,2,Some clear rules,2,Some clear rules,0.5,True
+90,teen_social_life_blueprints_090,peer_belonging,1,Rarely,1,Rarely,0.45,True
+90,teen_social_life_blueprints_090,posting_frequency,2,A few times a week,2,A few times a week,0.55,True
+90,teen_social_life_blueprints_090,primary_platform,1,Instagram,1,Instagram,0.55,True
+90,teen_social_life_blueprints_090,school_effort,2,Sometimes,2,Sometimes,0.45,True
+90,teen_social_life_blueprints_090,sleep_interference,1,Rarely,1,Rarely,0.48,True
+90,teen_social_life_blueprints_090,social_comparison,2,Sometimes,2,Sometimes,0.5,True
+90,teen_social_life_blueprints_090,social_media_hours,2,Four or more hours,2,Four or more hours,0.7,True
+91,teen_social_life_blueprints_091,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.52,True
+91,teen_social_life_blueprints_091,career_clarity,1,A few vague ideas,1,A few vague ideas,0.47,True
+91,teen_social_life_blueprints_091,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.53,True
+91,teen_social_life_blueprints_091,future_optimism,3,Very optimistic,3,Very optimistic,0.65,True
+91,teen_social_life_blueprints_091,homework_distraction,1,Rarely,1,Rarely,0.47,True
+91,teen_social_life_blueprints_091,late_night_use,1,Rarely,1,Rarely,0.49,True
+91,teen_social_life_blueprints_091,organized_activity,2,One or two days a week,2,One or two days a week,0.42,True
+91,teen_social_life_blueprints_091,parental_rules,1,A few loose rules,1,A few loose rules,0.48,True
+91,teen_social_life_blueprints_091,peer_belonging,2,Sometimes,2,Sometimes,0.46,True
+91,teen_social_life_blueprints_091,posting_frequency,1,Less than once a week,1,Less than once a week,0.55,True
+91,teen_social_life_blueprints_091,primary_platform,2,YouTube,2,YouTube,0.5,True
+91,teen_social_life_blueprints_091,school_effort,1,Rarely,1,Rarely,0.45,True
+91,teen_social_life_blueprints_091,sleep_interference,3,Often,3,Often,0.46,True
+91,teen_social_life_blueprints_091,social_comparison,0,Never,0,Never,0.67,True
+91,teen_social_life_blueprints_091,social_media_hours,0,Less than one hour,0,Less than one hour,0.64,True
+92,teen_social_life_blueprints_092,academic_confidence,3,Very confident,3,Very confident,0.65,True
+92,teen_social_life_blueprints_092,career_clarity,3,A very clear plan,3,A very clear plan,0.62,True
+92,teen_social_life_blueprints_092,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.5,True
+92,teen_social_life_blueprints_092,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.52,True
+92,teen_social_life_blueprints_092,homework_distraction,3,Often,3,Often,0.46,True
+92,teen_social_life_blueprints_092,late_night_use,1,Rarely,1,Rarely,0.5,True
+92,teen_social_life_blueprints_092,organized_activity,2,One or two days a week,2,One or two days a week,0.48,True
+92,teen_social_life_blueprints_092,parental_rules,3,Very strict rules,3,Very strict rules,0.65,True
+92,teen_social_life_blueprints_092,peer_belonging,3,Often,3,Often,0.52,True
+92,teen_social_life_blueprints_092,posting_frequency,2,A few times a week,2,A few times a week,0.52,True
+92,teen_social_life_blueprints_092,primary_platform,0,TikTok,0,TikTok,0.48,True
+92,teen_social_life_blueprints_092,school_effort,1,Rarely,1,Rarely,0.48,True
+92,teen_social_life_blueprints_092,sleep_interference,2,Sometimes,2,Sometimes,0.43,True
+92,teen_social_life_blueprints_092,social_comparison,3,Often,3,Often,0.5,True
+92,teen_social_life_blueprints_092,social_media_hours,0,Less than one hour,0,Less than one hour,0.62,True
+93,teen_social_life_blueprints_093,academic_confidence,1,A little confident,1,A little confident,0.46,True
+93,teen_social_life_blueprints_093,career_clarity,1,A few vague ideas,1,A few vague ideas,0.46,True
+93,teen_social_life_blueprints_093,connection_effect,1,Makes little difference,1,Makes little difference,0.62,True
+93,teen_social_life_blueprints_093,future_optimism,3,Very optimistic,3,Very optimistic,0.62,True
+93,teen_social_life_blueprints_093,homework_distraction,2,Sometimes,2,Sometimes,0.48,True
+93,teen_social_life_blueprints_093,late_night_use,2,Sometimes,2,Sometimes,0.45,True
+93,teen_social_life_blueprints_093,organized_activity,3,Three or more days a week,3,Three or more days a week,0.64,True
+93,teen_social_life_blueprints_093,parental_rules,2,Some clear rules,2,Some clear rules,0.55,True
+93,teen_social_life_blueprints_093,peer_belonging,2,Sometimes,2,Sometimes,0.5,True
+93,teen_social_life_blueprints_093,posting_frequency,0,Never or almost never,0,Never or almost never,0.62,True
+93,teen_social_life_blueprints_093,primary_platform,4,Another platform,4,Another platform,0.42,True
+93,teen_social_life_blueprints_093,school_effort,0,Never,0,Never,0.5,True
+93,teen_social_life_blueprints_093,sleep_interference,0,Never,0,Never,0.58,True
+93,teen_social_life_blueprints_093,social_comparison,1,Rarely,1,Rarely,0.5,True
+93,teen_social_life_blueprints_093,social_media_hours,2,Four or more hours,2,Four or more hours,0.7,True
+94,teen_social_life_blueprints_094,academic_confidence,1,A little confident,1,A little confident,0.45,True
+94,teen_social_life_blueprints_094,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.47,True
+94,teen_social_life_blueprints_094,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.59,True
+94,teen_social_life_blueprints_094,future_optimism,1,A little optimistic,1,A little optimistic,0.43,True
+94,teen_social_life_blueprints_094,homework_distraction,1,Rarely,1,Rarely,0.43,True
+94,teen_social_life_blueprints_094,late_night_use,2,Sometimes,2,Sometimes,0.46,True
+94,teen_social_life_blueprints_094,organized_activity,3,Three or more days a week,3,Three or more days a week,0.51,True
+94,teen_social_life_blueprints_094,parental_rules,1,A few loose rules,1,A few loose rules,0.47,True
+94,teen_social_life_blueprints_094,peer_belonging,1,Rarely,1,Rarely,0.46,True
+94,teen_social_life_blueprints_094,posting_frequency,3,At least once a day,3,At least once a day,0.58,True
+94,teen_social_life_blueprints_094,primary_platform,4,Another platform,4,Another platform,0.35,True
+94,teen_social_life_blueprints_094,school_effort,1,Rarely,1,Rarely,0.45,True
+94,teen_social_life_blueprints_094,sleep_interference,2,Sometimes,2,Sometimes,0.43,True
+94,teen_social_life_blueprints_094,social_comparison,3,Often,3,Often,0.43,True
+94,teen_social_life_blueprints_094,social_media_hours,0,Less than one hour,0,Less than one hour,0.58,True
+95,teen_social_life_blueprints_095,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.48,True
+95,teen_social_life_blueprints_095,career_clarity,3,A very clear plan,3,A very clear plan,0.55,True
+95,teen_social_life_blueprints_095,connection_effect,1,Makes little difference,1,Makes little difference,0.62,True
+95,teen_social_life_blueprints_095,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.49,True
+95,teen_social_life_blueprints_095,homework_distraction,3,Often,3,Often,0.53,True
+95,teen_social_life_blueprints_095,late_night_use,0,Never,0,Never,0.78,True
+95,teen_social_life_blueprints_095,organized_activity,1,Less than once a week,1,Less than once a week,0.42,True
+95,teen_social_life_blueprints_095,parental_rules,2,Some clear rules,2,Some clear rules,0.53,True
+95,teen_social_life_blueprints_095,peer_belonging,2,Sometimes,2,Sometimes,0.46,True
+95,teen_social_life_blueprints_095,posting_frequency,0,Never or almost never,0,Never or almost never,0.72,True
+95,teen_social_life_blueprints_095,primary_platform,4,Another platform,4,Another platform,0.47,True
+95,teen_social_life_blueprints_095,school_effort,0,Never,0,Never,0.45,True
+95,teen_social_life_blueprints_095,sleep_interference,1,Rarely,1,Rarely,0.52,True
+95,teen_social_life_blueprints_095,social_comparison,1,Rarely,1,Rarely,0.5,True
+95,teen_social_life_blueprints_095,social_media_hours,1,One to three hours,1,One to three hours,0.67,True
+96,teen_social_life_blueprints_096,academic_confidence,3,Very confident,3,Very confident,0.73,True
+96,teen_social_life_blueprints_096,career_clarity,0,No clear idea,0,No clear idea,0.62,True
+96,teen_social_life_blueprints_096,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.7,True
+96,teen_social_life_blueprints_096,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.56,True
+96,teen_social_life_blueprints_096,homework_distraction,1,Rarely,1,Rarely,0.58,True
+96,teen_social_life_blueprints_096,late_night_use,0,Never,0,Never,0.82,True
+96,teen_social_life_blueprints_096,organized_activity,3,Three or more days a week,3,Three or more days a week,0.7,True
+96,teen_social_life_blueprints_096,parental_rules,0,No rules,0,No rules,0.68,True
+96,teen_social_life_blueprints_096,peer_belonging,3,Often,3,Often,0.7,True
+96,teen_social_life_blueprints_096,posting_frequency,3,At least once a day,3,At least once a day,0.7,True
+96,teen_social_life_blueprints_096,primary_platform,2,YouTube,2,YouTube,0.56,True
+96,teen_social_life_blueprints_096,school_effort,3,Often,3,Often,0.7,True
+96,teen_social_life_blueprints_096,sleep_interference,0,Never,0,Never,0.84,True
+96,teen_social_life_blueprints_096,social_comparison,3,Often,3,Often,0.6,True
+96,teen_social_life_blueprints_096,social_media_hours,1,One to three hours,1,One to three hours,0.76,True
+97,teen_social_life_blueprints_097,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.5,True
+97,teen_social_life_blueprints_097,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.48,True
+97,teen_social_life_blueprints_097,connection_effect,1,Makes little difference,1,Makes little difference,0.55,True
+97,teen_social_life_blueprints_097,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.52,True
+97,teen_social_life_blueprints_097,homework_distraction,1,Rarely,1,Rarely,0.43,True
+97,teen_social_life_blueprints_097,late_night_use,2,Sometimes,2,Sometimes,0.48,True
+97,teen_social_life_blueprints_097,organized_activity,2,One or two days a week,2,One or two days a week,0.44,True
+97,teen_social_life_blueprints_097,parental_rules,2,Some clear rules,2,Some clear rules,0.45,True
+97,teen_social_life_blueprints_097,peer_belonging,3,Often,3,Often,0.54,True
+97,teen_social_life_blueprints_097,posting_frequency,1,Less than once a week,1,Less than once a week,0.46,True
+97,teen_social_life_blueprints_097,primary_platform,3,Snapchat,3,Snapchat,0.4,True
+97,teen_social_life_blueprints_097,school_effort,0,Never,0,Never,0.42,True
+97,teen_social_life_blueprints_097,sleep_interference,3,Often,3,Often,0.45,True
+97,teen_social_life_blueprints_097,social_comparison,3,Often,3,Often,0.45,True
+97,teen_social_life_blueprints_097,social_media_hours,1,One to three hours,1,One to three hours,0.68,True
+98,teen_social_life_blueprints_098,academic_confidence,0,Not at all confident,0,Not at all confident,0.6,True
+98,teen_social_life_blueprints_098,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.55,True
+98,teen_social_life_blueprints_098,connection_effect,1,Makes little difference,1,Makes little difference,0.65,True
+98,teen_social_life_blueprints_098,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.55,True
+98,teen_social_life_blueprints_098,homework_distraction,0,Never,0,Never,0.7,True
+98,teen_social_life_blueprints_098,late_night_use,0,Never,0,Never,0.7,True
+98,teen_social_life_blueprints_098,organized_activity,1,Less than once a week,1,Less than once a week,0.4,True
+98,teen_social_life_blueprints_098,parental_rules,3,Very strict rules,3,Very strict rules,0.7,True
+98,teen_social_life_blueprints_098,peer_belonging,3,Often,3,Often,0.6,True
+98,teen_social_life_blueprints_098,posting_frequency,3,At least once a day,3,At least once a day,0.5,True
+98,teen_social_life_blueprints_098,primary_platform,5,I do not use social media,5,I do not use social media,0.5,True
+98,teen_social_life_blueprints_098,school_effort,0,Never,0,Never,0.55,True
+98,teen_social_life_blueprints_098,sleep_interference,1,Rarely,1,Rarely,0.5,True
+98,teen_social_life_blueprints_098,social_comparison,1,Rarely,1,Rarely,0.5,True
+98,teen_social_life_blueprints_098,social_media_hours,0,Less than one hour,0,Less than one hour,0.7,True
+99,teen_social_life_blueprints_099,academic_confidence,0,Not at all confident,0,Not at all confident,0.58,True
+99,teen_social_life_blueprints_099,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.55,True
+99,teen_social_life_blueprints_099,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.62,True
+99,teen_social_life_blueprints_099,future_optimism,1,A little optimistic,1,A little optimistic,0.45,True
+99,teen_social_life_blueprints_099,homework_distraction,0,Never,0,Never,0.78,True
+99,teen_social_life_blueprints_099,late_night_use,1,Rarely,1,Rarely,0.54,True
+99,teen_social_life_blueprints_099,organized_activity,2,One or two days a week,2,One or two days a week,0.5,True
+99,teen_social_life_blueprints_099,parental_rules,2,Some clear rules,2,Some clear rules,0.5,True
+99,teen_social_life_blueprints_099,peer_belonging,2,Sometimes,2,Sometimes,0.44,True
+99,teen_social_life_blueprints_099,posting_frequency,0,Never or almost never,0,Never or almost never,0.72,True
+99,teen_social_life_blueprints_099,primary_platform,5,I do not use social media,5,I do not use social media,0.51,True
+99,teen_social_life_blueprints_099,school_effort,0,Never,0,Never,0.55,True
+99,teen_social_life_blueprints_099,sleep_interference,0,Never,0,Never,0.8,True
+99,teen_social_life_blueprints_099,social_comparison,0,Never,0,Never,0.7,True
+99,teen_social_life_blueprints_099,social_media_hours,1,One to three hours,1,One to three hours,0.65,True
+100,teen_social_life_blueprints_100,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.55,True
+100,teen_social_life_blueprints_100,career_clarity,1,A few vague ideas,1,A few vague ideas,0.5,True
+100,teen_social_life_blueprints_100,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.5,True
+100,teen_social_life_blueprints_100,future_optimism,1,A little optimistic,1,A little optimistic,0.46,True
+100,teen_social_life_blueprints_100,homework_distraction,2,Sometimes,2,Sometimes,0.43,True
+100,teen_social_life_blueprints_100,late_night_use,0,Never,0,Never,0.72,True
+100,teen_social_life_blueprints_100,organized_activity,0,Never,0,Never,0.68,True
+100,teen_social_life_blueprints_100,parental_rules,0,No rules,0,No rules,0.62,True
+100,teen_social_life_blueprints_100,peer_belonging,1,Rarely,1,Rarely,0.45,True
+100,teen_social_life_blueprints_100,posting_frequency,2,A few times a week,2,A few times a week,0.58,True
+100,teen_social_life_blueprints_100,primary_platform,0,TikTok,0,TikTok,0.54,True
+100,teen_social_life_blueprints_100,school_effort,3,Often,3,Often,0.57,True
+100,teen_social_life_blueprints_100,sleep_interference,1,Rarely,1,Rarely,0.52,True
+100,teen_social_life_blueprints_100,social_comparison,0,Never,0,Never,0.7,True
+100,teen_social_life_blueprints_100,social_media_hours,1,One to three hours,1,One to three hours,0.67,True
+101,teen_social_life_blueprints_101,academic_confidence,1,A little confident,1,A little confident,0.45,True
+101,teen_social_life_blueprints_101,career_clarity,0,No clear idea,0,No clear idea,0.55,True
+101,teen_social_life_blueprints_101,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.57,True
+101,teen_social_life_blueprints_101,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.55,True
+101,teen_social_life_blueprints_101,homework_distraction,1,Rarely,1,Rarely,0.45,True
+101,teen_social_life_blueprints_101,late_night_use,1,Rarely,1,Rarely,0.46,True
+101,teen_social_life_blueprints_101,organized_activity,1,Less than once a week,1,Less than once a week,0.4,True
+101,teen_social_life_blueprints_101,parental_rules,2,Some clear rules,2,Some clear rules,0.48,True
+101,teen_social_life_blueprints_101,peer_belonging,0,Never,0,Never,0.52,True
+101,teen_social_life_blueprints_101,posting_frequency,1,Less than once a week,1,Less than once a week,0.45,True
+101,teen_social_life_blueprints_101,primary_platform,4,Another platform,4,Another platform,0.42,True
+101,teen_social_life_blueprints_101,school_effort,0,Never,0,Never,0.55,True
+101,teen_social_life_blueprints_101,sleep_interference,3,Often,3,Often,0.5,True
+101,teen_social_life_blueprints_101,social_comparison,3,Often,3,Often,0.5,True
+101,teen_social_life_blueprints_101,social_media_hours,2,Four or more hours,2,Four or more hours,0.77,True
+102,teen_social_life_blueprints_102,academic_confidence,1,A little confident,1,A little confident,0.46,True
+102,teen_social_life_blueprints_102,career_clarity,0,No clear idea,0,No clear idea,0.5,True
+102,teen_social_life_blueprints_102,connection_effect,1,Makes little difference,1,Makes little difference,0.62,True
+102,teen_social_life_blueprints_102,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.52,True
+102,teen_social_life_blueprints_102,homework_distraction,1,Rarely,1,Rarely,0.49,True
+102,teen_social_life_blueprints_102,late_night_use,0,Never,0,Never,0.74,True
+102,teen_social_life_blueprints_102,organized_activity,0,Never,0,Never,0.65,True
+102,teen_social_life_blueprints_102,parental_rules,0,No rules,0,No rules,0.55,True
+102,teen_social_life_blueprints_102,peer_belonging,1,Rarely,1,Rarely,0.43,True
+102,teen_social_life_blueprints_102,posting_frequency,0,Never or almost never,0,Never or almost never,0.7,True
+102,teen_social_life_blueprints_102,primary_platform,1,Instagram,1,Instagram,0.43,True
+102,teen_social_life_blueprints_102,school_effort,3,Often,3,Often,0.61,True
+102,teen_social_life_blueprints_102,sleep_interference,0,Never,0,Never,0.76,True
+102,teen_social_life_blueprints_102,social_comparison,0,Never,0,Never,0.67,True
+102,teen_social_life_blueprints_102,social_media_hours,1,One to three hours,1,One to three hours,0.65,True
+103,teen_social_life_blueprints_103,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.5,True
+103,teen_social_life_blueprints_103,career_clarity,3,A very clear plan,3,A very clear plan,0.57,True
+103,teen_social_life_blueprints_103,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.52,True
+103,teen_social_life_blueprints_103,future_optimism,1,A little optimistic,1,A little optimistic,0.46,True
+103,teen_social_life_blueprints_103,homework_distraction,0,Never,0,Never,0.61,True
+103,teen_social_life_blueprints_103,late_night_use,3,Often,3,Often,0.66,True
+103,teen_social_life_blueprints_103,organized_activity,0,Never,0,Never,0.68,True
+103,teen_social_life_blueprints_103,parental_rules,1,A few loose rules,1,A few loose rules,0.49,True
+103,teen_social_life_blueprints_103,peer_belonging,1,Rarely,1,Rarely,0.47,True
+103,teen_social_life_blueprints_103,posting_frequency,3,At least once a day,3,At least once a day,0.75,True
+103,teen_social_life_blueprints_103,primary_platform,3,Snapchat,3,Snapchat,0.48,True
+103,teen_social_life_blueprints_103,school_effort,1,Rarely,1,Rarely,0.44,True
+103,teen_social_life_blueprints_103,sleep_interference,1,Rarely,1,Rarely,0.5,True
+103,teen_social_life_blueprints_103,social_comparison,2,Sometimes,2,Sometimes,0.45,True
+103,teen_social_life_blueprints_103,social_media_hours,2,Four or more hours,2,Four or more hours,0.8,True
+104,teen_social_life_blueprints_104,academic_confidence,3,Very confident,3,Very confident,0.66,True
+104,teen_social_life_blueprints_104,career_clarity,3,A very clear plan,3,A very clear plan,0.62,True
+104,teen_social_life_blueprints_104,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.67,True
+104,teen_social_life_blueprints_104,future_optimism,1,A little optimistic,1,A little optimistic,0.42,True
+104,teen_social_life_blueprints_104,homework_distraction,3,Often,3,Often,0.54,True
+104,teen_social_life_blueprints_104,late_night_use,1,Rarely,1,Rarely,0.5,True
+104,teen_social_life_blueprints_104,organized_activity,1,Less than once a week,1,Less than once a week,0.44,True
+104,teen_social_life_blueprints_104,parental_rules,2,Some clear rules,2,Some clear rules,0.55,True
+104,teen_social_life_blueprints_104,peer_belonging,1,Rarely,1,Rarely,0.45,True
+104,teen_social_life_blueprints_104,posting_frequency,2,A few times a week,2,A few times a week,0.58,True
+104,teen_social_life_blueprints_104,primary_platform,0,TikTok,0,TikTok,0.56,True
+104,teen_social_life_blueprints_104,school_effort,0,Never,0,Never,0.47,True
+104,teen_social_life_blueprints_104,sleep_interference,2,Sometimes,2,Sometimes,0.43,True
+104,teen_social_life_blueprints_104,social_comparison,0,Never,0,Never,0.62,True
+104,teen_social_life_blueprints_104,social_media_hours,1,One to three hours,1,One to three hours,0.68,True
+105,teen_social_life_blueprints_105,academic_confidence,1,A little confident,1,A little confident,0.44,True
+105,teen_social_life_blueprints_105,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.48,True
+105,teen_social_life_blueprints_105,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.64,True
+105,teen_social_life_blueprints_105,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.54,True
+105,teen_social_life_blueprints_105,homework_distraction,3,Often,3,Often,0.48,True
+105,teen_social_life_blueprints_105,late_night_use,0,Never,0,Never,0.7,True
+105,teen_social_life_blueprints_105,organized_activity,0,Never,0,Never,0.62,True
+105,teen_social_life_blueprints_105,parental_rules,1,A few loose rules,1,A few loose rules,0.5,True
+105,teen_social_life_blueprints_105,peer_belonging,2,Sometimes,2,Sometimes,0.48,True
+105,teen_social_life_blueprints_105,posting_frequency,1,Less than once a week,1,Less than once a week,0.52,True
+105,teen_social_life_blueprints_105,primary_platform,4,Another platform,4,Another platform,0.36,True
+105,teen_social_life_blueprints_105,school_effort,3,Often,3,Often,0.54,True
+105,teen_social_life_blueprints_105,sleep_interference,0,Never,0,Never,0.74,True
+105,teen_social_life_blueprints_105,social_comparison,0,Never,0,Never,0.66,True
+105,teen_social_life_blueprints_105,social_media_hours,1,One to three hours,1,One to three hours,0.68,True
+106,teen_social_life_blueprints_106,academic_confidence,3,Very confident,3,Very confident,0.65,True
+106,teen_social_life_blueprints_106,career_clarity,1,A few vague ideas,1,A few vague ideas,0.46,True
+106,teen_social_life_blueprints_106,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.7,True
+106,teen_social_life_blueprints_106,future_optimism,1,A little optimistic,1,A little optimistic,0.43,True
+106,teen_social_life_blueprints_106,homework_distraction,3,Often,3,Often,0.55,True
+106,teen_social_life_blueprints_106,late_night_use,3,Often,3,Often,0.6,True
+106,teen_social_life_blueprints_106,organized_activity,3,Three or more days a week,3,Three or more days a week,0.66,True
+106,teen_social_life_blueprints_106,parental_rules,3,Very strict rules,3,Very strict rules,0.65,True
+106,teen_social_life_blueprints_106,peer_belonging,3,Often,3,Often,0.6,True
+106,teen_social_life_blueprints_106,posting_frequency,2,A few times a week,2,A few times a week,0.58,True
+106,teen_social_life_blueprints_106,primary_platform,3,Snapchat,3,Snapchat,0.46,True
+106,teen_social_life_blueprints_106,school_effort,2,Sometimes,2,Sometimes,0.45,True
+106,teen_social_life_blueprints_106,sleep_interference,2,Sometimes,2,Sometimes,0.45,True
+106,teen_social_life_blueprints_106,social_comparison,2,Sometimes,2,Sometimes,0.43,True
+106,teen_social_life_blueprints_106,social_media_hours,2,Four or more hours,2,Four or more hours,0.7,True
+107,teen_social_life_blueprints_107,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.56,True
+107,teen_social_life_blueprints_107,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.56,True
+107,teen_social_life_blueprints_107,connection_effect,1,Makes little difference,1,Makes little difference,0.56,True
+107,teen_social_life_blueprints_107,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.57,True
+107,teen_social_life_blueprints_107,homework_distraction,0,Never,0,Never,0.58,True
+107,teen_social_life_blueprints_107,late_night_use,2,Sometimes,2,Sometimes,0.46,True
+107,teen_social_life_blueprints_107,organized_activity,0,Never,0,Never,0.61,True
+107,teen_social_life_blueprints_107,parental_rules,2,Some clear rules,2,Some clear rules,0.55,True
+107,teen_social_life_blueprints_107,peer_belonging,0,Never,0,Never,0.52,True
+107,teen_social_life_blueprints_107,posting_frequency,3,At least once a day,3,At least once a day,0.66,True
+107,teen_social_life_blueprints_107,primary_platform,3,Snapchat,3,Snapchat,0.45,True
+107,teen_social_life_blueprints_107,school_effort,3,Often,3,Often,0.6,True
+107,teen_social_life_blueprints_107,sleep_interference,3,Often,3,Often,0.55,True
+107,teen_social_life_blueprints_107,social_comparison,3,Often,3,Often,0.55,True
+107,teen_social_life_blueprints_107,social_media_hours,2,Four or more hours,2,Four or more hours,0.7,True
+108,teen_social_life_blueprints_108,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.52,True
+108,teen_social_life_blueprints_108,career_clarity,1,A few vague ideas,1,A few vague ideas,0.49,True
+108,teen_social_life_blueprints_108,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.62,True
+108,teen_social_life_blueprints_108,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.55,True
+108,teen_social_life_blueprints_108,homework_distraction,3,Often,3,Often,0.57,True
+108,teen_social_life_blueprints_108,late_night_use,3,Often,3,Often,0.64,True
+108,teen_social_life_blueprints_108,organized_activity,1,Less than once a week,1,Less than once a week,0.43,True
+108,teen_social_life_blueprints_108,parental_rules,0,No rules,0,No rules,0.64,True
+108,teen_social_life_blueprints_108,peer_belonging,0,Never,0,Never,0.57,True
+108,teen_social_life_blueprints_108,posting_frequency,3,At least once a day,3,At least once a day,0.68,True
+108,teen_social_life_blueprints_108,primary_platform,0,TikTok,0,TikTok,0.6,True
+108,teen_social_life_blueprints_108,school_effort,3,Often,3,Often,0.61,True
+108,teen_social_life_blueprints_108,sleep_interference,3,Often,3,Often,0.58,True
+108,teen_social_life_blueprints_108,social_comparison,3,Often,3,Often,0.58,True
+108,teen_social_life_blueprints_108,social_media_hours,1,One to three hours,1,One to three hours,0.68,True
+109,teen_social_life_blueprints_109,academic_confidence,0,Not at all confident,0,Not at all confident,0.46,True
+109,teen_social_life_blueprints_109,career_clarity,0,No clear idea,0,No clear idea,0.48,True
+109,teen_social_life_blueprints_109,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.46,True
+109,teen_social_life_blueprints_109,future_optimism,3,Very optimistic,3,Very optimistic,0.58,True
+109,teen_social_life_blueprints_109,homework_distraction,3,Often,3,Often,0.46,True
+109,teen_social_life_blueprints_109,late_night_use,3,Often,3,Often,0.5,True
+109,teen_social_life_blueprints_109,organized_activity,1,Less than once a week,1,Less than once a week,0.39,True
+109,teen_social_life_blueprints_109,parental_rules,1,A few loose rules,1,A few loose rules,0.5,True
+109,teen_social_life_blueprints_109,peer_belonging,2,Sometimes,2,Sometimes,0.47,True
+109,teen_social_life_blueprints_109,posting_frequency,1,Less than once a week,1,Less than once a week,0.48,True
+109,teen_social_life_blueprints_109,primary_platform,1,Instagram,1,Instagram,0.42,True
+109,teen_social_life_blueprints_109,school_effort,3,Often,3,Often,0.52,True
+109,teen_social_life_blueprints_109,sleep_interference,1,Rarely,1,Rarely,0.42,True
+109,teen_social_life_blueprints_109,social_comparison,2,Sometimes,2,Sometimes,0.46,True
+109,teen_social_life_blueprints_109,social_media_hours,1,One to three hours,1,One to three hours,0.62,True
+110,teen_social_life_blueprints_110,academic_confidence,1,A little confident,1,A little confident,0.43,True
+110,teen_social_life_blueprints_110,career_clarity,1,A few vague ideas,1,A few vague ideas,0.44,True
+110,teen_social_life_blueprints_110,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.49,True
+110,teen_social_life_blueprints_110,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.51,True
+110,teen_social_life_blueprints_110,homework_distraction,1,Rarely,1,Rarely,0.45,True
+110,teen_social_life_blueprints_110,late_night_use,2,Sometimes,2,Sometimes,0.42,True
+110,teen_social_life_blueprints_110,organized_activity,3,Three or more days a week,3,Three or more days a week,0.63,True
+110,teen_social_life_blueprints_110,parental_rules,1,A few loose rules,1,A few loose rules,0.46,True
+110,teen_social_life_blueprints_110,peer_belonging,3,Often,3,Often,0.52,True
+110,teen_social_life_blueprints_110,posting_frequency,1,Less than once a week,1,Less than once a week,0.46,True
+110,teen_social_life_blueprints_110,primary_platform,3,Snapchat,3,Snapchat,0.43,True
+110,teen_social_life_blueprints_110,school_effort,0,Never,0,Never,0.44,True
+110,teen_social_life_blueprints_110,sleep_interference,0,Never,0,Never,0.58,True
+110,teen_social_life_blueprints_110,social_comparison,0,Never,0,Never,0.62,True
+110,teen_social_life_blueprints_110,social_media_hours,0,Less than one hour,0,Less than one hour,0.64,True
+111,teen_social_life_blueprints_111,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.49,True
+111,teen_social_life_blueprints_111,career_clarity,3,A very clear plan,3,A very clear plan,0.53,True
+111,teen_social_life_blueprints_111,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.64,True
+111,teen_social_life_blueprints_111,future_optimism,1,A little optimistic,1,A little optimistic,0.41,True
+111,teen_social_life_blueprints_111,homework_distraction,0,Never,0,Never,0.61,True
+111,teen_social_life_blueprints_111,late_night_use,0,Never,0,Never,0.64,True
+111,teen_social_life_blueprints_111,organized_activity,2,One or two days a week,2,One or two days a week,0.44,True
+111,teen_social_life_blueprints_111,parental_rules,2,Some clear rules,2,Some clear rules,0.52,True
+111,teen_social_life_blueprints_111,peer_belonging,1,Rarely,1,Rarely,0.46,True
+111,teen_social_life_blueprints_111,posting_frequency,2,A few times a week,2,A few times a week,0.51,True
+111,teen_social_life_blueprints_111,primary_platform,0,TikTok,0,TikTok,0.55,True
+111,teen_social_life_blueprints_111,school_effort,2,Sometimes,2,Sometimes,0.45,True
+111,teen_social_life_blueprints_111,sleep_interference,2,Sometimes,2,Sometimes,0.43,True
+111,teen_social_life_blueprints_111,social_comparison,1,Rarely,1,Rarely,0.48,True
+111,teen_social_life_blueprints_111,social_media_hours,0,Less than one hour,0,Less than one hour,0.62,True
+112,teen_social_life_blueprints_112,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.48,True
+112,teen_social_life_blueprints_112,career_clarity,0,No clear idea,0,No clear idea,0.58,True
+112,teen_social_life_blueprints_112,connection_effect,1,Makes little difference,1,Makes little difference,0.52,True
+112,teen_social_life_blueprints_112,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.5,True
+112,teen_social_life_blueprints_112,homework_distraction,2,Sometimes,2,Sometimes,0.42,True
+112,teen_social_life_blueprints_112,late_night_use,2,Sometimes,2,Sometimes,0.43,True
+112,teen_social_life_blueprints_112,organized_activity,0,Never,0,Never,0.7,True
+112,teen_social_life_blueprints_112,parental_rules,0,No rules,0,No rules,0.68,True
+112,teen_social_life_blueprints_112,peer_belonging,0,Never,0,Never,0.53,True
+112,teen_social_life_blueprints_112,posting_frequency,0,Never or almost never,0,Never or almost never,0.62,True
+112,teen_social_life_blueprints_112,primary_platform,4,Another platform,4,Another platform,0.45,True
+112,teen_social_life_blueprints_112,school_effort,3,Often,3,Often,0.55,True
+112,teen_social_life_blueprints_112,sleep_interference,2,Sometimes,2,Sometimes,0.41,True
+112,teen_social_life_blueprints_112,social_comparison,2,Sometimes,2,Sometimes,0.42,True
+112,teen_social_life_blueprints_112,social_media_hours,2,Four or more hours,2,Four or more hours,0.65,True
+113,teen_social_life_blueprints_113,academic_confidence,1,A little confident,1,A little confident,0.43,True
+113,teen_social_life_blueprints_113,career_clarity,3,A very clear plan,3,A very clear plan,0.53,True
+113,teen_social_life_blueprints_113,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.48,True
+113,teen_social_life_blueprints_113,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.52,True
+113,teen_social_life_blueprints_113,homework_distraction,1,Rarely,1,Rarely,0.45,True
+113,teen_social_life_blueprints_113,late_night_use,2,Sometimes,2,Sometimes,0.46,True
+113,teen_social_life_blueprints_113,organized_activity,2,One or two days a week,2,One or two days a week,0.43,True
+113,teen_social_life_blueprints_113,parental_rules,0,No rules,0,No rules,0.7,True
+113,teen_social_life_blueprints_113,peer_belonging,0,Never,0,Never,0.49,True
+113,teen_social_life_blueprints_113,posting_frequency,0,Never or almost never,0,Never or almost never,0.7,True
+113,teen_social_life_blueprints_113,primary_platform,3,Snapchat,3,Snapchat,0.42,True
+113,teen_social_life_blueprints_113,school_effort,0,Never,0,Never,0.48,True
+113,teen_social_life_blueprints_113,sleep_interference,0,Never,0,Never,0.6,True
+113,teen_social_life_blueprints_113,social_comparison,0,Never,0,Never,0.66,True
+113,teen_social_life_blueprints_113,social_media_hours,0,Less than one hour,0,Less than one hour,0.62,True
+114,teen_social_life_blueprints_114,academic_confidence,0,Not at all confident,0,Not at all confident,0.48,True
+114,teen_social_life_blueprints_114,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.45,True
+114,teen_social_life_blueprints_114,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.52,True
+114,teen_social_life_blueprints_114,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.49,True
+114,teen_social_life_blueprints_114,homework_distraction,0,Never,0,Never,0.54,True
+114,teen_social_life_blueprints_114,late_night_use,2,Sometimes,2,Sometimes,0.43,True
+114,teen_social_life_blueprints_114,organized_activity,0,Never,0,Never,0.57,True
+114,teen_social_life_blueprints_114,parental_rules,2,Some clear rules,2,Some clear rules,0.44,True
+114,teen_social_life_blueprints_114,peer_belonging,1,Rarely,1,Rarely,0.42,True
+114,teen_social_life_blueprints_114,posting_frequency,1,Less than once a week,1,Less than once a week,0.44,True
+114,teen_social_life_blueprints_114,primary_platform,3,Snapchat,3,Snapchat,0.43,True
+114,teen_social_life_blueprints_114,school_effort,2,Sometimes,2,Sometimes,0.4,True
+114,teen_social_life_blueprints_114,sleep_interference,1,Rarely,1,Rarely,0.45,True
+114,teen_social_life_blueprints_114,social_comparison,3,Often,3,Often,0.5,True
+114,teen_social_life_blueprints_114,social_media_hours,1,One to three hours,1,One to three hours,0.64,True
+115,teen_social_life_blueprints_115,academic_confidence,0,Not at all confident,0,Not at all confident,0.57,True
+115,teen_social_life_blueprints_115,career_clarity,3,A very clear plan,3,A very clear plan,0.5,True
+115,teen_social_life_blueprints_115,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.6,True
+115,teen_social_life_blueprints_115,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.53,True
+115,teen_social_life_blueprints_115,homework_distraction,1,Rarely,1,Rarely,0.42,True
+115,teen_social_life_blueprints_115,late_night_use,1,Rarely,1,Rarely,0.45,True
+115,teen_social_life_blueprints_115,organized_activity,1,Less than once a week,1,Less than once a week,0.43,True
+115,teen_social_life_blueprints_115,parental_rules,2,Some clear rules,2,Some clear rules,0.52,True
+115,teen_social_life_blueprints_115,peer_belonging,3,Often,3,Often,0.53,True
+115,teen_social_life_blueprints_115,posting_frequency,1,Less than once a week,1,Less than once a week,0.49,True
+115,teen_social_life_blueprints_115,primary_platform,5,I do not use social media,5,I do not use social media,0.52,True
+115,teen_social_life_blueprints_115,school_effort,0,Never,0,Never,0.55,True
+115,teen_social_life_blueprints_115,sleep_interference,3,Often,3,Often,0.5,True
+115,teen_social_life_blueprints_115,social_comparison,1,Rarely,1,Rarely,0.46,True
+115,teen_social_life_blueprints_115,social_media_hours,2,Four or more hours,2,Four or more hours,0.71,True
+116,teen_social_life_blueprints_116,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.55,True
+116,teen_social_life_blueprints_116,career_clarity,1,A few vague ideas,1,A few vague ideas,0.5,True
+116,teen_social_life_blueprints_116,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.55,True
+116,teen_social_life_blueprints_116,future_optimism,3,Very optimistic,3,Very optimistic,0.68,True
+116,teen_social_life_blueprints_116,homework_distraction,3,Often,3,Often,0.5,True
+116,teen_social_life_blueprints_116,late_night_use,1,Rarely,1,Rarely,0.55,True
+116,teen_social_life_blueprints_116,organized_activity,1,Less than once a week,1,Less than once a week,0.38,True
+116,teen_social_life_blueprints_116,parental_rules,2,Some clear rules,2,Some clear rules,0.52,True
+116,teen_social_life_blueprints_116,peer_belonging,0,Never,0,Never,0.6,True
+116,teen_social_life_blueprints_116,posting_frequency,1,Less than once a week,1,Less than once a week,0.5,True
+116,teen_social_life_blueprints_116,primary_platform,1,Instagram,1,Instagram,0.45,True
+116,teen_social_life_blueprints_116,school_effort,3,Often,3,Often,0.65,True
+116,teen_social_life_blueprints_116,sleep_interference,0,Never,0,Never,0.7,True
+116,teen_social_life_blueprints_116,social_comparison,1,Rarely,1,Rarely,0.52,True
+116,teen_social_life_blueprints_116,social_media_hours,0,Less than one hour,0,Less than one hour,0.62,True
+117,teen_social_life_blueprints_117,academic_confidence,3,Very confident,3,Very confident,0.64,True
+117,teen_social_life_blueprints_117,career_clarity,3,A very clear plan,3,A very clear plan,0.6,True
+117,teen_social_life_blueprints_117,connection_effect,1,Makes little difference,1,Makes little difference,0.65,True
+117,teen_social_life_blueprints_117,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.55,True
+117,teen_social_life_blueprints_117,homework_distraction,3,Often,3,Often,0.5,True
+117,teen_social_life_blueprints_117,late_night_use,2,Sometimes,2,Sometimes,0.46,True
+117,teen_social_life_blueprints_117,organized_activity,0,Never,0,Never,0.7,True
+117,teen_social_life_blueprints_117,parental_rules,3,Very strict rules,3,Very strict rules,0.68,True
+117,teen_social_life_blueprints_117,peer_belonging,1,Rarely,1,Rarely,0.45,True
+117,teen_social_life_blueprints_117,posting_frequency,2,A few times a week,2,A few times a week,0.52,True
+117,teen_social_life_blueprints_117,primary_platform,2,YouTube,2,YouTube,0.48,True
+117,teen_social_life_blueprints_117,school_effort,1,Rarely,1,Rarely,0.42,True
+117,teen_social_life_blueprints_117,sleep_interference,1,Rarely,1,Rarely,0.5,True
+117,teen_social_life_blueprints_117,social_comparison,0,Never,0,Never,0.62,True
+117,teen_social_life_blueprints_117,social_media_hours,1,One to three hours,1,One to three hours,0.68,True
+118,teen_social_life_blueprints_118,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.56,True
+118,teen_social_life_blueprints_118,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.52,True
+118,teen_social_life_blueprints_118,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.54,True
+118,teen_social_life_blueprints_118,future_optimism,2,Somewhat optimistic,2,Somewhat optimistic,0.52,True
+118,teen_social_life_blueprints_118,homework_distraction,0,Never,0,Never,0.62,True
+118,teen_social_life_blueprints_118,late_night_use,3,Often,3,Often,0.63,True
+118,teen_social_life_blueprints_118,organized_activity,0,Never,0,Never,0.65,True
+118,teen_social_life_blueprints_118,parental_rules,1,A few loose rules,1,A few loose rules,0.5,True
+118,teen_social_life_blueprints_118,peer_belonging,1,Rarely,1,Rarely,0.48,True
+118,teen_social_life_blueprints_118,posting_frequency,3,At least once a day,3,At least once a day,0.66,True
+118,teen_social_life_blueprints_118,primary_platform,2,YouTube,2,YouTube,0.48,True
+118,teen_social_life_blueprints_118,school_effort,2,Sometimes,2,Sometimes,0.5,True
+118,teen_social_life_blueprints_118,sleep_interference,3,Often,3,Often,0.56,True
+118,teen_social_life_blueprints_118,social_comparison,3,Often,3,Often,0.57,True
+118,teen_social_life_blueprints_118,social_media_hours,1,One to three hours,1,One to three hours,0.68,True
+119,teen_social_life_blueprints_119,academic_confidence,1,A little confident,1,A little confident,0.45,True
+119,teen_social_life_blueprints_119,career_clarity,1,A few vague ideas,1,A few vague ideas,0.45,True
+119,teen_social_life_blueprints_119,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.55,True
+119,teen_social_life_blueprints_119,future_optimism,1,A little optimistic,1,A little optimistic,0.43,True
+119,teen_social_life_blueprints_119,homework_distraction,0,Never,0,Never,0.64,True
+119,teen_social_life_blueprints_119,late_night_use,3,Often,3,Often,0.59,True
+119,teen_social_life_blueprints_119,organized_activity,0,Never,0,Never,0.74,True
+119,teen_social_life_blueprints_119,parental_rules,3,Very strict rules,3,Very strict rules,0.67,True
+119,teen_social_life_blueprints_119,peer_belonging,0,Never,0,Never,0.57,True
+119,teen_social_life_blueprints_119,posting_frequency,0,Never or almost never,0,Never or almost never,0.76,True
+119,teen_social_life_blueprints_119,primary_platform,5,I do not use social media,5,I do not use social media,0.49,True
+119,teen_social_life_blueprints_119,school_effort,2,Sometimes,2,Sometimes,0.43,True
+119,teen_social_life_blueprints_119,sleep_interference,2,Sometimes,2,Sometimes,0.42,True
+119,teen_social_life_blueprints_119,social_comparison,2,Sometimes,2,Sometimes,0.43,True
+119,teen_social_life_blueprints_119,social_media_hours,2,Four or more hours,2,Four or more hours,0.72,True
+120,teen_social_life_blueprints_120,academic_confidence,1,A little confident,1,A little confident,0.43,True
+120,teen_social_life_blueprints_120,career_clarity,3,A very clear plan,3,A very clear plan,0.6,True
+120,teen_social_life_blueprints_120,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.58,True
+120,teen_social_life_blueprints_120,future_optimism,3,Very optimistic,3,Very optimistic,0.64,True
+120,teen_social_life_blueprints_120,homework_distraction,1,Rarely,1,Rarely,0.45,True
+120,teen_social_life_blueprints_120,late_night_use,1,Rarely,1,Rarely,0.43,True
+120,teen_social_life_blueprints_120,organized_activity,3,Three or more days a week,3,Three or more days a week,0.64,True
+120,teen_social_life_blueprints_120,parental_rules,1,A few loose rules,1,A few loose rules,0.51,True
+120,teen_social_life_blueprints_120,peer_belonging,0,Never,0,Never,0.53,True
+120,teen_social_life_blueprints_120,posting_frequency,1,Less than once a week,1,Less than once a week,0.46,True
+120,teen_social_life_blueprints_120,primary_platform,2,YouTube,2,YouTube,0.54,True
+120,teen_social_life_blueprints_120,school_effort,1,Rarely,1,Rarely,0.45,True
+120,teen_social_life_blueprints_120,sleep_interference,3,Often,3,Often,0.46,True
+120,teen_social_life_blueprints_120,social_comparison,3,Often,3,Often,0.54,True
+120,teen_social_life_blueprints_120,social_media_hours,2,Four or more hours,2,Four or more hours,0.71,True
+121,teen_social_life_blueprints_121,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.42,True
+121,teen_social_life_blueprints_121,career_clarity,1,A few vague ideas,1,A few vague ideas,0.49,True
+121,teen_social_life_blueprints_121,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.62,True
+121,teen_social_life_blueprints_121,future_optimism,0,Not at all optimistic,0,Not at all optimistic,0.55,True
+121,teen_social_life_blueprints_121,homework_distraction,3,Often,3,Often,0.46,True
+121,teen_social_life_blueprints_121,late_night_use,2,Sometimes,2,Sometimes,0.46,True
+121,teen_social_life_blueprints_121,organized_activity,1,Less than once a week,1,Less than once a week,0.43,True
+121,teen_social_life_blueprints_121,parental_rules,0,No rules,0,No rules,0.58,True
+121,teen_social_life_blueprints_121,peer_belonging,0,Never,0,Never,0.5,True
+121,teen_social_life_blueprints_121,posting_frequency,2,A few times a week,2,A few times a week,0.54,True
+121,teen_social_life_blueprints_121,primary_platform,5,I do not use social media,5,I do not use social media,0.4,True
+121,teen_social_life_blueprints_121,school_effort,0,Never,0,Never,0.52,True
+121,teen_social_life_blueprints_121,sleep_interference,2,Sometimes,2,Sometimes,0.47,True
+121,teen_social_life_blueprints_121,social_comparison,3,Often,3,Often,0.6,True
+121,teen_social_life_blueprints_121,social_media_hours,1,One to three hours,1,One to three hours,0.65,True
+122,teen_social_life_blueprints_122,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.55,True
+122,teen_social_life_blueprints_122,career_clarity,0,No clear idea,0,No clear idea,0.43,True
+122,teen_social_life_blueprints_122,connection_effect,0,Makes me feel less connected,0,Makes me feel less connected,0.52,True
+122,teen_social_life_blueprints_122,future_optimism,3,Very optimistic,3,Very optimistic,0.6,True
+122,teen_social_life_blueprints_122,homework_distraction,2,Sometimes,2,Sometimes,0.43,True
+122,teen_social_life_blueprints_122,late_night_use,3,Often,3,Often,0.6,True
+122,teen_social_life_blueprints_122,organized_activity,2,One or two days a week,2,One or two days a week,0.46,True
+122,teen_social_life_blueprints_122,parental_rules,0,No rules,0,No rules,0.58,True
+122,teen_social_life_blueprints_122,peer_belonging,3,Often,3,Often,0.59,True
+122,teen_social_life_blueprints_122,posting_frequency,0,Never or almost never,0,Never or almost never,0.5,True
+122,teen_social_life_blueprints_122,primary_platform,3,Snapchat,3,Snapchat,0.47,True
+122,teen_social_life_blueprints_122,school_effort,3,Often,3,Often,0.58,True
+122,teen_social_life_blueprints_122,sleep_interference,3,Often,3,Often,0.53,True
+122,teen_social_life_blueprints_122,social_comparison,2,Sometimes,2,Sometimes,0.45,True
+122,teen_social_life_blueprints_122,social_media_hours,2,Four or more hours,2,Four or more hours,0.7,True
+123,teen_social_life_blueprints_123,academic_confidence,1,A little confident,1,A little confident,0.43,True
+123,teen_social_life_blueprints_123,career_clarity,0,No clear idea,0,No clear idea,0.55,True
+123,teen_social_life_blueprints_123,connection_effect,1,Makes little difference,1,Makes little difference,0.55,True
+123,teen_social_life_blueprints_123,future_optimism,1,A little optimistic,1,A little optimistic,0.48,True
+123,teen_social_life_blueprints_123,homework_distraction,1,Rarely,1,Rarely,0.45,True
+123,teen_social_life_blueprints_123,late_night_use,2,Sometimes,2,Sometimes,0.46,True
+123,teen_social_life_blueprints_123,organized_activity,1,Less than once a week,1,Less than once a week,0.44,True
+123,teen_social_life_blueprints_123,parental_rules,0,No rules,0,No rules,0.62,True
+123,teen_social_life_blueprints_123,peer_belonging,0,Never,0,Never,0.55,True
+123,teen_social_life_blueprints_123,posting_frequency,0,Never or almost never,0,Never or almost never,0.64,True
+123,teen_social_life_blueprints_123,primary_platform,1,Instagram,1,Instagram,0.45,True
+123,teen_social_life_blueprints_123,school_effort,3,Often,3,Often,0.57,True
+123,teen_social_life_blueprints_123,sleep_interference,3,Often,3,Often,0.55,True
+123,teen_social_life_blueprints_123,social_comparison,3,Often,3,Often,0.53,True
+123,teen_social_life_blueprints_123,social_media_hours,2,Four or more hours,2,Four or more hours,0.66,True
+124,teen_social_life_blueprints_124,academic_confidence,0,Not at all confident,0,Not at all confident,0.6,True
+124,teen_social_life_blueprints_124,career_clarity,2,A fairly clear idea,2,A fairly clear idea,0.58,True
+124,teen_social_life_blueprints_124,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.68,True
+124,teen_social_life_blueprints_124,future_optimism,1,A little optimistic,1,A little optimistic,0.47,True
+124,teen_social_life_blueprints_124,homework_distraction,2,Sometimes,2,Sometimes,0.45,True
+124,teen_social_life_blueprints_124,late_night_use,0,Never,0,Never,0.7,True
+124,teen_social_life_blueprints_124,organized_activity,2,One or two days a week,2,One or two days a week,0.52,True
+124,teen_social_life_blueprints_124,parental_rules,1,A few loose rules,1,A few loose rules,0.55,True
+124,teen_social_life_blueprints_124,peer_belonging,0,Never,0,Never,0.58,True
+124,teen_social_life_blueprints_124,posting_frequency,2,A few times a week,2,A few times a week,0.55,True
+124,teen_social_life_blueprints_124,primary_platform,5,I do not use social media,5,I do not use social media,0.55,True
+124,teen_social_life_blueprints_124,school_effort,0,Never,0,Never,0.55,True
+124,teen_social_life_blueprints_124,sleep_interference,2,Sometimes,2,Sometimes,0.45,True
+124,teen_social_life_blueprints_124,social_comparison,0,Never,0,Never,0.72,True
+124,teen_social_life_blueprints_124,social_media_hours,2,Four or more hours,2,Four or more hours,0.75,True
+125,teen_social_life_blueprints_125,academic_confidence,3,Very confident,3,Very confident,0.65,True
+125,teen_social_life_blueprints_125,career_clarity,1,A few vague ideas,1,A few vague ideas,0.45,True
+125,teen_social_life_blueprints_125,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.65,True
+125,teen_social_life_blueprints_125,future_optimism,1,A little optimistic,1,A little optimistic,0.4,True
+125,teen_social_life_blueprints_125,homework_distraction,2,Sometimes,2,Sometimes,0.4,True
+125,teen_social_life_blueprints_125,late_night_use,0,Never,0,Never,0.7,True
+125,teen_social_life_blueprints_125,organized_activity,2,One or two days a week,2,One or two days a week,0.45,True
+125,teen_social_life_blueprints_125,parental_rules,1,A few loose rules,1,A few loose rules,0.42,True
+125,teen_social_life_blueprints_125,peer_belonging,3,Often,3,Often,0.6,True
+125,teen_social_life_blueprints_125,posting_frequency,2,A few times a week,2,A few times a week,0.5,True
+125,teen_social_life_blueprints_125,primary_platform,5,I do not use social media,5,I do not use social media,0.45,True
+125,teen_social_life_blueprints_125,school_effort,0,Never,0,Never,0.45,True
+125,teen_social_life_blueprints_125,sleep_interference,1,Rarely,1,Rarely,0.5,True
+125,teen_social_life_blueprints_125,social_comparison,2,Sometimes,2,Sometimes,0.47,True
+125,teen_social_life_blueprints_125,social_media_hours,1,One to three hours,1,One to three hours,0.62,True
+126,teen_social_life_blueprints_126,academic_confidence,2,Somewhat confident,2,Somewhat confident,0.51,True
+126,teen_social_life_blueprints_126,career_clarity,1,A few vague ideas,1,A few vague ideas,0.44,True
+126,teen_social_life_blueprints_126,connection_effect,1,Makes little difference,1,Makes little difference,0.62,True
+126,teen_social_life_blueprints_126,future_optimism,3,Very optimistic,3,Very optimistic,0.6,True
+126,teen_social_life_blueprints_126,homework_distraction,0,Never,0,Never,0.72,True
+126,teen_social_life_blueprints_126,late_night_use,0,Never,0,Never,0.7,True
+126,teen_social_life_blueprints_126,organized_activity,2,One or two days a week,2,One or two days a week,0.43,True
+126,teen_social_life_blueprints_126,parental_rules,0,No rules,0,No rules,0.58,True
+126,teen_social_life_blueprints_126,peer_belonging,0,Never,0,Never,0.54,True
+126,teen_social_life_blueprints_126,posting_frequency,3,At least once a day,3,At least once a day,0.6,True
+126,teen_social_life_blueprints_126,primary_platform,1,Instagram,1,Instagram,0.48,True
+126,teen_social_life_blueprints_126,school_effort,1,Rarely,1,Rarely,0.44,True
+126,teen_social_life_blueprints_126,sleep_interference,0,Never,0,Never,0.74,True
+126,teen_social_life_blueprints_126,social_comparison,2,Sometimes,2,Sometimes,0.42,True
+126,teen_social_life_blueprints_126,social_media_hours,0,Less than one hour,0,Less than one hour,0.62,True
+127,teen_social_life_blueprints_127,academic_confidence,1,A little confident,1,A little confident,0.46,True
+127,teen_social_life_blueprints_127,career_clarity,3,A very clear plan,3,A very clear plan,0.65,True
+127,teen_social_life_blueprints_127,connection_effect,2,Makes me feel more connected,2,Makes me feel more connected,0.67,True
+127,teen_social_life_blueprints_127,future_optimism,3,Very optimistic,3,Very optimistic,0.69,True
+127,teen_social_life_blueprints_127,homework_distraction,1,Rarely,1,Rarely,0.45,True
+127,teen_social_life_blueprints_127,late_night_use,3,Often,3,Often,0.6,True
+127,teen_social_life_blueprints_127,organized_activity,0,Never,0,Never,0.74,True
+127,teen_social_life_blueprints_127,parental_rules,0,No rules,0,No rules,0.72,True
+127,teen_social_life_blueprints_127,peer_belonging,0,Never,0,Never,0.62,True
+127,teen_social_life_blueprints_127,posting_frequency,0,Never or almost never,0,Never or almost never,0.7,True
+127,teen_social_life_blueprints_127,primary_platform,5,I do not use social media,5,I do not use social media,0.55,True
+127,teen_social_life_blueprints_127,school_effort,3,Often,3,Often,0.61,True
+127,teen_social_life_blueprints_127,sleep_interference,3,Often,3,Often,0.58,True
+127,teen_social_life_blueprints_127,social_comparison,0,Never,0,Never,0.68,True
+127,teen_social_life_blueprints_127,social_media_hours,1,One to three hours,1,One to three hours,0.62,True
+128,teen_social_life_blueprints_128,academic_confidence,1,A little confident,1,A little confident,0.46,True
+128,teen_social_life_blueprints_128,career_clarity,0,No clear idea,0,No clear idea,0.56,True
+128,teen_social_life_blueprints_128,connection_effect,1,Makes little difference,1,Makes little difference,0.58,True
+128,teen_social_life_blueprints_128,future_optimism,1,A little optimistic,1,A little optimistic,0.45,True
+128,teen_social_life_blueprints_128,homework_distraction,3,Often,3,Often,0.5,True
+128,teen_social_life_blueprints_128,late_night_use,3,Often,3,Often,0.5,True
+128,teen_social_life_blueprints_128,organized_activity,0,Never,0,Never,0.68,True
+128,teen_social_life_blueprints_128,parental_rules,0,No rules,0,No rules,0.6,True
+128,teen_social_life_blueprints_128,peer_belonging,0,Never,0,Never,0.49,True
+128,teen_social_life_blueprints_128,posting_frequency,0,Never or almost never,0,Never or almost never,0.7,True
+128,teen_social_life_blueprints_128,primary_platform,2,YouTube,2,YouTube,0.55,True
+128,teen_social_life_blueprints_128,school_effort,2,Sometimes,2,Sometimes,0.44,True
+128,teen_social_life_blueprints_128,sleep_interference,3,Often,3,Often,0.5,True
+128,teen_social_life_blueprints_128,social_comparison,0,Never,0,Never,0.55,True
+128,teen_social_life_blueprints_128,social_media_hours,0,Less than one hour,0,Less than one hour,0.62,True

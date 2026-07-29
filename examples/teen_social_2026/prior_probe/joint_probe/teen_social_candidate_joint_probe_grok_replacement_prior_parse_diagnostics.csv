@@ -1,0 +1,2 @@
+job_id,target_id,model,service_name,valid,raw_sum
+teen_social_candidate_joint_probe_posting_frequency_x_social_comparison,joint:posting_frequency:social_comparison,grok-4.5,xai,True,1.0

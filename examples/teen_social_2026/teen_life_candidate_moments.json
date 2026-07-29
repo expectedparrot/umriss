@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "wave": "ATS2026",
+  "battery": "TEEN_LIFE_CANDIDATES",
+  "survey_key": "teen_life_candidate_moments",
+  "topic": "school, activities, relationships, and future outlook among US teen girls",
+  "context": "Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.",
+  "items": {
+    "school_effort": {
+      "variable": "SCHOOLEFFORT_girls",
+      "question_stem": "How often do you work hard on schoolwork even when the assignment is difficult or not interesting?",
+      "item_text": "Persistence and effort in schoolwork",
+      "option_codes": [1, 2, 3, 4],
+      "option_labels": ["Never", "Rarely", "Sometimes", "Often"],
+      "scale": {"type": "ordinal", "direction": "low_to_high"}
+    },
+    "academic_confidence": {
+      "variable": "ACADEMICCONF_girls",
+      "question_stem": "How confident are you that you can do well in your classes when you put in the effort?",
+      "item_text": "Confidence in ability to succeed academically",
+      "option_codes": [1, 2, 3, 4],
+      "option_labels": ["Not at all confident", "A little confident", "Somewhat confident", "Very confident"],
+      "scale": {"type": "ordinal", "direction": "low_to_high"}
+    },
+    "homework_distraction": {
+      "variable": "HWDISTRACT_girls",
+      "question_stem": "How often does social media make it harder for you to finish homework or study as much as you intended?",
+      "item_text": "Social-media interference with homework",
+      "option_codes": [1, 2, 3, 4],
+      "option_labels": ["Never", "Rarely", "Sometimes", "Often"],
+      "scale": {"type": "ordinal", "direction": "low_to_high"}
+    },
+    "organized_activity": {
+      "variable": "ACTIVITY_girls",
+      "question_stem": "During a typical week, how often do you take part in organized sports, dance, exercise classes, or another structured physical activity?",
+      "item_text": "Participation in organized physical activity",
+      "option_codes": [1, 2, 3, 4],
+      "option_labels": ["Never", "Less than once a week", "One or two days a week", "Three or more days a week"],
+      "scale": {"type": "ordinal", "direction": "low_to_high"}
+    },
+    "career_clarity": {
+      "variable": "CAREERCLARITY_girls",
+      "question_stem": "How clear an idea do you currently have about the kind of work or career you might want as an adult?",
+      "item_text": "Clarity about a future career",
+      "option_codes": [1, 2, 3, 4],
+      "option_labels": ["No clear idea", "A few vague ideas", "A fairly clear idea", "A very clear plan"],
+      "scale": {"type": "ordinal", "direction": "low_to_high"}
+    },
+    "future_optimism": {
+      "variable": "FUTUREOPT_girls",
+      "question_stem": "Overall, how optimistic do you feel about your own future?",
+      "item_text": "Optimism about personal future",
+      "option_codes": [1, 2, 3, 4],
+      "option_labels": ["Not at all optimistic", "A little optimistic", "Somewhat optimistic", "Very optimistic"],
+      "scale": {"type": "ordinal", "direction": "low_to_high"}
+    },
+    "peer_belonging": {
+      "variable": "BELONGING_girls",
+      "question_stem": "How often do you feel that you belong and are accepted among people your age?",
+      "item_text": "Sense of belonging among peers",
+      "option_codes": [1, 2, 3, 4],
+      "option_labels": ["Never", "Rarely", "Sometimes", "Often"],
+      "scale": {"type": "ordinal", "direction": "low_to_high"}
+    }
+  }
+}

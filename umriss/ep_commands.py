@@ -23,6 +23,7 @@ def export_support_jobs(
     max_tokens: int = 2200,
     limit: int | None = None,
     workflow: str = "support",
+    register_workflow: str | None = None,
     tag: str | None = None,
     registration_out: Path | None = None,
     job_ids_path: Path | None = None,
@@ -94,7 +95,9 @@ def export_support_jobs(
             if service:
                 kwargs["service_name"] = service
             models.append(Model(model_name, **kwargs))
-    except (TypeError, ValueError) as exc:
+    except Exception as exc:
+        if not isinstance(exc, (TypeError, ValueError)) and type(exc).__name__ != "InferenceServiceDependencyError":
+            raise
         raise UmrissError(
             "model_unavailable",
             "Could not construct one or more requested EDSL models.",
@@ -120,7 +123,7 @@ def export_support_jobs(
     )
     run_command = f"ep run --jobs {jobs_path} --output {results_path}"
     register_command = (
-        f"umriss {workflow} register-results --results {results_path} "
+        f"umriss {register_workflow or workflow} register-results --results {results_path} "
         f"--prompts {prompts_path} --tag {resolved_tag} --out {raw_out}"
     )
     manifest = {

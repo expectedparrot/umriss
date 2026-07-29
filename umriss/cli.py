@@ -20,10 +20,12 @@ from .artifacts import (
 )
 from .balancing import build_uniform_augmentation, merge_support_banks, write_uniformity
 from .baselines import build_baseline_prompts, parse_baseline_results
+from .blueprints import validate_blueprint_fidelity
 from .calibration import fit_weights, load_support_matrix, write_fit_outputs
 from .ep_commands import export_support_jobs
 from .errors import UmrissError
 from .evaluation import run_marginal_validation
+from .extensions import build_item_extension_prompts, parse_item_extension
 from .jsonlio import read_json, write_json
 from .metadata import (
     add_marginal,
@@ -38,6 +40,7 @@ from .metadata import (
 )
 from .parsing import audit_result_attempts, parse_support, register_results
 from .plotting import plot_validation
+from .priors import build_joint_prior_prompts, consensus_targets, parse_model_priors
 from .provenance import build_provenance, guard_manifest, path_sha256
 from .state import (
     ROOT,
@@ -61,8 +64,17 @@ from .support_designs import (
     load_design_config,
     preset_design,
     resolve_design,
+    target_informed_blueprint_design,
+    target_repair_blueprint_design,
     validate_design,
     write_support_outputs,
+)
+from .targets import (
+    audit_targets,
+    diagnose_target_feasibility,
+    fit_generalized_targets,
+    merge_target_artifacts,
+    targets_from_metadata,
 )
 from .twin_export import export_edsl_agents
 from .twin_survey import (
@@ -76,7 +88,6 @@ from .twin_survey import (
     export_edsl_survey,
     plot_survey_comparison,
 )
-
 
 ENVELOPE_SCHEMA_VERSION = "1.0"
 
@@ -125,6 +136,8 @@ _GROUP_COMMANDS = {
     "design",
     "support",
     "baseline",
+    "prior",
+    "targets",
     "validate",
     "twins",
     "report-data",
@@ -479,7 +492,18 @@ def cmd_support_build(args: argparse.Namespace) -> dict[str, Any]:
     metadata, metadata_source = _metadata_source(args)
     tag = args.tag
     try:
-        if args.design:
+        if args.targets:
+            if args.design or args.preset != "target-informed-blueprints":
+                raise ValueError("--targets requires --preset target-informed-blueprints and cannot be combined with --design.")
+            design_path = None
+            resolved = target_informed_blueprint_design(
+                metadata,
+                read_json(Path(args.targets)),
+                args.n_support or 128,
+                args.seed or 20260625,
+                args.targets,
+            )
+        elif args.design:
             design_path = Path(args.design)
             config = load_design_config(design_path)
             resolved = resolve_design(config, metadata, size=args.n_support, seed=args.seed)
@@ -504,6 +528,7 @@ def cmd_support_build(args: argparse.Namespace) -> dict[str, Any]:
         inputs={
             "metadata": Path(metadata_source["path"]),
             "design": Path(args.design) if args.design else None,
+            "targets": Path(args.targets) if args.targets else None,
         },
         parameters={
             "tag": tag,
@@ -511,6 +536,7 @@ def cmd_support_build(args: argparse.Namespace) -> dict[str, Any]:
             "n_support": args.n_support,
             "seed": args.seed,
             "resolved_design": resolved,
+            "targets": args.targets,
         },
     )
     existing = guard_manifest(manifest_path, provenance, outputs=output_paths, force=args.force)
@@ -551,6 +577,62 @@ def cmd_support_build(args: argparse.Namespace) -> dict[str, Any]:
     )
 
 
+def cmd_support_augment_targets(args: argparse.Namespace) -> dict[str, Any]:
+    metadata = read_json(Path(args.metadata))
+    try:
+        design = target_repair_blueprint_design(
+            metadata,
+            read_json(Path(args.targets)),
+            Path(args.support),
+            args.n_add,
+            args.seed,
+            args.targets,
+        )
+        rows = compile_support_plan(metadata, args.tag, design)
+    except ValueError as exc:
+        code = "target_repair_too_small" if str(exc).startswith("TARGET_REPAIR_TOO_SMALL") else "design_invalid"
+        raise UmrissError(code, str(exc)) from exc
+    out_dir = Path(args.out)
+    paths = write_support_outputs(rows, metadata, args.tag, out_dir, design)
+    manifest_path = out_dir / f"{args.tag}_build_manifest.json"
+    provenance = build_provenance(
+        "umriss support augment-targets",
+        inputs={
+            "metadata": Path(args.metadata),
+            "targets": Path(args.targets),
+            "support": Path(args.support),
+        },
+        parameters={"tag": args.tag, "n_add": args.n_add, "seed": args.seed, "resolved_design": design},
+    )
+    data = {
+        **paths,
+        "rows": len(rows),
+        "tag": args.tag,
+        "preset": "target-repair-blueprints",
+        "base_support": args.support,
+        "targets": args.targets,
+        "manifest_path": str(manifest_path),
+    }
+    write_json(
+        manifest_path,
+        {
+            "schema_version": 1,
+            "kind": "umriss_support_target_repair",
+            "provenance": provenance,
+            "data": data,
+        },
+    )
+    return envelope(
+        "umriss support augment-targets",
+        "ok",
+        data,
+        next_steps=[
+            f"umriss support export --prompts {paths['prompts_path']} --path {out_dir / (args.tag + '.jobs.ep')} "
+            f"--tag {args.tag} --registration-out {out_dir}"
+        ],
+    )
+
+
 def cmd_support_export(args: argparse.Namespace) -> dict[str, Any]:
     data = export_support_jobs(
         Path(args.prompts),
@@ -560,6 +642,8 @@ def cmd_support_export(args: argparse.Namespace) -> dict[str, Any]:
         temperature=args.temperature,
         max_tokens=args.max_tokens,
         limit=args.limit,
+        workflow=args.workflow,
+        register_workflow="support",
         tag=args.tag,
         registration_out=Path(args.registration_out) if args.registration_out else None,
         job_ids_path=Path(args.job_ids) if args.job_ids else None,
@@ -625,10 +709,20 @@ def cmd_support_audit_results(args: argparse.Namespace) -> dict[str, Any]:
 
 def cmd_support_parse(args: argparse.Namespace) -> dict[str, Any]:
     metadata = read_json(Path(args.metadata))
-    data = parse_support(Path(args.raw), metadata, args.tag, Path(args.out))
+    data = parse_support(
+        Path(args.raw),
+        metadata,
+        args.tag,
+        Path(args.out),
+        allow_legacy_persona=args.allow_legacy_persona,
+    )
     return envelope(
         "umriss support parse", "ok", data,
-        next_steps=[f"umriss support uniformity --support {data.get('probabilities', '<bank_probabilities.csv>')} --metadata {args.metadata} --out {args.out}"],
+        next_steps=[
+            f"umriss support uniformity --support {data.get('probabilities_path', '<bank_probabilities.csv>')} "
+            f"--metadata {args.metadata} --tag {args.tag} "
+            f"--out {Path(args.out) / (args.tag + '_support_uniformity.csv')}"
+        ],
     )
 
 
@@ -692,6 +786,228 @@ def cmd_baseline_parse(args: argparse.Namespace) -> dict[str, Any]:
     )
 
 
+def cmd_prior_build_marginals(args: argparse.Namespace) -> dict[str, Any]:
+    metadata = read_json(Path(args.metadata))
+    data = build_baseline_prompts(metadata, args.tag, Path(args.out), mode="one_shot")
+    return envelope(
+        "umriss prior build-marginals",
+        "ok",
+        data,
+        next_steps=[
+            f"umriss prior export --prompts {data['prompts_path']} --path {Path(args.out) / (args.tag + '.jobs.ep')} "
+            f"--tag {args.tag} --registration-out {args.out}"
+        ],
+    )
+
+
+def cmd_prior_build_joints(args: argparse.Namespace) -> dict[str, Any]:
+    data = build_joint_prior_prompts(
+        read_json(Path(args.metadata)),
+        args.pair,
+        args.population,
+        args.tag,
+        Path(args.out),
+    )
+    return envelope(
+        "umriss prior build-joints",
+        "ok",
+        data,
+        next_steps=[
+            f"umriss prior export --prompts {data['prompts_path']} --path {Path(args.out) / (args.tag + '.jobs.ep')} "
+            f"--tag {args.tag} --registration-out {args.out}"
+        ],
+    )
+
+
+def cmd_prior_export(args: argparse.Namespace) -> dict[str, Any]:
+    data = export_support_jobs(
+        Path(args.prompts),
+        Path(args.path),
+        model=args.model,
+        service_name=args.service_name,
+        temperature=args.temperature,
+        max_tokens=args.max_tokens,
+        workflow="prior",
+        tag=args.tag,
+        registration_out=Path(args.registration_out) if args.registration_out else None,
+        job_ids_path=Path(args.job_ids) if args.job_ids else None,
+        force=args.force,
+    )
+    return envelope("umriss prior export", "ok", data, next_steps=data.get("next_steps", []))
+
+
+def cmd_prior_register_results(args: argparse.Namespace) -> dict[str, Any]:
+    data = register_results(Path(args.results), Path(args.prompts), args.tag, Path(args.out), force=args.force)
+    return envelope(
+        "umriss prior register-results",
+        "ok",
+        data,
+        next_steps=[
+            f"umriss prior parse --raw {data['raw_path']} --prompts {args.prompts} "
+            f"--metadata <metadata.json> --tag {args.tag} --out {args.out}"
+        ],
+    )
+
+
+def cmd_prior_parse(args: argparse.Namespace) -> dict[str, Any]:
+    data = parse_model_priors(
+        [Path(path) for path in args.raw],
+        Path(args.prompts),
+        read_json(Path(args.metadata)),
+        args.tag,
+        Path(args.out),
+        allow_incomplete=args.allow_incomplete,
+    )
+    warnings = (
+        [{
+            "code": "incomplete_results",
+            "message": (
+                f"{data['missing_model_jobs']} model-job responses are missing; partial predictions were written "
+                "because --allow-incomplete was explicit."
+            ),
+        }]
+        if not data["complete"]
+        else []
+    )
+    return envelope(
+        "umriss prior parse",
+        "ok",
+        data,
+        warnings=warnings,
+        next_steps=[
+            f"umriss prior consensus --predictions {data['predictions_path']} --metadata {args.metadata} "
+            f"--population <population-id> --tag {args.tag} --out {args.out}"
+        ],
+    )
+
+
+def cmd_prior_consensus(args: argparse.Namespace) -> dict[str, Any]:
+    data = consensus_targets(
+        [Path(path) for path in args.predictions],
+        read_json(Path(args.metadata)),
+        args.tag,
+        Path(args.out),
+        population=args.population,
+        max_total_variation=args.max_total_variation,
+        max_option_difference=args.max_option_difference,
+        minimum_models=args.minimum_models,
+        confidence_weight=args.confidence_weight,
+    )
+    return envelope(
+        "umriss prior consensus",
+        "ok",
+        data,
+        next_steps=[f"umriss targets audit --targets {data['targets_path']} --metadata {args.metadata}"],
+    )
+
+
+def cmd_targets_audit(args: argparse.Namespace) -> dict[str, Any]:
+    out = Path(args.out) if args.out else Path(args.targets).with_name(Path(args.targets).stem + "_audit.csv")
+    data = audit_targets(
+        Path(args.targets),
+        read_json(Path(args.metadata)),
+        out,
+        consistency_tolerance=args.consistency_tolerance,
+    )
+    return envelope(
+        "umriss targets audit",
+        "ok",
+        data,
+        next_steps=[
+            f"umriss targets fit --targets {args.targets} --support <probabilities.csv> "
+            f"--metadata {args.metadata} --tag <tag> --out <dir>"
+        ],
+    )
+
+
+def cmd_targets_from_metadata(args: argparse.Namespace) -> dict[str, Any]:
+    metadata_path = Path(args.metadata)
+    data = targets_from_metadata(
+        metadata_path,
+        read_json(metadata_path),
+        args.population,
+        Path(args.out),
+        args.confidence_weight,
+    )
+    return envelope("umriss targets from-metadata", "ok", data)
+
+
+def cmd_targets_merge(args: argparse.Namespace) -> dict[str, Any]:
+    data = merge_target_artifacts([Path(path) for path in args.targets], Path(args.out))
+    return envelope("umriss targets merge", "ok", data)
+
+
+def cmd_targets_fit(args: argparse.Namespace) -> dict[str, Any]:
+    data = fit_generalized_targets(
+        Path(args.support),
+        Path(args.targets),
+        read_json(Path(args.metadata)),
+        args.tag,
+        Path(args.out),
+        args.rho,
+        joint_features_path=Path(args.joint_features) if args.joint_features else None,
+        allow_conditional_independence=args.allow_conditional_independence,
+        minimum_effective_support=args.minimum_effective_support,
+        maximum_weight=args.maximum_weight,
+        require_convergence=args.require_convergence,
+    )
+    return envelope("umriss targets fit", "ok" if data["gates_pass"] else "fit_rejected", data)
+
+
+def cmd_targets_feasibility(args: argparse.Namespace) -> dict[str, Any]:
+    data = diagnose_target_feasibility(
+        Path(args.support),
+        Path(args.targets),
+        read_json(Path(args.metadata)),
+        args.tag,
+        Path(args.out),
+        tolerance=args.tolerance,
+    )
+    status = "ok" if data["inside_convex_hull_at_tolerance"] else "support_infeasible"
+    return envelope(
+        "umriss targets feasibility",
+        status,
+        data,
+        next_steps=(
+            [f"umriss targets fit --targets {args.targets} --support {args.support} --metadata {args.metadata} --tag {args.tag} --out {args.out}"]
+            if status == "ok"
+            else ["Expand support toward the reported infeasible target cells, then rerun feasibility."]
+        ),
+    )
+
+
+def cmd_support_extend_items(args: argparse.Namespace) -> dict[str, Any]:
+    data = build_item_extension_prompts(
+        Path(args.points),
+        read_json(Path(args.metadata)),
+        args.item or [],
+        args.joint or [],
+        args.tag,
+        Path(args.out),
+    )
+    return envelope(
+        "umriss support extend-items",
+        "ok",
+        data,
+        next_steps=[
+            f"umriss support export --prompts {data['prompts_path']} --path {Path(args.out) / (args.tag + '.jobs.ep')} "
+            f"--tag {args.tag} --registration-out {args.out}"
+        ],
+    )
+
+
+def cmd_support_parse_extension(args: argparse.Namespace) -> dict[str, Any]:
+    data = parse_item_extension(
+        Path(args.raw),
+        Path(args.prompts),
+        Path(args.base_support),
+        read_json(Path(args.metadata)),
+        args.tag,
+        Path(args.out),
+    )
+    return envelope("umriss support parse-extension", "ok", data)
+
+
 def cmd_support_inspect(args: argparse.Namespace) -> dict[str, Any]:
     data = inspect_artifact(
         prompts=Path(args.prompts) if args.prompts else None,
@@ -723,6 +1039,30 @@ def cmd_support_uniformity(args: argparse.Namespace) -> dict[str, Any]:
             f"umriss support augment-uniform --support {args.support} --metadata {args.metadata} --tag <tag> --n-add <n> --out <dir>",
         ]
     return envelope("umriss support uniformity", status, data, next_steps=next_steps)
+
+
+def cmd_support_validate_blueprints(args: argparse.Namespace) -> dict[str, Any]:
+    data = validate_blueprint_fidelity(
+        Path(args.support),
+        Path(args.plan),
+        read_json(Path(args.metadata)),
+        args.tag,
+        Path(args.out),
+        minimum_match_fraction=args.minimum_match_fraction,
+        minimum_intended_probability=args.minimum_intended_probability,
+    )
+    status = "ok" if data["passes"] else "needs_retry"
+    next_steps = (
+        [f"umriss support uniformity --support {data['validated_probabilities_path']} --metadata {args.metadata} --tag {args.tag} --out {args.out}"]
+        if data["accepted_support_points"]
+        else []
+    )
+    if data["rejected_support_points"]:
+        next_steps.append(
+            f"umriss support export --prompts <prompts.jsonl> --job-ids {data['retry_job_ids_path']} "
+            f"--path <retry.jobs.ep> --tag {args.tag}_retry --registration-out {args.out}"
+        )
+    return envelope("umriss support validate-blueprints", status, data, next_steps=next_steps)
 
 
 def cmd_support_augment_uniform(args: argparse.Namespace) -> dict[str, Any]:
@@ -1193,6 +1533,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--option-code", action="append")
     p.add_argument("--scale-type", choices=["ordinal", "nominal"], required=True)
     p.add_argument("--scale-direction", choices=["low_to_high", "high_to_low"])
+    p.add_argument("--question-type", choices=["categorical", "checkbox"], default="categorical")
     p.set_defaults(func=cmd_question_add)
 
     marginal = sub.add_parser("marginal").add_subparsers(dest="marginal_command", required=True)
@@ -1218,7 +1559,7 @@ def build_parser() -> argparse.ArgumentParser:
     source = p.add_mutually_exclusive_group()
     source.add_argument("--metadata")
     source.add_argument("--battery")
-    p.add_argument("--preset", choices=["pattern-coverage", "uniform-patterns"], required=True)
+    p.add_argument("--preset", choices=["pattern-coverage", "uniform-patterns", "balanced-blueprints"], required=True)
     p.add_argument("--size", type=int)
     p.add_argument("--seed", type=int, default=20260625)
     p.add_argument("--out", required=True)
@@ -1246,15 +1587,27 @@ def build_parser() -> argparse.ArgumentParser:
     source.add_argument("--battery", help="Read a battery authored in the active .umriss project.")
     design = p.add_mutually_exclusive_group()
     design.add_argument(
-        "--preset", choices=["pattern-coverage", "uniform-patterns"], help="Compile a safe built-in preset."
+        "--preset",
+        choices=["pattern-coverage", "uniform-patterns", "balanced-blueprints", "target-informed-blueprints"],
+        help="Compile a safe built-in preset.",
     )
     design.add_argument("--design", help="Use a schema-v1 JSON or YAML support-design file.")
+    p.add_argument("--targets", help="Target artifact used only with --preset target-informed-blueprints.")
     p.add_argument("--tag", required=True)
     p.add_argument("--n-support", type=int, help="Override design size; feasibility validation still applies.")
     p.add_argument("--seed", type=int, help="Override the design seed.")
     p.add_argument("--out")
     p.add_argument("--force", action="store_true")
     p.set_defaults(func=cmd_support_build)
+    p = support.add_parser("augment-targets")
+    p.add_argument("--support", required=True)
+    p.add_argument("--targets", required=True)
+    p.add_argument("--metadata", required=True)
+    p.add_argument("--tag", required=True)
+    p.add_argument("--n-add", type=int, default=128)
+    p.add_argument("--seed", type=int, default=20260625)
+    p.add_argument("--out", required=True)
+    p.set_defaults(func=cmd_support_augment_targets)
     p = support.add_parser("export")
     p.add_argument("--prompts")
     p.add_argument("--path")
@@ -1267,6 +1620,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--registration-out")
     p.add_argument("--job-ids")
     p.add_argument("--force", action="store_true")
+    p.add_argument("--workflow", choices=["support", "extension"], default="support", help=argparse.SUPPRESS)
     p.set_defaults(func=cmd_support_export)
     p = support.add_parser("register-results")
     p.add_argument("--results", required=True)
@@ -1287,6 +1641,11 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--metadata")
     p.add_argument("--tag", required=True)
     p.add_argument("--out")
+    p.add_argument(
+        "--allow-legacy-persona",
+        action="store_true",
+        help="Accept older results without item-complete persona_details.",
+    )
     p.set_defaults(func=cmd_support_parse)
     p = support.add_parser("inspect")
     p.add_argument("--prompts")
@@ -1304,6 +1663,15 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--min-joint-pattern-fraction", type=float, default=0.75)
     p.add_argument("--out")
     p.set_defaults(func=cmd_support_uniformity)
+    p = support.add_parser("validate-blueprints")
+    p.add_argument("--support", required=True)
+    p.add_argument("--plan", required=True)
+    p.add_argument("--metadata", required=True)
+    p.add_argument("--tag", required=True)
+    p.add_argument("--minimum-match-fraction", type=float, default=0.8)
+    p.add_argument("--minimum-intended-probability", type=float, default=0.35)
+    p.add_argument("--out", required=True)
+    p.set_defaults(func=cmd_support_validate_blueprints)
     p = support.add_parser("augment-uniform")
     p.add_argument("--support", required=True)
     p.add_argument("--metadata")
@@ -1319,6 +1687,22 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--tag", required=True)
     p.add_argument("--out", required=True)
     p.set_defaults(func=cmd_support_merge)
+    p = support.add_parser("extend-items")
+    p.add_argument("--points", required=True)
+    p.add_argument("--metadata")
+    p.add_argument("--item", action="append")
+    p.add_argument("--joint", action="append", help="Directly elicit ITEM_A:ITEM_B joint probabilities per persona.")
+    p.add_argument("--tag", required=True)
+    p.add_argument("--out", required=True)
+    p.set_defaults(func=cmd_support_extend_items)
+    p = support.add_parser("parse-extension")
+    p.add_argument("--raw", required=True)
+    p.add_argument("--prompts", required=True)
+    p.add_argument("--base-support", required=True)
+    p.add_argument("--metadata")
+    p.add_argument("--tag", required=True)
+    p.add_argument("--out", required=True)
+    p.set_defaults(func=cmd_support_parse_extension)
 
     baseline = sub.add_parser("baseline").add_subparsers(dest="baseline_command", required=True)
     p = baseline.add_parser("build")
@@ -1354,6 +1738,97 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--tag", required=True)
     p.add_argument("--out", required=True)
     p.set_defaults(func=cmd_baseline_parse)
+
+    prior = sub.add_parser("prior").add_subparsers(dest="prior_command", required=True)
+    p = prior.add_parser("build-marginals")
+    p.add_argument("--metadata")
+    p.add_argument("--tag", required=True)
+    p.add_argument("--out", required=True)
+    p.set_defaults(func=cmd_prior_build_marginals)
+    p = prior.add_parser("build-joints")
+    p.add_argument("--metadata")
+    p.add_argument("--pair", action="append", required=True, help="ITEM_A:ITEM_B")
+    p.add_argument("--population", required=True)
+    p.add_argument("--tag", required=True)
+    p.add_argument("--out", required=True)
+    p.set_defaults(func=cmd_prior_build_joints)
+    p = prior.add_parser("export")
+    p.add_argument("--prompts", required=True)
+    p.add_argument("--path", required=True)
+    p.add_argument("--model", action="append")
+    p.add_argument("--service-name")
+    p.add_argument("--temperature", type=float, default=1.0)
+    p.add_argument("--max-tokens", type=int, default=1200)
+    p.add_argument("--tag")
+    p.add_argument("--registration-out")
+    p.add_argument("--job-ids")
+    p.add_argument("--force", action="store_true")
+    p.set_defaults(func=cmd_prior_export)
+    p = prior.add_parser("register-results")
+    p.add_argument("--results", required=True)
+    p.add_argument("--prompts", required=True)
+    p.add_argument("--tag", required=True)
+    p.add_argument("--out", required=True)
+    p.add_argument("--force", action="store_true")
+    p.set_defaults(func=cmd_prior_register_results)
+    p = prior.add_parser("parse")
+    p.add_argument("--raw", action="append", required=True)
+    p.add_argument("--prompts", required=True)
+    p.add_argument("--metadata")
+    p.add_argument("--tag", required=True)
+    p.add_argument("--out", required=True)
+    p.add_argument("--allow-incomplete", action="store_true")
+    p.set_defaults(func=cmd_prior_parse)
+    p = prior.add_parser("consensus")
+    p.add_argument("--predictions", action="append", required=True)
+    p.add_argument("--metadata")
+    p.add_argument("--population", required=True)
+    p.add_argument("--minimum-models", type=int, default=3)
+    p.add_argument("--max-total-variation", type=float, default=0.10)
+    p.add_argument("--max-option-difference", type=float, default=0.10)
+    p.add_argument("--confidence-weight", type=float, default=1.0)
+    p.add_argument("--tag", required=True)
+    p.add_argument("--out", required=True)
+    p.set_defaults(func=cmd_prior_consensus)
+
+    targets = sub.add_parser("targets").add_subparsers(dest="targets_command", required=True)
+    p = targets.add_parser("from-metadata")
+    p.add_argument("--metadata")
+    p.add_argument("--population", required=True)
+    p.add_argument("--confidence-weight", type=float, default=1.0)
+    p.add_argument("--out", required=True)
+    p.set_defaults(func=cmd_targets_from_metadata)
+    p = targets.add_parser("merge")
+    p.add_argument("--targets", action="append", required=True)
+    p.add_argument("--out", required=True)
+    p.set_defaults(func=cmd_targets_merge)
+    p = targets.add_parser("audit")
+    p.add_argument("--targets", required=True)
+    p.add_argument("--metadata")
+    p.add_argument("--out")
+    p.add_argument("--consistency-tolerance", type=float, default=0.05)
+    p.set_defaults(func=cmd_targets_audit)
+    p = targets.add_parser("fit")
+    p.add_argument("--targets", required=True)
+    p.add_argument("--support", required=True)
+    p.add_argument("--joint-features")
+    p.add_argument("--allow-conditional-independence", action="store_true")
+    p.add_argument("--metadata")
+    p.add_argument("--rho", nargs="+", type=float, default=[0.0003, 0.001, 0.003, 0.01, 0.03])
+    p.add_argument("--minimum-effective-support", type=float)
+    p.add_argument("--maximum-weight", type=float)
+    p.add_argument("--require-convergence", action="store_true")
+    p.add_argument("--tag", required=True)
+    p.add_argument("--out", required=True)
+    p.set_defaults(func=cmd_targets_fit)
+    p = targets.add_parser("feasibility")
+    p.add_argument("--targets", required=True)
+    p.add_argument("--support", required=True)
+    p.add_argument("--metadata", required=True)
+    p.add_argument("--tolerance", type=float, default=0.01)
+    p.add_argument("--tag", required=True)
+    p.add_argument("--out", required=True)
+    p.set_defaults(func=cmd_targets_feasibility)
 
     p = sub.add_parser("fit")
     p.add_argument("--support", required=True)
@@ -1494,7 +1969,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.set_defaults(func=cmd_plot_validation)
 
     p = sub.add_parser("guide")
-    guide_topics = ["workflow", "designs", "ep-boundary", "migrating-scripts", "diagnostics"]
+    guide_topics = ["workflow", "designs", "ep-boundary", "migrating-scripts", "diagnostics", "synthetic-targets"]
     p.add_argument("topic", nargs="?", choices=guide_topics)
     p.add_argument("--topic", dest="topic_flag", choices=guide_topics)
     p.set_defaults(func=cmd_guide)
@@ -1524,7 +1999,7 @@ _RUN_DEFAULTS: dict[str, dict[str, str]] = {
     "umriss support export": {"prompts": "{tag}_prompts.jsonl", "path": "{tag}.jobs.ep!"},
     "umriss support register-results": {"prompts": "{tag}_prompts.jsonl?", "out": "@dir"},
     "umriss support parse": {"raw": "{tag}_raw.csv", "out": "@dir"},
-    "umriss support uniformity": {"support": "{tag}_probabilities.csv", "out": "@dir"},
+    "umriss support uniformity": {"support": "{tag}_probabilities.csv", "out": "{tag}_support_uniformity.csv!"},
     "umriss validate marginals": {"support": "{tag}_probabilities.csv", "out": "@dir"},
     "umriss plot validation": {"derived": "@dir", "out": "@dir"},
 }

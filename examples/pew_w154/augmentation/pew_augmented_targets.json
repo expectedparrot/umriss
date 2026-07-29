@@ -1,0 +1,611 @@
+{
+  "battery": {
+    "battery": "GENDER_WORK_FAMILY",
+    "wave": "W154_AUG2026"
+  },
+  "kind": "umriss_targets",
+  "population": {
+    "id": "us_adults_2026"
+  },
+  "provenance": {
+    "command": "umriss targets merge",
+    "created_at": "2026-07-29T11:40:12Z",
+    "fingerprint": "76588a60c529680a30d611748217aa5bf699ea1e4587bb0a1efd40de4432b911",
+    "inputs": {
+      "targets_1": {
+        "path": "examples/pew_w154/augmentation/observed_pew_targets.json",
+        "sha256": "6daa9b83dbfc44619b70f8f146bb122f49107a141d51c5a4e36a97acbe37fe56"
+      },
+      "targets_2": {
+        "path": "examples/pew_w154/augmentation/prior_probe/pew_work_family_consensus_targets.json",
+        "sha256": "6c842528d11f334528e8540fb8501290d90cdd880a4e81239e836d31827c3c71"
+      }
+    },
+    "parameters": {},
+    "schema_version": 1,
+    "umriss_version": "0.1.0"
+  },
+  "schema_version": 1,
+  "targets": [
+    {
+      "artifact_source": "examples/pew_w154/augmentation/observed_pew_targets.json",
+      "confidence_weight": 1.0,
+      "items": [
+        "hobbies"
+      ],
+      "population": "us_adults_2026",
+      "shape": [
+        2
+      ],
+      "source": {
+        "kind": "observed",
+        "metadata_path": "examples/pew_w154/augmentation/pew_gender_work_family_battery.json"
+      },
+      "status": "accepted",
+      "target_id": "marginal:hobbies",
+      "type": "marginal",
+      "values": [
+        0.3199908774739627,
+        0.6800091225260373
+      ]
+    },
+    {
+      "artifact_source": "examples/pew_w154/augmentation/observed_pew_targets.json",
+      "confidence_weight": 1.0,
+      "items": [
+        "physical_abilities"
+      ],
+      "population": "us_adults_2026",
+      "shape": [
+        2
+      ],
+      "source": {
+        "kind": "observed",
+        "metadata_path": "examples/pew_w154/augmentation/pew_gender_work_family_battery.json"
+      },
+      "status": "accepted",
+      "target_id": "marginal:physical_abilities",
+      "type": "marginal",
+      "values": [
+        0.19070482765971405,
+        0.8092951723402859
+      ]
+    },
+    {
+      "artifact_source": "examples/pew_w154/augmentation/observed_pew_targets.json",
+      "confidence_weight": 1.0,
+      "items": [
+        "parenting"
+      ],
+      "population": "us_adults_2026",
+      "shape": [
+        2
+      ],
+      "source": {
+        "kind": "observed",
+        "metadata_path": "examples/pew_w154/augmentation/pew_gender_work_family_battery.json"
+      },
+      "status": "accepted",
+      "target_id": "marginal:parenting",
+      "type": "marginal",
+      "values": [
+        0.2876218161953853,
+        0.7123781838046147
+      ]
+    },
+    {
+      "artifact_source": "examples/pew_w154/augmentation/observed_pew_targets.json",
+      "confidence_weight": 1.0,
+      "items": [
+        "feelings"
+      ],
+      "population": "us_adults_2026",
+      "shape": [
+        2
+      ],
+      "source": {
+        "kind": "observed",
+        "metadata_path": "examples/pew_w154/augmentation/pew_gender_work_family_battery.json"
+      },
+      "status": "accepted",
+      "target_id": "marginal:feelings",
+      "type": "marginal",
+      "values": [
+        0.10958316743872445,
+        0.8904168325612756
+      ]
+    },
+    {
+      "artifact_source": "examples/pew_w154/augmentation/observed_pew_targets.json",
+      "confidence_weight": 1.0,
+      "items": [
+        "workplace"
+      ],
+      "population": "us_adults_2026",
+      "shape": [
+        2
+      ],
+      "source": {
+        "kind": "observed",
+        "metadata_path": "examples/pew_w154/augmentation/pew_gender_work_family_battery.json"
+      },
+      "status": "accepted",
+      "target_id": "marginal:workplace",
+      "type": "marginal",
+      "values": [
+        0.5725168549843521,
+        0.4274831450156478
+      ]
+    },
+    {
+      "artifact_source": "examples/pew_w154/augmentation/prior_probe/pew_work_family_consensus_targets.json",
+      "confidence_weight": 1.0,
+      "items": [
+        "relationship_status"
+      ],
+      "population": "us_adults_2026",
+      "shape": [
+        4
+      ],
+      "source": {
+        "aggregation": "arithmetic_mean",
+        "agreement": {
+          "maximum_option_difference": 0.020000000000000018,
+          "maximum_pairwise_total_variation": 0.02000000000000001,
+          "rule": {
+            "maximum_option_difference": 0.1,
+            "maximum_pairwise_total_variation": 0.1,
+            "minimum_models": 3
+          }
+        },
+        "kind": "model_synthetic",
+        "models": [
+          {
+            "model": "gpt-5.5",
+            "service_name": "openai"
+          },
+          {
+            "model": "anthropic/claude-opus-5",
+            "service_name": "deep_infra"
+          },
+          {
+            "model": "grok-4.5",
+            "service_name": "xai"
+          }
+        ]
+      },
+      "status": "accepted",
+      "target_id": "marginal:relationship_status",
+      "type": "marginal",
+      "values": [
+        0.49,
+        0.08333333333333333,
+        0.09666666666666668,
+        0.33
+      ]
+    },
+    {
+      "artifact_source": "examples/pew_w154/augmentation/prior_probe/pew_work_family_consensus_targets.json",
+      "confidence_weight": 1.0,
+      "items": [
+        "children_at_home"
+      ],
+      "population": "us_adults_2026",
+      "shape": [
+        4
+      ],
+      "source": {
+        "aggregation": "arithmetic_mean",
+        "agreement": {
+          "maximum_option_difference": 0.05999999999999994,
+          "maximum_pairwise_total_variation": 0.05999999999999997,
+          "rule": {
+            "maximum_option_difference": 0.1,
+            "maximum_pairwise_total_variation": 0.1,
+            "minimum_models": 3
+          }
+        },
+        "kind": "model_synthetic",
+        "models": [
+          {
+            "model": "gpt-5.5",
+            "service_name": "openai"
+          },
+          {
+            "model": "anthropic/claude-opus-5",
+            "service_name": "deep_infra"
+          },
+          {
+            "model": "grok-4.5",
+            "service_name": "xai"
+          }
+        ]
+      },
+      "status": "accepted",
+      "target_id": "marginal:children_at_home",
+      "type": "marginal",
+      "values": [
+        0.6733333333333333,
+        0.08833333333333333,
+        0.16666666666666666,
+        0.07166666666666667
+      ]
+    },
+    {
+      "artifact_source": "examples/pew_w154/augmentation/prior_probe/pew_work_family_consensus_targets.json",
+      "confidence_weight": 1.0,
+      "items": [
+        "household_income"
+      ],
+      "population": "us_adults_2026",
+      "shape": [
+        4
+      ],
+      "source": {
+        "aggregation": "arithmetic_mean",
+        "agreement": {
+          "maximum_option_difference": 0.07,
+          "maximum_pairwise_total_variation": 0.07,
+          "rule": {
+            "maximum_option_difference": 0.1,
+            "maximum_pairwise_total_variation": 0.1,
+            "minimum_models": 3
+          }
+        },
+        "kind": "model_synthetic",
+        "models": [
+          {
+            "model": "gpt-5.5",
+            "service_name": "openai"
+          },
+          {
+            "model": "anthropic/claude-opus-5",
+            "service_name": "deep_infra"
+          },
+          {
+            "model": "grok-4.5",
+            "service_name": "xai"
+          }
+        ]
+      },
+      "status": "accepted",
+      "target_id": "marginal:household_income",
+      "type": "marginal",
+      "values": [
+        0.2966666666666667,
+        0.2866666666666667,
+        0.18666666666666668,
+        0.22999999999999998
+      ]
+    },
+    {
+      "artifact_source": "examples/pew_w154/augmentation/prior_probe/pew_work_family_consensus_targets.json",
+      "confidence_weight": 1.0,
+      "items": [
+        "marriage_importance"
+      ],
+      "population": "us_adults_2026",
+      "shape": [
+        4
+      ],
+      "source": {
+        "aggregation": "arithmetic_mean",
+        "agreement": {
+          "maximum_option_difference": 0.12,
+          "maximum_pairwise_total_variation": 0.12,
+          "rule": {
+            "maximum_option_difference": 0.1,
+            "maximum_pairwise_total_variation": 0.1,
+            "minimum_models": 3
+          }
+        },
+        "kind": "model_synthetic",
+        "models": [
+          {
+            "model": "gpt-5.5",
+            "service_name": "openai"
+          },
+          {
+            "model": "anthropic/claude-opus-5",
+            "service_name": "deep_infra"
+          },
+          {
+            "model": "grok-4.5",
+            "service_name": "xai"
+          }
+        ]
+      },
+      "status": "rejected",
+      "target_id": "marginal:marriage_importance",
+      "type": "marginal",
+      "values": [
+        0.20000000000000004,
+        0.22,
+        0.3,
+        0.28
+      ]
+    },
+    {
+      "artifact_source": "examples/pew_w154/augmentation/prior_probe/pew_work_family_consensus_targets.json",
+      "confidence_weight": 1.0,
+      "items": [
+        "parenthood_importance"
+      ],
+      "population": "us_adults_2026",
+      "shape": [
+        4
+      ],
+      "source": {
+        "aggregation": "arithmetic_mean",
+        "agreement": {
+          "maximum_option_difference": 0.09999999999999998,
+          "maximum_pairwise_total_variation": 0.09999999999999999,
+          "rule": {
+            "maximum_option_difference": 0.1,
+            "maximum_pairwise_total_variation": 0.1,
+            "minimum_models": 3
+          }
+        },
+        "kind": "model_synthetic",
+        "models": [
+          {
+            "model": "gpt-5.5",
+            "service_name": "openai"
+          },
+          {
+            "model": "anthropic/claude-opus-5",
+            "service_name": "deep_infra"
+          },
+          {
+            "model": "grok-4.5",
+            "service_name": "xai"
+          }
+        ]
+      },
+      "status": "accepted",
+      "target_id": "marginal:parenthood_importance",
+      "type": "marginal",
+      "values": [
+        0.14333333333333334,
+        0.16333333333333333,
+        0.2733333333333334,
+        0.42
+      ]
+    },
+    {
+      "artifact_source": "examples/pew_w154/augmentation/prior_probe/pew_work_family_consensus_targets.json",
+      "confidence_weight": 1.0,
+      "items": [
+        "paid_work_priority"
+      ],
+      "population": "us_adults_2026",
+      "shape": [
+        4
+      ],
+      "source": {
+        "aggregation": "arithmetic_mean",
+        "agreement": {
+          "maximum_option_difference": 0.08000000000000002,
+          "maximum_pairwise_total_variation": 0.08000000000000002,
+          "rule": {
+            "maximum_option_difference": 0.1,
+            "maximum_pairwise_total_variation": 0.1,
+            "minimum_models": 3
+          }
+        },
+        "kind": "model_synthetic",
+        "models": [
+          {
+            "model": "gpt-5.5",
+            "service_name": "openai"
+          },
+          {
+            "model": "anthropic/claude-opus-5",
+            "service_name": "deep_infra"
+          },
+          {
+            "model": "grok-4.5",
+            "service_name": "xai"
+          }
+        ]
+      },
+      "status": "accepted",
+      "target_id": "marginal:paid_work_priority",
+      "type": "marginal",
+      "values": [
+        0.07,
+        0.1466666666666667,
+        0.36999999999999994,
+        0.41333333333333333
+      ]
+    },
+    {
+      "artifact_source": "examples/pew_w154/augmentation/prior_probe/pew_work_family_consensus_targets.json",
+      "confidence_weight": 1.0,
+      "items": [
+        "childcare_division"
+      ],
+      "population": "us_adults_2026",
+      "shape": [
+        4
+      ],
+      "source": {
+        "aggregation": "arithmetic_mean",
+        "agreement": {
+          "maximum_option_difference": 0.22,
+          "maximum_pairwise_total_variation": 0.22000000000000003,
+          "rule": {
+            "maximum_option_difference": 0.1,
+            "maximum_pairwise_total_variation": 0.1,
+            "minimum_models": 3
+          }
+        },
+        "kind": "model_synthetic",
+        "models": [
+          {
+            "model": "gpt-5.5",
+            "service_name": "openai"
+          },
+          {
+            "model": "anthropic/claude-opus-5",
+            "service_name": "deep_infra"
+          },
+          {
+            "model": "grok-4.5",
+            "service_name": "xai"
+          }
+        ]
+      },
+      "status": "rejected",
+      "target_id": "marginal:childcare_division",
+      "type": "marginal",
+      "values": [
+        0.08,
+        0.42,
+        0.24666666666666667,
+        0.25333333333333335
+      ]
+    },
+    {
+      "artifact_source": "examples/pew_w154/augmentation/prior_probe/pew_work_family_consensus_targets.json",
+      "confidence_weight": 1.0,
+      "items": [
+        "housework_division"
+      ],
+      "population": "us_adults_2026",
+      "shape": [
+        4
+      ],
+      "source": {
+        "aggregation": "arithmetic_mean",
+        "agreement": {
+          "maximum_option_difference": 0.08000000000000007,
+          "maximum_pairwise_total_variation": 0.09000000000000005,
+          "rule": {
+            "maximum_option_difference": 0.1,
+            "maximum_pairwise_total_variation": 0.1,
+            "minimum_models": 3
+          }
+        },
+        "kind": "model_synthetic",
+        "models": [
+          {
+            "model": "gpt-5.5",
+            "service_name": "openai"
+          },
+          {
+            "model": "anthropic/claude-opus-5",
+            "service_name": "deep_infra"
+          },
+          {
+            "model": "grok-4.5",
+            "service_name": "xai"
+          }
+        ]
+      },
+      "status": "accepted",
+      "target_id": "marginal:housework_division",
+      "type": "marginal",
+      "values": [
+        0.06666666666666667,
+        0.49666666666666665,
+        0.2733333333333334,
+        0.16333333333333333
+      ]
+    },
+    {
+      "artifact_source": "examples/pew_w154/augmentation/prior_probe/pew_work_family_consensus_targets.json",
+      "confidence_weight": 1.0,
+      "items": [
+        "financial_decision_style"
+      ],
+      "population": "us_adults_2026",
+      "shape": [
+        4
+      ],
+      "source": {
+        "aggregation": "arithmetic_mean",
+        "agreement": {
+          "maximum_option_difference": 0.22999999999999998,
+          "maximum_pairwise_total_variation": 0.22999999999999998,
+          "rule": {
+            "maximum_option_difference": 0.1,
+            "maximum_pairwise_total_variation": 0.1,
+            "minimum_models": 3
+          }
+        },
+        "kind": "model_synthetic",
+        "models": [
+          {
+            "model": "gpt-5.5",
+            "service_name": "openai"
+          },
+          {
+            "model": "anthropic/claude-opus-5",
+            "service_name": "deep_infra"
+          },
+          {
+            "model": "grok-4.5",
+            "service_name": "xai"
+          }
+        ]
+      },
+      "status": "rejected",
+      "target_id": "marginal:financial_decision_style",
+      "type": "marginal",
+      "values": [
+        0.04666666666666667,
+        0.08666666666666667,
+        0.6766666666666667,
+        0.19000000000000003
+      ]
+    },
+    {
+      "artifact_source": "examples/pew_w154/augmentation/prior_probe/pew_work_family_consensus_targets.json",
+      "confidence_weight": 1.0,
+      "items": [
+        "career_sacrifice_rule"
+      ],
+      "population": "us_adults_2026",
+      "shape": [
+        4
+      ],
+      "source": {
+        "aggregation": "arithmetic_mean",
+        "agreement": {
+          "maximum_option_difference": 0.18,
+          "maximum_pairwise_total_variation": 0.18,
+          "rule": {
+            "maximum_option_difference": 0.1,
+            "maximum_pairwise_total_variation": 0.1,
+            "minimum_models": 3
+          }
+        },
+        "kind": "model_synthetic",
+        "models": [
+          {
+            "model": "gpt-5.5",
+            "service_name": "openai"
+          },
+          {
+            "model": "anthropic/claude-opus-5",
+            "service_name": "deep_infra"
+          },
+          {
+            "model": "grok-4.5",
+            "service_name": "xai"
+          }
+        ]
+      },
+      "status": "rejected",
+      "target_id": "marginal:career_sacrifice_rule",
+      "type": "marginal",
+      "values": [
+        0.1366666666666667,
+        0.2333333333333333,
+        0.2733333333333333,
+        0.3566666666666667
+      ]
+    }
+  ]
+}

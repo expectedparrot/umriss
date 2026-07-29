@@ -1,0 +1,37 @@
+{
+  "kind": "umriss_result_registration",
+  "outputs": {
+    "jobs": {
+      "path": "examples/teen_social_2026/big_support/augmentation_1/teen_social_big_support_aug1_jobs.csv",
+      "sha256": "cd31e4125c7c691110db23438dbd7009de95242426dc39d57a380f0e7b97acb4"
+    },
+    "raw": {
+      "path": "examples/teen_social_2026/big_support/augmentation_1/teen_social_big_support_aug1_raw.csv",
+      "sha256": "eb0a08c8d42221c0ae0304974bfad6502a56d593c2436c5b008621ebf4d2ec5f"
+    }
+  },
+  "provenance": {
+    "command": "umriss support register-results",
+    "created_at": "2026-07-29T02:25:08Z",
+    "fingerprint": "8c0aacff77a8f26e3293ff352d1b94e7fe320d3ee1a69df7d5bee55aa3105dd1",
+    "inputs": {
+      "prompts": {
+        "path": "examples/teen_social_2026/big_support/augmentation_1/teen_social_big_support_aug1_prompts.jsonl",
+        "sha256": "981b93b597ca77c0147a9dc6b08c21912fe2bf7688efafefb78eefe983961e5d"
+      },
+      "results": {
+        "path": "examples/teen_social_2026/big_support/augmentation_1/teen_social_big_support_aug1.results.ep",
+        "sha256": "4cc068974ca0a7069af18609f14f73be81bc19dc00a157d5462784acd6698c75"
+      }
+    },
+    "parameters": {
+      "out": "examples/teen_social_2026/big_support/augmentation_1",
+      "tag": "teen_social_big_support_aug1"
+    },
+    "schema_version": 1,
+    "umriss_version": "0.1.0"
+  },
+  "rows": 64,
+  "schema_version": 1,
+  "tag": "teen_social_big_support_aug1"
+}

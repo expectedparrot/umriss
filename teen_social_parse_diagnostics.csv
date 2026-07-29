@@ -1,0 +1,6 @@
+job_id,support_id,status,code,message,item,raw_sum,min_probability,max_probability
+teen_social_001,1,ok,,,social_media_hours,1.0000000000000002,0.1,0.56
+teen_social_002,2,ok,,,social_media_hours,1.0,0.05,0.88
+teen_social_003,3,ok,,,social_media_hours,1.0,0.05,0.65
+teen_social_004,4,ok,,,social_media_hours,1.0,0.01,0.88
+teen_social_005,5,ok,,,social_media_hours,1.0,0.01,0.95

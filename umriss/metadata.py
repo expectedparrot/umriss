@@ -136,6 +136,7 @@ def add_question(args: Any) -> dict[str, Any]:
         "option_codes": option_codes,
         "option_labels": options,
         "scale": {"type": args.scale_type, **({"direction": args.scale_direction} if args.scale_direction else {})},
+        "question_type": getattr(args, "question_type", "categorical"),
     }
     append_jsonl(bdir / "questions.jsonl", row)
     compile_battery(args.battery, bdir / "battery.json")
@@ -178,6 +179,7 @@ def compile_battery(battery_id: str, path: Path | None = None) -> dict[str, Any]
                 "option_codes": row["option_codes"],
                 "option_labels": row["option_labels"],
                 "scale": row.get("scale"),
+                "question_type": row.get("question_type", "categorical"),
             }
     metadata["items"] = items
     truth = {}

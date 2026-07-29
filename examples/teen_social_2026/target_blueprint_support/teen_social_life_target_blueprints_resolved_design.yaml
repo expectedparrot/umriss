@@ -1,0 +1,1957 @@
+schema_version: 1
+preset: target-informed-blueprints
+size: 128
+seed: 20260803
+coverage:
+  mode: complete
+  allocation: target_informed_largest_remainder
+components:
+- type: pattern_anchors
+  patterns:
+  - social_media_hours: Less than one hour
+    posting_frequency: A few times a week
+    late_night_use: Sometimes
+    sleep_interference: Often
+    social_comparison: Never
+    connection_effect: Makes me feel less connected
+    parental_rules: Some clear rules
+    primary_platform: Instagram
+    school_effort: Sometimes
+    academic_confidence: Very confident
+    homework_distraction: Sometimes
+    organized_activity: Three or more days a week
+    career_clarity: A very clear plan
+    future_optimism: Not at all optimistic
+    peer_belonging: Never
+  - social_media_hours: One to three hours
+    posting_frequency: A few times a week
+    late_night_use: Sometimes
+    sleep_interference: Sometimes
+    social_comparison: Often
+    connection_effect: Makes little difference
+    parental_rules: Some clear rules
+    primary_platform: Another platform
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Rarely
+    organized_activity: Never
+    career_clarity: No clear idea
+    future_optimism: Not at all optimistic
+    peer_belonging: Often
+  - social_media_hours: Less than one hour
+    posting_frequency: Never or almost never
+    late_night_use: Rarely
+    sleep_interference: Sometimes
+    social_comparison: Sometimes
+    connection_effect: Makes little difference
+    parental_rules: Very strict rules
+    primary_platform: Snapchat
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Sometimes
+    organized_activity: Less than once a week
+    career_clarity: A very clear plan
+    future_optimism: Somewhat optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Four or more hours
+    posting_frequency: A few times a week
+    late_night_use: Never
+    sleep_interference: Sometimes
+    social_comparison: Sometimes
+    connection_effect: Makes me feel more connected
+    parental_rules: No rules
+    primary_platform: YouTube
+    school_effort: Often
+    academic_confidence: Somewhat confident
+    homework_distraction: Often
+    organized_activity: Never
+    career_clarity: A few vague ideas
+    future_optimism: Very optimistic
+    peer_belonging: Often
+  - social_media_hours: One to three hours
+    posting_frequency: At least once a day
+    late_night_use: Often
+    sleep_interference: Often
+    social_comparison: Rarely
+    connection_effect: Makes little difference
+    parental_rules: No rules
+    primary_platform: TikTok
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Often
+    organized_activity: One or two days a week
+    career_clarity: A few vague ideas
+    future_optimism: Somewhat optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Four or more hours
+    posting_frequency: Less than once a week
+    late_night_use: Rarely
+    sleep_interference: Sometimes
+    social_comparison: Often
+    connection_effect: Makes little difference
+    parental_rules: A few loose rules
+    primary_platform: Another platform
+    school_effort: Often
+    academic_confidence: Somewhat confident
+    homework_distraction: Rarely
+    organized_activity: Three or more days a week
+    career_clarity: A few vague ideas
+    future_optimism: A little optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Less than one hour
+    posting_frequency: A few times a week
+    late_night_use: Never
+    sleep_interference: Sometimes
+    social_comparison: Sometimes
+    connection_effect: Makes me feel more connected
+    parental_rules: Some clear rules
+    primary_platform: YouTube
+    school_effort: Often
+    academic_confidence: Somewhat confident
+    homework_distraction: Rarely
+    organized_activity: Never
+    career_clarity: A few vague ideas
+    future_optimism: Somewhat optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: One to three hours
+    posting_frequency: Less than once a week
+    late_night_use: Often
+    sleep_interference: Rarely
+    social_comparison: Sometimes
+    connection_effect: Makes me feel more connected
+    parental_rules: Some clear rules
+    primary_platform: Snapchat
+    school_effort: Sometimes
+    academic_confidence: Very confident
+    homework_distraction: Rarely
+    organized_activity: Never
+    career_clarity: A few vague ideas
+    future_optimism: Not at all optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Four or more hours
+    posting_frequency: Never or almost never
+    late_night_use: Often
+    sleep_interference: Often
+    social_comparison: Sometimes
+    connection_effect: Makes little difference
+    parental_rules: A few loose rules
+    primary_platform: I do not use social media
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Sometimes
+    organized_activity: Never
+    career_clarity: A fairly clear idea
+    future_optimism: Very optimistic
+    peer_belonging: Often
+  - social_media_hours: Four or more hours
+    posting_frequency: At least once a day
+    late_night_use: Often
+    sleep_interference: Rarely
+    social_comparison: Never
+    connection_effect: Makes little difference
+    parental_rules: Some clear rules
+    primary_platform: I do not use social media
+    school_effort: Rarely
+    academic_confidence: Very confident
+    homework_distraction: Rarely
+    organized_activity: Less than once a week
+    career_clarity: A fairly clear idea
+    future_optimism: Very optimistic
+    peer_belonging: Rarely
+  - social_media_hours: Less than one hour
+    posting_frequency: At least once a day
+    late_night_use: Rarely
+    sleep_interference: Rarely
+    social_comparison: Sometimes
+    connection_effect: Makes little difference
+    parental_rules: A few loose rules
+    primary_platform: Snapchat
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Often
+    organized_activity: One or two days a week
+    career_clarity: A few vague ideas
+    future_optimism: Very optimistic
+    peer_belonging: Often
+  - social_media_hours: Less than one hour
+    posting_frequency: Less than once a week
+    late_night_use: Rarely
+    sleep_interference: Sometimes
+    social_comparison: Sometimes
+    connection_effect: Makes me feel less connected
+    parental_rules: A few loose rules
+    primary_platform: Instagram
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Sometimes
+    organized_activity: Less than once a week
+    career_clarity: No clear idea
+    future_optimism: Somewhat optimistic
+    peer_belonging: Often
+  - social_media_hours: Less than one hour
+    posting_frequency: At least once a day
+    late_night_use: Often
+    sleep_interference: Rarely
+    social_comparison: Never
+    connection_effect: Makes me feel less connected
+    parental_rules: A few loose rules
+    primary_platform: Another platform
+    school_effort: Sometimes
+    academic_confidence: Somewhat confident
+    homework_distraction: Often
+    organized_activity: Never
+    career_clarity: No clear idea
+    future_optimism: Very optimistic
+    peer_belonging: Never
+  - social_media_hours: Less than one hour
+    posting_frequency: A few times a week
+    late_night_use: Rarely
+    sleep_interference: Often
+    social_comparison: Rarely
+    connection_effect: Makes me feel less connected
+    parental_rules: Some clear rules
+    primary_platform: Instagram
+    school_effort: Sometimes
+    academic_confidence: Very confident
+    homework_distraction: Rarely
+    organized_activity: Less than once a week
+    career_clarity: A few vague ideas
+    future_optimism: A little optimistic
+    peer_belonging: Rarely
+  - social_media_hours: Less than one hour
+    posting_frequency: Less than once a week
+    late_night_use: Never
+    sleep_interference: Often
+    social_comparison: Sometimes
+    connection_effect: Makes me feel more connected
+    parental_rules: Very strict rules
+    primary_platform: Snapchat
+    school_effort: Never
+    academic_confidence: Very confident
+    homework_distraction: Often
+    organized_activity: One or two days a week
+    career_clarity: No clear idea
+    future_optimism: A little optimistic
+    peer_belonging: Often
+  - social_media_hours: Four or more hours
+    posting_frequency: Never or almost never
+    late_night_use: Never
+    sleep_interference: Sometimes
+    social_comparison: Sometimes
+    connection_effect: Makes me feel more connected
+    parental_rules: No rules
+    primary_platform: Another platform
+    school_effort: Sometimes
+    academic_confidence: Somewhat confident
+    homework_distraction: Rarely
+    organized_activity: Less than once a week
+    career_clarity: A few vague ideas
+    future_optimism: Somewhat optimistic
+    peer_belonging: Often
+  - social_media_hours: Four or more hours
+    posting_frequency: Never or almost never
+    late_night_use: Sometimes
+    sleep_interference: Never
+    social_comparison: Rarely
+    connection_effect: Makes me feel more connected
+    parental_rules: A few loose rules
+    primary_platform: YouTube
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Rarely
+    organized_activity: Less than once a week
+    career_clarity: No clear idea
+    future_optimism: Somewhat optimistic
+    peer_belonging: Rarely
+  - social_media_hours: One to three hours
+    posting_frequency: Less than once a week
+    late_night_use: Never
+    sleep_interference: Never
+    social_comparison: Rarely
+    connection_effect: Makes little difference
+    parental_rules: Very strict rules
+    primary_platform: Another platform
+    school_effort: Often
+    academic_confidence: Somewhat confident
+    homework_distraction: Often
+    organized_activity: Less than once a week
+    career_clarity: A few vague ideas
+    future_optimism: Somewhat optimistic
+    peer_belonging: Often
+  - social_media_hours: One to three hours
+    posting_frequency: At least once a day
+    late_night_use: Often
+    sleep_interference: Never
+    social_comparison: Sometimes
+    connection_effect: Makes me feel more connected
+    parental_rules: Some clear rules
+    primary_platform: TikTok
+    school_effort: Often
+    academic_confidence: Somewhat confident
+    homework_distraction: Rarely
+    organized_activity: Less than once a week
+    career_clarity: A fairly clear idea
+    future_optimism: Not at all optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: One to three hours
+    posting_frequency: A few times a week
+    late_night_use: Often
+    sleep_interference: Often
+    social_comparison: Rarely
+    connection_effect: Makes little difference
+    parental_rules: Very strict rules
+    primary_platform: TikTok
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Never
+    organized_activity: Three or more days a week
+    career_clarity: A few vague ideas
+    future_optimism: A little optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: One to three hours
+    posting_frequency: Never or almost never
+    late_night_use: Sometimes
+    sleep_interference: Sometimes
+    social_comparison: Sometimes
+    connection_effect: Makes me feel less connected
+    parental_rules: A few loose rules
+    primary_platform: I do not use social media
+    school_effort: Sometimes
+    academic_confidence: A little confident
+    homework_distraction: Rarely
+    organized_activity: Less than once a week
+    career_clarity: A very clear plan
+    future_optimism: Very optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Less than one hour
+    posting_frequency: Less than once a week
+    late_night_use: Often
+    sleep_interference: Often
+    social_comparison: Sometimes
+    connection_effect: Makes me feel more connected
+    parental_rules: Very strict rules
+    primary_platform: Snapchat
+    school_effort: Sometimes
+    academic_confidence: Very confident
+    homework_distraction: Rarely
+    organized_activity: One or two days a week
+    career_clarity: A few vague ideas
+    future_optimism: Somewhat optimistic
+    peer_belonging: Often
+  - social_media_hours: Four or more hours
+    posting_frequency: A few times a week
+    late_night_use: Often
+    sleep_interference: Sometimes
+    social_comparison: Often
+    connection_effect: Makes little difference
+    parental_rules: Very strict rules
+    primary_platform: Instagram
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Rarely
+    organized_activity: Three or more days a week
+    career_clarity: A few vague ideas
+    future_optimism: Not at all optimistic
+    peer_belonging: Often
+  - social_media_hours: One to three hours
+    posting_frequency: Never or almost never
+    late_night_use: Never
+    sleep_interference: Rarely
+    social_comparison: Often
+    connection_effect: Makes me feel more connected
+    parental_rules: No rules
+    primary_platform: I do not use social media
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Often
+    organized_activity: Less than once a week
+    career_clarity: A few vague ideas
+    future_optimism: A little optimistic
+    peer_belonging: Rarely
+  - social_media_hours: One to three hours
+    posting_frequency: A few times a week
+    late_night_use: Often
+    sleep_interference: Sometimes
+    social_comparison: Sometimes
+    connection_effect: Makes me feel less connected
+    parental_rules: Some clear rules
+    primary_platform: Another platform
+    school_effort: Often
+    academic_confidence: Somewhat confident
+    homework_distraction: Sometimes
+    organized_activity: Less than once a week
+    career_clarity: A fairly clear idea
+    future_optimism: Somewhat optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Less than one hour
+    posting_frequency: At least once a day
+    late_night_use: Never
+    sleep_interference: Often
+    social_comparison: Sometimes
+    connection_effect: Makes me feel more connected
+    parental_rules: Some clear rules
+    primary_platform: Another platform
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Never
+    organized_activity: Never
+    career_clarity: A fairly clear idea
+    future_optimism: Not at all optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: One to three hours
+    posting_frequency: Less than once a week
+    late_night_use: Sometimes
+    sleep_interference: Sometimes
+    social_comparison: Never
+    connection_effect: Makes little difference
+    parental_rules: No rules
+    primary_platform: Another platform
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Never
+    organized_activity: Three or more days a week
+    career_clarity: A few vague ideas
+    future_optimism: Somewhat optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: One to three hours
+    posting_frequency: At least once a day
+    late_night_use: Never
+    sleep_interference: Rarely
+    social_comparison: Sometimes
+    connection_effect: Makes me feel less connected
+    parental_rules: Very strict rules
+    primary_platform: I do not use social media
+    school_effort: Rarely
+    academic_confidence: Very confident
+    homework_distraction: Rarely
+    organized_activity: Less than once a week
+    career_clarity: A few vague ideas
+    future_optimism: Not at all optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: One to three hours
+    posting_frequency: At least once a day
+    late_night_use: Never
+    sleep_interference: Rarely
+    social_comparison: Often
+    connection_effect: Makes me feel more connected
+    parental_rules: Some clear rules
+    primary_platform: YouTube
+    school_effort: Sometimes
+    academic_confidence: Somewhat confident
+    homework_distraction: Never
+    organized_activity: Less than once a week
+    career_clarity: A very clear plan
+    future_optimism: Not at all optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Four or more hours
+    posting_frequency: Never or almost never
+    late_night_use: Often
+    sleep_interference: Sometimes
+    social_comparison: Often
+    connection_effect: Makes me feel less connected
+    parental_rules: No rules
+    primary_platform: Instagram
+    school_effort: Sometimes
+    academic_confidence: Very confident
+    homework_distraction: Sometimes
+    organized_activity: Less than once a week
+    career_clarity: A few vague ideas
+    future_optimism: A little optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Less than one hour
+    posting_frequency: At least once a day
+    late_night_use: Often
+    sleep_interference: Rarely
+    social_comparison: Sometimes
+    connection_effect: Makes me feel less connected
+    parental_rules: Very strict rules
+    primary_platform: Instagram
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Often
+    organized_activity: One or two days a week
+    career_clarity: A fairly clear idea
+    future_optimism: Somewhat optimistic
+    peer_belonging: Often
+  - social_media_hours: One to three hours
+    posting_frequency: At least once a day
+    late_night_use: Sometimes
+    sleep_interference: Sometimes
+    social_comparison: Never
+    connection_effect: Makes me feel less connected
+    parental_rules: A few loose rules
+    primary_platform: I do not use social media
+    school_effort: Sometimes
+    academic_confidence: Somewhat confident
+    homework_distraction: Often
+    organized_activity: Three or more days a week
+    career_clarity: A very clear plan
+    future_optimism: Very optimistic
+    peer_belonging: Often
+  - social_media_hours: One to three hours
+    posting_frequency: A few times a week
+    late_night_use: Sometimes
+    sleep_interference: Sometimes
+    social_comparison: Sometimes
+    connection_effect: Makes me feel less connected
+    parental_rules: Very strict rules
+    primary_platform: Snapchat
+    school_effort: Sometimes
+    academic_confidence: Somewhat confident
+    homework_distraction: Sometimes
+    organized_activity: One or two days a week
+    career_clarity: A fairly clear idea
+    future_optimism: A little optimistic
+    peer_belonging: Often
+  - social_media_hours: Less than one hour
+    posting_frequency: Less than once a week
+    late_night_use: Rarely
+    sleep_interference: Often
+    social_comparison: Rarely
+    connection_effect: Makes little difference
+    parental_rules: Very strict rules
+    primary_platform: I do not use social media
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Sometimes
+    organized_activity: Three or more days a week
+    career_clarity: A few vague ideas
+    future_optimism: Somewhat optimistic
+    peer_belonging: Often
+  - social_media_hours: Four or more hours
+    posting_frequency: A few times a week
+    late_night_use: Rarely
+    sleep_interference: Sometimes
+    social_comparison: Sometimes
+    connection_effect: Makes me feel more connected
+    parental_rules: Some clear rules
+    primary_platform: Another platform
+    school_effort: Often
+    academic_confidence: Somewhat confident
+    homework_distraction: Often
+    organized_activity: One or two days a week
+    career_clarity: No clear idea
+    future_optimism: Somewhat optimistic
+    peer_belonging: Never
+  - social_media_hours: Four or more hours
+    posting_frequency: Less than once a week
+    late_night_use: Sometimes
+    sleep_interference: Often
+    social_comparison: Often
+    connection_effect: Makes me feel less connected
+    parental_rules: No rules
+    primary_platform: Instagram
+    school_effort: Often
+    academic_confidence: Somewhat confident
+    homework_distraction: Never
+    organized_activity: One or two days a week
+    career_clarity: No clear idea
+    future_optimism: Very optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Less than one hour
+    posting_frequency: A few times a week
+    late_night_use: Rarely
+    sleep_interference: Rarely
+    social_comparison: Never
+    connection_effect: Makes me feel more connected
+    parental_rules: A few loose rules
+    primary_platform: Another platform
+    school_effort: Sometimes
+    academic_confidence: Very confident
+    homework_distraction: Sometimes
+    organized_activity: Less than once a week
+    career_clarity: A few vague ideas
+    future_optimism: Somewhat optimistic
+    peer_belonging: Often
+  - social_media_hours: One to three hours
+    posting_frequency: Less than once a week
+    late_night_use: Never
+    sleep_interference: Sometimes
+    social_comparison: Sometimes
+    connection_effect: Makes me feel less connected
+    parental_rules: A few loose rules
+    primary_platform: Snapchat
+    school_effort: Often
+    academic_confidence: Not at all confident
+    homework_distraction: Never
+    organized_activity: Three or more days a week
+    career_clarity: A fairly clear idea
+    future_optimism: A little optimistic
+    peer_belonging: Rarely
+  - social_media_hours: One to three hours
+    posting_frequency: A few times a week
+    late_night_use: Sometimes
+    sleep_interference: Sometimes
+    social_comparison: Rarely
+    connection_effect: Makes little difference
+    parental_rules: No rules
+    primary_platform: Instagram
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Never
+    organized_activity: Less than once a week
+    career_clarity: A very clear plan
+    future_optimism: Very optimistic
+    peer_belonging: Often
+  - social_media_hours: Less than one hour
+    posting_frequency: Never or almost never
+    late_night_use: Sometimes
+    sleep_interference: Sometimes
+    social_comparison: Often
+    connection_effect: Makes me feel more connected
+    parental_rules: Some clear rules
+    primary_platform: Snapchat
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Sometimes
+    organized_activity: Never
+    career_clarity: A few vague ideas
+    future_optimism: Very optimistic
+    peer_belonging: Rarely
+  - social_media_hours: One to three hours
+    posting_frequency: Less than once a week
+    late_night_use: Sometimes
+    sleep_interference: Rarely
+    social_comparison: Rarely
+    connection_effect: Makes me feel less connected
+    parental_rules: Some clear rules
+    primary_platform: I do not use social media
+    school_effort: Often
+    academic_confidence: Somewhat confident
+    homework_distraction: Often
+    organized_activity: One or two days a week
+    career_clarity: A fairly clear idea
+    future_optimism: Somewhat optimistic
+    peer_belonging: Often
+  - social_media_hours: One to three hours
+    posting_frequency: Never or almost never
+    late_night_use: Sometimes
+    sleep_interference: Sometimes
+    social_comparison: Sometimes
+    connection_effect: Makes little difference
+    parental_rules: Very strict rules
+    primary_platform: Instagram
+    school_effort: Sometimes
+    academic_confidence: Very confident
+    homework_distraction: Sometimes
+    organized_activity: Three or more days a week
+    career_clarity: A fairly clear idea
+    future_optimism: A little optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: One to three hours
+    posting_frequency: A few times a week
+    late_night_use: Rarely
+    sleep_interference: Often
+    social_comparison: Sometimes
+    connection_effect: Makes me feel less connected
+    parental_rules: A few loose rules
+    primary_platform: Another platform
+    school_effort: Often
+    academic_confidence: A little confident
+    homework_distraction: Sometimes
+    organized_activity: One or two days a week
+    career_clarity: A fairly clear idea
+    future_optimism: A little optimistic
+    peer_belonging: Rarely
+  - social_media_hours: One to three hours
+    posting_frequency: At least once a day
+    late_night_use: Sometimes
+    sleep_interference: Often
+    social_comparison: Sometimes
+    connection_effect: Makes me feel less connected
+    parental_rules: A few loose rules
+    primary_platform: TikTok
+    school_effort: Sometimes
+    academic_confidence: A little confident
+    homework_distraction: Often
+    organized_activity: Three or more days a week
+    career_clarity: A fairly clear idea
+    future_optimism: Very optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: One to three hours
+    posting_frequency: Less than once a week
+    late_night_use: Sometimes
+    sleep_interference: Rarely
+    social_comparison: Sometimes
+    connection_effect: Makes me feel less connected
+    parental_rules: A few loose rules
+    primary_platform: Snapchat
+    school_effort: Sometimes
+    academic_confidence: Somewhat confident
+    homework_distraction: Rarely
+    organized_activity: One or two days a week
+    career_clarity: A very clear plan
+    future_optimism: A little optimistic
+    peer_belonging: Often
+  - social_media_hours: Four or more hours
+    posting_frequency: Less than once a week
+    late_night_use: Never
+    sleep_interference: Sometimes
+    social_comparison: Rarely
+    connection_effect: Makes me feel less connected
+    parental_rules: No rules
+    primary_platform: I do not use social media
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Sometimes
+    organized_activity: Less than once a week
+    career_clarity: A fairly clear idea
+    future_optimism: Not at all optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Four or more hours
+    posting_frequency: Less than once a week
+    late_night_use: Rarely
+    sleep_interference: Never
+    social_comparison: Often
+    connection_effect: Makes me feel less connected
+    parental_rules: A few loose rules
+    primary_platform: Instagram
+    school_effort: Never
+    academic_confidence: Somewhat confident
+    homework_distraction: Often
+    organized_activity: One or two days a week
+    career_clarity: A few vague ideas
+    future_optimism: Somewhat optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: One to three hours
+    posting_frequency: Less than once a week
+    late_night_use: Sometimes
+    sleep_interference: Often
+    social_comparison: Often
+    connection_effect: Makes me feel less connected
+    parental_rules: A few loose rules
+    primary_platform: YouTube
+    school_effort: Rarely
+    academic_confidence: Somewhat confident
+    homework_distraction: Rarely
+    organized_activity: Three or more days a week
+    career_clarity: A very clear plan
+    future_optimism: A little optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Four or more hours
+    posting_frequency: A few times a week
+    late_night_use: Often
+    sleep_interference: Rarely
+    social_comparison: Often
+    connection_effect: Makes me feel more connected
+    parental_rules: A few loose rules
+    primary_platform: TikTok
+    school_effort: Sometimes
+    academic_confidence: Very confident
+    homework_distraction: Sometimes
+    organized_activity: One or two days a week
+    career_clarity: A very clear plan
+    future_optimism: Very optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Less than one hour
+    posting_frequency: At least once a day
+    late_night_use: Sometimes
+    sleep_interference: Sometimes
+    social_comparison: Sometimes
+    connection_effect: Makes me feel more connected
+    parental_rules: No rules
+    primary_platform: Snapchat
+    school_effort: Sometimes
+    academic_confidence: Somewhat confident
+    homework_distraction: Never
+    organized_activity: Three or more days a week
+    career_clarity: A very clear plan
+    future_optimism: Very optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: One to three hours
+    posting_frequency: At least once a day
+    late_night_use: Sometimes
+    sleep_interference: Often
+    social_comparison: Often
+    connection_effect: Makes little difference
+    parental_rules: No rules
+    primary_platform: TikTok
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Often
+    organized_activity: Never
+    career_clarity: A fairly clear idea
+    future_optimism: Not at all optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Less than one hour
+    posting_frequency: A few times a week
+    late_night_use: Sometimes
+    sleep_interference: Never
+    social_comparison: Never
+    connection_effect: Makes little difference
+    parental_rules: Some clear rules
+    primary_platform: Instagram
+    school_effort: Rarely
+    academic_confidence: A little confident
+    homework_distraction: Often
+    organized_activity: Three or more days a week
+    career_clarity: A few vague ideas
+    future_optimism: Very optimistic
+    peer_belonging: Rarely
+  - social_media_hours: One to three hours
+    posting_frequency: Never or almost never
+    late_night_use: Sometimes
+    sleep_interference: Sometimes
+    social_comparison: Never
+    connection_effect: Makes me feel more connected
+    parental_rules: A few loose rules
+    primary_platform: I do not use social media
+    school_effort: Often
+    academic_confidence: Somewhat confident
+    homework_distraction: Rarely
+    organized_activity: Never
+    career_clarity: A fairly clear idea
+    future_optimism: Very optimistic
+    peer_belonging: Rarely
+  - social_media_hours: Four or more hours
+    posting_frequency: A few times a week
+    late_night_use: Rarely
+    sleep_interference: Often
+    social_comparison: Rarely
+    connection_effect: Makes me feel more connected
+    parental_rules: Some clear rules
+    primary_platform: TikTok
+    school_effort: Sometimes
+    academic_confidence: Very confident
+    homework_distraction: Rarely
+    organized_activity: Three or more days a week
+    career_clarity: A fairly clear idea
+    future_optimism: Not at all optimistic
+    peer_belonging: Often
+  - social_media_hours: Less than one hour
+    posting_frequency: Less than once a week
+    late_night_use: Often
+    sleep_interference: Often
+    social_comparison: Sometimes
+    connection_effect: Makes little difference
+    parental_rules: No rules
+    primary_platform: YouTube
+    school_effort: Sometimes
+    academic_confidence: Very confident
+    homework_distraction: Often
+    organized_activity: Never
+    career_clarity: A very clear plan
+    future_optimism: Somewhat optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Four or more hours
+    posting_frequency: Less than once a week
+    late_night_use: Rarely
+    sleep_interference: Sometimes
+    social_comparison: Sometimes
+    connection_effect: Makes me feel more connected
+    parental_rules: Very strict rules
+    primary_platform: TikTok
+    school_effort: Often
+    academic_confidence: Somewhat confident
+    homework_distraction: Rarely
+    organized_activity: Three or more days a week
+    career_clarity: A fairly clear idea
+    future_optimism: Somewhat optimistic
+    peer_belonging: Often
+  - social_media_hours: Less than one hour
+    posting_frequency: Never or almost never
+    late_night_use: Sometimes
+    sleep_interference: Often
+    social_comparison: Sometimes
+    connection_effect: Makes me feel less connected
+    parental_rules: No rules
+    primary_platform: TikTok
+    school_effort: Sometimes
+    academic_confidence: Not at all confident
+    homework_distraction: Sometimes
+    organized_activity: Three or more days a week
+    career_clarity: No clear idea
+    future_optimism: Very optimistic
+    peer_belonging: Rarely
+  - social_media_hours: One to three hours
+    posting_frequency: At least once a day
+    late_night_use: Never
+    sleep_interference: Often
+    social_comparison: Never
+    connection_effect: Makes little difference
+    parental_rules: Some clear rules
+    primary_platform: YouTube
+    school_effort: Sometimes
+    academic_confidence: Very confident
+    homework_distraction: Often
+    organized_activity: Less than once a week
+    career_clarity: No clear idea
+    future_optimism: A little optimistic
+    peer_belonging: Often
+  - social_media_hours: Four or more hours
+    posting_frequency: Less than once a week
+    late_night_use: Rarely
+    sleep_interference: Often
+    social_comparison: Rarely
+    connection_effect: Makes little difference
+    parental_rules: Very strict rules
+    primary_platform: YouTube
+    school_effort: Often
+    academic_confidence: Somewhat confident
+    homework_distraction: Sometimes
+    organized_activity: Three or more days a week
+    career_clarity: A fairly clear idea
+    future_optimism: Very optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Less than one hour
+    posting_frequency: Never or almost never
+    late_night_use: Rarely
+    sleep_interference: Often
+    social_comparison: Often
+    connection_effect: Makes me feel more connected
+    parental_rules: Some clear rules
+    primary_platform: Snapchat
+    school_effort: Often
+    academic_confidence: A little confident
+    homework_distraction: Never
+    organized_activity: Less than once a week
+    career_clarity: No clear idea
+    future_optimism: Very optimistic
+    peer_belonging: Often
+  - social_media_hours: Four or more hours
+    posting_frequency: A few times a week
+    late_night_use: Never
+    sleep_interference: Often
+    social_comparison: Rarely
+    connection_effect: Makes little difference
+    parental_rules: A few loose rules
+    primary_platform: TikTok
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Often
+    organized_activity: One or two days a week
+    career_clarity: A few vague ideas
+    future_optimism: Somewhat optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Four or more hours
+    posting_frequency: A few times a week
+    late_night_use: Never
+    sleep_interference: Sometimes
+    social_comparison: Rarely
+    connection_effect: Makes little difference
+    parental_rules: A few loose rules
+    primary_platform: YouTube
+    school_effort: Often
+    academic_confidence: Somewhat confident
+    homework_distraction: Never
+    organized_activity: One or two days a week
+    career_clarity: A fairly clear idea
+    future_optimism: A little optimistic
+    peer_belonging: Never
+  - social_media_hours: Less than one hour
+    posting_frequency: Never or almost never
+    late_night_use: Sometimes
+    sleep_interference: Often
+    social_comparison: Never
+    connection_effect: Makes me feel more connected
+    parental_rules: Very strict rules
+    primary_platform: Another platform
+    school_effort: Sometimes
+    academic_confidence: Somewhat confident
+    homework_distraction: Rarely
+    organized_activity: Three or more days a week
+    career_clarity: A fairly clear idea
+    future_optimism: Somewhat optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: One to three hours
+    posting_frequency: A few times a week
+    late_night_use: Often
+    sleep_interference: Often
+    social_comparison: Rarely
+    connection_effect: Makes little difference
+    parental_rules: A few loose rules
+    primary_platform: Another platform
+    school_effort: Sometimes
+    academic_confidence: Very confident
+    homework_distraction: Sometimes
+    organized_activity: One or two days a week
+    career_clarity: A few vague ideas
+    future_optimism: Somewhat optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: One to three hours
+    posting_frequency: Never or almost never
+    late_night_use: Rarely
+    sleep_interference: Often
+    social_comparison: Never
+    connection_effect: Makes me feel less connected
+    parental_rules: A few loose rules
+    primary_platform: YouTube
+    school_effort: Sometimes
+    academic_confidence: Somewhat confident
+    homework_distraction: Never
+    organized_activity: Never
+    career_clarity: A fairly clear idea
+    future_optimism: Not at all optimistic
+    peer_belonging: Often
+  - social_media_hours: One to three hours
+    posting_frequency: Never or almost never
+    late_night_use: Never
+    sleep_interference: Sometimes
+    social_comparison: Never
+    connection_effect: Makes me feel less connected
+    parental_rules: A few loose rules
+    primary_platform: Instagram
+    school_effort: Sometimes
+    academic_confidence: Somewhat confident
+    homework_distraction: Never
+    organized_activity: Never
+    career_clarity: A fairly clear idea
+    future_optimism: A little optimistic
+    peer_belonging: Often
+  - social_media_hours: One to three hours
+    posting_frequency: Less than once a week
+    late_night_use: Sometimes
+    sleep_interference: Rarely
+    social_comparison: Rarely
+    connection_effect: Makes me feel less connected
+    parental_rules: No rules
+    primary_platform: I do not use social media
+    school_effort: Sometimes
+    academic_confidence: Very confident
+    homework_distraction: Rarely
+    organized_activity: Three or more days a week
+    career_clarity: A fairly clear idea
+    future_optimism: Very optimistic
+    peer_belonging: Often
+  - social_media_hours: Less than one hour
+    posting_frequency: At least once a day
+    late_night_use: Rarely
+    sleep_interference: Sometimes
+    social_comparison: Sometimes
+    connection_effect: Makes me feel less connected
+    parental_rules: Very strict rules
+    primary_platform: TikTok
+    school_effort: Sometimes
+    academic_confidence: Somewhat confident
+    homework_distraction: Never
+    organized_activity: Never
+    career_clarity: A fairly clear idea
+    future_optimism: Not at all optimistic
+    peer_belonging: Rarely
+  - social_media_hours: One to three hours
+    posting_frequency: At least once a day
+    late_night_use: Never
+    sleep_interference: Sometimes
+    social_comparison: Never
+    connection_effect: Makes me feel more connected
+    parental_rules: Very strict rules
+    primary_platform: Instagram
+    school_effort: Sometimes
+    academic_confidence: A little confident
+    homework_distraction: Rarely
+    organized_activity: One or two days a week
+    career_clarity: A few vague ideas
+    future_optimism: Very optimistic
+    peer_belonging: Often
+  - social_media_hours: Less than one hour
+    posting_frequency: Never or almost never
+    late_night_use: Often
+    sleep_interference: Rarely
+    social_comparison: Rarely
+    connection_effect: Makes me feel less connected
+    parental_rules: Very strict rules
+    primary_platform: I do not use social media
+    school_effort: Often
+    academic_confidence: Somewhat confident
+    homework_distraction: Sometimes
+    organized_activity: One or two days a week
+    career_clarity: No clear idea
+    future_optimism: Not at all optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Four or more hours
+    posting_frequency: A few times a week
+    late_night_use: Sometimes
+    sleep_interference: Sometimes
+    social_comparison: Never
+    connection_effect: Makes me feel more connected
+    parental_rules: Some clear rules
+    primary_platform: I do not use social media
+    school_effort: Rarely
+    academic_confidence: Very confident
+    homework_distraction: Never
+    organized_activity: Less than once a week
+    career_clarity: No clear idea
+    future_optimism: A little optimistic
+    peer_belonging: Often
+  - social_media_hours: Less than one hour
+    posting_frequency: A few times a week
+    late_night_use: Sometimes
+    sleep_interference: Often
+    social_comparison: Never
+    connection_effect: Makes me feel more connected
+    parental_rules: A few loose rules
+    primary_platform: Instagram
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Never
+    organized_activity: Never
+    career_clarity: A very clear plan
+    future_optimism: Not at all optimistic
+    peer_belonging: Rarely
+  - social_media_hours: One to three hours
+    posting_frequency: Less than once a week
+    late_night_use: Sometimes
+    sleep_interference: Rarely
+    social_comparison: Sometimes
+    connection_effect: Makes little difference
+    parental_rules: Very strict rules
+    primary_platform: Another platform
+    school_effort: Often
+    academic_confidence: A little confident
+    homework_distraction: Often
+    organized_activity: Never
+    career_clarity: A few vague ideas
+    future_optimism: Somewhat optimistic
+    peer_belonging: Never
+  - social_media_hours: Four or more hours
+    posting_frequency: A few times a week
+    late_night_use: Rarely
+    sleep_interference: Often
+    social_comparison: Sometimes
+    connection_effect: Makes me feel less connected
+    parental_rules: No rules
+    primary_platform: TikTok
+    school_effort: Often
+    academic_confidence: Somewhat confident
+    homework_distraction: Often
+    organized_activity: One or two days a week
+    career_clarity: A fairly clear idea
+    future_optimism: Very optimistic
+    peer_belonging: Rarely
+  - social_media_hours: Less than one hour
+    posting_frequency: Less than once a week
+    late_night_use: Never
+    sleep_interference: Never
+    social_comparison: Sometimes
+    connection_effect: Makes me feel less connected
+    parental_rules: Some clear rules
+    primary_platform: TikTok
+    school_effort: Sometimes
+    academic_confidence: Very confident
+    homework_distraction: Never
+    organized_activity: Three or more days a week
+    career_clarity: A very clear plan
+    future_optimism: Not at all optimistic
+    peer_belonging: Often
+  - social_media_hours: Four or more hours
+    posting_frequency: Never or almost never
+    late_night_use: Often
+    sleep_interference: Sometimes
+    social_comparison: Sometimes
+    connection_effect: Makes me feel more connected
+    parental_rules: No rules
+    primary_platform: YouTube
+    school_effort: Never
+    academic_confidence: Somewhat confident
+    homework_distraction: Sometimes
+    organized_activity: Never
+    career_clarity: A few vague ideas
+    future_optimism: Somewhat optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Less than one hour
+    posting_frequency: A few times a week
+    late_night_use: Often
+    sleep_interference: Never
+    social_comparison: Rarely
+    connection_effect: Makes me feel more connected
+    parental_rules: Very strict rules
+    primary_platform: Snapchat
+    school_effort: Sometimes
+    academic_confidence: Very confident
+    homework_distraction: Rarely
+    organized_activity: Never
+    career_clarity: No clear idea
+    future_optimism: Not at all optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Less than one hour
+    posting_frequency: A few times a week
+    late_night_use: Rarely
+    sleep_interference: Often
+    social_comparison: Often
+    connection_effect: Makes little difference
+    parental_rules: Some clear rules
+    primary_platform: YouTube
+    school_effort: Sometimes
+    academic_confidence: Somewhat confident
+    homework_distraction: Sometimes
+    organized_activity: Never
+    career_clarity: A fairly clear idea
+    future_optimism: Very optimistic
+    peer_belonging: Often
+  - social_media_hours: One to three hours
+    posting_frequency: Less than once a week
+    late_night_use: Sometimes
+    sleep_interference: Sometimes
+    social_comparison: Often
+    connection_effect: Makes little difference
+    parental_rules: Very strict rules
+    primary_platform: Another platform
+    school_effort: Often
+    academic_confidence: Somewhat confident
+    homework_distraction: Often
+    organized_activity: Never
+    career_clarity: No clear idea
+    future_optimism: Not at all optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Four or more hours
+    posting_frequency: At least once a day
+    late_night_use: Rarely
+    sleep_interference: Rarely
+    social_comparison: Often
+    connection_effect: Makes me feel less connected
+    parental_rules: A few loose rules
+    primary_platform: Snapchat
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Never
+    organized_activity: One or two days a week
+    career_clarity: A few vague ideas
+    future_optimism: A little optimistic
+    peer_belonging: Rarely
+  - social_media_hours: Four or more hours
+    posting_frequency: A few times a week
+    late_night_use: Rarely
+    sleep_interference: Sometimes
+    social_comparison: Sometimes
+    connection_effect: Makes little difference
+    parental_rules: No rules
+    primary_platform: Snapchat
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Never
+    organized_activity: Never
+    career_clarity: A few vague ideas
+    future_optimism: Very optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Four or more hours
+    posting_frequency: A few times a week
+    late_night_use: Often
+    sleep_interference: Often
+    social_comparison: Rarely
+    connection_effect: Makes me feel less connected
+    parental_rules: No rules
+    primary_platform: YouTube
+    school_effort: Sometimes
+    academic_confidence: A little confident
+    homework_distraction: Sometimes
+    organized_activity: Never
+    career_clarity: A fairly clear idea
+    future_optimism: Very optimistic
+    peer_belonging: Often
+  - social_media_hours: Four or more hours
+    posting_frequency: At least once a day
+    late_night_use: Rarely
+    sleep_interference: Never
+    social_comparison: Sometimes
+    connection_effect: Makes me feel less connected
+    parental_rules: Some clear rules
+    primary_platform: TikTok
+    school_effort: Rarely
+    academic_confidence: Very confident
+    homework_distraction: Never
+    organized_activity: One or two days a week
+    career_clarity: No clear idea
+    future_optimism: Very optimistic
+    peer_belonging: Often
+  - social_media_hours: Four or more hours
+    posting_frequency: Never or almost never
+    late_night_use: Rarely
+    sleep_interference: Never
+    social_comparison: Rarely
+    connection_effect: Makes little difference
+    parental_rules: A few loose rules
+    primary_platform: I do not use social media
+    school_effort: Often
+    academic_confidence: A little confident
+    homework_distraction: Often
+    organized_activity: One or two days a week
+    career_clarity: A few vague ideas
+    future_optimism: Not at all optimistic
+    peer_belonging: Rarely
+  - social_media_hours: One to three hours
+    posting_frequency: Never or almost never
+    late_night_use: Sometimes
+    sleep_interference: Often
+    social_comparison: Rarely
+    connection_effect: Makes me feel less connected
+    parental_rules: No rules
+    primary_platform: I do not use social media
+    school_effort: Often
+    academic_confidence: Not at all confident
+    homework_distraction: Never
+    organized_activity: Three or more days a week
+    career_clarity: A very clear plan
+    future_optimism: Not at all optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Four or more hours
+    posting_frequency: Less than once a week
+    late_night_use: Often
+    sleep_interference: Rarely
+    social_comparison: Sometimes
+    connection_effect: Makes me feel less connected
+    parental_rules: Very strict rules
+    primary_platform: TikTok
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Often
+    organized_activity: Less than once a week
+    career_clarity: A few vague ideas
+    future_optimism: A little optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: One to three hours
+    posting_frequency: Never or almost never
+    late_night_use: Rarely
+    sleep_interference: Sometimes
+    social_comparison: Never
+    connection_effect: Makes me feel less connected
+    parental_rules: Very strict rules
+    primary_platform: Snapchat
+    school_effort: Rarely
+    academic_confidence: Very confident
+    homework_distraction: Often
+    organized_activity: Never
+    career_clarity: A very clear plan
+    future_optimism: A little optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: One to three hours
+    posting_frequency: At least once a day
+    late_night_use: Never
+    sleep_interference: Rarely
+    social_comparison: Rarely
+    connection_effect: Makes little difference
+    parental_rules: No rules
+    primary_platform: Snapchat
+    school_effort: Sometimes
+    academic_confidence: Very confident
+    homework_distraction: Rarely
+    organized_activity: Never
+    career_clarity: A fairly clear idea
+    future_optimism: A little optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: One to three hours
+    posting_frequency: A few times a week
+    late_night_use: Rarely
+    sleep_interference: Sometimes
+    social_comparison: Rarely
+    connection_effect: Makes me feel more connected
+    parental_rules: Very strict rules
+    primary_platform: I do not use social media
+    school_effort: Sometimes
+    academic_confidence: Somewhat confident
+    homework_distraction: Never
+    organized_activity: Three or more days a week
+    career_clarity: A few vague ideas
+    future_optimism: Not at all optimistic
+    peer_belonging: Often
+  - social_media_hours: Less than one hour
+    posting_frequency: Less than once a week
+    late_night_use: Often
+    sleep_interference: Sometimes
+    social_comparison: Rarely
+    connection_effect: Makes me feel more connected
+    parental_rules: Very strict rules
+    primary_platform: YouTube
+    school_effort: Often
+    academic_confidence: Somewhat confident
+    homework_distraction: Never
+    organized_activity: One or two days a week
+    career_clarity: A few vague ideas
+    future_optimism: Not at all optimistic
+    peer_belonging: Rarely
+  - social_media_hours: One to three hours
+    posting_frequency: A few times a week
+    late_night_use: Sometimes
+    sleep_interference: Often
+    social_comparison: Rarely
+    connection_effect: Makes me feel more connected
+    parental_rules: A few loose rules
+    primary_platform: I do not use social media
+    school_effort: Sometimes
+    academic_confidence: Very confident
+    homework_distraction: Often
+    organized_activity: Less than once a week
+    career_clarity: A fairly clear idea
+    future_optimism: Not at all optimistic
+    peer_belonging: Often
+  - social_media_hours: Four or more hours
+    posting_frequency: Less than once a week
+    late_night_use: Never
+    sleep_interference: Rarely
+    social_comparison: Sometimes
+    connection_effect: Makes little difference
+    parental_rules: A few loose rules
+    primary_platform: TikTok
+    school_effort: Sometimes
+    academic_confidence: Somewhat confident
+    homework_distraction: Sometimes
+    organized_activity: Three or more days a week
+    career_clarity: A fairly clear idea
+    future_optimism: Very optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Four or more hours
+    posting_frequency: A few times a week
+    late_night_use: Sometimes
+    sleep_interference: Rarely
+    social_comparison: Rarely
+    connection_effect: Makes me feel more connected
+    parental_rules: Some clear rules
+    primary_platform: I do not use social media
+    school_effort: Sometimes
+    academic_confidence: Somewhat confident
+    homework_distraction: Rarely
+    organized_activity: Never
+    career_clarity: A few vague ideas
+    future_optimism: Somewhat optimistic
+    peer_belonging: Often
+  - social_media_hours: Four or more hours
+    posting_frequency: At least once a day
+    late_night_use: Never
+    sleep_interference: Rarely
+    social_comparison: Rarely
+    connection_effect: Makes little difference
+    parental_rules: Very strict rules
+    primary_platform: TikTok
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Never
+    organized_activity: Less than once a week
+    career_clarity: A few vague ideas
+    future_optimism: Not at all optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Less than one hour
+    posting_frequency: Less than once a week
+    late_night_use: Never
+    sleep_interference: Often
+    social_comparison: Never
+    connection_effect: Makes little difference
+    parental_rules: Very strict rules
+    primary_platform: TikTok
+    school_effort: Never
+    academic_confidence: Very confident
+    homework_distraction: Rarely
+    organized_activity: One or two days a week
+    career_clarity: A fairly clear idea
+    future_optimism: Somewhat optimistic
+    peer_belonging: Often
+  - social_media_hours: Less than one hour
+    posting_frequency: Less than once a week
+    late_night_use: Never
+    sleep_interference: Sometimes
+    social_comparison: Rarely
+    connection_effect: Makes little difference
+    parental_rules: Some clear rules
+    primary_platform: Snapchat
+    school_effort: Often
+    academic_confidence: Not at all confident
+    homework_distraction: Sometimes
+    organized_activity: One or two days a week
+    career_clarity: A few vague ideas
+    future_optimism: Not at all optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: One to three hours
+    posting_frequency: At least once a day
+    late_night_use: Sometimes
+    sleep_interference: Often
+    social_comparison: Sometimes
+    connection_effect: Makes me feel less connected
+    parental_rules: Some clear rules
+    primary_platform: YouTube
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Sometimes
+    organized_activity: Less than once a week
+    career_clarity: A fairly clear idea
+    future_optimism: A little optimistic
+    peer_belonging: Often
+  - social_media_hours: Four or more hours
+    posting_frequency: At least once a day
+    late_night_use: Rarely
+    sleep_interference: Often
+    social_comparison: Rarely
+    connection_effect: Makes me feel less connected
+    parental_rules: A few loose rules
+    primary_platform: Another platform
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Often
+    organized_activity: Three or more days a week
+    career_clarity: A few vague ideas
+    future_optimism: Somewhat optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: One to three hours
+    posting_frequency: A few times a week
+    late_night_use: Rarely
+    sleep_interference: Rarely
+    social_comparison: Sometimes
+    connection_effect: Makes little difference
+    parental_rules: No rules
+    primary_platform: Another platform
+    school_effort: Sometimes
+    academic_confidence: Somewhat confident
+    homework_distraction: Never
+    organized_activity: Three or more days a week
+    career_clarity: A fairly clear idea
+    future_optimism: Not at all optimistic
+    peer_belonging: Rarely
+  - social_media_hours: One to three hours
+    posting_frequency: At least once a day
+    late_night_use: Rarely
+    sleep_interference: Sometimes
+    social_comparison: Rarely
+    connection_effect: Makes me feel less connected
+    parental_rules: Very strict rules
+    primary_platform: Another platform
+    school_effort: Rarely
+    academic_confidence: Very confident
+    homework_distraction: Never
+    organized_activity: Three or more days a week
+    career_clarity: A fairly clear idea
+    future_optimism: A little optimistic
+    peer_belonging: Often
+  - social_media_hours: Four or more hours
+    posting_frequency: A few times a week
+    late_night_use: Never
+    sleep_interference: Rarely
+    social_comparison: Rarely
+    connection_effect: Makes me feel more connected
+    parental_rules: No rules
+    primary_platform: I do not use social media
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Rarely
+    organized_activity: One or two days a week
+    career_clarity: A very clear plan
+    future_optimism: Very optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Four or more hours
+    posting_frequency: At least once a day
+    late_night_use: Never
+    sleep_interference: Sometimes
+    social_comparison: Sometimes
+    connection_effect: Makes me feel more connected
+    parental_rules: No rules
+    primary_platform: I do not use social media
+    school_effort: Rarely
+    academic_confidence: Somewhat confident
+    homework_distraction: Often
+    organized_activity: Less than once a week
+    career_clarity: A few vague ideas
+    future_optimism: A little optimistic
+    peer_belonging: Often
+  - social_media_hours: Less than one hour
+    posting_frequency: Less than once a week
+    late_night_use: Often
+    sleep_interference: Rarely
+    social_comparison: Often
+    connection_effect: Makes little difference
+    parental_rules: Very strict rules
+    primary_platform: Another platform
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Never
+    organized_activity: One or two days a week
+    career_clarity: A few vague ideas
+    future_optimism: Very optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Four or more hours
+    posting_frequency: Never or almost never
+    late_night_use: Never
+    sleep_interference: Sometimes
+    social_comparison: Sometimes
+    connection_effect: Makes me feel more connected
+    parental_rules: Very strict rules
+    primary_platform: Instagram
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Never
+    organized_activity: Never
+    career_clarity: No clear idea
+    future_optimism: Not at all optimistic
+    peer_belonging: Often
+  - social_media_hours: Less than one hour
+    posting_frequency: A few times a week
+    late_night_use: Often
+    sleep_interference: Often
+    social_comparison: Sometimes
+    connection_effect: Makes me feel more connected
+    parental_rules: No rules
+    primary_platform: Snapchat
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Sometimes
+    organized_activity: Never
+    career_clarity: No clear idea
+    future_optimism: A little optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: One to three hours
+    posting_frequency: Less than once a week
+    late_night_use: Often
+    sleep_interference: Sometimes
+    social_comparison: Sometimes
+    connection_effect: Makes me feel less connected
+    parental_rules: No rules
+    primary_platform: YouTube
+    school_effort: Often
+    academic_confidence: Somewhat confident
+    homework_distraction: Never
+    organized_activity: One or two days a week
+    career_clarity: No clear idea
+    future_optimism: A little optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Less than one hour
+    posting_frequency: Less than once a week
+    late_night_use: Often
+    sleep_interference: Sometimes
+    social_comparison: Often
+    connection_effect: Makes me feel less connected
+    parental_rules: No rules
+    primary_platform: Instagram
+    school_effort: Often
+    academic_confidence: Somewhat confident
+    homework_distraction: Rarely
+    organized_activity: Three or more days a week
+    career_clarity: A fairly clear idea
+    future_optimism: Not at all optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: One to three hours
+    posting_frequency: Never or almost never
+    late_night_use: Never
+    sleep_interference: Sometimes
+    social_comparison: Often
+    connection_effect: Makes me feel more connected
+    parental_rules: No rules
+    primary_platform: Snapchat
+    school_effort: Sometimes
+    academic_confidence: Somewhat confident
+    homework_distraction: Never
+    organized_activity: Less than once a week
+    career_clarity: A few vague ideas
+    future_optimism: Somewhat optimistic
+    peer_belonging: Rarely
+  - social_media_hours: Less than one hour
+    posting_frequency: A few times a week
+    late_night_use: Often
+    sleep_interference: Sometimes
+    social_comparison: Rarely
+    connection_effect: Makes me feel more connected
+    parental_rules: No rules
+    primary_platform: TikTok
+    school_effort: Rarely
+    academic_confidence: Somewhat confident
+    homework_distraction: Sometimes
+    organized_activity: Less than once a week
+    career_clarity: A fairly clear idea
+    future_optimism: Somewhat optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Less than one hour
+    posting_frequency: At least once a day
+    late_night_use: Rarely
+    sleep_interference: Often
+    social_comparison: Rarely
+    connection_effect: Makes me feel more connected
+    parental_rules: Some clear rules
+    primary_platform: Instagram
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Rarely
+    organized_activity: Less than once a week
+    career_clarity: A very clear plan
+    future_optimism: Not at all optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Four or more hours
+    posting_frequency: A few times a week
+    late_night_use: Often
+    sleep_interference: Sometimes
+    social_comparison: Often
+    connection_effect: Makes me feel less connected
+    parental_rules: Some clear rules
+    primary_platform: Instagram
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Sometimes
+    organized_activity: Never
+    career_clarity: A fairly clear idea
+    future_optimism: Somewhat optimistic
+    peer_belonging: Rarely
+  - social_media_hours: Four or more hours
+    posting_frequency: A few times a week
+    late_night_use: Rarely
+    sleep_interference: Sometimes
+    social_comparison: Never
+    connection_effect: Makes me feel more connected
+    parental_rules: Some clear rules
+    primary_platform: Instagram
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Often
+    organized_activity: Never
+    career_clarity: A very clear plan
+    future_optimism: Somewhat optimistic
+    peer_belonging: Often
+  - social_media_hours: Less than one hour
+    posting_frequency: At least once a day
+    late_night_use: Rarely
+    sleep_interference: Sometimes
+    social_comparison: Sometimes
+    connection_effect: Makes little difference
+    parental_rules: A few loose rules
+    primary_platform: Snapchat
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Sometimes
+    organized_activity: Three or more days a week
+    career_clarity: A few vague ideas
+    future_optimism: Very optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Less than one hour
+    posting_frequency: Never or almost never
+    late_night_use: Often
+    sleep_interference: Rarely
+    social_comparison: Sometimes
+    connection_effect: Makes little difference
+    parental_rules: No rules
+    primary_platform: Instagram
+    school_effort: Rarely
+    academic_confidence: Very confident
+    homework_distraction: Sometimes
+    organized_activity: Never
+    career_clarity: A few vague ideas
+    future_optimism: Not at all optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Less than one hour
+    posting_frequency: Less than once a week
+    late_night_use: Never
+    sleep_interference: Often
+    social_comparison: Sometimes
+    connection_effect: Makes me feel less connected
+    parental_rules: Very strict rules
+    primary_platform: I do not use social media
+    school_effort: Sometimes
+    academic_confidence: Very confident
+    homework_distraction: Sometimes
+    organized_activity: Less than once a week
+    career_clarity: A very clear plan
+    future_optimism: A little optimistic
+    peer_belonging: Never
+  - social_media_hours: Less than one hour
+    posting_frequency: A few times a week
+    late_night_use: Often
+    sleep_interference: Often
+    social_comparison: Rarely
+    connection_effect: Makes me feel more connected
+    parental_rules: No rules
+    primary_platform: TikTok
+    school_effort: Sometimes
+    academic_confidence: A little confident
+    homework_distraction: Never
+    organized_activity: Less than once a week
+    career_clarity: A few vague ideas
+    future_optimism: Very optimistic
+    peer_belonging: Often
+  - social_media_hours: Four or more hours
+    posting_frequency: A few times a week
+    late_night_use: Often
+    sleep_interference: Rarely
+    social_comparison: Rarely
+    connection_effect: Makes me feel less connected
+    parental_rules: A few loose rules
+    primary_platform: Another platform
+    school_effort: Often
+    academic_confidence: Somewhat confident
+    homework_distraction: Often
+    organized_activity: Three or more days a week
+    career_clarity: A fairly clear idea
+    future_optimism: A little optimistic
+    peer_belonging: Never
+  - social_media_hours: Four or more hours
+    posting_frequency: A few times a week
+    late_night_use: Rarely
+    sleep_interference: Rarely
+    social_comparison: Sometimes
+    connection_effect: Makes little difference
+    parental_rules: Some clear rules
+    primary_platform: YouTube
+    school_effort: Sometimes
+    academic_confidence: A little confident
+    homework_distraction: Rarely
+    organized_activity: Never
+    career_clarity: A fairly clear idea
+    future_optimism: Very optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Four or more hours
+    posting_frequency: Never or almost never
+    late_night_use: Sometimes
+    sleep_interference: Never
+    social_comparison: Often
+    connection_effect: Makes me feel more connected
+    parental_rules: Very strict rules
+    primary_platform: TikTok
+    school_effort: Often
+    academic_confidence: A little confident
+    homework_distraction: Sometimes
+    organized_activity: Less than once a week
+    career_clarity: A few vague ideas
+    future_optimism: A little optimistic
+    peer_belonging: Often
+  - social_media_hours: Less than one hour
+    posting_frequency: Never or almost never
+    late_night_use: Rarely
+    sleep_interference: Sometimes
+    social_comparison: Never
+    connection_effect: Makes little difference
+    parental_rules: Some clear rules
+    primary_platform: Snapchat
+    school_effort: Sometimes
+    academic_confidence: Somewhat confident
+    homework_distraction: Often
+    organized_activity: One or two days a week
+    career_clarity: A few vague ideas
+    future_optimism: Not at all optimistic
+    peer_belonging: Rarely
+  - social_media_hours: Four or more hours
+    posting_frequency: Less than once a week
+    late_night_use: Never
+    sleep_interference: Sometimes
+    social_comparison: Sometimes
+    connection_effect: Makes little difference
+    parental_rules: Some clear rules
+    primary_platform: YouTube
+    school_effort: Sometimes
+    academic_confidence: Very confident
+    homework_distraction: Rarely
+    organized_activity: Never
+    career_clarity: A few vague ideas
+    future_optimism: Somewhat optimistic
+    peer_belonging: Rarely
+  - social_media_hours: Less than one hour
+    posting_frequency: Less than once a week
+    late_night_use: Often
+    sleep_interference: Sometimes
+    social_comparison: Sometimes
+    connection_effect: Makes little difference
+    parental_rules: A few loose rules
+    primary_platform: TikTok
+    school_effort: Often
+    academic_confidence: Somewhat confident
+    homework_distraction: Rarely
+    organized_activity: Three or more days a week
+    career_clarity: No clear idea
+    future_optimism: Not at all optimistic
+    peer_belonging: Often
+  - social_media_hours: Four or more hours
+    posting_frequency: At least once a day
+    late_night_use: Often
+    sleep_interference: Sometimes
+    social_comparison: Rarely
+    connection_effect: Makes me feel more connected
+    parental_rules: Some clear rules
+    primary_platform: YouTube
+    school_effort: Sometimes
+    academic_confidence: Very confident
+    homework_distraction: Never
+    organized_activity: One or two days a week
+    career_clarity: A few vague ideas
+    future_optimism: A little optimistic
+    peer_belonging: Never
+  - social_media_hours: Less than one hour
+    posting_frequency: A few times a week
+    late_night_use: Never
+    sleep_interference: Sometimes
+    social_comparison: Rarely
+    connection_effect: Makes little difference
+    parental_rules: Very strict rules
+    primary_platform: YouTube
+    school_effort: Sometimes
+    academic_confidence: Very confident
+    homework_distraction: Often
+    organized_activity: Less than once a week
+    career_clarity: A few vague ideas
+    future_optimism: A little optimistic
+    peer_belonging: Often
+  - social_media_hours: Four or more hours
+    posting_frequency: A few times a week
+    late_night_use: Never
+    sleep_interference: Sometimes
+    social_comparison: Sometimes
+    connection_effect: Makes me feel more connected
+    parental_rules: Some clear rules
+    primary_platform: Instagram
+    school_effort: Rarely
+    academic_confidence: Very confident
+    homework_distraction: Often
+    organized_activity: Three or more days a week
+    career_clarity: A fairly clear idea
+    future_optimism: A little optimistic
+    peer_belonging: Often
+  - social_media_hours: One to three hours
+    posting_frequency: Never or almost never
+    late_night_use: Never
+    sleep_interference: Never
+    social_comparison: Sometimes
+    connection_effect: Makes little difference
+    parental_rules: A few loose rules
+    primary_platform: Another platform
+    school_effort: Rarely
+    academic_confidence: Very confident
+    homework_distraction: Never
+    organized_activity: One or two days a week
+    career_clarity: A fairly clear idea
+    future_optimism: A little optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Less than one hour
+    posting_frequency: A few times a week
+    late_night_use: Never
+    sleep_interference: Never
+    social_comparison: Rarely
+    connection_effect: Makes little difference
+    parental_rules: No rules
+    primary_platform: Instagram
+    school_effort: Often
+    academic_confidence: Very confident
+    homework_distraction: Rarely
+    organized_activity: Three or more days a week
+    career_clarity: A few vague ideas
+    future_optimism: Somewhat optimistic
+    peer_belonging: Sometimes
+  - social_media_hours: Less than one hour
+    posting_frequency: At least once a day
+    late_night_use: Sometimes
+    sleep_interference: Sometimes
+    social_comparison: Sometimes
+    connection_effect: Makes me feel less connected
+    parental_rules: No rules
+    primary_platform: YouTube
+    school_effort: Often
+    academic_confidence: A little confident
+    homework_distraction: Sometimes
+    organized_activity: One or two days a week
+    career_clarity: A fairly clear idea
+    future_optimism: Very optimistic
+    peer_belonging: Often
+  coherence: explicit
+target_informed:
+  source: examples/teen_social_2026/life_prior_probe/teen_social_life_combined_targets.json
+  accepted_target_ids:
+  - marginal:posting_frequency
+  - marginal:sleep_interference
+  - marginal:social_comparison
+  - marginal:school_effort
+  - marginal:academic_confidence
+  - marginal:career_clarity
+  - marginal:peer_belonging
+  allocation: largest_remainder
+  population_marginals_in_individual_prompts: false
+profile:
+  framing: synthetic_respondent
+  forbid_demographic_invention: true
+probabilities:
+  interpretation: subjective_response_probability
+  require_sum: 1
+  allow_zero: false
+  minimum_probability: 0.01
+guardrails:
+  leak_target_marginals: false
+  silent_coverage_truncation: false
+  silent_invalid_response_repair: false
+  describe_as_recovered_respondents: false
+  validate_blueprint_fidelity: true

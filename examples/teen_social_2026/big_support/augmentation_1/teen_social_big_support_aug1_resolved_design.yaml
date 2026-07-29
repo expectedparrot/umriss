@@ -1,0 +1,51 @@
+schema_version: 1
+type: adaptive_uniform_augmentation
+size: 64
+seed: 20260729
+base_support: examples/teen_social_2026/big_support/bank/teen_social_big_support_probabilities.csv
+base_n: 64
+uniform_tolerance: 0.05
+requested_target_shares:
+  social_media_hours:
+  - 0.48276041666666675
+  - 0.17338541666666665
+  - 0.3438541666666666
+  posting_frequency:
+  - 0.2654687500000001
+  - 0.2404687499999999
+  - 0.17812500000000006
+  - 0.3159375
+  late_night_use:
+  - 0.32921874999999995
+  - 0.2546875
+  - 0.14843750000000008
+  - 0.26765625
+  sleep_interference:
+  - 0.27343750000000006
+  - 0.20359375000000002
+  - 0.175625
+  - 0.34734374999999995
+  social_comparison:
+  - 0.3120312500000001
+  - 0.19921875
+  - 0.14656250000000004
+  - 0.3421875
+  connection_effect:
+  - 0.5371354166666668
+  - 0.2936979166666666
+  - 0.16916666666666672
+  parental_rules:
+  - 0.35484375
+  - 0.15109375000000005
+  - 0.16062499999999993
+  - 0.3334375000000001
+  primary_platform:
+  - 0.06848958333333334
+  - 0.10723958333333335
+  - 0.17505208333333333
+  - 0.11395833333333331
+  - 0.25052083333333336
+  - 0.28473958333333343
+probabilities:
+  minimum_probability: 0.01
+  require_sum: 1

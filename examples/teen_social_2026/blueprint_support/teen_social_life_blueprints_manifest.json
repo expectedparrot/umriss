@@ -1,0 +1,82 @@
+{
+  "execution": {
+    "cost_estimate": {
+      "available": true,
+      "basis": "call_counts",
+      "expected_model_calls": 128,
+      "models": 1,
+      "pricing_note": "Dollar cost depends on provider pricing; inspect the package with `ep inspect` before authorizing `ep run`.",
+      "scenarios": 128
+    },
+    "mode": "unspecified",
+    "owner": "external_ep"
+  },
+  "iterations": 1,
+  "jobs": "teen_social_life_blueprints.jobs.ep",
+  "manifest_path": "teen_social_life_blueprints_manifest.json",
+  "model_calls": 128,
+  "model_count": 1,
+  "models": [
+    {
+      "model": "gpt-5.5",
+      "service_name": "openai"
+    }
+  ],
+  "next_steps": [
+    "ep run --jobs teen_social_life_blueprints.jobs.ep --output teen_social_life_blueprints.results.ep",
+    "umriss support register-results --results teen_social_life_blueprints.results.ep --prompts teen_social_life_blueprints_prompts.jsonl --tag teen_social_life_blueprints --out ."
+  ],
+  "outputs": {
+    "jobs": {
+      "path": "teen_social_life_blueprints.jobs.ep",
+      "sha256": "6c9020785ad19b3a160ddf3ded3995e4c51c3db465a357dc931579b443f9af2a"
+    }
+  },
+  "prompts": "teen_social_life_blueprints_prompts.jsonl",
+  "provenance": {
+    "command": "umriss support export",
+    "created_at": "2026-07-29T02:50:41Z",
+    "fingerprint": "0864c1d413f4f59492ed81d679ec1c2a7019d6600000b54fa8b372e0f5f2a859",
+    "inputs": {
+      "prompts": {
+        "path": "teen_social_life_blueprints_prompts.jsonl",
+        "sha256": "b8abc3d47f3d956c7dd960f04802f6dcad878db7194a6e7a6e3ae1f0174e0011"
+      }
+    },
+    "parameters": {
+      "job_ids_path": null,
+      "limit": null,
+      "max_tokens": 2200,
+      "models": [
+        {
+          "model": "gpt-5.5",
+          "service_name": "openai"
+        }
+      ],
+      "path": "teen_social_life_blueprints.jobs.ep",
+      "registration_out": ".",
+      "tag": "teen_social_life_blueprints",
+      "temperature": 1.0
+    },
+    "schema_version": 1,
+    "umriss_version": "0.1.0"
+  },
+  "questions": 1,
+  "register_command": "umriss support register-results --results teen_social_life_blueprints.results.ep --prompts teen_social_life_blueprints_prompts.jsonl --tag teen_social_life_blueprints --out .",
+  "registration_out": ".",
+  "results": "teen_social_life_blueprints.results.ep",
+  "reused": false,
+  "run_command": "ep run --jobs teen_social_life_blueprints.jobs.ep --output teen_social_life_blueprints.results.ep",
+  "run_contract": {
+    "expected_results_path": "teen_social_life_blueprints.results.ep",
+    "jobs_path": "teen_social_life_blueprints.jobs.ep",
+    "owner": "external_ep",
+    "register_command": "umriss support register-results --results teen_social_life_blueprints.results.ep --prompts teen_social_life_blueprints_prompts.jsonl --tag teen_social_life_blueprints --out .",
+    "run_command": "ep run --jobs teen_social_life_blueprints.jobs.ep --output teen_social_life_blueprints.results.ep"
+  },
+  "save_format": "edsl_ep",
+  "scenarios": 128,
+  "schema_version": 1,
+  "tag": "teen_social_life_blueprints",
+  "workflow": "support"
+}

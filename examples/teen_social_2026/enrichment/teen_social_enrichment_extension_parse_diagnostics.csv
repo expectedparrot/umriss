@@ -1,0 +1,21 @@
+job_id,target_id,valid,raw_sum,min_probability,max_probability,observed_shape
+teen_social_enrichment_1_posting_frequency,marginal:posting_frequency,True,1.0,0.03,0.5,
+teen_social_enrichment_1_sleep_interference,marginal:sleep_interference,True,1.0,0.03,0.45,
+teen_social_enrichment_1_social_comparison,marginal:social_comparison,True,1.0,0.05,0.45,
+teen_social_enrichment_1_posting_frequency_x_social_comparison,joint:posting_frequency:social_comparison,True,1.0,,,"[4, 4]"
+teen_social_enrichment_2_posting_frequency,marginal:posting_frequency,True,1.0,0.08,0.45,
+teen_social_enrichment_2_sleep_interference,marginal:sleep_interference,True,1.0,0.12,0.4,
+teen_social_enrichment_2_social_comparison,marginal:social_comparison,True,1.0,0.1,0.43,
+teen_social_enrichment_2_posting_frequency_x_social_comparison,joint:posting_frequency:social_comparison,True,1.0,,,"[4, 4]"
+teen_social_enrichment_3_posting_frequency,marginal:posting_frequency,True,1.0,0.05,0.45,
+teen_social_enrichment_3_sleep_interference,marginal:sleep_interference,True,1.0,0.05,0.5,
+teen_social_enrichment_3_social_comparison,marginal:social_comparison,True,1.0,0.05,0.5,
+teen_social_enrichment_3_posting_frequency_x_social_comparison,joint:posting_frequency:social_comparison,True,1.0,,,"[4, 4]"
+teen_social_enrichment_4_posting_frequency,marginal:posting_frequency,True,1.0,0.03,0.5,
+teen_social_enrichment_4_sleep_interference,marginal:sleep_interference,True,1.0,0.03,0.45,
+teen_social_enrichment_4_social_comparison,marginal:social_comparison,True,1.0,0.03,0.45,
+teen_social_enrichment_4_posting_frequency_x_social_comparison,joint:posting_frequency:social_comparison,True,1.0,,,"[4, 4]"
+teen_social_enrichment_5_posting_frequency,marginal:posting_frequency,True,1.0,0.03,0.5,
+teen_social_enrichment_5_sleep_interference,marginal:sleep_interference,True,1.0,0.05,0.45,
+teen_social_enrichment_5_social_comparison,marginal:social_comparison,True,1.0,0.08,0.47,
+teen_social_enrichment_5_posting_frequency_x_social_comparison,joint:posting_frequency:social_comparison,True,1.0,,,"[4, 4]"

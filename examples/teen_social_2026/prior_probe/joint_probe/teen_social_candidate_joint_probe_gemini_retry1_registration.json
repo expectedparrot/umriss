@@ -1,0 +1,37 @@
+{
+  "kind": "umriss_result_registration",
+  "outputs": {
+    "jobs": {
+      "path": "examples/teen_social_2026/prior_probe/joint_probe/teen_social_candidate_joint_probe_gemini_retry1_jobs.csv",
+      "sha256": "ea288d4f807a0870c2c178e65ee7d372b8fe10de77139e43bd26c64c9bcc488a"
+    },
+    "raw": {
+      "path": "examples/teen_social_2026/prior_probe/joint_probe/teen_social_candidate_joint_probe_gemini_retry1_raw.csv",
+      "sha256": "82c496655c994038420aed2817c526b261415942bd1aaeaef706f08fca2d6bc7"
+    }
+  },
+  "provenance": {
+    "command": "umriss support register-results",
+    "created_at": "2026-07-29T02:08:10Z",
+    "fingerprint": "5d798bcf8ae90cfb97c3c7b371b1aa25814e957ff78d938a4b8ee2ae31642a09",
+    "inputs": {
+      "prompts": {
+        "path": "examples/teen_social_2026/prior_probe/joint_probe/teen_social_candidate_joint_probe_joint_prior_prompts.jsonl",
+        "sha256": "151c66b37feb6b1c16dc37aa8671500ecd9cfa10375eaac64318c759e95eec10"
+      },
+      "results": {
+        "path": "examples/teen_social_2026/prior_probe/joint_probe/teen_social_candidate_joint_probe_gemini_retry1.results.ep",
+        "sha256": "3ac1de302900bd6652529b1b7570af038055e2b24c4300a9ddbe3af0812afcbe"
+      }
+    },
+    "parameters": {
+      "out": "examples/teen_social_2026/prior_probe/joint_probe",
+      "tag": "teen_social_candidate_joint_probe_gemini_retry1"
+    },
+    "schema_version": 1,
+    "umriss_version": "0.1.0"
+  },
+  "rows": 1,
+  "schema_version": 1,
+  "tag": "teen_social_candidate_joint_probe_gemini_retry1"
+}

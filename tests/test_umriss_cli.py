@@ -44,11 +44,29 @@ def write_raw(path: Path) -> None:
     rows = [
         {
             "scenario.job_id": "s1",
-            "answer.resp": json.dumps({"persona": "Your views generally favor yes.", "probabilities": {"a": [0.9, 0.1], "b": [0.2, 0.8]}}),
+            "answer.resp": json.dumps(
+                {
+                    "persona": "Your views generally favor yes.",
+                    "persona_details": {
+                        "a": "You tend to answer yes on Item A.",
+                        "b": "You tend to answer no on Item B.",
+                    },
+                    "probabilities": {"a": [0.9, 0.1], "b": [0.2, 0.8]},
+                }
+            ),
         },
         {
             "scenario.job_id": "s2",
-            "answer.resp": json.dumps({"persona": "Your views generally favor no.", "probabilities": {"a": [0.2, 0.8], "b": [0.8, 0.2]}}),
+            "answer.resp": json.dumps(
+                {
+                    "persona": "Your views generally favor no.",
+                    "persona_details": {
+                        "a": "You tend to answer no on Item A.",
+                        "b": "You tend to answer yes on Item B.",
+                    },
+                    "probabilities": {"a": [0.2, 0.8], "b": [0.8, 0.2]},
+                }
+            ),
         },
     ]
     with path.open("w", newline="") as f:
@@ -194,11 +212,167 @@ class UmrissCliTests(unittest.TestCase):
             rows = [json.loads(line) for line in (root / "balanced_prompts.jsonl").read_text().splitlines()]
             self.assertEqual(len(rows), 8)
             self.assertEqual(len({row["prompt"] for row in rows}), 8)
-            self.assertTrue(all('"persona": "Your views on ..."' in row["prompt"] for row in rows))
-            self.assertTrue(all("second person" in row["prompt"] for row in rows))
+            self.assertTrue(all('"persona": "You are ..."' in row["prompt"] for row in rows))
+            self.assertTrue(all('"persona_details": {' in row["prompt"] for row in rows))
+            self.assertTrue(all('"a": "You explicitly believe or experience ..."' in row["prompt"] for row in rows))
+            self.assertTrue(all("second-person" in row["prompt"] for row in rows))
             patterns = [tuple(row["pattern"][item] for item in ["a", "b"]) for row in rows]
             self.assertEqual(len(set(patterns)), 4)
             self.assertTrue(all(patterns.count(pattern) == 2 for pattern in set(patterns)))
+
+    def test_balanced_blueprints_are_complete_and_fidelity_is_strict(self) -> None:
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            metadata = mini_metadata()
+            metadata_path = root / "metadata.json"
+            write_json(metadata_path, metadata)
+            self.assertEqual(
+                main(
+                    [
+                        "support",
+                        "build",
+                        "--metadata",
+                        str(metadata_path),
+                        "--preset",
+                        "balanced-blueprints",
+                        "--n-support",
+                        "4",
+                        "--seed",
+                        "42",
+                        "--tag",
+                        "blue",
+                        "--out",
+                        str(root / "prompts"),
+                    ]
+                ),
+                0,
+            )
+            prompts = [
+                json.loads(line)
+                for line in (root / "prompts" / "blue_prompts.jsonl").read_text().splitlines()
+            ]
+            self.assertEqual(len({tuple(row["pattern"].items()) for row in prompts}), 4)
+            self.assertTrue(all(set(row["pattern"]) == {"a", "b"} for row in prompts))
+            for item in ["a", "b"]:
+                self.assertEqual(
+                    sorted(row["pattern"][item] for row in prompts),
+                    ["No", "No", "Yes", "Yes"],
+                )
+            probability_rows = []
+            for row in prompts:
+                for item in ["a", "b"]:
+                    intended = metadata["option_labels"].index(row["pattern"][item])
+                    values = [0.9, 0.1] if intended == 0 else [0.1, 0.9]
+                    if row["support_id"] == 4 and item == "b":
+                        values = list(reversed(values))
+                    for option_index, probability in enumerate(values):
+                        probability_rows.append(
+                            {
+                                "support_id": row["support_id"],
+                                "job_id": row["job_id"],
+                                "item": item,
+                                "option_index": option_index,
+                                "option_code": option_index + 1,
+                                "option_label": metadata["option_labels"][option_index],
+                                "probability": probability,
+                            }
+                        )
+            support_path = root / "support.csv"
+            pd.DataFrame(probability_rows).to_csv(support_path, index=False)
+            self.assertEqual(
+                main(
+                    [
+                        "support",
+                        "validate-blueprints",
+                        "--support",
+                        str(support_path),
+                        "--plan",
+                        str(root / "prompts" / "blue_support_plan.csv"),
+                        "--metadata",
+                        str(metadata_path),
+                        "--tag",
+                        "blue",
+                        "--minimum-match-fraction",
+                        "1",
+                        "--out",
+                        str(root / "validated"),
+                    ]
+                ),
+                0,
+            )
+            fidelity = pd.read_csv(root / "validated" / "blue_blueprint_fidelity.csv")
+            self.assertEqual(int(fidelity["accepted"].sum()), 3)
+            validated = pd.read_csv(root / "validated" / "blue_validated_probabilities.csv")
+            self.assertEqual(validated["support_id"].nunique(), 3)
+            retries = pd.read_csv(root / "validated" / "blue_retry_job_ids.csv")
+            self.assertEqual(retries["job_id"].tolist(), ["blue_004"])
+
+    def test_target_feasibility_writes_convex_hull_witness(self) -> None:
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            metadata = mini_metadata()
+            metadata_path = root / "metadata.json"
+            targets_path = root / "targets.json"
+            support_path = root / "support.csv"
+            write_json(metadata_path, metadata)
+            self.assertEqual(
+                main(
+                    [
+                        "targets",
+                        "from-metadata",
+                        "--metadata",
+                        str(metadata_path),
+                        "--population",
+                        "test",
+                        "--out",
+                        str(targets_path),
+                    ]
+                ),
+                0,
+            )
+            rows = []
+            patterns = [(0, 0), (0, 1), (1, 0), (1, 1)]
+            for support_id, pattern in enumerate(patterns, 1):
+                for item_index, item in enumerate(["a", "b"]):
+                    for option_index in range(2):
+                        rows.append(
+                            {
+                                "support_id": support_id,
+                                "job_id": f"s{support_id}",
+                                "item": item,
+                                "option_index": option_index,
+                                "option_code": option_index + 1,
+                                "option_label": metadata["option_labels"][option_index],
+                                "probability": 1.0 if option_index == pattern[item_index] else 0.0,
+                            }
+                        )
+            pd.DataFrame(rows).to_csv(support_path, index=False)
+            self.assertEqual(
+                main(
+                    [
+                        "targets",
+                        "feasibility",
+                        "--targets",
+                        str(targets_path),
+                        "--support",
+                        str(support_path),
+                        "--metadata",
+                        str(metadata_path),
+                        "--tolerance",
+                        "0.000001",
+                        "--tag",
+                        "feasible",
+                        "--out",
+                        str(root / "fit"),
+                    ]
+                ),
+                0,
+            )
+            summary = pd.read_csv(root / "fit" / "feasible_feasibility_summary.csv").iloc[0]
+            self.assertTrue(bool(summary["inside_convex_hull_at_tolerance"]))
+            self.assertAlmostEqual(float(summary["minimum_maximum_absolute_residual"]), 0.0)
+            witness = pd.read_csv(root / "fit" / "feasible_feasibility_witness_weights.csv")
+            self.assertAlmostEqual(float(witness["weight"].sum()), 1.0)
 
     def test_strict_parser_rejects_silent_probability_repair(self) -> None:
         with tempfile.TemporaryDirectory() as d:
@@ -231,6 +405,100 @@ class UmrissCliTests(unittest.TestCase):
                         str(metadata_path),
                         "--tag",
                         "bad",
+                        "--out",
+                        str(root / "banks"),
+                    ]
+                ),
+                1,
+            )
+
+    def test_parser_preserves_item_complete_persona_details(self) -> None:
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            metadata_path = root / "metadata.json"
+            raw_path = root / "raw.csv"
+            write_json(metadata_path, mini_metadata())
+            with raw_path.open("w", newline="") as f:
+                writer = csv.DictWriter(f, fieldnames=["scenario.job_id", "answer.resp"])
+                writer.writeheader()
+                writer.writerow(
+                    {
+                        "scenario.job_id": "detailed",
+                        "answer.resp": json.dumps(
+                            {
+                                "persona": "You combine confidence on one issue with caution on another.",
+                                "persona_details": {
+                                    "a": "a: You would answer yes on Item A.",
+                                    "b": "Your answer on Item B would be no.",
+                                },
+                                "probabilities": {
+                                    "a": [0.9, 0.1],
+                                    "b": [0.2, 0.8],
+                                },
+                            }
+                        ),
+                    }
+                )
+            self.assertEqual(
+                main(
+                    [
+                        "support",
+                        "parse",
+                        "--raw",
+                        str(raw_path),
+                        "--metadata",
+                        str(metadata_path),
+                        "--tag",
+                        "detailed",
+                        "--out",
+                        str(root / "banks"),
+                    ]
+                ),
+                0,
+            )
+            point = pd.read_csv(root / "banks" / "detailed_points.csv").iloc[0]
+            self.assertEqual(point["persona_detail_count"], 2)
+            self.assertEqual(point["persona_detail_coverage"], 1.0)
+            self.assertIn("a: You would answer yes on Item A.", point["persona"])
+            self.assertIn("Your answer on Item B would be no.", point["persona"])
+
+    def test_parser_rejects_incomplete_persona_details(self) -> None:
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            metadata_path = root / "metadata.json"
+            raw_path = root / "raw.csv"
+            write_json(metadata_path, mini_metadata())
+            with raw_path.open("w", newline="") as f:
+                writer = csv.DictWriter(f, fieldnames=["scenario.job_id", "answer.resp"])
+                writer.writeheader()
+                writer.writerow(
+                    {
+                        "scenario.job_id": "incomplete",
+                        "answer.resp": json.dumps(
+                            {
+                                "persona": "You have a partially described outlook.",
+                                "persona_details": {
+                                    "a": "You would answer yes on Item A."
+                                },
+                                "probabilities": {
+                                    "a": [0.9, 0.1],
+                                    "b": [0.2, 0.8],
+                                },
+                            }
+                        ),
+                    }
+                )
+            self.assertEqual(
+                main(
+                    [
+                        "support",
+                        "parse",
+                        "--raw",
+                        str(raw_path),
+                        "--metadata",
+                        str(metadata_path),
+                        "--tag",
+                        "incomplete",
                         "--out",
                         str(root / "banks"),
                     ]

@@ -1,0 +1,37 @@
+{
+  "kind": "umriss_result_registration",
+  "outputs": {
+    "jobs": {
+      "path": "examples/pew_w154/augmentation/support/pew_work_family_blueprints_jobs.csv",
+      "sha256": "5006cc5558ee280af54210600244ef843d73e5257c695a68b65a2d00466c32aa"
+    },
+    "raw": {
+      "path": "examples/pew_w154/augmentation/support/pew_work_family_blueprints_raw.csv",
+      "sha256": "e9d65932bdece1e75f1279bb5454fae69d5a880be8de3187d5f549c851bf5d3f"
+    }
+  },
+  "provenance": {
+    "command": "umriss support register-results",
+    "created_at": "2026-07-29T11:41:22Z",
+    "fingerprint": "7f0411e7d003a03d6ab0e298ba5979c27d7a2d35257d7bfcfbbd9ccd08bc99ed",
+    "inputs": {
+      "prompts": {
+        "path": "examples/pew_w154/augmentation/support/pew_work_family_blueprints_prompts.jsonl",
+        "sha256": "30d23356ffe228402a00ab0753728b36ef724b9649d55fa7a93687970d150c45"
+      },
+      "results": {
+        "path": "examples/pew_w154/augmentation/support/pew_work_family_blueprints.results.ep",
+        "sha256": "97bc3f6f9c231eaeb9bc664695316de3f3135fa6c28273606a0615c23b7b906b"
+      }
+    },
+    "parameters": {
+      "out": "examples/pew_w154/augmentation/support",
+      "tag": "pew_work_family_blueprints"
+    },
+    "schema_version": 1,
+    "umriss_version": "0.1.0"
+  },
+  "rows": 96,
+  "schema_version": 1,
+  "tag": "pew_work_family_blueprints"
+}

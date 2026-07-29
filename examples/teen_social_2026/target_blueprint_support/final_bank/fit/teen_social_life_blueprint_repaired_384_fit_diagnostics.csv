@@ -1,0 +1,2 @@
+tag,selected_rho,weighted_constraint_residual,effective_support,max_weight,n_support_valid,targets,converged,minimum_effective_support_gate,maximum_weight_gate,require_convergence,gates_pass,gate_violations
+teen_social_life_blueprint_repaired_384,0.0003,0.00577042236416845,12.07199644410204,0.15243599257281004,384,7,False,50.0,0.05,True,False,"[""minimum_effective_support"", ""maximum_weight"", ""convergence""]"

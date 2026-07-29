@@ -110,10 +110,20 @@ A complete run preserves:
 - git-backed EDSL Jobs and registered Results;
 - retry coverage, missing-job IDs, and source-attributed merged Results when
   external calls are incomplete;
-- strictly parsed persona and probability banks;
+- strictly parsed, item-complete persona narratives and probability banks;
 - pre-fit uniformity and diversity diagnostics;
 - fitted weights, implied marginals, and leave-one-out predictions;
 - comparison tables, plots, reports, and reusable weighted AgentLists.
+- model-panel priors with strict `(job, model, service)` completeness,
+  declared consensus rules, and provenance-bearing observed or synthetic
+  targets;
+- stable-persona enrichment with new categorical or checkbox items, direct
+  persona-level joint tables, and generalized marginal/joint calibration.
+- complete response blueprints, post-generation fidelity gates, retry-only
+  blueprint IDs, convex-hull feasibility witnesses, and target-directed
+  blueprint repair;
+- fit acceptance gates for minimum effective support, maximum individual
+  weight, and optimizer convergence.
 
 Umriss does not silently normalize invalid probability vectors, truncate
 declared coverage, execute model jobs, or describe generated profiles as
@@ -128,6 +138,8 @@ recovered respondents.
 | `umriss fit` and `umriss validate` | Estimate weights and evaluate omitted marginals |
 | `umriss baseline` and `umriss compare` | Construct auditable alternatives and compare their predictions |
 | `umriss twins` | Export weighted EDSL agents and evaluate downstream surveys |
+| `umriss prior` | Elicit and strictly parse multi-model marginal or joint priors |
+| `umriss targets` | Audit, merge, and fit observed or model-synthetic moments |
 | `umriss plot` and `umriss report` | Produce figures and inspectable run reports |
 | `umriss guide` and `umriss next` | Explain the lifecycle and return the next state-aware action |
 
@@ -145,6 +157,15 @@ disappear.
 Target marginals must not enter support-generation prompts. Support uniformity
 must be measured before fitting. Design searches, simulated moment conditions,
 custom prompts, repair decisions, and excluded results must remain documented.
+
+For high-dimensional batteries, `--preset balanced-blueprints` assigns every
+support point a complete intended response vector. After parsing, run
+`umriss support validate-blueprints` before calibration. If accepted targets
+still lie outside the measured support geometry, `umriss targets feasibility`
+reports the minimum achievable error and `umriss support augment-targets`
+builds a declared repair batch. Target-informed allocation affects how many
+blueprints receive each cell; population marginals are never placed in an
+individual model prompt.
 
 ## Documentation
 

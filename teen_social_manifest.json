@@ -1,0 +1,82 @@
+{
+  "execution": {
+    "cost_estimate": {
+      "available": true,
+      "basis": "call_counts",
+      "expected_model_calls": 5,
+      "models": 1,
+      "pricing_note": "Dollar cost depends on provider pricing; inspect the package with `ep inspect` before authorizing `ep run`.",
+      "scenarios": 5
+    },
+    "mode": "unspecified",
+    "owner": "external_ep"
+  },
+  "iterations": 1,
+  "jobs": "teen_social.jobs.ep",
+  "manifest_path": "teen_social_manifest.json",
+  "model_calls": 5,
+  "model_count": 1,
+  "models": [
+    {
+      "model": "gpt-5.5",
+      "service_name": null
+    }
+  ],
+  "next_steps": [
+    "ep run --jobs teen_social.jobs.ep --output teen_social.results.ep",
+    "umriss support register-results --results teen_social.results.ep --prompts teen_social_prompts.jsonl --tag teen_social --out ."
+  ],
+  "outputs": {
+    "jobs": {
+      "path": "teen_social.jobs.ep",
+      "sha256": "54e2afb0ada4644f4e10c73d1cd69ce46b0c0b4d7e54ec7bb9eb323007ad476b"
+    }
+  },
+  "prompts": "teen_social_prompts.jsonl",
+  "provenance": {
+    "command": "umriss support export",
+    "created_at": "2026-07-29T00:17:35Z",
+    "fingerprint": "025b94ed471d2daa705e60f0f5e31f6a3722ed2c5cb71a0f94a1d619b6c386f2",
+    "inputs": {
+      "prompts": {
+        "path": "teen_social_prompts.jsonl",
+        "sha256": "16e15dfacdcb172a376a657dfb70e91da7127231be605051fe781e3c2234fa2d"
+      }
+    },
+    "parameters": {
+      "job_ids_path": null,
+      "limit": null,
+      "max_tokens": 2200,
+      "models": [
+        {
+          "model": "gpt-5.5",
+          "service_name": null
+        }
+      ],
+      "path": "teen_social.jobs.ep",
+      "registration_out": ".",
+      "tag": "teen_social",
+      "temperature": 1.0
+    },
+    "schema_version": 1,
+    "umriss_version": "0.1.0"
+  },
+  "questions": 1,
+  "register_command": "umriss support register-results --results teen_social.results.ep --prompts teen_social_prompts.jsonl --tag teen_social --out .",
+  "registration_out": ".",
+  "results": "teen_social.results.ep",
+  "reused": false,
+  "run_command": "ep run --jobs teen_social.jobs.ep --output teen_social.results.ep",
+  "run_contract": {
+    "expected_results_path": "teen_social.results.ep",
+    "jobs_path": "teen_social.jobs.ep",
+    "owner": "external_ep",
+    "register_command": "umriss support register-results --results teen_social.results.ep --prompts teen_social_prompts.jsonl --tag teen_social --out .",
+    "run_command": "ep run --jobs teen_social.jobs.ep --output teen_social.results.ep"
+  },
+  "save_format": "edsl_ep",
+  "scenarios": 5,
+  "schema_version": 1,
+  "tag": "teen_social",
+  "workflow": "support"
+}

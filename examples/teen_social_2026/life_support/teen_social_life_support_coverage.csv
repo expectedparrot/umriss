@@ -1,0 +1,61 @@
+item,option,covered,support_rows
+social_media_hours,Less than one hour,True,9
+social_media_hours,One to three hours,True,9
+social_media_hours,Four or more hours,True,9
+posting_frequency,Never or almost never,True,9
+posting_frequency,Less than once a week,True,9
+posting_frequency,A few times a week,True,9
+posting_frequency,At least once a day,True,9
+late_night_use,Never,True,9
+late_night_use,Rarely,True,9
+late_night_use,Sometimes,True,9
+late_night_use,Often,True,9
+sleep_interference,Never,True,9
+sleep_interference,Rarely,True,9
+sleep_interference,Sometimes,True,9
+sleep_interference,Often,True,9
+social_comparison,Never,True,9
+social_comparison,Rarely,True,9
+social_comparison,Sometimes,True,9
+social_comparison,Often,True,9
+connection_effect,Makes me feel less connected,True,9
+connection_effect,Makes little difference,True,9
+connection_effect,Makes me feel more connected,True,9
+parental_rules,No rules,True,9
+parental_rules,A few loose rules,True,9
+parental_rules,Some clear rules,True,9
+parental_rules,Very strict rules,True,9
+primary_platform,TikTok,True,9
+primary_platform,Instagram,True,9
+primary_platform,YouTube,True,9
+primary_platform,Snapchat,True,9
+primary_platform,Another platform,True,9
+primary_platform,I do not use social media,True,9
+school_effort,Never,True,8
+school_effort,Rarely,True,8
+school_effort,Sometimes,True,8
+school_effort,Often,True,8
+academic_confidence,Not at all confident,True,8
+academic_confidence,A little confident,True,8
+academic_confidence,Somewhat confident,True,8
+academic_confidence,Very confident,True,8
+homework_distraction,Never,True,8
+homework_distraction,Rarely,True,8
+homework_distraction,Sometimes,True,8
+homework_distraction,Often,True,8
+organized_activity,Never,True,8
+organized_activity,Less than once a week,True,8
+organized_activity,One or two days a week,True,8
+organized_activity,Three or more days a week,True,8
+career_clarity,No clear idea,True,8
+career_clarity,A few vague ideas,True,8
+career_clarity,A fairly clear idea,True,8
+career_clarity,A very clear plan,True,8
+future_optimism,Not at all optimistic,True,8
+future_optimism,A little optimistic,True,8
+future_optimism,Somewhat optimistic,True,8
+future_optimism,Very optimistic,True,8
+peer_belonging,Never,True,8
+peer_belonging,Rarely,True,8
+peer_belonging,Sometimes,True,8
+peer_belonging,Often,True,8

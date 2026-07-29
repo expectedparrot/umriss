@@ -1,0 +1,1481 @@
+schema_version: 1
+preset: target-informed-blueprints
+size: 96
+seed: 20260805
+coverage:
+  mode: complete
+  allocation: target_informed_largest_remainder
+components:
+- type: pattern_anchors
+  patterns:
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Not currently in a relationship
+    children_at_home: No children under 18
+    household_income: Less than $50,000
+    marriage_importance: Not at all important
+    parenthood_importance: Not at all important
+    paid_work_priority: Somewhat important
+    childcare_division: Both parents should divide it about equally
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: The person who manages the money should usually decide
+    career_sacrifice_rule: It depends entirely on the family
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Not currently in a relationship
+    children_at_home: At least one child under 6
+    household_income: $150,000 or more
+    marriage_importance: Not too important
+    parenthood_importance: Not too important
+    paid_work_priority: Very important
+    childcare_division: It depends entirely on the family
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: It depends on the decision
+    career_sacrifice_rule: The lower earner should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Married
+    children_at_home: No children under 18
+    household_income: $50,000 to $99,999
+    marriage_importance: Not too important
+    parenthood_importance: Very important
+    paid_work_priority: Not too important
+    childcare_division: One parent should do most of it
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: The person who manages the money should usually decide
+    career_sacrifice_rule: Both adults should reduce work as equally as possible
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically similar
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Married
+    children_at_home: No children under 18
+    household_income: $50,000 to $99,999
+    marriage_importance: Very important
+    parenthood_importance: Very important
+    paid_work_priority: Very important
+    childcare_division: Both parents should divide it about equally
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: It depends on the decision
+    career_sacrifice_rule: Both adults should reduce work as equally as possible
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically similar
+    workplace: Men and women are basically similar
+    relationship_status: Married
+    children_at_home: No children under 18
+    household_income: $50,000 to $99,999
+    marriage_importance: Not too important
+    parenthood_importance: Somewhat important
+    paid_work_priority: Somewhat important
+    childcare_division: It depends entirely on the family
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: It depends on the decision
+    career_sacrifice_rule: It depends entirely on the family
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Married
+    children_at_home: No children under 18
+    household_income: $100,000 to $149,999
+    marriage_importance: Very important
+    parenthood_importance: Very important
+    paid_work_priority: Very important
+    childcare_division: One parent should do most of it
+    housework_division: One person should do most of it
+    financial_decision_style: It depends on the decision
+    career_sacrifice_rule: Both adults should reduce work as equally as possible
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Married
+    children_at_home: No children under 18
+    household_income: Less than $50,000
+    marriage_importance: Not at all important
+    parenthood_importance: Somewhat important
+    paid_work_priority: Somewhat important
+    childcare_division: One parent should do most of it
+    housework_division: The person with more available time should do more
+    financial_decision_style: The higher earner should usually decide
+    career_sacrifice_rule: The adult with the more flexible job should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically similar
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Married
+    children_at_home: No children under 18
+    household_income: $100,000 to $149,999
+    marriage_importance: Not at all important
+    parenthood_importance: Somewhat important
+    paid_work_priority: Very important
+    childcare_division: The parent with more available time should do more
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: It depends on the decision
+    career_sacrifice_rule: The adult with the more flexible job should reduce work
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Married
+    children_at_home: No children under 18
+    household_income: $50,000 to $99,999
+    marriage_importance: Somewhat important
+    parenthood_importance: Somewhat important
+    paid_work_priority: Very important
+    childcare_division: One parent should do most of it
+    housework_division: It depends entirely on the household
+    financial_decision_style: The higher earner should usually decide
+    career_sacrifice_rule: Both adults should reduce work as equally as possible
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically similar
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Married
+    children_at_home: Only children ages 6 to 17
+    household_income: $150,000 or more
+    marriage_importance: Not at all important
+    parenthood_importance: Very important
+    paid_work_priority: Very important
+    childcare_division: One parent should do most of it
+    housework_division: It depends entirely on the household
+    financial_decision_style: The higher earner should usually decide
+    career_sacrifice_rule: Both adults should reduce work as equally as possible
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically similar
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Not currently in a relationship
+    children_at_home: No children under 18
+    household_income: $50,000 to $99,999
+    marriage_importance: Somewhat important
+    parenthood_importance: Not too important
+    paid_work_priority: Somewhat important
+    childcare_division: The parent with more available time should do more
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: The person who manages the money should usually decide
+    career_sacrifice_rule: The adult with the more flexible job should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically similar
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Married
+    children_at_home: No children under 18
+    household_income: Less than $50,000
+    marriage_importance: Very important
+    parenthood_importance: Very important
+    paid_work_priority: Somewhat important
+    childcare_division: The parent with more available time should do more
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: The person who manages the money should usually decide
+    career_sacrifice_rule: The lower earner should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically similar
+    workplace: Men and women are basically similar
+    relationship_status: Married
+    children_at_home: Only children ages 6 to 17
+    household_income: $100,000 to $149,999
+    marriage_importance: Not at all important
+    parenthood_importance: Very important
+    paid_work_priority: Very important
+    childcare_division: One parent should do most of it
+    housework_division: It depends entirely on the household
+    financial_decision_style: It depends on the decision
+    career_sacrifice_rule: Both adults should reduce work as equally as possible
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Not currently in a relationship
+    children_at_home: Only children ages 6 to 17
+    household_income: $100,000 to $149,999
+    marriage_importance: Somewhat important
+    parenthood_importance: Somewhat important
+    paid_work_priority: Very important
+    childcare_division: Both parents should divide it about equally
+    housework_division: It depends entirely on the household
+    financial_decision_style: The person who manages the money should usually decide
+    career_sacrifice_rule: The lower earner should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Married
+    children_at_home: Only children ages 6 to 17
+    household_income: $150,000 or more
+    marriage_importance: Somewhat important
+    parenthood_importance: Very important
+    paid_work_priority: Not at all important
+    childcare_division: Both parents should divide it about equally
+    housework_division: It depends entirely on the household
+    financial_decision_style: It depends on the decision
+    career_sacrifice_rule: The lower earner should reduce work
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Married
+    children_at_home: Only children ages 6 to 17
+    household_income: $100,000 to $149,999
+    marriage_importance: Very important
+    parenthood_importance: Not too important
+    paid_work_priority: Very important
+    childcare_division: It depends entirely on the family
+    housework_division: It depends entirely on the household
+    financial_decision_style: The higher earner should usually decide
+    career_sacrifice_rule: The adult with the more flexible job should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically similar
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Married
+    children_at_home: No children under 18
+    household_income: $50,000 to $99,999
+    marriage_importance: Not at all important
+    parenthood_importance: Somewhat important
+    paid_work_priority: Somewhat important
+    childcare_division: The parent with more available time should do more
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: The person who manages the money should usually decide
+    career_sacrifice_rule: The adult with the more flexible job should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Living with a partner
+    children_at_home: No children under 18
+    household_income: Less than $50,000
+    marriage_importance: Somewhat important
+    parenthood_importance: Very important
+    paid_work_priority: Very important
+    childcare_division: One parent should do most of it
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: The higher earner should usually decide
+    career_sacrifice_rule: Both adults should reduce work as equally as possible
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically similar
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Not currently in a relationship
+    children_at_home: Only children ages 6 to 17
+    household_income: $100,000 to $149,999
+    marriage_importance: Very important
+    parenthood_importance: Somewhat important
+    paid_work_priority: Somewhat important
+    childcare_division: Both parents should divide it about equally
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: The higher earner should usually decide
+    career_sacrifice_rule: Both adults should reduce work as equally as possible
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Married
+    children_at_home: No children under 18
+    household_income: $50,000 to $99,999
+    marriage_importance: Somewhat important
+    parenthood_importance: Very important
+    paid_work_priority: Very important
+    childcare_division: Both parents should divide it about equally
+    housework_division: The person with more available time should do more
+    financial_decision_style: Both adults should decide together
+    career_sacrifice_rule: The lower earner should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically similar
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Not currently in a relationship
+    children_at_home: No children under 18
+    household_income: $150,000 or more
+    marriage_importance: Not too important
+    parenthood_importance: Very important
+    paid_work_priority: Very important
+    childcare_division: It depends entirely on the family
+    housework_division: The person with more available time should do more
+    financial_decision_style: Both adults should decide together
+    career_sacrifice_rule: The adult with the more flexible job should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically similar
+    workplace: Men and women are basically similar
+    relationship_status: Not currently in a relationship
+    children_at_home: No children under 18
+    household_income: Less than $50,000
+    marriage_importance: Not too important
+    parenthood_importance: Not at all important
+    paid_work_priority: Somewhat important
+    childcare_division: It depends entirely on the family
+    housework_division: The person with more available time should do more
+    financial_decision_style: It depends on the decision
+    career_sacrifice_rule: The adult with the more flexible job should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: In a relationship but not living together
+    children_at_home: No children under 18
+    household_income: $150,000 or more
+    marriage_importance: Very important
+    parenthood_importance: Not at all important
+    paid_work_priority: Somewhat important
+    childcare_division: One parent should do most of it
+    housework_division: The person with more available time should do more
+    financial_decision_style: It depends on the decision
+    career_sacrifice_rule: It depends entirely on the family
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Married
+    children_at_home: At least one child under 6
+    household_income: $50,000 to $99,999
+    marriage_importance: Somewhat important
+    parenthood_importance: Very important
+    paid_work_priority: Not too important
+    childcare_division: It depends entirely on the family
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: Both adults should decide together
+    career_sacrifice_rule: The lower earner should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Married
+    children_at_home: No children under 18
+    household_income: Less than $50,000
+    marriage_importance: Not at all important
+    parenthood_importance: Not too important
+    paid_work_priority: Somewhat important
+    childcare_division: Both parents should divide it about equally
+    housework_division: It depends entirely on the household
+    financial_decision_style: Both adults should decide together
+    career_sacrifice_rule: It depends entirely on the family
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Married
+    children_at_home: No children under 18
+    household_income: Less than $50,000
+    marriage_importance: Somewhat important
+    parenthood_importance: Not at all important
+    paid_work_priority: Very important
+    childcare_division: Both parents should divide it about equally
+    housework_division: The person with more available time should do more
+    financial_decision_style: It depends on the decision
+    career_sacrifice_rule: It depends entirely on the family
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically similar
+    workplace: Men and women are basically similar
+    relationship_status: Not currently in a relationship
+    children_at_home: No children under 18
+    household_income: $50,000 to $99,999
+    marriage_importance: Very important
+    parenthood_importance: Very important
+    paid_work_priority: Somewhat important
+    childcare_division: Both parents should divide it about equally
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: Both adults should decide together
+    career_sacrifice_rule: It depends entirely on the family
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically similar
+    workplace: Men and women are basically similar
+    relationship_status: Not currently in a relationship
+    children_at_home: No children under 18
+    household_income: $150,000 or more
+    marriage_importance: Somewhat important
+    parenthood_importance: Very important
+    paid_work_priority: Somewhat important
+    childcare_division: One parent should do most of it
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: The person who manages the money should usually decide
+    career_sacrifice_rule: It depends entirely on the family
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Not currently in a relationship
+    children_at_home: At least one child under 6
+    household_income: $150,000 or more
+    marriage_importance: Very important
+    parenthood_importance: Somewhat important
+    paid_work_priority: Somewhat important
+    childcare_division: The parent with more available time should do more
+    housework_division: The person with more available time should do more
+    financial_decision_style: The higher earner should usually decide
+    career_sacrifice_rule: The adult with the more flexible job should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Not currently in a relationship
+    children_at_home: No children under 18
+    household_income: $150,000 or more
+    marriage_importance: Not too important
+    parenthood_importance: Very important
+    paid_work_priority: Somewhat important
+    childcare_division: It depends entirely on the family
+    housework_division: The person with more available time should do more
+    financial_decision_style: The person who manages the money should usually decide
+    career_sacrifice_rule: The adult with the more flexible job should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Married
+    children_at_home: Children both under 6 and ages 6 to 17
+    household_income: Less than $50,000
+    marriage_importance: Not too important
+    parenthood_importance: Very important
+    paid_work_priority: Very important
+    childcare_division: One parent should do most of it
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: The person who manages the money should usually decide
+    career_sacrifice_rule: The lower earner should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Married
+    children_at_home: Only children ages 6 to 17
+    household_income: Less than $50,000
+    marriage_importance: Not at all important
+    parenthood_importance: Somewhat important
+    paid_work_priority: Very important
+    childcare_division: One parent should do most of it
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: It depends on the decision
+    career_sacrifice_rule: The lower earner should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically similar
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Married
+    children_at_home: No children under 18
+    household_income: Less than $50,000
+    marriage_importance: Not too important
+    parenthood_importance: Very important
+    paid_work_priority: Very important
+    childcare_division: One parent should do most of it
+    housework_division: The person with more available time should do more
+    financial_decision_style: It depends on the decision
+    career_sacrifice_rule: Both adults should reduce work as equally as possible
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Not currently in a relationship
+    children_at_home: No children under 18
+    household_income: Less than $50,000
+    marriage_importance: Very important
+    parenthood_importance: Very important
+    paid_work_priority: Not too important
+    childcare_division: One parent should do most of it
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: The person who manages the money should usually decide
+    career_sacrifice_rule: Both adults should reduce work as equally as possible
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Not currently in a relationship
+    children_at_home: No children under 18
+    household_income: Less than $50,000
+    marriage_importance: Not at all important
+    parenthood_importance: Not too important
+    paid_work_priority: Not too important
+    childcare_division: One parent should do most of it
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: The person who manages the money should usually decide
+    career_sacrifice_rule: The adult with the more flexible job should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Married
+    children_at_home: No children under 18
+    household_income: $100,000 to $149,999
+    marriage_importance: Not at all important
+    parenthood_importance: Very important
+    paid_work_priority: Somewhat important
+    childcare_division: The parent with more available time should do more
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: The higher earner should usually decide
+    career_sacrifice_rule: The adult with the more flexible job should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically similar
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Married
+    children_at_home: No children under 18
+    household_income: $100,000 to $149,999
+    marriage_importance: Somewhat important
+    parenthood_importance: Not too important
+    paid_work_priority: Not too important
+    childcare_division: Both parents should divide it about equally
+    housework_division: The person with more available time should do more
+    financial_decision_style: The person who manages the money should usually decide
+    career_sacrifice_rule: The lower earner should reduce work
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Married
+    children_at_home: Children both under 6 and ages 6 to 17
+    household_income: $50,000 to $99,999
+    marriage_importance: Very important
+    parenthood_importance: Very important
+    paid_work_priority: Not too important
+    childcare_division: It depends entirely on the family
+    housework_division: It depends entirely on the household
+    financial_decision_style: The higher earner should usually decide
+    career_sacrifice_rule: It depends entirely on the family
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Not currently in a relationship
+    children_at_home: No children under 18
+    household_income: $150,000 or more
+    marriage_importance: Not too important
+    parenthood_importance: Somewhat important
+    paid_work_priority: Somewhat important
+    childcare_division: Both parents should divide it about equally
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: The higher earner should usually decide
+    career_sacrifice_rule: It depends entirely on the family
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Married
+    children_at_home: Children both under 6 and ages 6 to 17
+    household_income: $50,000 to $99,999
+    marriage_importance: Not too important
+    parenthood_importance: Not at all important
+    paid_work_priority: Somewhat important
+    childcare_division: Both parents should divide it about equally
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: The person who manages the money should usually decide
+    career_sacrifice_rule: The adult with the more flexible job should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: In a relationship but not living together
+    children_at_home: No children under 18
+    household_income: $50,000 to $99,999
+    marriage_importance: Somewhat important
+    parenthood_importance: Not at all important
+    paid_work_priority: Very important
+    childcare_division: The parent with more available time should do more
+    housework_division: The person with more available time should do more
+    financial_decision_style: Both adults should decide together
+    career_sacrifice_rule: Both adults should reduce work as equally as possible
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Married
+    children_at_home: No children under 18
+    household_income: $100,000 to $149,999
+    marriage_importance: Very important
+    parenthood_importance: Somewhat important
+    paid_work_priority: Very important
+    childcare_division: The parent with more available time should do more
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: Both adults should decide together
+    career_sacrifice_rule: It depends entirely on the family
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically similar
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: In a relationship but not living together
+    children_at_home: At least one child under 6
+    household_income: $100,000 to $149,999
+    marriage_importance: Somewhat important
+    parenthood_importance: Very important
+    paid_work_priority: Not too important
+    childcare_division: It depends entirely on the family
+    housework_division: One person should do most of it
+    financial_decision_style: The higher earner should usually decide
+    career_sacrifice_rule: It depends entirely on the family
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Married
+    children_at_home: Only children ages 6 to 17
+    household_income: $150,000 or more
+    marriage_importance: Not too important
+    parenthood_importance: Somewhat important
+    paid_work_priority: Very important
+    childcare_division: One parent should do most of it
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: It depends on the decision
+    career_sacrifice_rule: Both adults should reduce work as equally as possible
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Married
+    children_at_home: No children under 18
+    household_income: $150,000 or more
+    marriage_importance: Not at all important
+    parenthood_importance: Very important
+    paid_work_priority: Somewhat important
+    childcare_division: It depends entirely on the family
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: The higher earner should usually decide
+    career_sacrifice_rule: Both adults should reduce work as equally as possible
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Not currently in a relationship
+    children_at_home: Only children ages 6 to 17
+    household_income: $50,000 to $99,999
+    marriage_importance: Somewhat important
+    parenthood_importance: Somewhat important
+    paid_work_priority: Not at all important
+    childcare_division: It depends entirely on the family
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: It depends on the decision
+    career_sacrifice_rule: The adult with the more flexible job should reduce work
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Married
+    children_at_home: No children under 18
+    household_income: $100,000 to $149,999
+    marriage_importance: Not at all important
+    parenthood_importance: Somewhat important
+    paid_work_priority: Somewhat important
+    childcare_division: One parent should do most of it
+    housework_division: It depends entirely on the household
+    financial_decision_style: It depends on the decision
+    career_sacrifice_rule: The lower earner should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Living with a partner
+    children_at_home: No children under 18
+    household_income: $100,000 to $149,999
+    marriage_importance: Very important
+    parenthood_importance: Not at all important
+    paid_work_priority: Somewhat important
+    childcare_division: The parent with more available time should do more
+    housework_division: It depends entirely on the household
+    financial_decision_style: Both adults should decide together
+    career_sacrifice_rule: It depends entirely on the family
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Not currently in a relationship
+    children_at_home: No children under 18
+    household_income: $50,000 to $99,999
+    marriage_importance: Somewhat important
+    parenthood_importance: Very important
+    paid_work_priority: Very important
+    childcare_division: Both parents should divide it about equally
+    housework_division: The person with more available time should do more
+    financial_decision_style: The higher earner should usually decide
+    career_sacrifice_rule: Both adults should reduce work as equally as possible
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Not currently in a relationship
+    children_at_home: No children under 18
+    household_income: $150,000 or more
+    marriage_importance: Somewhat important
+    parenthood_importance: Not at all important
+    paid_work_priority: Very important
+    childcare_division: The parent with more available time should do more
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: Both adults should decide together
+    career_sacrifice_rule: Both adults should reduce work as equally as possible
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Married
+    children_at_home: No children under 18
+    household_income: $50,000 to $99,999
+    marriage_importance: Not too important
+    parenthood_importance: Somewhat important
+    paid_work_priority: Very important
+    childcare_division: It depends entirely on the family
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: The person who manages the money should usually decide
+    career_sacrifice_rule: The adult with the more flexible job should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: In a relationship but not living together
+    children_at_home: No children under 18
+    household_income: $150,000 or more
+    marriage_importance: Not at all important
+    parenthood_importance: Not at all important
+    paid_work_priority: Not at all important
+    childcare_division: The parent with more available time should do more
+    housework_division: The person with more available time should do more
+    financial_decision_style: The higher earner should usually decide
+    career_sacrifice_rule: The lower earner should reduce work
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Married
+    children_at_home: No children under 18
+    household_income: $100,000 to $149,999
+    marriage_importance: Not too important
+    parenthood_importance: Not at all important
+    paid_work_priority: Somewhat important
+    childcare_division: The parent with more available time should do more
+    housework_division: It depends entirely on the household
+    financial_decision_style: Both adults should decide together
+    career_sacrifice_rule: The lower earner should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Not currently in a relationship
+    children_at_home: Only children ages 6 to 17
+    household_income: $50,000 to $99,999
+    marriage_importance: Very important
+    parenthood_importance: Very important
+    paid_work_priority: Very important
+    childcare_division: It depends entirely on the family
+    housework_division: It depends entirely on the household
+    financial_decision_style: Both adults should decide together
+    career_sacrifice_rule: The adult with the more flexible job should reduce work
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Living with a partner
+    children_at_home: No children under 18
+    household_income: $100,000 to $149,999
+    marriage_importance: Very important
+    parenthood_importance: Not too important
+    paid_work_priority: Very important
+    childcare_division: It depends entirely on the family
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: The person who manages the money should usually decide
+    career_sacrifice_rule: The adult with the more flexible job should reduce work
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically similar
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Married
+    children_at_home: Children both under 6 and ages 6 to 17
+    household_income: $50,000 to $99,999
+    marriage_importance: Not too important
+    parenthood_importance: Not too important
+    paid_work_priority: Very important
+    childcare_division: It depends entirely on the family
+    housework_division: One person should do most of it
+    financial_decision_style: Both adults should decide together
+    career_sacrifice_rule: The adult with the more flexible job should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Married
+    children_at_home: Only children ages 6 to 17
+    household_income: $50,000 to $99,999
+    marriage_importance: Not too important
+    parenthood_importance: Not too important
+    paid_work_priority: Somewhat important
+    childcare_division: The parent with more available time should do more
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: The higher earner should usually decide
+    career_sacrifice_rule: The lower earner should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically similar
+    workplace: Men and women are basically different
+    relationship_status: Not currently in a relationship
+    children_at_home: No children under 18
+    household_income: Less than $50,000
+    marriage_importance: Very important
+    parenthood_importance: Not too important
+    paid_work_priority: Very important
+    childcare_division: One parent should do most of it
+    housework_division: The person with more available time should do more
+    financial_decision_style: Both adults should decide together
+    career_sacrifice_rule: Both adults should reduce work as equally as possible
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Married
+    children_at_home: No children under 18
+    household_income: $50,000 to $99,999
+    marriage_importance: Not too important
+    parenthood_importance: Somewhat important
+    paid_work_priority: Somewhat important
+    childcare_division: The parent with more available time should do more
+    housework_division: The person with more available time should do more
+    financial_decision_style: It depends on the decision
+    career_sacrifice_rule: It depends entirely on the family
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: In a relationship but not living together
+    children_at_home: No children under 18
+    household_income: $150,000 or more
+    marriage_importance: Not too important
+    parenthood_importance: Not at all important
+    paid_work_priority: Somewhat important
+    childcare_division: The parent with more available time should do more
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: It depends on the decision
+    career_sacrifice_rule: It depends entirely on the family
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Living with a partner
+    children_at_home: No children under 18
+    household_income: Less than $50,000
+    marriage_importance: Somewhat important
+    parenthood_importance: Very important
+    paid_work_priority: Very important
+    childcare_division: One parent should do most of it
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: The person who manages the money should usually decide
+    career_sacrifice_rule: The lower earner should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Married
+    children_at_home: No children under 18
+    household_income: $150,000 or more
+    marriage_importance: Not too important
+    parenthood_importance: Very important
+    paid_work_priority: Very important
+    childcare_division: The parent with more available time should do more
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: Both adults should decide together
+    career_sacrifice_rule: It depends entirely on the family
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Not currently in a relationship
+    children_at_home: No children under 18
+    household_income: Less than $50,000
+    marriage_importance: Very important
+    parenthood_importance: Very important
+    paid_work_priority: Not too important
+    childcare_division: One parent should do most of it
+    housework_division: It depends entirely on the household
+    financial_decision_style: The higher earner should usually decide
+    career_sacrifice_rule: The lower earner should reduce work
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Not currently in a relationship
+    children_at_home: No children under 18
+    household_income: $50,000 to $99,999
+    marriage_importance: Not too important
+    parenthood_importance: Very important
+    paid_work_priority: Very important
+    childcare_division: It depends entirely on the family
+    housework_division: The person with more available time should do more
+    financial_decision_style: Both adults should decide together
+    career_sacrifice_rule: The adult with the more flexible job should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Not currently in a relationship
+    children_at_home: No children under 18
+    household_income: $50,000 to $99,999
+    marriage_importance: Not at all important
+    parenthood_importance: Very important
+    paid_work_priority: Very important
+    childcare_division: One parent should do most of it
+    housework_division: The person with more available time should do more
+    financial_decision_style: It depends on the decision
+    career_sacrifice_rule: Both adults should reduce work as equally as possible
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: In a relationship but not living together
+    children_at_home: Children both under 6 and ages 6 to 17
+    household_income: Less than $50,000
+    marriage_importance: Very important
+    parenthood_importance: Not too important
+    paid_work_priority: Somewhat important
+    childcare_division: Both parents should divide it about equally
+    housework_division: One person should do most of it
+    financial_decision_style: It depends on the decision
+    career_sacrifice_rule: The adult with the more flexible job should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically similar
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Married
+    children_at_home: No children under 18
+    household_income: Less than $50,000
+    marriage_importance: Not at all important
+    parenthood_importance: Somewhat important
+    paid_work_priority: Very important
+    childcare_division: Both parents should divide it about equally
+    housework_division: The person with more available time should do more
+    financial_decision_style: The person who manages the money should usually decide
+    career_sacrifice_rule: It depends entirely on the family
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically similar
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: In a relationship but not living together
+    children_at_home: No children under 18
+    household_income: $50,000 to $99,999
+    marriage_importance: Very important
+    parenthood_importance: Somewhat important
+    paid_work_priority: Somewhat important
+    childcare_division: It depends entirely on the family
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: The higher earner should usually decide
+    career_sacrifice_rule: The lower earner should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically similar
+    workplace: Men and women are basically different
+    relationship_status: Married
+    children_at_home: Children both under 6 and ages 6 to 17
+    household_income: $50,000 to $99,999
+    marriage_importance: Very important
+    parenthood_importance: Somewhat important
+    paid_work_priority: Very important
+    childcare_division: It depends entirely on the family
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: Both adults should decide together
+    career_sacrifice_rule: The lower earner should reduce work
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically similar
+    workplace: Men and women are basically similar
+    relationship_status: Not currently in a relationship
+    children_at_home: Only children ages 6 to 17
+    household_income: $50,000 to $99,999
+    marriage_importance: Not too important
+    parenthood_importance: Very important
+    paid_work_priority: Somewhat important
+    childcare_division: The parent with more available time should do more
+    housework_division: One person should do most of it
+    financial_decision_style: The higher earner should usually decide
+    career_sacrifice_rule: Both adults should reduce work as equally as possible
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Married
+    children_at_home: Children both under 6 and ages 6 to 17
+    household_income: Less than $50,000
+    marriage_importance: Not at all important
+    parenthood_importance: Very important
+    paid_work_priority: Not too important
+    childcare_division: It depends entirely on the family
+    housework_division: It depends entirely on the household
+    financial_decision_style: The person who manages the money should usually decide
+    career_sacrifice_rule: It depends entirely on the family
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Not currently in a relationship
+    children_at_home: At least one child under 6
+    household_income: $100,000 to $149,999
+    marriage_importance: Not too important
+    parenthood_importance: Not too important
+    paid_work_priority: Somewhat important
+    childcare_division: Both parents should divide it about equally
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: Both adults should decide together
+    career_sacrifice_rule: The lower earner should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Married
+    children_at_home: No children under 18
+    household_income: $150,000 or more
+    marriage_importance: Somewhat important
+    parenthood_importance: Very important
+    paid_work_priority: Not at all important
+    childcare_division: The parent with more available time should do more
+    housework_division: The person with more available time should do more
+    financial_decision_style: The person who manages the money should usually decide
+    career_sacrifice_rule: The adult with the more flexible job should reduce work
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Living with a partner
+    children_at_home: No children under 18
+    household_income: $50,000 to $99,999
+    marriage_importance: Very important
+    parenthood_importance: Somewhat important
+    paid_work_priority: Not at all important
+    childcare_division: Both parents should divide it about equally
+    housework_division: The person with more available time should do more
+    financial_decision_style: It depends on the decision
+    career_sacrifice_rule: It depends entirely on the family
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Married
+    children_at_home: Only children ages 6 to 17
+    household_income: Less than $50,000
+    marriage_importance: Somewhat important
+    parenthood_importance: Somewhat important
+    paid_work_priority: Very important
+    childcare_division: The parent with more available time should do more
+    housework_division: The person with more available time should do more
+    financial_decision_style: Both adults should decide together
+    career_sacrifice_rule: The adult with the more flexible job should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically similar
+    workplace: Men and women are basically different
+    relationship_status: Married
+    children_at_home: No children under 18
+    household_income: $150,000 or more
+    marriage_importance: Not at all important
+    parenthood_importance: Very important
+    paid_work_priority: Somewhat important
+    childcare_division: One parent should do most of it
+    housework_division: The person with more available time should do more
+    financial_decision_style: It depends on the decision
+    career_sacrifice_rule: The lower earner should reduce work
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: In a relationship but not living together
+    children_at_home: No children under 18
+    household_income: $50,000 to $99,999
+    marriage_importance: Very important
+    parenthood_importance: Very important
+    paid_work_priority: Not too important
+    childcare_division: It depends entirely on the family
+    housework_division: One person should do most of it
+    financial_decision_style: The person who manages the money should usually decide
+    career_sacrifice_rule: The lower earner should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Not currently in a relationship
+    children_at_home: No children under 18
+    household_income: Less than $50,000
+    marriage_importance: Somewhat important
+    parenthood_importance: Somewhat important
+    paid_work_priority: Very important
+    childcare_division: Both parents should divide it about equally
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: The higher earner should usually decide
+    career_sacrifice_rule: Both adults should reduce work as equally as possible
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Not currently in a relationship
+    children_at_home: Only children ages 6 to 17
+    household_income: $150,000 or more
+    marriage_importance: Not at all important
+    parenthood_importance: Not too important
+    paid_work_priority: Very important
+    childcare_division: The parent with more available time should do more
+    housework_division: It depends entirely on the household
+    financial_decision_style: Both adults should decide together
+    career_sacrifice_rule: The lower earner should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Married
+    children_at_home: No children under 18
+    household_income: $150,000 or more
+    marriage_importance: Not too important
+    parenthood_importance: Not too important
+    paid_work_priority: Very important
+    childcare_division: Both parents should divide it about equally
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: Both adults should decide together
+    career_sacrifice_rule: It depends entirely on the family
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically similar
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Not currently in a relationship
+    children_at_home: No children under 18
+    household_income: $100,000 to $149,999
+    marriage_importance: Somewhat important
+    parenthood_importance: Not too important
+    paid_work_priority: Very important
+    childcare_division: The parent with more available time should do more
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: Both adults should decide together
+    career_sacrifice_rule: It depends entirely on the family
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Married
+    children_at_home: No children under 18
+    household_income: Less than $50,000
+    marriage_importance: Not at all important
+    parenthood_importance: Very important
+    paid_work_priority: Not too important
+    childcare_division: The parent with more available time should do more
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: The person who manages the money should usually decide
+    career_sacrifice_rule: It depends entirely on the family
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Married
+    children_at_home: At least one child under 6
+    household_income: Less than $50,000
+    marriage_importance: Somewhat important
+    parenthood_importance: Very important
+    paid_work_priority: Somewhat important
+    childcare_division: Both parents should divide it about equally
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: Both adults should decide together
+    career_sacrifice_rule: Both adults should reduce work as equally as possible
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically similar
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: In a relationship but not living together
+    children_at_home: At least one child under 6
+    household_income: Less than $50,000
+    marriage_importance: Not at all important
+    parenthood_importance: Very important
+    paid_work_priority: Somewhat important
+    childcare_division: One parent should do most of it
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: Both adults should decide together
+    career_sacrifice_rule: Both adults should reduce work as equally as possible
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically similar
+    workplace: Men and women are basically different
+    relationship_status: Not currently in a relationship
+    children_at_home: No children under 18
+    household_income: Less than $50,000
+    marriage_importance: Not at all important
+    parenthood_importance: Not too important
+    paid_work_priority: Somewhat important
+    childcare_division: The parent with more available time should do more
+    housework_division: The person with more available time should do more
+    financial_decision_style: The higher earner should usually decide
+    career_sacrifice_rule: The adult with the more flexible job should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically similar
+    workplace: Men and women are basically similar
+    relationship_status: Not currently in a relationship
+    children_at_home: Only children ages 6 to 17
+    household_income: $150,000 or more
+    marriage_importance: Not at all important
+    parenthood_importance: Not at all important
+    paid_work_priority: Very important
+    childcare_division: It depends entirely on the family
+    housework_division: The person with more available time should do more
+    financial_decision_style: The higher earner should usually decide
+    career_sacrifice_rule: Both adults should reduce work as equally as possible
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically similar
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Living with a partner
+    children_at_home: No children under 18
+    household_income: $100,000 to $149,999
+    marriage_importance: Not too important
+    parenthood_importance: Very important
+    paid_work_priority: Somewhat important
+    childcare_division: Both parents should divide it about equally
+    housework_division: The person with more available time should do more
+    financial_decision_style: It depends on the decision
+    career_sacrifice_rule: The lower earner should reduce work
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Married
+    children_at_home: No children under 18
+    household_income: Less than $50,000
+    marriage_importance: Very important
+    parenthood_importance: Not at all important
+    paid_work_priority: Not at all important
+    childcare_division: One parent should do most of it
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: It depends on the decision
+    career_sacrifice_rule: Both adults should reduce work as equally as possible
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Not currently in a relationship
+    children_at_home: No children under 18
+    household_income: $100,000 to $149,999
+    marriage_importance: Not at all important
+    parenthood_importance: Very important
+    paid_work_priority: Not too important
+    childcare_division: It depends entirely on the family
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: The higher earner should usually decide
+    career_sacrifice_rule: The lower earner should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically similar
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Not currently in a relationship
+    children_at_home: No children under 18
+    household_income: $50,000 to $99,999
+    marriage_importance: Somewhat important
+    parenthood_importance: Somewhat important
+    paid_work_priority: Very important
+    childcare_division: Both parents should divide it about equally
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: The person who manages the money should usually decide
+    career_sacrifice_rule: The lower earner should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Married
+    children_at_home: At least one child under 6
+    household_income: $150,000 or more
+    marriage_importance: Very important
+    parenthood_importance: Somewhat important
+    paid_work_priority: Not at all important
+    childcare_division: The parent with more available time should do more
+    housework_division: The person with more available time should do more
+    financial_decision_style: The higher earner should usually decide
+    career_sacrifice_rule: The adult with the more flexible job should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Married
+    children_at_home: Only children ages 6 to 17
+    household_income: Less than $50,000
+    marriage_importance: Not at all important
+    parenthood_importance: Very important
+    paid_work_priority: Somewhat important
+    childcare_division: One parent should do most of it
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: Both adults should decide together
+    career_sacrifice_rule: It depends entirely on the family
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Living with a partner
+    children_at_home: No children under 18
+    household_income: $50,000 to $99,999
+    marriage_importance: Somewhat important
+    parenthood_importance: Very important
+    paid_work_priority: Not too important
+    childcare_division: Both parents should divide it about equally
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: The person who manages the money should usually decide
+    career_sacrifice_rule: Both adults should reduce work as equally as possible
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Not currently in a relationship
+    children_at_home: No children under 18
+    household_income: $150,000 or more
+    marriage_importance: Somewhat important
+    parenthood_importance: Not at all important
+    paid_work_priority: Not too important
+    childcare_division: It depends entirely on the family
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: The person who manages the money should usually decide
+    career_sacrifice_rule: It depends entirely on the family
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Living with a partner
+    children_at_home: No children under 18
+    household_income: Less than $50,000
+    marriage_importance: Very important
+    parenthood_importance: Somewhat important
+    paid_work_priority: Very important
+    childcare_division: It depends entirely on the family
+    housework_division: It depends entirely on the household
+    financial_decision_style: It depends on the decision
+    career_sacrifice_rule: It depends entirely on the family
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Married
+    children_at_home: No children under 18
+    household_income: Less than $50,000
+    marriage_importance: Not too important
+    parenthood_importance: Somewhat important
+    paid_work_priority: Somewhat important
+    childcare_division: Both parents should divide it about equally
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: The higher earner should usually decide
+    career_sacrifice_rule: The adult with the more flexible job should reduce work
+  coherence: explicit
+target_informed:
+  source: examples/pew_w154/augmentation/pew_augmented_targets.json
+  accepted_target_ids:
+  - marginal:hobbies
+  - marginal:physical_abilities
+  - marginal:parenting
+  - marginal:feelings
+  - marginal:workplace
+  - marginal:relationship_status
+  - marginal:children_at_home
+  - marginal:household_income
+  - marginal:parenthood_importance
+  - marginal:paid_work_priority
+  - marginal:housework_division
+  allocation: largest_remainder
+  population_marginals_in_individual_prompts: false
+profile:
+  framing: synthetic_respondent
+  forbid_demographic_invention: true
+probabilities:
+  interpretation: subjective_response_probability
+  require_sum: 1
+  allow_zero: false
+  minimum_probability: 0.01
+guardrails:
+  leak_target_marginals: false
+  silent_coverage_truncation: false
+  silent_invalid_response_repair: false
+  describe_as_recovered_respondents: false
+  validate_blueprint_fidelity: true

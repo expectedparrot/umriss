@@ -1,0 +1,98 @@
+{
+  "execution": {
+    "cost_estimate": {
+      "available": true,
+      "basis": "call_counts",
+      "expected_model_calls": 21,
+      "models": 3,
+      "pricing_note": "Dollar cost depends on provider pricing; inspect the package with `ep inspect` before authorizing `ep run`.",
+      "scenarios": 7
+    },
+    "mode": "unspecified",
+    "owner": "external_ep"
+  },
+  "iterations": 1,
+  "jobs": "examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors.jobs.ep",
+  "manifest_path": "examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors_manifest.json",
+  "model_calls": 21,
+  "model_count": 3,
+  "models": [
+    {
+      "model": "gpt-5.5",
+      "service_name": "openai"
+    },
+    {
+      "model": "anthropic/claude-opus-5",
+      "service_name": "deep_infra"
+    },
+    {
+      "model": "grok-4.5",
+      "service_name": "xai"
+    }
+  ],
+  "next_steps": [
+    "ep run --jobs examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors.jobs.ep --output examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors.results.ep",
+    "umriss prior register-results --results examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors.results.ep --prompts examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors_baseline_prompts.jsonl --tag teen_life_candidate_priors --out examples/teen_social_2026/life_prior_probe"
+  ],
+  "outputs": {
+    "jobs": {
+      "path": "examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors.jobs.ep",
+      "sha256": "fbf114d7e010b7143104a245a467016c7d06a72650f2892a84bcff7624b6887e"
+    }
+  },
+  "prompts": "examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors_baseline_prompts.jsonl",
+  "provenance": {
+    "command": "umriss prior export",
+    "created_at": "2026-07-29T02:34:19Z",
+    "fingerprint": "c7629008045141484bdab2612f67809bf88caaf8fcfdbc3d952e97edd8027ae2",
+    "inputs": {
+      "prompts": {
+        "path": "examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors_baseline_prompts.jsonl",
+        "sha256": "4a5966e8160b395ed1f2bb5f37528cd35027294d531349e1ba5f536b99b775cf"
+      }
+    },
+    "parameters": {
+      "job_ids_path": null,
+      "limit": null,
+      "max_tokens": 1200,
+      "models": [
+        {
+          "model": "gpt-5.5",
+          "service_name": "openai"
+        },
+        {
+          "model": "anthropic/claude-opus-5",
+          "service_name": "deep_infra"
+        },
+        {
+          "model": "grok-4.5",
+          "service_name": "xai"
+        }
+      ],
+      "path": "examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors.jobs.ep",
+      "registration_out": "examples/teen_social_2026/life_prior_probe",
+      "tag": "teen_life_candidate_priors",
+      "temperature": 1.0
+    },
+    "schema_version": 1,
+    "umriss_version": "0.1.0"
+  },
+  "questions": 1,
+  "register_command": "umriss prior register-results --results examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors.results.ep --prompts examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors_baseline_prompts.jsonl --tag teen_life_candidate_priors --out examples/teen_social_2026/life_prior_probe",
+  "registration_out": "examples/teen_social_2026/life_prior_probe",
+  "results": "examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors.results.ep",
+  "reused": false,
+  "run_command": "ep run --jobs examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors.jobs.ep --output examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors.results.ep",
+  "run_contract": {
+    "expected_results_path": "examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors.results.ep",
+    "jobs_path": "examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors.jobs.ep",
+    "owner": "external_ep",
+    "register_command": "umriss prior register-results --results examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors.results.ep --prompts examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors_baseline_prompts.jsonl --tag teen_life_candidate_priors --out examples/teen_social_2026/life_prior_probe",
+    "run_command": "ep run --jobs examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors.jobs.ep --output examples/teen_social_2026/life_prior_probe/teen_life_candidate_priors.results.ep"
+  },
+  "save_format": "edsl_ep",
+  "scenarios": 7,
+  "schema_version": 1,
+  "tag": "teen_life_candidate_priors",
+  "workflow": "prior"
+}

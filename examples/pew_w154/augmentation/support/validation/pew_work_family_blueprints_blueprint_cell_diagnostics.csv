@@ -1,0 +1,1441 @@
+support_id,job_id,item,intended_option_index,intended_option_label,measured_argmax_index,measured_argmax_label,intended_probability,argmax_match
+1,pew_work_family_blueprints_001,career_sacrifice_rule,3,It depends entirely on the family,3,It depends entirely on the family,0.46,True
+1,pew_work_family_blueprints_001,childcare_division,1,Both parents should divide it about equally,1,Both parents should divide it about equally,0.57,True
+1,pew_work_family_blueprints_001,children_at_home,0,No children under 18,0,No children under 18,0.88,True
+1,pew_work_family_blueprints_001,feelings,1,Men and women are basically different,1,Men and women are basically different,0.69,True
+1,pew_work_family_blueprints_001,financial_decision_style,1,The person who manages the money should usually decide,1,The person who manages the money should usually decide,0.43,True
+1,pew_work_family_blueprints_001,hobbies,0,Men and women are basically similar,0,Men and women are basically similar,0.72,True
+1,pew_work_family_blueprints_001,household_income,0,"Less than $50,000",0,"Less than $50,000",0.7,True
+1,pew_work_family_blueprints_001,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.6,True
+1,pew_work_family_blueprints_001,marriage_importance,0,Not at all important,0,Not at all important,0.62,True
+1,pew_work_family_blueprints_001,paid_work_priority,2,Somewhat important,2,Somewhat important,0.48,True
+1,pew_work_family_blueprints_001,parenthood_importance,0,Not at all important,0,Not at all important,0.6,True
+1,pew_work_family_blueprints_001,parenting,0,Men and women are basically similar,0,Men and women are basically similar,0.66,True
+1,pew_work_family_blueprints_001,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.74,True
+1,pew_work_family_blueprints_001,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.78,True
+1,pew_work_family_blueprints_001,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.75,True
+2,pew_work_family_blueprints_002,career_sacrifice_rule,0,The lower earner should reduce work,0,The lower earner should reduce work,0.44,True
+2,pew_work_family_blueprints_002,childcare_division,3,It depends entirely on the family,3,It depends entirely on the family,0.52,True
+2,pew_work_family_blueprints_002,children_at_home,1,At least one child under 6,1,At least one child under 6,0.72,True
+2,pew_work_family_blueprints_002,feelings,1,Men and women are basically different,1,Men and women are basically different,0.7,True
+2,pew_work_family_blueprints_002,financial_decision_style,3,It depends on the decision,3,It depends on the decision,0.48,True
+2,pew_work_family_blueprints_002,hobbies,0,Men and women are basically similar,0,Men and women are basically similar,0.68,True
+2,pew_work_family_blueprints_002,household_income,3,"$150,000 or more",3,"$150,000 or more",0.77,True
+2,pew_work_family_blueprints_002,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.62,True
+2,pew_work_family_blueprints_002,marriage_importance,1,Not too important,1,Not too important,0.47,True
+2,pew_work_family_blueprints_002,paid_work_priority,3,Very important,3,Very important,0.75,True
+2,pew_work_family_blueprints_002,parenthood_importance,1,Not too important,1,Not too important,0.42,True
+2,pew_work_family_blueprints_002,parenting,0,Men and women are basically similar,0,Men and women are basically similar,0.62,True
+2,pew_work_family_blueprints_002,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.75,True
+2,pew_work_family_blueprints_002,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.8,True
+2,pew_work_family_blueprints_002,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.75,True
+3,pew_work_family_blueprints_003,career_sacrifice_rule,2,Both adults should reduce work as equally as possible,2,Both adults should reduce work as equally as possible,0.47,True
+3,pew_work_family_blueprints_003,childcare_division,0,One parent should do most of it,0,One parent should do most of it,0.46,True
+3,pew_work_family_blueprints_003,children_at_home,0,No children under 18,0,No children under 18,0.88,True
+3,pew_work_family_blueprints_003,feelings,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+3,pew_work_family_blueprints_003,financial_decision_style,1,The person who manages the money should usually decide,1,The person who manages the money should usually decide,0.5,True
+3,pew_work_family_blueprints_003,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.75,True
+3,pew_work_family_blueprints_003,household_income,1,"$50,000 to $99,999",1,"$50,000 to $99,999",0.52,True
+3,pew_work_family_blueprints_003,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.58,True
+3,pew_work_family_blueprints_003,marriage_importance,1,Not too important,1,Not too important,0.45,True
+3,pew_work_family_blueprints_003,paid_work_priority,1,Not too important,1,Not too important,0.46,True
+3,pew_work_family_blueprints_003,parenthood_importance,3,Very important,3,Very important,0.7,True
+3,pew_work_family_blueprints_003,parenting,0,Men and women are basically similar,0,Men and women are basically similar,0.68,True
+3,pew_work_family_blueprints_003,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+3,pew_work_family_blueprints_003,relationship_status,0,Married,0,Married,0.82,True
+3,pew_work_family_blueprints_003,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.72,True
+4,pew_work_family_blueprints_004,career_sacrifice_rule,2,Both adults should reduce work as equally as possible,2,Both adults should reduce work as equally as possible,0.56,True
+4,pew_work_family_blueprints_004,childcare_division,1,Both parents should divide it about equally,1,Both parents should divide it about equally,0.69,True
+4,pew_work_family_blueprints_004,children_at_home,0,No children under 18,0,No children under 18,0.86,True
+4,pew_work_family_blueprints_004,feelings,1,Men and women are basically different,1,Men and women are basically different,0.75,True
+4,pew_work_family_blueprints_004,financial_decision_style,3,It depends on the decision,3,It depends on the decision,0.49,True
+4,pew_work_family_blueprints_004,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+4,pew_work_family_blueprints_004,household_income,1,"$50,000 to $99,999",1,"$50,000 to $99,999",0.54,True
+4,pew_work_family_blueprints_004,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.7,True
+4,pew_work_family_blueprints_004,marriage_importance,3,Very important,3,Very important,0.76,True
+4,pew_work_family_blueprints_004,paid_work_priority,3,Very important,3,Very important,0.65,True
+4,pew_work_family_blueprints_004,parenthood_importance,3,Very important,3,Very important,0.74,True
+4,pew_work_family_blueprints_004,parenting,0,Men and women are basically similar,0,Men and women are basically similar,0.62,True
+4,pew_work_family_blueprints_004,physical_abilities,0,Men and women are basically similar,0,Men and women are basically similar,0.68,True
+4,pew_work_family_blueprints_004,relationship_status,0,Married,0,Married,0.82,True
+4,pew_work_family_blueprints_004,workplace,1,Men and women are basically different,1,Men and women are basically different,0.58,True
+5,pew_work_family_blueprints_005,career_sacrifice_rule,3,It depends entirely on the family,3,It depends entirely on the family,0.46,True
+5,pew_work_family_blueprints_005,childcare_division,3,It depends entirely on the family,3,It depends entirely on the family,0.48,True
+5,pew_work_family_blueprints_005,children_at_home,0,No children under 18,0,No children under 18,0.82,True
+5,pew_work_family_blueprints_005,feelings,0,Men and women are basically similar,0,Men and women are basically similar,0.64,True
+5,pew_work_family_blueprints_005,financial_decision_style,3,It depends on the decision,3,It depends on the decision,0.51,True
+5,pew_work_family_blueprints_005,hobbies,0,Men and women are basically similar,0,Men and women are basically similar,0.72,True
+5,pew_work_family_blueprints_005,household_income,1,"$50,000 to $99,999",1,"$50,000 to $99,999",0.5,True
+5,pew_work_family_blueprints_005,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.55,True
+5,pew_work_family_blueprints_005,marriage_importance,1,Not too important,1,Not too important,0.46,True
+5,pew_work_family_blueprints_005,paid_work_priority,2,Somewhat important,2,Somewhat important,0.49,True
+5,pew_work_family_blueprints_005,parenthood_importance,2,Somewhat important,2,Somewhat important,0.48,True
+5,pew_work_family_blueprints_005,parenting,0,Men and women are basically similar,0,Men and women are basically similar,0.68,True
+5,pew_work_family_blueprints_005,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.75,True
+5,pew_work_family_blueprints_005,relationship_status,0,Married,0,Married,0.76,True
+5,pew_work_family_blueprints_005,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.74,True
+6,pew_work_family_blueprints_006,career_sacrifice_rule,2,Both adults should reduce work as equally as possible,2,Both adults should reduce work as equally as possible,0.43,True
+6,pew_work_family_blueprints_006,childcare_division,0,One parent should do most of it,0,One parent should do most of it,0.46,True
+6,pew_work_family_blueprints_006,children_at_home,0,No children under 18,0,No children under 18,0.82,True
+6,pew_work_family_blueprints_006,feelings,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+6,pew_work_family_blueprints_006,financial_decision_style,3,It depends on the decision,3,It depends on the decision,0.43,True
+6,pew_work_family_blueprints_006,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+6,pew_work_family_blueprints_006,household_income,2,"$100,000 to $149,999",2,"$100,000 to $149,999",0.52,True
+6,pew_work_family_blueprints_006,housework_division,0,One person should do most of it,0,One person should do most of it,0.44,True
+6,pew_work_family_blueprints_006,marriage_importance,3,Very important,3,Very important,0.76,True
+6,pew_work_family_blueprints_006,paid_work_priority,3,Very important,3,Very important,0.69,True
+6,pew_work_family_blueprints_006,parenthood_importance,3,Very important,3,Very important,0.78,True
+6,pew_work_family_blueprints_006,parenting,0,Men and women are basically similar,0,Men and women are basically similar,0.68,True
+6,pew_work_family_blueprints_006,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.88,True
+6,pew_work_family_blueprints_006,relationship_status,0,Married,0,Married,0.86,True
+6,pew_work_family_blueprints_006,workplace,1,Men and women are basically different,1,Men and women are basically different,0.65,True
+7,pew_work_family_blueprints_007,career_sacrifice_rule,1,The adult with the more flexible job should reduce work,1,The adult with the more flexible job should reduce work,0.48,True
+7,pew_work_family_blueprints_007,childcare_division,0,One parent should do most of it,0,One parent should do most of it,0.42,True
+7,pew_work_family_blueprints_007,children_at_home,0,No children under 18,0,No children under 18,0.86,True
+7,pew_work_family_blueprints_007,feelings,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+7,pew_work_family_blueprints_007,financial_decision_style,0,The higher earner should usually decide,0,The higher earner should usually decide,0.44,True
+7,pew_work_family_blueprints_007,hobbies,0,Men and women are basically similar,0,Men and women are basically similar,0.72,True
+7,pew_work_family_blueprints_007,household_income,0,"Less than $50,000",0,"Less than $50,000",0.74,True
+7,pew_work_family_blueprints_007,housework_division,2,The person with more available time should do more,2,The person with more available time should do more,0.5,True
+7,pew_work_family_blueprints_007,marriage_importance,0,Not at all important,0,Not at all important,0.47,True
+7,pew_work_family_blueprints_007,paid_work_priority,2,Somewhat important,2,Somewhat important,0.46,True
+7,pew_work_family_blueprints_007,parenthood_importance,2,Somewhat important,2,Somewhat important,0.43,True
+7,pew_work_family_blueprints_007,parenting,1,Men and women are basically different,1,Men and women are basically different,0.69,True
+7,pew_work_family_blueprints_007,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.79,True
+7,pew_work_family_blueprints_007,relationship_status,0,Married,0,Married,0.79,True
+7,pew_work_family_blueprints_007,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.74,True
+8,pew_work_family_blueprints_008,career_sacrifice_rule,1,The adult with the more flexible job should reduce work,1,The adult with the more flexible job should reduce work,0.49,True
+8,pew_work_family_blueprints_008,childcare_division,2,The parent with more available time should do more,2,The parent with more available time should do more,0.52,True
+8,pew_work_family_blueprints_008,children_at_home,0,No children under 18,0,No children under 18,0.82,True
+8,pew_work_family_blueprints_008,feelings,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+8,pew_work_family_blueprints_008,financial_decision_style,3,It depends on the decision,3,It depends on the decision,0.47,True
+8,pew_work_family_blueprints_008,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+8,pew_work_family_blueprints_008,household_income,2,"$100,000 to $149,999",2,"$100,000 to $149,999",0.58,True
+8,pew_work_family_blueprints_008,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.61,True
+8,pew_work_family_blueprints_008,marriage_importance,0,Not at all important,0,Not at all important,0.55,True
+8,pew_work_family_blueprints_008,paid_work_priority,3,Very important,3,Very important,0.66,True
+8,pew_work_family_blueprints_008,parenthood_importance,2,Somewhat important,2,Somewhat important,0.46,True
+8,pew_work_family_blueprints_008,parenting,1,Men and women are basically different,1,Men and women are basically different,0.66,True
+8,pew_work_family_blueprints_008,physical_abilities,0,Men and women are basically similar,0,Men and women are basically similar,0.68,True
+8,pew_work_family_blueprints_008,relationship_status,0,Married,0,Married,0.86,True
+8,pew_work_family_blueprints_008,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.74,True
+9,pew_work_family_blueprints_009,career_sacrifice_rule,2,Both adults should reduce work as equally as possible,2,Both adults should reduce work as equally as possible,0.43,True
+9,pew_work_family_blueprints_009,childcare_division,0,One parent should do most of it,0,One parent should do most of it,0.44,True
+9,pew_work_family_blueprints_009,children_at_home,0,No children under 18,0,No children under 18,0.78,True
+9,pew_work_family_blueprints_009,feelings,1,Men and women are basically different,1,Men and women are basically different,0.71,True
+9,pew_work_family_blueprints_009,financial_decision_style,0,The higher earner should usually decide,0,The higher earner should usually decide,0.43,True
+9,pew_work_family_blueprints_009,hobbies,0,Men and women are basically similar,0,Men and women are basically similar,0.67,True
+9,pew_work_family_blueprints_009,household_income,1,"$50,000 to $99,999",1,"$50,000 to $99,999",0.46,True
+9,pew_work_family_blueprints_009,housework_division,3,It depends entirely on the household,3,It depends entirely on the household,0.4,True
+9,pew_work_family_blueprints_009,marriage_importance,2,Somewhat important,2,Somewhat important,0.52,True
+9,pew_work_family_blueprints_009,paid_work_priority,3,Very important,3,Very important,0.66,True
+9,pew_work_family_blueprints_009,parenthood_importance,2,Somewhat important,2,Somewhat important,0.5,True
+9,pew_work_family_blueprints_009,parenting,1,Men and women are basically different,1,Men and women are basically different,0.62,True
+9,pew_work_family_blueprints_009,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+9,pew_work_family_blueprints_009,relationship_status,0,Married,0,Married,0.73,True
+9,pew_work_family_blueprints_009,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.72,True
+10,pew_work_family_blueprints_010,career_sacrifice_rule,2,Both adults should reduce work as equally as possible,2,Both adults should reduce work as equally as possible,0.56,True
+10,pew_work_family_blueprints_010,childcare_division,0,One parent should do most of it,0,One parent should do most of it,0.47,True
+10,pew_work_family_blueprints_010,children_at_home,2,Only children ages 6 to 17,2,Only children ages 6 to 17,0.83,True
+10,pew_work_family_blueprints_010,feelings,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+10,pew_work_family_blueprints_010,financial_decision_style,0,The higher earner should usually decide,0,The higher earner should usually decide,0.46,True
+10,pew_work_family_blueprints_010,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.68,True
+10,pew_work_family_blueprints_010,household_income,3,"$150,000 or more",3,"$150,000 or more",0.78,True
+10,pew_work_family_blueprints_010,housework_division,3,It depends entirely on the household,3,It depends entirely on the household,0.45,True
+10,pew_work_family_blueprints_010,marriage_importance,0,Not at all important,0,Not at all important,0.52,True
+10,pew_work_family_blueprints_010,paid_work_priority,3,Very important,3,Very important,0.75,True
+10,pew_work_family_blueprints_010,parenthood_importance,3,Very important,3,Very important,0.75,True
+10,pew_work_family_blueprints_010,parenting,0,Men and women are basically similar,0,Men and women are basically similar,0.66,True
+10,pew_work_family_blueprints_010,physical_abilities,0,Men and women are basically similar,0,Men and women are basically similar,0.67,True
+10,pew_work_family_blueprints_010,relationship_status,0,Married,0,Married,0.82,True
+10,pew_work_family_blueprints_010,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.74,True
+11,pew_work_family_blueprints_011,career_sacrifice_rule,1,The adult with the more flexible job should reduce work,1,The adult with the more flexible job should reduce work,0.45,True
+11,pew_work_family_blueprints_011,childcare_division,2,The parent with more available time should do more,2,The parent with more available time should do more,0.46,True
+11,pew_work_family_blueprints_011,children_at_home,0,No children under 18,0,No children under 18,0.82,True
+11,pew_work_family_blueprints_011,feelings,1,Men and women are basically different,1,Men and women are basically different,0.75,True
+11,pew_work_family_blueprints_011,financial_decision_style,1,The person who manages the money should usually decide,1,The person who manages the money should usually decide,0.43,True
+11,pew_work_family_blueprints_011,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+11,pew_work_family_blueprints_011,household_income,1,"$50,000 to $99,999",1,"$50,000 to $99,999",0.52,True
+11,pew_work_family_blueprints_011,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.56,True
+11,pew_work_family_blueprints_011,marriage_importance,2,Somewhat important,2,Somewhat important,0.48,True
+11,pew_work_family_blueprints_011,paid_work_priority,2,Somewhat important,2,Somewhat important,0.5,True
+11,pew_work_family_blueprints_011,parenthood_importance,1,Not too important,1,Not too important,0.45,True
+11,pew_work_family_blueprints_011,parenting,1,Men and women are basically different,1,Men and women are basically different,0.65,True
+11,pew_work_family_blueprints_011,physical_abilities,0,Men and women are basically similar,0,Men and women are basically similar,0.65,True
+11,pew_work_family_blueprints_011,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.58,True
+11,pew_work_family_blueprints_011,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.7,True
+12,pew_work_family_blueprints_012,career_sacrifice_rule,0,The lower earner should reduce work,0,The lower earner should reduce work,0.48,True
+12,pew_work_family_blueprints_012,childcare_division,2,The parent with more available time should do more,2,The parent with more available time should do more,0.52,True
+12,pew_work_family_blueprints_012,children_at_home,0,No children under 18,0,No children under 18,0.86,True
+12,pew_work_family_blueprints_012,feelings,1,Men and women are basically different,1,Men and women are basically different,0.75,True
+12,pew_work_family_blueprints_012,financial_decision_style,1,The person who manages the money should usually decide,1,The person who manages the money should usually decide,0.53,True
+12,pew_work_family_blueprints_012,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+12,pew_work_family_blueprints_012,household_income,0,"Less than $50,000",0,"Less than $50,000",0.76,True
+12,pew_work_family_blueprints_012,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.62,True
+12,pew_work_family_blueprints_012,marriage_importance,3,Very important,3,Very important,0.76,True
+12,pew_work_family_blueprints_012,paid_work_priority,2,Somewhat important,2,Somewhat important,0.55,True
+12,pew_work_family_blueprints_012,parenthood_importance,3,Very important,3,Very important,0.78,True
+12,pew_work_family_blueprints_012,parenting,0,Men and women are basically similar,0,Men and women are basically similar,0.66,True
+12,pew_work_family_blueprints_012,physical_abilities,0,Men and women are basically similar,0,Men and women are basically similar,0.68,True
+12,pew_work_family_blueprints_012,relationship_status,0,Married,0,Married,0.82,True
+12,pew_work_family_blueprints_012,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.7,True
+13,pew_work_family_blueprints_013,career_sacrifice_rule,2,Both adults should reduce work as equally as possible,2,Both adults should reduce work as equally as possible,0.48,True
+13,pew_work_family_blueprints_013,childcare_division,0,One parent should do most of it,0,One parent should do most of it,0.46,True
+13,pew_work_family_blueprints_013,children_at_home,2,Only children ages 6 to 17,2,Only children ages 6 to 17,0.82,True
+13,pew_work_family_blueprints_013,feelings,0,Men and women are basically similar,0,Men and women are basically similar,0.66,True
+13,pew_work_family_blueprints_013,financial_decision_style,3,It depends on the decision,3,It depends on the decision,0.53,True
+13,pew_work_family_blueprints_013,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+13,pew_work_family_blueprints_013,household_income,2,"$100,000 to $149,999",2,"$100,000 to $149,999",0.61,True
+13,pew_work_family_blueprints_013,housework_division,3,It depends entirely on the household,3,It depends entirely on the household,0.41,True
+13,pew_work_family_blueprints_013,marriage_importance,0,Not at all important,0,Not at all important,0.64,True
+13,pew_work_family_blueprints_013,paid_work_priority,3,Very important,3,Very important,0.71,True
+13,pew_work_family_blueprints_013,parenthood_importance,3,Very important,3,Very important,0.73,True
+13,pew_work_family_blueprints_013,parenting,1,Men and women are basically different,1,Men and women are basically different,0.69,True
+13,pew_work_family_blueprints_013,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+13,pew_work_family_blueprints_013,relationship_status,0,Married,0,Married,0.82,True
+13,pew_work_family_blueprints_013,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.72,True
+14,pew_work_family_blueprints_014,career_sacrifice_rule,0,The lower earner should reduce work,0,The lower earner should reduce work,0.45,True
+14,pew_work_family_blueprints_014,childcare_division,1,Both parents should divide it about equally,1,Both parents should divide it about equally,0.64,True
+14,pew_work_family_blueprints_014,children_at_home,2,Only children ages 6 to 17,2,Only children ages 6 to 17,0.78,True
+14,pew_work_family_blueprints_014,feelings,1,Men and women are basically different,1,Men and women are basically different,0.69,True
+14,pew_work_family_blueprints_014,financial_decision_style,1,The person who manages the money should usually decide,1,The person who manages the money should usually decide,0.46,True
+14,pew_work_family_blueprints_014,hobbies,0,Men and women are basically similar,0,Men and women are basically similar,0.72,True
+14,pew_work_family_blueprints_014,household_income,2,"$100,000 to $149,999",2,"$100,000 to $149,999",0.52,True
+14,pew_work_family_blueprints_014,housework_division,3,It depends entirely on the household,3,It depends entirely on the household,0.47,True
+14,pew_work_family_blueprints_014,marriage_importance,2,Somewhat important,2,Somewhat important,0.5,True
+14,pew_work_family_blueprints_014,paid_work_priority,3,Very important,3,Very important,0.7,True
+14,pew_work_family_blueprints_014,parenthood_importance,2,Somewhat important,2,Somewhat important,0.48,True
+14,pew_work_family_blueprints_014,parenting,0,Men and women are basically similar,0,Men and women are basically similar,0.68,True
+14,pew_work_family_blueprints_014,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+14,pew_work_family_blueprints_014,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.78,True
+14,pew_work_family_blueprints_014,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.75,True
+15,pew_work_family_blueprints_015,career_sacrifice_rule,0,The lower earner should reduce work,0,The lower earner should reduce work,0.44,True
+15,pew_work_family_blueprints_015,childcare_division,1,Both parents should divide it about equally,1,Both parents should divide it about equally,0.64,True
+15,pew_work_family_blueprints_015,children_at_home,2,Only children ages 6 to 17,2,Only children ages 6 to 17,0.84,True
+15,pew_work_family_blueprints_015,feelings,1,Men and women are basically different,1,Men and women are basically different,0.73,True
+15,pew_work_family_blueprints_015,financial_decision_style,3,It depends on the decision,3,It depends on the decision,0.49,True
+15,pew_work_family_blueprints_015,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+15,pew_work_family_blueprints_015,household_income,3,"$150,000 or more",3,"$150,000 or more",0.71,True
+15,pew_work_family_blueprints_015,housework_division,3,It depends entirely on the household,3,It depends entirely on the household,0.42,True
+15,pew_work_family_blueprints_015,marriage_importance,2,Somewhat important,2,Somewhat important,0.53,True
+15,pew_work_family_blueprints_015,paid_work_priority,0,Not at all important,0,Not at all important,0.62,True
+15,pew_work_family_blueprints_015,parenthood_importance,3,Very important,3,Very important,0.76,True
+15,pew_work_family_blueprints_015,parenting,0,Men and women are basically similar,0,Men and women are basically similar,0.68,True
+15,pew_work_family_blueprints_015,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+15,pew_work_family_blueprints_015,relationship_status,0,Married,0,Married,0.88,True
+15,pew_work_family_blueprints_015,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.72,True
+16,pew_work_family_blueprints_016,career_sacrifice_rule,1,The adult with the more flexible job should reduce work,1,The adult with the more flexible job should reduce work,0.46,True
+16,pew_work_family_blueprints_016,childcare_division,3,It depends entirely on the family,3,It depends entirely on the family,0.4,True
+16,pew_work_family_blueprints_016,children_at_home,2,Only children ages 6 to 17,2,Only children ages 6 to 17,0.84,True
+16,pew_work_family_blueprints_016,feelings,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+16,pew_work_family_blueprints_016,financial_decision_style,0,The higher earner should usually decide,0,The higher earner should usually decide,0.39,True
+16,pew_work_family_blueprints_016,hobbies,0,Men and women are basically similar,0,Men and women are basically similar,0.68,True
+16,pew_work_family_blueprints_016,household_income,2,"$100,000 to $149,999",2,"$100,000 to $149,999",0.62,True
+16,pew_work_family_blueprints_016,housework_division,3,It depends entirely on the household,3,It depends entirely on the household,0.39,True
+16,pew_work_family_blueprints_016,marriage_importance,3,Very important,3,Very important,0.75,True
+16,pew_work_family_blueprints_016,paid_work_priority,3,Very important,3,Very important,0.74,True
+16,pew_work_family_blueprints_016,parenthood_importance,1,Not too important,1,Not too important,0.48,True
+16,pew_work_family_blueprints_016,parenting,1,Men and women are basically different,1,Men and women are basically different,0.69,True
+16,pew_work_family_blueprints_016,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.75,True
+16,pew_work_family_blueprints_016,relationship_status,0,Married,0,Married,0.82,True
+16,pew_work_family_blueprints_016,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.74,True
+17,pew_work_family_blueprints_017,career_sacrifice_rule,1,The adult with the more flexible job should reduce work,1,The adult with the more flexible job should reduce work,0.5,True
+17,pew_work_family_blueprints_017,childcare_division,2,The parent with more available time should do more,2,The parent with more available time should do more,0.5,True
+17,pew_work_family_blueprints_017,children_at_home,0,No children under 18,0,No children under 18,0.88,True
+17,pew_work_family_blueprints_017,feelings,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+17,pew_work_family_blueprints_017,financial_decision_style,1,The person who manages the money should usually decide,1,The person who manages the money should usually decide,0.46,True
+17,pew_work_family_blueprints_017,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+17,pew_work_family_blueprints_017,household_income,1,"$50,000 to $99,999",1,"$50,000 to $99,999",0.56,True
+17,pew_work_family_blueprints_017,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.6,True
+17,pew_work_family_blueprints_017,marriage_importance,0,Not at all important,0,Not at all important,0.46,True
+17,pew_work_family_blueprints_017,paid_work_priority,2,Somewhat important,2,Somewhat important,0.52,True
+17,pew_work_family_blueprints_017,parenthood_importance,2,Somewhat important,2,Somewhat important,0.48,True
+17,pew_work_family_blueprints_017,parenting,1,Men and women are basically different,1,Men and women are basically different,0.65,True
+17,pew_work_family_blueprints_017,physical_abilities,0,Men and women are basically similar,0,Men and women are basically similar,0.64,True
+17,pew_work_family_blueprints_017,relationship_status,0,Married,0,Married,0.82,True
+17,pew_work_family_blueprints_017,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.76,True
+18,pew_work_family_blueprints_018,career_sacrifice_rule,2,Both adults should reduce work as equally as possible,2,Both adults should reduce work as equally as possible,0.44,True
+18,pew_work_family_blueprints_018,childcare_division,0,One parent should do most of it,0,One parent should do most of it,0.43,True
+18,pew_work_family_blueprints_018,children_at_home,0,No children under 18,0,No children under 18,0.78,True
+18,pew_work_family_blueprints_018,feelings,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+18,pew_work_family_blueprints_018,financial_decision_style,0,The higher earner should usually decide,0,The higher earner should usually decide,0.41,True
+18,pew_work_family_blueprints_018,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.73,True
+18,pew_work_family_blueprints_018,household_income,0,"Less than $50,000",0,"Less than $50,000",0.6,True
+18,pew_work_family_blueprints_018,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.5,True
+18,pew_work_family_blueprints_018,marriage_importance,2,Somewhat important,2,Somewhat important,0.52,True
+18,pew_work_family_blueprints_018,paid_work_priority,3,Very important,3,Very important,0.61,True
+18,pew_work_family_blueprints_018,parenthood_importance,3,Very important,3,Very important,0.64,True
+18,pew_work_family_blueprints_018,parenting,1,Men and women are basically different,1,Men and women are basically different,0.69,True
+18,pew_work_family_blueprints_018,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.84,True
+18,pew_work_family_blueprints_018,relationship_status,1,Living with a partner,1,Living with a partner,0.68,True
+18,pew_work_family_blueprints_018,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.67,True
+19,pew_work_family_blueprints_019,career_sacrifice_rule,2,Both adults should reduce work as equally as possible,2,Both adults should reduce work as equally as possible,0.47,True
+19,pew_work_family_blueprints_019,childcare_division,1,Both parents should divide it about equally,1,Both parents should divide it about equally,0.58,True
+19,pew_work_family_blueprints_019,children_at_home,2,Only children ages 6 to 17,2,Only children ages 6 to 17,0.78,True
+19,pew_work_family_blueprints_019,feelings,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+19,pew_work_family_blueprints_019,financial_decision_style,0,The higher earner should usually decide,0,The higher earner should usually decide,0.43,True
+19,pew_work_family_blueprints_019,hobbies,0,Men and women are basically similar,0,Men and women are basically similar,0.74,True
+19,pew_work_family_blueprints_019,household_income,2,"$100,000 to $149,999",2,"$100,000 to $149,999",0.56,True
+19,pew_work_family_blueprints_019,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.61,True
+19,pew_work_family_blueprints_019,marriage_importance,3,Very important,3,Very important,0.66,True
+19,pew_work_family_blueprints_019,paid_work_priority,2,Somewhat important,2,Somewhat important,0.52,True
+19,pew_work_family_blueprints_019,parenthood_importance,2,Somewhat important,2,Somewhat important,0.46,True
+19,pew_work_family_blueprints_019,parenting,1,Men and women are basically different,1,Men and women are basically different,0.62,True
+19,pew_work_family_blueprints_019,physical_abilities,0,Men and women are basically similar,0,Men and women are basically similar,0.58,True
+19,pew_work_family_blueprints_019,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.76,True
+19,pew_work_family_blueprints_019,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.69,True
+20,pew_work_family_blueprints_020,career_sacrifice_rule,0,The lower earner should reduce work,0,The lower earner should reduce work,0.48,True
+20,pew_work_family_blueprints_020,childcare_division,1,Both parents should divide it about equally,1,Both parents should divide it about equally,0.62,True
+20,pew_work_family_blueprints_020,children_at_home,0,No children under 18,0,No children under 18,0.85,True
+20,pew_work_family_blueprints_020,feelings,1,Men and women are basically different,1,Men and women are basically different,0.73,True
+20,pew_work_family_blueprints_020,financial_decision_style,2,Both adults should decide together,2,Both adults should decide together,0.74,True
+20,pew_work_family_blueprints_020,hobbies,0,Men and women are basically similar,0,Men and women are basically similar,0.62,True
+20,pew_work_family_blueprints_020,household_income,1,"$50,000 to $99,999",1,"$50,000 to $99,999",0.55,True
+20,pew_work_family_blueprints_020,housework_division,2,The person with more available time should do more,2,The person with more available time should do more,0.46,True
+20,pew_work_family_blueprints_020,marriage_importance,2,Somewhat important,2,Somewhat important,0.49,True
+20,pew_work_family_blueprints_020,paid_work_priority,3,Very important,3,Very important,0.71,True
+20,pew_work_family_blueprints_020,parenthood_importance,3,Very important,3,Very important,0.71,True
+20,pew_work_family_blueprints_020,parenting,1,Men and women are basically different,1,Men and women are basically different,0.66,True
+20,pew_work_family_blueprints_020,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+20,pew_work_family_blueprints_020,relationship_status,0,Married,0,Married,0.82,True
+20,pew_work_family_blueprints_020,workplace,1,Men and women are basically different,1,Men and women are basically different,0.63,True
+21,pew_work_family_blueprints_021,career_sacrifice_rule,1,The adult with the more flexible job should reduce work,1,The adult with the more flexible job should reduce work,0.48,True
+21,pew_work_family_blueprints_021,childcare_division,3,It depends entirely on the family,3,It depends entirely on the family,0.45,True
+21,pew_work_family_blueprints_021,children_at_home,0,No children under 18,0,No children under 18,0.78,True
+21,pew_work_family_blueprints_021,feelings,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+21,pew_work_family_blueprints_021,financial_decision_style,2,Both adults should decide together,2,Both adults should decide together,0.68,True
+21,pew_work_family_blueprints_021,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+21,pew_work_family_blueprints_021,household_income,3,"$150,000 or more",3,"$150,000 or more",0.65,True
+21,pew_work_family_blueprints_021,housework_division,2,The person with more available time should do more,2,The person with more available time should do more,0.48,True
+21,pew_work_family_blueprints_021,marriage_importance,1,Not too important,1,Not too important,0.43,True
+21,pew_work_family_blueprints_021,paid_work_priority,3,Very important,3,Very important,0.68,True
+21,pew_work_family_blueprints_021,parenthood_importance,3,Very important,3,Very important,0.65,True
+21,pew_work_family_blueprints_021,parenting,1,Men and women are basically different,1,Men and women are basically different,0.66,True
+21,pew_work_family_blueprints_021,physical_abilities,0,Men and women are basically similar,0,Men and women are basically similar,0.67,True
+21,pew_work_family_blueprints_021,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.74,True
+21,pew_work_family_blueprints_021,workplace,1,Men and women are basically different,1,Men and women are basically different,0.6,True
+22,pew_work_family_blueprints_022,career_sacrifice_rule,1,The adult with the more flexible job should reduce work,1,The adult with the more flexible job should reduce work,0.42,True
+22,pew_work_family_blueprints_022,childcare_division,3,It depends entirely on the family,3,It depends entirely on the family,0.4,True
+22,pew_work_family_blueprints_022,children_at_home,0,No children under 18,0,No children under 18,0.86,True
+22,pew_work_family_blueprints_022,feelings,0,Men and women are basically similar,0,Men and women are basically similar,0.68,True
+22,pew_work_family_blueprints_022,financial_decision_style,3,It depends on the decision,3,It depends on the decision,0.45,True
+22,pew_work_family_blueprints_022,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.75,True
+22,pew_work_family_blueprints_022,household_income,0,"Less than $50,000",0,"Less than $50,000",0.62,True
+22,pew_work_family_blueprints_022,housework_division,2,The person with more available time should do more,2,The person with more available time should do more,0.43,True
+22,pew_work_family_blueprints_022,marriage_importance,1,Not too important,1,Not too important,0.43,True
+22,pew_work_family_blueprints_022,paid_work_priority,2,Somewhat important,2,Somewhat important,0.48,True
+22,pew_work_family_blueprints_022,parenthood_importance,0,Not at all important,0,Not at all important,0.6,True
+22,pew_work_family_blueprints_022,parenting,1,Men and women are basically different,1,Men and women are basically different,0.65,True
+22,pew_work_family_blueprints_022,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+22,pew_work_family_blueprints_022,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.75,True
+22,pew_work_family_blueprints_022,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.74,True
+23,pew_work_family_blueprints_023,career_sacrifice_rule,3,It depends entirely on the family,3,It depends entirely on the family,0.44,True
+23,pew_work_family_blueprints_023,childcare_division,0,One parent should do most of it,0,One parent should do most of it,0.45,True
+23,pew_work_family_blueprints_023,children_at_home,0,No children under 18,0,No children under 18,0.86,True
+23,pew_work_family_blueprints_023,feelings,1,Men and women are basically different,1,Men and women are basically different,0.84,True
+23,pew_work_family_blueprints_023,financial_decision_style,3,It depends on the decision,3,It depends on the decision,0.44,True
+23,pew_work_family_blueprints_023,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+23,pew_work_family_blueprints_023,household_income,3,"$150,000 or more",3,"$150,000 or more",0.63,True
+23,pew_work_family_blueprints_023,housework_division,2,The person with more available time should do more,2,The person with more available time should do more,0.48,True
+23,pew_work_family_blueprints_023,marriage_importance,3,Very important,3,Very important,0.71,True
+23,pew_work_family_blueprints_023,paid_work_priority,2,Somewhat important,2,Somewhat important,0.52,True
+23,pew_work_family_blueprints_023,parenthood_importance,0,Not at all important,0,Not at all important,0.62,True
+23,pew_work_family_blueprints_023,parenting,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+23,pew_work_family_blueprints_023,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.88,True
+23,pew_work_family_blueprints_023,relationship_status,2,In a relationship but not living together,2,In a relationship but not living together,0.64,True
+23,pew_work_family_blueprints_023,workplace,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+24,pew_work_family_blueprints_024,career_sacrifice_rule,0,The lower earner should reduce work,0,The lower earner should reduce work,0.43,True
+24,pew_work_family_blueprints_024,childcare_division,3,It depends entirely on the family,3,It depends entirely on the family,0.44,True
+24,pew_work_family_blueprints_024,children_at_home,1,At least one child under 6,1,At least one child under 6,0.82,True
+24,pew_work_family_blueprints_024,feelings,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+24,pew_work_family_blueprints_024,financial_decision_style,2,Both adults should decide together,2,Both adults should decide together,0.74,True
+24,pew_work_family_blueprints_024,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+24,pew_work_family_blueprints_024,household_income,1,"$50,000 to $99,999",1,"$50,000 to $99,999",0.72,True
+24,pew_work_family_blueprints_024,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.62,True
+24,pew_work_family_blueprints_024,marriage_importance,2,Somewhat important,2,Somewhat important,0.55,True
+24,pew_work_family_blueprints_024,paid_work_priority,1,Not too important,1,Not too important,0.49,True
+24,pew_work_family_blueprints_024,parenthood_importance,3,Very important,3,Very important,0.76,True
+24,pew_work_family_blueprints_024,parenting,1,Men and women are basically different,1,Men and women are basically different,0.69,True
+24,pew_work_family_blueprints_024,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.86,True
+24,pew_work_family_blueprints_024,relationship_status,0,Married,0,Married,0.86,True
+24,pew_work_family_blueprints_024,workplace,1,Men and women are basically different,1,Men and women are basically different,0.64,True
+25,pew_work_family_blueprints_025,career_sacrifice_rule,3,It depends entirely on the family,3,It depends entirely on the family,0.39,True
+25,pew_work_family_blueprints_025,childcare_division,1,Both parents should divide it about equally,1,Both parents should divide it about equally,0.58,True
+25,pew_work_family_blueprints_025,children_at_home,0,No children under 18,0,No children under 18,0.86,True
+25,pew_work_family_blueprints_025,feelings,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+25,pew_work_family_blueprints_025,financial_decision_style,2,Both adults should decide together,2,Both adults should decide together,0.72,True
+25,pew_work_family_blueprints_025,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+25,pew_work_family_blueprints_025,household_income,0,"Less than $50,000",0,"Less than $50,000",0.72,True
+25,pew_work_family_blueprints_025,housework_division,3,It depends entirely on the household,3,It depends entirely on the household,0.39,True
+25,pew_work_family_blueprints_025,marriage_importance,0,Not at all important,0,Not at all important,0.46,True
+25,pew_work_family_blueprints_025,paid_work_priority,2,Somewhat important,2,Somewhat important,0.48,True
+25,pew_work_family_blueprints_025,parenthood_importance,1,Not too important,1,Not too important,0.42,True
+25,pew_work_family_blueprints_025,parenting,0,Men and women are basically similar,0,Men and women are basically similar,0.68,True
+25,pew_work_family_blueprints_025,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.85,True
+25,pew_work_family_blueprints_025,relationship_status,0,Married,0,Married,0.82,True
+25,pew_work_family_blueprints_025,workplace,1,Men and women are basically different,1,Men and women are basically different,0.62,True
+26,pew_work_family_blueprints_026,career_sacrifice_rule,3,It depends entirely on the family,3,It depends entirely on the family,0.39,True
+26,pew_work_family_blueprints_026,childcare_division,1,Both parents should divide it about equally,1,Both parents should divide it about equally,0.58,True
+26,pew_work_family_blueprints_026,children_at_home,0,No children under 18,0,No children under 18,0.86,True
+26,pew_work_family_blueprints_026,feelings,1,Men and women are basically different,1,Men and women are basically different,0.8,True
+26,pew_work_family_blueprints_026,financial_decision_style,3,It depends on the decision,3,It depends on the decision,0.48,True
+26,pew_work_family_blueprints_026,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+26,pew_work_family_blueprints_026,household_income,0,"Less than $50,000",0,"Less than $50,000",0.72,True
+26,pew_work_family_blueprints_026,housework_division,2,The person with more available time should do more,2,The person with more available time should do more,0.48,True
+26,pew_work_family_blueprints_026,marriage_importance,2,Somewhat important,2,Somewhat important,0.52,True
+26,pew_work_family_blueprints_026,paid_work_priority,3,Very important,3,Very important,0.73,True
+26,pew_work_family_blueprints_026,parenthood_importance,0,Not at all important,0,Not at all important,0.57,True
+26,pew_work_family_blueprints_026,parenting,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+26,pew_work_family_blueprints_026,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+26,pew_work_family_blueprints_026,relationship_status,0,Married,0,Married,0.82,True
+26,pew_work_family_blueprints_026,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.73,True
+27,pew_work_family_blueprints_027,career_sacrifice_rule,3,It depends entirely on the family,3,It depends entirely on the family,0.44,True
+27,pew_work_family_blueprints_027,childcare_division,1,Both parents should divide it about equally,1,Both parents should divide it about equally,0.57,True
+27,pew_work_family_blueprints_027,children_at_home,0,No children under 18,0,No children under 18,0.82,True
+27,pew_work_family_blueprints_027,feelings,0,Men and women are basically similar,0,Men and women are basically similar,0.62,True
+27,pew_work_family_blueprints_027,financial_decision_style,2,Both adults should decide together,2,Both adults should decide together,0.74,True
+27,pew_work_family_blueprints_027,hobbies,0,Men and women are basically similar,0,Men and women are basically similar,0.68,True
+27,pew_work_family_blueprints_027,household_income,1,"$50,000 to $99,999",1,"$50,000 to $99,999",0.55,True
+27,pew_work_family_blueprints_027,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.6,True
+27,pew_work_family_blueprints_027,marriage_importance,3,Very important,3,Very important,0.75,True
+27,pew_work_family_blueprints_027,paid_work_priority,2,Somewhat important,2,Somewhat important,0.56,True
+27,pew_work_family_blueprints_027,parenthood_importance,3,Very important,3,Very important,0.75,True
+27,pew_work_family_blueprints_027,parenting,1,Men and women are basically different,1,Men and women are basically different,0.65,True
+27,pew_work_family_blueprints_027,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+27,pew_work_family_blueprints_027,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.65,True
+27,pew_work_family_blueprints_027,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.71,True
+28,pew_work_family_blueprints_028,career_sacrifice_rule,3,It depends entirely on the family,3,It depends entirely on the family,0.46,True
+28,pew_work_family_blueprints_028,childcare_division,0,One parent should do most of it,0,One parent should do most of it,0.38,True
+28,pew_work_family_blueprints_028,children_at_home,0,No children under 18,0,No children under 18,0.88,True
+28,pew_work_family_blueprints_028,feelings,0,Men and women are basically similar,0,Men and women are basically similar,0.58,True
+28,pew_work_family_blueprints_028,financial_decision_style,1,The person who manages the money should usually decide,1,The person who manages the money should usually decide,0.46,True
+28,pew_work_family_blueprints_028,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.68,True
+28,pew_work_family_blueprints_028,household_income,3,"$150,000 or more",3,"$150,000 or more",0.67,True
+28,pew_work_family_blueprints_028,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.55,True
+28,pew_work_family_blueprints_028,marriage_importance,2,Somewhat important,2,Somewhat important,0.52,True
+28,pew_work_family_blueprints_028,paid_work_priority,2,Somewhat important,2,Somewhat important,0.54,True
+28,pew_work_family_blueprints_028,parenthood_importance,3,Very important,3,Very important,0.7,True
+28,pew_work_family_blueprints_028,parenting,0,Men and women are basically similar,0,Men and women are basically similar,0.72,True
+28,pew_work_family_blueprints_028,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.75,True
+28,pew_work_family_blueprints_028,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.7,True
+28,pew_work_family_blueprints_028,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.78,True
+29,pew_work_family_blueprints_029,career_sacrifice_rule,1,The adult with the more flexible job should reduce work,1,The adult with the more flexible job should reduce work,0.5,True
+29,pew_work_family_blueprints_029,childcare_division,2,The parent with more available time should do more,2,The parent with more available time should do more,0.48,True
+29,pew_work_family_blueprints_029,children_at_home,1,At least one child under 6,1,At least one child under 6,0.68,True
+29,pew_work_family_blueprints_029,feelings,1,Men and women are basically different,1,Men and women are basically different,0.7,True
+29,pew_work_family_blueprints_029,financial_decision_style,0,The higher earner should usually decide,0,The higher earner should usually decide,0.46,True
+29,pew_work_family_blueprints_029,hobbies,0,Men and women are basically similar,0,Men and women are basically similar,0.64,True
+29,pew_work_family_blueprints_029,household_income,3,"$150,000 or more",3,"$150,000 or more",0.65,True
+29,pew_work_family_blueprints_029,housework_division,2,The person with more available time should do more,2,The person with more available time should do more,0.49,True
+29,pew_work_family_blueprints_029,marriage_importance,3,Very important,3,Very important,0.7,True
+29,pew_work_family_blueprints_029,paid_work_priority,2,Somewhat important,2,Somewhat important,0.5,True
+29,pew_work_family_blueprints_029,parenthood_importance,2,Somewhat important,2,Somewhat important,0.52,True
+29,pew_work_family_blueprints_029,parenting,0,Men and women are basically similar,0,Men and women are basically similar,0.66,True
+29,pew_work_family_blueprints_029,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+29,pew_work_family_blueprints_029,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.65,True
+29,pew_work_family_blueprints_029,workplace,1,Men and women are basically different,1,Men and women are basically different,0.65,True
+30,pew_work_family_blueprints_030,career_sacrifice_rule,1,The adult with the more flexible job should reduce work,1,The adult with the more flexible job should reduce work,0.48,True
+30,pew_work_family_blueprints_030,childcare_division,3,It depends entirely on the family,3,It depends entirely on the family,0.38,True
+30,pew_work_family_blueprints_030,children_at_home,0,No children under 18,0,No children under 18,0.82,True
+30,pew_work_family_blueprints_030,feelings,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+30,pew_work_family_blueprints_030,financial_decision_style,1,The person who manages the money should usually decide,1,The person who manages the money should usually decide,0.45,True
+30,pew_work_family_blueprints_030,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+30,pew_work_family_blueprints_030,household_income,3,"$150,000 or more",3,"$150,000 or more",0.66,True
+30,pew_work_family_blueprints_030,housework_division,2,The person with more available time should do more,2,The person with more available time should do more,0.46,True
+30,pew_work_family_blueprints_030,marriage_importance,1,Not too important,1,Not too important,0.46,True
+30,pew_work_family_blueprints_030,paid_work_priority,2,Somewhat important,2,Somewhat important,0.48,True
+30,pew_work_family_blueprints_030,parenthood_importance,3,Very important,3,Very important,0.66,True
+30,pew_work_family_blueprints_030,parenting,1,Men and women are basically different,1,Men and women are basically different,0.7,True
+30,pew_work_family_blueprints_030,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.84,True
+30,pew_work_family_blueprints_030,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.65,True
+30,pew_work_family_blueprints_030,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.72,True
+31,pew_work_family_blueprints_031,career_sacrifice_rule,0,The lower earner should reduce work,0,The lower earner should reduce work,0.48,True
+31,pew_work_family_blueprints_031,childcare_division,0,One parent should do most of it,0,One parent should do most of it,0.45,True
+31,pew_work_family_blueprints_031,children_at_home,3,Children both under 6 and ages 6 to 17,3,Children both under 6 and ages 6 to 17,0.65,True
+31,pew_work_family_blueprints_031,feelings,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+31,pew_work_family_blueprints_031,financial_decision_style,1,The person who manages the money should usually decide,1,The person who manages the money should usually decide,0.46,True
+31,pew_work_family_blueprints_031,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+31,pew_work_family_blueprints_031,household_income,0,"Less than $50,000",0,"Less than $50,000",0.62,True
+31,pew_work_family_blueprints_031,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.56,True
+31,pew_work_family_blueprints_031,marriage_importance,1,Not too important,1,Not too important,0.43,True
+31,pew_work_family_blueprints_031,paid_work_priority,3,Very important,3,Very important,0.71,True
+31,pew_work_family_blueprints_031,parenthood_importance,3,Very important,3,Very important,0.76,True
+31,pew_work_family_blueprints_031,parenting,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+31,pew_work_family_blueprints_031,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.88,True
+31,pew_work_family_blueprints_031,relationship_status,0,Married,0,Married,0.82,True
+31,pew_work_family_blueprints_031,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.76,True
+32,pew_work_family_blueprints_032,career_sacrifice_rule,0,The lower earner should reduce work,0,The lower earner should reduce work,0.46,True
+32,pew_work_family_blueprints_032,childcare_division,0,One parent should do most of it,0,One parent should do most of it,0.43,True
+32,pew_work_family_blueprints_032,children_at_home,2,Only children ages 6 to 17,2,Only children ages 6 to 17,0.82,True
+32,pew_work_family_blueprints_032,feelings,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+32,pew_work_family_blueprints_032,financial_decision_style,3,It depends on the decision,3,It depends on the decision,0.48,True
+32,pew_work_family_blueprints_032,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+32,pew_work_family_blueprints_032,household_income,0,"Less than $50,000",0,"Less than $50,000",0.72,True
+32,pew_work_family_blueprints_032,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.53,True
+32,pew_work_family_blueprints_032,marriage_importance,0,Not at all important,0,Not at all important,0.55,True
+32,pew_work_family_blueprints_032,paid_work_priority,3,Very important,3,Very important,0.75,True
+32,pew_work_family_blueprints_032,parenthood_importance,2,Somewhat important,2,Somewhat important,0.48,True
+32,pew_work_family_blueprints_032,parenting,1,Men and women are basically different,1,Men and women are basically different,0.71,True
+32,pew_work_family_blueprints_032,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+32,pew_work_family_blueprints_032,relationship_status,0,Married,0,Married,0.76,True
+32,pew_work_family_blueprints_032,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.69,True
+33,pew_work_family_blueprints_033,career_sacrifice_rule,2,Both adults should reduce work as equally as possible,2,Both adults should reduce work as equally as possible,0.5,True
+33,pew_work_family_blueprints_033,childcare_division,0,One parent should do most of it,0,One parent should do most of it,0.43,True
+33,pew_work_family_blueprints_033,children_at_home,0,No children under 18,0,No children under 18,0.82,True
+33,pew_work_family_blueprints_033,feelings,1,Men and women are basically different,1,Men and women are basically different,0.75,True
+33,pew_work_family_blueprints_033,financial_decision_style,3,It depends on the decision,3,It depends on the decision,0.47,True
+33,pew_work_family_blueprints_033,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+33,pew_work_family_blueprints_033,household_income,0,"Less than $50,000",0,"Less than $50,000",0.62,True
+33,pew_work_family_blueprints_033,housework_division,2,The person with more available time should do more,2,The person with more available time should do more,0.49,True
+33,pew_work_family_blueprints_033,marriage_importance,1,Not too important,1,Not too important,0.43,True
+33,pew_work_family_blueprints_033,paid_work_priority,3,Very important,3,Very important,0.61,True
+33,pew_work_family_blueprints_033,parenthood_importance,3,Very important,3,Very important,0.63,True
+33,pew_work_family_blueprints_033,parenting,0,Men and women are basically similar,0,Men and women are basically similar,0.66,True
+33,pew_work_family_blueprints_033,physical_abilities,0,Men and women are basically similar,0,Men and women are basically similar,0.67,True
+33,pew_work_family_blueprints_033,relationship_status,0,Married,0,Married,0.76,True
+33,pew_work_family_blueprints_033,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.7,True
+34,pew_work_family_blueprints_034,career_sacrifice_rule,2,Both adults should reduce work as equally as possible,2,Both adults should reduce work as equally as possible,0.47,True
+34,pew_work_family_blueprints_034,childcare_division,0,One parent should do most of it,0,One parent should do most of it,0.42,True
+34,pew_work_family_blueprints_034,children_at_home,0,No children under 18,0,No children under 18,0.88,True
+34,pew_work_family_blueprints_034,feelings,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+34,pew_work_family_blueprints_034,financial_decision_style,1,The person who manages the money should usually decide,1,The person who manages the money should usually decide,0.46,True
+34,pew_work_family_blueprints_034,hobbies,0,Men and women are basically similar,0,Men and women are basically similar,0.66,True
+34,pew_work_family_blueprints_034,household_income,0,"Less than $50,000",0,"Less than $50,000",0.7,True
+34,pew_work_family_blueprints_034,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.51,True
+34,pew_work_family_blueprints_034,marriage_importance,3,Very important,3,Very important,0.65,True
+34,pew_work_family_blueprints_034,paid_work_priority,1,Not too important,1,Not too important,0.47,True
+34,pew_work_family_blueprints_034,parenthood_importance,3,Very important,3,Very important,0.69,True
+34,pew_work_family_blueprints_034,parenting,1,Men and women are basically different,1,Men and women are basically different,0.73,True
+34,pew_work_family_blueprints_034,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.8,True
+34,pew_work_family_blueprints_034,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.75,True
+34,pew_work_family_blueprints_034,workplace,1,Men and women are basically different,1,Men and women are basically different,0.68,True
+35,pew_work_family_blueprints_035,career_sacrifice_rule,1,The adult with the more flexible job should reduce work,1,The adult with the more flexible job should reduce work,0.53,True
+35,pew_work_family_blueprints_035,childcare_division,0,One parent should do most of it,0,One parent should do most of it,0.43,True
+35,pew_work_family_blueprints_035,children_at_home,0,No children under 18,0,No children under 18,0.82,True
+35,pew_work_family_blueprints_035,feelings,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+35,pew_work_family_blueprints_035,financial_decision_style,1,The person who manages the money should usually decide,1,The person who manages the money should usually decide,0.54,True
+35,pew_work_family_blueprints_035,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+35,pew_work_family_blueprints_035,household_income,0,"Less than $50,000",0,"Less than $50,000",0.66,True
+35,pew_work_family_blueprints_035,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.55,True
+35,pew_work_family_blueprints_035,marriage_importance,0,Not at all important,0,Not at all important,0.64,True
+35,pew_work_family_blueprints_035,paid_work_priority,1,Not too important,1,Not too important,0.47,True
+35,pew_work_family_blueprints_035,parenthood_importance,1,Not too important,1,Not too important,0.49,True
+35,pew_work_family_blueprints_035,parenting,1,Men and women are basically different,1,Men and women are basically different,0.73,True
+35,pew_work_family_blueprints_035,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+35,pew_work_family_blueprints_035,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.68,True
+35,pew_work_family_blueprints_035,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.71,True
+36,pew_work_family_blueprints_036,career_sacrifice_rule,1,The adult with the more flexible job should reduce work,1,The adult with the more flexible job should reduce work,0.5,True
+36,pew_work_family_blueprints_036,childcare_division,2,The parent with more available time should do more,2,The parent with more available time should do more,0.46,True
+36,pew_work_family_blueprints_036,children_at_home,0,No children under 18,0,No children under 18,0.88,True
+36,pew_work_family_blueprints_036,feelings,1,Men and women are basically different,1,Men and women are basically different,0.75,True
+36,pew_work_family_blueprints_036,financial_decision_style,0,The higher earner should usually decide,0,The higher earner should usually decide,0.45,True
+36,pew_work_family_blueprints_036,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+36,pew_work_family_blueprints_036,household_income,2,"$100,000 to $149,999",2,"$100,000 to $149,999",0.62,True
+36,pew_work_family_blueprints_036,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.62,True
+36,pew_work_family_blueprints_036,marriage_importance,0,Not at all important,0,Not at all important,0.55,True
+36,pew_work_family_blueprints_036,paid_work_priority,2,Somewhat important,2,Somewhat important,0.55,True
+36,pew_work_family_blueprints_036,parenthood_importance,3,Very important,3,Very important,0.71,True
+36,pew_work_family_blueprints_036,parenting,0,Men and women are basically similar,0,Men and women are basically similar,0.67,True
+36,pew_work_family_blueprints_036,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+36,pew_work_family_blueprints_036,relationship_status,0,Married,0,Married,0.86,True
+36,pew_work_family_blueprints_036,workplace,1,Men and women are basically different,1,Men and women are basically different,0.64,True
+37,pew_work_family_blueprints_037,career_sacrifice_rule,0,The lower earner should reduce work,0,The lower earner should reduce work,0.44,True
+37,pew_work_family_blueprints_037,childcare_division,1,Both parents should divide it about equally,1,Both parents should divide it about equally,0.55,True
+37,pew_work_family_blueprints_037,children_at_home,0,No children under 18,0,No children under 18,0.88,True
+37,pew_work_family_blueprints_037,feelings,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+37,pew_work_family_blueprints_037,financial_decision_style,1,The person who manages the money should usually decide,1,The person who manages the money should usually decide,0.45,True
+37,pew_work_family_blueprints_037,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+37,pew_work_family_blueprints_037,household_income,2,"$100,000 to $149,999",2,"$100,000 to $149,999",0.52,True
+37,pew_work_family_blueprints_037,housework_division,2,The person with more available time should do more,2,The person with more available time should do more,0.5,True
+37,pew_work_family_blueprints_037,marriage_importance,2,Somewhat important,2,Somewhat important,0.47,True
+37,pew_work_family_blueprints_037,paid_work_priority,1,Not too important,1,Not too important,0.46,True
+37,pew_work_family_blueprints_037,parenthood_importance,1,Not too important,1,Not too important,0.42,True
+37,pew_work_family_blueprints_037,parenting,1,Men and women are basically different,1,Men and women are basically different,0.71,True
+37,pew_work_family_blueprints_037,physical_abilities,0,Men and women are basically similar,0,Men and women are basically similar,0.63,True
+37,pew_work_family_blueprints_037,relationship_status,0,Married,0,Married,0.82,True
+37,pew_work_family_blueprints_037,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.72,True
+38,pew_work_family_blueprints_038,career_sacrifice_rule,3,It depends entirely on the family,3,It depends entirely on the family,0.41,True
+38,pew_work_family_blueprints_038,childcare_division,3,It depends entirely on the family,3,It depends entirely on the family,0.46,True
+38,pew_work_family_blueprints_038,children_at_home,3,Children both under 6 and ages 6 to 17,3,Children both under 6 and ages 6 to 17,0.65,True
+38,pew_work_family_blueprints_038,feelings,1,Men and women are basically different,1,Men and women are basically different,0.8,True
+38,pew_work_family_blueprints_038,financial_decision_style,0,The higher earner should usually decide,0,The higher earner should usually decide,0.45,True
+38,pew_work_family_blueprints_038,hobbies,0,Men and women are basically similar,0,Men and women are basically similar,0.62,True
+38,pew_work_family_blueprints_038,household_income,1,"$50,000 to $99,999",1,"$50,000 to $99,999",0.55,True
+38,pew_work_family_blueprints_038,housework_division,3,It depends entirely on the household,3,It depends entirely on the household,0.45,True
+38,pew_work_family_blueprints_038,marriage_importance,3,Very important,3,Very important,0.75,True
+38,pew_work_family_blueprints_038,paid_work_priority,1,Not too important,1,Not too important,0.49,True
+38,pew_work_family_blueprints_038,parenthood_importance,3,Very important,3,Very important,0.8,True
+38,pew_work_family_blueprints_038,parenting,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+38,pew_work_family_blueprints_038,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+38,pew_work_family_blueprints_038,relationship_status,0,Married,0,Married,0.82,True
+38,pew_work_family_blueprints_038,workplace,1,Men and women are basically different,1,Men and women are basically different,0.65,True
+39,pew_work_family_blueprints_039,career_sacrifice_rule,3,It depends entirely on the family,3,It depends entirely on the family,0.38,True
+39,pew_work_family_blueprints_039,childcare_division,1,Both parents should divide it about equally,1,Both parents should divide it about equally,0.54,True
+39,pew_work_family_blueprints_039,children_at_home,0,No children under 18,0,No children under 18,0.85,True
+39,pew_work_family_blueprints_039,feelings,1,Men and women are basically different,1,Men and women are basically different,0.85,True
+39,pew_work_family_blueprints_039,financial_decision_style,0,The higher earner should usually decide,0,The higher earner should usually decide,0.46,True
+39,pew_work_family_blueprints_039,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.75,True
+39,pew_work_family_blueprints_039,household_income,3,"$150,000 or more",3,"$150,000 or more",0.67,True
+39,pew_work_family_blueprints_039,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.56,True
+39,pew_work_family_blueprints_039,marriage_importance,1,Not too important,1,Not too important,0.46,True
+39,pew_work_family_blueprints_039,paid_work_priority,2,Somewhat important,2,Somewhat important,0.5,True
+39,pew_work_family_blueprints_039,parenthood_importance,2,Somewhat important,2,Somewhat important,0.48,True
+39,pew_work_family_blueprints_039,parenting,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+39,pew_work_family_blueprints_039,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.88,True
+39,pew_work_family_blueprints_039,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.78,True
+39,pew_work_family_blueprints_039,workplace,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+40,pew_work_family_blueprints_040,career_sacrifice_rule,1,The adult with the more flexible job should reduce work,1,The adult with the more flexible job should reduce work,0.5,True
+40,pew_work_family_blueprints_040,childcare_division,1,Both parents should divide it about equally,1,Both parents should divide it about equally,0.53,True
+40,pew_work_family_blueprints_040,children_at_home,3,Children both under 6 and ages 6 to 17,3,Children both under 6 and ages 6 to 17,0.75,True
+40,pew_work_family_blueprints_040,feelings,1,Men and women are basically different,1,Men and women are basically different,0.75,True
+40,pew_work_family_blueprints_040,financial_decision_style,1,The person who manages the money should usually decide,1,The person who manages the money should usually decide,0.47,True
+40,pew_work_family_blueprints_040,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.68,True
+40,pew_work_family_blueprints_040,household_income,1,"$50,000 to $99,999",1,"$50,000 to $99,999",0.58,True
+40,pew_work_family_blueprints_040,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.56,True
+40,pew_work_family_blueprints_040,marriage_importance,1,Not too important,1,Not too important,0.46,True
+40,pew_work_family_blueprints_040,paid_work_priority,2,Somewhat important,2,Somewhat important,0.49,True
+40,pew_work_family_blueprints_040,parenthood_importance,0,Not at all important,0,Not at all important,0.52,True
+40,pew_work_family_blueprints_040,parenting,0,Men and women are basically similar,0,Men and women are basically similar,0.61,True
+40,pew_work_family_blueprints_040,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+40,pew_work_family_blueprints_040,relationship_status,0,Married,0,Married,0.86,True
+40,pew_work_family_blueprints_040,workplace,1,Men and women are basically different,1,Men and women are basically different,0.65,True
+41,pew_work_family_blueprints_041,career_sacrifice_rule,2,Both adults should reduce work as equally as possible,2,Both adults should reduce work as equally as possible,0.46,True
+41,pew_work_family_blueprints_041,childcare_division,2,The parent with more available time should do more,2,The parent with more available time should do more,0.47,True
+41,pew_work_family_blueprints_041,children_at_home,0,No children under 18,0,No children under 18,0.82,True
+41,pew_work_family_blueprints_041,feelings,1,Men and women are basically different,1,Men and women are basically different,0.8,True
+41,pew_work_family_blueprints_041,financial_decision_style,2,Both adults should decide together,2,Both adults should decide together,0.65,True
+41,pew_work_family_blueprints_041,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+41,pew_work_family_blueprints_041,household_income,1,"$50,000 to $99,999",1,"$50,000 to $99,999",0.55,True
+41,pew_work_family_blueprints_041,housework_division,2,The person with more available time should do more,2,The person with more available time should do more,0.5,True
+41,pew_work_family_blueprints_041,marriage_importance,2,Somewhat important,2,Somewhat important,0.45,True
+41,pew_work_family_blueprints_041,paid_work_priority,3,Very important,3,Very important,0.7,True
+41,pew_work_family_blueprints_041,parenthood_importance,0,Not at all important,0,Not at all important,0.6,True
+41,pew_work_family_blueprints_041,parenting,1,Men and women are basically different,1,Men and women are basically different,0.73,True
+41,pew_work_family_blueprints_041,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+41,pew_work_family_blueprints_041,relationship_status,2,In a relationship but not living together,2,In a relationship but not living together,0.68,True
+41,pew_work_family_blueprints_041,workplace,1,Men and women are basically different,1,Men and women are basically different,0.7,True
+42,pew_work_family_blueprints_042,career_sacrifice_rule,3,It depends entirely on the family,3,It depends entirely on the family,0.45,True
+42,pew_work_family_blueprints_042,childcare_division,2,The parent with more available time should do more,2,The parent with more available time should do more,0.45,True
+42,pew_work_family_blueprints_042,children_at_home,0,No children under 18,0,No children under 18,0.86,True
+42,pew_work_family_blueprints_042,feelings,1,Men and women are basically different,1,Men and women are basically different,0.84,True
+42,pew_work_family_blueprints_042,financial_decision_style,2,Both adults should decide together,2,Both adults should decide together,0.75,True
+42,pew_work_family_blueprints_042,hobbies,0,Men and women are basically similar,0,Men and women are basically similar,0.74,True
+42,pew_work_family_blueprints_042,household_income,2,"$100,000 to $149,999",2,"$100,000 to $149,999",0.5,True
+42,pew_work_family_blueprints_042,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.64,True
+42,pew_work_family_blueprints_042,marriage_importance,3,Very important,3,Very important,0.74,True
+42,pew_work_family_blueprints_042,paid_work_priority,3,Very important,3,Very important,0.75,True
+42,pew_work_family_blueprints_042,parenthood_importance,2,Somewhat important,2,Somewhat important,0.55,True
+42,pew_work_family_blueprints_042,parenting,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+42,pew_work_family_blueprints_042,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+42,pew_work_family_blueprints_042,relationship_status,0,Married,0,Married,0.88,True
+42,pew_work_family_blueprints_042,workplace,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+43,pew_work_family_blueprints_043,career_sacrifice_rule,3,It depends entirely on the family,3,It depends entirely on the family,0.45,True
+43,pew_work_family_blueprints_043,childcare_division,3,It depends entirely on the family,3,It depends entirely on the family,0.41,True
+43,pew_work_family_blueprints_043,children_at_home,1,At least one child under 6,1,At least one child under 6,0.73,True
+43,pew_work_family_blueprints_043,feelings,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+43,pew_work_family_blueprints_043,financial_decision_style,0,The higher earner should usually decide,0,The higher earner should usually decide,0.46,True
+43,pew_work_family_blueprints_043,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+43,pew_work_family_blueprints_043,household_income,2,"$100,000 to $149,999",2,"$100,000 to $149,999",0.62,True
+43,pew_work_family_blueprints_043,housework_division,0,One person should do most of it,0,One person should do most of it,0.45,True
+43,pew_work_family_blueprints_043,marriage_importance,2,Somewhat important,2,Somewhat important,0.56,True
+43,pew_work_family_blueprints_043,paid_work_priority,1,Not too important,1,Not too important,0.5,True
+43,pew_work_family_blueprints_043,parenthood_importance,3,Very important,3,Very important,0.78,True
+43,pew_work_family_blueprints_043,parenting,1,Men and women are basically different,1,Men and women are basically different,0.75,True
+43,pew_work_family_blueprints_043,physical_abilities,0,Men and women are basically similar,0,Men and women are basically similar,0.68,True
+43,pew_work_family_blueprints_043,relationship_status,2,In a relationship but not living together,2,In a relationship but not living together,0.7,True
+43,pew_work_family_blueprints_043,workplace,1,Men and women are basically different,1,Men and women are basically different,0.66,True
+44,pew_work_family_blueprints_044,career_sacrifice_rule,2,Both adults should reduce work as equally as possible,2,Both adults should reduce work as equally as possible,0.44,True
+44,pew_work_family_blueprints_044,childcare_division,0,One parent should do most of it,0,One parent should do most of it,0.38,True
+44,pew_work_family_blueprints_044,children_at_home,2,Only children ages 6 to 17,2,Only children ages 6 to 17,0.84,True
+44,pew_work_family_blueprints_044,feelings,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+44,pew_work_family_blueprints_044,financial_decision_style,3,It depends on the decision,3,It depends on the decision,0.42,True
+44,pew_work_family_blueprints_044,hobbies,0,Men and women are basically similar,0,Men and women are basically similar,0.64,True
+44,pew_work_family_blueprints_044,household_income,3,"$150,000 or more",3,"$150,000 or more",0.74,True
+44,pew_work_family_blueprints_044,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.58,True
+44,pew_work_family_blueprints_044,marriage_importance,1,Not too important,1,Not too important,0.43,True
+44,pew_work_family_blueprints_044,paid_work_priority,3,Very important,3,Very important,0.72,True
+44,pew_work_family_blueprints_044,parenthood_importance,2,Somewhat important,2,Somewhat important,0.48,True
+44,pew_work_family_blueprints_044,parenting,1,Men and women are basically different,1,Men and women are basically different,0.63,True
+44,pew_work_family_blueprints_044,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+44,pew_work_family_blueprints_044,relationship_status,0,Married,0,Married,0.82,True
+44,pew_work_family_blueprints_044,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.71,True
+45,pew_work_family_blueprints_045,career_sacrifice_rule,2,Both adults should reduce work as equally as possible,2,Both adults should reduce work as equally as possible,0.45,True
+45,pew_work_family_blueprints_045,childcare_division,3,It depends entirely on the family,3,It depends entirely on the family,0.48,True
+45,pew_work_family_blueprints_045,children_at_home,0,No children under 18,0,No children under 18,0.84,True
+45,pew_work_family_blueprints_045,feelings,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+45,pew_work_family_blueprints_045,financial_decision_style,0,The higher earner should usually decide,0,The higher earner should usually decide,0.44,True
+45,pew_work_family_blueprints_045,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+45,pew_work_family_blueprints_045,household_income,3,"$150,000 or more",3,"$150,000 or more",0.67,True
+45,pew_work_family_blueprints_045,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.58,True
+45,pew_work_family_blueprints_045,marriage_importance,0,Not at all important,0,Not at all important,0.62,True
+45,pew_work_family_blueprints_045,paid_work_priority,2,Somewhat important,2,Somewhat important,0.52,True
+45,pew_work_family_blueprints_045,parenthood_importance,3,Very important,3,Very important,0.72,True
+45,pew_work_family_blueprints_045,parenting,1,Men and women are basically different,1,Men and women are basically different,0.7,True
+45,pew_work_family_blueprints_045,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+45,pew_work_family_blueprints_045,relationship_status,0,Married,0,Married,0.86,True
+45,pew_work_family_blueprints_045,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.73,True
+46,pew_work_family_blueprints_046,career_sacrifice_rule,1,The adult with the more flexible job should reduce work,1,The adult with the more flexible job should reduce work,0.44,True
+46,pew_work_family_blueprints_046,childcare_division,3,It depends entirely on the family,3,It depends entirely on the family,0.41,True
+46,pew_work_family_blueprints_046,children_at_home,2,Only children ages 6 to 17,2,Only children ages 6 to 17,0.86,True
+46,pew_work_family_blueprints_046,feelings,1,Men and women are basically different,1,Men and women are basically different,0.84,True
+46,pew_work_family_blueprints_046,financial_decision_style,3,It depends on the decision,3,It depends on the decision,0.48,True
+46,pew_work_family_blueprints_046,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+46,pew_work_family_blueprints_046,household_income,1,"$50,000 to $99,999",1,"$50,000 to $99,999",0.68,True
+46,pew_work_family_blueprints_046,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.58,True
+46,pew_work_family_blueprints_046,marriage_importance,2,Somewhat important,2,Somewhat important,0.46,True
+46,pew_work_family_blueprints_046,paid_work_priority,0,Not at all important,0,Not at all important,0.5,True
+46,pew_work_family_blueprints_046,parenthood_importance,2,Somewhat important,2,Somewhat important,0.45,True
+46,pew_work_family_blueprints_046,parenting,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+46,pew_work_family_blueprints_046,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.88,True
+46,pew_work_family_blueprints_046,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.76,True
+46,pew_work_family_blueprints_046,workplace,1,Men and women are basically different,1,Men and women are basically different,0.65,True
+47,pew_work_family_blueprints_047,career_sacrifice_rule,0,The lower earner should reduce work,0,The lower earner should reduce work,0.43,True
+47,pew_work_family_blueprints_047,childcare_division,0,One parent should do most of it,0,One parent should do most of it,0.42,True
+47,pew_work_family_blueprints_047,children_at_home,0,No children under 18,0,No children under 18,0.88,True
+47,pew_work_family_blueprints_047,feelings,1,Men and women are basically different,1,Men and women are basically different,0.7,True
+47,pew_work_family_blueprints_047,financial_decision_style,3,It depends on the decision,3,It depends on the decision,0.44,True
+47,pew_work_family_blueprints_047,hobbies,0,Men and women are basically similar,0,Men and women are basically similar,0.72,True
+47,pew_work_family_blueprints_047,household_income,2,"$100,000 to $149,999",2,"$100,000 to $149,999",0.52,True
+47,pew_work_family_blueprints_047,housework_division,3,It depends entirely on the household,3,It depends entirely on the household,0.42,True
+47,pew_work_family_blueprints_047,marriage_importance,0,Not at all important,0,Not at all important,0.46,True
+47,pew_work_family_blueprints_047,paid_work_priority,2,Somewhat important,2,Somewhat important,0.43,True
+47,pew_work_family_blueprints_047,parenthood_importance,2,Somewhat important,2,Somewhat important,0.4,True
+47,pew_work_family_blueprints_047,parenting,0,Men and women are basically similar,0,Men and women are basically similar,0.67,True
+47,pew_work_family_blueprints_047,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+47,pew_work_family_blueprints_047,relationship_status,0,Married,0,Married,0.86,True
+47,pew_work_family_blueprints_047,workplace,1,Men and women are basically different,1,Men and women are basically different,0.66,True
+48,pew_work_family_blueprints_048,career_sacrifice_rule,3,It depends entirely on the family,3,It depends entirely on the family,0.46,True
+48,pew_work_family_blueprints_048,childcare_division,2,The parent with more available time should do more,2,The parent with more available time should do more,0.46,True
+48,pew_work_family_blueprints_048,children_at_home,0,No children under 18,0,No children under 18,0.85,True
+48,pew_work_family_blueprints_048,feelings,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+48,pew_work_family_blueprints_048,financial_decision_style,2,Both adults should decide together,2,Both adults should decide together,0.68,True
+48,pew_work_family_blueprints_048,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.75,True
+48,pew_work_family_blueprints_048,household_income,2,"$100,000 to $149,999",2,"$100,000 to $149,999",0.52,True
+48,pew_work_family_blueprints_048,housework_division,3,It depends entirely on the household,3,It depends entirely on the household,0.46,True
+48,pew_work_family_blueprints_048,marriage_importance,3,Very important,3,Very important,0.71,True
+48,pew_work_family_blueprints_048,paid_work_priority,2,Somewhat important,2,Somewhat important,0.55,True
+48,pew_work_family_blueprints_048,parenthood_importance,0,Not at all important,0,Not at all important,0.55,True
+48,pew_work_family_blueprints_048,parenting,0,Men and women are basically similar,0,Men and women are basically similar,0.67,True
+48,pew_work_family_blueprints_048,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+48,pew_work_family_blueprints_048,relationship_status,1,Living with a partner,1,Living with a partner,0.64,True
+48,pew_work_family_blueprints_048,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.72,True
+49,pew_work_family_blueprints_049,career_sacrifice_rule,2,Both adults should reduce work as equally as possible,2,Both adults should reduce work as equally as possible,0.49,True
+49,pew_work_family_blueprints_049,childcare_division,1,Both parents should divide it about equally,1,Both parents should divide it about equally,0.64,True
+49,pew_work_family_blueprints_049,children_at_home,0,No children under 18,0,No children under 18,0.86,True
+49,pew_work_family_blueprints_049,feelings,1,Men and women are basically different,1,Men and women are basically different,0.84,True
+49,pew_work_family_blueprints_049,financial_decision_style,0,The higher earner should usually decide,0,The higher earner should usually decide,0.47,True
+49,pew_work_family_blueprints_049,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+49,pew_work_family_blueprints_049,household_income,1,"$50,000 to $99,999",1,"$50,000 to $99,999",0.61,True
+49,pew_work_family_blueprints_049,housework_division,2,The person with more available time should do more,2,The person with more available time should do more,0.51,True
+49,pew_work_family_blueprints_049,marriage_importance,2,Somewhat important,2,Somewhat important,0.54,True
+49,pew_work_family_blueprints_049,paid_work_priority,3,Very important,3,Very important,0.68,True
+49,pew_work_family_blueprints_049,parenthood_importance,3,Very important,3,Very important,0.7,True
+49,pew_work_family_blueprints_049,parenting,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+49,pew_work_family_blueprints_049,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.88,True
+49,pew_work_family_blueprints_049,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.77,True
+49,pew_work_family_blueprints_049,workplace,1,Men and women are basically different,1,Men and women are basically different,0.73,True
+50,pew_work_family_blueprints_050,career_sacrifice_rule,2,Both adults should reduce work as equally as possible,2,Both adults should reduce work as equally as possible,0.42,True
+50,pew_work_family_blueprints_050,childcare_division,2,The parent with more available time should do more,2,The parent with more available time should do more,0.47,True
+50,pew_work_family_blueprints_050,children_at_home,0,No children under 18,0,No children under 18,0.88,True
+50,pew_work_family_blueprints_050,feelings,1,Men and women are basically different,1,Men and women are basically different,0.75,True
+50,pew_work_family_blueprints_050,financial_decision_style,2,Both adults should decide together,2,Both adults should decide together,0.72,True
+50,pew_work_family_blueprints_050,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+50,pew_work_family_blueprints_050,household_income,3,"$150,000 or more",3,"$150,000 or more",0.7,True
+50,pew_work_family_blueprints_050,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.55,True
+50,pew_work_family_blueprints_050,marriage_importance,2,Somewhat important,2,Somewhat important,0.43,True
+50,pew_work_family_blueprints_050,paid_work_priority,3,Very important,3,Very important,0.74,True
+50,pew_work_family_blueprints_050,parenthood_importance,0,Not at all important,0,Not at all important,0.68,True
+50,pew_work_family_blueprints_050,parenting,1,Men and women are basically different,1,Men and women are basically different,0.65,True
+50,pew_work_family_blueprints_050,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+50,pew_work_family_blueprints_050,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.79,True
+50,pew_work_family_blueprints_050,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.7,True
+51,pew_work_family_blueprints_051,career_sacrifice_rule,1,The adult with the more flexible job should reduce work,1,The adult with the more flexible job should reduce work,0.5,True
+51,pew_work_family_blueprints_051,childcare_division,3,It depends entirely on the family,3,It depends entirely on the family,0.46,True
+51,pew_work_family_blueprints_051,children_at_home,0,No children under 18,0,No children under 18,0.82,True
+51,pew_work_family_blueprints_051,feelings,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+51,pew_work_family_blueprints_051,financial_decision_style,1,The person who manages the money should usually decide,1,The person who manages the money should usually decide,0.46,True
+51,pew_work_family_blueprints_051,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+51,pew_work_family_blueprints_051,household_income,1,"$50,000 to $99,999",1,"$50,000 to $99,999",0.52,True
+51,pew_work_family_blueprints_051,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.58,True
+51,pew_work_family_blueprints_051,marriage_importance,1,Not too important,1,Not too important,0.43,True
+51,pew_work_family_blueprints_051,paid_work_priority,3,Very important,3,Very important,0.68,True
+51,pew_work_family_blueprints_051,parenthood_importance,2,Somewhat important,2,Somewhat important,0.47,True
+51,pew_work_family_blueprints_051,parenting,1,Men and women are basically different,1,Men and women are basically different,0.65,True
+51,pew_work_family_blueprints_051,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+51,pew_work_family_blueprints_051,relationship_status,0,Married,0,Married,0.76,True
+51,pew_work_family_blueprints_051,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.76,True
+52,pew_work_family_blueprints_052,career_sacrifice_rule,0,The lower earner should reduce work,0,The lower earner should reduce work,0.46,True
+52,pew_work_family_blueprints_052,childcare_division,2,The parent with more available time should do more,2,The parent with more available time should do more,0.52,True
+52,pew_work_family_blueprints_052,children_at_home,0,No children under 18,0,No children under 18,0.91,True
+52,pew_work_family_blueprints_052,feelings,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+52,pew_work_family_blueprints_052,financial_decision_style,0,The higher earner should usually decide,0,The higher earner should usually decide,0.47,True
+52,pew_work_family_blueprints_052,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.75,True
+52,pew_work_family_blueprints_052,household_income,3,"$150,000 or more",3,"$150,000 or more",0.75,True
+52,pew_work_family_blueprints_052,housework_division,2,The person with more available time should do more,2,The person with more available time should do more,0.54,True
+52,pew_work_family_blueprints_052,marriage_importance,0,Not at all important,0,Not at all important,0.62,True
+52,pew_work_family_blueprints_052,paid_work_priority,0,Not at all important,0,Not at all important,0.55,True
+52,pew_work_family_blueprints_052,parenthood_importance,0,Not at all important,0,Not at all important,0.64,True
+52,pew_work_family_blueprints_052,parenting,0,Men and women are basically similar,0,Men and women are basically similar,0.72,True
+52,pew_work_family_blueprints_052,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+52,pew_work_family_blueprints_052,relationship_status,2,In a relationship but not living together,2,In a relationship but not living together,0.78,True
+52,pew_work_family_blueprints_052,workplace,1,Men and women are basically different,1,Men and women are basically different,0.7,True
+53,pew_work_family_blueprints_053,career_sacrifice_rule,0,The lower earner should reduce work,0,The lower earner should reduce work,0.46,True
+53,pew_work_family_blueprints_053,childcare_division,2,The parent with more available time should do more,2,The parent with more available time should do more,0.47,True
+53,pew_work_family_blueprints_053,children_at_home,0,No children under 18,0,No children under 18,0.86,True
+53,pew_work_family_blueprints_053,feelings,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+53,pew_work_family_blueprints_053,financial_decision_style,2,Both adults should decide together,2,Both adults should decide together,0.71,True
+53,pew_work_family_blueprints_053,hobbies,0,Men and women are basically similar,0,Men and women are basically similar,0.64,True
+53,pew_work_family_blueprints_053,household_income,2,"$100,000 to $149,999",2,"$100,000 to $149,999",0.55,True
+53,pew_work_family_blueprints_053,housework_division,3,It depends entirely on the household,3,It depends entirely on the household,0.43,True
+53,pew_work_family_blueprints_053,marriage_importance,1,Not too important,1,Not too important,0.42,True
+53,pew_work_family_blueprints_053,paid_work_priority,2,Somewhat important,2,Somewhat important,0.48,True
+53,pew_work_family_blueprints_053,parenthood_importance,0,Not at all important,0,Not at all important,0.62,True
+53,pew_work_family_blueprints_053,parenting,1,Men and women are basically different,1,Men and women are basically different,0.69,True
+53,pew_work_family_blueprints_053,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+53,pew_work_family_blueprints_053,relationship_status,0,Married,0,Married,0.82,True
+53,pew_work_family_blueprints_053,workplace,1,Men and women are basically different,1,Men and women are basically different,0.66,True
+54,pew_work_family_blueprints_054,career_sacrifice_rule,1,The adult with the more flexible job should reduce work,1,The adult with the more flexible job should reduce work,0.5,True
+54,pew_work_family_blueprints_054,childcare_division,3,It depends entirely on the family,3,It depends entirely on the family,0.5,True
+54,pew_work_family_blueprints_054,children_at_home,2,Only children ages 6 to 17,2,Only children ages 6 to 17,0.84,True
+54,pew_work_family_blueprints_054,feelings,1,Men and women are basically different,1,Men and women are basically different,0.84,True
+54,pew_work_family_blueprints_054,financial_decision_style,2,Both adults should decide together,2,Both adults should decide together,0.66,True
+54,pew_work_family_blueprints_054,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+54,pew_work_family_blueprints_054,household_income,1,"$50,000 to $99,999",1,"$50,000 to $99,999",0.62,True
+54,pew_work_family_blueprints_054,housework_division,3,It depends entirely on the household,3,It depends entirely on the household,0.49,True
+54,pew_work_family_blueprints_054,marriage_importance,3,Very important,3,Very important,0.74,True
+54,pew_work_family_blueprints_054,paid_work_priority,3,Very important,3,Very important,0.68,True
+54,pew_work_family_blueprints_054,parenthood_importance,3,Very important,3,Very important,0.79,True
+54,pew_work_family_blueprints_054,parenting,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+54,pew_work_family_blueprints_054,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.88,True
+54,pew_work_family_blueprints_054,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.85,True
+54,pew_work_family_blueprints_054,workplace,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+55,pew_work_family_blueprints_055,career_sacrifice_rule,1,The adult with the more flexible job should reduce work,1,The adult with the more flexible job should reduce work,0.48,True
+55,pew_work_family_blueprints_055,childcare_division,3,It depends entirely on the family,3,It depends entirely on the family,0.45,True
+55,pew_work_family_blueprints_055,children_at_home,0,No children under 18,0,No children under 18,0.73,True
+55,pew_work_family_blueprints_055,feelings,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+55,pew_work_family_blueprints_055,financial_decision_style,1,The person who manages the money should usually decide,1,The person who manages the money should usually decide,0.43,True
+55,pew_work_family_blueprints_055,hobbies,0,Men and women are basically similar,0,Men and women are basically similar,0.64,True
+55,pew_work_family_blueprints_055,household_income,2,"$100,000 to $149,999",2,"$100,000 to $149,999",0.47,True
+55,pew_work_family_blueprints_055,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.56,True
+55,pew_work_family_blueprints_055,marriage_importance,3,Very important,3,Very important,0.61,True
+55,pew_work_family_blueprints_055,paid_work_priority,3,Very important,3,Very important,0.67,True
+55,pew_work_family_blueprints_055,parenthood_importance,1,Not too important,1,Not too important,0.45,True
+55,pew_work_family_blueprints_055,parenting,1,Men and women are basically different,1,Men and women are basically different,0.66,True
+55,pew_work_family_blueprints_055,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+55,pew_work_family_blueprints_055,relationship_status,1,Living with a partner,1,Living with a partner,0.62,True
+55,pew_work_family_blueprints_055,workplace,1,Men and women are basically different,1,Men and women are basically different,0.63,True
+56,pew_work_family_blueprints_056,career_sacrifice_rule,1,The adult with the more flexible job should reduce work,1,The adult with the more flexible job should reduce work,0.46,True
+56,pew_work_family_blueprints_056,childcare_division,3,It depends entirely on the family,3,It depends entirely on the family,0.41,True
+56,pew_work_family_blueprints_056,children_at_home,3,Children both under 6 and ages 6 to 17,3,Children both under 6 and ages 6 to 17,0.6,True
+56,pew_work_family_blueprints_056,feelings,1,Men and women are basically different,1,Men and women are basically different,0.7,True
+56,pew_work_family_blueprints_056,financial_decision_style,2,Both adults should decide together,2,Both adults should decide together,0.7,True
+56,pew_work_family_blueprints_056,hobbies,0,Men and women are basically similar,0,Men and women are basically similar,0.68,True
+56,pew_work_family_blueprints_056,household_income,1,"$50,000 to $99,999",1,"$50,000 to $99,999",0.52,True
+56,pew_work_family_blueprints_056,housework_division,0,One person should do most of it,0,One person should do most of it,0.44,True
+56,pew_work_family_blueprints_056,marriage_importance,1,Not too important,1,Not too important,0.43,True
+56,pew_work_family_blueprints_056,paid_work_priority,3,Very important,3,Very important,0.64,True
+56,pew_work_family_blueprints_056,parenthood_importance,1,Not too important,1,Not too important,0.41,True
+56,pew_work_family_blueprints_056,parenting,1,Men and women are basically different,1,Men and women are basically different,0.65,True
+56,pew_work_family_blueprints_056,physical_abilities,0,Men and women are basically similar,0,Men and women are basically similar,0.62,True
+56,pew_work_family_blueprints_056,relationship_status,0,Married,0,Married,0.82,True
+56,pew_work_family_blueprints_056,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.72,True
+57,pew_work_family_blueprints_057,career_sacrifice_rule,0,The lower earner should reduce work,0,The lower earner should reduce work,0.51,True
+57,pew_work_family_blueprints_057,childcare_division,2,The parent with more available time should do more,2,The parent with more available time should do more,0.49,True
+57,pew_work_family_blueprints_057,children_at_home,2,Only children ages 6 to 17,2,Only children ages 6 to 17,0.84,True
+57,pew_work_family_blueprints_057,feelings,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+57,pew_work_family_blueprints_057,financial_decision_style,0,The higher earner should usually decide,0,The higher earner should usually decide,0.48,True
+57,pew_work_family_blueprints_057,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+57,pew_work_family_blueprints_057,household_income,1,"$50,000 to $99,999",1,"$50,000 to $99,999",0.58,True
+57,pew_work_family_blueprints_057,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.61,True
+57,pew_work_family_blueprints_057,marriage_importance,1,Not too important,1,Not too important,0.46,True
+57,pew_work_family_blueprints_057,paid_work_priority,2,Somewhat important,2,Somewhat important,0.52,True
+57,pew_work_family_blueprints_057,parenthood_importance,1,Not too important,1,Not too important,0.43,True
+57,pew_work_family_blueprints_057,parenting,1,Men and women are basically different,1,Men and women are basically different,0.73,True
+57,pew_work_family_blueprints_057,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.85,True
+57,pew_work_family_blueprints_057,relationship_status,0,Married,0,Married,0.86,True
+57,pew_work_family_blueprints_057,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.76,True
+58,pew_work_family_blueprints_058,career_sacrifice_rule,2,Both adults should reduce work as equally as possible,2,Both adults should reduce work as equally as possible,0.51,True
+58,pew_work_family_blueprints_058,childcare_division,0,One parent should do most of it,0,One parent should do most of it,0.45,True
+58,pew_work_family_blueprints_058,children_at_home,0,No children under 18,0,No children under 18,0.84,True
+58,pew_work_family_blueprints_058,feelings,0,Men and women are basically similar,0,Men and women are basically similar,0.58,True
+58,pew_work_family_blueprints_058,financial_decision_style,2,Both adults should decide together,2,Both adults should decide together,0.66,True
+58,pew_work_family_blueprints_058,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.66,True
+58,pew_work_family_blueprints_058,household_income,0,"Less than $50,000",0,"Less than $50,000",0.62,True
+58,pew_work_family_blueprints_058,housework_division,2,The person with more available time should do more,2,The person with more available time should do more,0.49,True
+58,pew_work_family_blueprints_058,marriage_importance,3,Very important,3,Very important,0.67,True
+58,pew_work_family_blueprints_058,paid_work_priority,3,Very important,3,Very important,0.68,True
+58,pew_work_family_blueprints_058,parenthood_importance,1,Not too important,1,Not too important,0.45,True
+58,pew_work_family_blueprints_058,parenting,0,Men and women are basically similar,0,Men and women are basically similar,0.63,True
+58,pew_work_family_blueprints_058,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+58,pew_work_family_blueprints_058,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.8,True
+58,pew_work_family_blueprints_058,workplace,1,Men and women are basically different,1,Men and women are basically different,0.61,True
+59,pew_work_family_blueprints_059,career_sacrifice_rule,3,It depends entirely on the family,3,It depends entirely on the family,0.37,True
+59,pew_work_family_blueprints_059,childcare_division,2,The parent with more available time should do more,2,The parent with more available time should do more,0.46,True
+59,pew_work_family_blueprints_059,children_at_home,0,No children under 18,0,No children under 18,0.86,True
+59,pew_work_family_blueprints_059,feelings,1,Men and women are basically different,1,Men and women are basically different,0.74,True
+59,pew_work_family_blueprints_059,financial_decision_style,3,It depends on the decision,3,It depends on the decision,0.43,True
+59,pew_work_family_blueprints_059,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+59,pew_work_family_blueprints_059,household_income,1,"$50,000 to $99,999",1,"$50,000 to $99,999",0.52,True
+59,pew_work_family_blueprints_059,housework_division,2,The person with more available time should do more,2,The person with more available time should do more,0.47,True
+59,pew_work_family_blueprints_059,marriage_importance,1,Not too important,1,Not too important,0.4,True
+59,pew_work_family_blueprints_059,paid_work_priority,2,Somewhat important,2,Somewhat important,0.46,True
+59,pew_work_family_blueprints_059,parenthood_importance,2,Somewhat important,2,Somewhat important,0.45,True
+59,pew_work_family_blueprints_059,parenting,0,Men and women are basically similar,0,Men and women are basically similar,0.64,True
+59,pew_work_family_blueprints_059,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+59,pew_work_family_blueprints_059,relationship_status,0,Married,0,Married,0.82,True
+59,pew_work_family_blueprints_059,workplace,1,Men and women are basically different,1,Men and women are basically different,0.67,True
+60,pew_work_family_blueprints_060,career_sacrifice_rule,3,It depends entirely on the family,3,It depends entirely on the family,0.39,True
+60,pew_work_family_blueprints_060,childcare_division,2,The parent with more available time should do more,2,The parent with more available time should do more,0.45,True
+60,pew_work_family_blueprints_060,children_at_home,0,No children under 18,0,No children under 18,0.82,True
+60,pew_work_family_blueprints_060,feelings,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+60,pew_work_family_blueprints_060,financial_decision_style,3,It depends on the decision,3,It depends on the decision,0.55,True
+60,pew_work_family_blueprints_060,hobbies,0,Men and women are basically similar,0,Men and women are basically similar,0.68,True
+60,pew_work_family_blueprints_060,household_income,3,"$150,000 or more",3,"$150,000 or more",0.72,True
+60,pew_work_family_blueprints_060,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.54,True
+60,pew_work_family_blueprints_060,marriage_importance,1,Not too important,1,Not too important,0.42,True
+60,pew_work_family_blueprints_060,paid_work_priority,2,Somewhat important,2,Somewhat important,0.49,True
+60,pew_work_family_blueprints_060,parenthood_importance,0,Not at all important,0,Not at all important,0.57,True
+60,pew_work_family_blueprints_060,parenting,1,Men and women are basically different,1,Men and women are basically different,0.65,True
+60,pew_work_family_blueprints_060,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+60,pew_work_family_blueprints_060,relationship_status,2,In a relationship but not living together,2,In a relationship but not living together,0.7,True
+60,pew_work_family_blueprints_060,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.69,True
+61,pew_work_family_blueprints_061,career_sacrifice_rule,0,The lower earner should reduce work,0,The lower earner should reduce work,0.5,True
+61,pew_work_family_blueprints_061,childcare_division,0,One parent should do most of it,0,One parent should do most of it,0.43,True
+61,pew_work_family_blueprints_061,children_at_home,0,No children under 18,0,No children under 18,0.82,True
+61,pew_work_family_blueprints_061,feelings,1,Men and women are basically different,1,Men and women are basically different,0.71,True
+61,pew_work_family_blueprints_061,financial_decision_style,1,The person who manages the money should usually decide,1,The person who manages the money should usually decide,0.46,True
+61,pew_work_family_blueprints_061,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.68,True
+61,pew_work_family_blueprints_061,household_income,0,"Less than $50,000",0,"Less than $50,000",0.64,True
+61,pew_work_family_blueprints_061,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.55,True
+61,pew_work_family_blueprints_061,marriage_importance,2,Somewhat important,2,Somewhat important,0.45,True
+61,pew_work_family_blueprints_061,paid_work_priority,3,Very important,3,Very important,0.64,True
+61,pew_work_family_blueprints_061,parenthood_importance,3,Very important,3,Very important,0.67,True
+61,pew_work_family_blueprints_061,parenting,0,Men and women are basically similar,0,Men and women are basically similar,0.67,True
+61,pew_work_family_blueprints_061,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+61,pew_work_family_blueprints_061,relationship_status,1,Living with a partner,1,Living with a partner,0.62,True
+61,pew_work_family_blueprints_061,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.72,True
+62,pew_work_family_blueprints_062,career_sacrifice_rule,3,It depends entirely on the family,3,It depends entirely on the family,0.41,True
+62,pew_work_family_blueprints_062,childcare_division,2,The parent with more available time should do more,2,The parent with more available time should do more,0.45,True
+62,pew_work_family_blueprints_062,children_at_home,0,No children under 18,0,No children under 18,0.91,True
+62,pew_work_family_blueprints_062,feelings,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+62,pew_work_family_blueprints_062,financial_decision_style,2,Both adults should decide together,2,Both adults should decide together,0.82,True
+62,pew_work_family_blueprints_062,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+62,pew_work_family_blueprints_062,household_income,3,"$150,000 or more",3,"$150,000 or more",0.71,True
+62,pew_work_family_blueprints_062,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.63,True
+62,pew_work_family_blueprints_062,marriage_importance,1,Not too important,1,Not too important,0.45,True
+62,pew_work_family_blueprints_062,paid_work_priority,3,Very important,3,Very important,0.75,True
+62,pew_work_family_blueprints_062,parenthood_importance,3,Very important,3,Very important,0.75,True
+62,pew_work_family_blueprints_062,parenting,1,Men and women are basically different,1,Men and women are basically different,0.75,True
+62,pew_work_family_blueprints_062,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.86,True
+62,pew_work_family_blueprints_062,relationship_status,0,Married,0,Married,0.88,True
+62,pew_work_family_blueprints_062,workplace,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+63,pew_work_family_blueprints_063,career_sacrifice_rule,0,The lower earner should reduce work,0,The lower earner should reduce work,0.46,True
+63,pew_work_family_blueprints_063,childcare_division,0,One parent should do most of it,0,One parent should do most of it,0.42,True
+63,pew_work_family_blueprints_063,children_at_home,0,No children under 18,0,No children under 18,0.82,True
+63,pew_work_family_blueprints_063,feelings,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+63,pew_work_family_blueprints_063,financial_decision_style,0,The higher earner should usually decide,0,The higher earner should usually decide,0.44,True
+63,pew_work_family_blueprints_063,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+63,pew_work_family_blueprints_063,household_income,0,"Less than $50,000",0,"Less than $50,000",0.74,True
+63,pew_work_family_blueprints_063,housework_division,3,It depends entirely on the household,3,It depends entirely on the household,0.42,True
+63,pew_work_family_blueprints_063,marriage_importance,3,Very important,3,Very important,0.7,True
+63,pew_work_family_blueprints_063,paid_work_priority,1,Not too important,1,Not too important,0.52,True
+63,pew_work_family_blueprints_063,parenthood_importance,3,Very important,3,Very important,0.75,True
+63,pew_work_family_blueprints_063,parenting,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+63,pew_work_family_blueprints_063,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.84,True
+63,pew_work_family_blueprints_063,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.68,True
+63,pew_work_family_blueprints_063,workplace,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+64,pew_work_family_blueprints_064,career_sacrifice_rule,1,The adult with the more flexible job should reduce work,1,The adult with the more flexible job should reduce work,0.48,True
+64,pew_work_family_blueprints_064,childcare_division,3,It depends entirely on the family,3,It depends entirely on the family,0.45,True
+64,pew_work_family_blueprints_064,children_at_home,0,No children under 18,0,No children under 18,0.86,True
+64,pew_work_family_blueprints_064,feelings,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+64,pew_work_family_blueprints_064,financial_decision_style,2,Both adults should decide together,2,Both adults should decide together,0.68,True
+64,pew_work_family_blueprints_064,hobbies,0,Men and women are basically similar,0,Men and women are basically similar,0.68,True
+64,pew_work_family_blueprints_064,household_income,1,"$50,000 to $99,999",1,"$50,000 to $99,999",0.58,True
+64,pew_work_family_blueprints_064,housework_division,2,The person with more available time should do more,2,The person with more available time should do more,0.53,True
+64,pew_work_family_blueprints_064,marriage_importance,1,Not too important,1,Not too important,0.46,True
+64,pew_work_family_blueprints_064,paid_work_priority,3,Very important,3,Very important,0.66,True
+64,pew_work_family_blueprints_064,parenthood_importance,3,Very important,3,Very important,0.65,True
+64,pew_work_family_blueprints_064,parenting,1,Men and women are basically different,1,Men and women are basically different,0.71,True
+64,pew_work_family_blueprints_064,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+64,pew_work_family_blueprints_064,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.76,True
+64,pew_work_family_blueprints_064,workplace,1,Men and women are basically different,1,Men and women are basically different,0.63,True
+65,pew_work_family_blueprints_065,career_sacrifice_rule,2,Both adults should reduce work as equally as possible,2,Both adults should reduce work as equally as possible,0.45,True
+65,pew_work_family_blueprints_065,childcare_division,0,One parent should do most of it,0,One parent should do most of it,0.42,True
+65,pew_work_family_blueprints_065,children_at_home,0,No children under 18,0,No children under 18,0.82,True
+65,pew_work_family_blueprints_065,feelings,1,Men and women are basically different,1,Men and women are basically different,0.8,True
+65,pew_work_family_blueprints_065,financial_decision_style,3,It depends on the decision,3,It depends on the decision,0.49,True
+65,pew_work_family_blueprints_065,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+65,pew_work_family_blueprints_065,household_income,1,"$50,000 to $99,999",1,"$50,000 to $99,999",0.55,True
+65,pew_work_family_blueprints_065,housework_division,2,The person with more available time should do more,2,The person with more available time should do more,0.46,True
+65,pew_work_family_blueprints_065,marriage_importance,0,Not at all important,0,Not at all important,0.58,True
+65,pew_work_family_blueprints_065,paid_work_priority,3,Very important,3,Very important,0.65,True
+65,pew_work_family_blueprints_065,parenthood_importance,3,Very important,3,Very important,0.65,True
+65,pew_work_family_blueprints_065,parenting,1,Men and women are basically different,1,Men and women are basically different,0.74,True
+65,pew_work_family_blueprints_065,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+65,pew_work_family_blueprints_065,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.76,True
+65,pew_work_family_blueprints_065,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.72,True
+66,pew_work_family_blueprints_066,career_sacrifice_rule,1,The adult with the more flexible job should reduce work,1,The adult with the more flexible job should reduce work,0.52,True
+66,pew_work_family_blueprints_066,childcare_division,1,Both parents should divide it about equally,1,Both parents should divide it about equally,0.58,True
+66,pew_work_family_blueprints_066,children_at_home,3,Children both under 6 and ages 6 to 17,3,Children both under 6 and ages 6 to 17,0.61,True
+66,pew_work_family_blueprints_066,feelings,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+66,pew_work_family_blueprints_066,financial_decision_style,3,It depends on the decision,3,It depends on the decision,0.51,True
+66,pew_work_family_blueprints_066,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.8,True
+66,pew_work_family_blueprints_066,household_income,0,"Less than $50,000",0,"Less than $50,000",0.66,True
+66,pew_work_family_blueprints_066,housework_division,0,One person should do most of it,0,One person should do most of it,0.45,True
+66,pew_work_family_blueprints_066,marriage_importance,3,Very important,3,Very important,0.73,True
+66,pew_work_family_blueprints_066,paid_work_priority,2,Somewhat important,2,Somewhat important,0.54,True
+66,pew_work_family_blueprints_066,parenthood_importance,1,Not too important,1,Not too important,0.47,True
+66,pew_work_family_blueprints_066,parenting,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+66,pew_work_family_blueprints_066,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.88,True
+66,pew_work_family_blueprints_066,relationship_status,2,In a relationship but not living together,2,In a relationship but not living together,0.62,True
+66,pew_work_family_blueprints_066,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.76,True
+67,pew_work_family_blueprints_067,career_sacrifice_rule,3,It depends entirely on the family,3,It depends entirely on the family,0.37,True
+67,pew_work_family_blueprints_067,childcare_division,1,Both parents should divide it about equally,1,Both parents should divide it about equally,0.54,True
+67,pew_work_family_blueprints_067,children_at_home,0,No children under 18,0,No children under 18,0.88,True
+67,pew_work_family_blueprints_067,feelings,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+67,pew_work_family_blueprints_067,financial_decision_style,1,The person who manages the money should usually decide,1,The person who manages the money should usually decide,0.43,True
+67,pew_work_family_blueprints_067,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+67,pew_work_family_blueprints_067,household_income,0,"Less than $50,000",0,"Less than $50,000",0.7,True
+67,pew_work_family_blueprints_067,housework_division,2,The person with more available time should do more,2,The person with more available time should do more,0.48,True
+67,pew_work_family_blueprints_067,marriage_importance,0,Not at all important,0,Not at all important,0.43,True
+67,pew_work_family_blueprints_067,paid_work_priority,3,Very important,3,Very important,0.7,True
+67,pew_work_family_blueprints_067,parenthood_importance,2,Somewhat important,2,Somewhat important,0.45,True
+67,pew_work_family_blueprints_067,parenting,1,Men and women are basically different,1,Men and women are basically different,0.65,True
+67,pew_work_family_blueprints_067,physical_abilities,0,Men and women are basically similar,0,Men and women are basically similar,0.67,True
+67,pew_work_family_blueprints_067,relationship_status,0,Married,0,Married,0.86,True
+67,pew_work_family_blueprints_067,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.76,True
+68,pew_work_family_blueprints_068,career_sacrifice_rule,0,The lower earner should reduce work,0,The lower earner should reduce work,0.45,True
+68,pew_work_family_blueprints_068,childcare_division,3,It depends entirely on the family,3,It depends entirely on the family,0.43,True
+68,pew_work_family_blueprints_068,children_at_home,0,No children under 18,0,No children under 18,0.85,True
+68,pew_work_family_blueprints_068,feelings,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+68,pew_work_family_blueprints_068,financial_decision_style,0,The higher earner should usually decide,0,The higher earner should usually decide,0.44,True
+68,pew_work_family_blueprints_068,hobbies,0,Men and women are basically similar,0,Men and women are basically similar,0.74,True
+68,pew_work_family_blueprints_068,household_income,1,"$50,000 to $99,999",1,"$50,000 to $99,999",0.55,True
+68,pew_work_family_blueprints_068,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.58,True
+68,pew_work_family_blueprints_068,marriage_importance,3,Very important,3,Very important,0.67,True
+68,pew_work_family_blueprints_068,paid_work_priority,2,Somewhat important,2,Somewhat important,0.57,True
+68,pew_work_family_blueprints_068,parenthood_importance,2,Somewhat important,2,Somewhat important,0.5,True
+68,pew_work_family_blueprints_068,parenting,1,Men and women are basically different,1,Men and women are basically different,0.66,True
+68,pew_work_family_blueprints_068,physical_abilities,0,Men and women are basically similar,0,Men and women are basically similar,0.61,True
+68,pew_work_family_blueprints_068,relationship_status,2,In a relationship but not living together,2,In a relationship but not living together,0.68,True
+68,pew_work_family_blueprints_068,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.79,True
+69,pew_work_family_blueprints_069,career_sacrifice_rule,0,The lower earner should reduce work,0,The lower earner should reduce work,0.44,True
+69,pew_work_family_blueprints_069,childcare_division,3,It depends entirely on the family,3,It depends entirely on the family,0.46,True
+69,pew_work_family_blueprints_069,children_at_home,3,Children both under 6 and ages 6 to 17,3,Children both under 6 and ages 6 to 17,0.71,True
+69,pew_work_family_blueprints_069,feelings,0,Men and women are basically similar,0,Men and women are basically similar,0.61,True
+69,pew_work_family_blueprints_069,financial_decision_style,2,Both adults should decide together,2,Both adults should decide together,0.72,True
+69,pew_work_family_blueprints_069,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+69,pew_work_family_blueprints_069,household_income,1,"$50,000 to $99,999",1,"$50,000 to $99,999",0.58,True
+69,pew_work_family_blueprints_069,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.55,True
+69,pew_work_family_blueprints_069,marriage_importance,3,Very important,3,Very important,0.78,True
+69,pew_work_family_blueprints_069,paid_work_priority,3,Very important,3,Very important,0.69,True
+69,pew_work_family_blueprints_069,parenthood_importance,2,Somewhat important,2,Somewhat important,0.48,True
+69,pew_work_family_blueprints_069,parenting,0,Men and women are basically similar,0,Men and women are basically similar,0.68,True
+69,pew_work_family_blueprints_069,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+69,pew_work_family_blueprints_069,relationship_status,0,Married,0,Married,0.86,True
+69,pew_work_family_blueprints_069,workplace,1,Men and women are basically different,1,Men and women are basically different,0.64,True
+70,pew_work_family_blueprints_070,career_sacrifice_rule,2,Both adults should reduce work as equally as possible,2,Both adults should reduce work as equally as possible,0.48,True
+70,pew_work_family_blueprints_070,childcare_division,2,The parent with more available time should do more,2,The parent with more available time should do more,0.45,True
+70,pew_work_family_blueprints_070,children_at_home,2,Only children ages 6 to 17,2,Only children ages 6 to 17,0.82,True
+70,pew_work_family_blueprints_070,feelings,0,Men and women are basically similar,0,Men and women are basically similar,0.62,True
+70,pew_work_family_blueprints_070,financial_decision_style,0,The higher earner should usually decide,0,The higher earner should usually decide,0.41,True
+70,pew_work_family_blueprints_070,hobbies,0,Men and women are basically similar,0,Men and women are basically similar,0.72,True
+70,pew_work_family_blueprints_070,household_income,1,"$50,000 to $99,999",1,"$50,000 to $99,999",0.58,True
+70,pew_work_family_blueprints_070,housework_division,0,One person should do most of it,0,One person should do most of it,0.44,True
+70,pew_work_family_blueprints_070,marriage_importance,1,Not too important,1,Not too important,0.43,True
+70,pew_work_family_blueprints_070,paid_work_priority,2,Somewhat important,2,Somewhat important,0.54,True
+70,pew_work_family_blueprints_070,parenthood_importance,3,Very important,3,Very important,0.76,True
+70,pew_work_family_blueprints_070,parenting,1,Men and women are basically different,1,Men and women are basically different,0.64,True
+70,pew_work_family_blueprints_070,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+70,pew_work_family_blueprints_070,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.8,True
+70,pew_work_family_blueprints_070,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.74,True
+71,pew_work_family_blueprints_071,career_sacrifice_rule,3,It depends entirely on the family,3,It depends entirely on the family,0.43,True
+71,pew_work_family_blueprints_071,childcare_division,3,It depends entirely on the family,3,It depends entirely on the family,0.43,True
+71,pew_work_family_blueprints_071,children_at_home,3,Children both under 6 and ages 6 to 17,3,Children both under 6 and ages 6 to 17,0.65,True
+71,pew_work_family_blueprints_071,feelings,1,Men and women are basically different,1,Men and women are basically different,0.84,True
+71,pew_work_family_blueprints_071,financial_decision_style,1,The person who manages the money should usually decide,1,The person who manages the money should usually decide,0.47,True
+71,pew_work_family_blueprints_071,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.8,True
+71,pew_work_family_blueprints_071,household_income,0,"Less than $50,000",0,"Less than $50,000",0.62,True
+71,pew_work_family_blueprints_071,housework_division,3,It depends entirely on the household,3,It depends entirely on the household,0.42,True
+71,pew_work_family_blueprints_071,marriage_importance,0,Not at all important,0,Not at all important,0.58,True
+71,pew_work_family_blueprints_071,paid_work_priority,1,Not too important,1,Not too important,0.52,True
+71,pew_work_family_blueprints_071,parenthood_importance,3,Very important,3,Very important,0.75,True
+71,pew_work_family_blueprints_071,parenting,1,Men and women are basically different,1,Men and women are basically different,0.77,True
+71,pew_work_family_blueprints_071,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+71,pew_work_family_blueprints_071,relationship_status,0,Married,0,Married,0.82,True
+71,pew_work_family_blueprints_071,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.74,True
+72,pew_work_family_blueprints_072,career_sacrifice_rule,0,The lower earner should reduce work,0,The lower earner should reduce work,0.48,True
+72,pew_work_family_blueprints_072,childcare_division,1,Both parents should divide it about equally,1,Both parents should divide it about equally,0.62,True
+72,pew_work_family_blueprints_072,children_at_home,1,At least one child under 6,1,At least one child under 6,0.72,True
+72,pew_work_family_blueprints_072,feelings,1,Men and women are basically different,1,Men and women are basically different,0.7,True
+72,pew_work_family_blueprints_072,financial_decision_style,2,Both adults should decide together,2,Both adults should decide together,0.68,True
+72,pew_work_family_blueprints_072,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+72,pew_work_family_blueprints_072,household_income,2,"$100,000 to $149,999",2,"$100,000 to $149,999",0.58,True
+72,pew_work_family_blueprints_072,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.64,True
+72,pew_work_family_blueprints_072,marriage_importance,1,Not too important,1,Not too important,0.42,True
+72,pew_work_family_blueprints_072,paid_work_priority,2,Somewhat important,2,Somewhat important,0.52,True
+72,pew_work_family_blueprints_072,parenthood_importance,1,Not too important,1,Not too important,0.4,True
+72,pew_work_family_blueprints_072,parenting,0,Men and women are basically similar,0,Men and women are basically similar,0.68,True
+72,pew_work_family_blueprints_072,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+72,pew_work_family_blueprints_072,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.78,True
+72,pew_work_family_blueprints_072,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.74,True
+73,pew_work_family_blueprints_073,career_sacrifice_rule,1,The adult with the more flexible job should reduce work,1,The adult with the more flexible job should reduce work,0.55,True
+73,pew_work_family_blueprints_073,childcare_division,2,The parent with more available time should do more,2,The parent with more available time should do more,0.57,True
+73,pew_work_family_blueprints_073,children_at_home,0,No children under 18,0,No children under 18,0.86,True
+73,pew_work_family_blueprints_073,feelings,1,Men and women are basically different,1,Men and women are basically different,0.84,True
+73,pew_work_family_blueprints_073,financial_decision_style,1,The person who manages the money should usually decide,1,The person who manages the money should usually decide,0.5,True
+73,pew_work_family_blueprints_073,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+73,pew_work_family_blueprints_073,household_income,3,"$150,000 or more",3,"$150,000 or more",0.78,True
+73,pew_work_family_blueprints_073,housework_division,2,The person with more available time should do more,2,The person with more available time should do more,0.58,True
+73,pew_work_family_blueprints_073,marriage_importance,2,Somewhat important,2,Somewhat important,0.52,True
+73,pew_work_family_blueprints_073,paid_work_priority,0,Not at all important,0,Not at all important,0.58,True
+73,pew_work_family_blueprints_073,parenthood_importance,3,Very important,3,Very important,0.75,True
+73,pew_work_family_blueprints_073,parenting,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+73,pew_work_family_blueprints_073,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.88,True
+73,pew_work_family_blueprints_073,relationship_status,0,Married,0,Married,0.82,True
+73,pew_work_family_blueprints_073,workplace,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+74,pew_work_family_blueprints_074,career_sacrifice_rule,3,It depends entirely on the family,3,It depends entirely on the family,0.41,True
+74,pew_work_family_blueprints_074,childcare_division,1,Both parents should divide it about equally,1,Both parents should divide it about equally,0.52,True
+74,pew_work_family_blueprints_074,children_at_home,0,No children under 18,0,No children under 18,0.76,True
+74,pew_work_family_blueprints_074,feelings,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+74,pew_work_family_blueprints_074,financial_decision_style,3,It depends on the decision,3,It depends on the decision,0.48,True
+74,pew_work_family_blueprints_074,hobbies,0,Men and women are basically similar,0,Men and women are basically similar,0.66,True
+74,pew_work_family_blueprints_074,household_income,1,"$50,000 to $99,999",1,"$50,000 to $99,999",0.49,True
+74,pew_work_family_blueprints_074,housework_division,2,The person with more available time should do more,2,The person with more available time should do more,0.47,True
+74,pew_work_family_blueprints_074,marriage_importance,3,Very important,3,Very important,0.63,True
+74,pew_work_family_blueprints_074,paid_work_priority,0,Not at all important,0,Not at all important,0.46,True
+74,pew_work_family_blueprints_074,parenthood_importance,2,Somewhat important,2,Somewhat important,0.48,True
+74,pew_work_family_blueprints_074,parenting,0,Men and women are basically similar,0,Men and women are basically similar,0.61,True
+74,pew_work_family_blueprints_074,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+74,pew_work_family_blueprints_074,relationship_status,1,Living with a partner,1,Living with a partner,0.52,True
+74,pew_work_family_blueprints_074,workplace,1,Men and women are basically different,1,Men and women are basically different,0.64,True
+75,pew_work_family_blueprints_075,career_sacrifice_rule,1,The adult with the more flexible job should reduce work,1,The adult with the more flexible job should reduce work,0.46,True
+75,pew_work_family_blueprints_075,childcare_division,2,The parent with more available time should do more,2,The parent with more available time should do more,0.45,True
+75,pew_work_family_blueprints_075,children_at_home,2,Only children ages 6 to 17,2,Only children ages 6 to 17,0.78,True
+75,pew_work_family_blueprints_075,feelings,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+75,pew_work_family_blueprints_075,financial_decision_style,2,Both adults should decide together,2,Both adults should decide together,0.66,True
+75,pew_work_family_blueprints_075,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+75,pew_work_family_blueprints_075,household_income,0,"Less than $50,000",0,"Less than $50,000",0.64,True
+75,pew_work_family_blueprints_075,housework_division,2,The person with more available time should do more,2,The person with more available time should do more,0.44,True
+75,pew_work_family_blueprints_075,marriage_importance,2,Somewhat important,2,Somewhat important,0.48,True
+75,pew_work_family_blueprints_075,paid_work_priority,3,Very important,3,Very important,0.62,True
+75,pew_work_family_blueprints_075,parenthood_importance,2,Somewhat important,2,Somewhat important,0.49,True
+75,pew_work_family_blueprints_075,parenting,1,Men and women are basically different,1,Men and women are basically different,0.7,True
+75,pew_work_family_blueprints_075,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+75,pew_work_family_blueprints_075,relationship_status,0,Married,0,Married,0.82,True
+75,pew_work_family_blueprints_075,workplace,1,Men and women are basically different,1,Men and women are basically different,0.66,True
+76,pew_work_family_blueprints_076,career_sacrifice_rule,0,The lower earner should reduce work,0,The lower earner should reduce work,0.45,True
+76,pew_work_family_blueprints_076,childcare_division,0,One parent should do most of it,0,One parent should do most of it,0.46,True
+76,pew_work_family_blueprints_076,children_at_home,0,No children under 18,0,No children under 18,0.88,True
+76,pew_work_family_blueprints_076,feelings,0,Men and women are basically similar,0,Men and women are basically similar,0.62,True
+76,pew_work_family_blueprints_076,financial_decision_style,3,It depends on the decision,3,It depends on the decision,0.41,True
+76,pew_work_family_blueprints_076,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+76,pew_work_family_blueprints_076,household_income,3,"$150,000 or more",3,"$150,000 or more",0.72,True
+76,pew_work_family_blueprints_076,housework_division,2,The person with more available time should do more,2,The person with more available time should do more,0.48,True
+76,pew_work_family_blueprints_076,marriage_importance,0,Not at all important,0,Not at all important,0.55,True
+76,pew_work_family_blueprints_076,paid_work_priority,2,Somewhat important,2,Somewhat important,0.52,True
+76,pew_work_family_blueprints_076,parenthood_importance,3,Very important,3,Very important,0.72,True
+76,pew_work_family_blueprints_076,parenting,1,Men and women are basically different,1,Men and women are basically different,0.7,True
+76,pew_work_family_blueprints_076,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.88,True
+76,pew_work_family_blueprints_076,relationship_status,0,Married,0,Married,0.82,True
+76,pew_work_family_blueprints_076,workplace,1,Men and women are basically different,1,Men and women are basically different,0.65,True
+77,pew_work_family_blueprints_077,career_sacrifice_rule,0,The lower earner should reduce work,0,The lower earner should reduce work,0.46,True
+77,pew_work_family_blueprints_077,childcare_division,3,It depends entirely on the family,3,It depends entirely on the family,0.44,True
+77,pew_work_family_blueprints_077,children_at_home,0,No children under 18,0,No children under 18,0.82,True
+77,pew_work_family_blueprints_077,feelings,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+77,pew_work_family_blueprints_077,financial_decision_style,1,The person who manages the money should usually decide,1,The person who manages the money should usually decide,0.52,True
+77,pew_work_family_blueprints_077,hobbies,0,Men and women are basically similar,0,Men and women are basically similar,0.69,True
+77,pew_work_family_blueprints_077,household_income,1,"$50,000 to $99,999",1,"$50,000 to $99,999",0.58,True
+77,pew_work_family_blueprints_077,housework_division,0,One person should do most of it,0,One person should do most of it,0.47,True
+77,pew_work_family_blueprints_077,marriage_importance,3,Very important,3,Very important,0.73,True
+77,pew_work_family_blueprints_077,paid_work_priority,1,Not too important,1,Not too important,0.48,True
+77,pew_work_family_blueprints_077,parenthood_importance,3,Very important,3,Very important,0.75,True
+77,pew_work_family_blueprints_077,parenting,1,Men and women are basically different,1,Men and women are basically different,0.71,True
+77,pew_work_family_blueprints_077,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+77,pew_work_family_blueprints_077,relationship_status,2,In a relationship but not living together,2,In a relationship but not living together,0.72,True
+77,pew_work_family_blueprints_077,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.76,True
+78,pew_work_family_blueprints_078,career_sacrifice_rule,2,Both adults should reduce work as equally as possible,2,Both adults should reduce work as equally as possible,0.5,True
+78,pew_work_family_blueprints_078,childcare_division,1,Both parents should divide it about equally,1,Both parents should divide it about equally,0.59,True
+78,pew_work_family_blueprints_078,children_at_home,0,No children under 18,0,No children under 18,0.87,True
+78,pew_work_family_blueprints_078,feelings,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+78,pew_work_family_blueprints_078,financial_decision_style,0,The higher earner should usually decide,0,The higher earner should usually decide,0.45,True
+78,pew_work_family_blueprints_078,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+78,pew_work_family_blueprints_078,household_income,0,"Less than $50,000",0,"Less than $50,000",0.66,True
+78,pew_work_family_blueprints_078,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.62,True
+78,pew_work_family_blueprints_078,marriage_importance,2,Somewhat important,2,Somewhat important,0.48,True
+78,pew_work_family_blueprints_078,paid_work_priority,3,Very important,3,Very important,0.71,True
+78,pew_work_family_blueprints_078,parenthood_importance,2,Somewhat important,2,Somewhat important,0.46,True
+78,pew_work_family_blueprints_078,parenting,1,Men and women are basically different,1,Men and women are basically different,0.7,True
+78,pew_work_family_blueprints_078,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.88,True
+78,pew_work_family_blueprints_078,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.78,True
+78,pew_work_family_blueprints_078,workplace,1,Men and women are basically different,1,Men and women are basically different,0.65,True
+79,pew_work_family_blueprints_079,career_sacrifice_rule,0,The lower earner should reduce work,0,The lower earner should reduce work,0.42,True
+79,pew_work_family_blueprints_079,childcare_division,2,The parent with more available time should do more,2,The parent with more available time should do more,0.48,True
+79,pew_work_family_blueprints_079,children_at_home,2,Only children ages 6 to 17,2,Only children ages 6 to 17,0.84,True
+79,pew_work_family_blueprints_079,feelings,1,Men and women are basically different,1,Men and women are basically different,0.8,True
+79,pew_work_family_blueprints_079,financial_decision_style,2,Both adults should decide together,2,Both adults should decide together,0.59,True
+79,pew_work_family_blueprints_079,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+79,pew_work_family_blueprints_079,household_income,3,"$150,000 or more",3,"$150,000 or more",0.75,True
+79,pew_work_family_blueprints_079,housework_division,3,It depends entirely on the household,3,It depends entirely on the household,0.43,True
+79,pew_work_family_blueprints_079,marriage_importance,0,Not at all important,0,Not at all important,0.62,True
+79,pew_work_family_blueprints_079,paid_work_priority,3,Very important,3,Very important,0.75,True
+79,pew_work_family_blueprints_079,parenthood_importance,1,Not too important,1,Not too important,0.43,True
+79,pew_work_family_blueprints_079,parenting,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+79,pew_work_family_blueprints_079,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+79,pew_work_family_blueprints_079,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.77,True
+79,pew_work_family_blueprints_079,workplace,1,Men and women are basically different,1,Men and women are basically different,0.69,True
+80,pew_work_family_blueprints_080,career_sacrifice_rule,3,It depends entirely on the family,3,It depends entirely on the family,0.42,True
+80,pew_work_family_blueprints_080,childcare_division,1,Both parents should divide it about equally,1,Both parents should divide it about equally,0.55,True
+80,pew_work_family_blueprints_080,children_at_home,0,No children under 18,0,No children under 18,0.85,True
+80,pew_work_family_blueprints_080,feelings,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+80,pew_work_family_blueprints_080,financial_decision_style,2,Both adults should decide together,2,Both adults should decide together,0.72,True
+80,pew_work_family_blueprints_080,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+80,pew_work_family_blueprints_080,household_income,3,"$150,000 or more",3,"$150,000 or more",0.65,True
+80,pew_work_family_blueprints_080,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.58,True
+80,pew_work_family_blueprints_080,marriage_importance,1,Not too important,1,Not too important,0.45,True
+80,pew_work_family_blueprints_080,paid_work_priority,3,Very important,3,Very important,0.7,True
+80,pew_work_family_blueprints_080,parenthood_importance,1,Not too important,1,Not too important,0.42,True
+80,pew_work_family_blueprints_080,parenting,0,Men and women are basically similar,0,Men and women are basically similar,0.68,True
+80,pew_work_family_blueprints_080,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+80,pew_work_family_blueprints_080,relationship_status,0,Married,0,Married,0.82,True
+80,pew_work_family_blueprints_080,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.7,True
+81,pew_work_family_blueprints_081,career_sacrifice_rule,3,It depends entirely on the family,3,It depends entirely on the family,0.43,True
+81,pew_work_family_blueprints_081,childcare_division,2,The parent with more available time should do more,2,The parent with more available time should do more,0.48,True
+81,pew_work_family_blueprints_081,children_at_home,0,No children under 18,0,No children under 18,0.88,True
+81,pew_work_family_blueprints_081,feelings,1,Men and women are basically different,1,Men and women are basically different,0.73,True
+81,pew_work_family_blueprints_081,financial_decision_style,2,Both adults should decide together,2,Both adults should decide together,0.76,True
+81,pew_work_family_blueprints_081,hobbies,0,Men and women are basically similar,0,Men and women are basically similar,0.72,True
+81,pew_work_family_blueprints_081,household_income,2,"$100,000 to $149,999",2,"$100,000 to $149,999",0.59,True
+81,pew_work_family_blueprints_081,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.61,True
+81,pew_work_family_blueprints_081,marriage_importance,2,Somewhat important,2,Somewhat important,0.47,True
+81,pew_work_family_blueprints_081,paid_work_priority,3,Very important,3,Very important,0.68,True
+81,pew_work_family_blueprints_081,parenthood_importance,1,Not too important,1,Not too important,0.45,True
+81,pew_work_family_blueprints_081,parenting,1,Men and women are basically different,1,Men and women are basically different,0.66,True
+81,pew_work_family_blueprints_081,physical_abilities,0,Men and women are basically similar,0,Men and women are basically similar,0.62,True
+81,pew_work_family_blueprints_081,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.79,True
+81,pew_work_family_blueprints_081,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.76,True
+82,pew_work_family_blueprints_082,career_sacrifice_rule,3,It depends entirely on the family,3,It depends entirely on the family,0.45,True
+82,pew_work_family_blueprints_082,childcare_division,2,The parent with more available time should do more,2,The parent with more available time should do more,0.43,True
+82,pew_work_family_blueprints_082,children_at_home,0,No children under 18,0,No children under 18,0.86,True
+82,pew_work_family_blueprints_082,feelings,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+82,pew_work_family_blueprints_082,financial_decision_style,1,The person who manages the money should usually decide,1,The person who manages the money should usually decide,0.48,True
+82,pew_work_family_blueprints_082,hobbies,0,Men and women are basically similar,0,Men and women are basically similar,0.74,True
+82,pew_work_family_blueprints_082,household_income,0,"Less than $50,000",0,"Less than $50,000",0.7,True
+82,pew_work_family_blueprints_082,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.58,True
+82,pew_work_family_blueprints_082,marriage_importance,0,Not at all important,0,Not at all important,0.56,True
+82,pew_work_family_blueprints_082,paid_work_priority,1,Not too important,1,Not too important,0.49,True
+82,pew_work_family_blueprints_082,parenthood_importance,3,Very important,3,Very important,0.74,True
+82,pew_work_family_blueprints_082,parenting,1,Men and women are basically different,1,Men and women are basically different,0.69,True
+82,pew_work_family_blueprints_082,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+82,pew_work_family_blueprints_082,relationship_status,0,Married,0,Married,0.82,True
+82,pew_work_family_blueprints_082,workplace,1,Men and women are basically different,1,Men and women are basically different,0.65,True
+83,pew_work_family_blueprints_083,career_sacrifice_rule,2,Both adults should reduce work as equally as possible,2,Both adults should reduce work as equally as possible,0.55,True
+83,pew_work_family_blueprints_083,childcare_division,1,Both parents should divide it about equally,1,Both parents should divide it about equally,0.64,True
+83,pew_work_family_blueprints_083,children_at_home,1,At least one child under 6,1,At least one child under 6,0.72,True
+83,pew_work_family_blueprints_083,feelings,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+83,pew_work_family_blueprints_083,financial_decision_style,2,Both adults should decide together,2,Both adults should decide together,0.75,True
+83,pew_work_family_blueprints_083,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+83,pew_work_family_blueprints_083,household_income,0,"Less than $50,000",0,"Less than $50,000",0.7,True
+83,pew_work_family_blueprints_083,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.62,True
+83,pew_work_family_blueprints_083,marriage_importance,2,Somewhat important,2,Somewhat important,0.55,True
+83,pew_work_family_blueprints_083,paid_work_priority,2,Somewhat important,2,Somewhat important,0.54,True
+83,pew_work_family_blueprints_083,parenthood_importance,3,Very important,3,Very important,0.8,True
+83,pew_work_family_blueprints_083,parenting,1,Men and women are basically different,1,Men and women are basically different,0.7,True
+83,pew_work_family_blueprints_083,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.85,True
+83,pew_work_family_blueprints_083,relationship_status,0,Married,0,Married,0.82,True
+83,pew_work_family_blueprints_083,workplace,1,Men and women are basically different,1,Men and women are basically different,0.65,True
+84,pew_work_family_blueprints_084,career_sacrifice_rule,2,Both adults should reduce work as equally as possible,2,Both adults should reduce work as equally as possible,0.52,True
+84,pew_work_family_blueprints_084,childcare_division,0,One parent should do most of it,0,One parent should do most of it,0.48,True
+84,pew_work_family_blueprints_084,children_at_home,1,At least one child under 6,1,At least one child under 6,0.74,True
+84,pew_work_family_blueprints_084,feelings,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+84,pew_work_family_blueprints_084,financial_decision_style,2,Both adults should decide together,2,Both adults should decide together,0.66,True
+84,pew_work_family_blueprints_084,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+84,pew_work_family_blueprints_084,household_income,0,"Less than $50,000",0,"Less than $50,000",0.7,True
+84,pew_work_family_blueprints_084,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.58,True
+84,pew_work_family_blueprints_084,marriage_importance,0,Not at all important,0,Not at all important,0.64,True
+84,pew_work_family_blueprints_084,paid_work_priority,2,Somewhat important,2,Somewhat important,0.54,True
+84,pew_work_family_blueprints_084,parenthood_importance,3,Very important,3,Very important,0.75,True
+84,pew_work_family_blueprints_084,parenting,1,Men and women are basically different,1,Men and women are basically different,0.71,True
+84,pew_work_family_blueprints_084,physical_abilities,0,Men and women are basically similar,0,Men and women are basically similar,0.68,True
+84,pew_work_family_blueprints_084,relationship_status,2,In a relationship but not living together,2,In a relationship but not living together,0.72,True
+84,pew_work_family_blueprints_084,workplace,1,Men and women are basically different,1,Men and women are basically different,0.66,True
+85,pew_work_family_blueprints_085,career_sacrifice_rule,1,The adult with the more flexible job should reduce work,1,The adult with the more flexible job should reduce work,0.46,True
+85,pew_work_family_blueprints_085,childcare_division,2,The parent with more available time should do more,2,The parent with more available time should do more,0.5,True
+85,pew_work_family_blueprints_085,children_at_home,0,No children under 18,0,No children under 18,0.82,True
+85,pew_work_family_blueprints_085,feelings,0,Men and women are basically similar,0,Men and women are basically similar,0.68,True
+85,pew_work_family_blueprints_085,financial_decision_style,0,The higher earner should usually decide,0,The higher earner should usually decide,0.42,True
+85,pew_work_family_blueprints_085,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+85,pew_work_family_blueprints_085,household_income,0,"Less than $50,000",0,"Less than $50,000",0.68,True
+85,pew_work_family_blueprints_085,housework_division,2,The person with more available time should do more,2,The person with more available time should do more,0.51,True
+85,pew_work_family_blueprints_085,marriage_importance,0,Not at all important,0,Not at all important,0.64,True
+85,pew_work_family_blueprints_085,paid_work_priority,2,Somewhat important,2,Somewhat important,0.52,True
+85,pew_work_family_blueprints_085,parenthood_importance,1,Not too important,1,Not too important,0.45,True
+85,pew_work_family_blueprints_085,parenting,1,Men and women are basically different,1,Men and women are basically different,0.7,True
+85,pew_work_family_blueprints_085,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+85,pew_work_family_blueprints_085,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.77,True
+85,pew_work_family_blueprints_085,workplace,1,Men and women are basically different,1,Men and women are basically different,0.69,True
+86,pew_work_family_blueprints_086,career_sacrifice_rule,2,Both adults should reduce work as equally as possible,2,Both adults should reduce work as equally as possible,0.43,True
+86,pew_work_family_blueprints_086,childcare_division,3,It depends entirely on the family,3,It depends entirely on the family,0.46,True
+86,pew_work_family_blueprints_086,children_at_home,2,Only children ages 6 to 17,2,Only children ages 6 to 17,0.9,True
+86,pew_work_family_blueprints_086,feelings,0,Men and women are basically similar,0,Men and women are basically similar,0.61,True
+86,pew_work_family_blueprints_086,financial_decision_style,0,The higher earner should usually decide,0,The higher earner should usually decide,0.46,True
+86,pew_work_family_blueprints_086,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+86,pew_work_family_blueprints_086,household_income,3,"$150,000 or more",3,"$150,000 or more",0.75,True
+86,pew_work_family_blueprints_086,housework_division,2,The person with more available time should do more,2,The person with more available time should do more,0.5,True
+86,pew_work_family_blueprints_086,marriage_importance,0,Not at all important,0,Not at all important,0.72,True
+86,pew_work_family_blueprints_086,paid_work_priority,3,Very important,3,Very important,0.76,True
+86,pew_work_family_blueprints_086,parenthood_importance,0,Not at all important,0,Not at all important,0.55,True
+86,pew_work_family_blueprints_086,parenting,1,Men and women are basically different,1,Men and women are basically different,0.65,True
+86,pew_work_family_blueprints_086,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+86,pew_work_family_blueprints_086,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.86,True
+86,pew_work_family_blueprints_086,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.78,True
+87,pew_work_family_blueprints_087,career_sacrifice_rule,0,The lower earner should reduce work,0,The lower earner should reduce work,0.44,True
+87,pew_work_family_blueprints_087,childcare_division,1,Both parents should divide it about equally,1,Both parents should divide it about equally,0.66,True
+87,pew_work_family_blueprints_087,children_at_home,0,No children under 18,0,No children under 18,0.91,True
+87,pew_work_family_blueprints_087,feelings,1,Men and women are basically different,1,Men and women are basically different,0.75,True
+87,pew_work_family_blueprints_087,financial_decision_style,3,It depends on the decision,3,It depends on the decision,0.48,True
+87,pew_work_family_blueprints_087,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.68,True
+87,pew_work_family_blueprints_087,household_income,2,"$100,000 to $149,999",2,"$100,000 to $149,999",0.72,True
+87,pew_work_family_blueprints_087,housework_division,2,The person with more available time should do more,2,The person with more available time should do more,0.54,True
+87,pew_work_family_blueprints_087,marriage_importance,1,Not too important,1,Not too important,0.46,True
+87,pew_work_family_blueprints_087,paid_work_priority,2,Somewhat important,2,Somewhat important,0.52,True
+87,pew_work_family_blueprints_087,parenthood_importance,3,Very important,3,Very important,0.68,True
+87,pew_work_family_blueprints_087,parenting,1,Men and women are basically different,1,Men and women are basically different,0.62,True
+87,pew_work_family_blueprints_087,physical_abilities,0,Men and women are basically similar,0,Men and women are basically similar,0.72,True
+87,pew_work_family_blueprints_087,relationship_status,1,Living with a partner,1,Living with a partner,0.87,True
+87,pew_work_family_blueprints_087,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.76,True
+88,pew_work_family_blueprints_088,career_sacrifice_rule,2,Both adults should reduce work as equally as possible,2,Both adults should reduce work as equally as possible,0.44,True
+88,pew_work_family_blueprints_088,childcare_division,0,One parent should do most of it,0,One parent should do most of it,0.44,True
+88,pew_work_family_blueprints_088,children_at_home,0,No children under 18,0,No children under 18,0.86,True
+88,pew_work_family_blueprints_088,feelings,1,Men and women are basically different,1,Men and women are basically different,0.65,True
+88,pew_work_family_blueprints_088,financial_decision_style,3,It depends on the decision,3,It depends on the decision,0.45,True
+88,pew_work_family_blueprints_088,hobbies,0,Men and women are basically similar,0,Men and women are basically similar,0.74,True
+88,pew_work_family_blueprints_088,household_income,0,"Less than $50,000",0,"Less than $50,000",0.7,True
+88,pew_work_family_blueprints_088,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.59,True
+88,pew_work_family_blueprints_088,marriage_importance,3,Very important,3,Very important,0.72,True
+88,pew_work_family_blueprints_088,paid_work_priority,0,Not at all important,0,Not at all important,0.58,True
+88,pew_work_family_blueprints_088,parenthood_importance,0,Not at all important,0,Not at all important,0.66,True
+88,pew_work_family_blueprints_088,parenting,0,Men and women are basically similar,0,Men and women are basically similar,0.68,True
+88,pew_work_family_blueprints_088,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+88,pew_work_family_blueprints_088,relationship_status,0,Married,0,Married,0.82,True
+88,pew_work_family_blueprints_088,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.78,True
+89,pew_work_family_blueprints_089,career_sacrifice_rule,0,The lower earner should reduce work,0,The lower earner should reduce work,0.48,True
+89,pew_work_family_blueprints_089,childcare_division,3,It depends entirely on the family,3,It depends entirely on the family,0.47,True
+89,pew_work_family_blueprints_089,children_at_home,0,No children under 18,0,No children under 18,0.82,True
+89,pew_work_family_blueprints_089,feelings,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+89,pew_work_family_blueprints_089,financial_decision_style,0,The higher earner should usually decide,0,The higher earner should usually decide,0.43,True
+89,pew_work_family_blueprints_089,hobbies,0,Men and women are basically similar,0,Men and women are basically similar,0.68,True
+89,pew_work_family_blueprints_089,household_income,2,"$100,000 to $149,999",2,"$100,000 to $149,999",0.42,True
+89,pew_work_family_blueprints_089,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.57,True
+89,pew_work_family_blueprints_089,marriage_importance,0,Not at all important,0,Not at all important,0.55,True
+89,pew_work_family_blueprints_089,paid_work_priority,1,Not too important,1,Not too important,0.46,True
+89,pew_work_family_blueprints_089,parenthood_importance,3,Very important,3,Very important,0.68,True
+89,pew_work_family_blueprints_089,parenting,1,Men and women are basically different,1,Men and women are basically different,0.64,True
+89,pew_work_family_blueprints_089,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+89,pew_work_family_blueprints_089,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.75,True
+89,pew_work_family_blueprints_089,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.74,True
+90,pew_work_family_blueprints_090,career_sacrifice_rule,0,The lower earner should reduce work,0,The lower earner should reduce work,0.46,True
+90,pew_work_family_blueprints_090,childcare_division,1,Both parents should divide it about equally,1,Both parents should divide it about equally,0.62,True
+90,pew_work_family_blueprints_090,children_at_home,0,No children under 18,0,No children under 18,0.82,True
+90,pew_work_family_blueprints_090,feelings,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+90,pew_work_family_blueprints_090,financial_decision_style,1,The person who manages the money should usually decide,1,The person who manages the money should usually decide,0.45,True
+90,pew_work_family_blueprints_090,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+90,pew_work_family_blueprints_090,household_income,1,"$50,000 to $99,999",1,"$50,000 to $99,999",0.52,True
+90,pew_work_family_blueprints_090,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.64,True
+90,pew_work_family_blueprints_090,marriage_importance,2,Somewhat important,2,Somewhat important,0.48,True
+90,pew_work_family_blueprints_090,paid_work_priority,3,Very important,3,Very important,0.68,True
+90,pew_work_family_blueprints_090,parenthood_importance,2,Somewhat important,2,Somewhat important,0.46,True
+90,pew_work_family_blueprints_090,parenting,1,Men and women are basically different,1,Men and women are basically different,0.7,True
+90,pew_work_family_blueprints_090,physical_abilities,0,Men and women are basically similar,0,Men and women are basically similar,0.68,True
+90,pew_work_family_blueprints_090,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.72,True
+90,pew_work_family_blueprints_090,workplace,1,Men and women are basically different,1,Men and women are basically different,0.65,True
+91,pew_work_family_blueprints_091,career_sacrifice_rule,1,The adult with the more flexible job should reduce work,1,The adult with the more flexible job should reduce work,0.48,True
+91,pew_work_family_blueprints_091,childcare_division,2,The parent with more available time should do more,2,The parent with more available time should do more,0.52,True
+91,pew_work_family_blueprints_091,children_at_home,1,At least one child under 6,1,At least one child under 6,0.74,True
+91,pew_work_family_blueprints_091,feelings,1,Men and women are basically different,1,Men and women are basically different,0.81,True
+91,pew_work_family_blueprints_091,financial_decision_style,0,The higher earner should usually decide,0,The higher earner should usually decide,0.45,True
+91,pew_work_family_blueprints_091,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+91,pew_work_family_blueprints_091,household_income,3,"$150,000 or more",3,"$150,000 or more",0.68,True
+91,pew_work_family_blueprints_091,housework_division,2,The person with more available time should do more,2,The person with more available time should do more,0.51,True
+91,pew_work_family_blueprints_091,marriage_importance,3,Very important,3,Very important,0.78,True
+91,pew_work_family_blueprints_091,paid_work_priority,0,Not at all important,0,Not at all important,0.55,True
+91,pew_work_family_blueprints_091,parenthood_importance,2,Somewhat important,2,Somewhat important,0.51,True
+91,pew_work_family_blueprints_091,parenting,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+91,pew_work_family_blueprints_091,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.84,True
+91,pew_work_family_blueprints_091,relationship_status,0,Married,0,Married,0.82,True
+91,pew_work_family_blueprints_091,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.72,True
+92,pew_work_family_blueprints_092,career_sacrifice_rule,3,It depends entirely on the family,3,It depends entirely on the family,0.44,True
+92,pew_work_family_blueprints_092,childcare_division,0,One parent should do most of it,0,One parent should do most of it,0.44,True
+92,pew_work_family_blueprints_092,children_at_home,2,Only children ages 6 to 17,2,Only children ages 6 to 17,0.84,True
+92,pew_work_family_blueprints_092,feelings,1,Men and women are basically different,1,Men and women are basically different,0.8,True
+92,pew_work_family_blueprints_092,financial_decision_style,2,Both adults should decide together,2,Both adults should decide together,0.76,True
+92,pew_work_family_blueprints_092,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+92,pew_work_family_blueprints_092,household_income,0,"Less than $50,000",0,"Less than $50,000",0.7,True
+92,pew_work_family_blueprints_092,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.58,True
+92,pew_work_family_blueprints_092,marriage_importance,0,Not at all important,0,Not at all important,0.55,True
+92,pew_work_family_blueprints_092,paid_work_priority,2,Somewhat important,2,Somewhat important,0.56,True
+92,pew_work_family_blueprints_092,parenthood_importance,3,Very important,3,Very important,0.75,True
+92,pew_work_family_blueprints_092,parenting,1,Men and women are basically different,1,Men and women are basically different,0.75,True
+92,pew_work_family_blueprints_092,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.84,True
+92,pew_work_family_blueprints_092,relationship_status,0,Married,0,Married,0.82,True
+92,pew_work_family_blueprints_092,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.72,True
+93,pew_work_family_blueprints_093,career_sacrifice_rule,2,Both adults should reduce work as equally as possible,2,Both adults should reduce work as equally as possible,0.47,True
+93,pew_work_family_blueprints_093,childcare_division,1,Both parents should divide it about equally,1,Both parents should divide it about equally,0.58,True
+93,pew_work_family_blueprints_093,children_at_home,0,No children under 18,0,No children under 18,0.76,True
+93,pew_work_family_blueprints_093,feelings,1,Men and women are basically different,1,Men and women are basically different,0.8,True
+93,pew_work_family_blueprints_093,financial_decision_style,1,The person who manages the money should usually decide,1,The person who manages the money should usually decide,0.43,True
+93,pew_work_family_blueprints_093,hobbies,0,Men and women are basically similar,0,Men and women are basically similar,0.68,True
+93,pew_work_family_blueprints_093,household_income,1,"$50,000 to $99,999",1,"$50,000 to $99,999",0.48,True
+93,pew_work_family_blueprints_093,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.62,True
+93,pew_work_family_blueprints_093,marriage_importance,2,Somewhat important,2,Somewhat important,0.52,True
+93,pew_work_family_blueprints_093,paid_work_priority,1,Not too important,1,Not too important,0.47,True
+93,pew_work_family_blueprints_093,parenthood_importance,3,Very important,3,Very important,0.71,True
+93,pew_work_family_blueprints_093,parenting,1,Men and women are basically different,1,Men and women are basically different,0.62,True
+93,pew_work_family_blueprints_093,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+93,pew_work_family_blueprints_093,relationship_status,1,Living with a partner,1,Living with a partner,0.62,True
+93,pew_work_family_blueprints_093,workplace,1,Men and women are basically different,1,Men and women are basically different,0.65,True
+94,pew_work_family_blueprints_094,career_sacrifice_rule,3,It depends entirely on the family,3,It depends entirely on the family,0.42,True
+94,pew_work_family_blueprints_094,childcare_division,3,It depends entirely on the family,3,It depends entirely on the family,0.47,True
+94,pew_work_family_blueprints_094,children_at_home,0,No children under 18,0,No children under 18,0.82,True
+94,pew_work_family_blueprints_094,feelings,1,Men and women are basically different,1,Men and women are basically different,0.7,True
+94,pew_work_family_blueprints_094,financial_decision_style,1,The person who manages the money should usually decide,1,The person who manages the money should usually decide,0.45,True
+94,pew_work_family_blueprints_094,hobbies,0,Men and women are basically similar,0,Men and women are basically similar,0.72,True
+94,pew_work_family_blueprints_094,household_income,3,"$150,000 or more",3,"$150,000 or more",0.67,True
+94,pew_work_family_blueprints_094,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.58,True
+94,pew_work_family_blueprints_094,marriage_importance,2,Somewhat important,2,Somewhat important,0.48,True
+94,pew_work_family_blueprints_094,paid_work_priority,1,Not too important,1,Not too important,0.46,True
+94,pew_work_family_blueprints_094,parenthood_importance,0,Not at all important,0,Not at all important,0.62,True
+94,pew_work_family_blueprints_094,parenting,0,Men and women are basically similar,0,Men and women are basically similar,0.68,True
+94,pew_work_family_blueprints_094,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.74,True
+94,pew_work_family_blueprints_094,relationship_status,3,Not currently in a relationship,3,Not currently in a relationship,0.76,True
+94,pew_work_family_blueprints_094,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.76,True
+95,pew_work_family_blueprints_095,career_sacrifice_rule,3,It depends entirely on the family,3,It depends entirely on the family,0.44,True
+95,pew_work_family_blueprints_095,childcare_division,3,It depends entirely on the family,3,It depends entirely on the family,0.5,True
+95,pew_work_family_blueprints_095,children_at_home,0,No children under 18,0,No children under 18,0.86,True
+95,pew_work_family_blueprints_095,feelings,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+95,pew_work_family_blueprints_095,financial_decision_style,3,It depends on the decision,3,It depends on the decision,0.5,True
+95,pew_work_family_blueprints_095,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.72,True
+95,pew_work_family_blueprints_095,household_income,0,"Less than $50,000",0,"Less than $50,000",0.72,True
+95,pew_work_family_blueprints_095,housework_division,3,It depends entirely on the household,3,It depends entirely on the household,0.47,True
+95,pew_work_family_blueprints_095,marriage_importance,3,Very important,3,Very important,0.68,True
+95,pew_work_family_blueprints_095,paid_work_priority,3,Very important,3,Very important,0.66,True
+95,pew_work_family_blueprints_095,parenthood_importance,2,Somewhat important,2,Somewhat important,0.45,True
+95,pew_work_family_blueprints_095,parenting,1,Men and women are basically different,1,Men and women are basically different,0.69,True
+95,pew_work_family_blueprints_095,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+95,pew_work_family_blueprints_095,relationship_status,1,Living with a partner,1,Living with a partner,0.74,True
+95,pew_work_family_blueprints_095,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.68,True
+96,pew_work_family_blueprints_096,career_sacrifice_rule,1,The adult with the more flexible job should reduce work,1,The adult with the more flexible job should reduce work,0.48,True
+96,pew_work_family_blueprints_096,childcare_division,1,Both parents should divide it about equally,1,Both parents should divide it about equally,0.52,True
+96,pew_work_family_blueprints_096,children_at_home,0,No children under 18,0,No children under 18,0.86,True
+96,pew_work_family_blueprints_096,feelings,1,Men and women are basically different,1,Men and women are basically different,0.78,True
+96,pew_work_family_blueprints_096,financial_decision_style,0,The higher earner should usually decide,0,The higher earner should usually decide,0.46,True
+96,pew_work_family_blueprints_096,hobbies,1,Men and women are basically different,1,Men and women are basically different,0.76,True
+96,pew_work_family_blueprints_096,household_income,0,"Less than $50,000",0,"Less than $50,000",0.64,True
+96,pew_work_family_blueprints_096,housework_division,1,Both adults should divide it about equally,1,Both adults should divide it about equally,0.55,True
+96,pew_work_family_blueprints_096,marriage_importance,1,Not too important,1,Not too important,0.49,True
+96,pew_work_family_blueprints_096,paid_work_priority,2,Somewhat important,2,Somewhat important,0.5,True
+96,pew_work_family_blueprints_096,parenthood_importance,2,Somewhat important,2,Somewhat important,0.5,True
+96,pew_work_family_blueprints_096,parenting,1,Men and women are basically different,1,Men and women are basically different,0.69,True
+96,pew_work_family_blueprints_096,physical_abilities,1,Men and women are basically different,1,Men and women are basically different,0.82,True
+96,pew_work_family_blueprints_096,relationship_status,0,Married,0,Married,0.82,True
+96,pew_work_family_blueprints_096,workplace,0,Men and women are basically similar,0,Men and women are basically similar,0.72,True

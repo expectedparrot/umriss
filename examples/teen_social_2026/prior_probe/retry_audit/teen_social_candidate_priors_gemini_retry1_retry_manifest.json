@@ -1,0 +1,53 @@
+{
+  "data": {
+    "attempts": 1,
+    "complete": false,
+    "coverage_path": "examples/teen_social_2026/prior_probe/retry_audit/teen_social_candidate_priors_gemini_retry1_retry_coverage.csv",
+    "expected_jobs": 8,
+    "manifest_path": "examples/teen_social_2026/prior_probe/retry_audit/teen_social_candidate_priors_gemini_retry1_retry_manifest.json",
+    "merged_raw_path": "examples/teen_social_2026/prior_probe/retry_audit/teen_social_candidate_priors_gemini_retry1_merged_raw.csv",
+    "missing_job_ids_path": "examples/teen_social_2026/prior_probe/retry_audit/teen_social_candidate_priors_gemini_retry1_missing_job_ids.csv",
+    "missing_jobs": 8,
+    "reused": false,
+    "valid_jobs": 0
+  },
+  "kind": "umriss_retry_audit",
+  "outputs": {
+    "teen_social_candidate_priors_gemini_retry1_merged_raw.csv": {
+      "path": "examples/teen_social_2026/prior_probe/retry_audit/teen_social_candidate_priors_gemini_retry1_merged_raw.csv",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "teen_social_candidate_priors_gemini_retry1_missing_job_ids.csv": {
+      "path": "examples/teen_social_2026/prior_probe/retry_audit/teen_social_candidate_priors_gemini_retry1_missing_job_ids.csv",
+      "sha256": "4b078b8d682ebc7789ae459436c60200e0e39e9babd2cedfeb2087cd5aa4b76e"
+    },
+    "teen_social_candidate_priors_gemini_retry1_retry_coverage.csv": {
+      "path": "examples/teen_social_2026/prior_probe/retry_audit/teen_social_candidate_priors_gemini_retry1_retry_coverage.csv",
+      "sha256": "b718a83a3d77ca97ea7505013a02f8c82ff376a7ab692dcf383091b3ec03c965"
+    }
+  },
+  "provenance": {
+    "command": "umriss support audit-results",
+    "created_at": "2026-07-29T01:23:56Z",
+    "fingerprint": "efb29a99cb63b41506bbf23dea9807a19ebfe029860e16157135ba08681cc819",
+    "inputs": {
+      "prompts": {
+        "path": "examples/teen_social_2026/prior_probe/teen_social_candidate_priors_baseline_prompts.jsonl",
+        "sha256": "e70066076b33df510ee62ddd711595867cbcbbf7f0df4587c82e05e096434856"
+      },
+      "results_1": {
+        "path": "examples/teen_social_2026/prior_probe/teen_social_candidate_priors_gemini_retry1.results.ep",
+        "sha256": "949e8ba8a093c58be44dc1f49a80c49f42525d931d5065c151675f78bff24e71"
+      }
+    },
+    "parameters": {
+      "results_order": [
+        "examples/teen_social_2026/prior_probe/teen_social_candidate_priors_gemini_retry1.results.ep"
+      ],
+      "tag": "teen_social_candidate_priors_gemini_retry1"
+    },
+    "schema_version": 1,
+    "umriss_version": "0.1.0"
+  },
+  "schema_version": 1
+}

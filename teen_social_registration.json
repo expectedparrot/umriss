@@ -1,0 +1,37 @@
+{
+  "kind": "umriss_result_registration",
+  "outputs": {
+    "jobs": {
+      "path": "teen_social_jobs.csv",
+      "sha256": "cc683f1d554191e323d7ae2ad5453db1e26972212df7eecf9dedb7ebe6edc0af"
+    },
+    "raw": {
+      "path": "teen_social_raw.csv",
+      "sha256": "dc19345d3d5201faed0280db2cf26fc7b066418f1d1c10f0ff195890176e5da0"
+    }
+  },
+  "provenance": {
+    "command": "umriss support register-results",
+    "created_at": "2026-07-29T00:18:12Z",
+    "fingerprint": "e9336ff725976b6d17cdc3327c08c4be973583f598afde90cd7b565e4f7c964d",
+    "inputs": {
+      "prompts": {
+        "path": "teen_social_prompts.jsonl",
+        "sha256": "16e15dfacdcb172a376a657dfb70e91da7127231be605051fe781e3c2234fa2d"
+      },
+      "results": {
+        "path": "teen_social.results.ep",
+        "sha256": "393912056d6a18165d862f7a71f9313c2d6140b9dae0af940fc31811a192c4d4"
+      }
+    },
+    "parameters": {
+      "out": ".",
+      "tag": "teen_social"
+    },
+    "schema_version": 1,
+    "umriss_version": "0.1.0"
+  },
+  "rows": 5,
+  "schema_version": 1,
+  "tag": "teen_social"
+}

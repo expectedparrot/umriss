@@ -1,0 +1,82 @@
+{
+  "execution": {
+    "cost_estimate": {
+      "available": true,
+      "basis": "call_counts",
+      "expected_model_calls": 192,
+      "models": 1,
+      "pricing_note": "Dollar cost depends on provider pricing; inspect the package with `ep inspect` before authorizing `ep run`.",
+      "scenarios": 192
+    },
+    "mode": "unspecified",
+    "owner": "external_ep"
+  },
+  "iterations": 1,
+  "jobs": "pew_work_family_detailed_repair1.jobs.ep",
+  "manifest_path": "pew_work_family_detailed_repair1_manifest.json",
+  "model_calls": 192,
+  "model_count": 1,
+  "models": [
+    {
+      "model": "gpt-5.5",
+      "service_name": "openai"
+    }
+  ],
+  "next_steps": [
+    "ep run --jobs pew_work_family_detailed_repair1.jobs.ep --output pew_work_family_detailed_repair1.results.ep",
+    "umriss support register-results --results pew_work_family_detailed_repair1.results.ep --prompts pew_work_family_detailed_repair1_prompts.jsonl --tag pew_work_family_detailed_repair1 --out ."
+  ],
+  "outputs": {
+    "jobs": {
+      "path": "pew_work_family_detailed_repair1.jobs.ep",
+      "sha256": "0e56b2b88e35c6b6dc4d00edaa103edfb5d012088f1757d9e81ef498c11d5267"
+    }
+  },
+  "prompts": "pew_work_family_detailed_repair1_prompts.jsonl",
+  "provenance": {
+    "command": "umriss support export",
+    "created_at": "2026-07-29T13:51:11Z",
+    "fingerprint": "97278f98e582c317dd21a93face42059b2a38e9e55c2114215e1338004e81656",
+    "inputs": {
+      "prompts": {
+        "path": "pew_work_family_detailed_repair1_prompts.jsonl",
+        "sha256": "d6a98d1f45adcdcfedd672c8011ddfc5d8fefef01316275007646309b04a4537"
+      }
+    },
+    "parameters": {
+      "job_ids_path": null,
+      "limit": null,
+      "max_tokens": 4000,
+      "models": [
+        {
+          "model": "gpt-5.5",
+          "service_name": "openai"
+        }
+      ],
+      "path": "pew_work_family_detailed_repair1.jobs.ep",
+      "registration_out": ".",
+      "tag": "pew_work_family_detailed_repair1",
+      "temperature": 1.0
+    },
+    "schema_version": 1,
+    "umriss_version": "0.1.0"
+  },
+  "questions": 1,
+  "register_command": "umriss support register-results --results pew_work_family_detailed_repair1.results.ep --prompts pew_work_family_detailed_repair1_prompts.jsonl --tag pew_work_family_detailed_repair1 --out .",
+  "registration_out": ".",
+  "results": "pew_work_family_detailed_repair1.results.ep",
+  "reused": false,
+  "run_command": "ep run --jobs pew_work_family_detailed_repair1.jobs.ep --output pew_work_family_detailed_repair1.results.ep",
+  "run_contract": {
+    "expected_results_path": "pew_work_family_detailed_repair1.results.ep",
+    "jobs_path": "pew_work_family_detailed_repair1.jobs.ep",
+    "owner": "external_ep",
+    "register_command": "umriss support register-results --results pew_work_family_detailed_repair1.results.ep --prompts pew_work_family_detailed_repair1_prompts.jsonl --tag pew_work_family_detailed_repair1 --out .",
+    "run_command": "ep run --jobs pew_work_family_detailed_repair1.jobs.ep --output pew_work_family_detailed_repair1.results.ep"
+  },
+  "save_format": "edsl_ep",
+  "scenarios": 192,
+  "schema_version": 1,
+  "tag": "pew_work_family_detailed_repair1",
+  "workflow": "support"
+}

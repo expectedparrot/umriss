@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Extending Pew gender attitudes with synthetic work-and-family moments — umriss</title>
+  <style>
+    :root{--green:#428a5f;--dark:#214d35;--light:#edf7f1;--ink:#17201a;--muted:#667069;--paper:#f5f7f5;--panel:#fff;--rule:#dfe5e0;--code:#19231d;--warn:#fff7e8;--serif:Georgia,"Times New Roman",serif;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;--mono:"SFMono-Regular",Consolas,monospace}
+    *{box-sizing:border-box}
+    body{margin:0;color:var(--ink);background:var(--paper);font:16px/1.7 var(--sans)}
+    main{max-width:960px;margin:auto;padding:58px 64px 100px;background:var(--panel)}
+    h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.25}
+    h1{max-width:820px;margin:.3rem 0 1rem;font-size:clamp(38px,6vw,58px);letter-spacing:-.025em}
+    h2{margin:70px 0 20px;padding:10px 0;color:var(--green);font-size:31px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+    h3{margin:0 0 8px;font-size:20px}
+    p,ul,ol,table,pre,.note,.persona{max-width:810px}
+    a{color:var(--green)}
+    nav{display:flex;gap:18px;margin-bottom:30px;font-size:14px}
+    .kicker{color:var(--green);font-size:12px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+    .lede{max-width:780px;color:var(--muted);font-size:21px;line-height:1.5}
+    code{padding:.12em .32em;background:#f0f3f0;border-radius:4px;font:88% var(--mono)}
+    pre{overflow-wrap:anywhere;margin:18px 0 26px;padding:20px 22px;color:#d8e3db;background:var(--code);border-radius:8px;font:13px/1.55 var(--mono);white-space:pre-wrap}
+    pre code{padding:0;color:inherit;background:none;font:inherit}
+    table{width:100%;margin:20px 0 28px;border-collapse:collapse;font-size:14px}
+    th,td{padding:10px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--rule)}
+    th{color:#fff;background:var(--green)}
+    tbody tr:nth-child(even){background:#f7f9f7}
+    .note{margin:24px 0;padding:14px 18px;background:var(--warn);border-left:4px solid #b66b13}
+    .result{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;max-width:810px;margin:24px 0}
+    .metric{padding:15px;background:var(--light);border:1px solid #cfe2d5;border-radius:8px}
+    .metric strong{display:block;color:var(--dark);font:700 25px/1.1 var(--serif)}
+    .metric span{display:block;margin-top:5px;color:var(--muted);font-size:12px;line-height:1.35}
+    .persona{margin:18px 0;padding:18px 20px;border:1px solid var(--rule);border-left:5px solid var(--green);border-radius:7px;background:#fbfcfb}
+    .persona p{margin:0}
+    .persona .weight{margin-bottom:8px;color:var(--green);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+    @media(max-width:720px){main{padding:34px 22px 70px}.result{grid-template-columns:1fr 1fr}h2{margin-top:52px}}
+  </style>
+</head>
+<body><main>
+  <nav><a href="index.html">Foundational Pew tutorial</a><a href="../README.md">Repository README</a></nav>
+  <p class="kicker">Companion case study · real model inference · provisional result</p>
+  <h1>Can synthetic moments turn five Pew marginals into richer work-and-family profiles?</h1>
+  <p class="lede">This companion study starts with five observed Pew gender-attitude marginals, proposes ten additional questions about adult family and economic life, screens them with three frontier models, and generates complete response-blueprint personas. It succeeds at producing richer text. It does not yet produce a population that is both accurate and statistically dispersed.</p>
+
+  <div class="note"><strong>Evidence boundary.</strong> The original five gender-comparison marginals are observed weighted estimates from Pew American Trends Panel Wave 154. Every added work-and-family marginal is model-synthetic. Generated circumstances such as relationship status and income describe synthetic support points; they are not recovered Pew respondent characteristics.</div>
+
+  <h2>1. What is being augmented?</h2>
+  <p>The <a href="index.html">foundational tutorial</a> uses five observed questions about whether men and women are basically similar or different in hobbies, physical abilities, parenting, emotional expression, and workplace strengths. Those marginals constrain gender attitudes but do not provide enough material for profiles about household bargaining, economic circumstances, or family priorities.</p>
+  <p>The companion battery adds ten candidate moments:</p>
+  <ul>
+    <li>relationship situation, children under 18 at home, and household income;</li>
+    <li>the personal importance of marriage, parenthood, and paid-work success;</li>
+    <li>preferred divisions of childcare and routine housework;</li>
+    <li>preferred major-financial-decision style; and</li>
+    <li>the preferred rule for deciding who reduces paid work for family needs.</li>
+  </ul>
+  <p>The exact wording, options, and scale types are preserved in <a href="../examples/pew_w154/augmentation/pew_work_family_candidates.json"><code>pew_work_family_candidates.json</code></a>. The combined 15-question battery is <a href="../examples/pew_w154/augmentation/pew_gender_work_family_battery.json"><code>pew_gender_work_family_battery.json</code></a>.</p>
+
+  <h2>2. Three models screen the new marginals</h2>
+  <pre><code>umriss prior build-marginals \
+  --metadata examples/pew_w154/augmentation/pew_work_family_candidates.json \
+  --tag pew_work_family_priors \
+  --out examples/pew_w154/augmentation/prior_probe
+
+umriss prior consensus \
+  --predictions examples/pew_w154/augmentation/prior_probe/pew_work_family_priors_prior_predictions.csv \
+  --metadata examples/pew_w154/augmentation/pew_work_family_candidates.json \
+  --population us_adults_2026 \
+  --minimum-models 3 \
+  --max-total-variation 0.10 \
+  --max-option-difference 0.10 \
+  --tag pew_work_family_consensus \
+  --out examples/pew_w154/augmentation/prior_probe</code></pre>
+  <p>GPT-5.5, Claude Opus 5, and Grok 4.5 each supplied one independent distribution per question. Six of ten candidates passed the predeclared agreement thresholds:</p>
+  <table>
+    <thead><tr><th>Candidate</th><th>Maximum pairwise TV</th><th>Decision</th></tr></thead>
+    <tbody>
+      <tr><td>Relationship status</td><td>0.02</td><td>Accepted</td></tr>
+      <tr><td>Children under 18 at home</td><td>0.06</td><td>Accepted</td></tr>
+      <tr><td>Household income</td><td>0.07</td><td>Accepted</td></tr>
+      <tr><td>Importance of parenthood</td><td>0.10</td><td>Accepted</td></tr>
+      <tr><td>Importance of paid-work success</td><td>0.08</td><td>Accepted</td></tr>
+      <tr><td>Preferred housework division</td><td>0.09</td><td>Accepted</td></tr>
+      <tr><td>Importance of marriage</td><td>0.12</td><td>Rejected</td></tr>
+      <tr><td>Preferred childcare division</td><td>0.22</td><td>Rejected</td></tr>
+      <tr><td>Financial decision style</td><td>0.23</td><td>Rejected</td></tr>
+      <tr><td>Career-sacrifice rule</td><td>0.18</td><td>Rejected</td></tr>
+    </tbody>
+  </table>
+  <p>The full model-by-model predictions and decisions remain in the <a href="../examples/pew_w154/augmentation/prior_probe/pew_work_family_consensus_consensus_audit.csv">consensus audit</a>. Rejected candidates remain visible and are not silently dropped from provenance.</p>
+
+  <h2>3. Complete blueprints produce richer personas</h2>
+  <p>The 11 accepted targets—five observed and six synthetic—inform the allocation of 96 complete response blueprints. Each individual prompt contains one full 15-item answer vector but no population percentages. Under the item-complete persona contract, GPT-5.5 writes a readable synthesis, one explicit second-person statement for every question, and response probabilities for all questions. The parser rejects any incomplete detail set and assembles the synthesis and all 15 statements into the exported persona.</p>
+  <pre><code>umriss support build \
+  --metadata examples/pew_w154/augmentation/pew_gender_work_family_battery.json \
+  --preset target-informed-blueprints \
+  --targets examples/pew_w154/augmentation/pew_augmented_targets.json \
+  --n-support 96 \
+  --tag pew_work_family_detailed \
+  --out examples/pew_w154/augmentation/support_v2/initial
+
+umriss support validate-blueprints \
+  --support examples/pew_w154/augmentation/support_v2/initial/bank/pew_work_family_detailed_probabilities.csv \
+  --plan examples/pew_w154/augmentation/support_v2/initial/pew_work_family_detailed_support_plan.csv \
+  --metadata examples/pew_w154/augmentation/pew_gender_work_family_battery.json \
+  --tag pew_work_family_detailed \
+  --out examples/pew_w154/augmentation/support_v2/initial/validation</code></pre>
+  <div class="result">
+    <div class="metric"><strong>96/96</strong><span>initial blueprints passed fidelity</span></div>
+    <div class="metric"><strong>192/192</strong><span>repair blueprints passed fidelity</span></div>
+    <div class="metric"><strong>288</strong><span>personas in the merged bank</span></div>
+    <div class="metric"><strong>11</strong><span>accepted calibration marginals</span></div>
+  </div>
+
+  <h2>4. Examples of real generated persona text</h2>
+  <p>These are unedited second-person syntheses returned by GPT-5.5 during the registered item-complete support runs. Each underlying points row additionally contains all 15 explicit statements; the first example opens those statements verbatim. The percentages are fitted mixture weights, not literal shares of identifiable demographic types.</p>
+
+  <article class="persona">
+    <div class="weight">Weight 1.64% · repair persona 173</div>
+    <p>You are a married adult in a lower-income household who treats your marriage as a practical partnership rather than as a core personal milestone. You see men and women as basically different in several personal and family domains: hobbies and interests, physical abilities, parenting approaches, and emotional expression. At the same time, you believe men and women are basically similar in what they can be good at in the workplace. You do not have children under 18 at home, and raising children is not personally important to your sense of a good life. You place some importance on paid work or career success, but you prefer household arrangements that are pragmatic: childcare should fall more to the parent with more available time, housework should be divided about equally, the person who manages the money should usually decide major financial matters, and both adults should reduce paid work as equally as possible when work reductions are needed.</p>
+    <details><summary>Show all 15 preserved persona dimensions</summary>
+      <ul>
+        <li><strong>Hobbies:</strong> You explicitly believe or experience that men and women are basically different in their hobbies and personal interests.</li>
+        <li><strong>Physical abilities:</strong> You explicitly believe or experience that men and women are basically different in their physical abilities.</li>
+        <li><strong>Parenting:</strong> You explicitly believe or experience that men and women are basically different in their approach to parenting.</li>
+        <li><strong>Feelings:</strong> You explicitly believe or experience that men and women are basically different in how they express their feelings.</li>
+        <li><strong>Workplace:</strong> You explicitly believe or experience that men and women are basically similar in the things they are good at in the workplace.</li>
+        <li><strong>Relationship:</strong> You explicitly believe or experience being married.</li>
+        <li><strong>Children at home:</strong> You explicitly believe or experience having no children under 18 living in the household.</li>
+        <li><strong>Household income:</strong> You explicitly believe or experience having an annual household income of less than $50,000.</li>
+        <li><strong>Marriage:</strong> You explicitly believe or experience marriage as not at all important to you personally, even though you are married.</li>
+        <li><strong>Parenthood:</strong> You explicitly believe or experience raising children as not at all important to you personally.</li>
+        <li><strong>Paid work:</strong> You explicitly believe or experience paid-work or career success as somewhat important to you personally.</li>
+        <li><strong>Childcare:</strong> You explicitly believe or experience that day-to-day childcare should be done more by the parent with more available time.</li>
+        <li><strong>Housework:</strong> You explicitly believe or experience that routine housework should be divided about equally by both adults.</li>
+        <li><strong>Financial decisions:</strong> You explicitly believe or experience that the person who manages the money should usually decide major household financial matters.</li>
+        <li><strong>Career sacrifice:</strong> You explicitly believe or experience that both adults should reduce paid work as equally as possible when someone needs to cut back.</li>
+      </ul>
+    </details>
+  </article>
+
+  <article class="persona">
+    <div class="weight">Weight 1.56% · repair persona 058</div>
+    <p>You are a married adult in a high-income household with no children under 18 at home. You see men and women as basically different in hobbies and interests, physical abilities, parenting approaches, and emotional expression, while still believing they are basically similar in what they can be good at in the workplace. You do not place very high personal importance on marriage as an institution, even though you are married, and you give moderate importance to raising children and to paid-work or career success. In family life, you prefer equal sharing of childcare and routine housework, but you think major financial decisions and career-sacrifice choices should be handled case by case rather than by a fixed rule.</p>
+  </article>
+
+  <article class="persona">
+    <div class="weight">Weight 1.51% · repair persona 167</div>
+    <p>You are a married adult with no children under 18 in the household and a midrange household income. Your outlook separates some areas where you see men and women as basically different from one area where you see them as basically similar: you perceive differences in hobbies, physical abilities, parenting approaches, and emotional expression, while still believing men and women are basically similar in what they can be good at in the workplace. You do not place high personal importance on marriage itself, even though you are married, but you place very high importance on raising children and on paid-work or career success. In family arrangements, you prefer practical, situation-sensitive rules: childcare should be handled more by the parent with more available time, routine housework should be divided about equally, major financial decisions should depend on the decision, and career sacrifices should depend entirely on the family.</p>
+  </article>
+
+  <h2>5. Target repair improves coverage—but exposes a hard limit</h2>
+  <p>The newly measured initial 96-person bank cannot reproduce the target intersection: its minimum possible worst-cell error is 6.37 percentage points. Umriss therefore uses the same 192 target-directed repair blueprints recorded in the resolved design.</p>
+  <pre><code>umriss support augment-targets \
+  --support examples/pew_w154/augmentation/support_v2/initial/validation/pew_work_family_detailed_validated_probabilities.csv \
+  --targets examples/pew_w154/augmentation/pew_augmented_targets.json \
+  --metadata examples/pew_w154/augmentation/pew_gender_work_family_battery.json \
+  --n-add 192 \
+  --tag pew_work_family_detailed_repair1 \
+  --out examples/pew_w154/augmentation/support_v2/repair_1</code></pre>
+  <p>After merging, the best possible worst-cell error improves to 4.55 points. Every individual target cell now lies within the support bank's range, but their joint intersection remains outside a one-point tolerance. The limiting residual is still the observed emotional-expression marginal, so broad cell coverage alone does not guarantee simultaneous feasibility.</p>
+  <table>
+    <thead><tr><th>Stage</th><th>Support</th><th>Minimum possible worst-cell error</th><th>Interpretation</th></tr></thead>
+    <tbody>
+      <tr><td>Initial target-informed blueprints</td><td>96</td><td>6.37 points</td><td>Fails one-point feasibility</td></tr>
+      <tr><td>After target-directed repair</td><td>288</td><td>4.55 points</td><td>Passes only at a declared five-point tolerance</td></tr>
+    </tbody>
+  </table>
+
+  <h2>6. A dispersed fit exists, but it is not accurate enough</h2>
+  <pre><code>umriss targets fit \
+  --targets examples/pew_w154/augmentation/pew_augmented_targets.json \
+  --support examples/pew_w154/augmentation/support_v2/final_bank/pew_work_family_detailed_288_probabilities.csv \
+  --metadata examples/pew_w154/augmentation/pew_gender_work_family_battery.json \
+  --minimum-effective-support 50 \
+  --maximum-weight 0.05 \
+  --require-convergence \
+  --tag pew_work_family_detailed_288 \
+  --out examples/pew_w154/augmentation/support_v2/final_bank/fit</code></pre>
+  <div class="result">
+    <div class="metric"><strong>157.62</strong><span>effective support</span></div>
+    <div class="metric"><strong>1.64%</strong><span>largest fitted weight</span></div>
+    <div class="metric"><strong>0.03</strong><span>selected entropy penalty</span></div>
+    <div class="metric"><strong>9.15 pts</strong><span>largest fitted target residual</span></div>
+  </div>
+  <p>The fit passes the declared concentration and convergence gates, but the regularization needed to keep mass dispersed increases the emotional-expression residual to 9.15 points. A more concentrated optimization reduces overall RMSE but still cannot cross the support boundary. This panel is therefore useful as a persona-generation demonstration, not yet acceptable as a calibrated augmentation of Pew.</p>
+
+  <div class="note"><strong>Conclusion.</strong> Adding screened marginals now creates text personas whose detail scales with the battery: all 288 preserve 15 of 15 explicit dimensions, including all five Pew gender views. Complete blueprints and item-complete prose prevent silent textual compression. But rich prose and a large effective support do not guarantee fidelity to observed targets. The next capability should iterate on joint support geometry after feasibility diagnostics, and fitting should add a maximum target-residual gate alongside concentration and convergence gates.</div>
+
+  <h2>Artifacts and reproducibility</h2>
+  <ul>
+    <li><a href="../examples/pew_w154/augmentation/prior_probe/pew_work_family_consensus_consensus_audit.csv">Model-consensus audit</a></li>
+    <li><a href="../examples/pew_w154/augmentation/pew_augmented_targets.json">Merged observed and synthetic targets</a></li>
+    <li><a href="../examples/pew_w154/augmentation/support_v2/initial/validation/pew_work_family_detailed_blueprint_fidelity.csv">Initial blueprint fidelity</a></li>
+    <li><a href="../examples/pew_w154/augmentation/support_v2/repair_1/validation/pew_work_family_detailed_repair1_blueprint_fidelity.csv">Repair blueprint fidelity</a></li>
+    <li><a href="../examples/pew_w154/augmentation/support_v2/final_bank/feasibility/pew_work_family_detailed_288_feasibility_summary.csv">Strict feasibility summary</a></li>
+    <li><a href="../examples/pew_w154/augmentation/support_v2/final_bank/fit/pew_work_family_detailed_288_fit_diagnostics.csv">Fit diagnostics</a></li>
+    <li><a href="../examples/pew_w154/augmentation/support_v2/final_bank/fit/pew_work_family_detailed_288_constraint_diagnostics.csv">Target-by-target residuals</a></li>
+  </ul>
+</main></body>
+</html>

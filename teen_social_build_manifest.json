@@ -1,0 +1,119 @@
+{
+  "data": {
+    "anchors": 2,
+    "coverage_complete": true,
+    "coverage_path": "teen_social_coverage.csv",
+    "design": null,
+    "duplicate_prompts": 0,
+    "manifest_path": "teen_social_build_manifest.json",
+    "metadata_source": {
+      "kind": "file",
+      "path": "examples/teen_social_2026/teen_social_college.json"
+    },
+    "omitted_coverage_cells": 0,
+    "preset": "pattern-coverage",
+    "prompts_html_path": "teen_social_prompts.html",
+    "prompts_path": "teen_social_prompts.jsonl",
+    "resolved_design_path": "teen_social_resolved_design.yaml",
+    "reused": false,
+    "rows": 5,
+    "support_plan_path": "teen_social_support_plan.csv",
+    "tag": "teen_social"
+  },
+  "kind": "umriss_support_build",
+  "outputs": {
+    "teen_social_coverage.csv": {
+      "path": "teen_social_coverage.csv",
+      "sha256": "3fc8e8a4a7259bdd1307150f0ff180adc53cea040a5ed1292c1fea5210b0169a"
+    },
+    "teen_social_prompts.html": {
+      "path": "teen_social_prompts.html",
+      "sha256": "b2f042ed5560a4b4743f1f752eec839242c3602162f31ab0d08886904fc34d0d"
+    },
+    "teen_social_prompts.jsonl": {
+      "path": "teen_social_prompts.jsonl",
+      "sha256": "16e15dfacdcb172a376a657dfb70e91da7127231be605051fe781e3c2234fa2d"
+    },
+    "teen_social_resolved_design.yaml": {
+      "path": "teen_social_resolved_design.yaml",
+      "sha256": "1062ad9006b356fff3fe8ef276b3dad071f01e5f71c6d92f7012ff21b6e18de4"
+    },
+    "teen_social_support_plan.csv": {
+      "path": "teen_social_support_plan.csv",
+      "sha256": "d27f4f49859b5e93ccef75aa96fc5b04a35b2c4563d3d734c4ac9aed41440207"
+    }
+  },
+  "provenance": {
+    "command": "umriss support build",
+    "created_at": "2026-07-29T00:14:31Z",
+    "fingerprint": "af91eec70f0cf29411e2c5e6818135dcc882f3fabc91fdaadcc9db9fa673ff5b",
+    "inputs": {
+      "metadata": {
+        "path": "examples/teen_social_2026/teen_social_college.json",
+        "sha256": "9a33e5b5b640a2bd19ce769e73ce81054880bdba011df655841eea355f35007e"
+      }
+    },
+    "parameters": {
+      "n_support": null,
+      "preset": "pattern-coverage",
+      "resolved_design": {
+        "components": [
+          {
+            "coherence": "item_specific",
+            "intensity": {
+              "allocation": "balanced",
+              "values": [
+                "moderate",
+                "strong"
+              ]
+            },
+            "items": "all",
+            "minimum_per_option": 1,
+            "type": "option_coverage"
+          },
+          {
+            "coherence": "explicit",
+            "patterns": [
+              {
+                "social_media_hours": "Less than one hour"
+              },
+              {
+                "social_media_hours": "Four or more hours"
+              }
+            ],
+            "type": "pattern_anchors"
+          }
+        ],
+        "coverage": {
+          "allocation": "balanced",
+          "mode": "complete"
+        },
+        "guardrails": {
+          "describe_as_recovered_respondents": false,
+          "leak_target_marginals": false,
+          "silent_coverage_truncation": false,
+          "silent_invalid_response_repair": false
+        },
+        "preset": "pattern-coverage",
+        "probabilities": {
+          "allow_zero": false,
+          "interpretation": "subjective_response_probability",
+          "minimum_probability": 0.01,
+          "require_sum": 1
+        },
+        "profile": {
+          "forbid_demographic_invention": true,
+          "framing": "synthetic_respondent"
+        },
+        "schema_version": 1,
+        "seed": 20260625,
+        "size": 5
+      },
+      "seed": null,
+      "tag": "teen_social"
+    },
+    "schema_version": 1,
+    "umriss_version": "0.1.0"
+  },
+  "schema_version": 1
+}

@@ -1,0 +1,76 @@
+support_id,job_id,item,option_index,option_code,option_label,probability
+1,teen_social_001,social_media_hours,0,1,Less than one hour,0.56
+1,teen_social_001,social_media_hours,1,2,One to three hours,0.34
+1,teen_social_001,social_media_hours,2,3,Four or more hours,0.1
+2,teen_social_002,social_media_hours,0,1,Less than one hour,0.05
+2,teen_social_002,social_media_hours,1,2,One to three hours,0.88
+2,teen_social_002,social_media_hours,2,3,Four or more hours,0.07
+3,teen_social_003,social_media_hours,0,1,Less than one hour,0.05
+3,teen_social_003,social_media_hours,1,2,One to three hours,0.3
+3,teen_social_003,social_media_hours,2,3,Four or more hours,0.65
+4,teen_social_004,social_media_hours,0,1,Less than one hour,0.88
+4,teen_social_004,social_media_hours,1,2,One to three hours,0.11
+4,teen_social_004,social_media_hours,2,3,Four or more hours,0.01
+5,teen_social_005,social_media_hours,0,1,Less than one hour,0.01
+5,teen_social_005,social_media_hours,1,2,One to three hours,0.04
+5,teen_social_005,social_media_hours,2,3,Four or more hours,0.95
+1,teen_social_001,posting_frequency,0,1,Never or almost never,0.5
+1,teen_social_001,posting_frequency,1,2,Less than once a week,0.35
+1,teen_social_001,posting_frequency,2,3,A few times a week,0.12
+1,teen_social_001,posting_frequency,3,4,At least once a day,0.03
+1,teen_social_001,sleep_interference,0,1,Never,0.45
+1,teen_social_001,sleep_interference,1,2,Rarely,0.4
+1,teen_social_001,sleep_interference,2,3,Sometimes,0.12
+1,teen_social_001,sleep_interference,3,4,Often,0.03
+1,teen_social_001,social_comparison,0,1,Never,0.25
+1,teen_social_001,social_comparison,1,2,Rarely,0.45
+1,teen_social_001,social_comparison,2,3,Sometimes,0.25
+1,teen_social_001,social_comparison,3,4,Often,0.05
+2,teen_social_002,posting_frequency,0,1,Never or almost never,0.08
+2,teen_social_002,posting_frequency,1,2,Less than once a week,0.27
+2,teen_social_002,posting_frequency,2,3,A few times a week,0.45
+2,teen_social_002,posting_frequency,3,4,At least once a day,0.2
+2,teen_social_002,sleep_interference,0,1,Never,0.12
+2,teen_social_002,sleep_interference,1,2,Rarely,0.36
+2,teen_social_002,sleep_interference,2,3,Sometimes,0.4
+2,teen_social_002,sleep_interference,3,4,Often,0.12
+2,teen_social_002,social_comparison,0,1,Never,0.12
+2,teen_social_002,social_comparison,1,2,Rarely,0.43
+2,teen_social_002,social_comparison,2,3,Sometimes,0.35
+2,teen_social_002,social_comparison,3,4,Often,0.1
+3,teen_social_003,posting_frequency,0,1,Never or almost never,0.05
+3,teen_social_003,posting_frequency,1,2,Less than once a week,0.15
+3,teen_social_003,posting_frequency,2,3,A few times a week,0.45
+3,teen_social_003,posting_frequency,3,4,At least once a day,0.35
+3,teen_social_003,sleep_interference,0,1,Never,0.05
+3,teen_social_003,sleep_interference,1,2,Rarely,0.2
+3,teen_social_003,sleep_interference,2,3,Sometimes,0.5
+3,teen_social_003,sleep_interference,3,4,Often,0.25
+3,teen_social_003,social_comparison,0,1,Never,0.05
+3,teen_social_003,social_comparison,1,2,Rarely,0.25
+3,teen_social_003,social_comparison,2,3,Sometimes,0.5
+3,teen_social_003,social_comparison,3,4,Often,0.2
+4,teen_social_004,posting_frequency,0,1,Never or almost never,0.5
+4,teen_social_004,posting_frequency,1,2,Less than once a week,0.35
+4,teen_social_004,posting_frequency,2,3,A few times a week,0.12
+4,teen_social_004,posting_frequency,3,4,At least once a day,0.03
+4,teen_social_004,sleep_interference,0,1,Never,0.45
+4,teen_social_004,sleep_interference,1,2,Rarely,0.4
+4,teen_social_004,sleep_interference,2,3,Sometimes,0.12
+4,teen_social_004,sleep_interference,3,4,Often,0.03
+4,teen_social_004,social_comparison,0,1,Never,0.35
+4,teen_social_004,social_comparison,1,2,Rarely,0.45
+4,teen_social_004,social_comparison,2,3,Sometimes,0.17
+4,teen_social_004,social_comparison,3,4,Often,0.03
+5,teen_social_005,posting_frequency,0,1,Never or almost never,0.03
+5,teen_social_005,posting_frequency,1,2,Less than once a week,0.1
+5,teen_social_005,posting_frequency,2,3,A few times a week,0.37
+5,teen_social_005,posting_frequency,3,4,At least once a day,0.5
+5,teen_social_005,sleep_interference,0,1,Never,0.05
+5,teen_social_005,sleep_interference,1,2,Rarely,0.15
+5,teen_social_005,sleep_interference,2,3,Sometimes,0.45
+5,teen_social_005,sleep_interference,3,4,Often,0.35
+5,teen_social_005,social_comparison,0,1,Never,0.08
+5,teen_social_005,social_comparison,1,2,Rarely,0.27
+5,teen_social_005,social_comparison,2,3,Sometimes,0.47
+5,teen_social_005,social_comparison,3,4,Often,0.18

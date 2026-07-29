@@ -1,0 +1,9 @@
+target_id,type,status,valid,problems,source_kind,confidence_weight
+marginal:social_media_hours,marginal,rejected,True,[],model_synthetic,1.0
+marginal:posting_frequency,marginal,accepted,True,[],model_synthetic,1.0
+marginal:late_night_use,marginal,rejected,True,[],model_synthetic,1.0
+marginal:sleep_interference,marginal,accepted,True,[],model_synthetic,1.0
+marginal:social_comparison,marginal,accepted,True,[],model_synthetic,1.0
+marginal:connection_effect,marginal,rejected,True,[],model_synthetic,1.0
+marginal:parental_rules,marginal,rejected,True,[],model_synthetic,1.0
+marginal:primary_platform,marginal,rejected,True,[],model_synthetic,1.0

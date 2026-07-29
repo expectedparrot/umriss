@@ -1,0 +1,281 @@
+items,job_id,prompt,shape,source_job_id,stage,support_id,target_id,target_type
+['posting_frequency'],teen_social_enrichment_1_posting_frequency,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are cautious and selective. You see it as useful for checking in or passing a little time, but not something you want taking over your day. You are likely to keep your use brief, dipping in occasionally rather than scrolling for long stretches.
+
+Question: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+Options, in order: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",[4],teen_social_001,support_extension,1,marginal:posting_frequency,marginal
+['sleep_interference'],teen_social_enrichment_1_sleep_interference,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are cautious and selective. You see it as useful for checking in or passing a little time, but not something you want taking over your day. You are likely to keep your use brief, dipping in occasionally rather than scrolling for long stretches.
+
+Question: How often does social media interfere with getting enough sleep? Social-media interference with sleep
+Options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",[4],teen_social_001,support_extension,1,marginal:sleep_interference,marginal
+['social_comparison'],teen_social_enrichment_1_social_comparison,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are cautious and selective. You see it as useful for checking in or passing a little time, but not something you want taking over your day. You are likely to keep your use brief, dipping in occasionally rather than scrolling for long stretches.
+
+Question: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",[4],teen_social_001,support_extension,1,marginal:social_comparison,marginal
+"['posting_frequency', 'social_comparison']",teen_social_enrichment_1_posting_frequency_x_social_comparison,"Give this existing persona's joint response probabilities for two survey items.
+
+Persona:
+Your views on social media are cautious and selective. You see it as useful for checking in or passing a little time, but not something you want taking over your day. You are likely to keep your use brief, dipping in occasionally rather than scrolling for long stretches.
+
+First question: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+Rows: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Second question: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Columns: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return the joint distribution directly, including any residual dependence within this persona.
+Return only valid JSON:
+{
+  ""joint_probabilities"": [[one nonnegative cell per column] per row]
+}
+The 4 by 4 matrix must sum to 1.","[4, 4]",teen_social_001,support_extension,1,joint:posting_frequency:social_comparison,joint
+['posting_frequency'],teen_social_enrichment_2_posting_frequency,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are balanced but engaged: it is a normal daily part of staying connected, keeping up with friends, and passing time, but it does not take over most of your day. You tend to spend a noticeable amount of time checking apps, messaging, scrolling, or watching short videos, while still seeing social media as something you can put down when other priorities come up.
+
+Question: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+Options, in order: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",[4],teen_social_002,support_extension,2,marginal:posting_frequency,marginal
+['sleep_interference'],teen_social_enrichment_2_sleep_interference,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are balanced but engaged: it is a normal daily part of staying connected, keeping up with friends, and passing time, but it does not take over most of your day. You tend to spend a noticeable amount of time checking apps, messaging, scrolling, or watching short videos, while still seeing social media as something you can put down when other priorities come up.
+
+Question: How often does social media interfere with getting enough sleep? Social-media interference with sleep
+Options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",[4],teen_social_002,support_extension,2,marginal:sleep_interference,marginal
+['social_comparison'],teen_social_enrichment_2_social_comparison,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are balanced but engaged: it is a normal daily part of staying connected, keeping up with friends, and passing time, but it does not take over most of your day. You tend to spend a noticeable amount of time checking apps, messaging, scrolling, or watching short videos, while still seeing social media as something you can put down when other priorities come up.
+
+Question: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",[4],teen_social_002,support_extension,2,marginal:social_comparison,marginal
+"['posting_frequency', 'social_comparison']",teen_social_enrichment_2_posting_frequency_x_social_comparison,"Give this existing persona's joint response probabilities for two survey items.
+
+Persona:
+Your views on social media are balanced but engaged: it is a normal daily part of staying connected, keeping up with friends, and passing time, but it does not take over most of your day. You tend to spend a noticeable amount of time checking apps, messaging, scrolling, or watching short videos, while still seeing social media as something you can put down when other priorities come up.
+
+First question: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+Rows: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Second question: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Columns: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return the joint distribution directly, including any residual dependence within this persona.
+Return only valid JSON:
+{
+  ""joint_probabilities"": [[one nonnegative cell per column] per row]
+}
+The 4 by 4 matrix must sum to 1.","[4, 4]",teen_social_002,support_extension,2,joint:posting_frequency:social_comparison,joint
+['posting_frequency'],teen_social_enrichment_3_posting_frequency,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are that it is a regular part of your daily routine and a main way to stay connected, entertained, and aware of what friends and peers are doing. You do not necessarily see your use as extreme or unusual, but you often spend long stretches checking apps, watching videos, messaging, or scrolling throughout the day.
+
+Question: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+Options, in order: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",[4],teen_social_003,support_extension,3,marginal:posting_frequency,marginal
+['sleep_interference'],teen_social_enrichment_3_sleep_interference,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are that it is a regular part of your daily routine and a main way to stay connected, entertained, and aware of what friends and peers are doing. You do not necessarily see your use as extreme or unusual, but you often spend long stretches checking apps, watching videos, messaging, or scrolling throughout the day.
+
+Question: How often does social media interfere with getting enough sleep? Social-media interference with sleep
+Options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",[4],teen_social_003,support_extension,3,marginal:sleep_interference,marginal
+['social_comparison'],teen_social_enrichment_3_social_comparison,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are that it is a regular part of your daily routine and a main way to stay connected, entertained, and aware of what friends and peers are doing. You do not necessarily see your use as extreme or unusual, but you often spend long stretches checking apps, watching videos, messaging, or scrolling throughout the day.
+
+Question: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",[4],teen_social_003,support_extension,3,marginal:social_comparison,marginal
+"['posting_frequency', 'social_comparison']",teen_social_enrichment_3_posting_frequency_x_social_comparison,"Give this existing persona's joint response probabilities for two survey items.
+
+Persona:
+Your views on social media are that it is a regular part of your daily routine and a main way to stay connected, entertained, and aware of what friends and peers are doing. You do not necessarily see your use as extreme or unusual, but you often spend long stretches checking apps, watching videos, messaging, or scrolling throughout the day.
+
+First question: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+Rows: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Second question: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Columns: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return the joint distribution directly, including any residual dependence within this persona.
+Return only valid JSON:
+{
+  ""joint_probabilities"": [[one nonnegative cell per column] per row]
+}
+The 4 by 4 matrix must sum to 1.","[4, 4]",teen_social_003,support_extension,3,joint:posting_frequency:social_comparison,joint
+['posting_frequency'],teen_social_enrichment_4_posting_frequency,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are restrained and low-intensity. You see it as a minor part of daily life rather than a central routine, and you are more likely to limit your time online or use social platforms only briefly.
+
+Question: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+Options, in order: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",[4],teen_social_004,support_extension,4,marginal:posting_frequency,marginal
+['sleep_interference'],teen_social_enrichment_4_sleep_interference,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are restrained and low-intensity. You see it as a minor part of daily life rather than a central routine, and you are more likely to limit your time online or use social platforms only briefly.
+
+Question: How often does social media interfere with getting enough sleep? Social-media interference with sleep
+Options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",[4],teen_social_004,support_extension,4,marginal:sleep_interference,marginal
+['social_comparison'],teen_social_enrichment_4_social_comparison,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media are restrained and low-intensity. You see it as a minor part of daily life rather than a central routine, and you are more likely to limit your time online or use social platforms only briefly.
+
+Question: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",[4],teen_social_004,support_extension,4,marginal:social_comparison,marginal
+"['posting_frequency', 'social_comparison']",teen_social_enrichment_4_posting_frequency_x_social_comparison,"Give this existing persona's joint response probabilities for two survey items.
+
+Persona:
+Your views on social media are restrained and low-intensity. You see it as a minor part of daily life rather than a central routine, and you are more likely to limit your time online or use social platforms only briefly.
+
+First question: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+Rows: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Second question: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Columns: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return the joint distribution directly, including any residual dependence within this persona.
+Return only valid JSON:
+{
+  ""joint_probabilities"": [[one nonnegative cell per column] per row]
+}
+The 4 by 4 matrix must sum to 1.","[4, 4]",teen_social_004,support_extension,4,joint:posting_frequency:social_comparison,joint
+['posting_frequency'],teen_social_enrichment_5_posting_frequency,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media reflect that it is a major part of your daily routine, used frequently for connection, entertainment, and keeping up with what others are doing.
+
+Question: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+Options, in order: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",[4],teen_social_005,support_extension,5,marginal:posting_frequency,marginal
+['sleep_interference'],teen_social_enrichment_5_sleep_interference,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media reflect that it is a major part of your daily routine, used frequently for connection, entertainment, and keeping up with what others are doing.
+
+Question: How often does social media interfere with getting enough sleep? Social-media interference with sleep
+Options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",[4],teen_social_005,support_extension,5,marginal:sleep_interference,marginal
+['social_comparison'],teen_social_enrichment_5_social_comparison,"Answer a new survey item from this existing persona's point of view.
+
+Persona:
+Your views on social media reflect that it is a major part of your daily routine, used frequently for connection, entertainment, and keeping up with what others are doing.
+
+Question: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Options, in order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return only valid JSON:
+{
+  ""probabilities"": [one nonnegative probability per option, summing to 1]
+}
+Do not add demographics or revise the persona.",[4],teen_social_005,support_extension,5,marginal:social_comparison,marginal
+"['posting_frequency', 'social_comparison']",teen_social_enrichment_5_posting_frequency_x_social_comparison,"Give this existing persona's joint response probabilities for two survey items.
+
+Persona:
+Your views on social media reflect that it is a major part of your daily routine, used frequently for connection, entertainment, and keeping up with what others are doing.
+
+First question: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+Rows: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Second question: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Columns: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return the joint distribution directly, including any residual dependence within this persona.
+Return only valid JSON:
+{
+  ""joint_probabilities"": [[one nonnegative cell per column] per row]
+}
+The 4 by 4 matrix must sum to 1.","[4, 4]",teen_social_005,support_extension,5,joint:posting_frequency:social_comparison,joint

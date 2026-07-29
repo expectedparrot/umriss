@@ -1,0 +1,35 @@
+schema_version: 1
+preset: pattern-coverage
+size: 5
+seed: 20260625
+coverage:
+  mode: complete
+  allocation: balanced
+components:
+- type: option_coverage
+  items: all
+  minimum_per_option: 1
+  coherence: item_specific
+  intensity:
+    values:
+    - moderate
+    - strong
+    allocation: balanced
+- type: pattern_anchors
+  patterns:
+  - social_media_hours: Less than one hour
+  - social_media_hours: Four or more hours
+  coherence: explicit
+profile:
+  framing: synthetic_respondent
+  forbid_demographic_invention: true
+probabilities:
+  interpretation: subjective_response_probability
+  require_sum: 1
+  allow_zero: false
+  minimum_probability: 0.01
+guardrails:
+  leak_target_marginals: false
+  silent_coverage_truncation: false
+  silent_invalid_response_repair: false
+  describe_as_recovered_respondents: false

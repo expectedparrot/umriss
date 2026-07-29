@@ -1,0 +1,2 @@
+tag,inside_convex_hull_at_tolerance,tolerance,minimum_maximum_absolute_residual,witness_rmse,witness_effective_support,witness_max_weight,support_points,constraint_cells,outside_individual_cell_ranges
+teen_social_life_blueprint_repaired_384,True,0.01,0.008965013060991844,0.008292143452426372,8.256986779500568,0.218460427320986,384,28,0

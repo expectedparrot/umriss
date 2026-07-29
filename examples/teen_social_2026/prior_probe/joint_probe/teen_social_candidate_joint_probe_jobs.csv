@@ -1,0 +1,20 @@
+items,job_id,population,prompt,shape,stage,target_id,target_type
+"['posting_frequency', 'social_comparison']",teen_social_candidate_joint_probe_posting_frequency_x_social_comparison,teen_girls_all,"Predict one joint population response distribution for two survey items.
+
+Population: teen_girls_all
+Survey context: Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.
+Battery topic: social-media habits and experiences among US teen girls
+
+First item: Thinking about a typical week, how often do you post or share something publicly or with followers on social media? Posting or sharing frequency
+First-item options, in row order: [""Never or almost never"", ""Less than once a week"", ""A few times a week"", ""At least once a day""]
+
+Second item: How often does seeing other people's posts on social media make you feel worse about your own life? Negative social comparison
+Second-item options, in column order: [""Never"", ""Rarely"", ""Sometimes"", ""Often""]
+
+Return the joint distribution directly. Do not multiply separately estimated marginals.
+Return only valid JSON:
+{
+  ""reasoning_summary"": ""brief explanation"",
+  ""joint_probabilities"": [[one nonnegative cell per column] per row]
+}
+The matrix must have shape 4 by 4 and all cells together must sum to 1.","[4, 4]",prior_joint,joint:posting_frequency:social_comparison,joint

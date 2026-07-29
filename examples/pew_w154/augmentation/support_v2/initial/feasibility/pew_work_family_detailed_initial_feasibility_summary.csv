@@ -1,0 +1,2 @@
+tag,inside_convex_hull_at_tolerance,tolerance,minimum_maximum_absolute_residual,witness_rmse,witness_effective_support,witness_max_weight,support_points,constraint_cells,outside_individual_cell_ranges
+pew_work_family_detailed_initial,False,0.01,0.06365258228596314,0.048339218029568747,6.74823313904771,0.2695606825793965,96,34,2

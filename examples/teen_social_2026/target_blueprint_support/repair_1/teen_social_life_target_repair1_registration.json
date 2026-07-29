@@ -1,0 +1,37 @@
+{
+  "kind": "umriss_result_registration",
+  "outputs": {
+    "jobs": {
+      "path": "examples/teen_social_2026/target_blueprint_support/repair_1/teen_social_life_target_repair1_jobs.csv",
+      "sha256": "d0305bf1b81bcfb05adc74950b692adda27b69dbb6e56e38967de1f75cb1a34e"
+    },
+    "raw": {
+      "path": "examples/teen_social_2026/target_blueprint_support/repair_1/teen_social_life_target_repair1_raw.csv",
+      "sha256": "615a161c97e4ed0df0271f414e27d474c589cd906f3d51da3b28ec0988012ba9"
+    }
+  },
+  "provenance": {
+    "command": "umriss support register-results",
+    "created_at": "2026-07-29T02:56:53Z",
+    "fingerprint": "48e6f1d6f4d7236e165d8a838b605643bb14a8330a09ec6e3bad08028e600cf7",
+    "inputs": {
+      "prompts": {
+        "path": "examples/teen_social_2026/target_blueprint_support/repair_1/teen_social_life_target_repair1_prompts.jsonl",
+        "sha256": "763807abe84e13baa26c20717ba52a2c2f313eefbab31f881ed91f30e9c8c51d"
+      },
+      "results": {
+        "path": "examples/teen_social_2026/target_blueprint_support/repair_1/teen_social_life_target_repair1.results.ep",
+        "sha256": "721faed9ed3868dfde99e6890528bc4b0c3c04778dae3c026596e7a678735bba"
+      }
+    },
+    "parameters": {
+      "out": "examples/teen_social_2026/target_blueprint_support/repair_1",
+      "tag": "teen_social_life_target_repair1"
+    },
+    "schema_version": 1,
+    "umriss_version": "0.1.0"
+  },
+  "rows": 256,
+  "schema_version": 1,
+  "tag": "teen_social_life_target_repair1"
+}

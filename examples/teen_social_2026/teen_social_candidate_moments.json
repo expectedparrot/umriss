@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "wave": "ATS2026",
+  "battery": "SOCIAL_RICH",
+  "survey_key": "teen_social_candidate_moments",
+  "topic": "social-media habits and experiences among US teen girls",
+  "context": "Imagine a nationally representative 2026 survey of US teen girls. Predict the response distribution for the population named in the survey item. These candidate questions were not observed in the American Teenagers Survey and are being used to study whether frontier-model consensus can supply explicitly synthetic calibration targets.",
+  "items": {
+    "social_media_hours": {
+      "variable": "SOCIALTIME_girls",
+      "question_stem": "Thinking about a typical day, about how much time do you spend on social media?",
+      "item_text": "Daily time on social media",
+      "option_codes": [1, 2, 3],
+      "option_labels": [
+        "Less than one hour",
+        "One to three hours",
+        "Four or more hours"
+      ],
+      "scale": {
+        "type": "ordinal",
+        "direction": "low_to_high"
+      }
+    },
+    "posting_frequency": {
+      "variable": "POSTFREQ_girls",
+      "question_stem": "Thinking about a typical week, how often do you post or share something publicly or with followers on social media?",
+      "item_text": "Posting or sharing frequency",
+      "option_codes": [1, 2, 3, 4],
+      "option_labels": [
+        "Never or almost never",
+        "Less than once a week",
+        "A few times a week",
+        "At least once a day"
+      ],
+      "scale": {
+        "type": "ordinal",
+        "direction": "low_to_high"
+      }
+    },
+    "late_night_use": {
+      "variable": "LATENIGHT_girls",
+      "question_stem": "How often do you use social media after you intended to go to sleep?",
+      "item_text": "Social-media use after intended bedtime",
+      "option_codes": [1, 2, 3, 4],
+      "option_labels": ["Never", "Rarely", "Sometimes", "Often"],
+      "scale": {
+        "type": "ordinal",
+        "direction": "low_to_high"
+      }
+    },
+    "sleep_interference": {
+      "variable": "SLEEPINT_girls",
+      "question_stem": "How often does social media interfere with getting enough sleep?",
+      "item_text": "Social-media interference with sleep",
+      "option_codes": [1, 2, 3, 4],
+      "option_labels": ["Never", "Rarely", "Sometimes", "Often"],
+      "scale": {
+        "type": "ordinal",
+        "direction": "low_to_high"
+      }
+    },
+    "social_comparison": {
+      "variable": "COMPARE_girls",
+      "question_stem": "How often does seeing other people's posts on social media make you feel worse about your own life?",
+      "item_text": "Negative social comparison",
+      "option_codes": [1, 2, 3, 4],
+      "option_labels": ["Never", "Rarely", "Sometimes", "Often"],
+      "scale": {
+        "type": "ordinal",
+        "direction": "low_to_high"
+      }
+    },
+    "connection_effect": {
+      "variable": "CONNECT_girls",
+      "question_stem": "Overall, what effect does social media have on how connected you feel to friends?",
+      "item_text": "Effect on connection to friends",
+      "option_codes": [1, 2, 3],
+      "option_labels": [
+        "Makes me feel less connected",
+        "Makes little difference",
+        "Makes me feel more connected"
+      ],
+      "scale": {
+        "type": "ordinal",
+        "direction": "low_to_high"
+      }
+    },
+    "parental_rules": {
+      "variable": "RULES_girls",
+      "question_stem": "How would you describe the rules your parent or guardian sets about your social-media use?",
+      "item_text": "Strictness of parental social-media rules",
+      "option_codes": [1, 2, 3, 4],
+      "option_labels": [
+        "No rules",
+        "A few loose rules",
+        "Some clear rules",
+        "Very strict rules"
+      ],
+      "scale": {
+        "type": "ordinal",
+        "direction": "low_to_high"
+      }
+    },
+    "primary_platform": {
+      "variable": "PRIMARYPLATFORM_girls",
+      "question_stem": "Which social-media platform do you spend the most time on?",
+      "item_text": "Primary social-media platform",
+      "option_codes": [1, 2, 3, 4, 5, 6],
+      "option_labels": [
+        "TikTok",
+        "Instagram",
+        "YouTube",
+        "Snapchat",
+        "Another platform",
+        "I do not use social media"
+      ],
+      "scale": {
+        "type": "nominal"
+      }
+    }
+  }
+}
