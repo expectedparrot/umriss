@@ -1,0 +1,514 @@
+schema_version: 1
+preset: geometry-repair-blueprints
+size: 16
+seed: 20260802
+coverage:
+  mode: complete
+  allocation: minimax_direction
+components:
+- type: pattern_anchors
+  patterns:
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Living with a partner
+    children_at_home: No children under 18
+    household_income: $100,000 to $149,999
+    marriage_importance: Not at all important
+    parenthood_importance: Very important
+    paid_work_priority: Somewhat important
+    childcare_division: One parent should do most of it
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: Both adults should decide together
+    career_sacrifice_rule: Both adults should reduce work as equally as possible
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Living with a partner
+    children_at_home: Children both under 6 and ages 6 to 17
+    household_income: $100,000 to $149,999
+    marriage_importance: Not too important
+    parenthood_importance: Somewhat important
+    paid_work_priority: Somewhat important
+    childcare_division: It depends entirely on the family
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: Both adults should decide together
+    career_sacrifice_rule: The adult with the more flexible job should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Living with a partner
+    children_at_home: No children under 18
+    household_income: $100,000 to $149,999
+    marriage_importance: Not too important
+    parenthood_importance: Very important
+    paid_work_priority: Somewhat important
+    childcare_division: The parent with more available time should do more
+    housework_division: The person with more available time should do more
+    financial_decision_style: The higher earner should usually decide
+    career_sacrifice_rule: The adult with the more flexible job should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Living with a partner
+    children_at_home: At least one child under 6
+    household_income: $50,000 to $99,999
+    marriage_importance: Not at all important
+    parenthood_importance: Somewhat important
+    paid_work_priority: Somewhat important
+    childcare_division: One parent should do most of it
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: The person who manages the money should usually decide
+    career_sacrifice_rule: The adult with the more flexible job should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Living with a partner
+    children_at_home: At least one child under 6
+    household_income: $100,000 to $149,999
+    marriage_importance: Very important
+    parenthood_importance: Very important
+    paid_work_priority: Somewhat important
+    childcare_division: Both parents should divide it about equally
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: It depends on the decision
+    career_sacrifice_rule: It depends entirely on the family
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically similar
+    workplace: Men and women are basically different
+    relationship_status: Married
+    children_at_home: No children under 18
+    household_income: $100,000 to $149,999
+    marriage_importance: Not too important
+    parenthood_importance: Very important
+    paid_work_priority: Somewhat important
+    childcare_division: Both parents should divide it about equally
+    housework_division: The person with more available time should do more
+    financial_decision_style: The higher earner should usually decide
+    career_sacrifice_rule: It depends entirely on the family
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically similar
+    workplace: Men and women are basically similar
+    relationship_status: Not currently in a relationship
+    children_at_home: At least one child under 6
+    household_income: $100,000 to $149,999
+    marriage_importance: Not at all important
+    parenthood_importance: Very important
+    paid_work_priority: Somewhat important
+    childcare_division: It depends entirely on the family
+    housework_division: One person should do most of it
+    financial_decision_style: The higher earner should usually decide
+    career_sacrifice_rule: Both adults should reduce work as equally as possible
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Living with a partner
+    children_at_home: No children under 18
+    household_income: $100,000 to $149,999
+    marriage_importance: Not at all important
+    parenthood_importance: Very important
+    paid_work_priority: Very important
+    childcare_division: Both parents should divide it about equally
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: The higher earner should usually decide
+    career_sacrifice_rule: The lower earner should reduce work
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Married
+    children_at_home: No children under 18
+    household_income: $50,000 to $99,999
+    marriage_importance: Not at all important
+    parenthood_importance: Somewhat important
+    paid_work_priority: Not too important
+    childcare_division: The parent with more available time should do more
+    housework_division: One person should do most of it
+    financial_decision_style: The person who manages the money should usually decide
+    career_sacrifice_rule: The lower earner should reduce work
+  - hobbies: Men and women are basically similar
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically similar
+    workplace: Men and women are basically similar
+    relationship_status: Not currently in a relationship
+    children_at_home: No children under 18
+    household_income: Less than $50,000
+    marriage_importance: Not at all important
+    parenthood_importance: Very important
+    paid_work_priority: Very important
+    childcare_division: Both parents should divide it about equally
+    housework_division: One person should do most of it
+    financial_decision_style: The higher earner should usually decide
+    career_sacrifice_rule: It depends entirely on the family
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Living with a partner
+    children_at_home: No children under 18
+    household_income: $150,000 or more
+    marriage_importance: Somewhat important
+    parenthood_importance: Very important
+    paid_work_priority: Somewhat important
+    childcare_division: Both parents should divide it about equally
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: The person who manages the money should usually decide
+    career_sacrifice_rule: The lower earner should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Married
+    children_at_home: Only children ages 6 to 17
+    household_income: $150,000 or more
+    marriage_importance: Somewhat important
+    parenthood_importance: Not at all important
+    paid_work_priority: Somewhat important
+    childcare_division: It depends entirely on the family
+    housework_division: The person with more available time should do more
+    financial_decision_style: The person who manages the money should usually decide
+    career_sacrifice_rule: Both adults should reduce work as equally as possible
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Living with a partner
+    children_at_home: No children under 18
+    household_income: $100,000 to $149,999
+    marriage_importance: Not at all important
+    parenthood_importance: Somewhat important
+    paid_work_priority: Very important
+    childcare_division: The parent with more available time should do more
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: The higher earner should usually decide
+    career_sacrifice_rule: It depends entirely on the family
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically different
+    feelings: Men and women are basically different
+    workplace: Men and women are basically different
+    relationship_status: Living with a partner
+    children_at_home: At least one child under 6
+    household_income: $100,000 to $149,999
+    marriage_importance: Somewhat important
+    parenthood_importance: Very important
+    paid_work_priority: Somewhat important
+    childcare_division: One parent should do most of it
+    housework_division: The person with more available time should do more
+    financial_decision_style: The person who manages the money should usually decide
+    career_sacrifice_rule: It depends entirely on the family
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Not currently in a relationship
+    children_at_home: At least one child under 6
+    household_income: $100,000 to $149,999
+    marriage_importance: Somewhat important
+    parenthood_importance: Not at all important
+    paid_work_priority: Very important
+    childcare_division: Both parents should divide it about equally
+    housework_division: One person should do most of it
+    financial_decision_style: The person who manages the money should usually decide
+    career_sacrifice_rule: The lower earner should reduce work
+  - hobbies: Men and women are basically different
+    physical_abilities: Men and women are basically different
+    parenting: Men and women are basically similar
+    feelings: Men and women are basically different
+    workplace: Men and women are basically similar
+    relationship_status: Not currently in a relationship
+    children_at_home: At least one child under 6
+    household_income: $50,000 to $99,999
+    marriage_importance: Somewhat important
+    parenthood_importance: Very important
+    paid_work_priority: Somewhat important
+    childcare_division: One parent should do most of it
+    housework_division: Both adults should divide it about equally
+    financial_decision_style: Both adults should decide together
+    career_sacrifice_rule: Both adults should reduce work as equally as possible
+  coherence: explicit
+geometry_repair:
+  base_support: examples/pew_w154/augmentation/support_v2/geometry_final_bank_480/pew_work_family_geometry_480_probabilities.csv
+  base_n: 480
+  target_source: examples/pew_w154/augmentation/pew_augmented_targets.json
+  minimum_maximum_absolute_residual: 0.013825699445998716
+  separation_gap: 0.01382569944592961
+  direction:
+  - item: hobbies
+    option_index: 0
+    option_label: Men and women are basically similar
+    target: 0.3199908774739627
+    witness_prediction: 0.33381657691822303
+    witness_residual: -0.01382569944426032
+    separating_direction: 0.0
+  - item: hobbies
+    option_index: 1
+    option_label: Men and women are basically different
+    target: 0.6800091225260373
+    witness_prediction: 0.666183423080428
+    witness_residual: 0.013825699445609296
+    separating_direction: 0.009358692755997768
+  - item: physical_abilities
+    option_index: 0
+    option_label: Men and women are basically similar
+    target: 0.19070482765971405
+    witness_prediction: 0.20453052710525982
+    witness_residual: -0.013825699445545764
+    separating_direction: 0.0
+  - item: physical_abilities
+    option_index: 1
+    option_label: Men and women are basically different
+    target: 0.8092951723402859
+    witness_prediction: 0.7954694728933911
+    witness_residual: 0.013825699446894824
+    separating_direction: 0.05348033107637311
+  - item: parenting
+    option_index: 0
+    option_label: Men and women are basically similar
+    target: 0.2876218161953853
+    witness_prediction: 0.273796116749532
+    witness_residual: 0.013825699445853268
+    separating_direction: 0.0
+  - item: parenting
+    option_index: 1
+    option_label: Men and women are basically different
+    target: 0.7123781838046147
+    witness_prediction: 0.7262038832491189
+    witness_residual: -0.01382569944450418
+    separating_direction: -0.0004344663489899542
+  - item: feelings
+    option_index: 0
+    option_label: Men and women are basically similar
+    target: 0.10958316743872445
+    witness_prediction: 0.12340886688435959
+    witness_residual: -0.013825699445635137
+    separating_direction: -0.679065832129943
+  - item: feelings
+    option_index: 1
+    option_label: Men and women are basically different
+    target: 0.8904168325612756
+    witness_prediction: 0.8765911331142914
+    witness_residual: 0.013825699446984197
+    separating_direction: 0.04445030473882473
+  - item: workplace
+    option_index: 0
+    option_label: Men and women are basically similar
+    target: 0.5725168549843521
+    witness_prediction: 0.5586911555245462
+    witness_residual: 0.01382569945980594
+    separating_direction: 0.0
+  - item: workplace
+    option_index: 1
+    option_label: Men and women are basically different
+    target: 0.4274831450156478
+    witness_prediction: 0.4413088444741048
+    witness_residual: -0.013825699458456964
+    separating_direction: -0.001832442741684959
+  - item: relationship_status
+    option_index: 0
+    option_label: Married
+    target: 0.49
+    witness_prediction: 0.4996488045078119
+    witness_residual: -0.009648804507811914
+    separating_direction: 0.0
+  - item: relationship_status
+    option_index: 1
+    option_label: Living with a partner
+    target: 0.08333333333333333
+    witness_prediction: 0.0695076338873207
+    witness_residual: 0.013825699446012626
+    separating_direction: 0.0009800478598937432
+  - item: relationship_status
+    option_index: 2
+    option_label: In a relationship but not living together
+    target: 0.09666666666666668
+    witness_prediction: 0.1104923661126654
+    witness_residual: -0.013825699445998721
+    separating_direction: -0.0348684744500798
+  - item: relationship_status
+    option_index: 3
+    option_label: Not currently in a relationship
+    target: 0.33
+    witness_prediction: 0.320351195490853
+    witness_residual: 0.009648804509147013
+    separating_direction: 0.0
+  - item: children_at_home
+    option_index: 0
+    option_label: No children under 18
+    target: 0.6733333333333333
+    witness_prediction: 0.6595076338863556
+    witness_residual: 0.013825699446977757
+    separating_direction: 0.006044522212918938
+  - item: children_at_home
+    option_index: 1
+    option_label: At least one child under 6
+    target: 0.08833333333333333
+    witness_prediction: 0.07450763388766884
+    witness_residual: 0.013825699445664488
+    separating_direction: 0.0
+  - item: children_at_home
+    option_index: 2
+    option_label: Only children ages 6 to 17
+    target: 0.16666666666666666
+    witness_prediction: 0.18049236611258523
+    witness_residual: -0.013825699445918577
+    separating_direction: -0.015863508870304584
+  - item: children_at_home
+    option_index: 3
+    option_label: Children both under 6 and ages 6 to 17
+    target: 0.07166666666666667
+    witness_prediction: 0.0854923661120414
+    witness_residual: -0.013825699445374734
+    separating_direction: -0.01597492484279931
+  - item: household_income
+    option_index: 0
+    option_label: Less than $50,000
+    target: 0.2966666666666667
+    witness_prediction: 0.2851763709294485
+    witness_residual: 0.011490295737218215
+    separating_direction: 0.0
+  - item: household_income
+    option_index: 1
+    option_label: $50,000 to $99,999
+    target: 0.2866666666666667
+    witness_prediction: 0.2981569624004506
+    witness_residual: -0.011490295733783906
+    separating_direction: 0.0
+  - item: household_income
+    option_index: 2
+    option_label: $100,000 to $149,999
+    target: 0.18666666666666668
+    witness_prediction: 0.17284096722268588
+    witness_residual: 0.013825699443980793
+    separating_direction: 0.018136833670782754
+  - item: household_income
+    option_index: 3
+    option_label: $150,000 or more
+    target: 0.22999999999999998
+    witness_prediction: 0.24382569944606605
+    witness_residual: -0.01382569944606607
+    separating_direction: -0.012583651788586492
+  - item: parenthood_importance
+    option_index: 0
+    option_label: Not at all important
+    target: 0.14333333333333334
+    witness_prediction: 0.14658646478729073
+    witness_residual: -0.003253131453957392
+    separating_direction: 0.0
+  - item: parenthood_importance
+    option_index: 1
+    option_label: Not too important
+    target: 0.16333333333333333
+    witness_prediction: 0.177159032779244
+    witness_residual: -0.013825699445910666
+    separating_direction: -0.006861335840266774
+  - item: parenthood_importance
+    option_index: 2
+    option_label: Somewhat important
+    target: 0.2733333333333334
+    witness_prediction: 0.2700802018801528
+    witness_residual: 0.003253131453180569
+    separating_direction: 0.0
+  - item: parenthood_importance
+    option_index: 3
+    option_label: Very important
+    target: 0.42
+    witness_prediction: 0.4061743005519635
+    witness_residual: 0.013825699448036466
+    separating_direction: 0.0081246872115864
+  - item: paid_work_priority
+    option_index: 0
+    option_label: Not at all important
+    target: 0.07
+    witness_prediction: 0.0838256994451938
+    witness_residual: -0.013825699445193795
+    separating_direction: -0.017972752335456296
+  - item: paid_work_priority
+    option_index: 1
+    option_label: Not too important
+    target: 0.1466666666666667
+    witness_prediction: 0.16049236611230996
+    witness_residual: -0.01382569944564327
+    separating_direction: -0.03575338784427634
+  - item: paid_work_priority
+    option_index: 2
+    option_label: Somewhat important
+    target: 0.36999999999999994
+    witness_prediction: 0.3561743005559651
+    witness_residual: 0.013825699444034834
+    separating_direction: 0.011086570436064017
+  - item: paid_work_priority
+    option_index: 3
+    option_label: Very important
+    target: 0.41333333333333333
+    witness_prediction: 0.39950763388518207
+    witness_residual: 0.013825699448151263
+    separating_direction: 0.0
+  - item: housework_division
+    option_index: 0
+    option_label: One person should do most of it
+    target: 0.06666666666666667
+    witness_prediction: 0.05389517009649065
+    witness_residual: 0.012771496570176018
+    separating_direction: 0.0
+  - item: housework_division
+    option_index: 1
+    option_label: Both adults should divide it about equally
+    target: 0.49666666666666665
+    witness_prediction: 0.48284096722066794
+    witness_residual: 0.013825699445998707
+    separating_direction: 0.010853791295604796
+  - item: housework_division
+    option_index: 2
+    option_label: The person with more available time should do more
+    target: 0.2733333333333334
+    witness_prediction: 0.28610482989232433
+    witness_residual: -0.012771496558990958
+    separating_direction: 0.0
+  - item: housework_division
+    option_index: 3
+    option_label: It depends entirely on the household
+    target: 0.16333333333333333
+    witness_prediction: 0.1771590327891681
+    witness_residual: -0.013825699455834783
+    separating_direction: -0.01627344155174055
+  allocation: First blueprint maximizes the LP dual separating direction; remaining
+    unique blueprints use certificate-weighted exploration.
+  population_marginals_in_individual_prompts: false
+profile:
+  framing: synthetic_respondent
+  forbid_demographic_invention: true
+probabilities:
+  interpretation: subjective_response_probability
+  require_sum: 1
+  allow_zero: false
+  minimum_probability: 0.01
+  minimum_intended_probability: 0.8
+guardrails:
+  leak_target_marginals: false
+  silent_coverage_truncation: false
+  silent_invalid_response_repair: false
+  describe_as_recovered_respondents: false
+  validate_blueprint_fidelity: true

@@ -16,6 +16,7 @@ from umriss.artifacts import next_for_artifacts
 from umriss.cli import build_parser, main
 from umriss.errors import UmrissError
 from umriss.parsing import audit_result_attempts, register_results
+from umriss.support_designs import geometry_repair_blueprint_design
 from umriss.twin_survey import aggregate_survey_frame, plot_survey_comparison
 
 
@@ -76,6 +77,70 @@ def write_raw(path: Path) -> None:
 
 
 class UmrissCliTests(unittest.TestCase):
+    def test_geometry_repair_targets_minimax_separating_direction(self) -> None:
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            support_path = root / "support.csv"
+            rows = []
+            vectors = {
+                1: {"a": [0.9, 0.1], "b": [0.2, 0.8]},
+                2: {"a": [0.2, 0.8], "b": [0.8, 0.2]},
+            }
+            for support_id, item_vectors in vectors.items():
+                for item, vector in item_vectors.items():
+                    for option_index, probability in enumerate(vector):
+                        rows.append(
+                            {
+                                "support_id": support_id,
+                                "job_id": f"j{support_id}",
+                                "item": item,
+                                "option_index": option_index,
+                                "probability": probability,
+                            }
+                        )
+            pd.DataFrame(rows).to_csv(support_path, index=False)
+            targets = {
+                "targets": [
+                    {
+                        "target_id": f"marginal:{item}",
+                        "type": "marginal",
+                        "items": [item],
+                        "values": values,
+                        "status": "accepted",
+                    }
+                    for item, values in {"a": [0.7, 0.3], "b": [0.7, 0.3]}.items()
+                ]
+            }
+
+            design = geometry_repair_blueprint_design(
+                mini_metadata(),
+                targets,
+                support_path,
+                n_add=4,
+                seed=42,
+                target_source="targets.json",
+            )
+
+            geometry = design["geometry_repair"]
+            self.assertGreater(geometry["minimum_maximum_absolute_residual"], 0)
+            self.assertFalse(geometry["population_marginals_in_individual_prompts"])
+            self.assertEqual(
+                design["probabilities"]["minimum_intended_probability"],
+                0.8,
+            )
+            patterns = design["components"][0]["patterns"]
+            self.assertEqual(len(patterns), 4)
+            self.assertEqual(len({tuple(pattern.items()) for pattern in patterns}), 4)
+            direction = pd.DataFrame(geometry["direction"])
+            for item in ["a", "b"]:
+                best = direction[direction["item"].eq(item)].sort_values(
+                    "separating_direction", ascending=False
+                ).iloc[0]
+                self.assertEqual(
+                    patterns[0][item],
+                    best["option_label"],
+                )
+
     def test_commands_emit_one_json_envelope_and_canonical_errors(self) -> None:
         stdout = StringIO()
         with redirect_stdout(stdout):

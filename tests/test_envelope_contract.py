@@ -481,11 +481,14 @@ def test_joint_targets_require_consistency_and_explicit_feature_method(tmp_path:
     fitted = run_umriss(
         "targets", "fit", "--targets", str(targets_path), "--support", str(support),
         "--metadata", str(metadata_path), "--allow-conditional-independence",
+        "--maximum-target-residual", "1.0",
         "--tag", "fit", "--out", str(tmp_path / "fit"), cwd=tmp_path,
     )
     assert fitted.returncode == 0, fitted.stdout
     diagnostics = __import__("pandas").read_csv(tmp_path / "fit" / "fit_constraint_diagnostics.csv")
     assert "conditional_independence" in set(diagnostics["feature_method"])
+    fit_diagnostics = __import__("pandas").read_csv(tmp_path / "fit" / "fit_fit_diagnostics.csv")
+    assert fit_diagnostics.iloc[0]["maximum_target_residual_gate"] == 1.0
 
     artifact["targets"][2]["values"] = [0.7, 0.1, 0.1, 0.1]
     write_json(targets_path, artifact)

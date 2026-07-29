@@ -120,8 +120,8 @@ A complete run preserves:
 - stable-persona enrichment with new categorical or checkbox items, direct
   persona-level joint tables, and generalized marginal/joint calibration.
 - complete response blueprints, post-generation fidelity gates, retry-only
-  blueprint IDs, convex-hull feasibility witnesses, and target-directed
-  blueprint repair;
+  blueprint IDs, convex-hull feasibility witnesses, independent-marginal
+  repair, and minimax-direction geometry repair;
 - fit acceptance gates for minimum effective support, maximum individual
   weight, and optimizer convergence.
 

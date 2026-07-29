@@ -1,0 +1,82 @@
+{
+  "execution": {
+    "cost_estimate": {
+      "available": true,
+      "basis": "call_counts",
+      "expected_model_calls": 16,
+      "models": 1,
+      "pricing_note": "Dollar cost depends on provider pricing; inspect the package with `ep inspect` before authorizing `ep run`.",
+      "scenarios": 16
+    },
+    "mode": "unspecified",
+    "owner": "external_ep"
+  },
+  "iterations": 1,
+  "jobs": "pew_work_family_geometry5.jobs.ep",
+  "manifest_path": "pew_work_family_geometry5_manifest.json",
+  "model_calls": 16,
+  "model_count": 1,
+  "models": [
+    {
+      "model": "gpt-5.5",
+      "service_name": "openai"
+    }
+  ],
+  "next_steps": [
+    "ep run --jobs pew_work_family_geometry5.jobs.ep --output pew_work_family_geometry5.results.ep",
+    "umriss support register-results --results pew_work_family_geometry5.results.ep --prompts pew_work_family_geometry5_prompts.jsonl --tag pew_work_family_geometry5 --out ."
+  ],
+  "outputs": {
+    "jobs": {
+      "path": "pew_work_family_geometry5.jobs.ep",
+      "sha256": "c8335728db5d90254df0e2cf17fdbdc6e58d597d76026938467b148b87474052"
+    }
+  },
+  "prompts": "pew_work_family_geometry5_prompts.jsonl",
+  "provenance": {
+    "command": "umriss support export",
+    "created_at": "2026-07-29T15:53:25Z",
+    "fingerprint": "3d784a39fc049165495c3a024a582cc759de5e6615e68ed4fefe89e4504eb0e0",
+    "inputs": {
+      "prompts": {
+        "path": "pew_work_family_geometry5_prompts.jsonl",
+        "sha256": "c5f8746815a89531d331da106a20bb791cb2658ee7d90310dc381e91e022cb60"
+      }
+    },
+    "parameters": {
+      "job_ids_path": null,
+      "limit": null,
+      "max_tokens": 4000,
+      "models": [
+        {
+          "model": "gpt-5.5",
+          "service_name": "openai"
+        }
+      ],
+      "path": "pew_work_family_geometry5.jobs.ep",
+      "registration_out": ".",
+      "tag": "pew_work_family_geometry5",
+      "temperature": 1.0
+    },
+    "schema_version": 1,
+    "umriss_version": "0.1.0"
+  },
+  "questions": 1,
+  "register_command": "umriss support register-results --results pew_work_family_geometry5.results.ep --prompts pew_work_family_geometry5_prompts.jsonl --tag pew_work_family_geometry5 --out .",
+  "registration_out": ".",
+  "results": "pew_work_family_geometry5.results.ep",
+  "reused": false,
+  "run_command": "ep run --jobs pew_work_family_geometry5.jobs.ep --output pew_work_family_geometry5.results.ep",
+  "run_contract": {
+    "expected_results_path": "pew_work_family_geometry5.results.ep",
+    "jobs_path": "pew_work_family_geometry5.jobs.ep",
+    "owner": "external_ep",
+    "register_command": "umriss support register-results --results pew_work_family_geometry5.results.ep --prompts pew_work_family_geometry5_prompts.jsonl --tag pew_work_family_geometry5 --out .",
+    "run_command": "ep run --jobs pew_work_family_geometry5.jobs.ep --output pew_work_family_geometry5.results.ep"
+  },
+  "save_format": "edsl_ep",
+  "scenarios": 16,
+  "schema_version": 1,
+  "tag": "pew_work_family_geometry5",
+  "workflow": "support"
+}

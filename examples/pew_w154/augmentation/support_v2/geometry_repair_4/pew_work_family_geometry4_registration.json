@@ -1,0 +1,37 @@
+{
+  "kind": "umriss_result_registration",
+  "outputs": {
+    "jobs": {
+      "path": "pew_work_family_geometry4_jobs.csv",
+      "sha256": "d62af547bb1c0c09f708cc705160b4453955bb6895a58f77ff22f3e39463915c"
+    },
+    "raw": {
+      "path": "pew_work_family_geometry4_raw.csv",
+      "sha256": "0c02bcaa091cc5b81679cd97da25106ec025b934086880034694b2d328d3dad7"
+    }
+  },
+  "provenance": {
+    "command": "umriss support register-results",
+    "created_at": "2026-07-29T15:52:41Z",
+    "fingerprint": "5a39a37b4aef9abe8c9f671d976dc7b78dccee0af015855d56a16f7b295e44dc",
+    "inputs": {
+      "prompts": {
+        "path": "pew_work_family_geometry4_prompts.jsonl",
+        "sha256": "31e487ea7867d8fe97792402b82ac35264b52231be4a911b6e519aa2ad151aa8"
+      },
+      "results": {
+        "path": "pew_work_family_geometry4.results.ep",
+        "sha256": "84dbbd4ed4f43e74a53f1cba817ea59b552ea7ae2b739dc69be086f9825df543"
+      }
+    },
+    "parameters": {
+      "out": ".",
+      "tag": "pew_work_family_geometry4"
+    },
+    "schema_version": 1,
+    "umriss_version": "0.1.0"
+  },
+  "rows": 32,
+  "schema_version": 1,
+  "tag": "pew_work_family_geometry4"
+}

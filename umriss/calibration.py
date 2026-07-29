@@ -23,7 +23,13 @@ def rmse(pred: np.ndarray, truth: np.ndarray) -> float:
     return float(np.sqrt(np.mean((pred - truth) ** 2)))
 
 
-def entropy_calibration_fit(X: np.ndarray, y: np.ndarray, base_weights: np.ndarray, rho: float, maxiter: int = 700) -> FitResult:
+def entropy_calibration_fit(
+    X: np.ndarray,
+    y: np.ndarray,
+    base_weights: np.ndarray,
+    rho: float,
+    maxiter: int = 10_000,
+) -> FitResult:
     base = np.clip(base_weights.astype(float), 1e-12, None)
     base = base / base.sum()
     theta0 = np.log(base)

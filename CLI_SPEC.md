@@ -217,6 +217,23 @@ umriss support parse-extension --raw FILE --prompts FILE
   --base-support PROBABILITIES.csv --metadata FILE --tag TAG --out DIR
 ```
 
+When every target cell lies inside the support range but their joint
+intersection remains infeasible, independent marginal repair is insufficient.
+Build a geometry-directed round from the minimax feasibility witness:
+
+```text
+umriss support augment-geometry \
+  --support FILE --targets FILE --metadata FILE \
+  --n-add N --seed N --tag TAG --out DIR
+```
+
+The resolved design records the minimax witness residual and LP dual separating
+certificate for every cell. Its first complete blueprint maximizes that
+certificate; the remaining unique blueprints explore nearby combinations.
+After measurement, rerun feasibility and repeat against the newly exposed hull
+face until the declared tolerance passes or progress stalls. Population
+percentages and the feasibility witness remain absent from individual prompts.
+
 Direct joint elicitation produces a separate joint-feature bank. Generalized
 fitting consumes accepted marginal, checkbox-marginal, and joint targets:
 
@@ -224,6 +241,7 @@ fitting consumes accepted marginal, checkbox-marginal, and joint targets:
 umriss targets fit --targets TARGETS.json --support PROBABILITIES.csv
   [--joint-features JOINT.csv] [--allow-conditional-independence]
   [--minimum-effective-support FLOAT] [--maximum-weight FLOAT]
+  [--maximum-target-residual FLOAT]
   [--require-convergence]
   --metadata FILE --tag TAG --out DIR
 ```
@@ -351,6 +369,7 @@ Every registered command (options and defaults live in `umriss <command> --help`
 | `umriss support audit-results` |  |
 | `umriss support augment-uniform` |  |
 | `umriss support augment-targets` | Build complete repair blueprints whose declared addition allocation offsets measured target gaps. |
+| `umriss support augment-geometry` | Add complete blueprints along the minimax LP dual separating certificate. |
 | `umriss support build` |  |
 | `umriss support export` |  |
 | `umriss support extend-items` | Build measurement prompts for new marginal and direct-joint features on stable personas. |

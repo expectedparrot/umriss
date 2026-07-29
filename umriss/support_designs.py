@@ -13,6 +13,7 @@ from typing import Any
 import numpy as np
 import pandas as pd
 import yaml
+from scipy.optimize import linprog
 
 from .metadata import item_option_labels
 
@@ -288,6 +289,180 @@ def target_repair_blueprint_design(
     return design
 
 
+def geometry_repair_blueprint_design(
+    metadata: dict[str, Any],
+    targets: dict[str, Any],
+    support_path: Path,
+    n_add: int,
+    seed: int,
+    target_source: str,
+) -> dict[str, Any]:
+    """Build blueprints that move support across its minimax separating direction."""
+    support = pd.read_csv(support_path)
+    identities = support[["support_id", "job_id"]].drop_duplicates()
+    if identities.empty or n_add < 1:
+        raise ValueError("Geometry repair requires positive base and addition sizes.")
+
+    matrices: list[np.ndarray] = []
+    vectors: list[np.ndarray] = []
+    accepted_items: list[str] = []
+    for target in targets.get("targets", []):
+        if target.get("status") != "accepted" or target.get("type") != "marginal":
+            continue
+        item = str(target["items"][0])
+        group = support[support["item"].astype(str).eq(item)]
+        pivot = group.pivot(index="support_id", columns="option_index", values="probability")
+        matrix = pivot.reindex(identities["support_id"]).sort_index(axis=1).to_numpy(dtype=float)
+        values = np.asarray(target["values"], dtype=float)
+        if matrix.shape[1] != len(values) or np.isnan(matrix).any():
+            raise ValueError(f"Base support is incomplete for accepted target item {item}.")
+        matrices.append(matrix)
+        vectors.append(values)
+        accepted_items.append(item)
+    if not matrices:
+        raise ValueError("No accepted marginal targets are available for geometry repair.")
+
+    feature_matrix = np.column_stack(matrices)
+    target_vector = np.concatenate(vectors)
+    n_support, n_cells = feature_matrix.shape
+    objective = np.r_[np.zeros(n_support), 1.0]
+    upper = np.c_[feature_matrix.T, -np.ones(n_cells)]
+    lower = np.c_[-feature_matrix.T, -np.ones(n_cells)]
+    result = linprog(
+        objective,
+        A_ub=np.r_[upper, lower],
+        b_ub=np.r_[target_vector, -target_vector],
+        A_eq=np.c_[np.ones((1, n_support)), np.zeros((1, 1))],
+        b_eq=np.ones(1),
+        bounds=[(0.0, None)] * n_support + [(0.0, None)],
+        method="highs",
+    )
+    if not result.success:
+        raise ValueError(f"Geometry-repair feasibility solver failed: {result.message}")
+    witness_prediction = feature_matrix.T @ result.x[:n_support]
+    desired_direction = target_vector - witness_prediction
+    # HiGHS reports nonpositive marginals for <= constraints. Their upper-minus-
+    # lower difference is the normalized separating hyperplane q satisfying
+    # q·target - max_i(q·support_i) == the minimax feasibility gap.
+    inequality_marginals = np.asarray(result.ineqlin.marginals, dtype=float)
+    separating_direction = (
+        inequality_marginals[:n_cells] - inequality_marginals[n_cells:]
+    )
+    separation_gap = float(
+        separating_direction @ target_vector
+        - np.max(feature_matrix @ separating_direction)
+    )
+
+    directions: dict[str, np.ndarray] = {}
+    offset = 0
+    direction_rows: list[dict[str, Any]] = []
+    for item, values in zip(accepted_items, vectors, strict=True):
+        width = len(values)
+        direction = separating_direction[offset : offset + width]
+        directions[item] = direction
+        labels = item_option_labels(metadata, item)
+        for option_index, (label, target_value, prediction, delta) in enumerate(
+            zip(
+                labels,
+                values,
+                witness_prediction[offset : offset + width],
+                direction,
+                strict=True,
+            )
+        ):
+            direction_rows.append(
+                {
+                    "item": item,
+                    "option_index": option_index,
+                    "option_label": label,
+                    "target": float(target_value),
+                    "witness_prediction": float(prediction),
+                    "witness_residual": float(
+                        desired_direction[offset + option_index]
+                    ),
+                    "separating_direction": float(delta),
+                }
+            )
+        offset += width
+
+    rng = np.random.default_rng(seed)
+    items = list(metadata["items"])
+    patterns: list[dict[str, str]] = []
+    signatures: set[tuple[str, ...]] = set()
+    attempts = 0
+    while len(patterns) < n_add and attempts < max(10_000, n_add * 500):
+        attempts += 1
+        pattern: dict[str, str] = {}
+        for item in items:
+            labels = item_option_labels(metadata, item)
+            if item in directions:
+                direction = directions[item]
+                if not patterns:
+                    option_index = int(np.argmax(direction))
+                else:
+                    scale = max(float(np.max(np.abs(direction))) / 2.0, 0.005)
+                    logits = (direction - direction.max()) / scale
+                    shares = np.exp(logits)
+                    shares = 0.9 * shares / shares.sum() + 0.1 / len(labels)
+                    option_index = int(rng.choice(len(labels), p=shares))
+            else:
+                option_index = int(rng.integers(len(labels)))
+            pattern[item] = labels[option_index]
+        signature = tuple(pattern[item] for item in items)
+        if signature in signatures:
+            continue
+        signatures.add(signature)
+        patterns.append(pattern)
+    if len(patterns) != n_add:
+        raise ValueError(
+            f"Could not construct {n_add} unique geometry-repair blueprints; built {len(patterns)}."
+        )
+
+    design = {
+        "schema_version": SCHEMA_VERSION,
+        "preset": "geometry-repair-blueprints",
+        "size": n_add,
+        "seed": seed,
+        "coverage": {"mode": "complete", "allocation": "minimax_direction"},
+        "components": [
+            {"type": "pattern_anchors", "patterns": patterns, "coherence": "explicit"}
+        ],
+        "geometry_repair": {
+            "base_support": str(support_path),
+            "base_n": n_support,
+            "target_source": target_source,
+            "minimum_maximum_absolute_residual": float(result.x[-1]),
+            "separation_gap": separation_gap,
+            "direction": direction_rows,
+            "allocation": (
+                "First blueprint maximizes the LP dual separating direction; "
+                "remaining unique blueprints use certificate-weighted exploration."
+            ),
+            "population_marginals_in_individual_prompts": False,
+        },
+        "profile": {
+            "framing": "synthetic_respondent",
+            "forbid_demographic_invention": True,
+        },
+        "probabilities": {
+            "interpretation": "subjective_response_probability",
+            "require_sum": 1,
+            "allow_zero": False,
+            "minimum_probability": 0.01,
+            "minimum_intended_probability": 0.8,
+        },
+        "guardrails": {
+            "leak_target_marginals": False,
+            "silent_coverage_truncation": False,
+            "silent_invalid_response_repair": False,
+            "describe_as_recovered_respondents": False,
+            "validate_blueprint_fidelity": True,
+        },
+    }
+    validate_design(design, metadata)
+    return design
+
+
 def preset_design(metadata: dict[str, Any], preset: str, size: int | None, seed: int) -> dict[str, Any]:
     if preset == "pattern-coverage":
         return pattern_coverage_preset(metadata, size, seed)
@@ -484,9 +659,15 @@ def _default_prompt(metadata: dict[str, Any], row: dict[str, Any], design: dict[
         else ""
     )
     minimum = float(probs.get("minimum_probability", 0.0))
+    intended_minimum = probs.get("minimum_intended_probability")
     blueprint_rule = (
         "For every declared blueprint cell, assign that option the largest probability in its item vector. "
-        "The persona must make the complete combination understandable without changing any declared answer."
+        + (
+            f"Assign every declared option probability at least {float(intended_minimum):g}. "
+            if intended_minimum is not None
+            else ""
+        )
+        + "The persona must make the complete combination understandable without changing any declared answer."
         if row["design_type"] == "pattern_anchor"
         else ""
     )

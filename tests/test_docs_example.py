@@ -83,26 +83,36 @@ def test_pew_augmentation_tutorial_matches_checked_in_artifacts() -> None:
     ).iloc[0]
     final_feasibility = pd.read_csv(
         support
-        / "final_bank"
+        / "geometry_final_bank_496"
         / "feasibility"
-        / "pew_work_family_detailed_288_feasibility_summary.csv"
+        / "pew_work_family_geometry_496_feasibility_summary.csv"
     ).iloc[0]
     fit = pd.read_csv(
         support
-        / "final_bank"
-        / "fit"
-        / "pew_work_family_detailed_288_fit_diagnostics.csv"
+        / "geometry_final_bank_496"
+        / "accepted_fit"
+        / "pew_work_family_geometry_496_accepted_fit_diagnostics.csv"
     ).iloc[0]
     constraints = pd.read_csv(
         support
-        / "final_bank"
-        / "fit"
-        / "pew_work_family_detailed_288_constraint_diagnostics.csv"
+        / "geometry_final_bank_496"
+        / "accepted_fit"
+        / "pew_work_family_geometry_496_accepted_constraint_diagnostics.csv"
     )
 
     assert int(consensus["accepted"].sum()) == 6
     assert initial_fidelity["accepted"].all()
     assert repair_fidelity["accepted"].all()
+    for round_number in (3, 4, 5):
+        geometry_fidelity = pd.read_csv(
+            support
+            / f"geometry_repair_{round_number}"
+            / "validation"
+            / f"pew_work_family_geometry{round_number}_blueprint_fidelity.csv"
+        )
+        assert geometry_fidelity["accepted"].all()
+        assert geometry_fidelity["minimum_intended_probability"].min() >= 0.8
+    assert bool(final_feasibility["inside_convex_hull_at_tolerance"])
     assert (
         f"{initial_feasibility['minimum_maximum_absolute_residual'] * 100:.2f}"
         in html

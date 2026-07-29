@@ -113,7 +113,7 @@ umriss support validate-blueprints \
   </div>
 
   <h2>4. Examples of real generated persona text</h2>
-  <p>These are unedited second-person syntheses returned by GPT-5.5 during the registered item-complete support runs. Each underlying points row additionally contains all 15 explicit statements; the first example opens those statements verbatim. The percentages are fitted mixture weights, not literal shares of identifiable demographic types.</p>
+  <p>These are unedited second-person syntheses returned by GPT-5.5 during the registered item-complete support runs. Each underlying points row additionally contains all 15 explicit statements; the first example opens those statements verbatim. The displayed percentages come from the initial 288-person diagnostic fit, before the geometry-repair rounds described below; they are mixture coefficients, not literal shares of identifiable demographic types.</p>
 
   <article class="persona">
     <div class="weight">Weight 1.64% · repair persona 173</div>
@@ -164,28 +164,52 @@ umriss support validate-blueprints \
     <tbody>
       <tr><td>Initial target-informed blueprints</td><td>96</td><td>6.37 points</td><td>Fails one-point feasibility</td></tr>
       <tr><td>After target-directed repair</td><td>288</td><td>4.55 points</td><td>Passes only at a declared five-point tolerance</td></tr>
+      <tr><td>After two ordinary geometry cuts</td><td>416</td><td>4.44 points</td><td>Argmax fidelity alone creates weak vertices</td></tr>
+      <tr><td>After first high-certainty cut</td><td>448</td><td>2.39 points</td><td>Every intended cell is at least 0.80</td></tr>
+      <tr><td>After second high-certainty cut</td><td>480</td><td>1.38 points</td><td>Approaches the declared tolerance</td></tr>
+      <tr><td>After final high-certainty cut</td><td>496</td><td>0.83 points</td><td>Passes one-point feasibility</td></tr>
     </tbody>
   </table>
 
-  <h2>6. A dispersed fit exists, but it is not accurate enough</h2>
+  <h2>6. Iterative geometry repair crosses the missing hull faces</h2>
+  <p><code>augment-targets</code> repairs every marginal independently. That put each target cell inside the support range but did not put their joint intersection inside the convex hull. <code>augment-geometry</code> instead solves the minimax feasibility problem, extracts its LP dual separating certificate, and generates complete blueprints that cross the exposed hull face. After each measured round, feasibility is solved again because a new face may become limiting.</p>
+  <p>The first two 64-person rounds required only argmax blueprint fidelity and barely moved the gap. The decisive change was a geometry-only probability contract: every intended answer had to receive at least 0.80 probability, checked item by item before merging. Two 32-person cuts and one 16-person cut then reduced the gap from 4.44 to 0.83 points. All 80 high-certainty personas passed all 15 per-cell gates.</p>
+  <pre><code>umriss support augment-geometry \
+  --support examples/pew_w154/augmentation/support_v2/geometry_final_bank_480/pew_work_family_geometry_480_probabilities.csv \
+  --targets examples/pew_w154/augmentation/pew_augmented_targets.json \
+  --metadata examples/pew_w154/augmentation/pew_gender_work_family_battery.json \
+  --n-add 16 \
+  --tag pew_work_family_geometry5 \
+  --out examples/pew_w154/augmentation/support_v2/geometry_repair_5
+
+umriss support validate-blueprints \
+  --support examples/pew_w154/augmentation/support_v2/geometry_repair_5/bank/pew_work_family_geometry5_probabilities.csv \
+  --plan examples/pew_w154/augmentation/support_v2/geometry_repair_5/pew_work_family_geometry5_support_plan.csv \
+  --metadata examples/pew_w154/augmentation/pew_gender_work_family_battery.json \
+  --minimum-intended-cell-probability 0.8 \
+  --tag pew_work_family_geometry5 \
+  --out examples/pew_w154/augmentation/support_v2/geometry_repair_5/validation</code></pre>
+
+  <h2>7. Fit acceptance now includes target accuracy</h2>
   <pre><code>umriss targets fit \
   --targets examples/pew_w154/augmentation/pew_augmented_targets.json \
-  --support examples/pew_w154/augmentation/support_v2/final_bank/pew_work_family_detailed_288_probabilities.csv \
+  --support examples/pew_w154/augmentation/support_v2/geometry_final_bank_496/pew_work_family_geometry_496_probabilities.csv \
   --metadata examples/pew_w154/augmentation/pew_gender_work_family_battery.json \
   --minimum-effective-support 50 \
   --maximum-weight 0.05 \
+  --maximum-target-residual 0.06 \
   --require-convergence \
-  --tag pew_work_family_detailed_288 \
-  --out examples/pew_w154/augmentation/support_v2/final_bank/fit</code></pre>
+  --tag pew_work_family_geometry_496_accepted \
+  --out examples/pew_w154/augmentation/support_v2/geometry_final_bank_496/accepted_fit</code></pre>
   <div class="result">
-    <div class="metric"><strong>157.62</strong><span>effective support</span></div>
-    <div class="metric"><strong>1.64%</strong><span>largest fitted weight</span></div>
-    <div class="metric"><strong>0.03</strong><span>selected entropy penalty</span></div>
-    <div class="metric"><strong>9.15 pts</strong><span>largest fitted target residual</span></div>
+    <div class="metric"><strong>101.25</strong><span>effective support</span></div>
+    <div class="metric"><strong>3.17%</strong><span>largest fitted weight</span></div>
+    <div class="metric"><strong>0.01</strong><span>selected entropy penalty</span></div>
+    <div class="metric"><strong>5.44 pts</strong><span>largest fitted target residual</span></div>
   </div>
-  <p>The fit passes the declared concentration and convergence gates, but the regularization needed to keep mass dispersed increases the emotional-expression residual to 9.15 points. A more concentrated optimization reduces overall RMSE but still cannot cross the support boundary. This panel is therefore useful as a persona-generation demonstration, not yet acceptable as a calibrated augmentation of Pew.</p>
+  <p>Feasibility asks whether some mixture can reach the targets; it does not require that mixture to be dispersed. The feasibility witness has effective support 8.78 and a 19.97% largest weight. The accepted entropy fit deliberately spreads mass much more broadly, so it does not attain the witness's 0.83-point bound. A new <code>--maximum-target-residual</code> gate prevents the selector from choosing an extremely diffuse but inaccurate fit: the accepted candidate has effective support 101.25, a 3.17% largest weight, convergence, and a 5.44-point worst target residual. Tighter accuracy would require relaxing the concentration gates or adding support that lets accurate fits remain diffuse.</p>
 
-  <div class="note"><strong>Conclusion.</strong> Adding screened marginals now creates text personas whose detail scales with the battery: all 288 preserve 15 of 15 explicit dimensions, including all five Pew gender views. Complete blueprints and item-complete prose prevent silent textual compression. But rich prose and a large effective support do not guarantee fidelity to observed targets. The next capability should iterate on joint support geometry after feasibility diagnostics, and fitting should add a maximum target-residual gate alongside concentration and convergence gates.</div>
+  <div class="note"><strong>Conclusion.</strong> Adding screened marginals now creates text personas whose detail scales with the battery, including all five Pew gender views. Complete blueprints and item-complete prose prevent silent textual compression. Independent marginal repair is not enough for joint feasibility; iterative LP-dual geometry cuts with a high-certainty per-cell gate reduced the minimax gap from 4.55 to 0.83 points and passed the declared stopping rule. Fit acceptance now exposes the remaining accuracy-versus-dispersion tradeoff rather than silently selecting a diffuse, inaccurate population.</div>
 
   <h2>Artifacts and reproducibility</h2>
   <ul>
@@ -193,9 +217,9 @@ umriss support validate-blueprints \
     <li><a href="../examples/pew_w154/augmentation/pew_augmented_targets.json">Merged observed and synthetic targets</a></li>
     <li><a href="../examples/pew_w154/augmentation/support_v2/initial/validation/pew_work_family_detailed_blueprint_fidelity.csv">Initial blueprint fidelity</a></li>
     <li><a href="../examples/pew_w154/augmentation/support_v2/repair_1/validation/pew_work_family_detailed_repair1_blueprint_fidelity.csv">Repair blueprint fidelity</a></li>
-    <li><a href="../examples/pew_w154/augmentation/support_v2/final_bank/feasibility/pew_work_family_detailed_288_feasibility_summary.csv">Strict feasibility summary</a></li>
-    <li><a href="../examples/pew_w154/augmentation/support_v2/final_bank/fit/pew_work_family_detailed_288_fit_diagnostics.csv">Fit diagnostics</a></li>
-    <li><a href="../examples/pew_w154/augmentation/support_v2/final_bank/fit/pew_work_family_detailed_288_constraint_diagnostics.csv">Target-by-target residuals</a></li>
+    <li><a href="../examples/pew_w154/augmentation/support_v2/geometry_final_bank_496/feasibility/pew_work_family_geometry_496_feasibility_summary.csv">Passing strict feasibility summary</a></li>
+    <li><a href="../examples/pew_w154/augmentation/support_v2/geometry_final_bank_496/accepted_fit/pew_work_family_geometry_496_accepted_fit_diagnostics.csv">Accepted fit diagnostics</a></li>
+    <li><a href="../examples/pew_w154/augmentation/support_v2/geometry_final_bank_496/accepted_fit/pew_work_family_geometry_496_accepted_constraint_diagnostics.csv">Accepted target-by-target residuals</a></li>
   </ul>
 </main></body>
 </html>

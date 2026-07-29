@@ -61,6 +61,7 @@ from .state import (
 from .state import battery_dir as state_battery_dir
 from .support_designs import (
     compile_support_plan,
+    geometry_repair_blueprint_design,
     load_design_config,
     preset_design,
     resolve_design,
@@ -633,6 +634,70 @@ def cmd_support_augment_targets(args: argparse.Namespace) -> dict[str, Any]:
     )
 
 
+def cmd_support_augment_geometry(args: argparse.Namespace) -> dict[str, Any]:
+    metadata = read_json(Path(args.metadata))
+    try:
+        design = geometry_repair_blueprint_design(
+            metadata,
+            read_json(Path(args.targets)),
+            Path(args.support),
+            args.n_add,
+            args.seed,
+            args.targets,
+        )
+        rows = compile_support_plan(metadata, args.tag, design)
+    except ValueError as exc:
+        raise UmrissError("design_invalid", str(exc)) from exc
+    out_dir = Path(args.out)
+    paths = write_support_outputs(rows, metadata, args.tag, out_dir, design)
+    manifest_path = out_dir / f"{args.tag}_build_manifest.json"
+    provenance = build_provenance(
+        "umriss support augment-geometry",
+        inputs={
+            "metadata": Path(args.metadata),
+            "targets": Path(args.targets),
+            "support": Path(args.support),
+        },
+        parameters={
+            "tag": args.tag,
+            "n_add": args.n_add,
+            "seed": args.seed,
+            "resolved_design": design,
+        },
+    )
+    data = {
+        **paths,
+        "rows": len(rows),
+        "tag": args.tag,
+        "preset": "geometry-repair-blueprints",
+        "base_support": args.support,
+        "targets": args.targets,
+        "minimum_maximum_absolute_residual": design["geometry_repair"][
+            "minimum_maximum_absolute_residual"
+        ],
+        "manifest_path": str(manifest_path),
+    }
+    write_json(
+        manifest_path,
+        {
+            "schema_version": 1,
+            "kind": "umriss_support_geometry_repair",
+            "provenance": provenance,
+            "data": data,
+        },
+    )
+    return envelope(
+        "umriss support augment-geometry",
+        "ok",
+        data,
+        next_steps=[
+            f"umriss support export --prompts {paths['prompts_path']} "
+            f"--path {out_dir / (args.tag + '.jobs.ep')} --tag {args.tag} "
+            f"--registration-out {out_dir}"
+        ],
+    )
+
+
 def cmd_support_export(args: argparse.Namespace) -> dict[str, Any]:
     data = export_support_jobs(
         Path(args.prompts),
@@ -949,6 +1014,7 @@ def cmd_targets_fit(args: argparse.Namespace) -> dict[str, Any]:
         allow_conditional_independence=args.allow_conditional_independence,
         minimum_effective_support=args.minimum_effective_support,
         maximum_weight=args.maximum_weight,
+        maximum_target_residual=args.maximum_target_residual,
         require_convergence=args.require_convergence,
     )
     return envelope("umriss targets fit", "ok" if data["gates_pass"] else "fit_rejected", data)
@@ -1050,6 +1116,7 @@ def cmd_support_validate_blueprints(args: argparse.Namespace) -> dict[str, Any]:
         Path(args.out),
         minimum_match_fraction=args.minimum_match_fraction,
         minimum_intended_probability=args.minimum_intended_probability,
+        minimum_intended_cell_probability=args.minimum_intended_cell_probability,
     )
     status = "ok" if data["passes"] else "needs_retry"
     next_steps = (
@@ -1608,6 +1675,15 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--seed", type=int, default=20260625)
     p.add_argument("--out", required=True)
     p.set_defaults(func=cmd_support_augment_targets)
+    p = support.add_parser("augment-geometry")
+    p.add_argument("--support", required=True)
+    p.add_argument("--targets", required=True)
+    p.add_argument("--metadata", required=True)
+    p.add_argument("--tag", required=True)
+    p.add_argument("--n-add", type=int, default=64)
+    p.add_argument("--seed", type=int, default=20260729)
+    p.add_argument("--out", required=True)
+    p.set_defaults(func=cmd_support_augment_geometry)
     p = support.add_parser("export")
     p.add_argument("--prompts")
     p.add_argument("--path")
@@ -1670,6 +1746,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--tag", required=True)
     p.add_argument("--minimum-match-fraction", type=float, default=0.8)
     p.add_argument("--minimum-intended-probability", type=float, default=0.35)
+    p.add_argument("--minimum-intended-cell-probability", type=float)
     p.add_argument("--out", required=True)
     p.set_defaults(func=cmd_support_validate_blueprints)
     p = support.add_parser("augment-uniform")
@@ -1817,6 +1894,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--rho", nargs="+", type=float, default=[0.0003, 0.001, 0.003, 0.01, 0.03])
     p.add_argument("--minimum-effective-support", type=float)
     p.add_argument("--maximum-weight", type=float)
+    p.add_argument("--maximum-target-residual", type=float)
     p.add_argument("--require-convergence", action="store_true")
     p.add_argument("--tag", required=True)
     p.add_argument("--out", required=True)

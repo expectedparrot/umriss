@@ -19,11 +19,20 @@ def validate_blueprint_fidelity(
     *,
     minimum_match_fraction: float = 0.8,
     minimum_intended_probability: float = 0.35,
+    minimum_intended_cell_probability: float | None = None,
 ) -> dict[str, Any]:
     if not 0 <= minimum_match_fraction <= 1:
         raise UmrissError("invalid_input", "minimum_match_fraction must be between 0 and 1.")
     if not 0 <= minimum_intended_probability <= 1:
         raise UmrissError("invalid_input", "minimum_intended_probability must be between 0 and 1.")
+    if (
+        minimum_intended_cell_probability is not None
+        and not 0 <= minimum_intended_cell_probability <= 1
+    ):
+        raise UmrissError(
+            "invalid_input",
+            "minimum_intended_cell_probability must be between 0 and 1.",
+        )
     support = pd.read_csv(support_path)
     plan = pd.read_csv(plan_path)
     required_support = {"support_id", "job_id", "item", "option_index", "option_label", "probability"}
@@ -114,6 +123,10 @@ def validate_blueprint_fidelity(
             not problems
             and match_fraction >= minimum_match_fraction
             and mean_probability >= minimum_intended_probability
+            and (
+                minimum_intended_cell_probability is None
+                or minimum_probability >= minimum_intended_cell_probability
+            )
         )
         if accepted:
             accepted_keys.add(key)
@@ -155,6 +168,7 @@ def validate_blueprint_fidelity(
         "mean_match_fraction": float(row_frame["match_fraction"].mean()) if total else 0.0,
         "minimum_match_fraction": minimum_match_fraction,
         "minimum_intended_probability": minimum_intended_probability,
+        "minimum_intended_cell_probability": minimum_intended_cell_probability,
         "cell_diagnostics_path": str(cells_path),
         "fidelity_path": str(rows_path),
         "validated_probabilities_path": str(accepted_path),

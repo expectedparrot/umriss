@@ -331,8 +331,14 @@ def fit_generalized_targets(
     allow_conditional_independence: bool = False,
     minimum_effective_support: float | None = None,
     maximum_weight: float | None = None,
+    maximum_target_residual: float | None = None,
     require_convergence: bool = False,
 ) -> dict[str, Any]:
+    if maximum_target_residual is not None and maximum_target_residual < 0:
+        raise UmrissError(
+            "invalid_input",
+            "maximum_target_residual must be nonnegative.",
+        )
     support_frame = pd.read_csv(support_path)
     support = _support_identity(support_frame)
     target_artifact = read_json(targets_path)
@@ -411,6 +417,11 @@ def fit_generalized_targets(
         return (
             (minimum_effective_support is None or candidate.effective_support >= minimum_effective_support)
             and (maximum_weight is None or float(candidate.weights.max()) <= maximum_weight)
+            and (
+                maximum_target_residual is None
+                or float(np.abs(X.T @ candidate.weights - y).max())
+                <= maximum_target_residual
+            )
             and (not require_convergence or candidate.converged)
         )
 
@@ -448,6 +459,14 @@ def fit_generalized_targets(
         gate_violations.append("minimum_effective_support")
     if maximum_weight is not None and float(fit.weights.max()) > maximum_weight:
         gate_violations.append("maximum_weight")
+    selected_maximum_target_residual = float(
+        np.abs(X.T @ fit.weights - y).max()
+    )
+    if (
+        maximum_target_residual is not None
+        and selected_maximum_target_residual > maximum_target_residual
+    ):
+        gate_violations.append("maximum_target_residual")
     if require_convergence and not fit.converged:
         gate_violations.append("convergence")
     gates_pass = not gate_violations
@@ -464,6 +483,8 @@ def fit_generalized_targets(
                 "converged": fit.converged,
                 "minimum_effective_support_gate": minimum_effective_support,
                 "maximum_weight_gate": maximum_weight,
+                "maximum_target_residual_gate": maximum_target_residual,
+                "maximum_target_residual": selected_maximum_target_residual,
                 "require_convergence": require_convergence,
                 "gates_pass": gates_pass,
                 "gate_violations": json.dumps(gate_violations),
@@ -478,6 +499,7 @@ def fit_generalized_targets(
         "selected_rho": selected_rho,
         "effective_support": fit.effective_support,
         "maximum_weight": float(fit.weights.max()),
+        "maximum_target_residual": selected_maximum_target_residual,
         "converged": fit.converged,
         "gates_pass": gates_pass,
         "gate_violations": gate_violations,

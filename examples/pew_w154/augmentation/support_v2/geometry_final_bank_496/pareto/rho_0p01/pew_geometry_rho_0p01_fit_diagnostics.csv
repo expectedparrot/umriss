@@ -1,0 +1,2 @@
+tag,selected_rho,weighted_constraint_residual,effective_support,max_weight,n_support_valid,targets,converged,minimum_effective_support_gate,maximum_weight_gate,require_convergence,gates_pass,gate_violations
+pew_geometry_rho_0p01,0.01,0.013771844154356812,101.24417291974964,0.031683274510335174,496,11,False,,,False,True,[]
