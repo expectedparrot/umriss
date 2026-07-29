@@ -56,6 +56,7 @@ def test_prompt_browser_covers_every_jsonl_record() -> None:
 
 def test_pew_augmentation_tutorial_matches_checked_in_artifacts() -> None:
     html = AUGMENTATION_DOC.read_text()
+    main_html = DOCS.read_text()
     support = AUGMENTATION / "support_v2"
 
     consensus = pd.read_csv(
@@ -124,6 +125,13 @@ def test_pew_augmentation_tutorial_matches_checked_in_artifacts() -> None:
     assert f"{fit['effective_support']:.2f}" in html
     assert f"{fit['max_weight'] * 100:.2f}%" in html
     assert f"{constraints['max_absolute_residual'].max() * 100:.2f}" in html
+    assert (
+        f"{final_feasibility['minimum_maximum_absolute_residual'] * 100:.2f}"
+        in main_html
+    )
+    assert f"{fit['effective_support']:.2f}" in main_html
+    assert f"{fit['max_weight'] * 100:.2f}%" in main_html
+    assert f"{constraints['max_absolute_residual'].max() * 100:.2f}" in main_html
 
     weights = pd.read_csv(
         support
@@ -178,3 +186,48 @@ def test_pew_augmentation_tutorial_matches_checked_in_artifacts() -> None:
     }
     assert all(detail in html for detail in details.values())
     assert "provisional" in html.lower()
+
+    accepted_weights = pd.read_csv(
+        support
+        / "geometry_final_bank_496"
+        / "accepted_fit"
+        / "pew_work_family_geometry_496_accepted_weights.csv"
+    )
+    all_points = pd.concat(
+        [
+            points,
+            *[
+                pd.read_csv(
+                    support
+                    / f"geometry_repair_{round_number}"
+                    / "bank"
+                    / f"pew_work_family_geometry{round_number}_points.csv"
+                )
+                for round_number in range(1, 6)
+            ],
+        ],
+        ignore_index=True,
+    )
+    accepted_top = (
+        accepted_weights.merge(
+            all_points[["job_id", "persona_summary"]],
+            on="job_id",
+        )
+        .sort_values("weight", ascending=False)
+        .iloc[0]
+    )
+    assert accepted_top["persona_summary"] in main_html
+    assert f"{accepted_top['weight'] * 100:.2f}%" in main_html
+    for example_job_id in (
+        "pew_work_family_geometry3_001",
+        "pew_work_family_geometry3_032",
+    ):
+        example = accepted_weights.loc[
+            accepted_weights["job_id"] == example_job_id
+        ].iloc[0]
+        example_point = all_points.loc[
+            all_points["job_id"] == example_job_id
+        ].iloc[0]
+        assert example_point["persona_summary"] in main_html
+        assert f"{example['weight'] * 100:.2f}%" in main_html
+        assert example_job_id in main_html

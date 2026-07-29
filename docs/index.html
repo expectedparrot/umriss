@@ -41,11 +41,20 @@
     details pre{margin:0;background:#26362d;border-left:0;box-shadow:none}
     .note{max-width:var(--measure);margin:24px 0;padding:12px 18px;background:#fff7e8;border-left:4px solid #b66b13}
     .note p{margin:.4rem 0}
+    .result{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));max-width:var(--measure);margin:24px 0;border:1px solid var(--rule);border-radius:8px;overflow:hidden}
+    .metric{padding:18px 14px;background:var(--light);border-right:1px solid var(--rule)}
+    .metric:last-child{border-right:0}
+    .metric strong{display:block;color:var(--dark);font:600 25px/1.2 var(--serif)}
+    .metric span{display:block;margin-top:5px;color:var(--muted);font-size:12px;line-height:1.35}
+    .persona{max-width:var(--measure);margin:24px 0;padding:20px 22px;background:#fbfcfb;border:1px solid var(--rule);border-left:5px solid var(--green);border-radius:8px}
+    .persona .weight{margin-bottom:8px;color:var(--green);font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+    .persona p{margin-top:0}
+    .persona details{margin-bottom:0}
     figure{max-width:var(--measure);margin:30px 0 38px}
     figure img{display:block;width:100%;height:auto;border:1px solid var(--rule);background:#fff}
     figcaption{margin-top:9px;color:var(--muted);font-size:13px;line-height:1.5}
     mjx-container[display="true"]{max-width:var(--measure);margin:26px 0!important;padding:20px 12px;overflow-x:auto;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
-    @media(max-width:720px){main{padding:36px 22px 80px}h2{margin-top:58px;font-size:28px}table{display:block;overflow-x:auto}pre{padding:16px;font-size:12px}}
+    @media(max-width:720px){main{padding:36px 22px 80px}h2{margin-top:58px;font-size:28px}table{display:block;overflow-x:auto}pre{padding:16px;font-size:12px}.result{grid-template-columns:1fr 1fr}.metric:nth-child(2){border-right:0}.metric:nth-child(-n+2){border-bottom:1px solid var(--rule)}}
     @media print{body{background:#fff}main{max-width:none;padding:0;box-shadow:none}pre{white-space:pre-wrap;color:#000;background:#eee}}
   </style>
 </head>
@@ -53,7 +62,7 @@
   <p class="kicker">Python CLI · schema version 1 · MIT licensed</p>
   <h1>umriss</h1>
   <p class="lede">Build an auditable synthetic population from reported survey marginals — and measure its performance.</p>
-  <p>This page is the worked methodological argument: it explains one real run, including its failed approaches and diagnostics. The <a href="pew-augmentation.html">companion Pew augmentation study</a> adds model-screened work-and-family moments and shows real generated persona text. For current option names and defaults, use <code>umriss &lt;command&gt; --help</code>. During a live project, <code>umriss guide</code> and <code>umriss next</code> are the authoritative workflow interfaces.</p>
+  <p>This page is the complete worked methodological argument: it explains the foundational Pew run, its failed approaches and diagnostics, and the richer augmentation run in which three frontier models propose new work-and-family moments, GPT-5.5 generates item-complete personas, and iterative support-geometry repair makes the combined targets feasible. The shorter <a href="pew-augmentation.html">companion case study</a> remains available as a focused version. For current option names and defaults, use <code>umriss &lt;command&gt; --help</code>. During a live project, <code>umriss guide</code> and <code>umriss next</code> are the authoritative workflow interfaces.</p>
 
   <h2>The problem this tutorial solves</h2>
   <p>Suppose a survey report tells you how the population answered each question, but does not release the respondent-level records. You can see that 68 percent chose one answer on a hobbies question and 81 percent chose one answer on a physical-abilities question, for example, but you cannot see whether the same people gave both answers. The published tables describe each question separately and omit the relationships among them.</p>
@@ -713,40 +722,177 @@ umriss targets fit \
   <p>A population cross-tab is not identified by two marginal vectors. The extension workflow can ask every existing persona for a direct joint probability table and records <code>direct_joint</code> in the feature bank. If those measurements are unavailable, fitting fails closed unless the caller explicitly authorizes <code>--allow-conditional-independence</code>; the constraint diagnostics then expose that assumption.</p>
   <p>The probe also caught a production-safety defect: one provider returned eight empty Gemini rows while the runner reported 24 results. Prior parsing now checks completeness over the full <code>(job_id, model, service)</code> key, retains model identity, and writes partial diagnostics before returning <code>incomplete_results</code>. Failed Results and retry attribution remain preserved.</p>
 
-  <h2>Constraint-first support for larger batteries</h2>
-  <p>One-item coverage prompts can produce many unique personas while still collapsing into a small number of stereotyped cross-item profiles. For a larger battery, build complete blueprints instead. Every support point receives an explicit answer cell for every item; unusual combinations are intentional, and no population marginal appears in an individual prompt.</p>
+  <h2>13. Build richer Pew twins with complete blueprints</h2>
+  <p>The teen probe establishes how to screen new evidence. We then applied the complete workflow to the Pew example itself. The five observed gender-comparison marginals say nothing about household circumstances, family priorities, or bargaining. We proposed ten additional questions covering relationship status, children at home, income, the importance of marriage, parenthood, and career, and preferred rules for childcare, housework, financial decisions, and career sacrifice.</p>
+  <div class="note"><p><strong>Evidence boundary.</strong> Only the original five Pew marginals are observed. Every added work-and-family target is a labeled model-synthetic prior. Income, relationship status, and family circumstances in the resulting personas are synthetic support coordinates—not recovered Pew respondent characteristics.</p></div>
+
+  <h3>Screen candidate moments before using them</h3>
+  <p>GPT-5.5, Claude Opus 5, and Grok 4.5 each independently predicted all ten candidate distributions for U.S. adults in 2026. A question was accepted only when all three produced valid vectors, maximum pairwise total-variation distance was at most 0.10, and no option differed by more than 0.10. Six candidates passed; four remain in the audit as rejections.</p>
+  <table>
+    <thead><tr><th>Candidate moment</th><th>Maximum pairwise TV</th><th>Decision</th></tr></thead>
+    <tbody>
+      <tr><td>Relationship status</td><td>0.02</td><td>Accept</td></tr>
+      <tr><td>Children under 18 at home</td><td>0.06</td><td>Accept</td></tr>
+      <tr><td>Household income</td><td>0.07</td><td>Accept</td></tr>
+      <tr><td>Importance of parenthood</td><td>0.10</td><td>Accept</td></tr>
+      <tr><td>Importance of paid-work success</td><td>0.08</td><td>Accept</td></tr>
+      <tr><td>Preferred housework division</td><td>0.09</td><td>Accept</td></tr>
+      <tr><td>Importance of marriage</td><td>0.12</td><td>Reject</td></tr>
+      <tr><td>Preferred childcare division</td><td>0.22</td><td>Reject</td></tr>
+      <tr><td>Financial-decision style</td><td>0.23</td><td>Reject</td></tr>
+      <tr><td>Career-sacrifice rule</td><td>0.18</td><td>Reject</td></tr>
+    </tbody>
+  </table>
+  <p>The six consensus distributions join the five observed Pew distributions as 11 calibration targets. All 15 questions still belong to the persona battery: rejected synthetic marginals do not constrain the population, but their individual answers make profiles more expressive. The exact <a href="../examples/pew_w154/augmentation/pew_work_family_candidates.json">candidate battery</a>, <a href="../examples/pew_w154/augmentation/prior_probe/pew_work_family_consensus_consensus_audit.csv">model-by-model audit</a>, and <a href="../examples/pew_w154/augmentation/pew_augmented_targets.json">merged target artifact</a> are checked in.</p>
+
+  <h3>Generate complete people, not compressed summaries</h3>
+  <p>One-item coverage can produce many rows that collapse into a few stereotyped cross-item profiles. The augmented run instead gives every support point an explicit intended answer cell for every one of the 15 items. GPT-5.5 returns a synthesis, one second-person statement per item, and a complete response-probability vector. The parser rejects any persona that omits a dimension. Population percentages never appear in an individual prompt.</p>
   <pre><code>umriss support build \
-  --metadata battery.json \
-  --preset balanced-blueprints \
-  --n-support 128 \
-  --tag blueprints \
-  --out run/blueprints
+  --metadata examples/pew_w154/augmentation/pew_gender_work_family_battery.json \
+  --preset target-informed-blueprints \
+  --targets examples/pew_w154/augmentation/pew_augmented_targets.json \
+  --n-support 96 \
+  --tag pew_work_family_detailed \
+  --out examples/pew_w154/augmentation/support_v2/initial
 
 umriss support validate-blueprints \
-  --support run/bank/blueprints_probabilities.csv \
-  --plan run/blueprints/blueprints_support_plan.csv \
-  --metadata battery.json \
-  --tag blueprints \
-  --out run/validation</code></pre>
-  <p>Validation compares every intended blueprint cell with the generated probability vector, writes row- and cell-level fidelity diagnostics, filters accepted support, and emits retry-only job IDs. Before fitting, <code>umriss targets feasibility</code> solves for the smallest possible worst-cell error over the support simplex. If targets remain outside the measured geometry, <code>umriss support augment-targets</code> creates a declared repair batch whose allocation offsets the measured gaps.</p>
-  <pre><code>umriss targets feasibility \
-  --targets targets.json \
-  --support run/validation/blueprints_validated_probabilities.csv \
-  --metadata battery.json \
-  --tolerance 0.01 \
-  --tag blueprints \
-  --out run/feasibility
+  --support examples/pew_w154/augmentation/support_v2/initial/bank/pew_work_family_detailed_probabilities.csv \
+  --plan examples/pew_w154/augmentation/support_v2/initial/pew_work_family_detailed_support_plan.csv \
+  --metadata examples/pew_w154/augmentation/pew_gender_work_family_battery.json \
+  --tag pew_work_family_detailed \
+  --out examples/pew_w154/augmentation/support_v2/initial/validation</code></pre>
+  <div class="result">
+    <div class="metric"><strong>15</strong><span>dimensions preserved in every persona</span></div>
+    <div class="metric"><strong>96/96</strong><span>initial blueprints passed fidelity</span></div>
+    <div class="metric"><strong>192/192</strong><span>target-repair blueprints passed</span></div>
+    <div class="metric"><strong>11</strong><span>accepted calibration marginals</span></div>
+  </div>
 
-umriss targets fit \
-  --targets targets.json \
-  --support run/final_probabilities.csv \
-  --metadata battery.json \
+  <p>The following three examples are chosen for different reasons: the largest fitted coefficient, a contrasting gender-attitude pattern, and a high-weight profile created by geometry repair. They are unedited GPT-5.5 summaries from registered runs, not prose written after fitting.</p>
+  <article class="persona">
+    <div class="weight">Largest coefficient · 3.17% final fitted weight · support 221 · target-repair run</div>
+    <p>You are a married U.S. adult in a household earning $150,000 or more, with no children under 18 at home. You see men and women as basically different across hobbies, physical abilities, parenting, emotional expression, and workplace strengths, yet you still prefer shared decision-making and practical divisions of family responsibilities. You place very high personal importance on marriage, raising children, and paid-work or career success, and you think couples should generally make major money decisions together while adjusting work and household tasks based on flexibility and available time.</p>
+    <details><summary>Show all 15 preserved dimensions</summary>
+      <ul>
+        <li><strong>Hobbies:</strong> men and women are basically different in hobbies and personal interests.</li>
+        <li><strong>Physical abilities:</strong> men and women are basically different.</li>
+        <li><strong>Parenting:</strong> men and women are basically different in their approach.</li>
+        <li><strong>Feelings:</strong> men and women are basically different in emotional expression.</li>
+        <li><strong>Workplace:</strong> men and women are basically different in workplace strengths.</li>
+        <li><strong>Relationship:</strong> married.</li>
+        <li><strong>Children at home:</strong> no children under 18.</li>
+        <li><strong>Household income:</strong> $150,000 or more.</li>
+        <li><strong>Marriage:</strong> very important personally.</li>
+        <li><strong>Parenthood:</strong> very important personally.</li>
+        <li><strong>Paid work:</strong> career success is very important personally.</li>
+        <li><strong>Childcare:</strong> divide day-to-day childcare about equally.</li>
+        <li><strong>Housework:</strong> more should be done by the person with more available time.</li>
+        <li><strong>Financial decisions:</strong> both adults should decide together.</li>
+        <li><strong>Career sacrifice:</strong> the adult with the more flexible job should reduce paid work.</li>
+      </ul>
+    </details>
+  </article>
+
+  <article class="persona">
+    <div class="weight">Contrasting gender views · 1.82% final fitted weight · support 417 · geometry-repair run</div>
+    <p>You are a married U.S. adult with no children under 18 at home and a household income below $50,000. You tend to see men and women as broadly similar in hobbies, physical abilities, parenting, and workplace strengths, while seeing a clearer gender difference in how feelings are expressed. You do not treat marriage itself as personally important despite being married, but you give some importance to raising children and to paid-work or career success. In family arrangements, you prefer equal routine housework, joint major financial decisions, flexible childcare arrangements that depend entirely on the family, and a practical rule that the lower earner should reduce work if someone has to.</p>
+    <details><summary>Show all 15 preserved dimensions</summary>
+      <ul>
+        <li><strong>Hobbies:</strong> men and women are basically similar.</li>
+        <li><strong>Physical abilities:</strong> men and women are basically similar.</li>
+        <li><strong>Parenting:</strong> men and women are basically similar in their approach.</li>
+        <li><strong>Feelings:</strong> men and women are basically different in emotional expression.</li>
+        <li><strong>Workplace:</strong> men and women are basically similar in workplace strengths.</li>
+        <li><strong>Relationship:</strong> married.</li>
+        <li><strong>Children at home:</strong> no children under 18.</li>
+        <li><strong>Household income:</strong> less than $50,000.</li>
+        <li><strong>Marriage:</strong> not at all important personally.</li>
+        <li><strong>Parenthood:</strong> somewhat important personally.</li>
+        <li><strong>Paid work:</strong> career success is somewhat important personally.</li>
+        <li><strong>Childcare:</strong> the division depends entirely on the family.</li>
+        <li><strong>Housework:</strong> divide routine housework about equally.</li>
+        <li><strong>Financial decisions:</strong> both adults should decide together.</li>
+        <li><strong>Career sacrifice:</strong> the lower earner should reduce paid work.</li>
+      </ul>
+    </details>
+  </article>
+
+  <article class="persona">
+    <div class="weight">Exposed-hull repair profile · 2.68% final fitted weight · support 448 · geometry-repair run</div>
+    <p>You are someone who sees men and women as basically different in several personal and family-related areas, including hobbies, physical abilities, parenting, and emotional expression, while still seeing them as basically similar in what they can be good at in the workplace. You are in a relationship but not living with your partner, have only children ages 6 to 17 at home, and live in a household with income below $50,000. Marriage is not too important to you personally, while raising children and succeeding in paid work are somewhat important. You prefer equal sharing of childcare and housework, but for major financial decisions you think the person who manages the money should usually decide, and for career sacrifices you think the right answer depends entirely on the family.</p>
+    <details><summary>Show all 15 preserved dimensions</summary>
+      <ul>
+        <li><strong>Hobbies:</strong> men and women are basically different.</li>
+        <li><strong>Physical abilities:</strong> men and women are basically different.</li>
+        <li><strong>Parenting:</strong> men and women are basically different in their approach.</li>
+        <li><strong>Feelings:</strong> men and women are basically different in emotional expression.</li>
+        <li><strong>Workplace:</strong> men and women are basically similar in workplace strengths.</li>
+        <li><strong>Relationship:</strong> in a relationship but not living together.</li>
+        <li><strong>Children at home:</strong> only children ages 6 to 17.</li>
+        <li><strong>Household income:</strong> less than $50,000.</li>
+        <li><strong>Marriage:</strong> not too important personally.</li>
+        <li><strong>Parenthood:</strong> somewhat important personally.</li>
+        <li><strong>Paid work:</strong> career success is somewhat important personally.</li>
+        <li><strong>Childcare:</strong> divide day-to-day childcare about equally.</li>
+        <li><strong>Housework:</strong> divide routine housework about equally.</li>
+        <li><strong>Financial decisions:</strong> the person managing the money should usually decide.</li>
+        <li><strong>Career sacrifice:</strong> the rule depends entirely on the family.</li>
+      </ul>
+    </details>
+  </article>
+  <p>These are not demographic archetypes inferred from Pew. They are measured vertices in the support geometry, identified by stable job ids <code>pew_work_family_detailed_repair1_125</code>, <code>pew_work_family_geometry3_001</code>, and <code>pew_work_family_geometry3_032</code>. Their weights are mixture coefficients, not claims that those exact percentages of adults are literal persona types.</p>
+
+  <h3>Repair the joint geometry, not just each marginal</h3>
+  <p>The first 96 profiles had a 6.37-point minimum possible worst-cell error. Adding 192 target-directed profiles placed every target cell inside its one-dimensional support range, but the combined target still lay outside the joint convex hull: the gap remained 4.55 points. Independent marginal coverage was therefore necessary but insufficient.</p>
+  <p><code>augment-geometry</code> solves the minimax feasibility problem, extracts an LP-dual separating certificate, and proposes full response blueprints across the exposed hull face. The first two ordinary 64-profile cuts barely helped because “intended answer is the argmax” allowed weak 0.50–0.70 vertices. The decisive contract required every intended cell to receive probability at least 0.80 and enforced that threshold item by item before merging.</p>
+  <table>
+    <thead><tr><th>Stage</th><th>Support</th><th>Best possible worst-cell error</th><th>What changed</th></tr></thead>
+    <tbody>
+      <tr><td>Initial complete blueprints</td><td>96</td><td>6.37 points</td><td>All 15 dimensions preserved</td></tr>
+      <tr><td>Target-directed repair</td><td>288</td><td>4.55 points</td><td>Every marginal cell covered separately</td></tr>
+      <tr><td>Two ordinary geometry cuts</td><td>416</td><td>4.44 points</td><td>Argmax fidelity produced weak vertices</td></tr>
+      <tr><td>First ≥0.80 geometry cut</td><td>448</td><td>2.39 points</td><td>32 strong joint vertices</td></tr>
+      <tr><td>Second ≥0.80 geometry cut</td><td>480</td><td>1.38 points</td><td>32 more strong vertices</td></tr>
+      <tr><td>Final ≥0.80 geometry cut</td><td>496</td><td>0.83 points</td><td>Passes the declared one-point tolerance</td></tr>
+    </tbody>
+  </table>
+  <pre><code>umriss support augment-geometry \
+  --support examples/pew_w154/augmentation/support_v2/geometry_final_bank_480/pew_work_family_geometry_480_probabilities.csv \
+  --targets examples/pew_w154/augmentation/pew_augmented_targets.json \
+  --metadata examples/pew_w154/augmentation/pew_gender_work_family_battery.json \
+  --n-add 16 \
+  --tag pew_work_family_geometry5 \
+  --out examples/pew_w154/augmentation/support_v2/geometry_repair_5
+
+umriss support validate-blueprints \
+  --support examples/pew_w154/augmentation/support_v2/geometry_repair_5/bank/pew_work_family_geometry5_probabilities.csv \
+  --plan examples/pew_w154/augmentation/support_v2/geometry_repair_5/pew_work_family_geometry5_support_plan.csv \
+  --metadata examples/pew_w154/augmentation/pew_gender_work_family_battery.json \
+  --minimum-intended-cell-probability 0.8 \
+  --tag pew_work_family_geometry5 \
+  --out examples/pew_w154/augmentation/support_v2/geometry_repair_5/validation</code></pre>
+  <p>All 80 high-certainty personas across the final three rounds passed all 15 cell-level gates. Each registered Results package, retry list, validation table, merged bank, and feasibility witness is retained under <a href="../examples/pew_w154/augmentation/support_v2/">the augmentation run directory</a>.</p>
+
+  <h3>Separate feasibility from a usable dispersed fit</h3>
+  <p>A convex-hull witness answers “can any mixture hit these targets?” It need not be a good population. Here the most accurate witness has effective support 8.78 and a largest weight of 19.97 percent. The accepted entropy-regularized fit deliberately distributes mass across many more people, subject to explicit accuracy and concentration gates.</p>
+  <pre><code>umriss targets fit \
+  --targets examples/pew_w154/augmentation/pew_augmented_targets.json \
+  --support examples/pew_w154/augmentation/support_v2/geometry_final_bank_496/pew_work_family_geometry_496_probabilities.csv \
+  --metadata examples/pew_w154/augmentation/pew_gender_work_family_battery.json \
   --minimum-effective-support 50 \
   --maximum-weight 0.05 \
+  --maximum-target-residual 0.06 \
   --require-convergence \
-  --tag final \
-  --out run/fit</code></pre>
-  <p>When fit gates are declared, umriss selects among regularization candidates that satisfy them. If none does, the fit is returned as <code>fit_rejected</code> with explicit violations rather than being presented as a completed panel.</p>
+  --tag pew_work_family_geometry_496_accepted \
+  --out examples/pew_w154/augmentation/support_v2/geometry_final_bank_496/accepted_fit</code></pre>
+  <div class="result">
+    <div class="metric"><strong>496</strong><span>measured support personas</span></div>
+    <div class="metric"><strong>101.25</strong><span>effective support after fitting</span></div>
+    <div class="metric"><strong>3.17%</strong><span>largest fitted weight</span></div>
+    <div class="metric"><strong>5.44 pts</strong><span>largest fitted target residual</span></div>
+  </div>
+  <p>The selected fit converged and passed every declared gate. It is less accurate than the concentrated feasibility witness because dispersion has a price. The <code>--maximum-target-residual</code> gate makes that tradeoff visible and prevents an extremely diffuse but inaccurate candidate from being silently called the answer. Tighter accuracy would require accepting more concentration or generating additional support that lets accuracy and dispersion coexist.</p>
+  <p>The final <a href="../examples/pew_w154/augmentation/support_v2/geometry_final_bank_496/feasibility/pew_work_family_geometry_496_feasibility_summary.csv">feasibility summary</a>, <a href="../examples/pew_w154/augmentation/support_v2/geometry_final_bank_496/accepted_fit/pew_work_family_geometry_496_accepted_fit_diagnostics.csv">fit diagnostics</a>, <a href="../examples/pew_w154/augmentation/support_v2/geometry_final_bank_496/accepted_fit/pew_work_family_geometry_496_accepted_constraint_diagnostics.csv">target-by-target residuals</a>, and <a href="../examples/pew_w154/augmentation/support_v2/geometry_final_bank_496/accepted_fit/pew_work_family_geometry_496_accepted_weights.csv">all 496 fitted weights</a> are directly inspectable.</p>
 
   <h2>Flexibility without hidden assumptions</h2>
   <p>Experts can edit coherence, intensities, anchors, partial coverage, probability constraints, or add user-authored profiles. A custom Jinja template is also allowed with <code>prompt.validation: strict</code>. It must still contain every item, preserve option order, request a second-person persona, and state the probability and sum-to-one contract.</p>
